@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://up7d0yib56py"]
+
+[ext_resource type="Script" uid="uid://yaaq4cl2j2g" path="res://AutomatedTests/associated_scripts/MapTraversalAutomatedTest_scn_main.gd" id="1_elra2"]
+
+[node name="MapTraversalAutomatedTest" type="Node"]
+script = ExtResource("1_elra2")

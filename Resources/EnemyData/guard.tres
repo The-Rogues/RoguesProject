@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c5noxdeqt27qu"]
+
+[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://Scripts/BattleScene/EntityBehaviours/entity_behaviour.gd" id="1_5nei4"]
+[ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://Scripts/BattleScene/EntityBehaviours/ondeath_launchbody.gd" id="3_r5vy1"]
+[ext_resource type="Texture2D" uid="uid://djcyscbrdlih1" path="res://Graphics/EntitySprites/MonsterSprites/monster_varient_4.tres" id="4_5nei4"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://Scripts/ResourceScripts/CombatMoves/enemy_move.gd" id="6_57rba"]
+[ext_resource type="Resource" uid="uid://kwx0k0ib7kw7" path="res://Resources/EnemyMoves/attack_9x2.tres" id="7_5nei4"]
+[ext_resource type="Resource" uid="uid://dk0swwcqbulq3" path="res://Resources/EnemyMoves/debuff_25.tres" id="7_mc7wy"]
+[ext_resource type="Resource" uid="uid://bf50qkn151afx" path="res://Resources/EnemyMoves/attack_9.tres" id="8_57rba"]
+[ext_resource type="Resource" uid="uid://tqc68m5bp371" path="res://Resources/EnemyMoves/buff_allies_25.tres" id="8_q104t"]
+[ext_resource type="Resource" uid="uid://c547pt80davwt" path="res://Resources/EnemyMoves/attack_6.tres" id="9_5nei4"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Scripts/ResourceScripts/EntityData/enemy_data.gd" id="10_bqpbo"]
+
+[sub_resource type="Resource" id="Resource_57rba"]
+script = ExtResource("3_r5vy1")
+bounces = 2
+metadata/_custom_type_script = "uid://dbfc742a8wqhj"
+
+[resource]
+script = ExtResource("10_bqpbo")
+reward_amount = 150
+move_set = Array[ExtResource("6_57rba")]([ExtResource("8_q104t"), ExtResource("7_mc7wy"), ExtResource("7_5nei4"), ExtResource("8_57rba"), ExtResource("9_5nei4")])
+display_texture = ExtResource("4_5nei4")
+name = "Guard"
+health_points = 186
+behaviours = Array[ExtResource("1_5nei4")]([SubResource("Resource_57rba")])
+metadata/_custom_type_script = "uid://sxih45j4ip5w"

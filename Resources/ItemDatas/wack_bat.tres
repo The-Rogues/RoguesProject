@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://704fo14vdxkf"]
+
+[ext_resource type="Texture2D" uid="uid://ttdwsgfydgel" path="res://Graphics/ItemSprites/wack_bat.tres" id="1_y5njq"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Scripts/ResourceScripts/ItemSystem/item_data.gd" id="2_wueic"]
+
+[resource]
+script = ExtResource("2_wueic")
+name = "Wack bat"
+description = "Drag on Enemy to stun them for a turn"
+activation_type = 2
+display_texture = ExtResource("1_y5njq")
+shop_price = 500
+metadata/_custom_type_script = "uid://wmqmctcre0tg"

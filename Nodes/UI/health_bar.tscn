@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyan3dv3gby66"]
+
+[ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://Scripts/UI/health_bar.gd" id="1_pwsb3"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GFX/PlaceholderSource/Dungeon Mode Font/dungeon-mode.ttf" id="2_exyqm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja50q"]
+bg_color = Color(0.14741275, 0.7076693, 0.442655, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2txnt"]
+bg_color = Color(0.09620472, 0.09620475, 0.09620469, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27450982)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42bac"]
+bg_color = Color(0.4392157, 0.08627451, 0.16862746, 1)
+shadow_color = Color(0, 0, 0, 0.27450982)
+
+[node name="HealthBar" type="ProgressBar"]
+z_index = 1
+custom_minimum_size = Vector2(0, 6)
+offset_right = 50.0
+offset_bottom = 4.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ja50q")
+value = 50.0
+show_percentage = false
+script = ExtResource("1_pwsb3")
+
+[node name="DifferenceBar" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_2txnt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_42bac")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthLabel" type="Label" parent="CenterContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_exyqm")
+theme_override_font_sizes/font_size = 12
+text = "100/100"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

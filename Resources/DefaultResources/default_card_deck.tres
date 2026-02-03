@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardDeck" format=3 uid="uid://c5lm4cl0xdwwq"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Scripts/Cards/card_data.gd" id="1_j5lpn"]
+[ext_resource type="Script" uid="uid://c7c4s2eiw0kq7" path="res://Scripts/Cards/card_deck.gd" id="2_cltlr"]
+[ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://Resources/CardData/swing.tres" id="2_ha0h5"]
+[ext_resource type="Resource" uid="uid://b2mj2k04lyi5h" path="res://Resources/CardData/retreat.tres" id="3_2ah4y"]
+[ext_resource type="Resource" uid="uid://bg6c4g3c1qp6p" path="res://Resources/CardData/dbl_slash.tres" id="4_5j0k0"]
+[ext_resource type="Resource" uid="uid://sibxmmin7rgr" path="res://Resources/CardData/overexert.tres" id="5_iaxjd"]
+[ext_resource type="Resource" uid="uid://cutd5qpikdh3i" path="res://Resources/CardData/spin_slash.tres" id="6_xka62"]
+[ext_resource type="Resource" uid="uid://dgt1ffuwrstbt" path="res://Resources/CardData/step.tres" id="7_iaxjd"]
+[ext_resource type="Resource" uid="uid://cuwc8ueu7aloa" path="res://Resources/CardData/dash.tres" id="8_xka62"]
+[ext_resource type="Resource" uid="uid://c6774gwn7h8po" path="res://Resources/CardData/absorb.tres" id="9_mb8jf"]
+
+[resource]
+script = ExtResource("2_cltlr")
+deck = Array[ExtResource("1_j5lpn")]([ExtResource("2_ha0h5"), ExtResource("3_2ah4y"), ExtResource("4_5j0k0"), ExtResource("5_iaxjd"), ExtResource("6_xka62"), ExtResource("7_iaxjd"), ExtResource("8_xka62"), ExtResource("9_mb8jf")])
+metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"

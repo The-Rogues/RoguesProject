@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FloorEnemyPool" format=3 uid="uid://br0vf8gyppkoj"]
+
+[ext_resource type="Script" uid="uid://he5s2q3sv8qb" path="res://Scripts/ResourceScripts/EnemySelection/floor_enemy_pool.gd" id="1_01law"]
+[ext_resource type="Script" uid="uid://dt0kg3dgodkay" path="res://Scripts/ResourceScripts/EnemySelection/enemy_pool.gd" id="2_st35h"]
+[ext_resource type="Resource" uid="uid://bnbb84x7tqm20" path="res://Resources/EnemyPool/pool_1_easy.tres" id="3_o6l72"]
+[ext_resource type="Resource" uid="uid://c75ipmfwv0b68" path="res://Resources/EnemyPool/pool_1_medium.tres" id="5_doukl"]
+
+[resource]
+script = ExtResource("1_01law")
+tiers = Dictionary[int, ExtResource("2_st35h")]({
+2: ExtResource("3_o6l72"),
+4: ExtResource("5_doukl")
+})
+metadata/_custom_type_script = "uid://he5s2q3sv8qb"

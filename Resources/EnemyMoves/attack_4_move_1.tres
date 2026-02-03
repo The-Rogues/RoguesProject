@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://d0ywlr3ob7t0a"]
+
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://Scripts/ResourceScripts/AtomicActions/atomic_action.gd" id="1_t7ic1"]
+[ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://Scripts/ResourceScripts/AtomicActions/damage_action.gd" id="2_w8qmj"]
+[ext_resource type="Script" uid="uid://byyoglfwhjibs" path="res://Scripts/ResourceScripts/AtomicActions/move_action.gd" id="3_527dj"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://Graphics/BattleScene/BattleIcons/attack_icon.tres" id="4_xgjp0"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://Scripts/ResourceScripts/CombatMoves/enemy_move.gd" id="5_c1evq"]
+
+[sub_resource type="Resource" id="Resource_remd8"]
+script = ExtResource("2_w8qmj")
+damage = 4
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_3eld8"]
+script = ExtResource("3_527dj")
+direction = 2
+metadata/_custom_type_script = "uid://byyoglfwhjibs"
+
+[resource]
+script = ExtResource("5_c1evq")
+description_text = "Attack player for 4 damage
+Force player to adjacent position"
+icon = ExtResource("4_xgjp0")
+targeting = 1
+actions = Array[ExtResource("1_t7ic1")]([SubResource("Resource_remd8"), SubResource("Resource_3eld8")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

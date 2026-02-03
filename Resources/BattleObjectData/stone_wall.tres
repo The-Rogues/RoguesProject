@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BattleObjectData" format=3 uid="uid://cpid8rkvwcxvt"]
+
+[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://Scripts/BattleScene/EntityBehaviours/entity_behaviour.gd" id="1_0f5cm"]
+[ext_resource type="Texture2D" uid="uid://qxctaf7cvfrl" path="res://Graphics/EntitySprites/BattleFieldObjects/object_varient_3.tres" id="1_t7015"]
+[ext_resource type="Script" uid="uid://c3jljqw3ahnfx" path="res://Scripts/BattleScene/EntityBehaviours/ondeath_pop.gd" id="2_qhpy1"]
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://Scripts/ResourceScripts/EntityData/battle_object_data.gd" id="3_jxmos"]
+
+[sub_resource type="Resource" id="Resource_c2c2a"]
+script = ExtResource("2_qhpy1")
+metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
+
+[resource]
+script = ExtResource("3_jxmos")
+object_type = 1
+is_invincible = true
+player_attack_filter = 2
+enemy_attack_filter = 2
+display_texture = ExtResource("1_t7015")
+name = "Stone Wall"
+wait_to_hide_sprite = true
+behaviours = Array[ExtResource("1_0f5cm")]([SubResource("Resource_c2c2a")])
+metadata/_custom_type_script = "uid://o5nbdchxwujp"

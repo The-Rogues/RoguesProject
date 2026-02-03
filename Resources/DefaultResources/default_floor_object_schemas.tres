@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FloorObjectSchemas" format=3 uid="uid://cny7kyt0om1b0"]
+
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://Scripts/ResourceScripts/BattleObjectSelection/battle_field_schema.gd" id="1_o2s3c"]
+[ext_resource type="Resource" uid="uid://wb2eoyrghfxg" path="res://Resources/BattleFieldSchemas/batte_field_layout_1.tres" id="2_nrp6d"]
+[ext_resource type="Script" uid="uid://cjs8yu6b6o22s" path="res://Scripts/ResourceScripts/BattleObjectSelection/floor_schemas.gd" id="2_vq230"]
+[ext_resource type="Resource" uid="uid://vieceyc6u2fq" path="res://Resources/BattleFieldSchemas/batte_field_layout_2.tres" id="3_2naev"]
+[ext_resource type="Resource" uid="uid://b60mvixkejni0" path="res://Resources/BattleFieldSchemas/batte_field_layout_3.tres" id="4_w45k7"]
+[ext_resource type="Resource" uid="uid://dbo3dyfkh6l7y" path="res://Resources/BattleFieldSchemas/batte_field_layout_4.tres" id="5_2naev"]
+
+[resource]
+script = ExtResource("2_vq230")
+floor_layout_group = Array[ExtResource("1_o2s3c")]([ExtResource("2_nrp6d"), ExtResource("3_2naev"), ExtResource("4_w45k7"), ExtResource("5_2naev")])
+metadata/_custom_type_script = "uid://cjs8yu6b6o22s"

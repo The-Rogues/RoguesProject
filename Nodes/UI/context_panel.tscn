@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dgwludihirux6"]
+
+[ext_resource type="Texture2D" uid="uid://j6owptcpnwp5" path="res://Graphics/PlaceholderSource/Kenny Art/Fantasy UI/Double/Panel/panel-001.png" id="1_gg1s6"]
+[ext_resource type="Script" uid="uid://cy8tv7tgdh5rf" path="res://Scripts/UI/context_panel.gd" id="2_4lflc"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://Graphics/PlaceholderSource/Dungeon Mode Font/dungeon-mode.ttf" id="3_bstb8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4idai"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+texture = ExtResource("1_gg1s6")
+texture_margin_left = 32.0
+texture_margin_top = 3.0
+texture_margin_right = 32.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="ContextPanel" type="PanelContainer" unique_id=1838000936]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(200, 60)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4idai")
+script = ExtResource("2_4lflc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1217549817]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1068795975]
+texture_filter = 1
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_bstb8")
+theme_override_font_sizes/font_size = 10
+text = "text"
+autowrap_mode = 3

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dk0swwcqbulq3"]
+
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://Scripts/ResourceScripts/AtomicActions/atomic_action.gd" id="1_t2ni5"]
+[ext_resource type="Script" uid="uid://dsksuenkr6byd" path="res://Scripts/ResourceScripts/AtomicActions/debuff_action.gd" id="2_t2ni5"]
+[ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://Graphics/BattleScene/BattleIcons/debuff_icon.tres" id="3_tq78e"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://Scripts/ResourceScripts/CombatMoves/enemy_move.gd" id="4_2llli"]
+
+[sub_resource type="Resource" id="Resource_nkgne"]
+script = ExtResource("2_t2ni5")
+metadata/_custom_type_script = "uid://dsksuenkr6byd"
+
+[resource]
+script = ExtResource("4_2llli")
+description_text = "Debuff character attack by 50%"
+icon = ExtResource("3_tq78e")
+action_type = 1
+targeting = 1
+actions = Array[ExtResource("1_t2ni5")]([SubResource("Resource_nkgne")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

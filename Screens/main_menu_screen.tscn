@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://d0aidcrg5d7kd"]
+
+[ext_resource type="Script" uid="uid://bf8na5vpjce6h" path="res://Scripts/Screens/main_menu_screen.gd" id="1_k7suw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://Graphics/PlaceholderSource/Dungeon Mode Font/dungeon-mode.ttf" id="2_l7n8r"]
+[ext_resource type="Texture2D" uid="uid://c376h7t33pa0t" path="res://Graphics/PlaceholderSource/Kenny Art/Fantasy UI/Default/Panel/panel-003.png" id="2_u6jki"]
+[ext_resource type="PackedScene" uid="uid://cq0uplsomgf1v" path="res://Nodes/MainMenu/options_menu.tscn" id="3_l7n8r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07i5k"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvvvu"]
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+texture = ExtResource("2_u6jki")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_07i5k"]
+load_path = "res://.godot/imported/panel-003.png-2da624981b42830125a8f21c4185f849.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7suw"]
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+texture = SubResource("CompressedTexture2D_07i5k")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.4109551, 0.15690279, 0.36061883, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u6jki"]
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+texture = ExtResource("2_u6jki")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.31907254, 0.33031124, 0.5477941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7n8r"]
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+texture = ExtResource("2_u6jki")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fvvvu"]
+load_path = "res://.godot/imported/panel-003.png-2da624981b42830125a8f21c4185f849.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qw7xv"]
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+texture = SubResource("CompressedTexture2D_fvvvu")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.4109551, 0.15690279, 0.36061883, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u6ltx"]
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+texture = ExtResource("2_u6jki")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.31907254, 0.33031124, 0.5477941, 1)
+
+[node name="MainMenuScreen" type="Node2D" unique_id=206079313]
+script = ExtResource("1_k7suw")
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1740715319]
+
+[node name="Control" type="Control" parent="UILayer" unique_id=1489498067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UILayer/Control" unique_id=70567641]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_07i5k")
+
+[node name="MainMenu" type="Control" parent="UILayer/Control" unique_id=199966900]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/Control/MainMenu" unique_id=1363348183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="MainMenuElements" type="VBoxContainer" parent="UILayer/Control/MainMenu/MarginContainer" unique_id=464789935]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements" unique_id=246108073]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer2" unique_id=472913116]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 32
+text = "Roguelike Deckbuilder"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer2" unique_id=605160905]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 24
+text = "Test fest 1"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements" unique_id=537366460]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartRun" type="Button" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer" unique_id=762478144]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_fvvvu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k7suw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
+text = "Start Run"
+
+[node name="Options" type="Button" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer" unique_id=1671575726]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_fvvvu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k7suw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
+text = "Options"
+
+[node name="Credits" type="Button" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer" unique_id=233731746]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_fvvvu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k7suw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
+text = "Credits"
+
+[node name="Quit" type="Button" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer" unique_id=1447401514]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_fvvvu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k7suw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
+text = "Quit
+"
+
+[node name="Developers" type="Label" parent="UILayer/Control/MainMenu" unique_id=1538371334]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -298.5
+offset_top = -29.0
+offset_right = 298.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 11
+text = "Developed by: Andy Gonzalez, Fletcher Greene, Han Hyunh, Nathaniel Stirret, & Fabian Hernandez-Angel"
+horizontal_alignment = 1
+
+[node name="OptionsMenu" parent="UILayer/Control" unique_id=615160279 instance=ExtResource("3_l7n8r")]
+visible = false
+layout_mode = 1
+
+[node name="CreditsMenu" type="Control" parent="UILayer/Control" unique_id=784894307]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/Control/CreditsMenu" unique_id=1644768540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UILayer/Control/CreditsMenu/MarginContainer" unique_id=1598296720]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/Control/CreditsMenu/MarginContainer/VBoxContainer2" unique_id=630161976]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UILayer/Control/CreditsMenu/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=877860117]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="UILayer/Control/CreditsMenu/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=521533021]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 24
+text = "Assets:"
+horizontal_alignment = 1
+
+[node name="Catagory" type="Label" parent="UILayer/Control/CreditsMenu/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=638712466]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Art:"
+horizontal_alignment = 1
+
+[node name="Creidts" type="Label" parent="UILayer/Control/CreditsMenu/MarginContainer/VBoxContainer2" unique_id=51292515]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Seth: https://sethbb.itch.io/
+Kenny: https://kenney.nl/assets/category:2D
+Datagoblin: https://datagoblin.itch.io/"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/Control/CreditsMenu" unique_id=1317727752]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 64
+
+[node name="GoBack" type="Button" parent="UILayer/Control/CreditsMenu/MarginContainer2" unique_id=778222676]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_l7n8r")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qw7xv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u6ltx")
+text = "Go back"
+
+[node name="CloseMenu" type="Control" parent="UILayer/Control" unique_id=1472450577]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UILayer/Control/CloseMenu" unique_id=264555522]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.5
+offset_top = -14.5
+offset_right = 298.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 32
+text = "Closing..."
+horizontal_alignment = 1
+
+[connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/StartRun" to="." method="_on_start_run_button_up"]
+[connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Options" to="." method="_on_options_button_up"]
+[connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Credits" to="." method="_on_credits_button_up"]
+[connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="UILayer/Control/CreditsMenu/MarginContainer2/GoBack" to="." method="_on_go_back_credits_button_up"]

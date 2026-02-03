@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://ixxhsopjxo2g"]
+
+[ext_resource type="Script" uid="uid://drlcp5cosbwjw" path="res://Scripts/BattleScene/battle_scene.gd" id="1_reud5"]
+[ext_resource type="PackedScene" uid="uid://1ipkbhxl3ark" path="res://Nodes/BattleScene/battle_field.tscn" id="2_cg5ct"]
+[ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://Nodes/BattleScene/play_area.tscn" id="3_tdxvt"]
+[ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://Scripts/UI/player_hand.gd" id="4_rm51d"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://Graphics/PlaceholderSource/Dungeon Mode Font/dungeon-mode.ttf" id="5_x30al"]
+[ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://Nodes/UI/item_interface.tscn" id="6_37xrx"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Scripts/ResourceScripts/ItemSystem/item_data.gd" id="7_nvsxe"]
+[ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://Nodes/UI/energy_counter.tscn" id="8_woti7"]
+[ext_resource type="PackedScene" uid="uid://dys3hydaairuy" path="res://Nodes/BattleScene/battle_entity_template.tscn" id="9_ubr7j"]
+[ext_resource type="Resource" uid="uid://dj231k2t6krxk" path="res://Resources/DefaultResources/default_character_data.tres" id="10_cg5ct"]
+[ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://Nodes/UI/battle_results_layer.tscn" id="10_hr18q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1our"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
+b = Vector2(3, 452)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o1our"]
+b = Vector2(-1151, -3)
+
+[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("character_entity", "player_hand", "battle_field", "energy_counter", "end_turn_button", "battle_results_display", "item_interface")]
+script = ExtResource("1_reud5")
+character_entity = NodePath("Player")
+player_hand = NodePath("CardLayer/PlayerHand")
+battle_field = NodePath("BattleField")
+energy_counter = NodePath("UILayer/Control/EnergyCounter")
+end_turn_button = NodePath("UILayer/Control/EndTurnButton")
+battle_results_display = NodePath("BattleResultDisplay")
+item_interface = NodePath("UILayer/Control/PanelContainer/MarginContainer/VBoxContainer/ItemInterface")
+
+[node name="BattleField" parent="." unique_id=314861 node_paths=PackedStringArray("player_entity") instance=ExtResource("2_cg5ct")]
+position = Vector2(555, 408)
+player_entity = NodePath("../Player")
+battle_object_offset = Vector2(0, -50)
+
+[node name="CardLayer" type="CanvasLayer" parent="." unique_id=514796496]
+
+[node name="PlayArea" parent="CardLayer" unique_id=574541479 instance=ExtResource("3_tdxvt")]
+position = Vector2(546, 263)
+
+[node name="PlayerHand" type="Node2D" parent="CardLayer" unique_id=1303605846]
+script = ExtResource("4_rm51d")
+y_position = 480.0
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]
+
+[node name="Control" type="Control" parent="UILayer" unique_id=1327020800]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UILayer/Control" unique_id=380491691]
+self_modulate = Color(0.06798274, 0.06798274, 0.06798273, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o1our")
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/Control/PanelContainer" unique_id=263663070]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/Control/PanelContainer/MarginContainer" unique_id=1090924147]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="UILayer/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=1475195156]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8156863, 0.67058825, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("5_x30al")
+theme_override_font_sizes/font_size = 13
+text = "Items"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemInterface" parent="UILayer/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=92166697 instance=ExtResource("6_37xrx")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+override_item_datas = Array[ExtResource("7_nvsxe")]([])
+minimum_item_slot_count = 3
+force_initialize = false
+
+[node name="Debugging2" type="VBoxContainer" parent="UILayer/Control" unique_id=1501201850]
+modulate = Color(1, 1, 1, 0.5137255)
+layout_mode = 1
+offset_top = 84.0
+offset_right = 101.0
+offset_bottom = 179.0
+
+[node name="Label" type="Label" parent="UILayer/Control/Debugging2" unique_id=376485553]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8156863, 0.67058825, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("5_x30al")
+theme_override_font_sizes/font_size = 13
+text = "Debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Win button" type="Button" parent="UILayer/Control/Debugging2" unique_id=342065646]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x30al")
+theme_override_font_sizes/font_size = 8
+text = "Win Button"
+
+[node name="TestPlayerDamage" type="Button" parent="UILayer/Control/Debugging2" unique_id=1199656314]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x30al")
+theme_override_font_sizes/font_size = 8
+text = "Damage player"
+
+[node name="TestEnemyDamage" type="Button" parent="UILayer/Control/Debugging2" unique_id=734915317]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x30al")
+theme_override_font_sizes/font_size = 8
+text = "Damage Enemy"
+
+[node name="Add Card" type="Button" parent="UILayer/Control/Debugging2" unique_id=2028608465]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x30al")
+theme_override_font_sizes/font_size = 8
+text = "Add Card"
+
+[node name="EndTurnButton" type="Button" parent="UILayer/Control" unique_id=750618784]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 399.0
+offset_right = 942.0
+offset_bottom = 422.0
+theme_override_fonts/font = ExtResource("5_x30al")
+text = "End Turn"
+
+[node name="EnergyCounter" parent="UILayer/Control" unique_id=295327316 instance=ExtResource("8_woti7")]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 381.0
+offset_right = 272.0
+offset_bottom = 421.0
+energy_default = 6
+
+[node name="Player" parent="." unique_id=1657833200 instance=ExtResource("9_ubr7j")]
+position = Vector2(550, 535)
+entity_data = ExtResource("10_cg5ct")
+
+[node name="BattleResultDisplay" parent="." unique_id=1254281250 instance=ExtResource("10_hr18q")]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1386891855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=542169655]
+shape = SubResource("SegmentShape2D_lahee")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=48975222]
+position = Vector2(1152, 0)
+shape = SubResource("SegmentShape2D_lahee")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1221524123]
+position = Vector2(1152, 84)
+shape = SubResource("SegmentShape2D_o1our")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=703516065]
+position = Vector2(1152, 448)
+shape = SubResource("SegmentShape2D_o1our")
+
+[connection signal="button_up" from="UILayer/Control/Debugging2/Win button" to="." method="_on_win_button_up"]
+[connection signal="button_up" from="UILayer/Control/Debugging2/TestPlayerDamage" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="UILayer/Control/Debugging2/TestEnemyDamage" to="." method="_on_test_enemy_damage_button_up"]
+[connection signal="button_up" from="UILayer/Control/Debugging2/Add Card" to="." method="_on_add_card_button_up"]
+[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_up"]
+[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_button_up"]

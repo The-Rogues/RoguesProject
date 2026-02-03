@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bucontd1tx27h"]
+
+[ext_resource type="Script" uid="uid://5jpaetsko4ti" path="res://AutomatedTests/associated_scripts/MapStructureAutomatedTest_scn_main.gd" id="1_rmdga"]
+
+[node name="MapStructureAutomatedTest" type="Node"]
+script = ExtResource("1_rmdga")

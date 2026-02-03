@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dhxaut5hnp1sd"]
+
+[ext_resource type="Script" uid="uid://ddvjvqn1pflnl" path="res://Scripts/Effects/trail_2d.gd" id="1_5w404"]
+
+[sub_resource type="Curve" id="Curve_4cvxl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Trail2D" type="Line2D" unique_id=1533383853]
+show_behind_parent = true
+width_curve = SubResource("Curve_4cvxl")
+script = ExtResource("1_5w404")

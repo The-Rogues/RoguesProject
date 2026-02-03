@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dubpebcoffte8"]
+
+[ext_resource type="Script" uid="uid://by1udu2kn1o3m" path="res://Scripts/UI/play_area.gd" id="1_cpvpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po0ka"]
+size = Vector2(541, 321)
+
+[node name="PlayArea" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_cpvpb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -1.5)
+shape = SubResource("RectangleShape2D_po0ka")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -257.0
+offset_top = 11.0
+offset_right = -171.0
+offset_bottom = 34.0
+text = "PLAY CARD"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

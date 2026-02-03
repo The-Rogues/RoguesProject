@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cecuvuvoj0tjs"]
+
+[ext_resource type="Script" uid="uid://cof4jl4xvyq10" path="res://Scripts/UI/item_interface.gd" id="1_tdtv1"]
+[ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://Nodes/UI/item_slot_ui.tscn" id="2_851ht"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Scripts/ResourceScripts/ItemSystem/item_data.gd" id="2_nsve5"]
+[ext_resource type="Resource" uid="uid://cwr1pc27hssi" path="res://Resources/ItemDatas/health_potion.tres" id="3_hrjkk"]
+[ext_resource type="Resource" uid="uid://704fo14vdxkf" path="res://Resources/ItemDatas/wack_bat.tres" id="4_8grvh"]
+
+[node name="ItemInterface" type="HBoxContainer" unique_id=92166697]
+offset_right = 200.0
+offset_bottom = 64.0
+size_flags_horizontal = 8
+alignment = 2
+script = ExtResource("1_tdtv1")
+override_item_datas = Array[ExtResource("2_nsve5")]([ExtResource("3_hrjkk"), ExtResource("4_8grvh")])
+minimum_item_slot_count = 0
+force_initialize = true
+
+[node name="ItemSlotUI" parent="." unique_id=1515963044 instance=ExtResource("2_851ht")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI2" parent="." unique_id=1434517480 instance=ExtResource("2_851ht")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI3" parent="." unique_id=1429271293 instance=ExtResource("2_851ht")]
+layout_mode = 2
+size_flags_horizontal = 8

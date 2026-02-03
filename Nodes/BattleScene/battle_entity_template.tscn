@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://dys3hydaairuy"]
+
+[ext_resource type="Script" uid="uid://bctdk5muixu68" path="res://Scripts/BattleScene/Entities/battle_entity.gd" id="1_df4g5"]
+[ext_resource type="Resource" uid="uid://0k66g2l3qba2" path="res://Resources/DefaultResources/default_battle_entity_data.tres" id="2_hgc0k"]
+[ext_resource type="Texture2D" uid="uid://dtfw56mesa6nq" path="res://Graphics/PlaceholderSource/32rogues/animals.png" id="2_womkw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://Graphics/PlaceholderSource/Dungeon Mode Font/dungeon-mode.ttf" id="4_hgc0k"]
+[ext_resource type="AnimationLibrary" uid="uid://s6ntxl5p0nep" path="res://Resources/Animations/battle_entity_animations.res" id="4_og42k"]
+[ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://Nodes/UI/health_bar.tscn" id="5_eriic"]
+[ext_resource type="Texture2D" uid="uid://bssialql4lhmt" path="res://Graphics/BattleScene/BattleIcons/heal_icon.tres" id="5_qbwag"]
+[ext_resource type="Script" uid="uid://5csnu3315kur" path="res://Scripts/UI/display_name_label.gd" id="6_4b8ed"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://Nodes/UI/context_panel.tscn" id="6_17qbg"]
+
+[sub_resource type="Shader" id="Shader_q0abo"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q0abo"]
+resource_local_to_scene = true
+shader = SubResource("Shader_q0abo")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_133a1"]
+atlas = ExtResource("2_womkw")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="Animation" id="Animation_cijiq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ama00"]
+_data = {
+&"RESET": SubResource("Animation_cijiq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cijiq"]
+size = Vector2(54, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ama00"]
+size = Vector2(64, 68)
+
+[node name="Entity" type="Node2D" unique_id=293226690 node_paths=PackedStringArray("entity_animator", "entity_sprite", "ui_display", "health_bar", "ui_dissapear_timer")]
+script = ExtResource("1_df4g5")
+entity_animator = NodePath("EntityAnimator")
+entity_data = ExtResource("2_hgc0k")
+entity_sprite = NodePath("Sprite2D")
+ui_display = NodePath("UI")
+health_bar = NodePath("UI/VBoxContainer/HealthBar")
+ui_dissapear_timer = NodePath("UITimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1874866210]
+texture_filter = 1
+material = SubResource("ShaderMaterial_q0abo")
+position = Vector2(0, 32)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_133a1")
+offset = Vector2(0, -16)
+
+[node name="EntityAnimator" type="AnimationPlayer" parent="." unique_id=506054819]
+libraries/ = SubResource("AnimationLibrary_ama00")
+libraries/battle_entity = ExtResource("4_og42k")
+
+[node name="UI" type="Control" parent="." unique_id=1743550084]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(44, 0)
+size_flags_horizontal = 4
+
+[node name="Icon" type="TextureRect" parent="UI" unique_id=797130534]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 31.0
+offset_top = -74.0
+offset_right = 55.0
+offset_bottom = -50.0
+pivot_offset = Vector2(12, 24)
+texture = ExtResource("5_qbwag")
+
+[node name="ContextPanel" parent="UI" unique_id=1838000936 instance=ExtResource("6_17qbg")]
+visible = false
+layout_mode = 0
+offset_left = 46.0
+offset_top = -59.0
+offset_right = 246.0
+offset_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1951467649]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gap" type="MarginContainer" parent="UI/VBoxContainer" unique_id=1990285614]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NameLabel" type="Label" parent="UI/VBoxContainer" unique_id=2120167543 node_paths=PackedStringArray("battle_entity")]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_hgc0k")
+theme_override_font_sizes/font_size = 8
+text = "Unkown"
+horizontal_alignment = 1
+script = ExtResource("6_4b8ed")
+battle_entity = NodePath("../../..")
+
+[node name="HealthBar" parent="UI/VBoxContainer" unique_id=1271864552 instance=ExtResource("5_eriic")]
+layout_mode = 2
+
+[node name="BounceBox" type="StaticBody2D" parent="." unique_id=1731753050]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceBox" unique_id=424358611]
+shape = SubResource("RectangleShape2D_cijiq")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1353511942]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1407014235]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ama00")
+
+[node name="UITimer" type="Timer" parent="." unique_id=1941589101]
+
+[connection signal="animation_finished" from="EntityAnimator" to="EntityAnimator" method="_on_animation_finished"]
+[connection signal="mouse_entered" from="UI/Icon" to="." method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Icon" to="." method="_on_icon_mouse_exited"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

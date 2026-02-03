@@ -1,0 +1,47 @@
+extends BattleEntityData
+class_name CharacterData
+
+enum EmotionalState {
+	NEUTRAL,
+	FOCUSED,
+	CONFIDENT,
+	ANGRY,
+	SAD,
+	CONFUSED,
+	}
+# Used to store information on the player's in game character
+@export var offensive_trait:TraitData
+@export var defensive_trait:TraitData
+@export var strategic_trait:TraitData
+@export var energy:Stat
+@export var mood:EmotionalState = EmotionalState.NEUTRAL
+
+func change_trait(target_trait:String, new_trait:TraitData):
+	match target_trait:
+		"OFFENSIVE":
+			offensive_trait = new_trait.duplicate(true)
+		"DEFENSIVE":
+			defensive_trait = new_trait.duplicate(true)
+		"STRATEGIC":
+			strategic_trait = new_trait.duplicate(true)
+
+# Constructor
+func initialize(
+	new_name:String,
+			new_offensive_trait:TraitData,
+			new_defensive_trait:TraitData,
+			new_strategic_trait:TraitData,
+			new_behaviours:Array[EntityBehaviour] = []) -> void:
+		name = new_name
+		offensive_trait = new_offensive_trait
+		defensive_trait = new_defensive_trait
+		strategic_trait = new_strategic_trait
+		health_points = 125
+		health = Stat.new(125, 0, 125, true)
+		defense_amplifier = Stat.new(2, 0.25, 1, false)
+		attack_amplifier = Stat.new(2, 0.25, 1, false)
+		energy = Stat.new(5, 0, 5, true)
+		wait_to_hide_sprite = true
+		
+		if !new_behaviours.is_empty():
+			behaviours = new_behaviours.duplicate(true)

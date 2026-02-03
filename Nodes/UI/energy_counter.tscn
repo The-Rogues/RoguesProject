@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://tvgskh3hgret"]
+
+[ext_resource type="Texture2D" uid="uid://cpcshlhl77rmb" path="res://GFX/PlaceholderSource/Kenny Art/Fantasy UI/Default/Transparent border/panel-transparent-border-027.png" id="1_14737"]
+[ext_resource type="Script" uid="uid://h0vb4u0ok4vj" path="res://Scripts/UI/energy_counter.gd" id="2_bm7x4"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GFX/PlaceholderSource/Dungeon Mode Font/dungeon-mode.ttf" id="3_yrjwb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phasc"]
+texture = ExtResource("1_14737")
+modulate_color = Color(0.81755525, 0.6713217, 0.18690184, 1)
+
+[node name="EnergyCounter" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_phasc")
+script = ExtResource("2_bm7x4")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_yrjwb")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1

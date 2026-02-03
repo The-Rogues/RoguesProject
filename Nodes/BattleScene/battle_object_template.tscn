@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://dac2jtimfv2c0"]
+
+[ext_resource type="Texture2D" uid="uid://ceemipxhdl63u" path="res://Graphics/EntitySprites/BattleFieldObjects/object_varient_2.tres" id="1_fwf06"]
+[ext_resource type="Script" uid="uid://dq0gcwe8cxfs2" path="res://Scripts/BattleScene/Entities/battle_field_object.gd" id="1_sr3yh"]
+[ext_resource type="Resource" uid="uid://b8sxupf2okfkh" path="res://Resources/DefaultResources/default_battle_field_object.tres" id="2_o78o2"]
+[ext_resource type="AnimationLibrary" uid="uid://bbjqiamxyupxa" path="res://Resources/Animations/object_entity_animations.res" id="4_o78o2"]
+[ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://Nodes/UI/health_bar.tscn" id="5_jgdhq"]
+
+[sub_resource type="Shader" id="Shader_qs5c0"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sr3yh"]
+resource_local_to_scene = true
+shader = SubResource("Shader_qs5c0")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7kj"]
+size = Vector2(67, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rg1p"]
+size = Vector2(64, 53)
+
+[node name="BattleObject" type="Node2D" unique_id=1480715373 node_paths=PackedStringArray("entity_animator", "entity_sprite", "ui_display", "health_bar", "ui_dissapear_timer")]
+script = ExtResource("1_sr3yh")
+entity_animator = NodePath("EntityAnimator")
+entity_data = ExtResource("2_o78o2")
+entity_sprite = NodePath("Sprite2D")
+ui_display = NodePath("UI")
+health_bar = NodePath("UI/VBoxContainer/HealthBar")
+ui_dissapear_timer = NodePath("UITimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1078302553]
+texture_filter = 1
+material = SubResource("ShaderMaterial_sr3yh")
+position = Vector2(0, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("1_fwf06")
+offset = Vector2(0, -16)
+
+[node name="EntityAnimator" type="AnimationPlayer" parent="." unique_id=1771980315]
+libraries/battle_object = ExtResource("4_o78o2")
+
+[node name="UI" type="Control" parent="." unique_id=795100728]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -40.0
+offset_right = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(44, 0)
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=248893853]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" parent="UI/VBoxContainer" unique_id=231057238 instance=ExtResource("5_jgdhq")]
+layout_mode = 2
+display_numbers = false
+
+[node name="Gap" type="MarginContainer" parent="UI/VBoxContainer" unique_id=1889195156]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BounceBox" type="StaticBody2D" parent="." unique_id=1559131223]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceBox" unique_id=734601592]
+position = Vector2(-1.5, -6)
+shape = SubResource("RectangleShape2D_sr7kj")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=261636256]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=586477694]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_6rg1p")
+
+[node name="UITimer" type="Timer" parent="." unique_id=741231036]
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

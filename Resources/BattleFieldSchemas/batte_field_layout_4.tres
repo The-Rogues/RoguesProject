@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleFieldSchema" format=3 uid="uid://dbo3dyfkh6l7y"]
+
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://Scripts/ResourceScripts/EntityData/battle_object_data.gd" id="1_vwthe"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://Scripts/ResourceScripts/BattleObjectSelection/battle_field_schema.gd" id="2_qu08e"]
+[ext_resource type="Resource" uid="uid://cpid8rkvwcxvt" path="res://Resources/BattleObjectData/stone_wall.tres" id="2_wsyqc"]
+[ext_resource type="Resource" uid="uid://cam7xf1iuwy7k" path="res://Resources/BattleObjectData/barrel.tres" id="3_wsyqc"]
+
+[resource]
+script = ExtResource("2_qu08e")
+layout_options = 1
+possible_objects = Array[ExtResource("1_vwthe")]([ExtResource("2_wsyqc"), ExtResource("3_wsyqc")])
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

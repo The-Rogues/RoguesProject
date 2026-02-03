@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BattleObjectData" format=3 uid="uid://cam7xf1iuwy7k"]
+
+[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://Scripts/BattleScene/EntityBehaviours/entity_behaviour.gd" id="1_rco5j"]
+[ext_resource type="Texture2D" uid="uid://daropdlyub7l0" path="res://Graphics/EntitySprites/BattleFieldObjects/object_varient_1.tres" id="2_g83gj"]
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://Scripts/ResourceScripts/EntityData/battle_object_data.gd" id="2_i75q1"]
+[ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://Scripts/BattleScene/EntityBehaviours/ondeath_launchbody.gd" id="2_u1lot"]
+
+[sub_resource type="Resource" id="Resource_q7l8o"]
+script = ExtResource("2_u1lot")
+bounces = 1
+speed = 700.0
+metadata/_custom_type_script = "uid://dbfc742a8wqhj"
+
+[resource]
+script = ExtResource("2_i75q1")
+object_type = 3
+player_attack_filter = 1
+enemy_attack_filter = 2
+damaged_by_launch_body = true
+display_texture = ExtResource("2_g83gj")
+name = "Barrel"
+health_points = 20
+wait_to_hide_sprite = true
+behaviours = Array[ExtResource("1_rco5j")]([SubResource("Resource_q7l8o")])
+metadata/_custom_type_script = "uid://o5nbdchxwujp"

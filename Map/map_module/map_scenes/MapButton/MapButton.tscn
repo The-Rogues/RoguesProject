@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2jopyv52ebnl"]
+
+[ext_resource type="Texture2D" path="res://map_module/map_assets/regular.png" id="1_4pash"]
+[ext_resource type="Texture2D" path="res://map_module/map_assets/available.png" id="2_nxsw5"]
+[ext_resource type="Script" uid="uid://oxegsf5nkgte" path="res://Map/map_module/map_scenes/MapButton/MapButton_scn_main.gd" id="3_41tou"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 980.0
+offset_bottom = 980.0
+texture_normal = ExtResource("1_4pash")
+texture_hover = ExtResource("2_nxsw5")
+stretch_mode = 0
+script = ExtResource("3_41tou")

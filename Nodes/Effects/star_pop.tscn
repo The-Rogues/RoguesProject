@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn5th5vqoyyf0"]
+
+[ext_resource type="Texture2D" uid="uid://du0mhjd4rafgh" path="res://Graphics/BattleScene/opportunity_sprite.tres" id="1_wd5ck"]
+
+[sub_resource type="Curve" id="Curve_h4p57"]
+_data = [Vector2(0.25079367, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="StarPop" type="CPUParticles2D"]
+emitting = false
+amount = 15
+texture = ExtResource("1_wd5ck")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 500
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 357.14
+initial_velocity_max = 357.14
+angular_velocity_min = 25.0
+angular_velocity_max = 25.0
+scale_amount_curve = SubResource("Curve_h4p57")

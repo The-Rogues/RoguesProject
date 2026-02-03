@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://tqc68m5bp371"]
+
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://Scripts/ResourceScripts/AtomicActions/atomic_action.gd" id="1_1b1rj"]
+[ext_resource type="Script" uid="uid://l765wa6kln4a" path="res://Scripts/ResourceScripts/AtomicActions/buff_action.gd" id="2_1b1rj"]
+[ext_resource type="Texture2D" uid="uid://btmbg3ed4h8jr" path="res://Graphics/BattleScene/BattleIcons/buff_icon.tres" id="3_1b1rj"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://Scripts/ResourceScripts/CombatMoves/enemy_move.gd" id="4_w5ik8"]
+
+[sub_resource type="Resource" id="Resource_srx6p"]
+script = ExtResource("2_1b1rj")
+amplify_stat = 1
+multiplier = 2
+metadata/_custom_type_script = "uid://l765wa6kln4a"
+
+[resource]
+script = ExtResource("4_w5ik8")
+description_text = "Increase defense of allies by 25%"
+icon = ExtResource("3_1b1rj")
+action_type = 1
+targeting = 3
+actions = Array[ExtResource("1_1b1rj")]([SubResource("Resource_srx6p")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

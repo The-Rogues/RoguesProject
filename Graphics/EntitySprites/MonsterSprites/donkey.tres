@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b0jvfeo61xdxu"]
+
+[ext_resource type="Texture2D" uid="uid://dtfw56mesa6nq" path="res://GFX/PlaceholderSource/32rogues/animals.png" id="1_8ntjx"]
+
+[resource]
+atlas = ExtResource("1_8ntjx")
+region = Rect2(64, 288, 32, 32)

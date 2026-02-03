@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://b7kiwqqcgj4el"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://Scripts/ResourceScripts/EntityData/trait_data.gd" id="1_kah0h"]
+
+[resource]
+script = ExtResource("1_kah0h")
+name = "Masochist"
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
