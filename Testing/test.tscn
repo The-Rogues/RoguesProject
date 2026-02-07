@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bss2t36jfbbjy"]
+
+[ext_resource type="Script" uid="uid://c04cxfowev5bc" path="res://Testing/test.gd" id="1_ah3r7"]
+[ext_resource type="PackedScene" uid="uid://bknwp7yiwhq8m" path="res://CardSystem/Scenes/deck_viewer_ui.tscn" id="1_jy4np"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/BaseScripts/card_data.gd" id="2_ewlgo"]
+[ext_resource type="Resource" uid="uid://cutd5qpikdh3i" path="res://CardSystem/Cards/spin_slash_card_data.tres" id="3_ijlml"]
+[ext_resource type="Script" uid="uid://c7c4s2eiw0kq7" path="res://CardSystem/Decks/card_deck.gd" id="4_f2whp"]
+
+[sub_resource type="Resource" id="Resource_5cnke"]
+script = ExtResource("4_f2whp")
+cards = Dictionary[ExtResource("2_ewlgo"), int]({
+ExtResource("3_ijlml"): 6
+})
+metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
+
+[node name="Node2D" type="Node2D" unique_id=620974512]
+script = ExtResource("1_ah3r7")
+card_deck = SubResource("Resource_5cnke")
+
+[node name="DeckViewerUI" parent="." unique_id=1617308441 node_paths=PackedStringArray("button") instance=ExtResource("1_jy4np")]
+button = NodePath("../Button")
+
+[node name="Button" type="Button" parent="." unique_id=1685659188]
+offset_left = 833.0
+offset_top = 217.0
+offset_right = 859.0
+offset_bottom = 273.0
+text = "CLICK ME"

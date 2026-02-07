@@ -4,8 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://1ipkbhxl3ark" path="res://BattleSystem/BattleFieldSystem/battle_field.tscn" id="2_ceml1"]
 [ext_resource type="Script" uid="uid://05khfkwi3t2f" path="res://BattleSystem/BattleFlowManager/battle_manager.gd" id="2_laop5"]
 [ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://CardSystem/Scenes/play_area.tscn" id="3_nuuou"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/BaseScripts/card_data.gd" id="3_o2adx"]
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://CardSystem/card_play_hand.gd" id="4_cgsmb"]
+[ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://CardSystem/Cards/swing_card_data.tres" id="4_chtiq"]
+[ext_resource type="Script" uid="uid://c7c4s2eiw0kq7" path="res://CardSystem/Decks/card_deck.gd" id="5_1mkj3"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="5_7j1wb"]
+[ext_resource type="Resource" uid="uid://bg6c4g3c1qp6p" path="res://CardSystem/Cards/dbl_slash_card_data.tres" id="5_chtiq"]
 [ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://ItemSystem/Scenes/item_interface.tscn" id="6_nlaga"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="7_3nysi"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://BattleSystem/Scenes/energy_counter.tscn" id="7_e1j2j"]
@@ -13,6 +17,15 @@
 [ext_resource type="Resource" uid="uid://dj231k2t6krxk" path="res://PersonalitySystem/PlayerCharacter/default_character_data.tres" id="9_7lneo"]
 [ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="9_3876o"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://BattleSystem/Scenes/battle_results_ui.tscn" id="10_tmnld"]
+[ext_resource type="PackedScene" uid="uid://bknwp7yiwhq8m" path="res://CardSystem/Scenes/deck_viewer_ui.tscn" id="15_1mkj3"]
+
+[sub_resource type="Resource" id="Resource_o06pe"]
+script = ExtResource("5_1mkj3")
+cards = Dictionary[ExtResource("3_o2adx"), int]({
+ExtResource("4_chtiq"): 10,
+ExtResource("5_chtiq"): 5
+})
+metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
 b = Vector2(3, 452)
@@ -32,11 +45,14 @@ end_turn_button = NodePath("UILayer/Control/EndTurnButton")
 battle_results_display = NodePath("BattleResultDisplay")
 item_interface = NodePath("UILayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ItemInterface")
 
-[node name="BattleManager" type="Node" parent="." unique_id=1665866141 node_paths=PackedStringArray("enemy_delay_timer", "energy_counter", "player_card_hand")]
+[node name="BattleManager" type="Node" parent="." unique_id=1665866141 node_paths=PackedStringArray("enemy_delay_timer", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui")]
 script = ExtResource("2_laop5")
 enemy_delay_timer = NodePath("EnemyDelayTimer")
 energy_counter = NodePath("../UILayer/Control/EnergyCounter")
 player_card_hand = NodePath("../UILayer/PlayerCardHand")
+draw_pile = SubResource("Resource_o06pe")
+draw_pile_ui = NodePath("../UILayer/Control/DrawPileUI")
+discard_pile_ui = NodePath("../UILayer/Control/DiscardPileUI")
 
 [node name="EnemyDelayTimer" type="Timer" parent="BattleManager" unique_id=202726847]
 wait_time = 0.8
@@ -190,6 +206,42 @@ offset_top = 381.0
 offset_right = 272.0
 offset_bottom = 421.0
 energy_default = 6
+
+[node name="DrawPileButton" type="Button" parent="UILayer/Control" unique_id=1363641113]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 553.0
+offset_right = 104.0
+offset_bottom = 584.0
+text = "Draw Pile
+"
+
+[node name="DiscardPileButton" type="Button" parent="UILayer/Control" unique_id=1633585866]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 584.0
+offset_right = 1115.0
+offset_bottom = 615.0
+text = "Discard Pile
+"
+
+[node name="DrawPileUI" parent="UILayer/Control" unique_id=1617308441 node_paths=PackedStringArray("button") instance=ExtResource("15_1mkj3")]
+visible = false
+layout_mode = 0
+offset_left = 256.0
+offset_top = 68.0
+offset_right = 956.0
+offset_bottom = 568.0
+button = NodePath("../DrawPileButton")
+
+[node name="DiscardPileUI" parent="UILayer/Control" unique_id=1370577341 node_paths=PackedStringArray("button") instance=ExtResource("15_1mkj3")]
+visible = false
+layout_mode = 0
+offset_left = 257.0
+offset_top = 72.0
+offset_right = 957.0
+offset_bottom = 572.0
+button = NodePath("../DiscardPileButton")
 
 [node name="PlayArea" parent="UILayer" unique_id=574541479 instance=ExtResource("3_nuuou")]
 position = Vector2(546, 263)

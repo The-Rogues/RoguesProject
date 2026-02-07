@@ -50,3 +50,15 @@ res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres
 res://BattleSystem/Entities/DefaultBattleEntity/default_battle_entity_data.tres
 res://PersonalitySystem/PlayerCharacter/default_character_data.tres
 res://GeneralAssets/Shaders/SpriteFlasher/hit_flash.gdshader
+res://BattleSystem/Scenes/battle_scene.tscn
+res://CardSystem/Decks/card_deck.gd
+res://BattleSystem/Scenes/battle_scene.gd
+res://CardSystem/Cards/swing_card_data.tres
+res://BattleSystem/BattleFlowManager/battle_manager.gd
+res://CardSystem/Cards/dbl_slash_card_data.tres
+res://CardSystem/Scenes/card_ui.tscn
+res://CardSystem/Scenes/deck_viewer_ui.tscn
+res://CardSystem/Scenes/deck_viewer_ui.gd
+res://Testing/test.tscn
+res://Testing/test.gd
+res://CardSystem/Cards/spin_slash_card_data.tres

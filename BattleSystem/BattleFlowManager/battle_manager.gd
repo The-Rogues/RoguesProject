@@ -17,6 +17,11 @@ signal started_new_turn
 @export var enemy_delay_timer: Timer
 @export var energy_counter:EnergyCounter
 @export var player_card_hand: CardPlayHand
+@export var draw_pile: CardDeck
+@export var discard_pile: CardDeck
+@export var draw_pile_ui: DeckViewerUI
+@export var discard_pile_ui: DeckViewerUI
+
 
 enum BattleState { PLAYER_TURN, ENEMY_TURN, ENDED }
 var battle_state:BattleState = BattleState.PLAYER_TURN
@@ -49,11 +54,36 @@ func initialize(new_player_entity:BattleEntity,
 	
 	player_entity.defeated.connect(_on_entity_defeated)
 	player_card_hand.play_card.connect(_on_try_play_card)
+	_start_player_turn()
+	discard_pile = CardDeck.new() #initialize discard_pile
+	discard_pile.deck_updated.connect(_discard_pile_updated)
+	draw_pile.deck_updated.connect(_draw_pile_updated)
+	draw_pile_ui._initialize(draw_pile.get_deck_as_array())
+	discard_pile_ui._initialize(discard_pile.get_deck_as_array())
+	
+	
+	
+func _discard_pile_updated(card_datas:Array[CardData]):
+	discard_pile_ui._initialize(card_datas)
+	
+func _draw_pile_updated(card_datas:Array[CardData]):
+	draw_pile_ui._initialize(card_datas)
 
 func _start_player_turn():
 	if battle_state != BattleState.PLAYER_TURN:
 		return
 	
+	if draw_pile.get_deck_as_array().is_empty():
+		draw_pile.copy_to_this_deck(discard_pile)
+	
+		
+	var drawn_cards = draw_pile.draw_mult_array(5)
+	for card in drawn_cards:
+		if card != null:
+			player_card_hand.draw_card(card)
+			card_drawn.emit(card)
+		
+		
 	for enemy in enemies:
 		if enemy.entity_data is EnemyData:
 			enemy.entity_data.choose_next_move()
@@ -61,10 +91,16 @@ func _start_player_turn():
 	energy_counter.reset_energy()
 	started_new_turn.emit()
 
+
+
 func end_player_turn() -> void:
 	if battle_state != BattleState.PLAYER_TURN:
 		return
+
+	for card_ui in player_card_hand.card_uis:
+		discard_pile.add_card(card_ui.card_data)
 	player_card_hand.clear_hand()
+
 	battle_state = BattleState.ENEMY_TURN
 	await _run_enemy_turn()
 
@@ -104,6 +140,9 @@ func _on_try_play_card(card_ui:CardUI):
 	if !energy_counter.can_play_card(card_data):
 		player_card_hand.return_dragged_card()
 		return
+	
+	discard_pile.add_card(card_data)
+	
 	
 	player_card_hand.remove_played_card(card_ui)
 	energy_counter.spend_energy(card_data.energy_cost)

@@ -9,6 +9,7 @@
 extends Node2D
 class_name BattleScene
 
+
 @export var battle_manager: BattleManager
 @export var character_entity: BattleEntity
 @export var battle_field: BattleField
@@ -19,6 +20,7 @@ class_name BattleScene
 const BATTLE_ENTITY = preload("res://BattleSystem/Entities/battle_entity_template.tscn")
 const ENEMY_SPACING = 0.10
 const ENEMY_Y_POSITION = 0.28
+
 
 var items:Array[ItemData]
 
@@ -98,8 +100,7 @@ func _on_end_turn_button_button_up() -> void:
 func _started_player_turn():
 	battle_field.on_new_turn_started()
 	end_turn_button.disabled = false
-	for i in range(0, 5):
-		battle_manager._on_add_card_button_up()
+	
 
 func _on_battle_ended(player_won:bool):
 	end_turn_button.visible = false
