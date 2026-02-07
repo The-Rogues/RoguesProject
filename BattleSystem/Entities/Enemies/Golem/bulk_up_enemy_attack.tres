@@ -22,6 +22,6 @@ script = ExtResource("5_3v5eu")
 name = "Bulk Up"
 description_text = "Increase defense by 25%"
 icon = ExtResource("4_nrwfo")
-action_type = 2
+action_type = 1
 actions = Array[ExtResource("1_8ydjm")]([SubResource("Resource_0gfl2")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

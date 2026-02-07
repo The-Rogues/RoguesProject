@@ -22,6 +22,6 @@ script = ExtResource("5_ngdvv")
 name = "Backup"
 description_text = "Increase Ally attack by 25%"
 icon = ExtResource("4_rmyfp")
-action_type = 2
+action_type = 1
 actions = Array[ExtResource("1_40hvk")]([SubResource("Resource_0gfl2")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

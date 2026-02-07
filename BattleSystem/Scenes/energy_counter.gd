@@ -14,7 +14,7 @@ func initialize(energy_amount:int):
 
 func reset_energy():
 	energy = energy_default
-	label.text = str(energy)
+	label.text = str(energy) + "/" + str(energy_default)
 
 func can_play_card(card_data:CardData):
 	if !card_data:
@@ -26,8 +26,8 @@ func can_play_card(card_data:CardData):
 
 func spend_energy(energy_cost:int):
 	energy = max(0, energy - energy_cost)
-	label.text = str(energy)
+	label.text = str(energy) + "/" + str(energy_default)
 
 func add_energy(energy_amount:int):
 	energy = min(10, energy + energy_amount)
-	label.text = str(energy)
+	label.text = str(energy) + "/" + str(energy_default)

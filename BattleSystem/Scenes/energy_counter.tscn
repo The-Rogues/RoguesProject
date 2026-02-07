@@ -6,7 +6,7 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phasc"]
 texture = ExtResource("1_14737")
-modulate_color = Color(0.81755525, 0.6713217, 0.18690184, 1)
+modulate_color = Color(0.8299563, 0.6725914, 0.15207496, 1)
 
 [node name="EnergyCounter" type="PanelContainer" unique_id=396974568]
 offset_right = 40.0

@@ -1,5 +1,4 @@
-res://BattleSystem/Configuration/battle_field_schema.gd
+res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd
 AtlasTexture
 EnemyData
 CardData
-FloorObjectSchemas

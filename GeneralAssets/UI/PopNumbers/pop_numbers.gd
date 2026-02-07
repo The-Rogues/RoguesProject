@@ -2,7 +2,7 @@ extends Label
 class_name PopNumbers
 
 var active:bool = false
-@export var speed:float = 60.0
+@export var speed:float = 55.0
 @onready var life_timer: Timer = $LifeTimer
 
 func _ready() -> void:

@@ -1,11 +1,17 @@
+# ==========================================================
+# Authors: Fabian, Han
+# Description:
+#   Mediator between card input and battle manager
+#   Executes visual turn transitions and calls results screen
+#
+# ==========================================================
+
 extends Node2D
 class_name BattleScene
 
 @export var battle_manager: BattleManager
 @export var character_entity: BattleEntity
-@export var player_card_hand: CardPlayHand
 @export var battle_field: BattleField
-@export var energy_counter: EnergyCounter
 @export var end_turn_button: Button
 @export var battle_results_display: BattleResultLayer
 @export var item_interface:ItemInterface
@@ -24,7 +30,7 @@ func _ready() -> void:
 func initialize(battle_configuration:BattleSceneConfiguration):
 	# Load player
 	character_entity.initialize(battle_configuration.character_data)
-	energy_counter.initialize(battle_configuration.character_data.energy.value)
+	
 	# Load enemies
 	var enemies:Array[BattleEntity]
 	for enemy_data in battle_configuration.enemies:
@@ -49,7 +55,6 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	item_interface.initialize(items)
 	
 	# Connect signals
-	player_card_hand.play_card.connect(_on_try_play_card)
 	battle_manager.started_new_turn.connect(_started_player_turn)
 	battle_manager.battle_ended.connect(_on_battle_ended)
 	item_interface.activate_item.connect(_on_use_item)
@@ -78,16 +83,6 @@ func _position_enemies(enemies:Array[BattleEntity]):
 	for i in range(0, enemies.size()):
 		enemies[i].global_position = Vector2(start_x + i * spacing, y)
 
-func _on_try_play_card(card_ui:CardUI):
-	var card_data:CardData = card_ui.card_data
-	if !energy_counter.can_play_card(card_data):
-		player_card_hand.return_dragged_card()
-		return
-	
-	player_card_hand.remove_played_card(card_ui)
-	energy_counter.spend_energy(card_data.energy_cost)
-	battle_manager.execute_card(card_data)
-
 func _on_use_item(item_index:int):
 	GlobalSessionManager.consume_item(items[item_index])
 	items.pop_at(item_index)
@@ -98,18 +93,15 @@ func _on_use_item(item_index:int):
 func _on_end_turn_button_button_up() -> void:
 	end_turn_button.disabled = true
 	battle_manager.end_player_turn()
-	player_card_hand.clear_hand()
 	pass # Replace with function body.
 
 func _started_player_turn():
 	battle_field.on_new_turn_started()
-	energy_counter.reset_energy()
 	end_turn_button.disabled = false
 	for i in range(0, 5):
-		_on_add_card_button_up()
+		battle_manager._on_add_card_button_up()
 
 func _on_battle_ended(player_won:bool):
-	player_card_hand.visible = false
 	end_turn_button.visible = false
 	if player_won:
 		await get_tree().create_timer(3).timeout
@@ -141,13 +133,6 @@ func _on_test_enemy_damage_button_up() -> void:
 		return
 	var action_context = battle_manager.create_action_context(null, [entity])
 	battle_manager.action_queue.enqueue(action, action_context)
-	pass # Replace with function body.
-
-
-func _on_add_card_button_up() -> void:
-	var deck:CardDeck = load("res://CardSystem/Decks/starting_card_deck.tres")
-	var card_data = deck.draw_random_card()
-	player_card_hand.draw_card(card_data)
 	pass # Replace with function body.
 
 

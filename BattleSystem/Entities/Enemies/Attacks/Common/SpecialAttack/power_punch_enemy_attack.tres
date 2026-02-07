@@ -34,6 +34,5 @@ name = "Power Punch"
 description_text = "Deal 6 damage
 Increase strength 25%"
 icon = ExtResource("5_ieun7")
-action_type = 3
 actions = Array[ExtResource("1_0uc6r")]([SubResource("Resource_qknlh"), SubResource("Resource_y3b26")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

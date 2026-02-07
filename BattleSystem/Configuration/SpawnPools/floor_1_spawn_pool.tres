@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cg30v23ohr5mc" path="res://BattleSystem/Entities/Enemies/Sorcerer/sorcerer_enemy_data.tres" id="6_edhiu"]
 [ext_resource type="Resource" uid="uid://c5noxdeqt27qu" path="res://BattleSystem/Entities/Enemies/LizardGuard/lizard_guard_enemy_data.tres" id="7_h68bp"]
 [ext_resource type="Resource" uid="uid://b8glv1n4pdj8h" path="res://BattleSystem/Entities/Enemies/Minotaur/minotaur_enemy_data.tres" id="8_hjlna"]
+[ext_resource type="Resource" uid="uid://ck3n7jfoiaaib" path="res://BattleSystem/Entities/Enemies/Crawler/crawler_enemy_data.tres" id="9_4dlpx"]
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://BattleSystem/Configuration/BattleFieldLayouts/battle_object_layout.gd" id="9_42rq6"]
 [ext_resource type="Resource" uid="uid://tej2m7hvnbcr" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_0.tres" id="10_4dlpx"]
 [ext_resource type="Resource" uid="uid://bxevji3tbt7nj" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_1.tres" id="11_wildr"]
@@ -20,6 +21,6 @@
 
 [resource]
 script = ExtResource("3_n3fwg")
-enemy_pool = Array[ExtResource("1_emip0")]([ExtResource("2_m3xg1"), ExtResource("3_koi8w"), ExtResource("4_osj6j"), ExtResource("5_3jx45"), ExtResource("6_edhiu"), ExtResource("7_h68bp"), ExtResource("8_hjlna")])
+enemy_pool = Array[ExtResource("1_emip0")]([ExtResource("2_m3xg1"), ExtResource("3_koi8w"), ExtResource("4_osj6j"), ExtResource("5_3jx45"), ExtResource("6_edhiu"), ExtResource("7_h68bp"), ExtResource("8_hjlna"), ExtResource("9_4dlpx")])
 object_layouts = Array[ExtResource("9_42rq6")]([ExtResource("10_4dlpx"), ExtResource("11_wildr"), ExtResource("12_mxlgk"), ExtResource("13_otr41"), ExtResource("14_jbitl"), ExtResource("15_782xx"), ExtResource("16_cgdju")])
 metadata/_custom_type_script = "uid://cspfjbd0uqj7u"

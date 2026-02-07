@@ -13,7 +13,7 @@ enum EmotionalState {
 @export var offensive_trait:TraitData
 @export var defensive_trait:TraitData
 @export var strategic_trait:TraitData
-@export var energy:Stat
+@export var energy:Stat = Stat.new(5, 0, 5, true)
 @export var mood:EmotionalState = EmotionalState.NEUTRAL
 
 func change_trait(target_trait:String, new_trait:TraitData):
@@ -36,8 +36,8 @@ func initialize(
 		offensive_trait = new_offensive_trait
 		defensive_trait = new_defensive_trait
 		strategic_trait = new_strategic_trait
-		health_points = 125
-		health = Stat.new(125, 0, 125, true)
+		health_points = 80
+		health = Stat.new(80, 0, 80, true)
 		defense_amplifier = Stat.new(2, 0.25, 1, false)
 		attack_amplifier = Stat.new(2, 0.25, 1, false)
 		energy = Stat.new(5, 0, 5, true)

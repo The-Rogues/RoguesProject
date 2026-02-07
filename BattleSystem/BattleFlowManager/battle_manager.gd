@@ -1,17 +1,30 @@
+# ==========================================================
+# Authors: Fabian, Han
+# Description:
+#   Keeps track of battle turn order, processes played cards
+#   signals turn transtitions between enemy and player
+#   and executes enemy turn
+#
+# ==========================================================
+
 extends Node
 class_name BattleManager
 
 signal battle_ended(player_won:bool)
+signal card_drawn(card_data:CardData)
 signal started_new_turn
-
+# Timer that adds delay between attacks from different enemies
 @export var enemy_delay_timer: Timer
+@export var energy_counter:EnergyCounter
+@export var player_card_hand: CardPlayHand
 
 enum BattleState { PLAYER_TURN, ENEMY_TURN, ENDED }
-
 var battle_state:BattleState = BattleState.PLAYER_TURN
+
 var player_entity:BattleEntity
 var enemies:Array[BattleEntity]
 var living_enemies:Array[BattleEntity]
+
 var action_queue:ActionQueue
 var battle_field:BattleField
 
@@ -19,6 +32,7 @@ func initialize(new_player_entity:BattleEntity,
 			new_enemies:Array[BattleEntity],
 			new_battle_field:BattleField):
 	player_entity = new_player_entity
+	energy_counter.initialize(new_player_entity.entity_data.energy.value)
 	
 	for enemy in new_enemies:
 		enemies.append(enemy)
@@ -26,7 +40,6 @@ func initialize(new_player_entity:BattleEntity,
 	battle_field = new_battle_field
 	
 	action_queue = ActionQueue.new()
-	#animation_bus = AnimationBus.new()
 	
 	for enemy in enemies:
 		enemy.defeated.connect(_on_entity_defeated)
@@ -35,44 +48,7 @@ func initialize(new_player_entity:BattleEntity,
 			enemy.entity_data.choose_next_move()
 	
 	player_entity.defeated.connect(_on_entity_defeated)
-
-func end_player_turn() -> void:
-	if battle_state != BattleState.PLAYER_TURN:
-		return
-	
-	battle_state = BattleState.ENEMY_TURN
-	await _run_enemy_turn()
-
-func _run_enemy_turn() -> void:
-	for enemy in enemies:
-		if !enemy.entity_data is EnemyData:
-			return
-		
-		enemy.hide_icon()
-		
-		for combat_move in enemy.entity_data.get_combat_moves():
-			if combat_move == null:
-				return
-			
-			var next_move = enemy.entity_data.next_move
-			var target:Array[BattleEntity] = get_action_target(combat_move, enemy)
-			var action_context:ActionContext = create_action_context(enemy, target)
-			
-			if next_move.action_type == EnemyMove.Type.ATTACK or \
-					next_move.action_type == EnemyMove.Type.SPECIAL_ATTACK:
-				enemy.entity_animator.play("battle_entity/attack")
-			else:
-				enemy.entity_animator.play("battle_entity/heal")
-			await enemy.entity_animator.animation_finished
-			
-			for action in combat_move.actions:
-				action_queue.enqueue(action, action_context)
-		enemy_delay_timer.start()
-		await enemy_delay_timer.timeout
-	
-	#await action_queue.processed_all_actions
-	battle_state = BattleState.PLAYER_TURN
-	_start_player_turn()
+	player_card_hand.play_card.connect(_on_try_play_card)
 
 func _start_player_turn():
 	if battle_state != BattleState.PLAYER_TURN:
@@ -82,14 +58,63 @@ func _start_player_turn():
 		if enemy.entity_data is EnemyData:
 			enemy.entity_data.choose_next_move()
 	
+	energy_counter.reset_energy()
 	started_new_turn.emit()
+
+func end_player_turn() -> void:
+	if battle_state != BattleState.PLAYER_TURN:
+		return
+	player_card_hand.clear_hand()
+	battle_state = BattleState.ENEMY_TURN
+	await _run_enemy_turn()
+
+func _run_enemy_turn() -> void:
+	for enemy in enemies:
+		if !enemy.entity_data is EnemyData:
+			return
+		var next_move = enemy.entity_data.next_move
+		enemy.hide_icon()
+		if next_move.action_type == EnemyMove.Type.PHYSICAL:
+			enemy.entity_animator.play("battle_entity/attack")
+		elif next_move.action_type == EnemyMove.Type.SPECIAL:
+			enemy.entity_animator.play("battle_entity/heal")
+		
+		await enemy.entity_animator.animation_finished
+		
+		for combat_move in enemy.entity_data.get_combat_moves():
+			if combat_move == null:
+				return
+			
+			var target:Array[BattleEntity] = get_attack_target(combat_move, enemy)
+			var action_context:ActionContext = create_action_context(enemy, target)
+			
+			for action in combat_move.actions:
+				action_queue.enqueue(action, action_context)
+			#await action_queue.processed_all_actions
+		
+		enemy_delay_timer.start()
+		await enemy_delay_timer.timeout
+	
+	#await action_queue.processed_all_actions
+	battle_state = BattleState.PLAYER_TURN
+	_start_player_turn()
+
+func _on_try_play_card(card_ui:CardUI):
+	var card_data:CardData = card_ui.card_data
+	if !energy_counter.can_play_card(card_data):
+		player_card_hand.return_dragged_card()
+		return
+	
+	player_card_hand.remove_played_card(card_ui)
+	energy_counter.spend_energy(card_data.energy_cost)
+	execute_card(card_data)
 
 func execute_card(card_data:CardData):
 	for combat_move in card_data.play_moves:
 		if combat_move == null:
 			return
 		
-		var target:Array[BattleEntity] = get_action_target(combat_move)
+		var target:Array[BattleEntity] = get_attack_target(combat_move)
 		# Only player can be the user in this case because its a card
 		var action_context:ActionContext = create_action_context(player_entity, target)
 		# Queues each action to be executed sequentiallt
@@ -99,16 +124,19 @@ func execute_card(card_data:CardData):
 func _on_entity_defeated(battle_entity:BattleEntity):	
 	if player_entity.is_defeated:
 		battle_ended.emit(false)
+		
+		player_card_hand.visible = false
 		return
 	
 	if battle_entity in enemies:
 		living_enemies.erase(battle_entity)
 	
 	if living_enemies.is_empty():
+		player_card_hand.visible = false
 		battle_ended.emit(true)
 
 # Resolver for targeting
-func get_action_target(action_group:CombatMove, user:BattleEntity = null):
+func get_attack_target(action_group:CombatMove, user:BattleEntity = null):
 	var combat_entities:Array[BattleEntity]
 	match action_group.targeting:
 		TargetingEnum.TARGETING.SELF:
@@ -133,3 +161,10 @@ func create_action_context(user:BattleEntity, target:Array[BattleEntity]):
 		battle_field
 	)
 	return action_context
+
+func _on_add_card_button_up() -> void:
+	var deck:CardDeck = load("res://CardSystem/Decks/starting_card_deck.tres")
+	var card_data = deck.draw_random_card()
+	player_card_hand.draw_card(card_data)
+	card_drawn.emit(card_data)
+	pass # Replace with function body.

@@ -27,6 +27,5 @@ script = ExtResource("2_8c4cr")
 name = "Rev Up"
 description_text = "Increases attack by 25%"
 icon = SubResource("AtlasTexture_6xtml")
-action_type = 2
 actions = Array[ExtResource("1_an5sh")]([SubResource("Resource_gwied")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

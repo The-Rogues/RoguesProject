@@ -13,5 +13,6 @@ metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
 script = ExtResource("4_rshoa")
 display_texture = ExtResource("3_rshoa")
 name = "Horse"
+wait_to_hide_sprite = true
 behaviours = Array[ExtResource("1_w4nye")]([SubResource("Resource_ogqab")])
 metadata/_custom_type_script = "uid://c35pmtk5w7lbt"

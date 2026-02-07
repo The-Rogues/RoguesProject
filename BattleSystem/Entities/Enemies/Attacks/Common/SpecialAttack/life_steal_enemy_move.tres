@@ -34,6 +34,5 @@ name = "Life Steal"
 description_text = "Deal 8 damage
 Heal 6 health"
 icon = ExtResource("5_1yntr")
-action_type = 3
 actions = Array[ExtResource("1_f1huu")]([SubResource("Resource_qknlh"), SubResource("Resource_y3b26")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

@@ -1,8 +1,11 @@
-res://BattleSystem/Scenes/
+res://BattleSystem/Entities/Enemies/Crawler/
+res://BattleSystem/Entities/Enemies/Minotaur/
+res://BattleSystem/Entities/Enemies/Attacks/Projectiles/
+res://BattleSystem/Entities/Enemies/Golem/
 res://Testing/
+res://BattleSystem/Scenes/
 res://GeneralAssets/UI/PopNumbers/
 res://ItemSystem/GoldLabel/
 res://BattleSystem/Configuration/BattleFieldLayouts/
 res://
-res://BattleSystem/Entities/Enemies/Minotaur/
 res://BattleSystem/Entities/Enemies/Funguy/

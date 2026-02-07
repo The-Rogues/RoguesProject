@@ -22,6 +22,6 @@ strategic_trait = ExtResource("7_avv5r")
 energy = SubResource("Resource_f1t4x")
 display_texture = ExtResource("3_g1bbi")
 name = "Stranger"
-health_points = 125
+health_points = 80
 wait_to_hide_sprite = true
 metadata/_custom_type_script = "uid://1pyca5um8bhn"

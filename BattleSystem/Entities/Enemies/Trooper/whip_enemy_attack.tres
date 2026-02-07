@@ -29,6 +29,5 @@ name = "Whip"
 description_text = "Deal 6 Damage
 Stumble Left or Right"
 icon = ExtResource("5_f8oso")
-action_type = 3
 actions = Array[ExtResource("1_dunm0")]([SubResource("Resource_qknlh")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

@@ -1,7 +1,7 @@
 extends Resource
 class_name EnemyMove
 
-enum Type {ATTACK, SABOTAGE, SPECIAL_MOVE, SPECIAL_ATTACK}
+enum Type {PHYSICAL, SPECIAL}
 @export var name: String
 @export_multiline var description_text:String
 @export var icon:Texture2D

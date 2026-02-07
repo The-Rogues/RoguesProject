@@ -21,6 +21,6 @@ script = ExtResource("5_t3yom")
 name = "Recover"
 description_text = "Heal self"
 icon = ExtResource("4_ivc8o")
-action_type = 2
+action_type = 1
 actions = Array[ExtResource("1_cpbjg")]([SubResource("Resource_0gfl2")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"
