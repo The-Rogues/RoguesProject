@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://b2ol1op1ilke1"]
+
+[ext_resource type="Script" uid="uid://d3bx1ip7splkn" path="res://Menus/character_generator_scene.gd" id="1_eisx4"]
+[ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Default/Border/panel-border-007.png" id="2_tr8lr"]
+[ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_hhvwy"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="3_ntpg3"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="4_hodoh"]
+[ext_resource type="Texture2D" uid="uid://ceevb82tjfvvo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="4_wpnsw"]
+[ext_resource type="Texture2D" uid="uid://cd4vrwm5pi613" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="5_ntilo"]
+[ext_resource type="Texture2D" uid="uid://rpc04f3p2p63" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="6_aprn4"]
+[ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_qtcf8"]
+[ext_resource type="Texture2D" uid="uid://d3b32hvxgogfb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="8_k2qyi"]
+[ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="9_un5wy"]
+[ext_resource type="Texture2D" uid="uid://dbfpup62ss0wb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="10_ycl7g"]
+[ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="11_bylt5"]
+[ext_resource type="Texture2D" uid="uid://cnkfqqc2cb6e6" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="12_tfpat"]
+[ext_resource type="Texture2D" uid="uid://cs6vlvrhdoioy" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_11.tres" id="13_vbrq4"]
+[ext_resource type="Texture2D" uid="uid://6yrvs4ng2vwn" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_12.tres" id="14_5hr8u"]
+[ext_resource type="Texture2D" uid="uid://3lbdjpffkydk" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_13.tres" id="15_ur1b6"]
+[ext_resource type="Texture2D" uid="uid://crd00k54chxid" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_14.tres" id="16_3151j"]
+[ext_resource type="Texture2D" uid="uid://befkuaurhavvw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_15.tres" id="17_y8k5k"]
+[ext_resource type="Texture2D" uid="uid://yprkxu4ihwoo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_16.tres" id="18_b21tc"]
+[ext_resource type="Texture2D" uid="uid://b7mfmfugncj1b" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_17.tres" id="19_lhlbj"]
+[ext_resource type="Texture2D" uid="uid://b6ajxbucu37i0" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_18.tres" id="20_o4ruh"]
+[ext_resource type="Texture2D" uid="uid://ditt5s8nroyfh" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_19.tres" id="21_rumux"]
+[ext_resource type="Texture2D" uid="uid://dshe6kfjfdqcw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_20.tres" id="22_p06wf"]
+[ext_resource type="Texture2D" uid="uid://d1jhrjgp7xthr" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_21.tres" id="23_gm1mi"]
+[ext_resource type="Texture2D" uid="uid://b1qql208jacff" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_22.tres" id="24_uup36"]
+[ext_resource type="Texture2D" uid="uid://ucdn72jkwj6a" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres" id="25_knji5"]
+[ext_resource type="Texture2D" uid="uid://bh5i87d23o2op" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres" id="26_jnj6x"]
+[ext_resource type="Texture2D" uid="uid://b4ruwl8uy6s8m" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres" id="27_eifsp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pdas"]
+bg_color = Color(0.0002225801, 6.145411e-05, 0.00018586668, 1)
+
+[sub_resource type="Theme" id="Theme_nespq"]
+default_font = ExtResource("4_hodoh")
+default_font_size = 16
+
+[node name="CharacterScreen" type="Control" unique_id=502271570]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eisx4")
+character_sprite_varients = Array[Texture2D]([ExtResource("3_ntpg3"), ExtResource("3_hhvwy"), ExtResource("4_wpnsw"), ExtResource("5_ntilo"), ExtResource("6_aprn4"), ExtResource("7_qtcf8"), ExtResource("8_k2qyi"), ExtResource("9_un5wy"), ExtResource("10_ycl7g"), ExtResource("11_bylt5"), ExtResource("12_tfpat"), ExtResource("13_vbrq4"), ExtResource("14_5hr8u"), ExtResource("15_ur1b6"), ExtResource("16_3151j"), ExtResource("17_y8k5k"), ExtResource("18_b21tc"), ExtResource("19_lhlbj"), ExtResource("20_o4ruh"), ExtResource("21_rumux"), ExtResource("22_p06wf"), ExtResource("23_gm1mi"), ExtResource("24_uup36"), ExtResource("25_knji5"), ExtResource("26_jnj6x"), ExtResource("27_eifsp")])
+name_varients = Array[String](["Edan", "Joah", "Abel", "Basil", "Wisper", "Robin", "Ram", "Juse", "Kinrid", "Mousou", "Weeply", "Lars", "Ollie", "Ash", "Smithly", "Krita", "Sam", "Eris", "Finch", "Judas", "Cyrprus", "Shiphra", "Salome", "Xavier", "Erdrick", "Gilbert"])
+
+[node name="Background" type="PanelContainer" parent="." unique_id=471771454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1pdas")
+
+[node name="CardMargin" type="MarginContainer" parent="Background" unique_id=111718565]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 180
+
+[node name="Card" type="NinePatchRect" parent="Background/CardMargin" unique_id=193615989]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_tr8lr")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=2045329961]
+layout_mode = 2
+theme_override_constants/margin_left = 180
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 90
+
+[node name="CharacterInfo" type="VBoxContainer" parent="Background/MarginContainer" unique_id=1851402929]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="VBox" type="VBoxContainer" parent="Background/MarginContainer/CharacterInfo" unique_id=440603284]
+layout_mode = 2
+
+[node name="Hbox" type="HBoxContainer" parent="Background/MarginContainer/CharacterInfo/VBox" unique_id=903131843]
+custom_minimum_size = Vector2(0, 135)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CharacterSprite" type="TextureRect" parent="Background/MarginContainer/CharacterInfo/VBox/Hbox" unique_id=486900622]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_ntpg3")
+stretch_mode = 4
+
+[node name="VBox" type="VBoxContainer" parent="Background/MarginContainer/CharacterInfo/VBox/Hbox" unique_id=1704318386]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox/Hbox/VBox" unique_id=2114465448]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Name:"
+
+[node name="Name" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox/Hbox/VBox" unique_id=641322504]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 26
+text = "Rogue"
+
+[node name="Label2" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox/Hbox/VBox" unique_id=1935587793]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Backstory:"
+
+[node name="Backstory" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox/Hbox/VBox" unique_id=313095094]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Likes to dance"
+autowrap_mode = 2
+
+[node name="VBox2" type="VBoxContainer" parent="Background/MarginContainer/CharacterInfo" unique_id=102411713]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox2" unique_id=2054190580]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Traits - Weights"
+
+[node name="OffensiveTrait" type="HBoxContainer" parent="Background/MarginContainer/CharacterInfo/VBox2" unique_id=464972373]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox2/OffensiveTrait" unique_id=483176803]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Offensive:"
+
+[node name="Option" type="OptionButton" parent="Background/MarginContainer/CharacterInfo/VBox2/OffensiveTrait" unique_id=252704087]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+selected = 0
+item_count = 3
+popup/item_0/text = "Brute"
+popup/item_0/id = 0
+popup/item_1/text = "Valorous"
+popup/item_1/id = 1
+popup/item_2/text = "Merciful"
+popup/item_2/id = 2
+
+[node name="Weight" type="SpinBox" parent="Background/MarginContainer/CharacterInfo/VBox2/OffensiveTrait" unique_id=956484523]
+layout_mode = 2
+theme = SubResource("Theme_nespq")
+max_value = 10.0
+
+[node name="DefensiveTrait" type="HBoxContainer" parent="Background/MarginContainer/CharacterInfo/VBox2" unique_id=850661523]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox2/DefensiveTrait" unique_id=238613898]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Defensive:"
+
+[node name="Option" type="OptionButton" parent="Background/MarginContainer/CharacterInfo/VBox2/DefensiveTrait" unique_id=782043537]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+selected = 0
+item_count = 3
+popup/item_0/text = "Careful"
+popup/item_0/id = 0
+popup/item_1/text = "Adaptable"
+popup/item_1/id = 1
+popup/item_2/text = "Masochist"
+popup/item_2/id = 2
+
+[node name="Weight" type="SpinBox" parent="Background/MarginContainer/CharacterInfo/VBox2/DefensiveTrait" unique_id=753772764]
+layout_mode = 2
+theme = SubResource("Theme_nespq")
+max_value = 10.0
+
+[node name="StrategicTrait" type="HBoxContainer" parent="Background/MarginContainer/CharacterInfo/VBox2" unique_id=1865363015]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Background/MarginContainer/CharacterInfo/VBox2/StrategicTrait" unique_id=1328698125]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Strategic:"
+
+[node name="Option" type="OptionButton" parent="Background/MarginContainer/CharacterInfo/VBox2/StrategicTrait" unique_id=1142089273]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+selected = 0
+item_count = 3
+popup/item_0/text = "Lazy"
+popup/item_0/id = 0
+popup/item_1/text = "Greedy"
+popup/item_1/id = 1
+popup/item_2/text = "Clever"
+popup/item_2/id = 2
+
+[node name="Weight" type="SpinBox" parent="Background/MarginContainer/CharacterInfo/VBox2/StrategicTrait" unique_id=1879513240]
+layout_mode = 2
+theme = SubResource("Theme_nespq")
+max_value = 10.0
+
+[node name="Randomize" type="Button" parent="Background/MarginContainer/CharacterInfo" unique_id=1898296184]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 16
+text = "Randomize"
+
+[node name="StartButtonMargin" type="MarginContainer" parent="." unique_id=79767288]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 60
+
+[node name="StartBattle" type="Button" parent="StartButtonMargin" unique_id=1558576070]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("4_hodoh")
+theme_override_font_sizes/font_size = 26
+text = "Start Run"
+
+[connection signal="button_up" from="Background/MarginContainer/CharacterInfo/Randomize" to="." method="_on_randomize_button_up"]
+[connection signal="button_up" from="StartButtonMargin/StartBattle" to="." method="_on_start_battle_button_up"]

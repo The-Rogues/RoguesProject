@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cxg16fwce7mwy"]
+
+[ext_resource type="Texture2D" uid="uid://c2fwr2d5vfqbb" path="res://ItemSystem/Items/Cheese/cheese_texture.tres" id="1_7w7pd"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="2_kar65"]
+
+[resource]
+script = ExtResource("2_kar65")
+name = "Cheese"
+description = "Heals 105 HP"
+activation_type = 1
+display_texture = ExtResource("1_7w7pd")
+rarity = 1
+shop_price = 110
+metadata/_custom_type_script = "uid://wmqmctcre0tg"

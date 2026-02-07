@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BattleObjectLayout" format=3 uid="uid://tej2m7hvnbcr"]
+
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://BattleSystem/Entities/BaseScripts/battle_object_data.gd" id="1_kdn2d"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://BattleSystem/Configuration/BattleFieldLayouts/battle_object_layout.gd" id="2_kdn2d"]
+
+[resource]
+script = ExtResource("2_kdn2d")
+rarity = 1
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

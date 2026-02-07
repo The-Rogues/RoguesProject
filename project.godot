@@ -15,13 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Rogues Game"
-run/main_scene="res://Screens/main_menu_screen.tscn"
+run/main_scene="res://Menus/main_menu_scene.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
 
-GlobalSessionManager="*res://Nodes/Globals/session_manager.tscn"
-GlobalSceneLoader="*res://Nodes/Globals/scene_loader.tscn"
+GlobalSessionManager="*res://Globals/SessionManager/session_manager.tscn"
+GlobalSceneLoader="*res://Globals/SceneLoader/scene_loader.tscn"
 
 [display]
 

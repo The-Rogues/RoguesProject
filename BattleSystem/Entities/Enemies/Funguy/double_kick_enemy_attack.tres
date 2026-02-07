@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://c4xtky1vgex2t"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_vvjk3"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_xmmoi"]
+[ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_xmmoi"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/attack_intent_icon.tres" id="4_e4fqw"]
+[ext_resource type="Script" uid="uid://dha63lye0dnph" path="res://BattleSystem/AtomicActions/Common/repeated_action.gd" id="4_o7no8"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_u5acg"]
+
+[sub_resource type="Resource" id="Resource_e4fqw"]
+script = ExtResource("3_xmmoi")
+damage = 4
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_u5acg"]
+script = ExtResource("4_o7no8")
+times = 2
+action = SubResource("Resource_e4fqw")
+metadata/_custom_type_script = "uid://dha63lye0dnph"
+
+[sub_resource type="Resource" id="Resource_5b1pe"]
+script = ExtResource("1_vvjk3")
+targeting = 1
+actions = Array[ExtResource("2_xmmoi")]([SubResource("Resource_u5acg")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("5_u5acg")
+name = "Double Kick"
+description_text = "Deals 4 damage twice"
+icon = ExtResource("4_e4fqw")
+actions = Array[ExtResource("1_vvjk3")]([SubResource("Resource_5b1pe")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

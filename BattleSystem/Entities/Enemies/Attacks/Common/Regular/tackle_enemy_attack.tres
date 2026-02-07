@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://k6et0x8t84fb"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_2ko2e"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_mrjo3"]
+[ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_cyihs"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/attack_intent_icon.tres" id="5_m2kuc"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="6_in777"]
+
+[sub_resource type="Resource" id="Resource_fqii6"]
+script = ExtResource("3_cyihs")
+damage = 9
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_vcplv"]
+script = ExtResource("1_2ko2e")
+targeting = 1
+actions = Array[ExtResource("2_mrjo3")]([SubResource("Resource_fqii6")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("6_in777")
+name = "Tackle"
+description_text = "Deal 9 damage"
+icon = ExtResource("5_m2kuc")
+actions = Array[ExtResource("1_2ko2e")]([SubResource("Resource_vcplv")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

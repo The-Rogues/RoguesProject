@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ShopData" format=3 uid="uid://brc7n4drna032"]
+
+[ext_resource type="Script" uid="uid://b3ne2lxaru7d4" path="res://Map/ItemShop/ShopDatas/BaseScripts/shop_data.gd" id="1_ks7fl"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="2_886yy"]
+[ext_resource type="Resource" uid="uid://c8nh8fyypmvrp" path="res://ItemSystem/Items/Apple/apple_item_data.tres" id="3_ma2i3"]
+[ext_resource type="Resource" uid="uid://d22vj3yb6c7lp" path="res://ItemSystem/Items/Barricade/barricade_item_data.tres" id="3_myd3x"]
+[ext_resource type="Resource" uid="uid://nnyegqqu71yi" path="res://ItemSystem/Items/EnergyPotion/energy_potion_item_data.tres" id="4_ujait"]
+[ext_resource type="Resource" uid="uid://c4ogaadywgjks" path="res://ItemSystem/Items/Bread/bread_item_data.tres" id="5_dekeo"]
+[ext_resource type="Resource" uid="uid://704fo14vdxkf" path="res://ItemSystem/Items/WackBat/wack_bat_item_data.tres" id="5_f5dpt"]
+[ext_resource type="Resource" uid="uid://cwr1pc27hssi" path="res://ItemSystem/Items/HealthPotion/health_potion_item_data.tres" id="6_85nge"]
+[ext_resource type="Resource" uid="uid://qcc2u0ao21oo" path="res://ItemSystem/Items/CardPack/card_pack_item_data.tres" id="6_f0301"]
+[ext_resource type="Resource" uid="uid://cxg16fwce7mwy" path="res://ItemSystem/Items/Cheese/cheese_item_data.tres" id="7_bv0ad"]
+[ext_resource type="Resource" uid="uid://dm6o6i3wayjsk" path="res://ItemSystem/Items/Rat/rat_item_data.tres" id="10_e8ahn"]
+
+[resource]
+script = ExtResource("1_ks7fl")
+shop_item_pool = Array[ExtResource("2_886yy")]([ExtResource("3_ma2i3"), ExtResource("3_myd3x"), ExtResource("5_dekeo"), ExtResource("6_f0301"), ExtResource("7_bv0ad"), ExtResource("4_ujait"), ExtResource("6_85nge"), ExtResource("10_e8ahn"), ExtResource("5_f5dpt")])
+metadata/_custom_type_script = "uid://b3ne2lxaru7d4"

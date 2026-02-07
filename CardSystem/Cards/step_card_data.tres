@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dgt1ffuwrstbt"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_wajfn"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_hvpie"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/BaseScripts/card_data.gd" id="2_oqapy"]
+[ext_resource type="Script" uid="uid://byyoglfwhjibs" path="res://BattleSystem/AtomicActions/CharacterSpecific/move_action.gd" id="3_j7hfg"]
+
+[sub_resource type="Resource" id="Resource_hvpie"]
+script = ExtResource("3_j7hfg")
+direction = 2
+metadata/_custom_type_script = "uid://byyoglfwhjibs"
+
+[sub_resource type="Resource" id="Resource_j7hfg"]
+script = ExtResource("1_wajfn")
+targeting = 1
+actions = Array[ExtResource("2_hvpie")]([SubResource("Resource_hvpie")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("2_oqapy")
+name = "Step"
+description = "Move to adjacent position"
+energy_cost = 1
+play_moves = Array[ExtResource("1_wajfn")]([SubResource("Resource_j7hfg")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

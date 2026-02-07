@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://cwrhn5awc55g2"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/trait_data.gd" id="1_qsugy"]
+
+[resource]
+script = ExtResource("1_qsugy")
+name = "Clever"
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

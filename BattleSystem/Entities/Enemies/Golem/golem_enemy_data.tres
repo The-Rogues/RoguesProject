@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cjpcb3oy2kqdi"]
+
+[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_lss32"]
+[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_x6xqj"]
+[ext_resource type="Script" uid="uid://c3jljqw3ahnfx" path="res://BattleSystem/Entities/Behaviours/ondeath_pop.gd" id="3_stx26"]
+[ext_resource type="Texture2D" uid="uid://boepg3dye1jmp" path="res://BattleSystem/Entities/Enemies/Golem/golem_texture.tres" id="4_x6xqj"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_l6u86"]
+[ext_resource type="Resource" uid="uid://k6et0x8t84fb" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/tackle_enemy_attack.tres" id="6_6or30"]
+[ext_resource type="Resource" uid="uid://capvn7x4cdl2m" path="res://BattleSystem/Entities/Enemies/Golem/bulk_up_enemy_attack.tres" id="7_lss32"]
+[ext_resource type="Resource" uid="uid://bwlhi1n1uiwuc" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Sabotage/shield_break_enemy_move.tres" id="8_rwep3"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_6dnsr"]
+
+[sub_resource type="Resource" id="Resource_206sp"]
+script = ExtResource("2_x6xqj")
+metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
+
+[sub_resource type="Resource" id="Resource_qq4yr"]
+script = ExtResource("3_stx26")
+metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
+
+[resource]
+script = ExtResource("9_6dnsr")
+reward_amount = 199
+move_set = Array[ExtResource("5_l6u86")]([ExtResource("6_6or30"), ExtResource("7_lss32"), ExtResource("8_rwep3")])
+rarity = 1
+display_texture = ExtResource("4_x6xqj")
+name = "Golem"
+wait_to_hide_sprite = true
+behaviours = Array[ExtResource("1_lss32")]([SubResource("Resource_206sp"), SubResource("Resource_qq4yr")])
+metadata/_custom_type_script = "uid://sxih45j4ip5w"

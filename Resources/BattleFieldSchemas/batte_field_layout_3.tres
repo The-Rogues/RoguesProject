@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="BattleFieldSchema" format=3 uid="uid://b60mvixkejni0"]
-
-[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://Scripts/ResourceScripts/EntityData/battle_object_data.gd" id="1_rqoiy"]
-[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://Scripts/ResourceScripts/BattleObjectSelection/battle_field_schema.gd" id="3_vbdkw"]
-
-[resource]
-script = ExtResource("3_vbdkw")
-metadata/_custom_type_script = "uid://cjvnpxflphnr5"

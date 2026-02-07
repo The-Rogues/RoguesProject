@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dn07ojtabbdn6"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_40hvk"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_2x7cp"]
+[ext_resource type="Script" uid="uid://l765wa6kln4a" path="res://BattleSystem/AtomicActions/Common/buff_action.gd" id="3_wg5ex"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_move_intent_icon.tres" id="4_rmyfp"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_ngdvv"]
+
+[sub_resource type="Resource" id="Resource_qkjo4"]
+script = ExtResource("3_wg5ex")
+multiplier = 2
+metadata/_custom_type_script = "uid://l765wa6kln4a"
+
+[sub_resource type="Resource" id="Resource_0gfl2"]
+script = ExtResource("1_40hvk")
+targeting = 2
+actions = Array[ExtResource("2_2x7cp")]([SubResource("Resource_qkjo4")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("5_ngdvv")
+name = "Backup"
+description_text = "Increase Ally attack by 25%"
+icon = ExtResource("4_rmyfp")
+action_type = 2
+actions = Array[ExtResource("1_40hvk")]([SubResource("Resource_0gfl2")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b57adi08jflnj"]
+
+[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_bq8bx"]
+[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_2gvbj"]
+[ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_eid6x"]
+[ext_resource type="Texture2D" uid="uid://dtxuoyn4lxhb1" path="res://BattleSystem/Entities/Enemies/Funguy/funguy_texture.tres" id="4_t3c1n"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_6svp4"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="6_1hmcs"]
+[ext_resource type="Resource" uid="uid://dmrcexn0djsh0" path="res://BattleSystem/Entities/Enemies/Funguy/kick_enemy_attack.tres" id="6_t3c1n"]
+[ext_resource type="Resource" uid="uid://tsxwy7jm0cjv" path="res://BattleSystem/Entities/Enemies/Funguy/trip_enemy_attack.tres" id="7_6svp4"]
+[ext_resource type="Resource" uid="uid://c4xtky1vgex2t" path="res://BattleSystem/Entities/Enemies/Funguy/double_kick_enemy_attack.tres" id="8_1hmcs"]
+
+[sub_resource type="Resource" id="Resource_8n5pc"]
+script = ExtResource("2_2gvbj")
+metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
+
+[sub_resource type="Resource" id="Resource_ihuxt"]
+script = ExtResource("3_eid6x")
+bounces = 4
+speed = 700.0
+metadata/_custom_type_script = "uid://dbfc742a8wqhj"
+
+[resource]
+script = ExtResource("6_1hmcs")
+reward_amount = 102
+move_set = Array[ExtResource("5_6svp4")]([ExtResource("6_t3c1n"), ExtResource("7_6svp4"), ExtResource("8_1hmcs")])
+display_texture = ExtResource("4_t3c1n")
+name = "Funguy"
+health_points = 35
+wait_to_hide_sprite = true
+behaviours = Array[ExtResource("1_bq8bx")]([SubResource("Resource_8n5pc"), SubResource("Resource_ihuxt")])
+metadata/_custom_type_script = "uid://sxih45j4ip5w"

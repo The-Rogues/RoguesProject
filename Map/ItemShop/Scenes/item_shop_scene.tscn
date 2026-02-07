@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://c6ggjvrmk1eoy"]
+
+[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/ItemShop/Textures/ShopKeepers/shop_keeper_varient_0.tres" id="1_bt8o4"]
+[ext_resource type="Script" uid="uid://7ymmg45xhdak" path="res://Map/ItemShop/Scenes/item_shop_scene.gd" id="1_jq6m6"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="3_jq6m6"]
+[ext_resource type="Script" uid="uid://cof4jl4xvyq10" path="res://ItemSystem/Scenes/item_interface.gd" id="4_3xqf8"]
+[ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://ItemSystem/Scenes/item_slot_ui.tscn" id="5_8bdd0"]
+[ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="8_ff7t1"]
+[ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="9_75i6p"]
+[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="9_acpms"]
+[ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://Map/ItemShop/Textures/shop_desk.tres" id="9_rdf4x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iq5vf"]
+texture = ExtResource("8_ff7t1")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="ShopScreen" type="Control" unique_id=1932341387 node_paths=PackedStringArray("shop_item_interface", "shop_menu", "sell_menu", "menu", "character_sprite")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jq6m6")
+shop_item_interface = NodePath("CanvasLayer/Control/ShopMenu/Margin/BuyItems")
+shop_menu = NodePath("CanvasLayer/Control/ShopMenu")
+sell_menu = NodePath("CanvasLayer/Control/SellMenu")
+menu = NodePath("CanvasLayer/Control/Menu")
+character_sprite = NodePath("CharacterSprite")
+
+[node name="Panel" type="Panel" parent="." unique_id=1284427762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iq5vf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1903845222]
+texture_filter = 1
+layout_mode = 0
+offset_left = 841.0
+offset_top = 374.0
+offset_right = 1033.0
+offset_bottom = 566.0
+texture = ExtResource("1_bt8o4")
+
+[node name="CharacterSprite" type="TextureRect" parent="." unique_id=485144000]
+texture_filter = 1
+layout_mode = 0
+offset_left = 222.0
+offset_top = 374.0
+offset_right = 414.0
+offset_bottom = 566.0
+texture = ExtResource("9_75i6p")
+flip_h = true
+
+[node name="Table" type="TextureRect" parent="." unique_id=128383425]
+texture_filter = 1
+layout_mode = 0
+offset_left = 783.0
+offset_top = 438.0
+offset_right = 879.0
+offset_bottom = 630.0
+texture = ExtResource("9_rdf4x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1852655927]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2140651362]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Menu" type="Control" parent="CanvasLayer/Control" unique_id=256880900]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="CanvasLayer/Control/Menu" unique_id=1421794535]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -124.0
+offset_right = 62.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Menu/Margin" unique_id=989468770]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Buy" type="Button" parent="CanvasLayer/Control/Menu/Margin/VBoxContainer" unique_id=1330448740]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "SHOP"
+
+[node name="Sell" type="Button" parent="CanvasLayer/Control/Menu/Margin/VBoxContainer" unique_id=743068245]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "SELL"
+
+[node name="Leave" type="Button" parent="CanvasLayer/Control/Menu/Margin/VBoxContainer" unique_id=970956450]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "LEAVE"
+
+[node name="ShopMenu" type="Control" parent="CanvasLayer/Control" unique_id=258124473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="CanvasLayer/Control/ShopMenu" unique_id=1057162281]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 84.0
+offset_bottom = 232.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 128
+
+[node name="BuyItems" type="FlowContainer" parent="CanvasLayer/Control/ShopMenu/Margin" unique_id=1670872054]
+custom_minimum_size = Vector2(495, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+alignment = 1
+script = ExtResource("4_3xqf8")
+override_item_datas = null
+minimum_item_slot_count = 0
+force_initialize = null
+is_shop_interface = true
+sell_items = null
+
+[node name="ItemSlotUI" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=1515963044 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI2" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=1828240874 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI3" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=905971957 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI4" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=592786239 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI5" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=674708303 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI6" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=1421097933 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI7" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=410125358 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI8" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=643050145 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI9" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=442895583 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/ShopMenu" unique_id=2007867013]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ShopMenu/MarginContainer" unique_id=1450978308]
+layout_mode = 2
+
+[node name="Barter" type="Button" parent="CanvasLayer/Control/ShopMenu/MarginContainer/VBoxContainer" unique_id=147108223]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 26
+text = "Barter"
+
+[node name="Return" type="Button" parent="CanvasLayer/Control/ShopMenu/MarginContainer/VBoxContainer" unique_id=1504006805]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 26
+text = "Return"
+
+[node name="SellMenu" type="Control" parent="CanvasLayer/Control" unique_id=1689595449]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/SellMenu" unique_id=2071580590]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -14.5
+offset_right = 576.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "UNDER CUNSTRUCTION"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/SellMenu" unique_id=157831674]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Return" type="Button" parent="CanvasLayer/Control/SellMenu/MarginContainer" unique_id=1054781742]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 26
+text = "Return"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1835938482]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -228.0
+offset_bottom = 57.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=225832608]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 30
+
+[node name="PlayerGold" parent="CanvasLayer/Control/HBoxContainer/MarginContainer" unique_id=1751191548 instance=ExtResource("9_acpms")]
+layout_mode = 2
+
+[connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Buy" to="." method="_on_open_shop"]
+[connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Buy" to="." method="_on_buy_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Sell" to="." method="open_sell_menu"]
+[connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Leave" to="." method="_on_leave_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopMenu/MarginContainer/VBoxContainer/Barter" to="." method="_on_barter_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopMenu/MarginContainer/VBoxContainer/Return" to="." method="_return_to_menu"]
+[connection signal="button_up" from="CanvasLayer/Control/SellMenu/MarginContainer/Return" to="." method="_return_to_menu"]

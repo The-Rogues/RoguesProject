@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c4ogaadywgjks"]
+
+[ext_resource type="Texture2D" uid="uid://c3lrt5j41yy7c" path="res://ItemSystem/Items/Bread/bread_texture.tres" id="1_hjdgs"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="2_oqcb4"]
+
+[resource]
+script = ExtResource("2_oqcb4")
+name = "Bread"
+description = "Heals 75 HP"
+activation_type = 1
+display_texture = ExtResource("1_hjdgs")
+rarity = 1
+shop_price = 70
+metadata/_custom_type_script = "uid://wmqmctcre0tg"

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ctt40rvl2uset"]
+
+[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_bu8ee"]
+[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_qt5w1"]
+[ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_bx14i"]
+[ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://BattleSystem/Entities/Enemies/Slime/slime_texture.tres" id="4_qx4hj"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_7f4jj"]
+[ext_resource type="Resource" uid="uid://crt2glbrxblc0" path="res://BattleSystem/Entities/Enemies/Attacks/Common/SpecialAttack/life_steal_enemy_move.tres" id="6_0h6rk"]
+[ext_resource type="Resource" uid="uid://bh1gmuk2hexqm" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/strike_enemy_move.tres" id="7_4kgyc"]
+[ext_resource type="Resource" uid="uid://b4huw5yrm3en5" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Special/recover_enemy_attack.tres" id="8_oqw0v"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_dla6b"]
+
+[sub_resource type="Resource" id="Resource_gw8wt"]
+script = ExtResource("2_qt5w1")
+metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
+
+[sub_resource type="Resource" id="Resource_fh0n2"]
+script = ExtResource("3_bx14i")
+bounces = 1
+metadata/_custom_type_script = "uid://dbfc742a8wqhj"
+
+[resource]
+script = ExtResource("9_dla6b")
+reward_amount = 143
+move_set = Array[ExtResource("5_7f4jj")]([ExtResource("6_0h6rk"), ExtResource("7_4kgyc"), ExtResource("8_oqw0v")])
+display_texture = ExtResource("4_qx4hj")
+name = "Slime"
+health_points = 42
+wait_to_hide_sprite = true
+behaviours = Array[ExtResource("1_bu8ee")]([SubResource("Resource_gw8wt"), SubResource("Resource_fh0n2")])
+metadata/_custom_type_script = "uid://sxih45j4ip5w"

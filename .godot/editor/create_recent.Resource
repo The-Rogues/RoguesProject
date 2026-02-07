@@ -1,4 +1,4 @@
-res://Scripts/ResourceScripts/EntityData/enemy_data.gd
+res://BattleSystem/Configuration/battle_field_schema.gd
 AtlasTexture
 EnemyData
 CardData

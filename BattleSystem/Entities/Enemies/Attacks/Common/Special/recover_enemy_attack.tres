@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://b4huw5yrm3en5"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_04arn"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="1_xdh08"]
+[ext_resource type="Script" uid="uid://cetmmi5e7bh0x" path="res://BattleSystem/AtomicActions/Common/heal_action.gd" id="2_0b5ny"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="4_l7soe"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_move_intent_icon.tres" id="4_ynp57"]
+
+[sub_resource type="Resource" id="Resource_wiy27"]
+script = ExtResource("2_0b5ny")
+heal_amount = 8
+metadata/_custom_type_script = "uid://cetmmi5e7bh0x"
+
+[sub_resource type="Resource" id="Resource_srmwc"]
+script = ExtResource("1_04arn")
+actions = Array[ExtResource("1_xdh08")]([SubResource("Resource_wiy27")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("4_l7soe")
+name = "Recover"
+description_text = "Heal 8 health"
+icon = ExtResource("4_ynp57")
+action_type = 2
+actions = Array[ExtResource("1_04arn")]([SubResource("Resource_srmwc")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

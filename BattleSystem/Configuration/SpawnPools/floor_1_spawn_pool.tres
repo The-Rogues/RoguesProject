@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="FloorSpawnPool" format=3 uid="uid://d0ecrm7b2sowl"]
+
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="1_emip0"]
+[ext_resource type="Resource" uid="uid://b57adi08jflnj" path="res://BattleSystem/Entities/Enemies/Funguy/funguy_enemy_data.tres" id="2_m3xg1"]
+[ext_resource type="Resource" uid="uid://ctt40rvl2uset" path="res://BattleSystem/Entities/Enemies/Slime/slime_enemy_data.tres" id="3_koi8w"]
+[ext_resource type="Script" uid="uid://cspfjbd0uqj7u" path="res://BattleSystem/Configuration/SpawnPools/floor_spawn_pool.gd" id="3_n3fwg"]
+[ext_resource type="Resource" uid="uid://cjpcb3oy2kqdi" path="res://BattleSystem/Entities/Enemies/Golem/golem_enemy_data.tres" id="4_osj6j"]
+[ext_resource type="Resource" uid="uid://bqnmfppsnxdh5" path="res://BattleSystem/Entities/Enemies/Trooper/trooper_enemy_data.tres" id="5_3jx45"]
+[ext_resource type="Resource" uid="uid://cg30v23ohr5mc" path="res://BattleSystem/Entities/Enemies/Sorcerer/sorcerer_enemy_data.tres" id="6_edhiu"]
+[ext_resource type="Resource" uid="uid://c5noxdeqt27qu" path="res://BattleSystem/Entities/Enemies/LizardGuard/lizard_guard_enemy_data.tres" id="7_h68bp"]
+[ext_resource type="Resource" uid="uid://b8glv1n4pdj8h" path="res://BattleSystem/Entities/Enemies/Minotaur/minotaur_enemy_data.tres" id="8_hjlna"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://BattleSystem/Configuration/BattleFieldLayouts/battle_object_layout.gd" id="9_42rq6"]
+[ext_resource type="Resource" uid="uid://tej2m7hvnbcr" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_0.tres" id="10_4dlpx"]
+[ext_resource type="Resource" uid="uid://bxevji3tbt7nj" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_1.tres" id="11_wildr"]
+[ext_resource type="Resource" uid="uid://b0005i5iywya1" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_2.tres" id="12_mxlgk"]
+[ext_resource type="Resource" uid="uid://cpthkdlobkjb1" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_3.tres" id="13_otr41"]
+[ext_resource type="Resource" uid="uid://m6l0jvs3q8l6" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_4.tres" id="14_jbitl"]
+[ext_resource type="Resource" uid="uid://bmbwy6icedisp" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_5.tres" id="15_782xx"]
+[ext_resource type="Resource" uid="uid://rkys75xo1wqu" path="res://BattleSystem/Configuration/BattleFieldLayouts/layout_varient_6.tres" id="16_cgdju"]
+
+[resource]
+script = ExtResource("3_n3fwg")
+enemy_pool = Array[ExtResource("1_emip0")]([ExtResource("2_m3xg1"), ExtResource("3_koi8w"), ExtResource("4_osj6j"), ExtResource("5_3jx45"), ExtResource("6_edhiu"), ExtResource("7_h68bp"), ExtResource("8_hjlna")])
+object_layouts = Array[ExtResource("9_42rq6")]([ExtResource("10_4dlpx"), ExtResource("11_wildr"), ExtResource("12_mxlgk"), ExtResource("13_otr41"), ExtResource("14_jbitl"), ExtResource("15_782xx"), ExtResource("16_cgdju")])
+metadata/_custom_type_script = "uid://cspfjbd0uqj7u"

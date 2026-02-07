@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://l2sxjofae18b"]
-
-[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://Scripts/ResourceScripts/EntityData/trait_data.gd" id="1_vumog"]
-
-[resource]
-script = ExtResource("1_vumog")
-name = "Careful"
-metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

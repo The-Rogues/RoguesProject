@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BattleObjectLayout" format=3 uid="uid://m6l0jvs3q8l6"]
+
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://BattleSystem/Entities/BaseScripts/battle_object_data.gd" id="1_kct0g"]
+[ext_resource type="Resource" uid="uid://0413e1iwchac" path="res://BattleSystem/Entities/Objects/CobbledWall/cobbled_wall_object_data.tres" id="2_kct0g"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://BattleSystem/Configuration/BattleFieldLayouts/battle_object_layout.gd" id="3_kct0g"]
+
+[resource]
+script = ExtResource("3_kct0g")
+rarity = 1
+layout = Dictionary[int, ExtResource("1_kct0g")]({
+0: null,
+1: ExtResource("2_kct0g"),
+2: ExtResource("2_kct0g"),
+3: ExtResource("2_kct0g"),
+4: null
+})
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"
