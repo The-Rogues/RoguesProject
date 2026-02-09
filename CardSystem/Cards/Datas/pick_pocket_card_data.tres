@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cj4xbwssn24vj"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_3peln"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_5h0gv"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="2_dtpyg"]
+[ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_8g6hi"]
+[ext_resource type="Script" uid="uid://dvkfpw6aj680b" path="res://BattleSystem/AtomicActions/CharacterSpecific/try_for_gold_action.gd" id="4_y5c2x"]
+
+[sub_resource type="Resource" id="Resource_qvf82"]
+script = ExtResource("3_8g6hi")
+damage = 16
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_5pcb6"]
+script = ExtResource("4_y5c2x")
+minimum_gold = 50
+maximum_gold = 100
+chance = 0.25
+consequence_action = SubResource("Resource_qvf82")
+metadata/_custom_type_script = "uid://dvkfpw6aj680b"
+
+[sub_resource type="Resource" id="Resource_4sxqb"]
+script = ExtResource("1_3peln")
+targeting = 1
+actions = Array[ExtResource("2_5h0gv")]([SubResource("Resource_5pcb6")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("2_dtpyg")
+rarity = 2
+name = "PickPocket"
+description = "Character attempts to steal gold from an enemy
+If character fails, they take 16 damage"
+energy_cost = 2
+play_moves = Array[ExtResource("1_3peln")]([SubResource("Resource_4sxqb")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

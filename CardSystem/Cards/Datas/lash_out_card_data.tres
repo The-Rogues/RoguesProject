@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://7n3mqrwdvr7"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_qhqm1"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_bvj7j"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="2_y16mb"]
+[ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_xbxtp"]
+[ext_resource type="Script" uid="uid://dha63lye0dnph" path="res://BattleSystem/AtomicActions/Common/repeated_action.gd" id="4_gb7d5"]
+[ext_resource type="Script" uid="uid://cdq8pxat42c87" path="res://BattleSystem/AtomicActions/Common/chance_action.gd" id="5_bvj7j"]
+
+[sub_resource type="Resource" id="Resource_xbxtp"]
+script = ExtResource("3_xbxtp")
+damage = 3
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_gb7d5"]
+script = ExtResource("4_gb7d5")
+times = 4
+action = SubResource("Resource_xbxtp")
+metadata/_custom_type_script = "uid://dha63lye0dnph"
+
+[sub_resource type="Resource" id="Resource_2nryc"]
+script = ExtResource("1_qhqm1")
+targeting = 3
+actions = Array[ExtResource("2_bvj7j")]([SubResource("Resource_gb7d5")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[sub_resource type="Resource" id="Resource_hprym"]
+script = ExtResource("3_xbxtp")
+damage = 10
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_sbovq"]
+script = ExtResource("5_bvj7j")
+conditional_action = SubResource("Resource_hprym")
+chance = 0.35
+metadata/_custom_type_script = "uid://cdq8pxat42c87"
+
+[sub_resource type="Resource" id="Resource_bvj7j"]
+script = ExtResource("1_qhqm1")
+targeting = 1
+actions = Array[ExtResource("2_bvj7j")]([SubResource("Resource_sbovq")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("2_y16mb")
+rarity = 1
+name = "Lash out"
+description = "Deal 3 damage to all enemies 4 times
+Chance to hurt self for 10 damage"
+energy_cost = 2
+play_moves = Array[ExtResource("1_qhqm1")]([SubResource("Resource_2nryc"), SubResource("Resource_bvj7j")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

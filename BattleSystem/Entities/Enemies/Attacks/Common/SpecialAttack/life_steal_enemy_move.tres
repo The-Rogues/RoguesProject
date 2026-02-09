@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 
 [sub_resource type="Resource" id="Resource_gocyk"]
 script = ExtResource("4_dmpt8")
-heal_amount = 6
+health = 6
 metadata/_custom_type_script = "uid://cetmmi5e7bh0x"
 
 [sub_resource type="Resource" id="Resource_y3b26"]

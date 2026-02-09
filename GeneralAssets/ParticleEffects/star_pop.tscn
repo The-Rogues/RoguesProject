@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn5th5vqoyyf0"]
 
-[ext_resource type="Texture2D" uid="uid://du0mhjd4rafgh" path="res://BattleSystem/BattleFieldSystem/BattlePositions/charged_position_texture.tres" id="1_wd5ck"]
+[ext_resource type="Texture2D" uid="uid://du0mhjd4rafgh" path="res://BattleSystem/BattleField/BattlePositions/charged_position_texture.tres" id="1_wd5ck"]
 
 [sub_resource type="Curve" id="Curve_h4p57"]
 _data = [Vector2(0.25079367, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

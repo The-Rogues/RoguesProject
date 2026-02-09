@@ -1,5 +1,12 @@
-# Author: Nathaniel
-# Edited: Fabian
+# ==========================================================
+# Authors: Nethaniel, Fabian 
+# Description:
+#   Scripting behaviour for the Main Menu Screen
+#   Acts as a mediator between scene assets by checking 
+#   menu button inputs from manually connected signals
+#   to make sub-menu visible 
+#
+# ==========================================================
 
 # Handles screen navigation logic to access different elements of main menu
 extends Node2D

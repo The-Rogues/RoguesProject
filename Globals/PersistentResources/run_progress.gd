@@ -5,6 +5,7 @@ class_name RunProgress
 
 # TODO: Add deck field
 @export var character_data:CharacterData
+@export var card_deck:CardDeck
 @export var heald_items:Array[ItemData]
 @export var item_capacity:int = 3
 @export var backstory:String
@@ -22,6 +23,7 @@ func _init(
 	character_data = new_character_data
 	backstory = new_backstory
 	
+	card_deck = load("res://CardSystem/Decks/starting_card_deck.tres")
 	heald_items = []
 	item_capacity = 3
 	current_floor = 1

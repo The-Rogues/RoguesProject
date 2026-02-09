@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://ixxhsopjxo2g"]
 
 [ext_resource type="Script" uid="uid://drlcp5cosbwjw" path="res://BattleSystem/Scenes/battle_scene.gd" id="1_jfmiq"]
-[ext_resource type="PackedScene" uid="uid://1ipkbhxl3ark" path="res://BattleSystem/BattleFieldSystem/battle_field.tscn" id="2_ceml1"]
+[ext_resource type="PackedScene" uid="uid://1ipkbhxl3ark" path="res://BattleSystem/BattleField/battle_field.tscn" id="2_ceml1"]
 [ext_resource type="Script" uid="uid://05khfkwi3t2f" path="res://BattleSystem/BattleFlowManager/battle_manager.gd" id="2_laop5"]
 [ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://CardSystem/Scenes/play_area.tscn" id="3_nuuou"]
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/BaseScripts/card_data.gd" id="3_o2adx"]
+[ext_resource type="Resource" uid="uid://c5lm4cl0xdwwq" path="res://CardSystem/Decks/starting_card_deck.tres" id="3_r734y"]
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://CardSystem/card_play_hand.gd" id="4_cgsmb"]
-[ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://CardSystem/Cards/swing_card_data.tres" id="4_chtiq"]
-[ext_resource type="Script" uid="uid://c7c4s2eiw0kq7" path="res://CardSystem/Decks/card_deck.gd" id="5_1mkj3"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="5_7j1wb"]
-[ext_resource type="Resource" uid="uid://bg6c4g3c1qp6p" path="res://CardSystem/Cards/dbl_slash_card_data.tres" id="5_chtiq"]
 [ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://ItemSystem/Scenes/item_interface.tscn" id="6_nlaga"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="7_3nysi"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://BattleSystem/Scenes/energy_counter.tscn" id="7_e1j2j"]
@@ -17,15 +14,7 @@
 [ext_resource type="Resource" uid="uid://dj231k2t6krxk" path="res://PersonalitySystem/PlayerCharacter/default_character_data.tres" id="9_7lneo"]
 [ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="9_3876o"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://BattleSystem/Scenes/battle_results_ui.tscn" id="10_tmnld"]
-[ext_resource type="PackedScene" uid="uid://bknwp7yiwhq8m" path="res://CardSystem/Scenes/deck_viewer_ui.tscn" id="15_1mkj3"]
-
-[sub_resource type="Resource" id="Resource_o06pe"]
-script = ExtResource("5_1mkj3")
-cards = Dictionary[ExtResource("3_o2adx"), int]({
-ExtResource("4_chtiq"): 10,
-ExtResource("5_chtiq"): 5
-})
-metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
+[ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://CardSystem/Scenes/deck_viewer_ui.tscn" id="15_1mkj3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
 b = Vector2(3, 452)
@@ -36,23 +25,23 @@ b = Vector2(-1151, -3)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3876o"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "character_entity", "battle_field", "end_turn_button", "battle_results_display", "item_interface")]
+[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "character_entity", "end_turn_button", "battle_results_display", "item_interface")]
 script = ExtResource("1_jfmiq")
 battle_manager = NodePath("BattleManager")
 character_entity = NodePath("Player")
-battle_field = NodePath("BattleField")
 end_turn_button = NodePath("UILayer/Control/EndTurnButton")
 battle_results_display = NodePath("BattleResultDisplay")
 item_interface = NodePath("UILayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ItemInterface")
 
-[node name="BattleManager" type="Node" parent="." unique_id=1665866141 node_paths=PackedStringArray("enemy_delay_timer", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui")]
+[node name="BattleManager" type="Node" parent="." unique_id=1665866141 node_paths=PackedStringArray("battle_field", "enemy_delay_timer", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui")]
 script = ExtResource("2_laop5")
+battle_field = NodePath("../BattleField")
 enemy_delay_timer = NodePath("EnemyDelayTimer")
 energy_counter = NodePath("../UILayer/Control/EnergyCounter")
 player_card_hand = NodePath("../UILayer/PlayerCardHand")
-draw_pile = SubResource("Resource_o06pe")
-draw_pile_ui = NodePath("../UILayer/Control/DrawPileUI")
-discard_pile_ui = NodePath("../UILayer/Control/DiscardPileUI")
+draw_pile = ExtResource("3_r734y")
+draw_pile_ui = NodePath("../UILayer/Control/DrawPileViewer")
+discard_pile_ui = NodePath("../UILayer/Control/DiscardPileViewer")
 
 [node name="EnemyDelayTimer" type="Timer" parent="BattleManager" unique_id=202726847]
 wait_time = 0.8
@@ -84,6 +73,13 @@ position = Vector2(1152, 448)
 shape = SubResource("SegmentShape2D_o1our")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]
+
+[node name="PlayArea" parent="UILayer" unique_id=574541479 instance=ExtResource("3_nuuou")]
+position = Vector2(546, 263)
+
+[node name="PlayerCardHand" type="Node2D" parent="UILayer" unique_id=1303605846]
+script = ExtResource("4_cgsmb")
+y_position = 480.0
 
 [node name="Control" type="Control" parent="UILayer" unique_id=1327020800]
 layout_mode = 3
@@ -225,37 +221,21 @@ offset_bottom = 615.0
 text = "Discard Pile
 "
 
-[node name="DrawPileUI" parent="UILayer/Control" unique_id=1617308441 node_paths=PackedStringArray("button") instance=ExtResource("15_1mkj3")]
+[node name="DrawPileViewer" parent="UILayer/Control" unique_id=1617308441 node_paths=PackedStringArray("activation_button") instance=ExtResource("15_1mkj3")]
 visible = false
-layout_mode = 0
-offset_left = 256.0
-offset_top = 68.0
-offset_right = 956.0
-offset_bottom = 568.0
-button = NodePath("../DrawPileButton")
+layout_mode = 1
+activation_button = NodePath("../DrawPileButton")
 
-[node name="DiscardPileUI" parent="UILayer/Control" unique_id=1370577341 node_paths=PackedStringArray("button") instance=ExtResource("15_1mkj3")]
+[node name="DiscardPileViewer" parent="UILayer/Control" unique_id=726602545 node_paths=PackedStringArray("activation_button") instance=ExtResource("15_1mkj3")]
 visible = false
-layout_mode = 0
-offset_left = 257.0
-offset_top = 72.0
-offset_right = 957.0
-offset_bottom = 572.0
-button = NodePath("../DiscardPileButton")
-
-[node name="PlayArea" parent="UILayer" unique_id=574541479 instance=ExtResource("3_nuuou")]
-position = Vector2(546, 263)
-
-[node name="PlayerCardHand" type="Node2D" parent="UILayer" unique_id=1303605846]
-script = ExtResource("4_cgsmb")
-y_position = 480.0
+layout_mode = 1
+activation_button = NodePath("../DiscardPileButton")
 
 [node name="BattleResultDisplay" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
-visible = false
 
 [connection signal="button_up" from="UILayer/Control/Debugging2/Win button" to="." method="_on_win_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/TestPlayerDamage" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/TestEnemyDamage" to="." method="_on_test_enemy_damage_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/Add Card" to="BattleManager" method="_on_add_card_button_up"]
-[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_up"]
 [connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_button_up"]
+[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_up"]

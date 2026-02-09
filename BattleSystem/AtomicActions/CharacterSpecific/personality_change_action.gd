@@ -1,15 +1,15 @@
-# ==========================================================
-# Author: Fabian 
-# Description:
-#   An editable resource that performs a personality change
-#   operation on the player character with paramaters for 
-#   retaining old weight values.
-#   To be used as a creatable asset in paramater fields of CombatMove.
-#
-# ==========================================================
-
 extends AtomicAction
 class_name PersonalityChangeAction
+## AtomicAction responsible for replacing one of the player character’s
+## personality traits during battle.
+##
+## When executed, this action swaps the selected trait category
+## (offensive, defensive, or strategic) with a new TraitData instance.
+## The original trait weight may be preserved or overridden with a
+## specified value.
+##
+## Currently applies a permanent change to the character state.
+## Intended future support includes temporary, turn-based trait changes.
 
 enum TraitType {OFFENSIVE, DEFENSIVE, STRATEGIC}
 @export var change_trait:TraitType

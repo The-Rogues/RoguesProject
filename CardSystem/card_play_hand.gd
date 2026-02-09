@@ -36,7 +36,7 @@ var CARD_WIDTH:float = 100
 
 # Stores packed scene of CardUI we will use as a template for
 # instantiation
-const CARD_UI = preload("res://CardSystem/Scenes/card_ui.tscn")
+const CARD_UI = preload("res://CardSystem/Cards/card_ui.tscn")
 
 func _ready() -> void:
 	screen_size = get_viewport().size

@@ -1,40 +1,36 @@
-# ==========================================================
-# Author: Fabian 
-# Description:
-#   An editable resource that performs a buff operation on
-#   an entity's attack or defense multiplier.
-#   To be used as a creatable asset in paramater fields of CombatMove.
-#
-# ==========================================================
-
 extends AtomicAction
 class_name BuffAction
+## AtomicAction that applies a temporary combat buff to targeted battle
+## entities.
+##
+## Amplifies either attack or defense effectiveness for all targets in
+## the action context by a predefined increase for a set number of turns.
+## Yields for a breif period before finishing execution.
 
-enum Amplify_Stat {ATTACK, DEFENSE}
-enum Multiplier {X2, X1_5, X1_25}
-@export var amplify_stat:Amplify_Stat
-@export var multiplier:Multiplier
+enum Stat_Category {ATTACK, DEFENSE}
+enum Increase {DOUBLE, HALF, QUARTER}
+@export var stat:Stat_Category
+@export var increase:Increase
+@export_range(1, 99) var turns:int = 3
 
-# TODO: Currently buffs persist, consider making them temporary
-#  having the entity recover after X turns
 
 func execute(action_context:ActionContext):
-	var multiplier_value:float
+	var increase_value:float
 	
-	match  multiplier:
-		Multiplier.X2:
-			multiplier_value = 1.0
+	match  increase:
+		Increase.DOUBLE:
+			increase_value = 1.0
 			pass
-		Multiplier.X1_5:
-			multiplier_value = 0.5
+		Increase.HALF:
+			increase_value = 0.5
 			pass
-		Multiplier.X1_25:
-			multiplier_value = 0.25
+		Increase.QUARTER:
+			increase_value = 0.25
 			pass
 	
 	for target in action_context.targets:
-		if amplify_stat == Amplify_Stat.ATTACK:
-			target.buff_attack(multiplier_value)
-		elif amplify_stat == Amplify_Stat.DEFENSE:
-			target.buff_defense(multiplier_value)
-		await target.entity_animator.animation_finished
+		if stat == Stat_Category.ATTACK:
+			target.buff_attack(increase_value, turns)
+		elif stat == Stat_Category.DEFENSE:
+			target.buff_defense(increase_value, turns)
+		await target.get_tree().create_timer(0.15).timeout

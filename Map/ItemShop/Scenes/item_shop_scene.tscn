@@ -81,7 +81,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Menu" type="Control" parent="CanvasLayer/Control" unique_id=256880900]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,6 +131,7 @@ theme_override_font_sizes/font_size = 32
 text = "LEAVE"
 
 [node name="ShopMenu" type="Control" parent="CanvasLayer/Control" unique_id=258124473]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -290,8 +290,18 @@ theme_override_constants/margin_top = 30
 [node name="PlayerGold" parent="CanvasLayer/Control/HBoxContainer/MarginContainer" unique_id=1751191548 instance=ExtResource("9_acpms")]
 layout_mode = 2
 
-[connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Buy" to="." method="_on_open_shop"]
+[node name="ShopTitle" parent="CanvasLayer/Control" unique_id=630110822 instance=ExtResource("9_acpms")]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 158.0
+offset_right = 698.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 64
+text = "SHOP"
+script = null
+
 [connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Buy" to="." method="_on_buy_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Buy" to="." method="_on_open_shop"]
 [connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Sell" to="." method="open_sell_menu"]
 [connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Leave" to="." method="_on_leave_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopMenu/MarginContainer/VBoxContainer/Barter" to="." method="_on_barter_button_up"]

@@ -12,7 +12,6 @@ class_name BattleScene
 
 @export var battle_manager: BattleManager
 @export var character_entity: BattleEntity
-@export var battle_field: BattleField
 @export var end_turn_button: Button
 @export var battle_results_display: BattleResultLayer
 @export var item_interface:ItemInterface
@@ -44,11 +43,11 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	_position_enemies(enemies)
 	
 	# Setup Battle Manager
-	battle_manager.initialize(character_entity, enemies, battle_field)
-	
-	# Load Battle Objects & Battle Positions
-	battle_field.initialize(battle_configuration.battle_object_layout)
-	battle_field.initialize_player(character_entity)
+	battle_manager.initialize(
+			character_entity, 
+			enemies, 
+			battle_configuration.battle_object_layout
+			)
 	
 	# Setup Item Interface
 	for item in battle_configuration.items:
@@ -57,12 +56,12 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	item_interface.initialize(items)
 	
 	# Connect signals
-	battle_manager.started_new_turn.connect(_started_player_turn)
+	battle_manager.new_turn_started.connect(_started_player_turn)
 	battle_manager.battle_ended.connect(_on_battle_ended)
 	item_interface.activate_item.connect(_on_use_item)
 	
-	battle_results_display.visible = true
 	await battle_results_display.fade_out()
+	battle_results_display.visible = false
 	_started_player_turn()
 
 func _position_enemies(enemies:Array[BattleEntity]):
@@ -98,9 +97,7 @@ func _on_end_turn_button_button_up() -> void:
 	pass # Replace with function body.
 
 func _started_player_turn():
-	battle_field.on_new_turn_started()
 	end_turn_button.disabled = false
-	
 
 func _on_battle_ended(player_won:bool):
 	end_turn_button.visible = false

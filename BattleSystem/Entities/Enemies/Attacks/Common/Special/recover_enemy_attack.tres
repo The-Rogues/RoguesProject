@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_wiy27"]
 script = ExtResource("2_0b5ny")
-heal_amount = 8
+health = 8
 metadata/_custom_type_script = "uid://cetmmi5e7bh0x"
 
 [sub_resource type="Resource" id="Resource_srmwc"]

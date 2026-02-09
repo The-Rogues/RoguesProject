@@ -1,9 +1,16 @@
-# Author: Fabian
-# Used for displaying and mediating operations on EntityData
-# Represents Player and Enemies
-
 extends Entity
 class_name BattleEntity
+## Battle-specific entity node that mediates gameplay logic and presentation.
+##
+## Extends [Entity] to represent both player characters and enemies during
+## combat. Handles damage and healing logic, attack and defense
+## amplification, turn-based tracking, movement animation
+## sequencing, and combat-related visual feedback.
+##
+## Serves as the bridge between EntityData state and in-scene representation,
+## emitting signals for status changes and coordinating animations in
+## response to combat events.
+
 
 signal buffed_defense
 signal debuffed_defense
@@ -11,16 +18,17 @@ signal buffed_attack
 signal debuffed_attack
 signal started_moving
 signal arrived
-# signal turn_changed
-# Animator reference
-@export var entity_animator:AnimationPlayer
-# Used to display icons over the entities head
-# Specific uses are displaying enemy intent and character emotion status
-@onready var icon: TextureRect = $UI/Icon
-# When Icon is hovered over by mouse, the context panel will display with text
-# describing what the icon indicates.
-@onready var context_panel: ContextPanel = $UI/ContextPanel
-# TODO: Create icons to display what buffs and debuffs the entity has
+
+@onready var entity_animator:AnimationPlayer = $EntityAnimator
+@onready var thought_icon: TextureRect = $UI/ThoughtIcon
+@onready var thought_context_popup: ContextPanel = $UI/ThoughtContextPanel
+
+# Used to track how many turns are left before recovering
+var defense_status_turn_counter:int = 0
+var attack_status_turn_counter:int = 0
+# TODO: Create thought_icons to display what buffs and debuffs the entity has
+
+
 func initialize(new_entity_data:EntityData = null):
 	super(new_entity_data)
 	# Initialize amplifier stats
@@ -34,6 +42,7 @@ func initialize(new_entity_data:EntityData = null):
 	var delay = randf_range(0, 0.45)
 	await get_tree().create_timer(delay).timeout
 	entity_animator.play("battle_entity/idle")
+
 
 func take_damage(amount:float, attacker:Entity = null):
 	var total_damage = amount
@@ -51,6 +60,7 @@ func take_damage(amount:float, attacker:Entity = null):
 	await entity_animator.animation_finished
 	entity_animator.play("battle_entity/idle")
 
+
 func heal(amount:float):
 	super(amount)
 	entity_animator.stop()
@@ -58,12 +68,20 @@ func heal(amount:float):
 	await entity_animator.animation_finished
 	entity_animator.play("battle_entity/idle")
 
-func buff_defense(amount:float):
+
+func buff_defense(amount:float, turns:int = 3):
 	if is_defeated:
 		return
 	
+	print(entity_data.name, " defense buff set for turns: ", turns)
+	
 	entity_data.defense_amplifier.increase(amount)
 	buffed_defense.emit()
+	
+	if entity_data.defense_amplifier.value < 1:
+		defense_status_turn_counter = turns
+	else:
+		defense_status_turn_counter += turns
 	
 	# TODO: Create specific animations for buffs and debuffs
 	entity_animator.stop()
@@ -71,48 +89,97 @@ func buff_defense(amount:float):
 	await entity_animator.animation_finished
 	entity_animator.play("battle_entity/idle")
 
-func debuff_defense(amount:float):
+
+func debuff_defense(amount:float, turns:int = 3):
 	if is_defeated:
 		return
 	
+	print(entity_data.name, " defense debuff set for turns: ", turns)
 	
 	entity_data.defense_amplifier.reduce(amount)
 	debuffed_defense.emit()
+	
+	if entity_data.defense_amplifier.value > 1:
+		defense_status_turn_counter = turns
+	else:
+		defense_status_turn_counter += turns
 	
 	entity_animator.stop()
 	entity_animator.play("battle_entity/damage")
 	await entity_animator.animation_finished
 	entity_animator.play("battle_entity/idle")
 
-func buff_attack(amount:float):
+
+func buff_attack(amount:float, turns:int = 3):
 	if is_defeated:
 		return
 	
+	print(entity_data.name, " attack buff set for turns: ", turns)
+	
 	entity_data.attack_amplifier.increase(amount)
 	buffed_attack.emit()
+	
+	if entity_data.attack_amplifier.value < 1:
+		attack_status_turn_counter = turns
+	else:
+		attack_status_turn_counter += turns
 	
 	entity_animator.stop()
 	entity_animator.play("battle_entity/heal")
 	await entity_animator.animation_finished
 	entity_animator.play("battle_entity/idle")
 
-func debuff_attack(amount:float):
+
+func debuff_attack(amount:float, turns:int = 3):
 	if is_defeated:
 		return
 	
+	print(entity_data.name, " attack debuff set for turns: ", turns)
+	
 	entity_data.defense_amplifier.reduce(amount)
 	debuffed_attack.emit()
+	
+	if entity_data.attack_amplifier.value > 1:
+		attack_status_turn_counter = turns
+	else:
+		attack_status_turn_counter += turns
 	
 	entity_animator.stop()
 	entity_animator.play("battle_entity/damage")
 	await entity_animator.animation_finished
 	entity_animator.play("battle_entity/idle")
 
+
 func _on_defeated():
 	super()
 	entity_animator.stop()
 	entity_animator.play("battle_entity/defeat")
 	await entity_animator.animation_finished
+
+
+func _on_new_turn_started():
+	super()
+	
+	if entity_data.defense_amplifier.value != 1:
+		defense_status_turn_counter -= 1
+		print(entity_data.name,
+				" ", 
+				defense_status_turn_counter,  
+				" turns left of defense amplifier")
+		if defense_status_turn_counter == 0:
+			defense_status_turn_counter = 1
+			print(entity_data.name,  " reset defense amplifier")
+	
+	if entity_data.attack_amplifier.value != 1:
+		attack_status_turn_counter -= 1
+		print(entity_data.name,
+				" ", 
+				attack_status_turn_counter,  
+				" turns left of attack amplifier")
+		if attack_status_turn_counter == 0:
+			attack_status_turn_counter = 1
+			print(entity_data.name,  " reset attack amplifier")
+
 
 # Moves the entity to a passed position while playing a walking animation
 # Used for animation sequences and moving player between battle positions
@@ -127,32 +194,40 @@ func move_to(new_position:Vector2):
 	await tween.finished
 	arrived.emit()
 
+
 func _on_started_moving():
 	entity_animator.play("battle_entity/march")
+
 
 func _on_arrived():
 	entity_animator.play("battle_entity/idle")
 
-func update_icon(texture:Texture2D):
-	icon.texture = texture
 
-func icon_visible(is_visible:bool):
-	icon.visible = is_visible
+func update_thought_icon(texture:Texture2D):
+	thought_icon.texture = texture
 
-func display_icon():
-	icon.visible = true
 
-func hide_icon():
-	icon.visible = false
+func thought_icon_visible(is_visible:bool):
+	thought_icon.visible = is_visible
 
-func _on_icon_mouse_entered() -> void:
-	if !icon.visible:
+
+func display_thought_icon():
+	thought_icon.visible = true
+
+
+func hide_thought_icon():
+	thought_icon.visible = false
+
+
+func _on_thought_icon_mouse_entered() -> void:
+	if !thought_icon.visible:
 		return
-	context_panel.visible = true
+	thought_context_popup.visible = true
 	pass # Replace with function body.
 
-func _on_icon_mouse_exited() -> void:
-	if !icon.visible:
+
+func _on_thought_icon_mouse_exited() -> void:
+	if !thought_icon.visible:
 		return
-	context_panel.visible = false
+	thought_context_popup.visible = false
 	pass # Replace with function body.

@@ -7,6 +7,7 @@ enum DamageTarget {PLAYER, ENEMY}
 @export var timer: Timer
 @export var sprite_2d: Sprite2D
 @export var damage:int
+@export var face_direction:bool
 const POP_PARTICLES = preload("res://GeneralAssets/ParticleEffects/star_pop.tscn")
 var active:bool = false
 var velocity: Vector2 = Vector2.ZERO
@@ -23,12 +24,29 @@ func _physics_process(delta):
 	# Move the projectile based on its velocity
 	global_position += velocity * delta
 
+func configure(
+	new_damage_target:DamageTarget,
+	replacement_texture:Texture2D,
+	new_speed:float,
+	new_damage:int,
+	new_face_direction:bool
+):
+	damages = new_damage_target
+	sprite_2d.texture = replacement_texture
+	speed = new_speed
+	damage = new_damage
+	if new_face_direction:
+		face_direction = true
+
 func spawn_and_launch(spawn_position:Vector2, direction: Vector2):
 	# Set the initial velocity when the projectile is created
 	global_position = spawn_position
 	sprite_2d.visible = true
 	velocity = direction * speed
+	if face_direction:
+		sprite_2d.rotation = direction.angle()-80
 	active = true
+	print("projectile targeting", damages)
 
 func _on_body_entered(body):
 	# Handle collision: print a message and destroy the projectile

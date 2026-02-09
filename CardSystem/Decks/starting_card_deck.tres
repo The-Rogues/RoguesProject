@@ -1,24 +1,18 @@
 [gd_resource type="Resource" script_class="CardDeck" format=3 uid="uid://c5lm4cl0xdwwq"]
 
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/BaseScripts/card_data.gd" id="1_j5lpn"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="1_qkhdm"]
+[ext_resource type="Resource" uid="uid://bg6c4g3c1qp6p" path="res://CardSystem/Cards/Datas/arrow_shot_card_data.tres" id="2_4riwa"]
 [ext_resource type="Script" uid="uid://c7c4s2eiw0kq7" path="res://CardSystem/Decks/card_deck.gd" id="2_cltlr"]
-[ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://CardSystem/Cards/swing_card_data.tres" id="2_ha0h5"]
-[ext_resource type="Resource" uid="uid://bg6c4g3c1qp6p" path="res://CardSystem/Cards/dbl_slash_card_data.tres" id="4_5j0k0"]
-[ext_resource type="Resource" uid="uid://sibxmmin7rgr" path="res://CardSystem/Cards/overexert_card_data.tres" id="5_iaxjd"]
-[ext_resource type="Resource" uid="uid://cutd5qpikdh3i" path="res://CardSystem/Cards/spin_slash_card_data.tres" id="6_xka62"]
-[ext_resource type="Resource" uid="uid://dgt1ffuwrstbt" path="res://CardSystem/Cards/step_card_data.tres" id="7_iaxjd"]
-[ext_resource type="Resource" uid="uid://cuwc8ueu7aloa" path="res://CardSystem/Cards/dash_card_data.tres" id="8_xka62"]
-[ext_resource type="Resource" uid="uid://c6774gwn7h8po" path="res://CardSystem/Cards/absorb_card_data.tres" id="9_mb8jf"]
+[ext_resource type="Resource" uid="uid://cpcm1bkfedbjv" path="res://CardSystem/Cards/Datas/strike_card_data.tres" id="3_4riwa"]
+[ext_resource type="Resource" uid="uid://7n3mqrwdvr7" path="res://CardSystem/Cards/Datas/lash_out_card_data.tres" id="3_wwvk7"]
+[ext_resource type="Resource" uid="uid://cj4xbwssn24vj" path="res://CardSystem/Cards/Datas/pick_pocket_card_data.tres" id="4_nu65x"]
+[ext_resource type="Resource" uid="uid://c6774gwn7h8po" path="res://CardSystem/Cards/Datas/rest_card_data.tres" id="6_peqtg"]
+[ext_resource type="Resource" uid="uid://b2mj2k04lyi5h" path="res://CardSystem/Cards/Datas/retreat_card_data.tres" id="7_tfxxt"]
+[ext_resource type="Resource" uid="uid://dgt1ffuwrstbt" path="res://CardSystem/Cards/Datas/step_card_data.tres" id="8_ec414"]
+[ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://CardSystem/Cards/Datas/swing_card_data.tres" id="9_x3eug"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_cltlr")
-cards = Dictionary[ExtResource("1_j5lpn"), int]({
-ExtResource("2_ha0h5"): 1,
-ExtResource("9_mb8jf"): 1,
-ExtResource("8_xka62"): 1,
-ExtResource("7_iaxjd"): 1,
-ExtResource("6_xka62"): 1,
-ExtResource("5_iaxjd"): 1,
-ExtResource("4_5j0k0"): 1
-})
+cards = Array[ExtResource("1_qkhdm")]([ExtResource("9_x3eug"), ExtResource("9_x3eug"), ExtResource("3_4riwa"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("7_tfxxt"), ExtResource("6_peqtg"), ExtResource("6_peqtg"), ExtResource("4_nu65x"), ExtResource("3_wwvk7"), ExtResource("2_4riwa"), ExtResource("3_4riwa"), ExtResource("9_x3eug"), ExtResource("3_4riwa")])
 metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"

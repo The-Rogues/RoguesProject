@@ -12,16 +12,16 @@ class_name BattleManager
 
 signal battle_ended(player_won:bool)
 signal card_drawn(card_data:CardData)
-signal started_new_turn
+signal new_turn_started
+@export var battle_field: BattleField
 # Timer that adds delay between attacks from different enemies
 @export var enemy_delay_timer: Timer
 @export var energy_counter:EnergyCounter
 @export var player_card_hand: CardPlayHand
 @export var draw_pile: CardDeck
 @export var discard_pile: CardDeck
-@export var draw_pile_ui: DeckViewerUI
-@export var discard_pile_ui: DeckViewerUI
-
+@export var draw_pile_ui: CardDeckViewerUI
+@export var discard_pile_ui: CardDeckViewerUI
 
 enum BattleState { PLAYER_TURN, ENEMY_TURN, ENDED }
 var battle_state:BattleState = BattleState.PLAYER_TURN
@@ -29,68 +29,68 @@ var battle_state:BattleState = BattleState.PLAYER_TURN
 var player_entity:BattleEntity
 var enemies:Array[BattleEntity]
 var living_enemies:Array[BattleEntity]
-
 var action_queue:ActionQueue
-var battle_field:BattleField
+
+var turn_count:int = 0
 
 func initialize(new_player_entity:BattleEntity, 
 			new_enemies:Array[BattleEntity],
-			new_battle_field:BattleField):
+			battle_object_layout:BattleObjectLayout):
+	
 	player_entity = new_player_entity
 	energy_counter.initialize(new_player_entity.entity_data.energy.value)
 	
 	for enemy in new_enemies:
 		enemies.append(enemy)
 		living_enemies.append(enemy)
-	battle_field = new_battle_field
 	
+	# Load Battle Objects & Battle Positions
+	battle_field.initialize(battle_object_layout)
+	battle_field.initialize_player(player_entity)
 	action_queue = ActionQueue.new()
 	
 	for enemy in enemies:
 		enemy.defeated.connect(_on_entity_defeated)
 		
+		new_turn_started.connect(enemy._on_new_turn_started)
 		if enemy.entity_data is EnemyData:
 			enemy.entity_data.choose_next_move()
 	
+	new_turn_started.connect(player_entity._on_new_turn_started)
+	
 	player_entity.defeated.connect(_on_entity_defeated)
 	player_card_hand.play_card.connect(_on_try_play_card)
-	_start_player_turn()
 	discard_pile = CardDeck.new() #initialize discard_pile
-	discard_pile.deck_updated.connect(_discard_pile_updated)
-	draw_pile.deck_updated.connect(_draw_pile_updated)
-	draw_pile_ui._initialize(draw_pile.get_deck_as_array())
-	discard_pile_ui._initialize(discard_pile.get_deck_as_array())
-	
-	
-	
-func _discard_pile_updated(card_datas:Array[CardData]):
-	discard_pile_ui._initialize(card_datas)
-	
-func _draw_pile_updated(card_datas:Array[CardData]):
-	draw_pile_ui._initialize(card_datas)
+	discard_pile.name = "Discard Pile"
+	draw_pile.name = "Draw Pile"
+	draw_pile.cards.shuffle()
+	draw_pile_ui._initialize(draw_pile)
+	discard_pile_ui._initialize(discard_pile)
+	_start_player_turn()
 
 func _start_player_turn():
+	turn_count += 1
+	print("TURN: ", turn_count)
 	if battle_state != BattleState.PLAYER_TURN:
 		return
 	
-	if draw_pile.get_deck_as_array().is_empty():
-		draw_pile.copy_to_this_deck(discard_pile)
+	if draw_pile.cards.is_empty():
+		discard_pile.transfer_cards_to_deck(draw_pile, true)
 	
-		
-	var drawn_cards = draw_pile.draw_mult_array(5)
+	var drawn_cards = draw_pile.draw_cards(5)
 	for card in drawn_cards:
 		if card != null:
 			player_card_hand.draw_card(card)
 			card_drawn.emit(card)
-		
-		
+	
 	for enemy in enemies:
 		if enemy.entity_data is EnemyData:
 			enemy.entity_data.choose_next_move()
 	
+	battle_field.on_new_turn_started()
+	
 	energy_counter.reset_energy()
-	started_new_turn.emit()
-
+	new_turn_started.emit()
 
 
 func end_player_turn() -> void:
@@ -105,11 +105,11 @@ func end_player_turn() -> void:
 	await _run_enemy_turn()
 
 func _run_enemy_turn() -> void:
-	for enemy in enemies:
+	for enemy in living_enemies:
 		if !enemy.entity_data is EnemyData:
 			return
 		var next_move = enemy.entity_data.next_move
-		enemy.hide_icon()
+		enemy.hide_thought_icon()
 		if next_move.action_type == EnemyMove.Type.PHYSICAL:
 			enemy.entity_animator.play("battle_entity/attack")
 		elif next_move.action_type == EnemyMove.Type.SPECIAL:
@@ -126,12 +126,9 @@ func _run_enemy_turn() -> void:
 			
 			for action in combat_move.actions:
 				action_queue.enqueue(action, action_context)
-			#await action_queue.processed_all_actions
 		
 		enemy_delay_timer.start()
 		await enemy_delay_timer.timeout
-	
-	#await action_queue.processed_all_actions
 	battle_state = BattleState.PLAYER_TURN
 	_start_player_turn()
 
@@ -143,7 +140,6 @@ func _on_try_play_card(card_ui:CardUI):
 	
 	discard_pile.add_card(card_data)
 	
-	
 	player_card_hand.remove_played_card(card_ui)
 	energy_counter.spend_energy(card_data.energy_cost)
 	execute_card(card_data)
@@ -153,7 +149,7 @@ func execute_card(card_data:CardData):
 		if combat_move == null:
 			return
 		
-		var target:Array[BattleEntity] = get_attack_target(combat_move)
+		var target:Array[BattleEntity] = get_attack_target(combat_move, player_entity)
 		# Only player can be the user in this case because its a card
 		var action_context:ActionContext = create_action_context(player_entity, target)
 		# Queues each action to be executed sequentiallt

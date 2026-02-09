@@ -15,6 +15,7 @@ signal defeated(entity:Entity)
 signal healed(amount:int)
 signal damaged(amount:int)
 signal updated_entity_data
+signal entered_new_turn
 
 # Source of the Entities display, stats, and behaviour information
 @export var entity_data:EntityData
@@ -119,6 +120,11 @@ func _on_defeated():
 		ui_dissapear_timer.start()
 		hide_ui()
 
+func _on_new_turn_started():
+	if defeated:
+		return
+	entered_new_turn.emit()
+
 func hide_ui():
 	ui_display.visible = false
 
@@ -135,7 +141,6 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		return
 	
 	if body is LaunchBody and entity_data.damaged_by_launchbody:
-		print("hit")
 		take_damage(6)
 
 func _on_ui_dissapear_timeout():

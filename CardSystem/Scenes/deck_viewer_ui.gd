@@ -1,36 +1,53 @@
+# ==========================================================
+# Authors: Andy, Fabian 
+# Description:
+#   Scripting behaviour for the DeckViewer scene
+#   Connects to a card deck's update signal and updates
+#   display that shows all cards in a deck
+#
+# ==========================================================
+
 extends PanelContainer
-class_name DeckViewerUI
+class_name CardDeckViewerUI
 
-@onready var flow_container: FlowContainer = $VBoxContainer/MarginContainer/ScrollContainer/FlowContainer
-const CARD_UI = preload("res://CardSystem/Scenes/card_ui.tscn")
-@export var button:Button
 signal opened
+## The button in the scene that will open the deck viewer
+@export var activation_button:Button
+@onready var deck_name: Label = $VBoxContainer/PanelContainer/MarginContainer/DeckName
+@onready var card_container: FlowContainer = $VBoxContainer/MarginContainer/ScrollContainer/CardConatiner
+@onready var empty_label: Label = $VBoxContainer/MarginContainer/EmptyLabel
 
-func _initialize(card_datas:Array[CardData]):
-	
-	for child in flow_container.get_children():
-		child.queue_free()	
-	
-	for card in card_datas:
-		var new_card_ui = CARD_UI.instantiate()
-		flow_container.add_child(new_card_ui)
-		new_card_ui.set_card_data(card)
-		
-	
+const CARD_UI = preload("res://CardSystem/Cards/card_ui.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	visible = false
-	button.button_up.connect(_on_button_up)
+	if activation_button:
+		visible = false
+		activation_button.button_up.connect(_on_activation_button_up)
 
+func _initialize(card_deck:CardDeck):
+	for child in card_container.get_children():
+		child.queue_free()
 	
+	deck_name.text = card_deck.name
+	card_deck.deck_updated.connect(_update_card_display)
+	_update_card_display(card_deck.cards)
 
-func _on_button_up():
+func _update_card_display(new_card_datas:Array[CardData]):
+	for child in card_container.get_children():
+		child.queue_free()
+	
+	empty_label.visible = new_card_datas.is_empty()
+	
+	for card_data in new_card_datas:
+		var new_card_ui = CARD_UI.instantiate()
+		card_container.add_child(new_card_ui)
+		new_card_ui.set_card_data(card_data)
+
+func _on_activation_button_up():
 	opened.emit()
 	visible = true
-	
 
-
-
-func _on_button_button_up() -> void:
+func _on_close_button_up() -> void:
 	visible = false
-	
+	pass # Replace with function body.

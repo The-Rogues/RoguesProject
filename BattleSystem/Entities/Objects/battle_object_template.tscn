@@ -85,6 +85,16 @@ display_numbers = false
 layout_mode = 2
 size_flags_horizontal = 4
 
+[node name="NumbersSpawner" type="Control" parent="UI" unique_id=1971109296 node_paths=PackedStringArray("entity")]
+anchors_preset = 0
+offset_left = 44.0
+offset_top = 5.0
+offset_right = 84.0
+offset_bottom = 45.0
+mouse_filter = 2
+script = ExtResource("6_bbmlj")
+entity = NodePath("../..")
+
 [node name="BounceBox" type="StaticBody2D" parent="." unique_id=1559131223]
 collision_layer = 3
 collision_mask = 0
@@ -100,10 +110,5 @@ position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_6rg1p")
 
 [node name="UITimer" type="Timer" parent="." unique_id=741231036]
-
-[node name="DamageNumbersSpawner" type="Node2D" parent="." unique_id=762073587 node_paths=PackedStringArray("entity")]
-position = Vector2(-2, -22)
-script = ExtResource("6_bbmlj")
-entity = NodePath("..")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

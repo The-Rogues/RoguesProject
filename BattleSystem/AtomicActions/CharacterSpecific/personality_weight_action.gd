@@ -1,14 +1,13 @@
-# ==========================================================
-# Author: Fabian 
-# Description:
-#   An editable resource that performs a personality trait weight 
-#   change operation on the player character.
-#   To be used as a creatable asset in paramater fields of CombatMove.
-#
-# ==========================================================
-
 extends AtomicAction
 class_name PersonalityWeightAction
+## AtomicAction that modifies the weight of a player personality trait.
+##
+## Adjusts the weight of the selected trait category by a fixed amount
+## or a randomized value within a predefined range. This action does not
+## replace the trait itself—only its influence strength.
+##
+## Currently applies a permanent change to the character's trait weight.
+## Intended future support includes temporary, turn-based trait changes.
 
 enum TraitType {OFFENSIVE, DEFENSIVE, STRATEGIC}
 @export var change_weight_of:TraitType

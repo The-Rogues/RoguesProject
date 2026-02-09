@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_bqg6v"]
 [ext_resource type="Texture2D" uid="uid://gwqfbimby6mq" path="res://BattleSystem/Entities/Enemies/Trooper/trooper_texture.tres" id="4_ycb72"]
 [ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_ycb72"]
-[ext_resource type="Resource" uid="uid://cnft8rbrgf5jb" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/rapid_strike_enemy_move.tres" id="6_bhyxp"]
+[ext_resource type="Resource" uid="uid://cvtfmjdkmic86" path="res://BattleSystem/Entities/Enemies/Trooper/tentacle_rush_enemy_attack.tres" id="6_72dig"]
 [ext_resource type="Resource" uid="uid://b4huw5yrm3en5" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Special/recover_enemy_attack.tres" id="7_uxxh4"]
 [ext_resource type="Resource" uid="uid://d0ywlr3ob7t0a" path="res://BattleSystem/Entities/Enemies/Trooper/whip_enemy_attack.tres" id="8_dhtvq"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_vqp6u"]
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 [resource]
 script = ExtResource("9_vqp6u")
 reward_amount = 220
-move_set = Array[ExtResource("5_ycb72")]([ExtResource("6_bhyxp"), ExtResource("7_uxxh4"), ExtResource("8_dhtvq")])
+move_set = Array[ExtResource("5_ycb72")]([ExtResource("6_72dig"), ExtResource("7_uxxh4"), ExtResource("8_dhtvq")])
 display_texture = ExtResource("4_ycb72")
 name = "Trooper"
 health_points = 80

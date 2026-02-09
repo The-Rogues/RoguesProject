@@ -1,7 +1,8 @@
-extends Node2D
+extends Control
 
 const POP_TEXT = preload("res://GeneralAssets/UI/PopNumbers/pop_numbers.tscn")
 @export var entity:Entity
+var happened:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,6 +11,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_entity_data_changed():
+	if happened:
+		return
+	happened = true
 	entity.damaged.connect(_on_entity_damaged)
 	entity.healed.connect(_on_entity_healed)
 

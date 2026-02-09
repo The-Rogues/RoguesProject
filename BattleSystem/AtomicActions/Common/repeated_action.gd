@@ -1,20 +1,17 @@
-# ==========================================================
-# Author: Fabian 
-# Description:
-#   An editable resource that queues a passed AtomicAction 
-#   a specified number of times.
-#   Useful for repeated attacks like hit target 3-times
-#   which can be checked by some event system to trigger an effect
-#   To be used as a creatable asset in paramater fields of CombatMove.
-#
-# ==========================================================
-
 extends AtomicAction
 class_name RepeatedAction
 
-# Times to queue the action
-@export_range(1,9) var times:int = 1
+## AtomicAction that queues a selected action a specified number of times.
+##
+## Identical to having multiple of the same atomic action actions in a
+## combat move. Created to make queing repeated actions convenient and
+## compact.
+
+## Controls the number of times the action will be queued
+@export_range(2,99) var times:int = 1
+## Specifies the action to queue
 @export var action:AtomicAction
+
 
 func execute(action_context:ActionContext):
 	for i in range(times):

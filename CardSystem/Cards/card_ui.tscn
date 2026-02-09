@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b6kxom317vkry"]
+
+[ext_resource type="Script" uid="uid://cl86l7vm1n0p0" path="res://CardSystem/Cards/card_ui.gd" id="1_rjlel"]
+[ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Default/Border/panel-border-007.png" id="2_vu8sv"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="3_a6rhs"]
+[ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Default/Divider/divider-002.png" id="4_eib7d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu8sv"]
+bg_color = Color(0.1058254, 0.067406714, 0.23165691, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu8sv"]
+size = Vector2(111, 150)
+
+[node name="CardUI" type="Control" unique_id=2072196125]
+custom_minimum_size = Vector2(112, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 112.0
+offset_bottom = 150.0
+pivot_offset = Vector2(56, 75)
+script = ExtResource("1_rjlel")
+
+[node name="CardUI" type="PanelContainer" parent="." unique_id=429033215]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 150.0
+pivot_offset = Vector2(59, 76)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vu8sv")
+
+[node name="CardShape" type="NinePatchRect" parent="CardUI" unique_id=781119265]
+layout_mode = 2
+texture = ExtResource("2_vu8sv")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="CardUI" unique_id=1459029736]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardUI/MarginContainer" unique_id=872648812]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="EnergyLabel" type="Label" parent="CardUI/MarginContainer/VBoxContainer" unique_id=1949275094]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("3_a6rhs")
+theme_override_font_sizes/font_size = 16
+text = "1"
+horizontal_alignment = 2
+
+[node name="NameLabel" type="Label" parent="CardUI/MarginContainer/VBoxContainer" unique_id=280635127]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_a6rhs")
+theme_override_font_sizes/font_size = 12
+text = "name"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardUI/MarginContainer/VBoxContainer" unique_id=1901218588]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_filter = 2
+
+[node name="Devider" type="TextureRect" parent="CardUI/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1455932293]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_eib7d")
+
+[node name="DescriptionLabel" type="Label" parent="CardUI/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1260964887]
+texture_filter = 1
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 10
+text = "Brief card behaviour description"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CardCollisionArea" type="Area2D" parent="." unique_id=1434636072]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardCollisionArea" unique_id=946080812]
+position = Vector2(55.5, 73)
+shape = SubResource("RectangleShape2D_vu8sv")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="CardCollisionArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CardCollisionArea" to="." method="_on_area_2d_area_exited"]

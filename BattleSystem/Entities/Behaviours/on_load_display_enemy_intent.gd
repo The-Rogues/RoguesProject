@@ -16,6 +16,6 @@ func initialize(new_entity:Entity):
 
 # Updates entity's context panel and icon to display EnemyAction info
 func _on_new_move_chosen(enemy_move:EnemyMove):
-	entity_instance.context_panel.set_context(enemy_move.description_text)
-	entity_instance.update_icon(enemy_move.icon)
-	entity_instance.display_icon()
+	entity_instance.thought_context_popup.set_context(enemy_move.description_text)
+	entity_instance.update_thought_icon(enemy_move.icon)
+	entity_instance.display_thought_icon()

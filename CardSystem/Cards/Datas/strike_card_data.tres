@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cpcm1bkfedbjv"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_mmffy"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_uk0b2"]
+[ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_47aiu"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="5_eqn1h"]
+
+[sub_resource type="Resource" id="Resource_o7sar"]
+script = ExtResource("3_47aiu")
+damage = 4
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_s0vwy"]
+script = ExtResource("1_mmffy")
+targeting = 2
+actions = Array[ExtResource("2_uk0b2")]([SubResource("Resource_o7sar")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("5_eqn1h")
+name = "Strike"
+description = "Deal 4 damage"
+energy_cost = 1
+play_moves = Array[ExtResource("1_mmffy")]([SubResource("Resource_s0vwy")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

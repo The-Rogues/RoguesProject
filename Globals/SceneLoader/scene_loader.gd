@@ -15,6 +15,7 @@ var pending_shop_data:ShopData
 const FLOOR_1_SPAWN_POOL = preload("res://BattleSystem/Configuration/SpawnPools/floor_1_spawn_pool.tres")
 const FLOOR_1_SHOP_DATA = preload("res://Map/ItemShop/ShopDatas/floor_1_shop_data.tres")
 
+const MAIN_MENU_PATH = "res://Menus/main_menu_scene.tscn"
 const MAP_SCENE_PATH = "res://Map/map_screen/MapScreen.tscn"
 const BATTLE_SCENE_PATH = "res://BattleSystem/Scenes/battle_scene.tscn"
 const CHARACTER_GENERATOR_PATH = "res://Menus/character_generator_screen.tscn"

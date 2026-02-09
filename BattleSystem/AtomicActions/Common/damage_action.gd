@@ -1,45 +1,46 @@
-# ==========================================================
-# Author: Fabian 
-# Description:
-#   An editable resource that performs a damage operation on
-#   an entity, taking into account the user's attack amplifiers.
-#   Incoming damage can be intercepted or blocked depending on
-#   the set data fields in an object's BattleObjectData
-#   To be used as a creatable asset in paramater fields of CombatMove.
-#
-# ==========================================================
-
 extends AtomicAction
 class_name DamageAction
+## AtomicAction that applies immediate damage to targeted battle entities.
+##
+## Damage is optionally scaled by the attacking entity’s attack amplifier
+## and may be intercepted or fully blocked by battlefield objects positioned
+## in front of the player. When multiple targets are present, damage is
+## applied without waiting; for single targets, execution briefly yields
+## to improve hit readability and effect sequencing.
+##
+## All entities handle their own damage logic
 
-## Damage to deal to targets
+## Controls the amount of damage a targeted entity will recieve
 @export var damage:int = 0
 
+
+# TODO: Creating a timer on the tree for pausing execution isn't reccomended
+# in most cases. Consider having damage response time stored locally in 
+# entity class
 func execute(action_context:ActionContext):
 	var user = action_context.user
 	var final_damage:int = damage
 	var battle_object = action_context.battle_field.get_object_infront_of_player()
-	# Check made in case user is null, which may be the case in testing
-	# Example: Pressing a button that queues a damage action to an entity
+	
+	# Assumes user will not always be battle entity to make function testable
+	# with null users
 	if user is BattleEntity:
 		final_damage = damage * user.entity_data.attack_amplifier.value
 	
 	for target in action_context.targets:
+		# Checks for battle object incase it is destroyed between targets
 		if battle_object:
-			# battle object will check itself if a user can damage it
 			battle_object.take_damage(damage, user)
-			# battle object blocks an incoming attack
+			
 			if battle_object.blocks_attacker(user):
-				await battle_object.entity_animator.animation_finished
+				await battle_object.get_tree().create_timer(0.15).timeout
 				return
-		# target handles its own damage logic
+		
 		target.take_damage(final_damage)
-		# Doesn't wait for damage animation to finish before damaging
-		# other targets
+		
 		if action_context.targets.size() > 1:
+			await target.get_tree().create_timer(0.05).timeout
 			continue
-		# Waits for damage animation to finish before completing execution
-		# Useful for if you want to make it clear an entity was hit multiple times
-		# or hit then had a status effect inflected on them
+		
 		if !target.is_defeated:
-			await target.entity_animator.animation_finished
+			await target.get_tree().create_timer(0.15).timeout

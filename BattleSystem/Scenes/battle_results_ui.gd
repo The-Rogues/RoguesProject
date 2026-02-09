@@ -15,12 +15,13 @@ var target_scene:String
 
 func _ready() -> void:
 	display_elements.visible = false
+	visible = false
 
 
 func set_result(won_battle:bool,
 		player_entity:BattleEntity,
 		enemies:Array[BattleEntity]):
-	
+	visible = true
 	player_entity.reparent(self)
 	player_entity.hide_ui()
 	if won_battle:
@@ -59,7 +60,7 @@ func set_result(won_battle:bool,
 		particles.queue_free()
 		display_timer.start()
 		GlobalSessionManager.restart()
-		target_scene = "res://Screens/main_menu_screen.tscn"
+		target_scene = GlobalSceneLoader.MAP_SCENE_PATH
 
 func _on_display_timer_timeout() -> void:
 	display_elements.visible = true
