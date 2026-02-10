@@ -40,7 +40,7 @@ func set_result(won_battle:bool,
 		player_entity.move_to(march_position.global_position)
 		player_entity.entity_animator.play("battle_entity/march")
 		display_timer.start()
-		target_scene = "res://Map/map_screen/MapScreen.tscn"
+		target_scene = GlobalSceneLoader.MAP_SCENE_PATH
 		GlobalSessionManager.add_gold(gold_amount)
 		GlobalSessionManager.save_character_health(player_entity.entity_data.health.value)
 	else:
@@ -60,7 +60,7 @@ func set_result(won_battle:bool,
 		particles.queue_free()
 		display_timer.start()
 		GlobalSessionManager.restart()
-		target_scene = GlobalSceneLoader.MAP_SCENE_PATH
+		target_scene = GlobalSceneLoader.MAIN_MENU_PATH
 
 func _on_display_timer_timeout() -> void:
 	display_elements.visible = true

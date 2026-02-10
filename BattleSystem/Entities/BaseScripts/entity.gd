@@ -121,7 +121,7 @@ func _on_defeated():
 		hide_ui()
 
 func _on_new_turn_started():
-	if defeated:
+	if is_defeated:
 		return
 	entered_new_turn.emit()
 

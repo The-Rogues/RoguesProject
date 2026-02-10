@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 
 [resource]
 script = ExtResource("9_vqp6u")
-reward_amount = 220
+reward_amount = 70
 move_set = Array[ExtResource("5_ycb72")]([ExtResource("6_72dig"), ExtResource("7_uxxh4"), ExtResource("8_dhtvq")])
 display_texture = ExtResource("4_ycb72")
 name = "Trooper"

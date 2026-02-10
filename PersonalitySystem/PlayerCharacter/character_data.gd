@@ -38,8 +38,6 @@ func initialize(
 		strategic_trait = new_strategic_trait
 		health_points = 80
 		health = Stat.new(80, 0, 80, true)
-		defense_amplifier = Stat.new(2, 0.25, 1, false)
-		attack_amplifier = Stat.new(2, 0.25, 1, false)
 		energy = Stat.new(5, 0, 5, true)
 		wait_to_hide_sprite = true
 		

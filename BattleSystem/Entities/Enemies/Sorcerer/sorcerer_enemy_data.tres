@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
 
 [resource]
 script = ExtResource("9_ljnds")
-reward_amount = 230
+reward_amount = 120
 move_set = Array[ExtResource("5_alaul")]([ExtResource("6_nad66"), ExtResource("7_oakic"), ExtResource("8_vckan"), ExtResource("9_eb62g")])
 rarity = 1
 display_texture = ExtResource("4_gqmd2")

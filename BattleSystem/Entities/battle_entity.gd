@@ -12,28 +12,22 @@ class_name BattleEntity
 ## response to combat events.
 
 
-signal buffed_defense
-signal debuffed_defense
-signal buffed_attack
-signal debuffed_attack
 signal started_moving
 signal arrived
+signal status_condition_added
+signal status_condition_removed
 
 @onready var entity_animator:AnimationPlayer = $EntityAnimator
 @onready var thought_icon: TextureRect = $UI/ThoughtIcon
 @onready var thought_context_popup: ContextPanel = $UI/ThoughtContextPanel
+@onready var status_icons_parent: HBoxContainer = $UI/StatusEffect
+@onready var star_pop: CPUParticles2D = $StarPop
 
-# Used to track how many turns are left before recovering
-var defense_status_turn_counter:int = 0
-var attack_status_turn_counter:int = 0
-# TODO: Create thought_icons to display what buffs and debuffs the entity has
-
+const STATUS_EFFECT_UI = preload("res://BattleSystem/StatusEffects/status_effect_icon.tscn")
+var status_effects: Array[StatusEffect] = []
 
 func initialize(new_entity_data:EntityData = null):
 	super(new_entity_data)
-	# Initialize amplifier stats
-	new_entity_data.defense_amplifier.initialize()
-	new_entity_data.attack_amplifier.initialize()
 	
 	started_moving.connect(_on_started_moving)
 	arrived.connect(_on_arrived)
@@ -43,18 +37,52 @@ func initialize(new_entity_data:EntityData = null):
 	await get_tree().create_timer(delay).timeout
 	entity_animator.play("battle_entity/idle")
 
+func add_status(effect: StatusEffectData, duration: int = 1, stacks: int = 1):
+	for instance in status_effects:
+		if instance.effect == effect:
+			if effect.is_stackable:
+				instance.stack_count += stacks
+				instance.duration = max(instance.duration, duration)
+			
+			for status_icon in status_icons_parent.get_children():
+				status_icon.update_ui()
+			return
+	var instance = StatusEffect.new(effect, duration, stacks)
+	status_effects.append(instance)
+	effect.on_apply(self, instance)
+	var icon = STATUS_EFFECT_UI.instantiate() as StatusEffectIcon
+	status_icons_parent.add_child(icon)
+	icon.bind(instance)
+	icon.update_ui()
+	status_condition_added.emit()
+
+
+func remove_status(instance: StatusEffect):
+	instance.effect.on_remove(self, instance)
+	status_effects.erase(instance)
+
+	for child in status_icons_parent.get_children():
+		if child.instance == instance:
+			child.queue_free()
+			status_condition_removed.emit()
+			break
+
+
+func get_attack_damage(base: int) -> int:
+	var amount := base
+	for instance in status_effects:
+		amount = instance.effect.modify_outgoing_damage(amount, instance)
+	return amount
 
 func take_damage(amount:float, attacker:Entity = null):
-	var total_damage = amount
+	var final_damage:int = amount
+	for instance in status_effects:
+		final_damage = instance.effect.modify_incoming_damage(final_damage, instance)
 	
-	if entity_data.defense_amplifier.value < 1:
-		total_damage = total_damage * (1 + entity_data.defense_amplifier.value)
-	elif entity_data.defense_amplifier.value > 1:
-		total_damage = total_damage * (1 - entity_data.defense_amplifier.value)
-	
-	super(amount, attacker)
+	super(final_damage, attacker)
 	# Stopping animation before playing damage animation for snappy
 	# transition
+	star_pop.emitting = true
 	entity_animator.stop()
 	entity_animator.play("battle_entity/damage")
 	await entity_animator.animation_finished
@@ -69,89 +97,9 @@ func heal(amount:float):
 	entity_animator.play("battle_entity/idle")
 
 
-func buff_defense(amount:float, turns:int = 3):
-	if is_defeated:
-		return
-	
-	print(entity_data.name, " defense buff set for turns: ", turns)
-	
-	entity_data.defense_amplifier.increase(amount)
-	buffed_defense.emit()
-	
-	if entity_data.defense_amplifier.value < 1:
-		defense_status_turn_counter = turns
-	else:
-		defense_status_turn_counter += turns
-	
-	# TODO: Create specific animations for buffs and debuffs
-	entity_animator.stop()
-	entity_animator.play("battle_entity/heal")
-	await entity_animator.animation_finished
-	entity_animator.play("battle_entity/idle")
-
-
-func debuff_defense(amount:float, turns:int = 3):
-	if is_defeated:
-		return
-	
-	print(entity_data.name, " defense debuff set for turns: ", turns)
-	
-	entity_data.defense_amplifier.reduce(amount)
-	debuffed_defense.emit()
-	
-	if entity_data.defense_amplifier.value > 1:
-		defense_status_turn_counter = turns
-	else:
-		defense_status_turn_counter += turns
-	
-	entity_animator.stop()
-	entity_animator.play("battle_entity/damage")
-	await entity_animator.animation_finished
-	entity_animator.play("battle_entity/idle")
-
-
-func buff_attack(amount:float, turns:int = 3):
-	if is_defeated:
-		return
-	
-	print(entity_data.name, " attack buff set for turns: ", turns)
-	
-	entity_data.attack_amplifier.increase(amount)
-	buffed_attack.emit()
-	
-	if entity_data.attack_amplifier.value < 1:
-		attack_status_turn_counter = turns
-	else:
-		attack_status_turn_counter += turns
-	
-	entity_animator.stop()
-	entity_animator.play("battle_entity/heal")
-	await entity_animator.animation_finished
-	entity_animator.play("battle_entity/idle")
-
-
-func debuff_attack(amount:float, turns:int = 3):
-	if is_defeated:
-		return
-	
-	print(entity_data.name, " attack debuff set for turns: ", turns)
-	
-	entity_data.defense_amplifier.reduce(amount)
-	debuffed_attack.emit()
-	
-	if entity_data.attack_amplifier.value > 1:
-		attack_status_turn_counter = turns
-	else:
-		attack_status_turn_counter += turns
-	
-	entity_animator.stop()
-	entity_animator.play("battle_entity/damage")
-	await entity_animator.animation_finished
-	entity_animator.play("battle_entity/idle")
-
-
 func _on_defeated():
 	super()
+	star_pop.emitting = true
 	entity_animator.stop()
 	entity_animator.play("battle_entity/defeat")
 	await entity_animator.animation_finished
@@ -160,25 +108,13 @@ func _on_defeated():
 func _on_new_turn_started():
 	super()
 	
-	if entity_data.defense_amplifier.value != 1:
-		defense_status_turn_counter -= 1
-		print(entity_data.name,
-				" ", 
-				defense_status_turn_counter,  
-				" turns left of defense amplifier")
-		if defense_status_turn_counter == 0:
-			defense_status_turn_counter = 1
-			print(entity_data.name,  " reset defense amplifier")
-	
-	if entity_data.attack_amplifier.value != 1:
-		attack_status_turn_counter -= 1
-		print(entity_data.name,
-				" ", 
-				attack_status_turn_counter,  
-				" turns left of attack amplifier")
-		if attack_status_turn_counter == 0:
-			attack_status_turn_counter = 1
-			print(entity_data.name,  " reset attack amplifier")
+	for instance in status_effects.duplicate():
+		instance.effect.on_turn_start(self, instance)
+		instance.duration -= 1
+		if instance.duration <= 0:
+			remove_status(instance)
+	for status_icon in status_icons_parent.get_children():
+		status_icon.update_ui()
 
 
 # Moves the entity to a passed position while playing a walking animation
@@ -206,28 +142,9 @@ func _on_arrived():
 func update_thought_icon(texture:Texture2D):
 	thought_icon.texture = texture
 
-
-func thought_icon_visible(is_visible:bool):
-	thought_icon.visible = is_visible
-
-
 func display_thought_icon():
 	thought_icon.visible = true
 
 
 func hide_thought_icon():
 	thought_icon.visible = false
-
-
-func _on_thought_icon_mouse_entered() -> void:
-	if !thought_icon.visible:
-		return
-	thought_context_popup.visible = true
-	pass # Replace with function body.
-
-
-func _on_thought_icon_mouse_exited() -> void:
-	if !thought_icon.visible:
-		return
-	thought_context_popup.visible = false
-	pass # Replace with function body.

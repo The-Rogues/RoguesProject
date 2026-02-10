@@ -8,7 +8,7 @@ enum DamageTarget {PLAYER, ENEMY}
 @export var sprite_2d: Sprite2D
 @export var damage:int
 @export var face_direction:bool
-const POP_PARTICLES = preload("res://GeneralAssets/ParticleEffects/star_pop.tscn")
+const POOF_PARTICLE = preload("res://GeneralAssets/ParticleEffects/poof.tscn")
 var active:bool = false
 var velocity: Vector2 = Vector2.ZERO
 
@@ -46,10 +46,8 @@ func spawn_and_launch(spawn_position:Vector2, direction: Vector2):
 	if face_direction:
 		sprite_2d.rotation = direction.angle()-80
 	active = true
-	print("projectile targeting", damages)
 
 func _on_body_entered(body):
-	# Handle collision: print a message and destroy the projectile
 	var entity = body.get_parent()
 	
 	if !entity is Entity:
@@ -74,7 +72,7 @@ func _on_timer_timeout():
 	queue_free()
 
 func spawn_particles(position:Vector2):
-	var particles:CPUParticles2D = POP_PARTICLES.instantiate()
+	var particles:CPUParticles2D = POOF_PARTICLE.instantiate()
 	get_parent().add_child(particles)
 	particles.global_position = position
 	particles.emitting = true

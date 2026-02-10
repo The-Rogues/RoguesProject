@@ -38,7 +38,7 @@ script = ExtResource("2_laop5")
 battle_field = NodePath("../BattleField")
 enemy_delay_timer = NodePath("EnemyDelayTimer")
 energy_counter = NodePath("../UILayer/Control/EnergyCounter")
-player_card_hand = NodePath("../UILayer/PlayerCardHand")
+player_card_hand = NodePath("../PlayerCardHand")
 draw_pile = ExtResource("3_r734y")
 draw_pile_ui = NodePath("../UILayer/Control/DrawPileViewer")
 discard_pile_ui = NodePath("../UILayer/Control/DiscardPileViewer")
@@ -50,6 +50,12 @@ wait_time = 0.8
 position = Vector2(555, 408)
 player_entity = NodePath("../Player")
 battle_object_offset = Vector2(0, -50)
+
+[node name="PlayerCardHand" type="Node2D" parent="." unique_id=1303605846]
+position = Vector2(0, 210)
+script = ExtResource("4_cgsmb")
+y_position = 280.0
+fan_angle = 10.0
 
 [node name="Player" parent="." unique_id=1657833200 instance=ExtResource("8_ao6ux")]
 position = Vector2(550, 535)
@@ -76,10 +82,6 @@ shape = SubResource("SegmentShape2D_o1our")
 
 [node name="PlayArea" parent="UILayer" unique_id=574541479 instance=ExtResource("3_nuuou")]
 position = Vector2(546, 263)
-
-[node name="PlayerCardHand" type="Node2D" parent="UILayer" unique_id=1303605846]
-script = ExtResource("4_cgsmb")
-y_position = 480.0
 
 [node name="Control" type="Control" parent="UILayer" unique_id=1327020800]
 layout_mode = 3
@@ -237,5 +239,5 @@ activation_button = NodePath("../DiscardPileButton")
 [connection signal="button_up" from="UILayer/Control/Debugging2/TestPlayerDamage" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/TestEnemyDamage" to="." method="_on_test_enemy_damage_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/Add Card" to="BattleManager" method="_on_add_card_button_up"]
-[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_button_up"]
 [connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_up"]
+[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_button_up"]

@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://GeneralAssets/UI/HealthBar/health_bar.tscn" id="5_eriic"]
 [ext_resource type="Script" uid="uid://5csnu3315kur" path="res://BattleSystem/Entities/BaseScripts/entity_name_label.gd" id="6_4b8ed"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://GeneralAssets/UI/ContextPanel/context_panel.tscn" id="6_17qbg"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://GeneralAssets/UI/ContextPanel/hover_pop_up.gd" id="7_2hyyd"]
 [ext_resource type="Script" uid="uid://cuphtsbdj1lq7" path="res://BattleSystem/Scenes/damage_numbers_spawner.gd" id="10_x0i37"]
+[ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://GeneralAssets/ParticleEffects/star_pop.tscn" id="12_c6k81"]
 
 [sub_resource type="Shader" id="Shader_q0abo"]
 code = "shader_type canvas_item;
@@ -67,6 +69,9 @@ ui_display = NodePath("UI")
 health_bar = NodePath("UI/StatusElements/HealthBar")
 ui_dissapear_timer = NodePath("UI/UITimer")
 
+[node name="StarPop" parent="." unique_id=232237618 instance=ExtResource("12_c6k81")]
+texture_filter = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1874866210]
 texture_filter = 1
 material = SubResource("ShaderMaterial_q0abo")
@@ -121,7 +126,7 @@ mouse_filter = 2
 script = ExtResource("10_x0i37")
 entity = NodePath("../..")
 
-[node name="ThoughtIcon" type="TextureRect" parent="UI" unique_id=797130534]
+[node name="ThoughtIcon" type="TextureRect" parent="UI" unique_id=797130534 node_paths=PackedStringArray("context_panel")]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -132,6 +137,8 @@ offset_bottom = -52.0
 pivot_offset = Vector2(16, 32)
 mouse_filter = 0
 texture = ExtResource("5_c0cmw")
+script = ExtResource("7_2hyyd")
+context_panel = NodePath("../ThoughtContextPanel")
 
 [node name="ThoughtContextPanel" parent="UI" unique_id=1838000936 instance=ExtResource("6_17qbg")]
 visible = false
@@ -141,6 +148,12 @@ offset_top = -59.0
 offset_right = 258.0
 offset_bottom = 1.0
 mouse_filter = 2
+
+[node name="StatusEffect" type="HBoxContainer" parent="UI" unique_id=749191132]
+layout_mode = 1
+offset_top = 33.0
+offset_right = 216.0
+offset_bottom = 73.0
 
 [node name="StatusElements" type="VBoxContainer" parent="UI" unique_id=1951467649]
 layout_mode = 1

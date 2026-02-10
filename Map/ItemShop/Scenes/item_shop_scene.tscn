@@ -130,6 +130,20 @@ theme_override_fonts/font = ExtResource("3_jq6m6")
 theme_override_font_sizes/font_size = 32
 text = "LEAVE"
 
+[node name="ShopTitle" type="Label" parent="CanvasLayer/Control/Menu" unique_id=630110822]
+texture_filter = 1
+layout_mode = 0
+offset_left = 470.0
+offset_top = 158.0
+offset_right = 698.0
+offset_bottom = 215.0
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.7943998, 0.52152604, 5.7756904e-07, 1)
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 64
+text = "SHOP"
+horizontal_alignment = 1
+
 [node name="ShopMenu" type="Control" parent="CanvasLayer/Control" unique_id=258124473]
 visible = false
 layout_mode = 1
@@ -289,16 +303,6 @@ theme_override_constants/margin_top = 30
 
 [node name="PlayerGold" parent="CanvasLayer/Control/HBoxContainer/MarginContainer" unique_id=1751191548 instance=ExtResource("9_acpms")]
 layout_mode = 2
-
-[node name="ShopTitle" parent="CanvasLayer/Control" unique_id=630110822 instance=ExtResource("9_acpms")]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 158.0
-offset_right = 698.0
-offset_bottom = 215.0
-theme_override_font_sizes/font_size = 64
-text = "SHOP"
-script = null
 
 [connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Buy" to="." method="_on_buy_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/Menu/Margin/VBoxContainer/Buy" to="." method="_on_open_shop"]

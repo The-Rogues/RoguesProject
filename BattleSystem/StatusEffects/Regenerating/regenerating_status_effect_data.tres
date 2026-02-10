@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RegeneratingStatusEffect" format=3 uid="uid://b4evn3jjvghv3"]
+
+[ext_resource type="Script" uid="uid://baesebsx75y6x" path="res://BattleSystem/StatusEffects/Regenerating/regenerating_status_effect_data_script.gd" id="1_ax15d"]
+[ext_resource type="Texture2D" uid="uid://e6ny87os8hbc" path="res://BattleSystem/StatusEffects/Regenerating/regenerating_status_effect_texture.tres" id="1_jyrd7"]
+
+[resource]
+script = ExtResource("1_ax15d")
+id = "regenerating"
+display_name = "Regenerating"
+icon = ExtResource("1_jyrd7")
+metadata/_custom_type_script = "uid://baesebsx75y6x"

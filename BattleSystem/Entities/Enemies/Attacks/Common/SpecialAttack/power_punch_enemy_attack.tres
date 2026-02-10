@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_0uc6r"]
 [ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_r2wvr"]
 [ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_y3b26"]
-[ext_resource type="Script" uid="uid://l765wa6kln4a" path="res://BattleSystem/AtomicActions/Common/buff_action.gd" id="4_0uc6r"]
-[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_attack_intent_icon.tres" id="5_ieun7"]
+[ext_resource type="Script" uid="uid://dgv6gseivfje3" path="res://BattleSystem/AtomicActions/Common/add_status_condition_action.gd" id="4_g4q6t"]
+[ext_resource type="Resource" uid="uid://c55148r33pa1e" path="res://BattleSystem/StatusEffects/Strength/strength_status_effect_data.tres" id="5_2fkec"]
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_attack_intent_icon.tres" id="5_ieun7"]
 [ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="6_4go46"]
 
 [sub_resource type="Resource" id="Resource_xtqfi"]
@@ -18,21 +19,23 @@ targeting = 1
 actions = Array[ExtResource("2_r2wvr")]([SubResource("Resource_xtqfi")])
 metadata/_custom_type_script = "uid://btp3527x14hav"
 
-[sub_resource type="Resource" id="Resource_r2wvr"]
-script = ExtResource("4_0uc6r")
-multiplier = 2
-metadata/_custom_type_script = "uid://l765wa6kln4a"
+[sub_resource type="Resource" id="Resource_505sl"]
+script = ExtResource("4_g4q6t")
+status_condition = ExtResource("5_2fkec")
+duration = 2
+stack_count = 4
+metadata/_custom_type_script = "uid://dgv6gseivfje3"
 
 [sub_resource type="Resource" id="Resource_y3b26"]
 script = ExtResource("1_0uc6r")
-actions = Array[ExtResource("2_r2wvr")]([SubResource("Resource_r2wvr")])
+actions = Array[ExtResource("2_r2wvr")]([SubResource("Resource_505sl")])
 metadata/_custom_type_script = "uid://btp3527x14hav"
 
 [resource]
 script = ExtResource("6_4go46")
 name = "Power Punch"
 description_text = "Deal 6 damage
-Increase strength 25%"
+Gain 4 strength for 2 turns"
 icon = ExtResource("5_ieun7")
 actions = Array[ExtResource("1_0uc6r")]([SubResource("Resource_qknlh"), SubResource("Resource_y3b26")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

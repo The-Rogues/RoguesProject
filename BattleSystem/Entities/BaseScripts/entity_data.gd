@@ -14,7 +14,7 @@ class_name EntityData
 @export var name:String
 # Uses a Stat resource to allow for configurable stat behaviour
 @export var health_points:int = 100
-var health:Stat
+var health:Stat = Stat.new(100, 0, 100, false)
 # Used for special animations like the player's death
 @export var wait_to_hide_sprite:bool = false
 # Toggle for if the Entity instance will take damage if hit by a launch body

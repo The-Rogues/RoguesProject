@@ -1,161 +1,173 @@
-# ==========================================================
-# Author: Fabian 
-# Description:
-#   Attatch to a Node2D to make it a parent that displays a 
-#   drawn hand of cards.
-#   Works by passing an array of CardData and initializing
-#   a new CardUI scene for each card_data.
-#   Conencts click and release signals from CardUIs to allow
-#   for dragging Cards accross the screen
-#   Signals for a card to be played when releasing CardUI over
-#   valid card play area (Area2D with mask layer 2)
-#
-# ==========================================================
-
-class_name CardPlayHand
 extends Node2D
+class_name CardPlayHand
 
-# Emitted when dragged card is released over a play area
-signal play_card(card_ui:CardUI)
+signal play_card(card_ui: CardUI)
 
-# Stores data for drawn cards
-@export var card_datas:Array[CardData]
-# Changes the y position of where the card hand appears on screen
-@export var y_position:float
-@export var force_initialization:bool = false
-# Stores the instantiated CardUIs
-var card_uis:Array[CardUI]
-# Stores a copy of the heald card UI to drag around
+@export var y_position: float = 700
+@export var fan_angle: float = 20.0
+@export var fan_spacing: float = 90.0
+@export var force_initialization := false
+@export var card_datas: Array[CardData]
+
+const CARD_UI := preload("res://CardSystem/Cards/card_ui.tscn")
+
+var card_uis:Array[CardUI] = []
+
+var held_card:CardUI = null
 var dragged_card:CardUI = null
-# Stores the actual heald card
-var heald_card:CardUI = null
 var holding_card:bool = false
 
 var screen_size:Vector2
-var CARD_WIDTH:float = 100
-
-# Stores packed scene of CardUI we will use as a template for
-# instantiation
-const CARD_UI = preload("res://CardSystem/Cards/card_ui.tscn")
 
 func _ready() -> void:
 	screen_size = get_viewport().size
 	if force_initialization:
 		initialize(card_datas)
-	#get_viewport().size_changed.connect(on_screen_size_changed)
 
-func _process(delta: float) -> void:
-	if holding_card:
-		var mouse_pos = get_global_mouse_position()
-		dragged_card.position = Vector2(clamp(mouse_pos.x, 0, screen_size.x),clamp(mouse_pos.y, 0, screen_size.y))
-		if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			_release_heald_card()
-			holding_card = false
-
-func initialize(new_card_datas:Array[CardData]):
-	if !new_card_datas:
+func _process(_delta: float) -> void:
+	if not holding_card or dragged_card == null:
 		return
 	
-	for card_data in new_card_datas:
-		draw_card(card_data)
-
-func draw_card(card_data:CardData):
-	var new_card_ui = CARD_UI.instantiate()
-	new_card_ui.set_card_data(card_data)
-	add_child(new_card_ui)
+	dragged_card.global_position = get_global_mouse_position()
 	
-	new_card_ui.hovered.connect(on_card_hovered)
-	new_card_ui.clicked.connect(on_clicked_card)
-	card_uis.append(new_card_ui)
-	
-	update_card_positions()
+	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		_release_card()
 
-# Updates positioning of all cards currently in the play hand
-#TODO: Implement card fanning and dynamic card positioning so that CardUIs
-#      are closer together the more cards are added to the hand
-func update_card_positions():
+# -------------------------------------------------
+# Initialization / Drawing
+# -------------------------------------------------
+
+func initialize(new_card_datas: Array[CardData]) -> void:
+	clear_hand()
+	for data in new_card_datas:
+		draw_card(data)
+
+func draw_card(new_card_data: CardData) -> void:
+	var card:CardUI = CARD_UI.instantiate() as CardUI
+	add_child(card)
+	card.set_card_data(new_card_data)
+	
+	card.clicked.connect(_on_card_clicked)
+	card.hovered.connect(_on_card_hovered)
+	
+	card_uis.append(card)
+	_update_card_layout()
+
+# -------------------------------------------------
+# Layout / Fanning
+# -------------------------------------------------
+
+func _update_card_layout() -> void:
 	if card_uis.is_empty():
 		return
 	
-	for i in range(0, card_uis.size()):
-		# Y position stays the same, X position is calculated
-		var card_pos = Vector2(calculate_card_position(i), y_position)
-		# Move cards towards their new calculated position
-		var card = card_uis[i]
-		tween_card_to_position(card, card_pos)
+	var count:float = card_uis.size()
+	var center_x:float = screen_size.x * 0.5
+	
+	for i in count:
+		var card:CardUI = card_uis[i]
+		if card == held_card:
+			continue
+		
+		var t:float = i - (count - 1) * 0.5
+		var angle:float = t * fan_angle
+		var x:float = center_x + t * fan_spacing
+		var y:float = y_position + abs(t) * 10
+		
+		_move_card(card, Vector2(x, y), angle)
 
-func calculate_card_position(index:int):
-	# Total width of card hand with the size of all cards next to eachother included
-	var total_width = (card_uis.size() - 1) * CARD_WIDTH
-	# Middle of screen + index of card * its width - offset to be back in middle
-	var x_offset = (screen_size.x / 2) + index * CARD_WIDTH - total_width / 2
-	return x_offset
+func _move_card(card: CardUI, pos: Vector2, rot: float) -> void:
+	var tween := get_tree().create_tween()
+	tween.set_parallel()
+	tween.tween_property(card, "position", pos, 0.25)
+	tween.tween_property(card, "rotation_degrees", rot, 0.25)
 
-func tween_card_to_position(card_ui:CardUI, new_positon:Vector2):
-	var tween = get_tree().create_tween()
-	tween.tween_property(card_ui, "position", new_positon, 0.2)
-	await tween.finished
+# -------------------------------------------------
+# Input / Dragging
+# -------------------------------------------------
 
-func on_clicked_card(card_ui:CardUI):
-	if heald_card:
+func _on_card_clicked(card: CardUI) -> void:
+	if holding_card:
 		return
 	
-	heald_card = card_ui
-	
-	# Instead of dragging the actual clicked card
-	# A copy is created and dragged around instead
-	# This is done to perserve the original card's position
-	# and makes returning it back easy as it never left
-	var new_card_ui:CardUI = CARD_UI.instantiate()
-	new_card_ui.set_card_data(card_ui.card_data)
-	add_child(new_card_ui)
-	dragged_card = new_card_ui
-	heald_card.visible = false
-	
+	held_card = card
 	holding_card = true
+	
+	dragged_card = CARD_UI.instantiate()
+	add_child(dragged_card)
+	dragged_card.set_card_data(card.card_data)
+	
+	dragged_card.global_position = card.global_position
+	dragged_card.scale = card.scale
+	dragged_card.z_index = 100
+	
+	held_card.visible = false
 
-func _release_heald_card():
-	if !heald_card:
+func _release_card() -> void:
+	holding_card = false
+	
+	if not held_card or not dragged_card:
+		_cleanup_drag()
 		return
 	
 	if dragged_card.in_play_area:
-		play_card.emit(heald_card)
-		return
-	
-	await tween_card_to_position(dragged_card, heald_card.position)
-	dragged_card.queue_free()
-	heald_card.visible = true
-	heald_card = null
+		play_card.emit(held_card)
+	else:
+		_return_card()
 
-func return_dragged_card():
-	if !dragged_card:
+func _return_card() -> void:
+	if not dragged_card or not held_card:
+		_cleanup_drag()
 		return
 	
-	await tween_card_to_position(dragged_card, heald_card.position)
-	dragged_card.queue_free()
-	heald_card.visible = true
-	heald_card = null
+	var tween := get_tree().create_tween()
+	tween.tween_property(dragged_card, "position", held_card.position, 0.2)
+	await tween.finished
+	
+	_cleanup_drag()
 
-func remove_played_card(card_ui:CardUI):
-	if !heald_card:
-		return
-	
-	if card_uis.has(card_ui):
-		card_uis.erase(heald_card)
-		heald_card.queue_free()
+func _cleanup_drag() -> void:
+	if dragged_card:
 		dragged_card.queue_free()
-		update_card_positions()
+	if held_card:
+		held_card.visible = true
+	
+	held_card = null
+	dragged_card = null
 
-func clear_hand():
+# -------------------------------------------------
+# Play resolution (called by BattleManager)
+# -------------------------------------------------
+
+func reject_play() -> void:
+	_return_card()
+
+func confirm_play(card_ui: CardUI) -> void:
+	if not card_uis.has(card_ui):
+		return
+	
+	card_uis.erase(card_ui)
+	card_ui.queue_free()
+	
+	_cleanup_drag()
+	_update_card_layout()
+
+# -------------------------------------------------
+# Hover
+# -------------------------------------------------
+
+func _on_card_hovered(card: CardUI, hovering: bool) -> void:
+	if holding_card:
+		return
+	
+	card.blow_up(hovering)
+
+# -------------------------------------------------
+# Utility
+# -------------------------------------------------
+
+func clear_hand() -> void:
 	for card in card_uis:
 		card.queue_free()
-	
-	card_datas.clear()
 	card_uis.clear()
-
-func on_card_hovered(card_ui:CardUI, hovered:bool):
-	if hovered:
-		if !dragged_card:
-			card_ui.blow_up(true)
-	else:
-		card_ui.blow_up(false)
+	card_datas.clear()

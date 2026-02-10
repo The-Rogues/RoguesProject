@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_2aomo"]
 [ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_cfelx"]
 [ext_resource type="Script" uid="uid://byyoglfwhjibs" path="res://BattleSystem/AtomicActions/CharacterSpecific/move_action.gd" id="4_ifo3a"]
-[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_attack_intent_icon.tres" id="5_f8oso"]
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_attack_intent_icon.tres" id="5_f8oso"]
 [ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="6_kpmh5"]
 
 [sub_resource type="Resource" id="Resource_xtqfi"]

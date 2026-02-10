@@ -65,6 +65,10 @@ func execute(action_context: ActionContext) -> void:
 			# Panic case
 			damage_target = AttackProjectile.DamageTarget.PLAYER
 		
+		var final_damage:int = impact_damage
+		if user is BattleEntity:
+			final_damage = user.get_attack_damage(final_damage)
+		
 		projectile.configure(
 			damage_target,
 			projectile_texture,

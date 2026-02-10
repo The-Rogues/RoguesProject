@@ -3,6 +3,7 @@ class_name BattleFieldObject
 
 @export var entity_animator:AnimationPlayer
 
+
 func initialize(new_entity_data:EntityData = null):
 	super(new_entity_data)
 	update_health_bar()
@@ -10,6 +11,8 @@ func initialize(new_entity_data:EntityData = null):
 
 # TODO: Fix boiler plate for blocks and ignore functions
 func blocks_attacker(attacker:Entity):
+	if is_defeated:
+		return false
 	# Unkown attackers are blocked
 	if !attacker:
 		return true
@@ -26,6 +29,8 @@ func blocks_attacker(attacker:Entity):
 	return false
 
 func ignores_attacker(attacker:Entity):
+	if is_defeated:
+		return true
 	# Unkown attackers are never ignored
 	if !attacker:
 		return false
@@ -42,6 +47,8 @@ func ignores_attacker(attacker:Entity):
 	return false
 
 func take_damage(amount:float, attacker:Entity = null):
+	if is_defeated:
+		return
 	# Checks if the object is ignored when attacked by an entity
 	if ignores_attacker(attacker):
 		return
@@ -61,6 +68,8 @@ func take_damage(amount:float, attacker:Entity = null):
 	entity_animator.play("battle_object/idle")
 
 func heal(amount:float):
+	if is_defeated:
+		return
 	super(amount)
 	entity_animator.stop()
 	entity_animator.play("battle_object/heal")
@@ -70,11 +79,14 @@ func heal(amount:float):
 	entity_animator.play("battle_object/idle")
 
 func _on_defeated():
+	if is_defeated:
+		return
 	super()
 	
 	entity_animator.stop()
 	entity_animator.play("battle_object/defeat")
 	await entity_animator.animation_finished
+	queue_free()
 
 func update_health_bar():
 	if entity_data.health.value < entity_data.health.max_value:

@@ -1,3 +1,10 @@
+res://GeneralAssets/ParticleEffects/
+res://BattleSystem/StatusEffects/Protected/
+res://BattleSystem/StatusEffects/Regenerating/
+res://BattleSystem/StatusEffects/Weakened/
+res://BattleSystem/StatusEffects/Strength/
+res://GeneralAssets/UI/ContextPanel/
+res://BattleSystem/StatusEffects/Vulnerable/
 res://BattleSystem/Entities/Enemies/Attacks/Projectiles/
 res://CardSystem/Cards/Datas/
 res://Testing/

@@ -19,24 +19,24 @@ class_name DamageAction
 # entity class
 func execute(action_context:ActionContext):
 	var user = action_context.user
-	var final_damage:int = damage
+	var final_damage:int = damage 
 	var battle_object = action_context.battle_field.get_object_infront_of_player()
 	
 	# Assumes user will not always be battle entity to make function testable
 	# with null users
 	if user is BattleEntity:
-		final_damage = damage * user.entity_data.attack_amplifier.value
+		final_damage = user.get_attack_damage(damage)
 	
 	for target in action_context.targets:
 		# Checks for battle object incase it is destroyed between targets
 		if battle_object:
-			battle_object.take_damage(damage, user)
+			battle_object.take_damage(final_damage, user)
 			
 			if battle_object.blocks_attacker(user):
 				await battle_object.get_tree().create_timer(0.15).timeout
 				return
 		
-		target.take_damage(final_damage)
+		target.take_damage(final_damage, user)
 		
 		if action_context.targets.size() > 1:
 			await target.get_tree().create_timer(0.05).timeout

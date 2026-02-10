@@ -1,9 +1,10 @@
+HBoxContainer
 Control
-Node2D
 Label
 TextureRect
-MarginContainer
 PanelContainer
+MarginContainer
+Node2D
 Node
 Button
 FlowContainer
@@ -11,4 +12,3 @@ ScrollContainer
 VBoxContainer
 Area2D
 AnimationPlayer
-Timer

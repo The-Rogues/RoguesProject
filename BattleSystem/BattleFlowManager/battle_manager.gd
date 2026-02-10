@@ -70,7 +70,7 @@ func initialize(new_player_entity:BattleEntity,
 
 func _start_player_turn():
 	turn_count += 1
-	print("TURN: ", turn_count)
+	#print("TURN: ", turn_count)
 	if battle_state != BattleState.PLAYER_TURN:
 		return
 	
@@ -129,18 +129,22 @@ func _run_enemy_turn() -> void:
 		
 		enemy_delay_timer.start()
 		await enemy_delay_timer.timeout
+	if !action_queue.queue.is_empty():
+		await action_queue.processed_all_actions
+	
 	battle_state = BattleState.PLAYER_TURN
 	_start_player_turn()
 
 func _on_try_play_card(card_ui:CardUI):
 	var card_data:CardData = card_ui.card_data
 	if !energy_counter.can_play_card(card_data):
-		player_card_hand.return_dragged_card()
+		player_card_hand.reject_play()
 		return
+	player_card_hand.confirm_play(card_ui)
 	
 	discard_pile.add_card(card_data)
 	
-	player_card_hand.remove_played_card(card_ui)
+	#player_card_hand.remove_played_card(card_ui)
 	energy_counter.spend_energy(card_data.energy_cost)
 	execute_card(card_data)
 
@@ -199,7 +203,7 @@ func create_action_context(user:BattleEntity, target:Array[BattleEntity]):
 
 func _on_add_card_button_up() -> void:
 	var deck:CardDeck = load("res://CardSystem/Decks/starting_card_deck.tres")
-	var card_data = deck.draw_random_card()
+	var card_data = deck.draw_card()
 	player_card_hand.draw_card(card_data)
 	card_drawn.emit(card_data)
 	pass # Replace with function body.

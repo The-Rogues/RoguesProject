@@ -103,21 +103,15 @@ func on_player_entered_opportunity(battle_position:BattlePosition):
 	
 	match battle_position.opportunity:
 		BattlePosition.Opportunity.DEFENSE:
-			player_entity.entity_data.defense_amplifier.increase(0.5)
+			player_entity.add_status(ProtectedStatusEffect.new(), 1, 2)
 		BattlePosition.Opportunity.OFFENSE:
-			player_entity.entity_data.attack_amplifier.increase(0.5)
+			player_entity.add_status(StrengthStatusEffect.new(), 1, 2)
 	
 	player_on_opportunity = true
 
 func on_player_exited_opportunity(battle_position:BattlePosition):
 	if !player_entity:
 		return
-	
-	match battle_position.opportunity:
-		BattlePosition.Opportunity.DEFENSE:
-			player_entity.entity_data.defense_amplifier.reduce(0.5)
-		BattlePosition.Opportunity.OFFENSE:
-			player_entity.entity_data.attack_amplifier.reduce(0.5)
 	
 	player_on_opportunity = false 
 

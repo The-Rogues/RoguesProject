@@ -34,8 +34,6 @@ func initialize(
 		name = new_name
 		move_set = new_move_set.duplicate(true)
 		health = Stat.new(125, 0, 125, true)
-		defense_amplifier = Stat.new(2, 0.25, 1, false)
-		attack_amplifier = Stat.new(2, 0.25, 1, false)
 		if !new_behaviours.is_empty():
 			behaviours = new_behaviours.duplicate(true)
 		wait_to_hide_sprite = false
