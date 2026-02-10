@@ -4,6 +4,7 @@ class_name LaunchBody
 @export var speed : float = 400
 @export_range(0, 1) var bounce_range:float = 0.35
 @export var bounce_count:int = 3
+@export var impact_force:int = 6
 # Signal emitted when the ball goes out of bounds
 var bounces:int = 0
 @onready var sprite_2d: Sprite2D = $Sprite2D

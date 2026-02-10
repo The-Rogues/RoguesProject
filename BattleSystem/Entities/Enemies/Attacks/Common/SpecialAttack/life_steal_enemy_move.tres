@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_xtqfi"]
 script = ExtResource("3_tluq3")
-damage = 8
+damage = 9
 metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
 
 [sub_resource type="Resource" id="Resource_qknlh"]
@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 [resource]
 script = ExtResource("6_llicx")
 name = "Life Steal"
-description_text = "Deal 8 damage
+description_text = "Deal 9 damage
 Heal 6 health"
 icon = ExtResource("5_1yntr")
 actions = Array[ExtResource("1_f1huu")]([SubResource("Resource_qknlh"), SubResource("Resource_y3b26")])

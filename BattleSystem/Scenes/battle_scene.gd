@@ -85,6 +85,7 @@ func _position_enemies(enemies:Array[BattleEntity]):
 		enemies[i].global_position = Vector2(start_x + i * spacing, y)
 
 func _on_use_item(item_index:int):
+	items[item_index]._use_item(battle_manager.player_entity, battle_manager)
 	GlobalSessionManager.consume_item(items[item_index])
 	items.pop_at(item_index)
 	item_interface.initialize(items)

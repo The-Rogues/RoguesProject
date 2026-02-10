@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_fqii6"]
 script = ExtResource("3_cyihs")
-damage = 9
+damage = 12
 metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
 
 [sub_resource type="Resource" id="Resource_vcplv"]
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 [resource]
 script = ExtResource("6_in777")
 name = "Tackle"
-description_text = "Deal 9 damage"
+description_text = "Deal 12 damage"
 icon = ExtResource("5_m2kuc")
 actions = Array[ExtResource("1_2ko2e")]([SubResource("Resource_vcplv")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

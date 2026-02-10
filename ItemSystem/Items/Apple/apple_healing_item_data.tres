@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HealingItemData" format=3 uid="uid://pav0x58rd6ij"]
+
+[ext_resource type="Script" uid="uid://r866baqwt8v4" path="res://ItemSystem/Items/BaseScripts/healing_item_data.gd" id="1_7tat2"]
+[ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://ItemSystem/Items/Apple/apple_texture.tres" id="1_mreqm"]
+
+[resource]
+script = ExtResource("1_7tat2")
+health = 6
+name = "Apple"
+description = "Restores 6 HP"
+display_texture = ExtResource("1_mreqm")
+usable_out_of_battle = true
+shop_price = 25
+sell_price = 15
+metadata/_custom_type_script = "uid://r866baqwt8v4"

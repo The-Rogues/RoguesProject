@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ctt40rvl2uset"]
 
 [ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_bu8ee"]
-[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_qt5w1"]
+[ext_resource type="Script" uid="uid://c3jljqw3ahnfx" path="res://BattleSystem/Entities/Behaviours/ondeath_pop.gd" id="2_bu8ee"]
 [ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_bx14i"]
 [ext_resource type="Script" uid="uid://qxob3eo8esih" path="res://BattleSystem/Entities/Behaviours/on_turn_regenerate_health.gd" id="4_qt5w1"]
 [ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://BattleSystem/Entities/Enemies/Slime/slime_texture.tres" id="4_qx4hj"]
@@ -10,13 +10,14 @@
 [ext_resource type="Resource" uid="uid://bh1gmuk2hexqm" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/strike_enemy_move.tres" id="7_4kgyc"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_dla6b"]
 
-[sub_resource type="Resource" id="Resource_gw8wt"]
-script = ExtResource("2_qt5w1")
-metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
+[sub_resource type="Resource" id="Resource_qt5w1"]
+script = ExtResource("2_bu8ee")
+metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
 
 [sub_resource type="Resource" id="Resource_fh0n2"]
 script = ExtResource("3_bx14i")
 bounces = 1
+speed = 300.0
 metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 
 [sub_resource type="Resource" id="Resource_bx14i"]
@@ -32,5 +33,5 @@ display_texture = ExtResource("4_qx4hj")
 name = "Slime"
 health_points = 42
 wait_to_hide_sprite = true
-behaviours = Array[ExtResource("1_bu8ee")]([SubResource("Resource_gw8wt"), SubResource("Resource_fh0n2"), SubResource("Resource_bx14i")])
+behaviours = Array[ExtResource("1_bu8ee")]([SubResource("Resource_qt5w1"), SubResource("Resource_fh0n2"), SubResource("Resource_bx14i")])
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

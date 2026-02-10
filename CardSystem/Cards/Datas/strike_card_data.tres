@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_mmffy"]
 [ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_uk0b2"]
 [ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_47aiu"]
-[ext_resource type="Script" uid="uid://dgv6gseivfje3" path="res://BattleSystem/AtomicActions/Common/add_status_condition_action.gd" id="4_uk0b2"]
+[ext_resource type="Script" uid="uid://dgv6gseivfje3" path="res://BattleSystem/AtomicActions/Common/add_status_effect_action.gd" id="4_uk0b2"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="5_eqn1h"]
 [ext_resource type="Resource" uid="uid://b0ksaxetd0aye" path="res://BattleSystem/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres" id="5_uk0b2"]
 

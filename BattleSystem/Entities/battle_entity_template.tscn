@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bctdk5muixu68" path="res://BattleSystem/Entities/battle_entity.gd" id="1_df4g5"]
 [ext_resource type="Resource" uid="uid://0k66g2l3qba2" path="res://BattleSystem/Entities/DefaultBattleEntity/default_battle_entity_data.tres" id="2_hgc0k"]
 [ext_resource type="Texture2D" uid="uid://dtfw56mesa6nq" path="res://GeneralAssets/PlaceholderArt/32rogues/animals.png" id="2_womkw"]
+[ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://BattleSystem/Entities/Enemies/Slime/slime_texture.tres" id="4_et2di"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="4_hgc0k"]
 [ext_resource type="AnimationLibrary" uid="uid://s6ntxl5p0nep" path="res://BattleSystem/Entities/Animations/battle_entity_animations.res" id="4_og42k"]
 [ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_move_intent_icon.tres" id="5_c0cmw"]
@@ -28,7 +29,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q0abo"]
 resource_local_to_scene = true
 shader = SubResource("Shader_q0abo")
-shader_parameter/flash_color = Color(0.5993622, 0.09333352, 0.05987733, 1)
+shader_parameter/flash_color = Color(0.8226427, 0.8226427, 0.8226427, 1)
 shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_133a1"]
@@ -71,6 +72,14 @@ ui_dissapear_timer = NodePath("UI/UITimer")
 
 [node name="StarPop" parent="." unique_id=232237618 instance=ExtResource("12_c6k81")]
 texture_filter = 1
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=265203887]
+modulate = Color(0, 0.17254902, 0.3372549, 0.49411765)
+texture_filter = 1
+position = Vector2(0, 35)
+scale = Vector2(4, 1)
+texture = ExtResource("4_et2di")
+offset = Vector2(0, -16)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1874866210]
 texture_filter = 1

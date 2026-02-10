@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_e4fqw"]
 script = ExtResource("3_xmmoi")
-damage = 4
+damage = 7
 metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
 
 [sub_resource type="Resource" id="Resource_u5acg"]
@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 [resource]
 script = ExtResource("5_u5acg")
 name = "Double Kick"
-description_text = "Deals 4 damage twice"
+description_text = "Deals 7 damage twice"
 icon = ExtResource("4_e4fqw")
 actions = Array[ExtResource("1_vvjk3")]([SubResource("Resource_5b1pe")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

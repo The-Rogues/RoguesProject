@@ -81,6 +81,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Menu" type="Control" parent="CanvasLayer/Control" unique_id=256880900]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,11 +171,8 @@ theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 alignment = 1
 script = ExtResource("4_3xqf8")
-override_item_datas = null
 minimum_item_slot_count = 0
-force_initialize = null
 is_shop_interface = true
-sell_items = null
 
 [node name="ItemSlotUI" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=1515963044 instance=ExtResource("5_8bdd0")]
 layout_mode = 2
@@ -250,7 +248,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/SellMenu" unique_id=2071580590]
+[node name="Label2" type="Label" parent="CanvasLayer/Control/SellMenu" unique_id=948622332]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -259,14 +257,34 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = -14.5
+offset_top = -234.0
 offset_right = 576.0
-offset_bottom = 14.5
+offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_jq6m6")
 theme_override_font_sizes/font_size = 32
-text = "UNDER CUNSTRUCTION"
+text = "Your items"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/SellMenu" unique_id=2071580590]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -126.0
+offset_right = 576.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "No items to sell"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/SellMenu" unique_id=157831674]
@@ -286,6 +304,61 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_jq6m6")
 theme_override_font_sizes/font_size = 26
 text = "Return"
+
+[node name="SellItems" type="FlowContainer" parent="CanvasLayer/Control/SellMenu" unique_id=1540997913]
+custom_minimum_size = Vector2(495, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -247.0
+offset_top = 134.0
+offset_right = 248.0
+offset_bottom = 302.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+alignment = 1
+script = ExtResource("4_3xqf8")
+minimum_item_slot_count = 0
+is_shop_interface = true
+
+[node name="ItemSlotUI" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=2043555702 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI2" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=2094440727 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI3" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=1578631661 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI4" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=1931489580 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI5" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=664998613 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI6" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=1239619413 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI7" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=1072093726 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI8" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=1103677986 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI9" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=144564829 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1835938482]
 layout_mode = 1

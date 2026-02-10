@@ -1,7 +1,7 @@
 HBoxContainer
+TextureRect
 Control
 Label
-TextureRect
 PanelContainer
 MarginContainer
 Node2D

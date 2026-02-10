@@ -90,8 +90,21 @@ func buy_item(item:ItemData):
 	run_progress.gold -= item.shop_price
 	run_progress.heald_items.append(item)
 	gold_updated.emit(get_gold())
-	print("Succesfully bought ", item.name)
 	pass
+
+
+func can_sell_item(item:ItemData):
+	if run_progress == null:
+		return
+	
+	return run_progress.heald_items.has(item)
+
+func sell_held_item(item:ItemData):
+	if run_progress == null:
+		return
+	
+	consume_item(item)
+	add_gold(item.sell_price)
 
 func consume_item(item:ItemData):
 	if run_progress == null:

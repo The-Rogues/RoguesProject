@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://CardSystem/card_play_hand.gd" id="4_cgsmb"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="5_7j1wb"]
 [ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://ItemSystem/Scenes/item_interface.tscn" id="6_nlaga"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="7_3nysi"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://BattleSystem/Scenes/energy_counter.tscn" id="7_e1j2j"]
 [ext_resource type="PackedScene" uid="uid://dys3hydaairuy" path="res://BattleSystem/Entities/battle_entity_template.tscn" id="8_ao6ux"]
 [ext_resource type="Resource" uid="uid://dj231k2t6krxk" path="res://PersonalitySystem/PlayerCharacter/default_character_data.tres" id="9_7lneo"]
@@ -47,7 +46,7 @@ discard_pile_ui = NodePath("../UILayer/Control/DiscardPileViewer")
 wait_time = 0.8
 
 [node name="BattleField" parent="." unique_id=314861 node_paths=PackedStringArray("player_entity") instance=ExtResource("2_ceml1")]
-position = Vector2(555, 408)
+position = Vector2(555, 412)
 player_entity = NodePath("../Player")
 battle_object_offset = Vector2(0, -50)
 
@@ -135,13 +134,11 @@ custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-override_item_datas = Array[ExtResource("7_3nysi")]([])
 minimum_item_slot_count = 3
 force_initialize = false
 
 [node name="PlayerGold" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer" unique_id=1751191548 instance=ExtResource("9_3876o")]
 layout_mode = 2
-vertical_alignment = 1
 
 [node name="Debugging2" type="VBoxContainer" parent="UILayer/Control" unique_id=1501201850]
 modulate = Color(1, 1, 1, 0.5137255)

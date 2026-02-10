@@ -58,7 +58,13 @@ func _on_body_entered(body):
 	elif damages == DamageTarget.ENEMY and entity.entity_data is EnemyData:
 		body.get_parent().take_damage(damage)
 	elif entity.entity_data is BattleObjectData:
-		body.get_parent().take_damage(damage)
+		if damages == DamageTarget.ENEMY:
+			if entity.entity_data.player_attack_filter != BattleObjectData.BlockMode.BLOCK:
+				return
+			else:
+				body.get_parent().take_damage(damage)
+		else:
+			body.get_parent().take_damage(damage)
 	else:
 		return
 	

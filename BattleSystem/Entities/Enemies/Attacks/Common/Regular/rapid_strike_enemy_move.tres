@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 
 [resource]
 script = ExtResource("5_jcr0b")
-name = "Strike"
+name = "RapidAtk"
 description_text = "Deal 6 damage
 Repeat attack 3 times"
 icon = ExtResource("4_3ysg0")

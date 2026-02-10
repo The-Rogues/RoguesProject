@@ -16,7 +16,7 @@ func initialize(new_entity:Entity):
 
 func _on_entity_defeated(entity:Entity):
 	# Wait for enemy death animation to finish
-	await  entity.entity_animator.animation_finished
+	#await  entity.entity_animator.animation_finished
 	entity_sprite.visible = false
 	
 	# Create and play particle

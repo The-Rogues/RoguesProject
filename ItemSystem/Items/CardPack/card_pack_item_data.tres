@@ -7,8 +7,6 @@
 script = ExtResource("2_we0yr")
 name = "Card Pack"
 description = "Adds 2-4 cards to your deck"
-activation_type = 1
 display_texture = ExtResource("1_j7aoy")
-rarity = 1
 shop_price = 1000
 metadata/_custom_type_script = "uid://wmqmctcre0tg"

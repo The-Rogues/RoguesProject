@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cof4jl4xvyq10" path="res://ItemSystem/Scenes/item_interface.gd" id="1_tdtv1"]
 [ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://ItemSystem/Scenes/item_slot_ui.tscn" id="2_851ht"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="2_nsve5"]
-[ext_resource type="Resource" uid="uid://cwr1pc27hssi" path="res://ItemSystem/Items/HealthPotion/health_potion_item_data.tres" id="3_hrjkk"]
-[ext_resource type="Resource" uid="uid://704fo14vdxkf" path="res://ItemSystem/Items/WackBat/wack_bat_item_data.tres" id="4_8grvh"]
 
 [node name="ItemInterface" type="HBoxContainer" unique_id=92166697]
 offset_right = 200.0
@@ -12,7 +9,6 @@ offset_bottom = 64.0
 size_flags_horizontal = 8
 alignment = 2
 script = ExtResource("1_tdtv1")
-override_item_datas = Array[ExtResource("2_nsve5")]([ExtResource("3_hrjkk"), ExtResource("4_8grvh")])
 minimum_item_slot_count = 0
 force_initialize = true
 

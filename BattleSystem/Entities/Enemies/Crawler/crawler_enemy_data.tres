@@ -15,12 +15,13 @@ metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
 
 [sub_resource type="Resource" id="Resource_km68d"]
 script = ExtResource("3_cmwq8")
-speed = 900.0
+body_impact_damage = 9
+speed = 300.0
 metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 
 [resource]
 script = ExtResource("3_k05gb")
-reward_amount = 34
+reward_amount = 80
 move_set = Array[ExtResource("2_1jres")]([ExtResource("6_8mef5"), ExtResource("7_cmwq8")])
 display_texture = ExtResource("4_6sevn")
 name = "Crawler"

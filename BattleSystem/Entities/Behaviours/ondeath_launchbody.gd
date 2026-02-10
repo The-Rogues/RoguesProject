@@ -8,6 +8,7 @@ class_name OnDeathLaunchBody
 
 # Number of times the entity can hit things before popping
 @export var bounces:int = 3
+@export var body_impact_damage:int = 5
 # Multiplies movement speed while bouncing
 @export var speed:float = 400
 var entity_sprite:Sprite2D
@@ -35,4 +36,5 @@ func _on_entity_defeated(entity:Entity):
 		direction.y = -1
 	
 	entity.add_child(launch_body)
+	launch_body.impact_force = body_impact_damage
 	launch_body.spawn_and_launch(entity_sprite.texture, direction)

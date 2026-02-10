@@ -17,16 +17,22 @@ class_name ItemData
 # appear that allows the player to select a living enemy
 # Drag on Object is similar except it highlights empty battle positions to drag
 # and release on
-enum ActivationType {NONE, INSTANT, DragOnEnemy, DragOnObjectPosition}
+enum ActivationType {INSTANT, DRAG_ON_ENEMY, DRAG_ON_OBJECT_POSITION}
 # Used by ItemShopData to determine the likely hood of items appearing in the shop
 enum Rarity {COMMON, UNCOMMON, RARE}
+@export var rarity:Rarity
+@export var activation_type:ActivationType
 @export var name:String
 @export_multiline var description:String
-@export var activation_type:ActivationType
 @export var display_texture:Texture
+@export var usable_out_of_battle:bool = false
 # TODO: Replace with a dedicated behaviour script that can send and recieve signals
 # from and too the batte scene it originated in
-@export var behaviour:Script
-@export var rarity:Rarity
+#@export var behaviour:Script
 # TODO: Add sales price field and make is half of shop price by default
 @export var shop_price:int = 100
+@export var sell_price:int = 50
+# Override
+func _use_item(entity: BattleEntity, battle:BattleManager = null) -> void:
+	print("item named: " + name + " was used")
+	pass

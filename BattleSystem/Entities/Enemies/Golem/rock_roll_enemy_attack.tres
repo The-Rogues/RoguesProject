@@ -10,8 +10,8 @@
 [sub_resource type="Resource" id="Resource_4pi06"]
 script = ExtResource("4_dtp6l")
 projectile_texture = ExtResource("3_15v8c")
-impact_damage = 6
-direction_range = 0.0
+impact_damage = 16
+direction_range = 0.09
 metadata/_custom_type_script = "uid://btx3i84pcwy5t"
 
 [sub_resource type="Resource" id="Resource_04rga"]
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 [resource]
 script = ExtResource("2_6mbyp")
 name = "Rock Roll"
-description_text = "Throw a rock at player"
+description_text = "Throws a rock with medium accuracy that deals 18 damage"
 icon = ExtResource("4_vuas3")
 actions = Array[ExtResource("1_b60gu")]([SubResource("Resource_04rga")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

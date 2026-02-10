@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtxuoyn4lxhb1" path="res://BattleSystem/Entities/Enemies/Funguy/funguy_texture.tres" id="4_t3c1n"]
 [ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_6svp4"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="6_1hmcs"]
-[ext_resource type="Resource" uid="uid://dmrcexn0djsh0" path="res://BattleSystem/Entities/Enemies/Funguy/kick_enemy_attack.tres" id="6_t3c1n"]
+[ext_resource type="Resource" uid="uid://bh1gmuk2hexqm" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/strike_enemy_move.tres" id="6_t3c1n"]
 [ext_resource type="Resource" uid="uid://tsxwy7jm0cjv" path="res://BattleSystem/Entities/Enemies/Funguy/trip_enemy_attack.tres" id="7_6svp4"]
 [ext_resource type="Resource" uid="uid://c4xtky1vgex2t" path="res://BattleSystem/Entities/Enemies/Funguy/double_kick_enemy_attack.tres" id="8_1hmcs"]
 
@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
 [sub_resource type="Resource" id="Resource_ihuxt"]
 script = ExtResource("3_eid6x")
 bounces = 4
+body_impact_damage = 6
 speed = 700.0
 metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 

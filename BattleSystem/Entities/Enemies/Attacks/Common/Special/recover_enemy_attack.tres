@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_04arn"]
 [ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="1_xdh08"]
-[ext_resource type="Script" uid="uid://dgv6gseivfje3" path="res://BattleSystem/AtomicActions/Common/add_status_condition_action.gd" id="3_vpm10"]
+[ext_resource type="Script" uid="uid://dgv6gseivfje3" path="res://BattleSystem/AtomicActions/Common/add_status_effect_action.gd" id="3_vpm10"]
 [ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="4_l7soe"]
 [ext_resource type="Resource" uid="uid://b4evn3jjvghv3" path="res://BattleSystem/StatusEffects/Regenerating/regenerating_status_effect_data.tres" id="4_y41i8"]
 [ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/special_move_intent_icon.tres" id="4_ynp57"]

@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_g4ptd"]
 script = ExtResource("4_oshy2")
 projectile_texture = ExtResource("3_1s6og")
-impact_damage = 5
+impact_damage = 9
 speed = 300.0
 direction_range = 0.15
 metadata/_custom_type_script = "uid://btx3i84pcwy5t"
@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 [resource]
 script = ExtResource("2_vlfiv")
 name = "Fire Spout"
-description_text = "Shoots a projectile in a random direction"
+description_text = "Spits a low accuracy fire projectile that deals 9 damage"
 icon = ExtResource("5_8gyvq")
 actions = Array[ExtResource("1_aiwrp")]([SubResource("Resource_j0ljw")])
 metadata/_custom_type_script = "uid://pq8nnotusssk"

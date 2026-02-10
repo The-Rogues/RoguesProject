@@ -17,12 +17,12 @@ metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
 [sub_resource type="Resource" id="Resource_cr6ej"]
 script = ExtResource("3_bqg6v")
 bounces = 2
-speed = null
+body_impact_damage = 12
 metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 
 [resource]
 script = ExtResource("9_vqp6u")
-reward_amount = 70
+reward_amount = 120
 move_set = Array[ExtResource("5_ycb72")]([ExtResource("6_72dig"), ExtResource("7_uxxh4"), ExtResource("8_dhtvq")])
 display_texture = ExtResource("4_ycb72")
 name = "Trooper"

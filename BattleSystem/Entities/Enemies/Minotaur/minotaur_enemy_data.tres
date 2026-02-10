@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="4_2nuvb"]
 [ext_resource type="Resource" uid="uid://2tlxsg0wnmx8" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Sabotage/crack_enemy_attack.tres" id="5_o5pif"]
 [ext_resource type="Resource" uid="uid://k6et0x8t84fb" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/tackle_enemy_attack.tres" id="7_awpy6"]
-[ext_resource type="Resource" uid="uid://cbbvv1dbl0eqh" path="res://BattleSystem/Entities/Enemies/Minotaur/fire_split_enemy_attack.tres" id="7_tkbft"]
+[ext_resource type="Resource" uid="uid://cbbvv1dbl0eqh" path="res://BattleSystem/Entities/Enemies/Minotaur/force_projectile_enemy_attack.tres" id="7_tkbft"]
 [ext_resource type="Resource" uid="uid://cde81o7i3b22f" path="res://BattleSystem/Entities/Enemies/Minotaur/rev_up_enemy_attack.tres" id="8_o5pif"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_awpy6"]
 
@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
 
 [resource]
 script = ExtResource("9_awpy6")
-reward_amount = 200
+reward_amount = 400
 move_set = Array[ExtResource("4_2nuvb")]([ExtResource("5_o5pif"), ExtResource("7_tkbft"), ExtResource("7_awpy6"), ExtResource("8_o5pif")])
 rarity = 2
 display_texture = ExtResource("3_wihyi")

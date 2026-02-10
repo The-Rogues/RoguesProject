@@ -141,7 +141,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 		return
 	
 	if body is LaunchBody and entity_data.damaged_by_launchbody:
-		take_damage(6)
+		take_damage(body.impact_force)
 
 func _on_ui_dissapear_timeout():
 	hide_ui()

@@ -98,11 +98,12 @@ func heal(amount:float):
 
 
 func _on_defeated():
-	super()
 	star_pop.emitting = true
 	entity_animator.stop()
 	entity_animator.play("battle_entity/defeat")
 	await entity_animator.animation_finished
+	defeated.emit()
+	super()
 
 
 func _on_new_turn_started():

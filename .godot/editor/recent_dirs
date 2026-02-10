@@ -1,3 +1,10 @@
+res://Map/ItemShop/Scenes/
+res://ItemSystem/GoldLabel/
+res://ItemSystem/Items/Bread/
+res://ItemSystem/Items/HealthPotion/
+res://ItemSystem/Items/EnergyPotion/
+res://ItemSystem/Items/Cheese/
+res://ItemSystem/Items/Apple/
 res://GeneralAssets/ParticleEffects/
 res://BattleSystem/StatusEffects/Protected/
 res://BattleSystem/StatusEffects/Regenerating/
@@ -13,8 +20,3 @@ res://BattleSystem/Entities/Enemies/Crawler/
 res://BattleSystem/Entities/Enemies/Minotaur/
 res://BattleSystem/Entities/Enemies/Golem/
 res://BattleSystem/Scenes/
-res://GeneralAssets/UI/PopNumbers/
-res://ItemSystem/GoldLabel/
-res://BattleSystem/Configuration/BattleFieldLayouts/
-res://
-res://BattleSystem/Entities/Enemies/Funguy/
