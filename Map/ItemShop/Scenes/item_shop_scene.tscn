@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/ItemShop/Textures/ShopKeepers/shop_keeper_varient_0.tres" id="1_bt8o4"]
 [ext_resource type="Script" uid="uid://7ymmg45xhdak" path="res://Map/ItemShop/Scenes/item_shop_scene.gd" id="1_jq6m6"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="3_jq6m6"]
-[ext_resource type="Script" uid="uid://cof4jl4xvyq10" path="res://ItemSystem/Scenes/item_interface.gd" id="4_3xqf8"]
 [ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://ItemSystem/Scenes/item_slot_ui.tscn" id="5_8bdd0"]
+[ext_resource type="Script" uid="uid://crame3tjbrvn4" path="res://ItemSystem/Scenes/shop_item_interface.gd" id="7_acpms"]
 [ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="8_ff7t1"]
 [ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="9_75i6p"]
 [ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="9_acpms"]
@@ -18,7 +18,7 @@ texture_margin_right = 18.0
 texture_margin_bottom = 18.0
 modulate_color = Color(0, 0, 0, 1)
 
-[node name="ShopScreen" type="Control" unique_id=1932341387 node_paths=PackedStringArray("shop_item_interface", "shop_menu", "sell_menu", "menu", "character_sprite")]
+[node name="ShopScreen" type="Control" unique_id=1932341387 node_paths=PackedStringArray("shop_menu", "sell_menu", "menu", "character_sprite")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jq6m6")
-shop_item_interface = NodePath("CanvasLayer/Control/ShopMenu/Margin/BuyItems")
 shop_menu = NodePath("CanvasLayer/Control/ShopMenu")
 sell_menu = NodePath("CanvasLayer/Control/SellMenu")
 menu = NodePath("CanvasLayer/Control/Menu")
@@ -170,9 +169,8 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 alignment = 1
-script = ExtResource("4_3xqf8")
+script = ExtResource("7_acpms")
 minimum_item_slot_count = 0
-is_shop_interface = true
 
 [node name="ItemSlotUI" parent="CanvasLayer/Control/ShopMenu/Margin/BuyItems" unique_id=1515963044 instance=ExtResource("5_8bdd0")]
 layout_mode = 2
@@ -320,9 +318,8 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 alignment = 1
-script = ExtResource("4_3xqf8")
-minimum_item_slot_count = 0
-is_shop_interface = true
+script = ExtResource("7_acpms")
+transaction_type = 1
 
 [node name="ItemSlotUI" parent="CanvasLayer/Control/SellMenu/SellItems" unique_id=2043555702 instance=ExtResource("5_8bdd0")]
 layout_mode = 2

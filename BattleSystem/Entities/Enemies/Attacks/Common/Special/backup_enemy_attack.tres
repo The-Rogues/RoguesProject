@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_47b45"]
 script = ExtResource("3_mkgkw")
 status_condition = ExtResource("4_grx1x")
-duration = 1
+duration = 2
 stack_count = 3
 metadata/_custom_type_script = "uid://dgv6gseivfje3"
 

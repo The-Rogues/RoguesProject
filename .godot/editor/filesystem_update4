@@ -73,3 +73,6 @@ res://ItemSystem/Scenes/item_interface.gd
 res://BattleSystem/Scenes/battle_scene.tscn
 res://Map/ItemShop/Scenes/shop_item_slot.gd
 res://Map/ItemShop/Scenes/shop_item_slot.tscn
+res://ItemSystem/Scenes/shop_item_interface.gd
+res://BattleSystem/Entities/Objects/battle_object_template.tscn
+res://BattleSystem/Entities/Objects/battle_field_object.gd

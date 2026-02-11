@@ -29,8 +29,7 @@ metadata/_custom_type_script = "uid://btp3527x14hav"
 [resource]
 script = ExtResource("5_yyhm2")
 name = "PowerDash"
-description = "Move to left or right twice
-Add 2 strength for 3 turns"
+description = "Move to left or right twice. Add 2 strength for 3 turns"
 energy_cost = 2
 play_moves = Array[ExtResource("1_c03ay")]([SubResource("Resource_yu3cx")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -1,26 +1,18 @@
-extends Control
+extends ItemSlotUI
 class_name ShopItemSlot
-
-signal started_transaction(index:int)
 
 enum TransactionType {BUY, SELL}
 @export var transaction_type:TransactionType
 @export var display_price:int = 100
-
-@onready var item_texture_rect: TextureRect = $VBoxContainer/ItemIcon/Item
 @export var price_label:Label
-@onready var elements: VBoxContainer = $VBoxContainer/Elements
-@onready var context_panel:ContextPanel = $VBoxContainer/Elements/ContextPanel
 @onready var transaction_label:Label = $VBoxContainer/Elements/Activate/TransactionLabel
 @onready var sell_status_label:Label = $SellStatusLabel
-@onready var item_icon_button: TextureButton = $VBoxContainer/ItemIcon
 
 var transaction_completed:bool = false
-var index:int
 
 func _ready() -> void:
 	item_texture_rect.visible = false
-	elements.visible = false
+	contents.visible = false
 	price_label.text = str(display_price) + "G"
 	
 	item_icon_button.disabled = true
@@ -46,12 +38,3 @@ func confirm_transaction():
 	sell_status_label.visible = true
 	price_label.visible = false
 	item_texture_rect.visible = false
-
-func _on_item_slot_clicked() -> void:
-	elements.visible = !elements.visible
-	pass # Replace with function body.
-
-
-func _on_try_transaction_button() -> void:
-	started_transaction.emit(index)
-	pass # Replace with function body.
