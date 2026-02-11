@@ -13,9 +13,9 @@ signal value_changed(current_value:float)
 @export var max_on_start:bool
 
 func _init(
-	max:float,
-	min:float,
-	starting_value:float,
+	max:float = 0.0,
+	min:float = 0.0,
+	starting_value:float = 0.0,
 	maximize_on_start:bool = false
 ) -> void:
 	max_value = max

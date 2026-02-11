@@ -42,6 +42,7 @@ func set_result(won_battle:bool,
 		target_scene = "res://Map/map_screen/MapScreen.tscn"
 		GlobalSessionManager.add_gold(gold_amount)
 		GlobalSessionManager.save_character_health(player_entity.entity_data.health.value)
+		_clear_battle_lock()
 	else:
 		reward_label.visible = false
 		gold_label.visible = false
@@ -59,6 +60,7 @@ func set_result(won_battle:bool,
 		particles.queue_free()
 		display_timer.start()
 		GlobalSessionManager.restart()
+		GlobalSaveManager.reset()
 		target_scene = "res://Screens/main_menu_screen.tscn"
 
 func _on_display_timer_timeout() -> void:
@@ -70,3 +72,12 @@ func _on_display_timer_timeout() -> void:
 func _on_continue_button_up() -> void:
 	GlobalSceneLoader.load_scene(target_scene)
 	pass # Replace with function body.
+	
+func _clear_battle_lock() -> void:
+	if GlobalSessionManager.run_progress == null:
+		return
+	if GlobalSessionManager.run_progress.battle == null:
+		return
+
+	GlobalSessionManager.run_progress.battle.is_active = false
+	GlobalSaveManager.save_run(GlobalSessionManager.run_progress)

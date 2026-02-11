@@ -8,13 +8,22 @@ extends Node2D
 @onready var options_menu: OptionsMenu = $UILayer/Control/OptionsMenu
 @onready var credits_menu: Control = $UILayer/Control/CreditsMenu
 @onready var close_menu: Control = $UILayer/Control/CloseMenu
+@onready var start_run_button: Button = $UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/StartRun
+@onready var reset_run_button: Button = $UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Reset
+
+
 
 func _ready() -> void:
+	_update_start_button_text()
 	main_menu.visible = true
 	options_menu.visible = false
 	credits_menu.visible = false
 	close_menu.visible = false
 	options_menu.close.connect(show_main_menu)
+	reset_run_button.visible = GlobalSaveManager.has_save()
+	var p: RunProgress = GlobalSaveManager.load_run()
+
+
 
 func show_main_menu():
 	main_menu.visible = true
@@ -44,4 +53,39 @@ func _on_options_button_up() -> void:
 
 
 func _on_start_run_button_up() -> void:
+	if GlobalSaveManager.has_save():
+		_load_run()
+	else:
+		_start_new_run()
+
+func _update_start_button_text() -> void:
+	start_run_button.text = "Load Run" if GlobalSaveManager.has_save() else "Start Run"
+	
+func _load_run() -> void:
+	var p: RunProgress = GlobalSaveManager.load_run()
+	if p == null:
+		GlobalSaveManager.reset()
+		_update_start_button_text()
+		return
+
+	GlobalSessionManager.run_progress = p
+	GlobalSessionManager.initialize_map()
+	GlobalSessionManager.run_progress = p
+	GlobalSessionManager.started_session = true
+
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)
+	
+func _start_new_run() -> void:
+	var p: RunProgress = RunProgress.new(null, "")
+	p.map_seed = randi()
+	p.player_node_index = 0
+
+	GlobalSaveManager.save_run(p)
+	GlobalSessionManager.run_progress = p
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.CHARACTER_GENERATOR_PATH)
+
+func _on_reset_button_up() -> void:
+	GlobalSaveManager.reset()
+	GlobalSessionManager.run_progress = null
+	get_viewport().gui_disable_input = false
+	_start_new_run()

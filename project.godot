@@ -22,6 +22,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 GlobalSessionManager="*res://Globals/SessionManager/session_manager.tscn"
 GlobalSceneLoader="*res://Globals/SceneLoader/scene_loader.tscn"
+GlobalSaveManager="*uid://lnp0r05fc1u2"
 
 [display]
 

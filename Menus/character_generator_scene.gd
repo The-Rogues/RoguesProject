@@ -118,5 +118,7 @@ func _on_start_battle_button_up() -> void:
 		backstory_label.text
 	)
 	
+	GlobalSaveManager.save_run(GlobalSessionManager.run_progress)
+	
 	# Fletcher - Changed from load battle scene to load map scene.
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)

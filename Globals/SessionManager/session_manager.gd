@@ -33,14 +33,33 @@ func restart():
 
 # Fletcher - Make a unique map for the game session. Add callback to load the battle scene when a node is clicked.
 func initialize_map():
-	run_progress.run_map = MapManager.new(randi())
+	if run_progress.map_seed == 0: run_progress.map_seed = randi()
+	run_progress.run_map = MapManager.new(run_progress.map_seed)
+	GlobalSaveManager.save_run(run_progress)
+	_attach_map_callbacks()
+	run_progress.run_map.set_player_node_index(run_progress.player_node_index)
+	#run_progress.run_map.add_callback(
+	#	func(corr_node: RefCounted):
+	#		if corr_node.node_data:
+	#			GlobalSceneLoader.load_battle_scene()
+	#		else:
+	#			GlobalSceneLoader.load_shop_scene()
+	#)
+	
+func _attach_map_callbacks():
 	run_progress.run_map.add_callback(
 		func(corr_node: RefCounted):
+			# save position on arrival
+			run_progress.player_node_index = run_progress.run_map.get_player_node_index()
+			GlobalSaveManager.save_run(run_progress)
+
+			# trigger scene
 			if corr_node.node_data:
 				GlobalSceneLoader.load_battle_scene()
 			else:
 				GlobalSceneLoader.load_shop_scene()
 	)
+
 
 func upgrade_health(additional_points:int):
 	if run_progress == null:
@@ -62,6 +81,11 @@ func upgrade_item_capacity():
 	pass
 
 func save_character_health(new_health_amount:int):
+	if run_progress.character_data.health == null: 
+		run_progress.character_data.health = Stat.new() 
+		run_progress.character_data.health.max_value = 100 
+		run_progress.character_data.health.min_value = 0 
+		run_progress.character_data.health.value = 100
 	run_progress.character_data.health.value = new_health_amount
 
 func add_gold(amount:int):

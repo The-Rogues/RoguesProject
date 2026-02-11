@@ -1,3 +1,5 @@
+res://Map/map_module/map_assets/
+res://Globals/PersistentResources/
 res://BattleSystem/Entities/Enemies/Crawler/
 res://BattleSystem/Entities/Enemies/Minotaur/
 res://BattleSystem/Entities/Enemies/Attacks/Projectiles/

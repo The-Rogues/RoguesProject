@@ -10,7 +10,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_entity_data_changed():
+	if entity == null: return
+	if entity.damaged.is_connected(_on_entity_damaged): entity.damaged.disconnect(_on_entity_damaged)
 	entity.damaged.connect(_on_entity_damaged)
+	if entity.healed.is_connected(_on_entity_healed): entity.healed.disconnect(_on_entity_healed)
 	entity.healed.connect(_on_entity_healed)
 
 func _on_entity_damaged(amount:int):
