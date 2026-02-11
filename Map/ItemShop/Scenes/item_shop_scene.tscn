@@ -2,11 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/ItemShop/Textures/ShopKeepers/shop_keeper_varient_0.tres" id="1_bt8o4"]
 [ext_resource type="Script" uid="uid://7ymmg45xhdak" path="res://Map/ItemShop/Scenes/item_shop_scene.gd" id="1_jq6m6"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="2_jyd0f"]
+[ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://ItemSystem/Items/Apple/apple_healing_item_data.tres" id="3_5ug6c"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="3_jq6m6"]
+[ext_resource type="Resource" uid="uid://dlviwum7qlyod" path="res://ItemSystem/Items/Bread/bread_healing_item_data.tres" id="4_bgko6"]
 [ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://ItemSystem/Scenes/item_slot_ui.tscn" id="5_8bdd0"]
+[ext_resource type="Resource" uid="uid://dm6o6i3wayjsk" path="res://ItemSystem/Items/Rat/rat_item_data.tres" id="5_ycyw5"]
+[ext_resource type="Resource" uid="uid://qcc2u0ao21oo" path="res://ItemSystem/Items/CardPack/card_pack_item_data.tres" id="6_oosqx"]
+[ext_resource type="Resource" uid="uid://d22vj3yb6c7lp" path="res://ItemSystem/Items/Barricade/barricade_item_data.tres" id="7_4tva3"]
 [ext_resource type="Script" uid="uid://crame3tjbrvn4" path="res://ItemSystem/Scenes/shop_item_interface.gd" id="7_acpms"]
+[ext_resource type="Resource" uid="uid://704fo14vdxkf" path="res://ItemSystem/Items/WackBat/wack_bat_item_data.tres" id="8_3r1d8"]
 [ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="8_ff7t1"]
 [ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="9_75i6p"]
+[ext_resource type="Resource" uid="uid://cj7sd5horucgq" path="res://ItemSystem/Items/Cheese/cheese_healing_item_data.tres" id="9_a5r3d"]
 [ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="9_acpms"]
 [ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://Map/ItemShop/Textures/shop_desk.tres" id="9_rdf4x"]
 
@@ -16,7 +24,7 @@ texture_margin_left = 18.0
 texture_margin_top = 18.0
 texture_margin_right = 18.0
 texture_margin_bottom = 18.0
-modulate_color = Color(0, 0, 0, 1)
+modulate_color = Color(0.0341224, 0.008799729, 0.05652272, 1)
 
 [node name="ShopScreen" type="Control" unique_id=1932341387 node_paths=PackedStringArray("shop_menu", "sell_menu", "menu", "character_sprite")]
 layout_mode = 3
@@ -26,6 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jq6m6")
+override_shop_items = Array[ExtResource("2_jyd0f")]([ExtResource("3_5ug6c"), ExtResource("3_5ug6c"), ExtResource("4_bgko6"), ExtResource("5_ycyw5"), ExtResource("6_oosqx"), ExtResource("7_4tva3"), ExtResource("8_3r1d8"), ExtResource("9_a5r3d")])
 shop_menu = NodePath("CanvasLayer/Control/ShopMenu")
 sell_menu = NodePath("CanvasLayer/Control/SellMenu")
 menu = NodePath("CanvasLayer/Control/Menu")

@@ -200,6 +200,17 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
 text = "Quit
 "
 
+[node name="ResetRun" type="Button" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer" unique_id=716200456]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_fvvvu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k7suw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
+text = "Reset Run"
+
 [node name="Developers" type="Label" parent="UILayer/Control/MainMenu" unique_id=1538371334]
 texture_filter = 1
 layout_mode = 1
@@ -341,4 +352,5 @@ horizontal_alignment = 1
 [connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Options" to="." method="_on_options_button_up"]
 [connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Credits" to="." method="_on_credits_button_up"]
 [connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/ResetRun" to="." method="_on_reset_run_button_up"]
 [connection signal="button_up" from="UILayer/Control/CreditsMenu/MarginContainer2/GoBack" to="." method="_on_go_back_credits_button_up"]

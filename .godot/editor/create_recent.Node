@@ -1,4 +1,5 @@
 HBoxContainer
+Button
 TextureRect
 Control
 Label
@@ -6,7 +7,6 @@ PanelContainer
 MarginContainer
 Node2D
 Node
-Button
 FlowContainer
 ScrollContainer
 VBoxContainer

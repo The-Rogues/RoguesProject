@@ -22,6 +22,7 @@ var player_pos: RefCounted: # A reference to the MapGraphNode that the player is
 		if player_pos != new_pos:
 			player_pos = new_pos # Set the new position if not already set.
 			emit_signal("player_pos_changed", player_pos) # Emit the player_pos_changed signal.
+			_autosave_progress()
 
 #------------------------------------------------------------------------------------
 # Section: _init Function
@@ -551,3 +552,42 @@ func populate_events() -> void:
 			node_arr[i].node_data = false # Even layered nodes are not battle nodes.
 		else:
 			node_arr[i].node_data = true # Odd layered nodes are battle nodes.
+			
+func get_player_node_index() -> int:
+	return node_arr.find(player_pos)
+	
+func get_node_index(node: RefCounted) -> int:
+	return node_arr.find(node)
+
+
+func set_player_node_index(index: int) -> void:
+	if index < 0 or index >= node_arr.size():
+		push_error("MapGraph.set_player_node_index: index out of range: %s" % index)
+		return
+	player_pos = node_arr[index] # uses your setter, emits player_pos_changed
+
+			
+func _autosave_progress() -> void:
+	# Load existing progress (or do nothing if none)
+	var progress := GlobalSaveManager.load_run()
+	if progress == null:
+		return
+
+	# Update only the position (seed already saved)
+	progress.player_node_index = get_player_node_index()
+	GlobalSaveManager.save_run(progress)
+	
+func _autosave_player_position() -> void:
+	if node_arr.is_empty():
+		return
+
+	var idx := node_arr.find(player_pos)
+	if idx == -1:
+		return
+
+	var p : RunProgress = GlobalSessionManager.run_progress
+	if p == null:
+		return
+
+	p.player_node_index = idx
+	GlobalSaveManager.save_run(p)

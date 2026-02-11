@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://dj231k2t6krxk" path="res://PersonalitySystem/PlayerCharacter/default_character_data.tres" id="9_7lneo"]
 [ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="9_3876o"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://BattleSystem/Scenes/battle_results_ui.tscn" id="10_tmnld"]
+[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://BattleSystem/Scenes/exit_button.gd" id="12_r734y"]
 [ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://CardSystem/Scenes/deck_viewer_ui.tscn" id="15_1mkj3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
@@ -22,7 +23,7 @@ b = Vector2(3, 452)
 b = Vector2(-1151, -3)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3876o"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.03529412, 0.007843138, 0.05490196, 1)
 
 [node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "character_entity", "end_turn_button", "battle_results_display", "item_interface")]
 script = ExtResource("1_jfmiq")
@@ -140,6 +141,18 @@ force_initialize = false
 [node name="PlayerGold" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer" unique_id=1751191548 instance=ExtResource("9_3876o")]
 layout_mode = 2
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="UILayer/Control/PanelContainer/MarginContainer" unique_id=1123808491]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ExitButton" type="Button" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer2" unique_id=132845382]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7j1wb")
+theme_override_font_sizes/font_size = 8
+text = "Exit"
+script = ExtResource("12_r734y")
+
 [node name="Debugging2" type="VBoxContainer" parent="UILayer/Control" unique_id=1501201850]
 modulate = Color(1, 1, 1, 0.5137255)
 layout_mode = 1
@@ -231,7 +244,9 @@ layout_mode = 1
 activation_button = NodePath("../DiscardPileButton")
 
 [node name="BattleResultDisplay" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
+visible = false
 
+[connection signal="button_up" from="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer2/ExitButton" to="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer2/ExitButton" method="_on_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/Win button" to="." method="_on_win_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/TestPlayerDamage" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging2/TestEnemyDamage" to="." method="_on_test_enemy_damage_button_up"]

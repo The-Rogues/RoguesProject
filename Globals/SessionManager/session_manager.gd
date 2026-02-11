@@ -33,9 +33,23 @@ func restart():
 
 # Fletcher - Make a unique map for the game session. Add callback to load the battle scene when a node is clicked.
 func initialize_map():
+	if run_progress.map_seed == 0: run_progress.map_seed = randi()
+	run_progress.run_map = MapManager.new(run_progress.map_seed)
+	GlobalSaveManager.save_run(run_progress)
+	
+	# Attatching map callbacks
 	run_progress.run_map = MapManager.new(randi())
+	_attach_map_callbacks()
+	
+	run_progress.run_map.set_player_node_index(run_progress.player_node_index)
+
+func _attach_map_callbacks():
 	run_progress.run_map.add_callback(
 		func(corr_node: RefCounted):
+			# save position on arrival
+			run_progress.player_node_index = run_progress.run_map.get_player_node_index()
+			GlobalSaveManager.save_run(run_progress)
+			# trigger scene
 			if corr_node.node_data:
 				GlobalSceneLoader.load_battle_scene()
 			else:
@@ -61,8 +75,16 @@ func upgrade_item_capacity():
 	run_progress.item_capacity += 1
 	pass
 
-func save_character_health(new_health_amount:int):
-	run_progress.character_data.health.value = new_health_amount
+func save_character_health(current_health:int):
+	if run_progress == null:
+		return
+	
+	run_progress.character_data.health = Stat.new(
+		run_progress.character_data.health.max_value,
+		0,
+		current_health,
+		false
+	)
 
 func add_gold(amount:int):
 	if run_progress == null:
@@ -71,6 +93,8 @@ func add_gold(amount:int):
 	gold_updated.emit(get_gold())
 
 func get_gold():
+	if run_progress == null:
+		return 0
 	return run_progress.gold
 
 func can_buy_item(item_price:int):
@@ -135,7 +159,7 @@ func get_character():
 
 func get_heald_items():
 	if run_progress == null:
-		return null
+		return [] as Array[ItemData]
 	return run_progress.heald_items
 
 func get_floor_progress():
@@ -151,4 +175,6 @@ func get_current_floor():
 func get_character_sprite():
 	if run_progress == null:
 		return null
+	if run_progress.character_data == null:
+		return load("res://Testing/donkey.tres")
 	return run_progress.character_data.display_texture

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="3_sxtw1"]
 [ext_resource type="Texture2D" uid="uid://djcyscbrdlih1" path="res://BattleSystem/Entities/Enemies/LizardGuard/lizard_guard_texture.tres" id="4_5nei4"]
 [ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="6_57rba"]
-[ext_resource type="Resource" uid="uid://cnft8rbrgf5jb" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/rapid_strike_enemy_move.tres" id="6_j2r17"]
+[ext_resource type="Resource" uid="uid://cnft8rbrgf5jb" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/rapid_strike_enemy_attack.tres" id="6_j2r17"]
 [ext_resource type="Resource" uid="uid://dn07ojtabbdn6" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Special/backup_enemy_attack.tres" id="6_sxtw1"]
 [ext_resource type="Resource" uid="uid://bwlhi1n1uiwuc" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Sabotage/shield_break_enemy_move.tres" id="7_j2r17"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="8_j2r17"]

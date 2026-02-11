@@ -13,6 +13,8 @@ var map_structure_script: GDScript = preload("res://Map/map_module/map_data_stru
 var map_instance_scene: PackedScene = preload("res://Map/map_module/map_scenes/MapInstance/MapInstance.tscn")
 
 var map_structure: RefCounted
+var map_seed: int = 0
+
 
 #------------------------------------------------------------------------------------
 # Section: Functions
@@ -22,7 +24,8 @@ var map_structure: RefCounted
 # Description: Initialises the map's structure using defined settings and a provided seed.
 # map_seed: An integer that serves as a random seed for the map generated.
 # Return: void.
-func _init(map_seed: int) -> void:
+func _init(map_seed_in: int) -> void:
+	map_seed = map_seed_in
 	map_structure = map_structure_script.new(
 		6,
 		[0.10, 0.10, 0.40, 0.40] as Array[float],
@@ -61,3 +64,13 @@ func add_callback(callback_func: Callable) -> void:
 		func(emmited_node: RefCounted):
 			callback_func.call(emmited_node)
 	)
+
+func set_player_node_index(index: int) -> void:
+	if map_structure == null:
+		return
+	map_structure.call("set_player_node_index", index)
+
+func get_player_node_index() -> int:
+	if map_structure == null:
+		return -1
+	return int(map_structure.call("get_player_node_index"))

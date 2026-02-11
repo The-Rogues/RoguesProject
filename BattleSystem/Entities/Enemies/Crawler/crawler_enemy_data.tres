@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_cmwq8"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="3_k05gb"]
 [ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://BattleSystem/Entities/Enemies/Crawler/crawler.tres" id="4_6sevn"]
-[ext_resource type="Resource" uid="uid://bh1gmuk2hexqm" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/strike_enemy_move.tres" id="6_8mef5"]
+[ext_resource type="Resource" uid="uid://bh1gmuk2hexqm" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/strike_enemy_attack.tres" id="6_cmwq8"]
 [ext_resource type="Resource" uid="uid://4hm0vi0txkjq" path="res://BattleSystem/Entities/Enemies/Crawler/fire_spout_enemy_attack.tres" id="7_cmwq8"]
 
 [sub_resource type="Resource" id="Resource_nc1u1"]
@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 [resource]
 script = ExtResource("3_k05gb")
 reward_amount = 80
-move_set = Array[ExtResource("2_1jres")]([ExtResource("6_8mef5"), ExtResource("7_cmwq8")])
+move_set = Array[ExtResource("2_1jres")]([ExtResource("6_cmwq8"), ExtResource("7_cmwq8")])
 display_texture = ExtResource("4_6sevn")
 name = "Crawler"
 health_points = 40

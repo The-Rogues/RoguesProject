@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cnft8rbrgf5jb"]
+
+[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_quicc"]
+[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_4ku4m"]
+[ext_resource type="Script" uid="uid://cqgo8f3dtv77n" path="res://BattleSystem/AtomicActions/Common/damage_action.gd" id="3_2itup"]
+[ext_resource type="Script" uid="uid://dha63lye0dnph" path="res://BattleSystem/AtomicActions/Common/repeated_action.gd" id="4_4til8"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/Enemies/Attacks/IntentIcons/attack_intent_icon.tres" id="5_iux6p"]
+[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="6_wuicy"]
+
+[sub_resource type="Resource" id="Resource_y8dr7"]
+script = ExtResource("3_2itup")
+damage = 6
+metadata/_custom_type_script = "uid://cqgo8f3dtv77n"
+
+[sub_resource type="Resource" id="Resource_3ysg0"]
+script = ExtResource("4_4til8")
+times = 3
+action = SubResource("Resource_y8dr7")
+metadata/_custom_type_script = "uid://dha63lye0dnph"
+
+[sub_resource type="Resource" id="Resource_pfjhf"]
+script = ExtResource("1_quicc")
+targeting = 1
+actions = Array[ExtResource("2_4ku4m")]([SubResource("Resource_3ysg0")])
+metadata/_custom_type_script = "uid://btp3527x14hav"
+
+[resource]
+script = ExtResource("6_wuicy")
+name = "RapidAtk"
+description_text = "Deal 6 damage
+Repeat attack 3 times"
+icon = ExtResource("5_iux6p")
+actions = Array[ExtResource("1_quicc")]([SubResource("Resource_pfjhf")])
+metadata/_custom_type_script = "uid://pq8nnotusssk"

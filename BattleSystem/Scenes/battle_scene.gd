@@ -108,7 +108,7 @@ func _on_battle_ended(player_won:bool):
 				character_entity, 
 				battle_manager.enemies)
 	else:
-		await character_entity.entity_animator.animation_finished
+		await get_tree().create_timer(0.5).timeout
 		battle_results_display.set_result(player_won, 
 				character_entity, 
 				battle_manager.enemies)

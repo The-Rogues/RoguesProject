@@ -86,6 +86,7 @@ func _start_player_turn():
 	for enemy in enemies:
 		if enemy.entity_data is EnemyData:
 			enemy.entity_data.choose_next_move()
+			enemy.update_thought_icon(enemy.entity_data.next_move.icon)
 	
 	battle_field.on_new_turn_started()
 	
@@ -160,7 +161,7 @@ func execute_card(card_data:CardData):
 		for action in combat_move.actions:
 			action_queue.enqueue(action, action_context)
 
-func _on_entity_defeated(battle_entity:BattleEntity):	
+func _on_entity_defeated(battle_entity:BattleEntity):
 	if player_entity.is_defeated:
 		battle_ended.emit(false)
 		
