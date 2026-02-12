@@ -115,6 +115,7 @@ func set_button_states() -> void:
 	
 	# When the player's node is reached, the pressable buttons will be stored in this array.
 	var accessable_buttons: Array[RefCounted] = []
+	
 	for i in range(0, map_buttons.size()):
 		
 		# Disable all buttons by default.
@@ -126,6 +127,12 @@ func set_button_states() -> void:
 			accessable_buttons = map_structure.node_arr[i].node_edges.duplicate(true)
 			map_buttons[i].texture_normal = texture_player
 			map_buttons[i].texture_hover = texture_player
+			
+			# Allow clicking CURRENT node only when we have an active battle to resume
+			var p := GlobalSaveManager.get_or_create()
+			var current_idx: int = map_structure.get_player_node_index()
+			if p.battle != null and p.battle.is_active and current_idx == p.battle.resume_node_index:
+				map_buttons[i].disabled = false
 		
 		# If the player's node has been found, this branch is executed.
 		elif player_layer >= 0:
@@ -210,4 +217,15 @@ func check_accessable(q_node: RefCounted, access_arr: Array[RefCounted]) -> bool
 # corr_node: The corresponding node of the button pressed.
 # Return: void.
 func _on_map_button_pressed(corr_node: RefCounted) -> void:
+	var p := GlobalSaveManager.get_or_create()
+
+	# If battle is active, freeze map movement and only allow resume on the resume node
+	if p.battle != null and p.battle.is_active:
+		var clicked_idx : int = map_structure.get_node_index(corr_node)
+		var current_idx : int = map_structure.get_player_node_index()
+
+		if clicked_idx == current_idx and clicked_idx == p.battle.resume_node_index:
+			GlobalSceneLoader.load_battle_scene()
+		return
+
 	map_structure.player_pos = corr_node

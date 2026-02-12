@@ -58,7 +58,8 @@ func load_scene(scene_path:String):
 func load_battle_scene():
 	if loading_scene:
 		return
-	
+	if GlobalSessionManager != null:
+		GlobalSessionManager.mark_battle_active()
 	create_battle_scene_configuration()
 	ResourceLoader.load_threaded_request(BATTLE_SCENE_PATH)
 	loading_scene_path = BATTLE_SCENE_PATH

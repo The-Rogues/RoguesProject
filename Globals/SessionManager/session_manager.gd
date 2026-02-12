@@ -37,7 +37,12 @@ func initialize_map():
 	run_progress.run_map = MapManager.new(run_progress.map_seed)
 	GlobalSaveManager.save_run(run_progress)
 	_attach_map_callbacks()
-	run_progress.run_map.set_player_node_index(run_progress.player_node_index)
+	var idx := run_progress.player_node_index
+	if run_progress.battle != null and run_progress.battle.is_active:
+		idx = run_progress.battle.resume_node_index
+
+	run_progress.run_map.set_player_node_index(idx)
+
 	#run_progress.run_map.add_callback(
 	#	func(corr_node: RefCounted):
 	#		if corr_node.node_data:
@@ -56,6 +61,7 @@ func _attach_map_callbacks():
 			# trigger scene
 			if corr_node.node_data:
 				GlobalSceneLoader.load_battle_scene()
+				mark_battle_active(run_progress.player_node_index)
 			else:
 				GlobalSceneLoader.load_shop_scene()
 	)
@@ -163,3 +169,20 @@ func get_character_sprite():
 	if run_progress == null:
 		return null
 	return run_progress.character_data.display_texture
+	
+func mark_battle_active(resume_idx: int = -1) -> void:
+	if run_progress == null:
+		return
+
+	# Ensure battle save exists
+	if run_progress.battle == null:
+		run_progress.battle = BattleSaveData.new()
+
+	run_progress.battle.is_active = true
+
+	# If caller doesn't pass an index, use current player node index
+	if resume_idx == -1:
+		resume_idx = run_progress.player_node_index
+
+	run_progress.battle.resume_node_index = resume_idx
+	GlobalSaveManager.save_run(run_progress)

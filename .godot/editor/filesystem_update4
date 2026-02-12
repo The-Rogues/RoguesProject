@@ -1,3 +1,5 @@
+res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd
+res://Map/map_module/map_data_structures/MapManager.gd
 res://Menus/main_menu_scene.tscn
 res://BattleSystem/BattleFieldSystem/BattlePositions/charged_position_texture.tres
 res://GeneralAssets/Shaders/SpriteFlasher/flash_sprite_material.tres
@@ -49,15 +51,6 @@ res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres
 res://BattleSystem/Entities/DefaultBattleEntity/default_battle_entity_data.tres
 res://PersonalitySystem/PlayerCharacter/default_character_data.tres
-res://GeneralAssets/Shaders/SpriteFlasher/hit_flash.gdshader
-res://Menus/main_menu_scene.gd
-res://Globals/PersistentResources/save_manager.gd
-res://Map/map_module/map_data_structures/MapGraph.gd
-res://Map/map_module/map_data_structures/MapManager.gd
-res://Globals/PersistentResources/run_progress.gd
-res://Menus/character_generator_scene.gd
-res://Globals/SessionManager/session_manager.gd
-res://Map/map_module/map_scenes/MapInstance/MapInstance.tscn
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_1.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_3.tres
@@ -81,10 +74,7 @@ res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_22.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres
-res://Globals/PersistentResources/battle_save_data.gd
-res://BattleSystem/BattleFlowManager/battle_manager.gd
-res://BattleSystem/Scenes/battle_results_ui.gd
-res://Map/map_module/map_scenes/MapButton/MapButton.tscn
-res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd
-res://Globals/SessionManager/session_manager.tscn
-res://BattleSystem/Entities/Objects/battle_object_template.tscn
+res://GeneralAssets/Shaders/SpriteFlasher/hit_flash.gdshader
+res://Globals/SceneLoader/scene_loader.gd
+res://Globals/SessionManager/session_manager.gd
+res://Map/map_module/map_scenes/MapInstance/MapInstance.tscn
