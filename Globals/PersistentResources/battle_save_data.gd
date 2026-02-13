@@ -6,3 +6,4 @@ class_name BattleSaveData
 
 
 @export var enemies: Array[EnemySnapshot] = []
+@export var player_hp : int = 100

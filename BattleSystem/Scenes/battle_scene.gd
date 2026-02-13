@@ -168,6 +168,12 @@ func _on_win_button_up() -> void:
 	
 func _initialize_from_save(p: RunProgress) -> void:
 	character_entity.initialize(p.character_data)
+	
+	# restore player HP from battle save
+	if character_entity.entity_data != null and character_entity.entity_data.health != null:
+		character_entity.entity_data.health.value = p.battle.player_hp
+		character_entity.entity_data.health.value_changed.emit(character_entity.entity_data.health.value)
+
 
 	var enemies_arr: Array[BattleEntity] = []
 	for snap in p.battle.enemies:
@@ -177,11 +183,8 @@ func _initialize_from_save(p: RunProgress) -> void:
 		var new_enemy: BattleEntity = BATTLE_ENTITY.instantiate()
 		add_child(new_enemy)
 		enemies_arr.append(new_enemy)
-
-		# initializes + duplicates EnemyData, creates health stat, etc.
-		new_enemy.initialize(snap.enemy_data)
-
-		# Restore HP safely: rebuild Stat then set current
+		
+		# Restore HP safely
 		if new_enemy.entity_data != null:
 			new_enemy.initialize(snap.enemy_data)
 			new_enemy.entity_data.health.value = snap.current_hp
@@ -244,6 +247,7 @@ func _save_battle_snapshot() -> void:
 	p.battle.is_active = true
 	p.battle.resume_node_index = p.player_node_index
 	p.battle.enemies.clear()
+	p.battle.player_hp = character_entity.entity_data.health.value
 
 	for e in battle_manager.enemies:
 		if e == null or e.entity_data == null:
