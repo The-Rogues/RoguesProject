@@ -1,25 +1,29 @@
 extends Control
 
-@export var context_panel:ContextPanel
-var screen_size:Vector2
+@export var context_panel: ContextPanel
+var screen_size: Vector2
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport().size
-	if global_position.y > 0:
+	
+	var screen_middle_y = screen_size.y * 0.5
+	
+	# If object is above the middle move panel DOWN
+	if global_position.y < screen_middle_y:
+		context_panel.global_position.y += 50
+	else:
+		# If object is below the middle move panel UP
 		context_panel.global_position.y -= 50
+	
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	pass # Replace with function body.
 
 func _on_mouse_entered():
 	if !visible:
 		return
 	context_panel.visible = true
-	pass
 
 func _on_mouse_exited():
 	if !visible:
 		return
 	context_panel.visible = false
-	pass

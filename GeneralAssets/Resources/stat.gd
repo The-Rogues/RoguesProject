@@ -13,13 +13,13 @@ signal value_changed(current_value:float)
 @export var max_on_start:bool
 
 func _init(
-	max:float,
-	min:float,
+	new_max:float,
+	new_min:float,
 	starting_value:float,
 	maximize_on_start:bool = false
 ) -> void:
-	max_value = max
-	min_value = min
+	max_value = new_max
+	min_value = new_min
 	value = starting_value
 	max_on_start = maximize_on_start
 	resource_local_to_scene = true

@@ -1,26 +1,26 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c6774gwn7h8po"]
 
-[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_qtdqx"]
-[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_73nwv"]
-[ext_resource type="Script" uid="uid://cetmmi5e7bh0x" path="res://BattleSystem/AtomicActions/Common/heal_action.gd" id="3_0l8fh"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_qtdqx"]
+[ext_resource type="Script" uid="uid://5hjapp3udi62" path="res://BattleSystem/BattleActions/BattleActions/heal_entity_action.gd" id="2_73nwv"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="3_0l8fh"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="4_o1ina"]
 
-[sub_resource type="Resource" id="Resource_r7dwq"]
-script = ExtResource("3_0l8fh")
-health = 16
-metadata/_custom_type_script = "uid://cetmmi5e7bh0x"
+[sub_resource type="Resource" id="Resource_o1ina"]
+script = ExtResource("2_73nwv")
+health = 12
+metadata/_custom_type_script = "uid://5hjapp3udi62"
 
-[sub_resource type="Resource" id="Resource_shjdk"]
-script = ExtResource("1_qtdqx")
-targeting = 1
-actions = Array[ExtResource("2_73nwv")]([SubResource("Resource_r7dwq")])
-metadata/_custom_type_script = "uid://btp3527x14hav"
+[sub_resource type="Resource" id="Resource_e1k2i"]
+script = ExtResource("3_0l8fh")
+move_type = 1
+name = "Rest"
+description = "Heals 12 health."
+actions = Array[ExtResource("1_qtdqx")]([SubResource("Resource_o1ina")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("4_o1ina")
 rarity = 1
-name = "Rest"
-description = "Heal 16 health"
 energy_cost = 5
-play_moves = Array[ExtResource("1_qtdqx")]([SubResource("Resource_shjdk")])
+move = SubResource("Resource_e1k2i")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

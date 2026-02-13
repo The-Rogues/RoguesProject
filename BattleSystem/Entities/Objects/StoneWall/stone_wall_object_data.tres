@@ -12,9 +12,7 @@ metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
 [resource]
 script = ExtResource("3_jxmos")
 object_type = 1
-is_invincible = true
-player_attack_filter = 2
-enemy_attack_filter = 2
+attack_filter = 2
 display_texture = ExtResource("3_0f5cm")
 name = "Stone Wall"
 wait_to_hide_sprite = true

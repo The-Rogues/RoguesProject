@@ -2,7 +2,9 @@ extends Entity
 class_name BattleFieldObject
 
 @export var entity_animator:AnimationPlayer
+@export var action_wait_timer:Timer
 
+const ACTION_WAIT_TIME = 0.15
 
 func initialize(new_entity_data:EntityData = null):
 	super(new_entity_data)
@@ -20,11 +22,8 @@ func blocks_attacker(attacker:Entity):
 	var attacker_data = attacker.entity_data
 	var attacker_is_enemy = attacker_data is EnemyData
 	# Checks if object ignores player attacks
-	if entity_data.player_attack_filter == BattleObjectData.BlockMode.BLOCK and !attacker_is_enemy:
+	if entity_data.attack_filter == BattleObjectData.BlockMode.BLOCK and !attacker_is_enemy:
 		return true
-	# Checks if object ignores enemy attacks
-	if entity_data.enemy_attack_filter == BattleObjectData.BlockMode.BLOCK and attacker_is_enemy:
-			return true
 	# attack is not blocked
 	return false
 
@@ -38,11 +37,8 @@ func ignores_attacker(attacker:Entity):
 	var attacker_data = attacker.entity_data
 	var attacker_is_enemy = attacker_data is EnemyData
 	# Checks if object blocks player attacks
-	if entity_data.player_attack_filter == BattleObjectData.BlockMode.IGNORE and !attacker_is_enemy:
+	if entity_data.attack_filter == BattleObjectData.BlockMode.IGNORE and !attacker_is_enemy:
 		return true
-	# Checks if object blocks enemy attacks
-	if entity_data.enemy_attack_filter == BattleObjectData.BlockMode.IGNORE and attacker_is_enemy:
-			return true
 	# attack is not ignored
 	return false
 
@@ -87,6 +83,10 @@ func _on_defeated():
 	entity_animator.play("battle_object/defeat")
 	await entity_animator.animation_finished
 	queue_free()
+
+func action_wait_time():
+	action_wait_timer.start(ACTION_WAIT_TIME)
+	await action_wait_timer.timeout
 
 func update_health_bar():
 	if entity_data.health.value < entity_data.health.max_value:

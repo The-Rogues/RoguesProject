@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dbt3n70fcylp3"]
+
+[ext_resource type="Texture2D" uid="uid://7tbklim4gu2e" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0028_emoji29.png" id="1_0lwet"]
+[ext_resource type="Script" uid="uid://7f0ek6d467qa" path="res://PersonalitySystem/traits_display.gd" id="1_o10x6"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://GeneralAssets/UI/ContextPanel/hover_pop_up.gd" id="2_o10x6"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://GeneralAssets/UI/ContextPanel/context_panel.tscn" id="3_a2fav"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="3_nuge6"]
+[ext_resource type="Texture2D" uid="uid://fipkp3167c1d" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0026_emoji27.png" id="4_aaoii"]
+[ext_resource type="Texture2D" uid="uid://qtxteloxo0em" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0009_emoji10.png" id="5_nuge6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2fav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaoii"]
+
+[node name="TraitsDisplay" type="PanelContainer" unique_id=1527129464 node_paths=PackedStringArray("aggression_trait", "aggressive_context", "aggression_weight", "survival_trait", "survival_context", "survival_weight", "drive_trait", "drive_context", "drive_weight")]
+offset_right = 205.0
+offset_bottom = 59.0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a2fav")
+script = ExtResource("1_o10x6")
+aggression_trait = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/AggressionTrait")
+aggressive_context = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/AggressionTrait/ContextPanel")
+aggression_weight = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/AggressionTrait/AggressionWeight")
+survival_trait = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/SurvivalTrait")
+survival_context = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/SurvivalTrait/ContextPanel")
+survival_weight = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/SurvivalTrait/SurvivalWeight")
+drive_trait = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DriveTrait")
+drive_context = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DriveTrait/ContextPanel")
+drive_weight = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DriveTrait/DriveWeight")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1677645526]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=997732154]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aaoii")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=1785719479]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=838283492]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=763705832]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="AggressionTrait" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1219277905 node_paths=PackedStringArray("context_panel")]
+self_modulate = Color(1, 1, 1, 0.62352943)
+texture_filter = 1
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_0lwet")
+expand_mode = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("ContextPanel")
+
+[node name="ContextPanel" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/AggressionTrait" unique_id=1838000936 instance=ExtResource("3_a2fav")]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = -41.0
+offset_right = 230.0
+offset_bottom = 19.0
+
+[node name="AggressionWeight" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/AggressionTrait" unique_id=1054567618]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 28.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 13
+text = "10"
+horizontal_alignment = 1
+
+[node name="SurvivalTrait" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=56787649 node_paths=PackedStringArray("context_panel")]
+self_modulate = Color(1, 1, 1, 0.62352943)
+texture_filter = 1
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_aaoii")
+expand_mode = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("ContextPanel")
+
+[node name="ContextPanel" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/SurvivalTrait" unique_id=158347691 instance=ExtResource("3_a2fav")]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = -41.0
+offset_right = 230.0
+offset_bottom = 19.0
+
+[node name="SurvivalWeight" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/SurvivalTrait" unique_id=1979068592]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 28.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 13
+text = "10"
+horizontal_alignment = 1
+
+[node name="DriveTrait" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=441853595 node_paths=PackedStringArray("context_panel")]
+self_modulate = Color(1, 1, 1, 0.62352943)
+texture_filter = 1
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_nuge6")
+expand_mode = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("ContextPanel")
+
+[node name="ContextPanel" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DriveTrait" unique_id=1691229288 instance=ExtResource("3_a2fav")]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = -41.0
+offset_right = 230.0
+offset_bottom = 19.0
+
+[node name="DriveWeight" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DriveTrait" unique_id=1239143003]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 28.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 13
+text = "10"
+horizontal_alignment = 1

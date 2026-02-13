@@ -4,11 +4,18 @@
 [ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_x6xqj"]
 [ext_resource type="Script" uid="uid://c3jljqw3ahnfx" path="res://BattleSystem/Entities/Behaviours/ondeath_pop.gd" id="3_stx26"]
 [ext_resource type="Texture2D" uid="uid://boepg3dye1jmp" path="res://BattleSystem/Entities/Enemies/Golem/golem_texture.tres" id="4_x6xqj"]
-[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="5_l6u86"]
-[ext_resource type="Resource" uid="uid://k6et0x8t84fb" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/tackle_enemy_attack.tres" id="6_6or30"]
-[ext_resource type="Resource" uid="uid://capvn7x4cdl2m" path="res://BattleSystem/Entities/Enemies/Golem/bulk_up_enemy_attack.tres" id="7_lss32"]
-[ext_resource type="Resource" uid="uid://d1kknqfidbo3v" path="res://BattleSystem/Entities/Enemies/Golem/rock_roll_enemy_attack.tres" id="8_lss32"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_tgoyo"]
+[ext_resource type="Texture2D" uid="uid://djjgc67emtqut" path="res://BattleSystem/StatusEffects/Protected/protected_condition_status_icon.tres" id="6_tgoyo"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="7_wbk3t"]
+[ext_resource type="Script" uid="uid://b66w2ww6promu" path="res://BattleSystem/BattleActions/BattleActions/add_status_effect_action.gd" id="8_lsoq5"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_6dnsr"]
+[ext_resource type="Resource" uid="uid://be5d5xjhidpxh" path="res://BattleSystem/StatusEffects/Protected/protected_status_effect_data.tres" id="9_f0d03"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/IntentIcons/attack_intent_icon.tres" id="10_lsoq5"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="11_q1rc1"]
+[ext_resource type="Resource" uid="uid://dphdw118a7jkp" path="res://BattleSystem/StatusEffects/Petrified/petrified_status_effect.tres" id="12_miyd4"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/IntentIcons/projectile_attack_intent_icon.tres" id="13_f0d03"]
+[ext_resource type="Texture2D" uid="uid://baa3y77gqbgce" path="res://BattleSystem/Entities/Enemies/Golem/boulder_projectile_texture.tres" id="14_1a47e"]
+[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://BattleSystem/BattleActions/BattleActions/shoot_projectile_action.gd" id="15_578nu"]
 
 [sub_resource type="Resource" id="Resource_206sp"]
 script = ExtResource("2_x6xqj")
@@ -18,10 +25,64 @@ metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
 script = ExtResource("3_stx26")
 metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
 
+[sub_resource type="Resource" id="Resource_gclnh"]
+script = ExtResource("8_lsoq5")
+status_effect = ExtResource("9_f0d03")
+duration = 4
+stack_count = 3
+metadata/_custom_type_script = "uid://b66w2ww6promu"
+
+[sub_resource type="Resource" id="Resource_cad4d"]
+script = ExtResource("5_tgoyo")
+action_display_icon = ExtResource("6_tgoyo")
+move_type = 1
+name = "Reinforce"
+description = "Adds 3 protection to self for 4 turns."
+actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_gclnh")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_ykr4x"]
+script = ExtResource("11_q1rc1")
+damage = 8
+target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_gvgxa"]
+script = ExtResource("8_lsoq5")
+status_effect = ExtResource("12_miyd4")
+duration = 2
+target = 1
+metadata/_custom_type_script = "uid://b66w2ww6promu"
+
+[sub_resource type="Resource" id="Resource_a5vma"]
+script = ExtResource("5_tgoyo")
+action_display_icon = ExtResource("10_lsoq5")
+name = "Crush"
+description = "Deals 8 damage. Chance to petrify player for the next turn."
+actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_ykr4x"), SubResource("Resource_gvgxa")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_k3btu"]
+script = ExtResource("15_578nu")
+projectile_texture = ExtResource("14_1a47e")
+impact_damage = 10
+direction_range = 0.18
+target = 1
+metadata/_custom_type_script = "uid://c3uyo8xsai327"
+
+[sub_resource type="Resource" id="Resource_8ptbf"]
+script = ExtResource("5_tgoyo")
+action_display_icon = ExtResource("13_f0d03")
+move_type = 1
+name = "Rock Throw"
+description = "Throws a medium-accuracy boulder. Deals 10 damage on impact."
+actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_k3btu")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
 [resource]
 script = ExtResource("9_6dnsr")
 reward_amount = 140
-move_set = Array[ExtResource("5_l6u86")]([ExtResource("6_6or30"), ExtResource("7_lss32"), ExtResource("8_lss32")])
+move_set = Array[ExtResource("5_tgoyo")]([SubResource("Resource_cad4d"), SubResource("Resource_a5vma"), SubResource("Resource_8ptbf")])
 rarity = 1
 display_texture = ExtResource("4_x6xqj")
 name = "Golem"

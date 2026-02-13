@@ -1,4 +1,4 @@
-extends BattleEntityData
+extends EntityData
 class_name CharacterData
 
 enum EmotionalState {
@@ -24,6 +24,15 @@ func change_trait(target_trait:String, new_trait:TraitData):
 			defensive_trait = new_trait.duplicate(true)
 		"STRATEGIC":
 			strategic_trait = new_trait.duplicate(true)
+
+func has_trait(trait_data:TraitData):
+	if offensive_trait.id == trait_data.id:
+		return true
+	if defensive_trait.id == trait_data.id:
+		return true
+	if strategic_trait.id == trait_data.id:
+		return true
+	return false
 
 # Constructor
 func initialize(

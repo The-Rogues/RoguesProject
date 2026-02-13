@@ -2,6 +2,8 @@ extends Node2D
 class_name CardPlayHand
 
 signal play_card(card_ui: CardUI)
+signal grabbed_card
+signal released_card
 
 @export var y_position: float = 700
 @export var fan_angle: float = 20.0
@@ -102,6 +104,7 @@ func _on_card_clicked(card: CardUI) -> void:
 	dragged_card.z_index = 100
 	
 	held_card.visible = false
+	grabbed_card.emit()
 
 func _release_card() -> void:
 	holding_card = false
@@ -110,6 +113,7 @@ func _release_card() -> void:
 		_cleanup_drag()
 		return
 	
+	released_card.emit()
 	if dragged_card.in_play_area:
 		play_card.emit(held_card)
 	else:

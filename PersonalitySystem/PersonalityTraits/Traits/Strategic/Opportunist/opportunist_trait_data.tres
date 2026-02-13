@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://cwrhn5awc55g2"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/trait_data.gd" id="1_qsugy"]
+[ext_resource type="Texture2D" uid="uid://6cubofjmuh8s" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0045_emoji46.png" id="2_8t3sb"]
+
+[resource]
+script = ExtResource("1_qsugy")
+trait_icon = ExtResource("2_8t3sb")
+id = "opportunist"
+name = "Opportunist"
+trait_display_description = "Uses their enviornment to give themself the offensive advantage."
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

@@ -23,8 +23,13 @@ signal status_condition_removed
 @onready var status_icons_parent: HBoxContainer = $UI/StatusEffect
 @onready var star_pop: CPUParticles2D = $StarPop
 
+@export var action_wait_timer:Timer
+
+const ACTION_WAIT_TIME = 0.15
+
 const STATUS_EFFECT_UI = preload("res://BattleSystem/StatusEffects/status_effect_icon.tscn")
 var status_effects: Array[StatusEffect] = []
+var can_move:bool = true
 
 func initialize(new_entity_data:EntityData = null):
 	super(new_entity_data)
@@ -42,7 +47,8 @@ func add_status(effect: StatusEffectData, duration: int = 1, stacks: int = 1):
 		if instance.effect == effect:
 			if effect.is_stackable:
 				instance.stack_count += stacks
-				instance.duration = max(instance.duration, duration)
+				instance.duration += 1
+				#instance.duration = max(instance.duration, duration)
 			
 			for status_icon in status_icons_parent.get_children():
 				status_icon.update_ui()
@@ -67,6 +73,15 @@ func remove_status(instance: StatusEffect):
 			status_condition_removed.emit()
 			break
 
+func has_status(status_id:String):
+	for instance in status_effects:
+		if instance.effect.id == status_id:
+			return true
+
+func find_and_remove_status(status_id:String):
+	for instance in status_effects:
+		if instance.effect.id == status_id:
+			remove_status(instance)
 
 func get_attack_damage(base: int) -> int:
 	var amount := base
@@ -102,7 +117,6 @@ func _on_defeated():
 	entity_animator.stop()
 	entity_animator.play("battle_entity/defeat")
 	await entity_animator.animation_finished
-	defeated.emit()
 	super()
 
 
@@ -116,6 +130,11 @@ func _on_new_turn_started():
 			remove_status(instance)
 	for status_icon in status_icons_parent.get_children():
 		status_icon.update_ui()
+
+
+func action_wait_time():
+	action_wait_timer.start(ACTION_WAIT_TIME)
+	await action_wait_timer.timeout
 
 
 # Moves the entity to a passed position while playing a walking animation

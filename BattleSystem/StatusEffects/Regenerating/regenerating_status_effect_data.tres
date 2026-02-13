@@ -12,4 +12,5 @@ script = ExtResource("1_ax15d")
 id = "regenerating"
 display_name = "Regenerating"
 icon = SubResource("AtlasTexture_m6s0c")
+is_stackable = true
 metadata/_custom_type_script = "uid://baesebsx75y6x"

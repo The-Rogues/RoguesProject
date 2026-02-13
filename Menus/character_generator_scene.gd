@@ -19,15 +19,15 @@ class_name CharacterChanger
 @onready var start_battle: Button = $StartButtonMargin/StartBattle
 
 var TRAITS = {
-	"brute": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Brute/brute_personality_trait_data.tres"),
-	"valorous": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Valorous/valorous_personality_trait_data.tres"),
-	"merciful": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Merciful/merciful_personality_trait_data.tres"),
-	"careful": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Careful/careful_personality_trait_data.tres"),
-	"adaptable": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/adaptable_personality_trait_data.tres"),
-	"masochist": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Masochist/masochist_personality_trait_data.tres"),
-	"lazy": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Lazy/lazy_personality_trait_data.tres"),
-	"greedy": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/Greedy/greedy_personality_trait_data.tres"),
-	"clever": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/Clever/clever_personality_trait_data.tres")
+	"Brute": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Brute/brute_trait_data.tres"),
+	"Valorous": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Valorous/valorous_trait_data.tres"),
+	"Merciful": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Merciful/merciful_trait_data.tres"),
+	"Careful": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Careful/careful_trait_data.tres"),
+	"Stoic": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Stoic/stoic_trait_data.tres"),
+	"Skiddish": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Skiddish/skiddish_trait_data.tres"),
+	"Opportunist": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/Opportunist/opportunist_trait_data.tres"),
+	"Greedy": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/Greedy/greedy_trait_data.tres"),
+	"LaidBack": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/LaidBack/laid_back_trait_data.tres"),
 }
 
 # Character sprite and name varients
@@ -41,11 +41,11 @@ const backstories := {
 	"Valorous": "Honor bound, entered the tower after hearing that citizens from their village entered despite the warnings.",
 	"Merciful": "They descend into the dungeon hoping to befriend the monsters and redeem travelers",
 	"Careful": "Enticed by the tower, but weary of its dangers, they seek to satisfy their curiosity.",
-	"Adaptable": "Knowing the dungeon will change them, confident that whatever happens, they will learn and adjust to survive.",
-	"Masochist": "Excited when hearing about powerful monsters in the tower, they quickly arrived expecting to experience agony.",
-	"Lazy": "Crossing the threshold with a single goal in mind, ascending their spirit by going through a spiritual trial.",
+	"Stoic": "Knowing the dungeon will change them, confident that whatever happens, they will learn and adjust to survive.",
+	"Skiddish": "Fearing something far worse is coming for them, seeks the opportunity to esnure their soul will be saved",
+	"Opportunist": "Crossing the threshold with a single goal in mind, ascending their spirit by going through a spiritual trial.",
 	"Greedy": "Entered for the promise of treasure, certain that any risk is worth the wealth buried in the dark.",
-	"Clever": "They step into the dungeon with no plan at all, trusting things will turn out alright in the end."
+	"LaidBack": "They step into the dungeon with no plan at all, trusting things will turn out alright in the end."
 }
 
 func _ready() -> void:
@@ -87,9 +87,9 @@ func _on_start_battle_button_up() -> void:
 	start_battle.disabled = true
 	
 	# Getting Trait Resources
-	var offensive_trait_name = offensive_option.get_item_text(offensive_option.selected).to_lower()
-	var defensive_trait_name = defensive_option.get_item_text(defensive_option.selected).to_lower()
-	var strategic_trait_name = strategic_option.get_item_text(strategic_option.selected).to_lower()
+	var offensive_trait_name = offensive_option.get_item_text(offensive_option.selected)
+	var defensive_trait_name = defensive_option.get_item_text(defensive_option.selected)
+	var strategic_trait_name = strategic_option.get_item_text(strategic_option.selected)
 	
 	var offensive_trait:TraitData = TRAITS[offensive_trait_name]
 	var defensive_trait:TraitData = TRAITS[defensive_trait_name]
@@ -105,7 +105,7 @@ func _on_start_battle_button_up() -> void:
 	
 	# Creates new battle entity that will persist through scenes
 	var character_data:CharacterData = CharacterData.new()
-	await character_data.initialize(
+	character_data.initialize(
 		name_label.text,
 		offensive_trait,
 		defensive_trait,

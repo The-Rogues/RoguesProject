@@ -14,14 +14,14 @@ class_name BattleScene
 @export var character_entity: BattleEntity
 @export var end_turn_button: Button
 @export var battle_results_display: BattleResultLayer
-@export var item_interface:ItemInterface
+#@export var item_interface:ItemInterface
 
 const BATTLE_ENTITY = preload("res://BattleSystem/Entities/battle_entity_template.tscn")
 const ENEMY_SPACING = 0.10
 const ENEMY_Y_POSITION = 0.28
 
 
-var items:Array[ItemData]
+#var items:Array[ItemData]
 
 func _ready() -> void:
 	if GlobalSceneLoader.pending_battle_configuration:
@@ -46,19 +46,14 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	battle_manager.initialize(
 			character_entity, 
 			enemies, 
-			battle_configuration.battle_object_layout
+			battle_configuration.battle_object_layout,
+			battle_configuration.items
 			)
 	
-	# Setup Item Interface
-	for item in battle_configuration.items:
-		items.append(item)
-	
-	item_interface.initialize(items)
 	
 	# Connect signals
 	battle_manager.new_turn_started.connect(_started_player_turn)
 	battle_manager.battle_ended.connect(_on_battle_ended)
-	item_interface.activate_item.connect(_on_use_item)
 	
 	await battle_results_display.fade_out()
 	battle_results_display.visible = false
@@ -84,14 +79,6 @@ func _position_enemies(enemies:Array[BattleEntity]):
 	for i in range(0, enemies.size()):
 		enemies[i].global_position = Vector2(start_x + i * spacing, y)
 
-func _on_use_item(item_index:int):
-	items[item_index]._use_item(battle_manager.player_entity, battle_manager)
-	GlobalSessionManager.consume_item(items[item_index])
-	items.pop_at(item_index)
-	item_interface.initialize(items)
-	if items.is_empty():
-		item_interface.clear_item_slots()
-
 func _on_end_turn_button_button_up() -> void:
 	end_turn_button.disabled = true
 	battle_manager.end_player_turn()
@@ -114,29 +101,22 @@ func _on_battle_ended(player_won:bool):
 				battle_manager.enemies)
 
 func _on_button_button_up() -> void:
-	var action = DamageAction.new()
+	var action = DamageEntityAction.new()
 	action.damage = 20
-	var action_context = battle_manager.create_action_context(null, [character_entity])
-	battle_manager.action_queue.enqueue(action, action_context)
+	battle_manager.action_queue.enqueue(action, battle_manager, null)
 	pass # Replace with function body.
 
 
 func _on_test_enemy_damage_button_up() -> void:
-	var action = DamageAction.new()
+	var action = DamageEntityAction.new()
 	action.damage = 20
-	var entity = battle_manager.living_enemies.pick_random()
-	if !entity:
-		return
-	
-	if entity.is_defeated:
-		return
-	var action_context = battle_manager.create_action_context(null, [entity])
-	battle_manager.action_queue.enqueue(action, action_context)
+	action.target = TargetedBattleAction.TargetType.ENEMY
+
+	battle_manager.action_queue.enqueue(action, battle_manager, null)
 	pass # Replace with function body.
 
 
 func _on_win_button_up() -> void:
 	for enemy in battle_manager.enemies:
-		print(enemy)
 		enemy.kill()
 	pass # Replace with function body.

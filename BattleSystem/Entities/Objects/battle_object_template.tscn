@@ -2,10 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://ceemipxhdl63u" path="res://BattleSystem/Entities/Objects/CobbledWall/cobbled_wall_texture.tres" id="1_fwf06"]
 [ext_resource type="Script" uid="uid://dq0gcwe8cxfs2" path="res://BattleSystem/Entities/Objects/battle_field_object.gd" id="1_sr3yh"]
-[ext_resource type="Resource" uid="uid://b8sxupf2okfkh" path="res://BattleSystem/Entities/DefaultBattleEntity/default_battle_field_object.tres" id="2_o78o2"]
+[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="2_8cki8"]
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://BattleSystem/Entities/BaseScripts/battle_object_data.gd" id="3_i20eq"]
 [ext_resource type="AnimationLibrary" uid="uid://bbjqiamxyupxa" path="res://BattleSystem/Entities/Animations/object_entity_animations.res" id="4_o78o2"]
 [ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://GeneralAssets/UI/HealthBar/health_bar.tscn" id="5_jgdhq"]
 [ext_resource type="Script" uid="uid://cuphtsbdj1lq7" path="res://BattleSystem/Scenes/damage_numbers_spawner.gd" id="6_bbmlj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2nt0l"]
+load_path = "res://.godot/imported/tiles.png-ee51d0628b368e7f2b1914c9a862558b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l1x3"]
+atlas = SubResource("CompressedTexture2D_2nt0l")
+region = Rect2(128, 544, 32, 32)
+
+[sub_resource type="Resource" id="Resource_hpned"]
+script = ExtResource("3_i20eq")
+display_texture = SubResource("AtlasTexture_7l1x3")
+name = "Object"
+metadata/_custom_type_script = "uid://o5nbdchxwujp"
 
 [sub_resource type="Shader" id="Shader_qs5c0"]
 code = "shader_type canvas_item;
@@ -31,10 +45,11 @@ size = Vector2(67, 58)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rg1p"]
 size = Vector2(64, 53)
 
-[node name="BattleObject" type="Node2D" unique_id=1480715373 node_paths=PackedStringArray("entity_animator", "entity_sprite", "ui_display", "health_bar", "ui_dissapear_timer")]
+[node name="BattleObject" type="Node2D" unique_id=1480715373 node_paths=PackedStringArray("entity_animator", "action_wait_timer", "entity_sprite", "ui_display", "health_bar", "ui_dissapear_timer")]
 script = ExtResource("1_sr3yh")
 entity_animator = NodePath("EntityAnimator")
-entity_data = ExtResource("2_o78o2")
+action_wait_timer = NodePath("Timer")
+entity_data = SubResource("Resource_hpned")
 entity_sprite = NodePath("Sprite2D")
 ui_display = NodePath("UI")
 health_bar = NodePath("UI/VBoxContainer/HealthBar")
@@ -72,8 +87,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 16.0
+offset_left = 15.0
+offset_top = -17.0
+offset_right = -13.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -110,5 +127,7 @@ position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_6rg1p")
 
 [node name="UITimer" type="Timer" parent="." unique_id=741231036]
+
+[node name="Timer" type="Timer" parent="." unique_id=172923611]
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

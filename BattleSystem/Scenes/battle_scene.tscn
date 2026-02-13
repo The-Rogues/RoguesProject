@@ -7,13 +7,13 @@
 [ext_resource type="Resource" uid="uid://c5lm4cl0xdwwq" path="res://CardSystem/Decks/starting_card_deck.tres" id="3_r734y"]
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://CardSystem/card_play_hand.gd" id="4_cgsmb"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="5_7j1wb"]
-[ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://ItemSystem/Scenes/item_interface.tscn" id="6_nlaga"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://BattleSystem/Scenes/energy_counter.tscn" id="7_e1j2j"]
 [ext_resource type="PackedScene" uid="uid://dys3hydaairuy" path="res://BattleSystem/Entities/battle_entity_template.tscn" id="8_ao6ux"]
 [ext_resource type="Resource" uid="uid://dj231k2t6krxk" path="res://PersonalitySystem/PlayerCharacter/default_character_data.tres" id="9_7lneo"]
-[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="9_3876o"]
+[ext_resource type="PackedScene" uid="uid://b2sastodcwsbx" path="res://Menus/game_dash_board.tscn" id="9_prne7"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://BattleSystem/Scenes/battle_results_ui.tscn" id="10_tmnld"]
-[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://BattleSystem/Scenes/exit_button.gd" id="12_r734y"]
+[ext_resource type="Texture2D" uid="uid://dijrwcokcngwv" path="res://Menus/deck_icon_normal.tres" id="13_r734y"]
+[ext_resource type="Texture2D" uid="uid://bple1k07y4let" path="res://Menus/deck_icon_hover.tres" id="14_r734y"]
 [ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://CardSystem/Scenes/deck_viewer_ui.tscn" id="15_1mkj3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
@@ -22,39 +22,50 @@ b = Vector2(3, 452)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o1our"]
 b = Vector2(-1151, -3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3876o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2adx"]
 bg_color = Color(0.03529412, 0.007843138, 0.05490196, 1)
 
-[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "character_entity", "end_turn_button", "battle_results_display", "item_interface")]
+[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "character_entity", "end_turn_button", "battle_results_display")]
 script = ExtResource("1_jfmiq")
 battle_manager = NodePath("BattleManager")
 character_entity = NodePath("Player")
-end_turn_button = NodePath("UILayer/Control/EndTurnButton")
+end_turn_button = NodePath("UILayer/Control/BattleInterface/EndTurnButton")
 battle_results_display = NodePath("BattleResultDisplay")
-item_interface = NodePath("UILayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ItemInterface")
 
-[node name="BattleManager" type="Node" parent="." unique_id=1665866141 node_paths=PackedStringArray("battle_field", "enemy_delay_timer", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui")]
+[node name="BattleManager" type="Node" parent="." unique_id=1665866141 node_paths=PackedStringArray("battle_field", "enemy_delay_timer", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui", "item_interface")]
 script = ExtResource("2_laop5")
 battle_field = NodePath("../BattleField")
 enemy_delay_timer = NodePath("EnemyDelayTimer")
-energy_counter = NodePath("../UILayer/Control/EnergyCounter")
+energy_counter = NodePath("../UILayer/Control/BattleInterface/EnergyCounter")
 player_card_hand = NodePath("../PlayerCardHand")
 draw_pile = ExtResource("3_r734y")
-draw_pile_ui = NodePath("../UILayer/Control/DrawPileViewer")
-discard_pile_ui = NodePath("../UILayer/Control/DiscardPileViewer")
+draw_pile_ui = NodePath("../UILayer/Control/BattleInterface/DrawPileViewer")
+discard_pile_ui = NodePath("../UILayer/Control/BattleInterface/DiscardPileViewer")
+item_interface = NodePath("../UILayer/Control/GameDashBoard/MarginContainer/HBoxContainer/VBoxContainer/ItemInterface")
 
 [node name="EnemyDelayTimer" type="Timer" parent="BattleManager" unique_id=202726847]
 wait_time = 0.8
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=285933358]
+custom_minimum_size = Vector2(1152, 628)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10613311, 0.117434226, 0.1356673, 1)
+
 [node name="BattleField" parent="." unique_id=314861 node_paths=PackedStringArray("player_entity") instance=ExtResource("2_ceml1")]
-position = Vector2(555, 412)
+position = Vector2(556, 381)
 player_entity = NodePath("../Player")
 battle_object_offset = Vector2(0, -50)
 
 [node name="PlayerCardHand" type="Node2D" parent="." unique_id=1303605846]
 position = Vector2(0, 210)
 script = ExtResource("4_cgsmb")
-y_position = 280.0
+y_position = 300.0
 fan_angle = 10.0
 
 [node name="Player" parent="." unique_id=1657833200 instance=ExtResource("8_ao6ux")]
@@ -92,75 +103,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="UILayer/Control" unique_id=380491691]
-self_modulate = Color(0.06798274, 0.06798274, 0.06798273, 1)
-texture_filter = 1
-custom_minimum_size = Vector2(0, 72)
+[node name="GameDashBoard" parent="UILayer/Control" unique_id=894429948 instance=ExtResource("9_prne7")]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 72.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3876o")
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2adx")
 
-[node name="MarginContainer" type="MarginContainer" parent="UILayer/Control/PanelContainer" unique_id=263663070]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/Control/PanelContainer/MarginContainer" unique_id=1410917998]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/separation = 32
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer" unique_id=1090924147]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/separation = 0
-
-[node name="Label" type="Label" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1475195156]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(0.8156863, 0.67058825, 0.1882353, 1)
-theme_override_fonts/font = ExtResource("5_7j1wb")
-theme_override_font_sizes/font_size = 13
-text = "Items"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ItemInterface" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=92166697 instance=ExtResource("6_nlaga")]
-custom_minimum_size = Vector2(200, 64)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-minimum_item_slot_count = 3
-force_initialize = false
-
-[node name="PlayerGold" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer" unique_id=1751191548 instance=ExtResource("9_3876o")]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UILayer/Control/PanelContainer/MarginContainer" unique_id=1123808491]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="ExitButton" type="Button" parent="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer2" unique_id=132845382]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_7j1wb")
-theme_override_font_sizes/font_size = 8
-text = "Exit"
-script = ExtResource("12_r734y")
-
-[node name="Debugging2" type="VBoxContainer" parent="UILayer/Control" unique_id=1501201850]
+[node name="Debugging" type="VBoxContainer" parent="UILayer/Control" unique_id=1501201850]
 modulate = Color(1, 1, 1, 0.5137255)
 layout_mode = 1
 offset_top = 84.0
 offset_right = 101.0
 offset_bottom = 179.0
 
-[node name="Label" type="Label" parent="UILayer/Control/Debugging2" unique_id=376485553]
+[node name="Label" type="Label" parent="UILayer/Control/Debugging" unique_id=376485553]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8156863, 0.67058825, 0.1882353, 1)
@@ -170,44 +124,44 @@ text = "Debug"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Win button" type="Button" parent="UILayer/Control/Debugging2" unique_id=342065646]
+[node name="Win button" type="Button" parent="UILayer/Control/Debugging" unique_id=342065646]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_7j1wb")
 theme_override_font_sizes/font_size = 8
 text = "Win Button"
 
-[node name="TestPlayerDamage" type="Button" parent="UILayer/Control/Debugging2" unique_id=1199656314]
+[node name="TestPlayerDamage" type="Button" parent="UILayer/Control/Debugging" unique_id=1199656314]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_7j1wb")
 theme_override_font_sizes/font_size = 8
 text = "Damage player"
 
-[node name="TestEnemyDamage" type="Button" parent="UILayer/Control/Debugging2" unique_id=734915317]
+[node name="TestEnemyDamage" type="Button" parent="UILayer/Control/Debugging" unique_id=734915317]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_7j1wb")
 theme_override_font_sizes/font_size = 8
 text = "Damage Enemy"
 
-[node name="Add Card" type="Button" parent="UILayer/Control/Debugging2" unique_id=2028608465]
+[node name="Add Card" type="Button" parent="UILayer/Control/Debugging" unique_id=2028608465]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_7j1wb")
 theme_override_font_sizes/font_size = 8
 text = "Add Card"
 
-[node name="EndTurnButton" type="Button" parent="UILayer/Control" unique_id=750618784]
-layout_mode = 0
-offset_left = 820.0
-offset_top = 399.0
-offset_right = 942.0
-offset_bottom = 422.0
-theme_override_fonts/font = ExtResource("5_7j1wb")
-text = "End Turn"
+[node name="BattleInterface" type="Control" parent="UILayer/Control" unique_id=1255506444]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="EnergyCounter" parent="UILayer/Control" unique_id=295327316 instance=ExtResource("7_e1j2j")]
+[node name="EnergyCounter" parent="UILayer/Control/BattleInterface" unique_id=295327316 instance=ExtResource("7_e1j2j")]
 layout_mode = 0
 offset_left = 232.0
 offset_top = 381.0
@@ -215,41 +169,90 @@ offset_right = 272.0
 offset_bottom = 421.0
 energy_default = 6
 
-[node name="DrawPileButton" type="Button" parent="UILayer/Control" unique_id=1363641113]
+[node name="EndTurnButton" type="Button" parent="UILayer/Control/BattleInterface" unique_id=750618784]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 553.0
-offset_right = 104.0
-offset_bottom = 584.0
-text = "Draw Pile
-"
+offset_left = 921.0
+offset_top = 421.0
+offset_right = 1071.0
+offset_bottom = 447.0
+theme_override_fonts/font = ExtResource("5_7j1wb")
+theme_override_font_sizes/font_size = 20
+text = "End Turn"
 
-[node name="DiscardPileButton" type="Button" parent="UILayer/Control" unique_id=1633585866]
+[node name="DiscardPile" type="VBoxContainer" parent="UILayer/Control/BattleInterface" unique_id=1038456434]
 layout_mode = 0
-offset_left = 1016.0
-offset_top = 584.0
-offset_right = 1115.0
-offset_bottom = 615.0
-text = "Discard Pile
-"
+offset_left = 130.0
+offset_top = 488.0
+offset_right = 211.0
+offset_bottom = 583.0
 
-[node name="DrawPileViewer" parent="UILayer/Control" unique_id=1617308441 node_paths=PackedStringArray("activation_button") instance=ExtResource("15_1mkj3")]
+[node name="DiscardPileButton" type="TextureButton" parent="UILayer/Control/BattleInterface/DiscardPile" unique_id=1247073783]
+self_modulate = Color(0.85490197, 0.5254902, 0.23921569, 0.78431374)
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("13_r734y")
+texture_hover = ExtResource("14_r734y")
+stretch_mode = 0
+
+[node name="PileName" type="Label" parent="UILayer/Control/BattleInterface/DiscardPile" unique_id=370025846]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7j1wb")
+theme_override_font_sizes/font_size = 13
+text = "Discard
+Pile"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Drawpile" type="VBoxContainer" parent="UILayer/Control/BattleInterface" unique_id=1098934573]
+layout_mode = 0
+offset_left = 947.0
+offset_top = 488.0
+offset_right = 1028.0
+offset_bottom = 583.0
+
+[node name="DrawPileButton" type="TextureButton" parent="UILayer/Control/BattleInterface/Drawpile" unique_id=785307123]
+self_modulate = Color(0.85490197, 0.5254902, 0.23921569, 0.78431374)
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("13_r734y")
+texture_hover = ExtResource("14_r734y")
+stretch_mode = 0
+
+[node name="PileName" type="Label" parent="UILayer/Control/BattleInterface/Drawpile" unique_id=207674685]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7j1wb")
+theme_override_font_sizes/font_size = 13
+text = "Draw
+Pile"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DrawPileViewer" parent="UILayer/Control/BattleInterface" unique_id=1617308441 node_paths=PackedStringArray("activation_button") instance=ExtResource("15_1mkj3")]
 visible = false
 layout_mode = 1
-activation_button = NodePath("../DrawPileButton")
+activation_button = NodePath("../Drawpile/DrawPileButton")
 
-[node name="DiscardPileViewer" parent="UILayer/Control" unique_id=726602545 node_paths=PackedStringArray("activation_button") instance=ExtResource("15_1mkj3")]
+[node name="DiscardPileViewer" parent="UILayer/Control/BattleInterface" unique_id=726602545 node_paths=PackedStringArray("activation_button") instance=ExtResource("15_1mkj3")]
 visible = false
 layout_mode = 1
-activation_button = NodePath("../DiscardPileButton")
+activation_button = NodePath("../DiscardPile/DiscardPileButton")
 
 [node name="BattleResultDisplay" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
 visible = false
 
-[connection signal="button_up" from="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer2/ExitButton" to="UILayer/Control/PanelContainer/MarginContainer/HBoxContainer2/ExitButton" method="_on_button_up"]
-[connection signal="button_up" from="UILayer/Control/Debugging2/Win button" to="." method="_on_win_button_up"]
-[connection signal="button_up" from="UILayer/Control/Debugging2/TestPlayerDamage" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="UILayer/Control/Debugging2/TestEnemyDamage" to="." method="_on_test_enemy_damage_button_up"]
-[connection signal="button_up" from="UILayer/Control/Debugging2/Add Card" to="BattleManager" method="_on_add_card_button_up"]
-[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_up"]
-[connection signal="button_up" from="UILayer/Control/EndTurnButton" to="." method="_on_end_turn_button_button_up"]
+[connection signal="button_up" from="UILayer/Control/Debugging/Win button" to="." method="_on_win_button_up"]
+[connection signal="button_up" from="UILayer/Control/Debugging/TestPlayerDamage" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="UILayer/Control/Debugging/TestEnemyDamage" to="." method="_on_test_enemy_damage_button_up"]
+[connection signal="button_up" from="UILayer/Control/Debugging/Add Card" to="BattleManager" method="_on_add_card_button_up"]
+[connection signal="button_up" from="UILayer/Control/BattleInterface/EndTurnButton" to="." method="_on_end_turn_button_up"]
+[connection signal="button_up" from="UILayer/Control/BattleInterface/EndTurnButton" to="." method="_on_end_turn_button_button_up"]
+
+[editable path="UILayer/Control/GameDashBoard"]

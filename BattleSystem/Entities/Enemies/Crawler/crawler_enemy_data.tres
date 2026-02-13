@@ -1,13 +1,19 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ck3n7jfoiaaib"]
 
 [ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_xytlu"]
-[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="2_1jres"]
 [ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_dmrur"]
 [ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_cmwq8"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="3_k05gb"]
-[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://BattleSystem/Entities/Enemies/Crawler/crawler.tres" id="4_6sevn"]
-[ext_resource type="Resource" uid="uid://bh1gmuk2hexqm" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/strike_enemy_attack.tres" id="6_cmwq8"]
-[ext_resource type="Resource" uid="uid://4hm0vi0txkjq" path="res://BattleSystem/Entities/Enemies/Crawler/fire_spout_enemy_attack.tres" id="7_cmwq8"]
+[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://BattleSystem/Entities/Enemies/Crawler/crawler_texture.tres" id="4_cmwq8"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_6sevn"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/IntentIcons/attack_intent_icon.tres" id="6_nxvqn"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="7_8fh8y"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="8_j6wle"]
+[ext_resource type="Script" uid="uid://b66w2ww6promu" path="res://BattleSystem/BattleActions/BattleActions/add_status_effect_action.gd" id="9_ij34a"]
+[ext_resource type="Resource" uid="uid://dphdw118a7jkp" path="res://BattleSystem/StatusEffects/Petrified/petrified_status_effect.tres" id="10_l30gw"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/IntentIcons/projectile_attack_intent_icon.tres" id="11_jv8a2"]
+[ext_resource type="Texture2D" uid="uid://fxqou0ng1n4b" path="res://BattleSystem/Entities/Enemies/Crawler/fire_projectile.png" id="12_hdm68"]
+[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://BattleSystem/BattleActions/BattleActions/shoot_projectile_action.gd" id="13_qj478"]
 
 [sub_resource type="Resource" id="Resource_nc1u1"]
 script = ExtResource("2_dmrur")
@@ -19,11 +25,50 @@ body_impact_damage = 9
 speed = 300.0
 metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 
+[sub_resource type="Resource" id="Resource_hom57"]
+script = ExtResource("8_j6wle")
+damage = 2
+target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_ts7n5"]
+script = ExtResource("9_ij34a")
+status_effect = ExtResource("10_l30gw")
+duration = 2
+target = 1
+metadata/_custom_type_script = "uid://b66w2ww6promu"
+
+[sub_resource type="Resource" id="Resource_q8lj5"]
+script = ExtResource("5_6sevn")
+action_display_icon = ExtResource("6_nxvqn")
+name = "Crunch"
+description = "Deals 2 damage. Inflicts bleeding for 2 turns."
+actions = Array[ExtResource("7_8fh8y")]([SubResource("Resource_hom57"), SubResource("Resource_ts7n5")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_3aju0"]
+script = ExtResource("13_qj478")
+projectile_texture = ExtResource("12_hdm68")
+face_direction = true
+impact_damage = 9
+direction_range = 0.1
+target = 1
+metadata/_custom_type_script = "uid://c3uyo8xsai327"
+
+[sub_resource type="Resource" id="Resource_8itdy"]
+script = ExtResource("5_6sevn")
+action_display_icon = ExtResource("11_jv8a2")
+move_type = 1
+name = "Spit Fire"
+description = "Fires a medium-accuracy projectile. Deals 9 damage on impact."
+actions = Array[ExtResource("7_8fh8y")]([SubResource("Resource_3aju0")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
 [resource]
 script = ExtResource("3_k05gb")
 reward_amount = 80
-move_set = Array[ExtResource("2_1jres")]([ExtResource("6_cmwq8"), ExtResource("7_cmwq8")])
-display_texture = ExtResource("4_6sevn")
+move_set = Array[ExtResource("5_6sevn")]([SubResource("Resource_q8lj5"), SubResource("Resource_8itdy")])
+display_texture = ExtResource("4_cmwq8")
 name = "Crawler"
 health_points = 40
 wait_to_hide_sprite = true

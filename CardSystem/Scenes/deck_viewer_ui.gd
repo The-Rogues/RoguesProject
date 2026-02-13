@@ -12,7 +12,7 @@ class_name CardDeckViewerUI
 
 signal opened
 ## The button in the scene that will open the deck viewer
-@export var activation_button:Button
+@export var activation_button:TextureButton
 @onready var deck_name: Label = $VBoxContainer/PanelContainer/MarginContainer/DeckName
 @onready var card_container: FlowContainer = $VBoxContainer/MarginContainer/ScrollContainer/CardConatiner
 @onready var empty_label: Label = $VBoxContainer/MarginContainer/EmptyLabel

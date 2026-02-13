@@ -1,37 +1,37 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bg6c4g3c1qp6p"]
 
-[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_aet2s"]
-[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_gf3mr"]
-[ext_resource type="Texture2D" uid="uid://bngvfbw3g06n0" path="res://BattleSystem/Entities/Enemies/Attacks/Projectiles/arrow_projectile.tres" id="3_g4p7u"]
-[ext_resource type="Script" uid="uid://btx3i84pcwy5t" path="res://BattleSystem/AtomicActions/Common/projectile_attack_action.gd" id="4_o1bab"]
-[ext_resource type="Script" uid="uid://dha63lye0dnph" path="res://BattleSystem/AtomicActions/Common/repeated_action.gd" id="5_j3bq8"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_aet2s"]
+[ext_resource type="Texture2D" uid="uid://bngvfbw3g06n0" path="res://BattleSystem/BattleActions/Projectiles/arrow_projectile.tres" id="3_g4p7u"]
+[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://BattleSystem/BattleActions/BattleActions/shoot_projectile_action.gd" id="3_gf3mr"]
+[ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://BattleSystem/BattleActions/BattleActions/repeat_action.gd" id="4_g4p7u"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_o1bab"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="6_ffhl2"]
 
-[sub_resource type="Resource" id="Resource_yocaq"]
-script = ExtResource("4_o1bab")
+[sub_resource type="Resource" id="Resource_j3bq8"]
+script = ExtResource("3_gf3mr")
 projectile_texture = ExtResource("3_g4p7u")
-face_direction = true
-impact_damage = 4
-direction_range = 0.25
-metadata/_custom_type_script = "uid://btx3i84pcwy5t"
+impact_damage = 6
+direction_range = 0.2
+target = 2
+metadata/_custom_type_script = "uid://c3uyo8xsai327"
 
-[sub_resource type="Resource" id="Resource_ph1on"]
-script = ExtResource("5_j3bq8")
-times = 5
-action = SubResource("Resource_yocaq")
-metadata/_custom_type_script = "uid://dha63lye0dnph"
+[sub_resource type="Resource" id="Resource_ffhl2"]
+script = ExtResource("4_g4p7u")
+battle_action = SubResource("Resource_j3bq8")
+repeat = 4
+metadata/_custom_type_script = "uid://cbfakii4lpgc1"
 
-[sub_resource type="Resource" id="Resource_4ysv1"]
-script = ExtResource("1_aet2s")
-targeting = 2
-actions = Array[ExtResource("2_gf3mr")]([SubResource("Resource_ph1on")])
-metadata/_custom_type_script = "uid://btp3527x14hav"
+[sub_resource type="Resource" id="Resource_6vqh4"]
+script = ExtResource("5_o1bab")
+move_type = 1
+name = "ArrowRaid"
+description = "Fires 5 arrows with low accuracy. Deals 6 damage on impact."
+actions = Array[ExtResource("1_aet2s")]([SubResource("Resource_ffhl2")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("6_ffhl2")
 rarity = 2
-name = "ArrowShot"
-description = "Fire 5 arrows that deal 4 damage on hit."
 energy_cost = 2
-play_moves = Array[ExtResource("1_aet2s")]([SubResource("Resource_4ysv1")])
+move = SubResource("Resource_6vqh4")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -4,11 +4,16 @@
 [ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="2_sxtw1"]
 [ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="3_sxtw1"]
 [ext_resource type="Texture2D" uid="uid://djcyscbrdlih1" path="res://BattleSystem/Entities/Enemies/LizardGuard/lizard_guard_texture.tres" id="4_5nei4"]
-[ext_resource type="Script" uid="uid://pq8nnotusssk" path="res://BattleSystem/Entities/Enemies/Attacks/BaseScript/enemy_move.gd" id="6_57rba"]
-[ext_resource type="Resource" uid="uid://cnft8rbrgf5jb" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Regular/rapid_strike_enemy_attack.tres" id="6_j2r17"]
-[ext_resource type="Resource" uid="uid://dn07ojtabbdn6" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Special/backup_enemy_attack.tres" id="6_sxtw1"]
-[ext_resource type="Resource" uid="uid://bwlhi1n1uiwuc" path="res://BattleSystem/Entities/Enemies/Attacks/Common/Sabotage/shield_break_enemy_move.tres" id="7_j2r17"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_d15et"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/IntentIcons/attack_intent_icon.tres" id="6_pymi5"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="7_sxtw1"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="8_j2r17"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="8_ngo2l"]
+[ext_resource type="Script" uid="uid://b66w2ww6promu" path="res://BattleSystem/BattleActions/BattleActions/add_status_effect_action.gd" id="9_q4ila"]
+[ext_resource type="Resource" uid="uid://bi42scpbcsgo8" path="res://BattleSystem/StatusEffects/Bleeding/bleeding_status_effect_data.tres" id="10_qou3d"]
+[ext_resource type="Texture2D" uid="uid://br17g8fi4rhb5" path="res://BattleSystem/Entities/IntentIcons/support_intent_icon.tres" id="11_rfmek"]
+[ext_resource type="Resource" uid="uid://c55148r33pa1e" path="res://BattleSystem/StatusEffects/Strength/strength_status_effect_data.tres" id="12_nlv02"]
+[ext_resource type="Resource" uid="uid://b7bt32bi465gh" path="res://BattleSystem/StatusEffects/Weakened/weakness_status_effect_data.tres" id="13_tbqbx"]
 
 [sub_resource type="Resource" id="Resource_57rba"]
 script = ExtResource("2_sxtw1")
@@ -19,10 +24,70 @@ metadata/_custom_type_script = "uid://dbfc742a8wqhj"
 script = ExtResource("3_sxtw1")
 metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
 
+[sub_resource type="Resource" id="Resource_rfmek"]
+script = ExtResource("8_ngo2l")
+target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_nlv02"]
+script = ExtResource("9_q4ila")
+status_effect = ExtResource("10_qou3d")
+duration = 3
+stack_count = 3
+target = 1
+metadata/_custom_type_script = "uid://b66w2ww6promu"
+
+[sub_resource type="Resource" id="Resource_ngo2l"]
+script = ExtResource("5_d15et")
+action_display_icon = ExtResource("6_pymi5")
+name = "Stab"
+description = "Deals 6 damage. Inflicts bleeding for 3 turns."
+actions = Array[ExtResource("7_sxtw1")]([SubResource("Resource_rfmek"), SubResource("Resource_nlv02")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_jntxj"]
+script = ExtResource("9_q4ila")
+status_effect = ExtResource("12_nlv02")
+duration = 3
+stack_count = 2
+target = 2
+metadata/_custom_type_script = "uid://b66w2ww6promu"
+
+[sub_resource type="Resource" id="Resource_tbqbx"]
+script = ExtResource("5_d15et")
+action_display_icon = ExtResource("11_rfmek")
+move_type = 1
+name = "Back-up"
+description = "Adds strength to ally for 3 turns."
+actions = Array[ExtResource("7_sxtw1")]([SubResource("Resource_jntxj")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_uw2ee"]
+script = ExtResource("8_ngo2l")
+damage = 7
+target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_ggb0c"]
+script = ExtResource("9_q4ila")
+status_effect = ExtResource("13_tbqbx")
+duration = 2
+stack_count = 3
+target = 1
+metadata/_custom_type_script = "uid://b66w2ww6promu"
+
+[sub_resource type="Resource" id="Resource_bnh0d"]
+script = ExtResource("5_d15et")
+action_display_icon = ExtResource("6_pymi5")
+name = "Tail whip"
+description = "Deals 7 damage. Inflicts weakness for the enxt turn."
+actions = Array[ExtResource("7_sxtw1")]([SubResource("Resource_uw2ee"), SubResource("Resource_ggb0c")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
 [resource]
 script = ExtResource("8_j2r17")
 reward_amount = 200
-move_set = Array[ExtResource("6_57rba")]([ExtResource("6_j2r17"), ExtResource("6_sxtw1"), ExtResource("7_j2r17")])
+move_set = Array[ExtResource("5_d15et")]([SubResource("Resource_ngo2l"), SubResource("Resource_tbqbx"), SubResource("Resource_bnh0d")])
 rarity = 2
 display_texture = ExtResource("4_5nei4")
 name = "Guard"

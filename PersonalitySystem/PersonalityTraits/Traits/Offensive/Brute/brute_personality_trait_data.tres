@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="TraitData" format=3 uid="uid://041gwracsv52"]
-
-[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/trait_data.gd" id="1_hx8kc"]
-
-[resource]
-script = ExtResource("1_hx8kc")
-name = "Brute"
-metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

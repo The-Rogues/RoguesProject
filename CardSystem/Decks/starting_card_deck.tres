@@ -5,15 +5,14 @@
 [ext_resource type="Script" uid="uid://c7c4s2eiw0kq7" path="res://CardSystem/Decks/card_deck.gd" id="2_cltlr"]
 [ext_resource type="Resource" uid="uid://cpcm1bkfedbjv" path="res://CardSystem/Cards/Datas/strike_card_data.tres" id="3_4riwa"]
 [ext_resource type="Resource" uid="uid://7n3mqrwdvr7" path="res://CardSystem/Cards/Datas/lash_out_card_data.tres" id="3_wwvk7"]
-[ext_resource type="Resource" uid="uid://cj4xbwssn24vj" path="res://CardSystem/Cards/Datas/pick_pocket_card_data.tres" id="4_nu65x"]
 [ext_resource type="Resource" uid="uid://c6774gwn7h8po" path="res://CardSystem/Cards/Datas/rest_card_data.tres" id="6_peqtg"]
 [ext_resource type="Resource" uid="uid://b2mj2k04lyi5h" path="res://CardSystem/Cards/Datas/retreat_card_data.tres" id="7_tfxxt"]
 [ext_resource type="Resource" uid="uid://dgt1ffuwrstbt" path="res://CardSystem/Cards/Datas/step_card_data.tres" id="8_ec414"]
+[ext_resource type="Resource" uid="uid://cuwc8ueu7aloa" path="res://CardSystem/Cards/Datas/shield_break_card_data.tres" id="9_4riwa"]
 [ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://CardSystem/Cards/Datas/swing_card_data.tres" id="9_x3eug"]
-[ext_resource type="Resource" uid="uid://cuwc8ueu7aloa" path="res://CardSystem/Cards/Datas/power_dash.tres" id="10_wwvk7"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_cltlr")
-cards = Array[ExtResource("1_qkhdm")]([ExtResource("9_x3eug"), ExtResource("9_x3eug"), ExtResource("3_4riwa"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("7_tfxxt"), ExtResource("6_peqtg"), ExtResource("6_peqtg"), ExtResource("4_nu65x"), ExtResource("3_wwvk7"), ExtResource("2_4riwa"), ExtResource("3_4riwa"), ExtResource("10_wwvk7"), ExtResource("3_4riwa")])
+cards = Array[ExtResource("1_qkhdm")]([ExtResource("9_x3eug"), ExtResource("9_x3eug"), ExtResource("3_4riwa"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("7_tfxxt"), ExtResource("6_peqtg"), ExtResource("6_peqtg"), ExtResource("2_4riwa"), ExtResource("3_wwvk7"), ExtResource("2_4riwa"), ExtResource("3_4riwa"), ExtResource("9_4riwa"), ExtResource("3_4riwa")])
 metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"

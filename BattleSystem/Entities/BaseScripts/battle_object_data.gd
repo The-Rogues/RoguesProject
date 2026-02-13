@@ -19,10 +19,7 @@ enum BlockMode {IGNORE, INTERCEPT, BLOCK}
 @export var ratity:Rarity
 # When player plays an attack card, this object can block it and 
 # take damage instead
-@export var player_attack_filter:BlockMode
-# When an enemy attacks the player character, this is checked to determine if
-# is protected
-@export var enemy_attack_filter:BlockMode
+@export var attack_filter:BlockMode
 @export var damaged_by_launch_body:bool 
 # Used in DamageAction to calculate damage
 @export_range(0.5, 2) var attack_amplifier:float = 1

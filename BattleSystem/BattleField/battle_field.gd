@@ -125,6 +125,8 @@ func _on_object_destroyed(object:BattleFieldObject):
 func get_player_distance_to_object(object_type:BattleObjectData.Type):
 	for i in range(0, battle_object_positions.size()):
 		if !battle_object_positions[i]:
+			if object_type == BattleObjectData.Type.NONE:
+				return i - current_player_position
 			continue
 		if battle_object_positions[i].entity_data.object_type == object_type:
 			print("found object")

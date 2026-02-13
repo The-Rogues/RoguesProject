@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://b2sastodcwsbx"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="1_nhbhh"]
+[ext_resource type="PackedScene" uid="uid://dbt3n70fcylp3" path="res://PersonalitySystem/traits_display.tscn" id="2_oag4o"]
+[ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://ItemSystem/Scenes/item_interface.tscn" id="3_2dwta"]
+[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="4_glcam"]
+[ext_resource type="Texture2D" uid="uid://wk3j8bkwhxyl" path="res://ItemSystem/Items/Barricade/barricade_texture.tres" id="5_pmlv7"]
+[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://BattleSystem/Scenes/exit_button.gd" id="6_1o4un"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3876o"]
+bg_color = Color(0.03529412, 0.007843138, 0.05490196, 1)
+
+[node name="GameDashBoard" type="PanelContainer" unique_id=894429948]
+self_modulate = Color(0.06798274, 0.06798274, 0.06798273, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(1152, 70)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3876o")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1597910466]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2019820798]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=376325579]
+layout_mode = 2
+
+[node name="TraitsHeader" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=2026940411]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 20
+text = "-Traits-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TraitsDisplay" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1527129464 instance=ExtResource("2_oag4o")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1075437844]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="ItemsHeader" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=635840888]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 20
+text = "-Items-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemInterface" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=92166697 instance=ExtResource("3_2dwta")]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=534953933]
+layout_mode = 2
+
+[node name="GoldHeader" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer4" unique_id=1710889900]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 20
+text = "-Gold-"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer4" unique_id=1175095789]
+layout_mode = 2
+
+[node name="PlayerGold" parent="MarginContainer/HBoxContainer/VBoxContainer4" unique_id=2139513756 instance=ExtResource("4_glcam")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1672122129]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer" unique_id=509962437]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 20
+text = "-exit-"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=336396088]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_pmlv7")
+stretch_mode = 0
+script = ExtResource("6_1o4un")
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/ExitButton" to="MarginContainer/VBoxContainer/ExitButton" method="_on_button_up"]

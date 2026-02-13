@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cuwc8ueu7aloa"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_kg6fa"]
+[ext_resource type="Script" uid="uid://wa5kcoyx6fgx" path="res://BattleSystem/BattleActions/BattleActions/damage_and_status_action.gd" id="2_xkkyg"]
+[ext_resource type="Script" uid="uid://do2ilxi6n20dy" path="res://BattleSystem/StatusEffects/Protected/protected_status_effect_script.gd" id="3_6bl86"]
+[ext_resource type="Resource" uid="uid://be5d5xjhidpxh" path="res://BattleSystem/StatusEffects/Protected/protected_status_effect_data.tres" id="4_6cq41"]
+[ext_resource type="Script" uid="uid://db2c6lt3bku6f" path="res://BattleSystem/BattleActions/BattleActions/alternate_personality_weight_action.gd" id="5_ec4em"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="6_oqqdf"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="7_vv88x"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ybbk"]
+load_path = "res://.godot/imported/Icons_RPG.png-bc1210ad7785d8cb15373579d10eb88b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcbl4"]
+atlas = SubResource("CompressedTexture2D_4ybbk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_ogfox"]
+script = ExtResource("3_6bl86")
+id = "protected"
+display_name = "Protected"
+icon = SubResource("AtlasTexture_jcbl4")
+is_stackable = true
+metadata/_custom_type_script = "uid://do2ilxi6n20dy"
+
+[sub_resource type="Resource" id="Resource_4pc6f"]
+script = ExtResource("2_xkkyg")
+operation = 1
+damage = 16
+status_effect = SubResource("Resource_ogfox")
+target = 2
+metadata/_custom_type_script = "uid://wa5kcoyx6fgx"
+
+[sub_resource type="Resource" id="Resource_7hkhx"]
+script = ExtResource("2_xkkyg")
+operation = 1
+damage = 9
+status_effect = ExtResource("4_6cq41")
+target = 2
+metadata/_custom_type_script = "uid://wa5kcoyx6fgx"
+
+[sub_resource type="Resource" id="Resource_sfs2x"]
+script = ExtResource("5_ec4em")
+default_action = SubResource("Resource_7hkhx")
+alternate_action = SubResource("Resource_4pc6f")
+metadata/_custom_type_script = "uid://db2c6lt3bku6f"
+
+[sub_resource type="Resource" id="Resource_6ax3t"]
+script = ExtResource("6_oqqdf")
+name = "Break"
+description = "Deals 9 damage. Removes protected. Deals 12 if aggression > 5."
+actions = Array[ExtResource("1_kg6fa")]([SubResource("Resource_sfs2x")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("7_vv88x")
+rarity = 1
+energy_cost = 3
+move = SubResource("Resource_6ax3t")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

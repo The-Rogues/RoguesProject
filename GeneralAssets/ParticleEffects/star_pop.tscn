@@ -8,13 +8,13 @@ point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_lc6x3"]
 offsets = PackedFloat32Array(0.5305755, 1)
-colors = PackedColorArray(1, 1, 1, 0.2509804, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.3372549, 1, 1, 1, 0)
 
 [node name="StarPop" type="CPUParticles2D" unique_id=232237618]
 emitting = false
 amount = 6
 texture = ExtResource("1_gvd0r")
-lifetime = 0.15000000000000002
+lifetime = 0.18000000000000002
 one_shot = true
 explosiveness = 1.0
 local_coords = true
@@ -22,8 +22,8 @@ emission_shape = 1
 emission_sphere_radius = 5.0
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 320.0
-initial_velocity_max = 320.0
+initial_velocity_min = 260.0
+initial_velocity_max = 280.0
 angular_velocity_min = 1000.0
 angular_velocity_max = 1000.0
 scale_amount_min = 1.2

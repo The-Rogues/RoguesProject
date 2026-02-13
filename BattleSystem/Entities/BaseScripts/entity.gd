@@ -34,11 +34,11 @@ signal entered_new_turn
 @onready var bounce_collision: CollisionShape2D = $BounceBox/CollisionShape2D
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D
 
-
 # Use to store last entity that attacked this entity
 var last_attacker:Entity = null
 # Used as an event checker, do not change usage
 var is_defeated:bool = false
+var can_heal:bool = true
 
 func _ready() -> void:
 	if !enable_launchbody_collisons:
@@ -94,8 +94,11 @@ func heal(amount:float):
 	if is_defeated:
 		return
 	
-	entity_data.health.increase(amount)
-	healed.emit(amount)
+	if can_heal:
+		entity_data.health.increase(amount)
+		healed.emit(amount)
+	else:
+		healed.emit(0)
 
 # Called by signal to handle death logic
 func _on_defeated():

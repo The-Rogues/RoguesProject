@@ -10,15 +10,11 @@ enum Rarity {COMMON, UNCOMMON, RARE}
 ## Controls how likely the card available in shops or rewarded to the player
 ## in special events
 @export var rarity:Rarity = Rarity.COMMON
-## Sets the name of the card which will be displayed on CardUI
-@export var name:String = "New Card"
-## Sets the description field of the card which will be displayed on CardUI
-@export_multiline var description:String = "Action Description"
 ## Sets the default cost it will take to play the card
 @export var energy_cost:int = 0
 ## Sets what actions will be perfomed when playing the card, seperated by 
 ## specified target
-@export var play_moves:Array[CombatMove]
+@export var move:BattleMove
 
 #TODO: Experiment with cards having display image 
 #TODO: Implement conditional play moves depending on personality trais and weights

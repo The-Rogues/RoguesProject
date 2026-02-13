@@ -1,33 +1,24 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b2mj2k04lyi5h"]
 
-[ext_resource type="Script" uid="uid://btp3527x14hav" path="res://BattleSystem/BattleFlowManager/combat_move.gd" id="1_dgx37"]
-[ext_resource type="Script" uid="uid://vfjxpv4ct6c6" path="res://BattleSystem/AtomicActions/atomic_action.gd" id="2_7j012"]
-[ext_resource type="Script" uid="uid://cetmmi5e7bh0x" path="res://BattleSystem/AtomicActions/Common/heal_action.gd" id="3_ckijc"]
-[ext_resource type="Script" uid="uid://bs1p04hn3r70e" path="res://BattleSystem/AtomicActions/CharacterSpecific/conditional_object_search_action.gd" id="4_j3bd5"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_12gtd"]
+[ext_resource type="Script" uid="uid://bxjcxo8s4i606" path="res://BattleSystem/BattleActions/BattleActions/player_object_search_action.gd" id="2_dgx37"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="3_7j012"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="5_s6q27"]
 
-[sub_resource type="Resource" id="Resource_sn6gy"]
-script = ExtResource("3_ckijc")
-health = 12
-metadata/_custom_type_script = "uid://cetmmi5e7bh0x"
-
-[sub_resource type="Resource" id="Resource_o2ijv"]
-script = ExtResource("4_j3bd5")
+[sub_resource type="Resource" id="Resource_ckijc"]
+script = ExtResource("2_dgx37")
 object_type = 1
-conditional_action = SubResource("Resource_sn6gy")
-metadata/_custom_type_script = "uid://bs1p04hn3r70e"
+metadata/_custom_type_script = "uid://bxjcxo8s4i606"
 
-[sub_resource type="Resource" id="Resource_yc8qw"]
-script = ExtResource("1_dgx37")
-targeting = 1
-actions = Array[ExtResource("2_7j012")]([SubResource("Resource_o2ijv")])
-metadata/_custom_type_script = "uid://btp3527x14hav"
+[sub_resource type="Resource" id="Resource_j3bd5"]
+script = ExtResource("3_7j012")
+name = "Retreat"
+description = "Moves behind cover if it exists"
+actions = Array[ExtResource("1_12gtd")]([SubResource("Resource_ckijc")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("5_s6q27")
-name = "Retreat"
-description = "Move behind cover if one exists
-Heal 12 hp if cover is found"
 energy_cost = 3
-play_moves = Array[ExtResource("1_dgx37")]([SubResource("Resource_yc8qw")])
+move = SubResource("Resource_j3bd5")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

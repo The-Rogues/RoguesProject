@@ -46,10 +46,10 @@ func _physics_process(delta):
 		animation_player.stop(true)
 		queue_free()
 
-func spawn_particles(position:Vector2):
+func spawn_particles(new_position:Vector2):
 	var particles:CPUParticles2D = POP_PARTICLES.instantiate()
 	get_parent().add_child(particles)
-	particles.global_position = position
+	particles.global_position = new_position
 	particles.emitting = true
 	await particles.finished
 	particles.queue_free()

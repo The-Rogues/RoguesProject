@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
 [resource]
 script = ExtResource("4_q2dcu")
 object_type = 1
-enemy_attack_filter = 2
+attack_filter = 2
 damaged_by_launch_body = true
 display_texture = ExtResource("3_mna5y")
 name = "Cobble Wall"

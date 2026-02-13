@@ -1,57 +1,68 @@
-[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://t3tyw7bym6sb"]
+[gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Resource" uid="uid://c5lm4cl0xdwwq" path="res://CardSystem/Decks/starting_card_deck.tres" id="1_jw4ln"]
-[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="2_d8v8p"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="2_dariq"]
-[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://Globals/PersistentResources/run_progress.gd" id="3_0gx0n"]
-[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/trait_data.gd" id="3_li23k"]
-[ext_resource type="Texture2D" uid="uid://d3b32hvxgogfb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="4_xdy4a"]
-[ext_resource type="Script" uid="uid://bve26sns3h03o" path="res://GeneralAssets/Resources/stat.gd" id="5_rcxs1"]
-[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://PersonalitySystem/PlayerCharacter/character_data.gd" id="6_02w6n"]
+[ext_resource type="Resource" path="res://CardSystem/Decks/starting_card_deck.tres" id="1_jw4ln"]
+[ext_resource type="Script" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="2_dariq"]
+[ext_resource type="Script" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="2_rcxs1"]
+[ext_resource type="Script" path="res://Globals/PersistentResources/run_progress.gd" id="3_0gx0n"]
+[ext_resource type="Script" path="res://PersonalitySystem/PersonalityTraits/trait_data.gd" id="3_02w6n"]
+[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0031_emoji32.png" id="4_msjhh"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="5_w0sie"]
+[ext_resource type="Script" path="res://GeneralAssets/Resources/stat.gd" id="6_pic50"]
+[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0056_emoji57.png" id="7_gcsfp"]
+[ext_resource type="Script" path="res://PersonalitySystem/PlayerCharacter/character_data.gd" id="8_3dqjj"]
+[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0046_emoji47.png" id="9_8uu1w"]
 
-[sub_resource type="Resource" id="Resource_msjhh"]
-script = ExtResource("3_li23k")
-name = "Careful"
-weight = 8
+[sub_resource type="Resource" id="Resource_osl4a"]
+script = ExtResource("3_02w6n")
+trait_icon = ExtResource("4_msjhh")
+id = "skiddish"
+name = "Skiddish"
+trait_display_description = "Sensative. Can lose control in conflict."
+weight = 1
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
-[sub_resource type="Resource" id="Resource_d8v8p"]
+[sub_resource type="Resource" id="Resource_rcxs1"]
 resource_local_to_scene = true
-script = ExtResource("5_rcxs1")
+script = ExtResource("6_pic50")
 max_value = 5.0
 value = 5.0
 max_on_start = true
 
-[sub_resource type="Resource" id="Resource_pic50"]
-script = ExtResource("3_li23k")
-name = "Brute"
-weight = 9
+[sub_resource type="Resource" id="Resource_sqevk"]
+script = ExtResource("3_02w6n")
+trait_icon = ExtResource("7_gcsfp")
+id = "merciful"
+name = "Merciful"
+trait_display_description = "Lowers attack when enemies are weak. Avoids conflict and prefers to spare."
+weight = 8
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
-[sub_resource type="Resource" id="Resource_gcsfp"]
-script = ExtResource("3_li23k")
-name = "Lazy"
+[sub_resource type="Resource" id="Resource_bn7m0"]
+script = ExtResource("3_02w6n")
+trait_icon = ExtResource("9_8uu1w")
+id = "laidback"
+name = "Laid Back"
+trait_display_description = "Relaxes in most circumstances. Likes to talk. Doesn't spend a lot of energy"
 weight = 2
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
-[sub_resource type="Resource" id="Resource_3dqjj"]
-script = ExtResource("6_02w6n")
-offensive_trait = SubResource("Resource_pic50")
-defensive_trait = SubResource("Resource_msjhh")
-strategic_trait = SubResource("Resource_gcsfp")
-energy = SubResource("Resource_d8v8p")
-display_texture = ExtResource("4_xdy4a")
-name = "Ram"
+[sub_resource type="Resource" id="Resource_gvrsj"]
+script = ExtResource("8_3dqjj")
+offensive_trait = SubResource("Resource_sqevk")
+defensive_trait = SubResource("Resource_osl4a")
+strategic_trait = SubResource("Resource_bn7m0")
+energy = SubResource("Resource_rcxs1")
+display_texture = ExtResource("5_w0sie")
+name = "Ollie"
 health_points = 80
 wait_to_hide_sprite = true
 
 [resource]
 script = ExtResource("3_0gx0n")
-character_data = SubResource("Resource_3dqjj")
+character_data = SubResource("Resource_gvrsj")
 card_deck = ExtResource("1_jw4ln")
-backstory = "Enticed by the tower, but weary of its dangers, they seek to satisfy their curiosity."
-map_seed = 2161750345
-player_node_index = 16
-floor_progress = 2
-gold = 282
-metadata/_custom_type_script = "uid://c6dr42ke5aj7b"
+backstory = "They step into the dungeon with no plan at all, trusting things will turn out alright in the end."
+map_seed = 3642184060
+player_node_index = 21
+floor_progress = 3
+gold = 990

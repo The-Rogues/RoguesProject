@@ -25,8 +25,8 @@ func _ready() -> void:
 func set_card_data(data: CardData) -> void:
 	card_data = data
 	energy_label.text = str(data.energy_cost)
-	name_label.text = data.name
-	description_label.text = data.description
+	name_label.text = data.move.name
+	description_label.text = data.move.description
 
 
 func _gui_input(event: InputEvent) -> void:
