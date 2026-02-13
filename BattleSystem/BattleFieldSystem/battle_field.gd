@@ -40,6 +40,7 @@ func initialize(battle_object_layout:BattleObjectLayout):
 			battle_object_positions.append(null)
 
 func initialize_player(player:BattleEntity):
+	player_entity = player
 	if battle_positions.is_empty():
 		return
 	
@@ -50,6 +51,8 @@ func get_player():
 	return player_entity
 
 func on_new_turn_started():
+	if battle_positions.is_empty():
+		return
 	for opportunity in opportunities:
 		opportunity.decay()
 		
@@ -62,10 +65,17 @@ func on_new_turn_started():
 	check_if_player_on_opportunity()
 
 func create_opportunity():
-	var random_battle_position = battle_positions.pick_random()
-	var random_opportunity = randi_range(1, BattlePosition.Opportunity.size())
+	if battle_positions.is_empty():
+		return
+
+	var random_battle_position : BattlePosition= battle_positions.pick_random()
+	if random_battle_position == null:
+		return
+
+	var random_opportunity := randi_range(1, BattlePosition.Opportunity.size())
 	random_battle_position.set_opportunity(random_opportunity)
 	opportunities.append(random_battle_position)
+
 
 func check_if_player_on_opportunity():
 	if battle_positions[current_player_position].has_opportunity() and !player_on_opportunity:

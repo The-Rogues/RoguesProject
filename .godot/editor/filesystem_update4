@@ -1,6 +1,4 @@
-res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd
-res://Map/map_module/map_data_structures/MapManager.gd
-res://Menus/main_menu_scene.tscn
+res://Map/map_module/map_scenes/MapInstance/MapInstance.tscn
 res://BattleSystem/BattleFieldSystem/BattlePositions/charged_position_texture.tres
 res://GeneralAssets/Shaders/SpriteFlasher/flash_sprite_material.tres
 res://BattleSystem/Entities/Enemies/Funguy/funguy_texture.tres
@@ -75,6 +73,18 @@ res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres
 res://GeneralAssets/Shaders/SpriteFlasher/hit_flash.gdshader
+res://Globals/PersistentResources/battle_save_data.gd
+res://BattleSystem/Scenes/battle_scene.gd
+res://BattleSystem/Entities/battle_entity.gd
+res://BattleSystem/Scenes/battle_results_ui.gd
+res://Map/map_module/map_data_structures/MapGraph.gd
+res://BattleSystem/BattleFieldSystem/battle_field.gd
+res://Map/map_module/map_scenes/MapButton/MapButton.tscn
+res://BattleSystem/BattleFlowManager/battle_manager.gd
 res://Globals/SceneLoader/scene_loader.gd
+res://BattleSystem/BattleFlowManager/action_queue.gd
+res://Globals/PersistentResources/enemy_snapshot.gd
+res://BattleSystem/AtomicActions/Common/damage_action.gd
+res://BattleSystem/BattleFieldSystem/battle_field.tscn
+res://Map/map_screen/MapScreen_scn_main.gd
 res://Globals/SessionManager/session_manager.gd
-res://Map/map_module/map_scenes/MapInstance/MapInstance.tscn

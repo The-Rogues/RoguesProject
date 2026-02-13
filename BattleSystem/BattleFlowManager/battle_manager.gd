@@ -28,27 +28,43 @@ var living_enemies:Array[BattleEntity]
 var action_queue:ActionQueue
 var battle_field:BattleField
 
-func initialize(new_player_entity:BattleEntity, 
-			new_enemies:Array[BattleEntity],
-			new_battle_field:BattleField):
+func initialize(new_player_entity:BattleEntity,
+		new_enemies:Array[BattleEntity],
+		new_battle_field:BattleField,
+		resuming: bool = false):
+
+	# ✅ Reset per-battle state
+	battle_state = BattleState.PLAYER_TURN
+	enemies.clear()
+	living_enemies.clear()
+
 	player_entity = new_player_entity
+	battle_field = new_battle_field
+
+	# ✅ Fresh queue every time
+	action_queue = ActionQueue.new()
+
 	energy_counter.initialize(new_player_entity.entity_data.energy.value)
-	
+
 	for enemy in new_enemies:
 		enemies.append(enemy)
 		living_enemies.append(enemy)
-	battle_field = new_battle_field
-	
-	action_queue = ActionQueue.new()
-	
-	for enemy in enemies:
-		enemy.defeated.connect(_on_entity_defeated)
-		
-		if enemy.entity_data is EnemyData:
-			enemy.entity_data.choose_next_move()
-	
-	player_entity.defeated.connect(_on_entity_defeated)
-	player_card_hand.play_card.connect(_on_try_play_card)
+
+		# connect defeated once
+		if not enemy.defeated.is_connected(_on_entity_defeated):
+			enemy.defeated.connect(_on_entity_defeated)
+
+		# ✅ Do NOT overwrite restored next_move on resume
+		if enemy.entity_data is EnemyData and not resuming:
+			(enemy.entity_data as EnemyData).choose_next_move()
+
+	if not player_entity.defeated.is_connected(_on_entity_defeated):
+		player_entity.defeated.connect(_on_entity_defeated)
+
+	if not player_card_hand.play_card.is_connected(_on_try_play_card):
+		player_card_hand.play_card.connect(_on_try_play_card)
+
+
 
 func _start_player_turn():
 	if battle_state != BattleState.PLAYER_TURN:
@@ -56,7 +72,9 @@ func _start_player_turn():
 	
 	for enemy in enemies:
 		if enemy.entity_data is EnemyData:
-			enemy.entity_data.choose_next_move()
+			var ed: EnemyData = enemy.entity_data
+			if ed.next_move == null:
+				ed.choose_next_move()
 	
 	energy_counter.reset_energy()
 	started_new_turn.emit()
@@ -70,9 +88,12 @@ func end_player_turn() -> void:
 
 func _run_enemy_turn() -> void:
 	for enemy in enemies:
-		if !enemy.entity_data is EnemyData:
-			return
-		var next_move = enemy.entity_data.next_move
+		if not (enemy.entity_data is EnemyData):
+			continue
+		var next_move = (enemy.entity_data as EnemyData).next_move
+		if next_move == null:
+			(enemy.entity_data as EnemyData).choose_next_move()
+			next_move = (enemy.entity_data as EnemyData).next_move
 		enemy.hide_icon()
 		if next_move.action_type == EnemyMove.Type.PHYSICAL:
 			enemy.entity_animator.play("battle_entity/attack")
@@ -150,7 +171,9 @@ func get_attack_target(action_group:CombatMove, user:BattleEntity = null):
 				combat_entities.append(enemy)
 		TargetingEnum.TARGETING.NONE:
 			pass
-	
+	print("Targeting=", action_group.targeting, " living=", living_enemies.size(),
+	  " picked=", (living_enemies[0].entity_data.name if living_enemies.size() > 0 else "NONE"))
+
 	return combat_entities
 
 func create_action_context(user:BattleEntity, target:Array[BattleEntity]):

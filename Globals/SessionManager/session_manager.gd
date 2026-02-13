@@ -35,13 +35,15 @@ func restart():
 func initialize_map():
 	if run_progress.map_seed == 0: run_progress.map_seed = randi()
 	run_progress.run_map = MapManager.new(run_progress.map_seed)
-	GlobalSaveManager.save_run(run_progress)
-	_attach_map_callbacks()
 	var idx := run_progress.player_node_index
 	if run_progress.battle != null and run_progress.battle.is_active:
 		idx = run_progress.battle.resume_node_index
+	run_progress.run_map.set_player_node_index(idx)
+	_attach_map_callbacks()
+	
 
 	run_progress.run_map.set_player_node_index(idx)
+	GlobalSaveManager.save_run(run_progress)
 
 	#run_progress.run_map.add_callback(
 	#	func(corr_node: RefCounted):

@@ -39,7 +39,8 @@ func _check_action_queue():
 			processed_all_actions.emit()
 		return
 	
-	_execute_queued_action()
+	#_execute_queued_action()
+	_try_start_processing()
 
 func _execute_queued_action():
 	processing_action = true
@@ -53,3 +54,22 @@ func _execute_queued_action():
 	
 	processing_action = false
 	_check_action_queue()
+
+func _try_start_processing() -> void:
+	if processing_action:
+		return
+	if queue.is_empty():
+		processed_all_actions.emit()
+		return
+
+	processing_action = true
+	call_deferred("_process_queue")
+
+func _process_queue() -> void:
+	while not queue.is_empty():
+		var queued_action: QueuedAction = queue.pop_front() as QueuedAction
+		if queued_action != null and queued_action.action != null:
+			await queued_action.execute()
+
+	processing_action = false
+	processed_all_actions.emit()

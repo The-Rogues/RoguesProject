@@ -18,8 +18,28 @@ var map_container: PanelContainer # Container that will be used to resize the ma
 #              initialise the map screen.
 # Return: void.
 func _ready() -> void:
+	var p := GlobalSessionManager.run_progress
+
+	# If session memory lost, recover from disk
+	if p == null:
+		p = GlobalSaveManager.load_run()
+		GlobalSessionManager.run_progress = p
+
+	if p == null:
+		push_error("MapScreen: run_progress is null")
+		return
+
+	# run_map is NOT saved, so rebuild it if missing
+	if p.run_map == null:
+		GlobalSessionManager.initialize_map()
+		p = GlobalSessionManager.run_progress
+
+	if p == null or p.run_map == null:
+		push_error("MapScreen: run_map is still null after initialize_map()")
+		return
+		
 	init_map_screen(
-		GlobalSessionManager.run_progress.run_map.get_new_map_instance(
+		p.run_map.get_new_map_instance(
 			Vector2(0.0, 0.0), # Instance size does not matter as the map will be resized to fit its container in the init function.
 			Vector2(32.0, 32.0)
 		)

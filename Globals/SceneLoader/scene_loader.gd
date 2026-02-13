@@ -58,13 +58,37 @@ func load_scene(scene_path:String):
 func load_battle_scene():
 	if loading_scene:
 		return
-	if GlobalSessionManager != null:
-		GlobalSessionManager.mark_battle_active()
-	create_battle_scene_configuration()
+
+	# Use DISK save as source of truth for resume
+	var p := GlobalSaveManager.get_or_create()
+	print("SceneLoader disk battle: ",
+	"battle_null=", p.battle == null,
+	"active=", (p.battle.is_active if p.battle != null else false),
+	"enemies=", (p.battle.enemies.size() if p.battle != null else -1))
+
+
+	var is_resume := (
+		p != null
+		and p.battle != null
+		and p.battle.is_active
+		and not p.battle.enemies.is_empty()
+	)
+
+	if is_resume:
+		pending_battle_configuration = null
+	else:
+		# ensure session battle active for new battles
+		if GlobalSessionManager != null:
+			GlobalSessionManager.mark_battle_active()
+		create_battle_scene_configuration()
+
 	ResourceLoader.load_threaded_request(BATTLE_SCENE_PATH)
 	loading_scene_path = BATTLE_SCENE_PATH
 	loading_scene = true
 	started_loading_scene.emit()
+
+
+
 
 func load_shop_scene():
 	if loading_scene:
@@ -113,3 +137,4 @@ func _on_scene_loaded():
 
 func _on_load_progress_updated(progress):
 	load_progress_bar.value = progress
+	
