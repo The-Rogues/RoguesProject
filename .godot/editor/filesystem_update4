@@ -1,4 +1,7 @@
-res://BattleSystem/BattleFieldSystem/battle_field.tscn
+res://Globals/PersistentResources/battle_save_data.gd
+res://BattleSystem/Scenes/battle_scene.gd
+res://BattleSystem/BattleFieldSystem/battle_field.gd
+res://BattleSystem/Entities/Objects/battle_object_template.tscn
 res://BattleSystem/BattleFieldSystem/BattlePositions/charged_position_texture.tres
 res://GeneralAssets/Shaders/SpriteFlasher/flash_sprite_material.tres
 res://BattleSystem/Entities/Enemies/Funguy/funguy_texture.tres
@@ -73,8 +76,4 @@ res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres
 res://GeneralAssets/Shaders/SpriteFlasher/hit_flash.gdshader
-res://BattleSystem/BattleFieldSystem/battle_field.gd
-res://Globals/PersistentResources/battle_save_data.gd
-res://BattleSystem/Scenes/battle_scene.gd
-res://Globals/PersistentResources/battle_object_state.gd
-res://Globals/SceneLoader/scene_loader.gd
+res://BattleSystem/BattleFlowManager/battle_manager.gd

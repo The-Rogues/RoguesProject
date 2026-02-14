@@ -7,3 +7,4 @@ class_name BattleSaveData
 @export var player_hp : int = 100
 @export var object_layout: BattleObjectLayout = null
 @export var object_states : Array[BattleObjectState] = []
+@export var player_battle_pos: int = 2

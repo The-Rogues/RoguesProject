@@ -58,15 +58,13 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	
 	# Load Battle Objects & Battle Positions
 	battle_field.initialize(battle_configuration.battle_object_layout)
-	battle_field.initialize_player(character_entity)
+	await battle_field.initialize_player(character_entity)
 	var p := GlobalSaveManager.get_or_create()
 	GlobalSessionManager.run_progress = p  # keep in sync
 	if p.battle == null:
 		p.battle = BattleSaveData.new()
 
 	p.battle.object_layout = battle_configuration.battle_object_layout
-
-
 	
 	# Setup Item Interface
 	for item in battle_configuration.items:
@@ -211,7 +209,17 @@ func _initialize_from_save(p: RunProgress) -> void:
 	else:
 		battle_field.initialize(GlobalSceneLoader.FLOOR_1_SPAWN_POOL.get_object_layout())
 
-	battle_field.initialize_player(character_entity)
+	await battle_field.initialize_player(character_entity)
+	
+	# Restore player battle slot position
+	if p.battle != null:
+		var idx : int = p.battle.player_battle_pos
+		idx = clamp(idx, 0, battle_field.battle_positions.size() - 1)
+
+		battle_field.current_player_position = idx
+		battle_field.last_player_position = idx
+		character_entity.global_position = battle_field.battle_positions[idx].global_position
+
 
 	battle_field.opportunities.clear()
 	battle_field.player_on_opportunity = false
@@ -276,22 +284,20 @@ func _save_battle_snapshot() -> void:
 	if p.battle == null:
 		p.battle = BattleSaveData.new()
 
-	# ✅ Persist object_layout if missing (best effort)
-	# If you stored it during initialize(), this should already be set.
-	# If not, we try to recover it from the BattleField (see note below).
 	if p.battle.object_layout == null and battle_field != null:
 		if "current_layout" in battle_field:
 			p.battle.object_layout = battle_field.current_layout
 
-	# --- basic battle flags ---
+	# basic battle flags 
 	p.battle.is_active = true
 	p.battle.resume_node_index = p.player_node_index
+	p.battle.player_battle_pos = battle_field.current_player_position
 
-	# --- player hp ---
+	# player hp 
 	if character_entity != null and character_entity.entity_data != null and character_entity.entity_data.health != null:
 		p.battle.player_hp = int(character_entity.entity_data.health.value)
 
-	# --- enemies ---
+	# enemies 
 	p.battle.enemies.clear()
 	for e in battle_manager.enemies:
 		if e == null or e.entity_data == null:
@@ -313,7 +319,7 @@ func _save_battle_snapshot() -> void:
 
 		p.battle.enemies.append(snap)
 
-	# --- battle objects ---
+	# battle objects 
 	p.battle.object_states.clear()
 	var slots := battle_field.get_object_slots()
 	for i in range(slots.size()):

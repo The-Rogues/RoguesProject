@@ -60,7 +60,7 @@ func initialize_player(player:BattleEntity):
 		return
 	
 	current_player_position = 2
-	player.move_to(battle_positions[2].global_position)
+	await player.move_to(battle_positions[2].global_position)
 
 func get_player():
 	return player_entity

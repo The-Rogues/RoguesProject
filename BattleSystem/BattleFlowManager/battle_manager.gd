@@ -171,9 +171,6 @@ func get_attack_target(action_group:CombatMove, user:BattleEntity = null):
 				combat_entities.append(enemy)
 		TargetingEnum.TARGETING.NONE:
 			pass
-	print("Targeting=", action_group.targeting, " living=", living_enemies.size(),
-	  " picked=", (living_enemies[0].entity_data.name if living_enemies.size() > 0 else "NONE"))
-
 	return combat_entities
 
 func create_action_context(user:BattleEntity, target:Array[BattleEntity]):
