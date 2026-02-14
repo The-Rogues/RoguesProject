@@ -15,10 +15,25 @@ var opportunities:Array[BattlePosition]
 var current_player_position:int = 2
 var last_player_position:int = 2
 var player_on_opportunity:bool = false
+var current_layout: BattleObjectLayout = null
 
 const OBJECT_TEMPLATE = preload("res://BattleSystem/Entities/Objects/battle_object_template.tscn")
 
 func initialize(battle_object_layout:BattleObjectLayout):
+	current_layout = battle_object_layout
+	# Remove previously spawned objects from positions
+	for child in get_children():
+		if child is BattlePosition:
+			for c in child.get_children():
+				if c is BattleFieldObject:
+					c.queue_free()
+
+	# Reset state arrays
+	battle_positions.clear()
+	battle_object_positions.clear()
+	opportunities.clear()
+	player_on_opportunity = false
+	
 	# Get and store all battle positions
 	for child in get_children():
 		if child is BattlePosition:
@@ -135,7 +150,7 @@ func _on_object_destroyed(object:BattleFieldObject):
 	if obj_index != -1:
 		battle_object_positions[obj_index] = null
 	
-	#object.queue_free()
+	object.queue_free()
 
 func get_player_distance_to_object(object_type:BattleObjectData.Type):
 	for i in range(0, battle_object_positions.size()):
@@ -149,3 +164,16 @@ func get_player_distance_to_object(object_type:BattleObjectData.Type):
 
 func get_object_infront_of_player():
 	return battle_object_positions[current_player_position]
+	
+func get_object_slots() -> Array:
+	return battle_object_positions
+
+func get_object_at(index: int) -> BattleFieldObject:
+	if index < 0 or index >= battle_object_positions.size():
+		return null
+	return battle_object_positions[index]
+
+func clear_object_at(index: int) -> void:
+	if index < 0 or index >= battle_object_positions.size():
+		return
+	battle_object_positions[index] = null

@@ -59,6 +59,14 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	# Load Battle Objects & Battle Positions
 	battle_field.initialize(battle_configuration.battle_object_layout)
 	battle_field.initialize_player(character_entity)
+	var p := GlobalSaveManager.get_or_create()
+	GlobalSessionManager.run_progress = p  # keep in sync
+	if p.battle == null:
+		p.battle = BattleSaveData.new()
+
+	p.battle.object_layout = battle_configuration.battle_object_layout
+
+
 	
 	# Setup Item Interface
 	for item in battle_configuration.items:
@@ -174,22 +182,18 @@ func _initialize_from_save(p: RunProgress) -> void:
 		character_entity.entity_data.health.value = p.battle.player_hp
 		character_entity.entity_data.health.value_changed.emit(character_entity.entity_data.health.value)
 
-
+	# restore enemies
 	var enemies_arr: Array[BattleEntity] = []
 	for snap in p.battle.enemies:
-		if snap == null or snap.enemy_data == null:
-			continue
-
 		var new_enemy: BattleEntity = BATTLE_ENTITY.instantiate()
 		add_child(new_enemy)
 		enemies_arr.append(new_enemy)
 		
-		# Restore HP safely
-		if new_enemy.entity_data != null:
-			new_enemy.initialize(snap.enemy_data)
+		# Restore HP 
+		new_enemy.initialize(snap.enemy_data)
+		if new_enemy.entity_data != null and new_enemy.entity_data.health != null:
 			new_enemy.entity_data.health.value = snap.current_hp
 			new_enemy.entity_data.health.value_changed.emit(new_enemy.entity_data.health.value)
-
 
 
 		# Restore next move (intent)
@@ -202,11 +206,35 @@ func _initialize_from_save(p: RunProgress) -> void:
 	_position_enemies(enemies_arr)
 
 	# Initialize field BEFORE turns start 
-	battle_field.initialize(GlobalSceneLoader.FLOOR_1_SPAWN_POOL.get_object_layout())
+	if p.battle != null and p.battle.object_layout != null:
+		battle_field.initialize(p.battle.object_layout)
+	else:
+		battle_field.initialize(GlobalSceneLoader.FLOOR_1_SPAWN_POOL.get_object_layout())
+
 	battle_field.initialize_player(character_entity)
 
 	battle_field.opportunities.clear()
 	battle_field.player_on_opportunity = false
+	
+	# Restore objects
+	if p.battle != null and p.battle.object_states != null:
+		for st in p.battle.object_states:
+			if st == null or st.index < 0:
+				continue
+
+			if st.destroyed:
+				var obj := battle_field.get_object_at(st.index)
+				if obj != null:
+					obj.queue_free()
+				battle_field.clear_object_at(st.index)
+				continue
+
+			var obj2 := battle_field.get_object_at(st.index)
+			if obj2 != null and obj2.entity_data != null and obj2.entity_data.health != null and st.hp >= 0:
+				obj2.entity_data.health.value = st.hp
+				obj2.entity_data.health.value_changed.emit(obj2.entity_data.health.value)
+				obj2.update_health_bar()
+
 
 	# Initialize battle manager in "resuming" mode
 	battle_manager.initialize(character_entity, enemies_arr, battle_field, true)
@@ -237,18 +265,34 @@ func _initialize_from_save(p: RunProgress) -> void:
 
 
 func _save_battle_snapshot() -> void:
-	var p := GlobalSessionManager.run_progress
+	# Always fetch a valid run progress
+	var p := GlobalSaveManager.get_or_create()
 	if p == null:
 		return
+
+	# Keep session in sync
+	GlobalSessionManager.run_progress = p
 
 	if p.battle == null:
 		p.battle = BattleSaveData.new()
 
+	# ✅ Persist object_layout if missing (best effort)
+	# If you stored it during initialize(), this should already be set.
+	# If not, we try to recover it from the BattleField (see note below).
+	if p.battle.object_layout == null and battle_field != null:
+		if "current_layout" in battle_field:
+			p.battle.object_layout = battle_field.current_layout
+
+	# --- basic battle flags ---
 	p.battle.is_active = true
 	p.battle.resume_node_index = p.player_node_index
-	p.battle.enemies.clear()
-	p.battle.player_hp = character_entity.entity_data.health.value
 
+	# --- player hp ---
+	if character_entity != null and character_entity.entity_data != null and character_entity.entity_data.health != null:
+		p.battle.player_hp = int(character_entity.entity_data.health.value)
+
+	# --- enemies ---
+	p.battle.enemies.clear()
 	for e in battle_manager.enemies:
 		if e == null or e.entity_data == null:
 			continue
@@ -257,20 +301,36 @@ func _save_battle_snapshot() -> void:
 
 		var ed := e.entity_data as EnemyData
 		var snap := EnemySnapshot.new()
-
-		# identity/state
 		snap.enemy_data = ed.duplicate(true)
 
-		# current hp 
 		if ed.health == null:
 			ed.health = Stat.new(ed.health_points, 0, 0, true)
 			ed.health.initialize()
 		snap.current_hp = int(ed.health.value)
 
-		# next move index
 		if ed.next_move != null:
 			snap.next_move_index = ed.move_set.find(ed.next_move)
 
 		p.battle.enemies.append(snap)
+
+	# --- battle objects ---
+	p.battle.object_states.clear()
+	var slots := battle_field.get_object_slots()
+	for i in range(slots.size()):
+		var st := BattleObjectState.new()
+		st.index = i
+
+		var obj := slots[i] as BattleFieldObject
+		if obj == null or obj.entity_data == null:
+			st.destroyed = true
+			st.hp = -1
+			p.battle.object_states.append(st)
+			continue
+
+		st.destroyed = false
+		if obj.entity_data.health != null:
+			st.hp = int(obj.entity_data.health.value)
+
+		p.battle.object_states.append(st)
 
 	GlobalSaveManager.save_run(p)

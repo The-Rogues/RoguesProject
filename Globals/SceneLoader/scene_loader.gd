@@ -61,18 +61,17 @@ func load_battle_scene():
 
 	# Use DISK save as source of truth for resume
 	var p := GlobalSaveManager.get_or_create()
-	print("SceneLoader disk battle: ",
-	"battle_null=", p.battle == null,
-	"active=", (p.battle.is_active if p.battle != null else false),
-	"enemies=", (p.battle.enemies.size() if p.battle != null else -1))
-
 
 	var is_resume := (
 		p != null
 		and p.battle != null
 		and p.battle.is_active
-		and not p.battle.enemies.is_empty()
+		and (
+			(not p.battle.enemies.is_empty())
+			or (p.battle.object_layout != null)
+		)
 	)
+
 
 	if is_resume:
 		pending_battle_configuration = null
