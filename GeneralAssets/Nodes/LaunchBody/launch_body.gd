@@ -15,14 +15,21 @@ var bounces:int = 0
 const POP_PARTICLES = preload("res://GeneralAssets/ParticleEffects/star_pop.tscn")
 var is_active:bool = false
 
-func spawn_and_launch(texture:Texture2D, direction:Vector2):
-	sprite_2d.texture = texture
+func initialize(speed:int, bounce:int, impact_damage:int, texture:Texture2D):
+	self.speed = speed
+	self.bounce_count = bounce
+	self.impact_force = impact_damage
+	self.sprite_2d.texture = texture
+
+func launch(direction:Vector2):
 	velocity = direction.normalized() * speed
 	is_active = true
 	animation_player.play("launched_entity/spin")
 	timer.start()
 	timer.timeout.connect(on_timer_ended)
 	spawn_particles(global_position)
+	visible = true
+	sprite_2d.visible = true
 
 func _physics_process(delta):
 	if !is_active:
@@ -60,4 +67,5 @@ func on_timer_ended():
 
 
 func _on_timer_timeout() -> void:
+	queue_free()
 	pass # Replace with function body.

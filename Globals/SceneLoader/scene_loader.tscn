@@ -9,13 +9,50 @@
 [ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_a652t"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="8_iwggg"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
-[ext_resource type="AnimationLibrary" uid="uid://s6ntxl5p0nep" path="res://BattleSystem/Entities/Animations/battle_entity_animations.res" id="10_5mk2o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_balau"]
 bg_color = Color(0.019607844, 0.019607844, 0.019607844, 0.91764706)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q37af"]
 bg_color = Color(0.34470457, 0.6951066, 0.29308626, 1)
+
+[sub_resource type="Animation" id="Animation_owtnm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_scdqs"]
+resource_name = "loading"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 32), Vector2(0, 22), Vector2(0, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6up84"]
+_data = {
+&"RESET": SubResource("Animation_owtnm"),
+&"loading": SubResource("Animation_scdqs")
+}
 
 [node name="SceneLoader" type="Node2D" unique_id=370581963]
 script = ExtResource("1_fm6ra")
@@ -82,6 +119,6 @@ offset = Vector2(0, -16)
 flip_h = true
 
 [node name="CharacterAnimator" type="AnimationPlayer" parent="LoadingScreenLayer/Control/Character" unique_id=933173198]
-libraries/battle_entity = ExtResource("10_5mk2o")
+libraries/ = SubResource("AnimationLibrary_6up84")
 
 [connection signal="animation_finished" from="LoadingScreenLayer/Control/Character/CharacterAnimator" to="LoadingScreenLayer/Control/Character/CharacterAnimator" method="_on_animation_finished"]

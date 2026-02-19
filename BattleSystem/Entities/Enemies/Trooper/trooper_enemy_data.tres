@@ -1,43 +1,30 @@
-[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bqnmfppsnxdh5"]
+[gd_resource type="Resource" script_class="BattleEntityData" format=3 uid="uid://bqnmfppsnxdh5"]
 
-[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_72dig"]
-[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_q7xir"]
-[ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_bqg6v"]
 [ext_resource type="Texture2D" uid="uid://gwqfbimby6mq" path="res://BattleSystem/Entities/Enemies/Trooper/trooper_texture.tres" id="4_ycb72"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_cigtb"]
 [ext_resource type="Texture2D" uid="uid://e6ny87os8hbc" path="res://BattleSystem/StatusEffects/Regenerating/regenerating_status_effect_texture.tres" id="6_bhyxp"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="7_uxxh4"]
-[ext_resource type="Script" uid="uid://b66w2ww6promu" path="res://BattleSystem/BattleActions/BattleActions/add_status_effect_action.gd" id="8_vqp6u"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="9_bqg6v"]
 [ext_resource type="Resource" uid="uid://b4evn3jjvghv3" path="res://BattleSystem/StatusEffects/Regenerating/regenerating_status_effect_data.tres" id="9_dhtvq"]
-[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_vqp6u"]
-[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/IntentIcons/attack_intent_icon.tres" id="10_m5j2p"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/battle_entity_data.gd" id="9_vqp6u"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/ActionIntents/attack_intent_icon.tres" id="10_m5j2p"]
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="11_2ayjh"]
 [ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://BattleSystem/BattleActions/BattleActions/repeat_action.gd" id="12_r7uh4"]
 
-[sub_resource type="Resource" id="Resource_ba8s1"]
-script = ExtResource("2_q7xir")
-metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
-
-[sub_resource type="Resource" id="Resource_cr6ej"]
-script = ExtResource("3_bqg6v")
-bounces = 2
-body_impact_damage = 12
-metadata/_custom_type_script = "uid://dbfc742a8wqhj"
-
-[sub_resource type="Resource" id="Resource_t4t7t"]
-script = ExtResource("8_vqp6u")
+[sub_resource type="Resource" id="Resource_q7xir"]
+script = ExtResource("9_bqg6v")
 status_effect = ExtResource("9_dhtvq")
-duration = 3
-stack_count = 4
-metadata/_custom_type_script = "uid://b66w2ww6promu"
+status_duration = 4
+stack_count = 2
+metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_7hn5e"]
 script = ExtResource("5_cigtb")
 action_display_icon = ExtResource("6_bhyxp")
 move_type = 1
 name = "Regenerate"
-description = "Regenerates health for the next 3 turns."
-actions = Array[ExtResource("7_uxxh4")]([SubResource("Resource_t4t7t")])
+description = "Regenerates 2 health for the next 3 turns."
+actions = Array[ExtResource("7_uxxh4")]([SubResource("Resource_q7xir")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_00kbn"]
@@ -62,11 +49,8 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("9_vqp6u")
-reward_amount = 120
 move_set = Array[ExtResource("5_cigtb")]([SubResource("Resource_7hn5e"), SubResource("Resource_do0i6")])
 display_texture = ExtResource("4_ycb72")
 name = "Trooper"
-health_points = 80
-wait_to_hide_sprite = true
-behaviours = Array[ExtResource("1_72dig")]([SubResource("Resource_ba8s1"), SubResource("Resource_cr6ej")])
+max_health = 60
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

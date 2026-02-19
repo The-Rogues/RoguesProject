@@ -1,45 +1,45 @@
 extends PanelContainer
 class_name TraitDisplay
 
-@export var aggression_trait:TextureRect
-@export var aggressive_context:ContextPanel
-@export var aggression_weight: Label
+@onready var offensive_trait_rect:TextureRect = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/OffensiveTraitRect
+@onready var offensive_context:ContextPanel = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/OffensiveTraitRect/OffensiveContext
+@onready var offensive_weight: Label = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/OffensiveTraitRect/OffensiveWeightLabel
 
-@export var survival_trait:TextureRect
-@export var survival_context:ContextPanel
-@export var survival_weight: Label
+@onready var defensive_trait_rect:TextureRect = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DefensiveTraitRect
+@onready var defensive_context:ContextPanel = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DefensiveTraitRect/DefensiveContext
+@onready var defensive_weight: Label = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DefensiveTraitRect/DefensiveWeightLabel
 
 
-@export var drive_trait:TextureRect
-@export var drive_context:ContextPanel
-@export var drive_weight: Label
+@onready var strategic_trait_rect:TextureRect = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/StrategicRect
+@onready var strategic_context:ContextPanel = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/StrategicRect/StrategicContext
+@onready var strategic_weight: Label = $HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/StrategicRect/StrategicLabel
 
 
 func _ready() -> void:
 	if GlobalSessionManager.run_progress == null:
 		return
-	initialize()
+	initialize(GlobalSessionManager.run_progress.personality_data)
 
-func initialize():
-	var offensive_trait:TraitData = GlobalSessionManager.get_character_trait("OFFENSIVE")
-	var defensive_trait:TraitData = GlobalSessionManager.get_character_trait("DEFENSIVE")
-	var strategic_trait:TraitData = GlobalSessionManager.get_character_trait("STRATEGIC")
+func initialize(personality_data:PersonalityData):
+	var offensive_trait:PersonalityTrait = personality_data.offensive_trait
+	var defensive_trait:PersonalityTrait = personality_data.defensive_trait
+	var strategic_trait:PersonalityTrait = personality_data.strategic_trait
 	
-	aggression_trait.texture = offensive_trait.trait_icon
-	survival_trait.texture = defensive_trait.trait_icon
-	drive_trait.texture = strategic_trait.trait_icon
+	offensive_trait_rect.texture = offensive_trait.trait_icon
+	defensive_trait_rect.texture = defensive_trait.trait_icon
+	strategic_trait_rect.texture = strategic_trait.trait_icon
 	
-	aggressive_context.set_context(
-		offensive_trait.trait_display_description
+	offensive_context.set_context(
+		offensive_trait.description
 	)
-	aggression_weight.text = str(offensive_trait.weight)
+	offensive_weight.text = str(personality_data.offensive_weight)
 	
-	survival_context.set_context(
-		defensive_trait.trait_display_description
+	defensive_context.set_context(
+		defensive_trait.description
 	)
-	survival_weight.text = str(defensive_trait.weight)
+	defensive_weight.text = str(personality_data.defensive_weight)
 	
-	drive_context.set_context(
-		strategic_trait.trait_display_description
+	strategic_context.set_context(
+		strategic_trait.description
 	)
-	drive_weight.text = str(strategic_trait.weight)
+	strategic_weight.text = str(personality_data.strategic_weight)

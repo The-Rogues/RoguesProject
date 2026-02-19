@@ -11,6 +11,7 @@ enum DamageTarget {PLAYER, ENEMY}
 const POOF_PARTICLE = preload("res://GeneralAssets/ParticleEffects/poof.tscn")
 var active:bool = false
 var velocity: Vector2 = Vector2.ZERO
+var projectile_owner
 
 #func _ready():
 	# Connect the body_entered signal to a function to handle collisions
@@ -25,13 +26,13 @@ func _physics_process(delta):
 	global_position += velocity * delta
 
 func configure(
-	new_damage_target:DamageTarget,
+	new_owner:Node2D,
 	replacement_texture:Texture2D,
 	new_speed:float,
 	new_damage:int,
 	new_face_direction:bool
 ):
-	damages = new_damage_target
+	projectile_owner = new_owner
 	sprite_2d.texture = replacement_texture
 	speed = new_speed
 	damage = new_damage
@@ -49,20 +50,15 @@ func spawn_and_launch(spawn_position:Vector2, direction: Vector2):
 
 func _on_body_entered(body):
 	var entity = body.get_parent()
-	
-	if !entity is Entity:
+	if entity is not BattleEntity and entity is not ObjectEntity:
 		return
 	
-	if damages == DamageTarget.PLAYER and entity.entity_data is CharacterData:
-		body.get_parent().take_damage(damage)
-	elif damages == DamageTarget.ENEMY and entity.entity_data is EnemyData:
-		body.get_parent().take_damage(damage)
-	elif entity.entity_data is BattleObjectData:
-		if damages == DamageTarget.ENEMY:
-			if entity.entity_data.attack_filter != BattleObjectData.BlockMode.BLOCK:
-				return
-			else:
-				body.get_parent().take_damage(damage)
+	var collision_projectile_owner = body.get_parent()
+	
+	if collision_projectile_owner != projectile_owner:
+		if collision_projectile_owner is ObjectEntity:
+			if collision_projectile_owner.data.attack_filter != ObjectEntityData.AttackFilter.IGNORE:
+				collision_projectile_owner.take_damage(damage)
 		else:
 			body.get_parent().take_damage(damage)
 	else:

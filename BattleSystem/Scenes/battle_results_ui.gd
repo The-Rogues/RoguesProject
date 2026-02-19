@@ -20,34 +20,33 @@ func _ready() -> void:
 
 func set_result(won_battle:bool,
 		player_entity:BattleEntity,
-		enemies:Array[BattleEntity]):
+		enemy_encounter:EnemyEncounter
+):
 	visible = true
 	player_entity.reparent(self)
-	player_entity.hide_ui()
+	
 	if won_battle:
 		GlobalSessionManager.run_progress.floor_progress += 1
 		gold_label.visible = true
-		status_label.text = player_entity.entity_data.name + " Survived!"
+		status_label.text = player_entity.data.name + " Survived!"
 		continue_button.text = "Continue"
 		
-		var gold_amount:int = 0
-		for enemy in enemies:
-			if enemy.entity_data is EnemyData:
-				gold_amount += enemy.entity_data.reward_amount
-		gold_label.text = "Gold: " + str(gold_amount)
 		await fade_in()
-		player_entity.entity_sprite.flip_h = true
+		player_entity.sprite_2d.flip_h = true
 		player_entity.move_to(march_position.global_position)
-		player_entity.entity_animator.play("battle_entity/march")
+		player_entity.animation_player.play("entity/march")
 		display_timer.start()
 		target_scene = GlobalSceneLoader.MAP_SCENE_PATH
-		GlobalSessionManager.add_gold(gold_amount)
-		GlobalSessionManager.save_character_health(player_entity.entity_data.health.value)
+		var reward:int = enemy_encounter.get_gold_reward()
+		gold_label.text = "collected " + str(reward) + " gold!"
+		GlobalSessionManager.increase_gold(reward)
+		GlobalSessionManager.save_character_health(player_entity._health.current_health)
 		_clear_battle_lock()
 	else:
+		player_entity.sprite_2d.visible = true
 		reward_label.visible = false
 		gold_label.visible = false
-		status_label.text = "RIP " + player_entity.entity_data.name
+		status_label.text = "RIP " + player_entity.data.name
 		continue_button.text = "Main Menu"
 		await fade_in()
 		death_delay_timer.start()
@@ -55,12 +54,12 @@ func set_result(won_battle:bool,
 		var particles:CPUParticles2D = POP_PARTICLES.instantiate()
 		player_entity.add_child(particles)
 		particles.global_position = player_entity.global_position
-		player_entity.entity_sprite.visible = false
+		player_entity.sprite_2d.visible = false
 		particles.emitting = true
 		await particles.finished
 		particles.queue_free()
 		display_timer.start()
-		GlobalSessionManager.restart()
+		GlobalSessionManager.erase_run_progress()
 		GlobalSaveManager.reset()
 		target_scene = GlobalSceneLoader.MAIN_MENU_PATH
 

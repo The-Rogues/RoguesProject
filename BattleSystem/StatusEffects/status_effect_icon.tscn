@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://briolm1vgasl0"]
 
 [ext_resource type="Script" uid="uid://dgkncjmmy6s1o" path="res://BattleSystem/StatusEffects/status_effect_ui.gd" id="1_f1tio"]
-[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/IntentIcons/projectile_attack_intent_icon.tres" id="2_lcpo5"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/ActionIntents/projectile_attack_intent_icon.tres" id="2_lcpo5"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="3_dgm5w"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://GeneralAssets/UI/ContextPanel/context_panel.tscn" id="4_fjdlc"]
 

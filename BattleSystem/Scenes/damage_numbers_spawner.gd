@@ -1,23 +1,13 @@
 extends Control
+class_name DamageNumbers
+## Control node that creates floating damage numbers when a specified entity is
+## damaged or healed
+##
+## Connect functions to damage and heal signals
 
 const POP_TEXT = preload("res://GeneralAssets/UI/PopNumbers/pop_numbers.tscn")
-@export var entity:Entity
-var happened:bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if entity:
-		entity.updated_entity_data.connect(_on_entity_data_changed)
-	pass # Replace with function body.
-
-func _on_entity_data_changed():
-	if happened:
-		return
-	happened = true
-	entity.damaged.connect(_on_entity_damaged)
-	entity.healed.connect(_on_entity_healed)
-
-func _on_entity_damaged(amount:int):
+func display_damage_numbers(amount:int):
 	var new_pop_text = POP_TEXT.instantiate()
 	add_child(new_pop_text)
 	
@@ -27,9 +17,9 @@ func _on_entity_damaged(amount:int):
 		new_pop_text.initialize("-" + str(amount), Color.CRIMSON)
 	pass
 
-func _on_entity_healed(amount:int):
+
+func display_heal_numbers(amount:int):
 	var new_pop_text = POP_TEXT.instantiate()
 	add_child(new_pop_text)
 	
 	new_pop_text.initialize("+" + str(amount), Color.SEA_GREEN)
-	pass

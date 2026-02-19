@@ -1,39 +1,25 @@
-[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://b57adi08jflnj"]
+[gd_resource type="Resource" script_class="BattleEntityData" format=3 uid="uid://b57adi08jflnj"]
 
-[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_bq8bx"]
-[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_2gvbj"]
-[ext_resource type="Script" uid="uid://dbfc742a8wqhj" path="res://BattleSystem/Entities/Behaviours/ondeath_launchbody.gd" id="3_eid6x"]
 [ext_resource type="Texture2D" uid="uid://dtxuoyn4lxhb1" path="res://BattleSystem/Entities/Enemies/Funguy/funguy_texture.tres" id="4_t3c1n"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_2krmu"]
-[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="6_1hmcs"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/battle_entity_data.gd" id="6_1hmcs"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="6_a8p44"]
+[ext_resource type="Script" uid="uid://7y4m1pq8ls3m" path="res://BattleSystem/BattleActions/BattleActions/move_player_action.gd" id="7_1hmcs"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="7_mtf3b"]
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="8_cto4h"]
-[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/IntentIcons/attack_intent_icon.tres" id="9_mtf3b"]
-[ext_resource type="Script" uid="uid://7y4m1pq8ls3m" path="res://BattleSystem/BattleActions/BattleActions/move_player_action.gd" id="9_pfup2"]
-[ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://BattleSystem/BattleActions/BattleActions/repeat_action.gd" id="10_351tc"]
-[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/IntentIcons/projectile_attack_intent_icon.tres" id="11_3ccjd"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/ActionIntents/attack_intent_icon.tres" id="9_mtf3b"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/ActionIntents/projectile_attack_intent_icon.tres" id="11_3ccjd"]
 [ext_resource type="Texture2D" uid="uid://cnyam2dulsgh7" path="res://GeneralAssets/ParticleEffects/poof_texture.tres" id="12_1d1k7"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://BattleSystem/BattleActions/BattleActions/shoot_projectile_action.gd" id="13_hb4j3"]
 
-[sub_resource type="Resource" id="Resource_8n5pc"]
-script = ExtResource("2_2gvbj")
-metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
-
-[sub_resource type="Resource" id="Resource_ihuxt"]
-script = ExtResource("3_eid6x")
-bounces = 4
-body_impact_damage = 6
-speed = 700.0
-metadata/_custom_type_script = "uid://dbfc742a8wqhj"
-
-[sub_resource type="Resource" id="Resource_85djl"]
+[sub_resource type="Resource" id="Resource_a8p44"]
 script = ExtResource("8_cto4h")
 damage = 4
 target = 1
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
-[sub_resource type="Resource" id="Resource_rwcio"]
-script = ExtResource("9_pfup2")
+[sub_resource type="Resource" id="Resource_bdjmj"]
+script = ExtResource("7_1hmcs")
 direction = 2
 metadata/_custom_type_script = "uid://7y4m1pq8ls3m"
 
@@ -42,27 +28,7 @@ script = ExtResource("5_2krmu")
 action_display_icon = ExtResource("9_mtf3b")
 name = "Trip"
 description = "Deals 4 damage. Player stumbles in a random direction."
-actions = Array[ExtResource("7_mtf3b")]([SubResource("Resource_85djl"), SubResource("Resource_rwcio")])
-metadata/_custom_type_script = "uid://c410dannt5adg"
-
-[sub_resource type="Resource" id="Resource_cgkhq"]
-script = ExtResource("8_cto4h")
-damage = 4
-target = 1
-metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
-
-[sub_resource type="Resource" id="Resource_jupm2"]
-script = ExtResource("10_351tc")
-battle_action = SubResource("Resource_cgkhq")
-repeat = 2
-metadata/_custom_type_script = "uid://cbfakii4lpgc1"
-
-[sub_resource type="Resource" id="Resource_jfigb"]
-script = ExtResource("5_2krmu")
-action_display_icon = ExtResource("9_mtf3b")
-name = "Double kick"
-description = "Deals 4 damage twice."
-actions = Array[ExtResource("7_mtf3b")]([SubResource("Resource_jupm2")])
+actions = Array[ExtResource("7_mtf3b")]([SubResource("Resource_a8p44"), SubResource("Resource_bdjmj")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_g7hng"]
@@ -85,11 +51,9 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("6_1hmcs")
-reward_amount = 102
-move_set = Array[ExtResource("5_2krmu")]([SubResource("Resource_c4w14"), SubResource("Resource_jfigb"), SubResource("Resource_gsos7")])
+move_set = Array[ExtResource("5_2krmu")]([SubResource("Resource_c4w14"), SubResource("Resource_gsos7")])
 display_texture = ExtResource("4_t3c1n")
 name = "Funguy"
-health_points = 35
-wait_to_hide_sprite = true
-behaviours = Array[ExtResource("1_bq8bx")]([SubResource("Resource_8n5pc"), SubResource("Resource_ihuxt")])
+max_health = 30
+launch_when_defeated = true
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

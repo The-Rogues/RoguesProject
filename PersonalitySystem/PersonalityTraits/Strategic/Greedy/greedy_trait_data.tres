@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://dwcy6ljp0cp4h"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="1_ci7qn"]
+[ext_resource type="Texture2D" uid="uid://qtxteloxo0em" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0009_emoji10.png" id="2_6ejeq"]
+
+[resource]
+script = ExtResource("1_ci7qn")
+moving_bias = 4
+trait_icon = ExtResource("2_6ejeq")
+id = "greedy"
+name = "Greedy"
+description = "Comfortable taking risks for gratification. Moves towards treasures."
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

@@ -18,35 +18,25 @@ class_name CharacterChanger
 
 @onready var start_battle: Button = $StartButtonMargin/StartBattle
 
-var TRAITS = {
-	"Brute": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Brute/brute_trait_data.tres"),
-	"Valorous": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Valorous/valorous_trait_data.tres"),
-	"Merciful": load("res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Merciful/merciful_trait_data.tres"),
-	"Careful": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Careful/careful_trait_data.tres"),
-	"Stoic": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Stoic/stoic_trait_data.tres"),
-	"Skiddish": load("res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Skiddish/skiddish_trait_data.tres"),
-	"Opportunist": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/Opportunist/opportunist_trait_data.tres"),
-	"Greedy": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/Greedy/greedy_trait_data.tres"),
-	"LaidBack": load("res://PersonalitySystem/PersonalityTraits/Traits/Strategic/LaidBack/laid_back_trait_data.tres"),
-}
-
 # Character sprite and name varients
 @export var character_sprite_varients:Array[Texture2D]
 @export var name_varients:Array[String]
+@export var personality_traits:Dictionary[String, PersonalityTrait]
 
 # Dictionary that maps character trait to Backstory entry
 # TODO: Have the AI look at all character traits and write its own backstory
 const backstories := {
-	"Brute": "Entered the tower seeking foes worthy of their strength, believing every shattered door and fallen monster proves their dominance.",
-	"Valorous": "Honor bound, entered the tower after hearing that citizens from their village entered despite the warnings.",
-	"Merciful": "They descend into the dungeon hoping to befriend the monsters and redeem travelers",
-	"Careful": "Enticed by the tower, but weary of its dangers, they seek to satisfy their curiosity.",
-	"Stoic": "Knowing the dungeon will change them, confident that whatever happens, they will learn and adjust to survive.",
-	"Skiddish": "Fearing something far worse is coming for them, seeks the opportunity to esnure their soul will be saved",
-	"Opportunist": "Crossing the threshold with a single goal in mind, ascending their spirit by going through a spiritual trial.",
-	"Greedy": "Entered for the promise of treasure, certain that any risk is worth the wealth buried in the dark.",
-	"LaidBack": "They step into the dungeon with no plan at all, trusting things will turn out alright in the end."
+	"Brute": "They enter the tower to prove their strength, believing only pain and broken foes can affirm who they are.",
+	"Challenger": "Drawn by rumors of powerful adversaries, they climb the tower seeking rivals worthy of their resolve.",
+	"Merciful": "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence.",
+	"Stoic": "They know the tower will test them, yet trust their discipline to endure whatever trials await.",
+	"Naive": "Curiosity outweighs caution as they step inside, convinced that things will somehow work out.",
+	"Fickle": "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape.",
+	"Greedy": "Promises of wealth lure them inward, certain that gold is worth any risk the tower demands.",
+	"Laidback": "With little concern for danger or reward, they wander into the tower with no plan and no urgency.",
+	"Tactical": "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
 }
+
 
 func _ready() -> void:
 	_on_randomize_button_up()
@@ -91,32 +81,33 @@ func _on_start_battle_button_up() -> void:
 	var defensive_trait_name = defensive_option.get_item_text(defensive_option.selected)
 	var strategic_trait_name = strategic_option.get_item_text(strategic_option.selected)
 	
-	var offensive_trait:TraitData = TRAITS[offensive_trait_name]
-	var defensive_trait:TraitData = TRAITS[defensive_trait_name]
-	var strategic_trait:TraitData = TRAITS[strategic_trait_name]
-	
-	offensive_trait = offensive_trait.duplicate(true)
-	defensive_trait = defensive_trait.duplicate(true)
-	strategic_trait = strategic_trait.duplicate(true)
-	# Setting Trait weights
-	offensive_trait.weight = offensive_weight.value
-	defensive_trait.weight = defensive_weight.value
-	strategic_trait.weight = strategic_weight.value
+	var offensive_trait:PersonalityTrait = personality_traits[offensive_trait_name]
+	var defensive_trait:PersonalityTrait = personality_traits[defensive_trait_name]
+	var strategic_trait:PersonalityTrait = personality_traits[strategic_trait_name]
 	
 	# Creates new battle entity that will persist through scenes
-	var character_data:CharacterData = CharacterData.new()
-	character_data.initialize(
-		name_label.text,
-		offensive_trait,
-		defensive_trait,
-		strategic_trait,
+	var personality_data:PersonalityData = PersonalityData.new()
+	personality_data.initialize(
+			offensive_trait,
+			defensive_trait,
+			strategic_trait,
+			offensive_weight.value,
+			defensive_weight.value,
+			strategic_weight.value
 	)
-	character_data.display_texture = character_sprite.texture
+	
 	
 	GlobalSessionManager.initialize_new_run(
-		character_data, 
-		backstory_label.text
+		character_sprite.texture,
+		name_label.text,
+		backstory_label.text,
+		personality_data,
+		load("res://CardSystem/Decks/starting_card_deck.tres")
 	)
+	
+	GlobalSessionManager.run_progress.map_seed = randi()
+	GlobalSessionManager.run_progress.player_node_index = 0
+	GlobalSaveManager.save_run(GlobalSessionManager.run_progress)
 	
 	GlobalSaveManager.save_run(GlobalSessionManager.run_progress)
 	

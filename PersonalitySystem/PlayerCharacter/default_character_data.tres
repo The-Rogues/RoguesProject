@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dj231k2t6krxk"]
 
-[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_1uvdg"]
-[ext_resource type="Resource" uid="uid://l2sxjofae18b" path="res://PersonalitySystem/PersonalityTraits/Traits/Defensive/Careful/careful_trait_data.tres" id="2_qdcpw"]
-[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://PersonalitySystem/PlayerCharacter/character_data.gd" id="2_rrsvk"]
+[ext_resource type="Script" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_1uvdg"]
+[ext_resource type="Resource" uid="uid://l2sxjofae18b" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_trait_data.tres" id="2_qdcpw"]
+[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://PersonalitySystem/PlayerCharacter/personality_data.gd" id="2_rrsvk"]
 [ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="3_g1bbi"]
 [ext_resource type="Script" uid="uid://bve26sns3h03o" path="res://GeneralAssets/Resources/stat.gd" id="4_qdcpw"]
-[ext_resource type="Resource" uid="uid://1gf7vwofpq0g" path="res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Valorous/valorous_trait_data.tres" id="5_w5765"]
-[ext_resource type="Resource" uid="uid://cwrhn5awc55g2" path="res://PersonalitySystem/PersonalityTraits/Traits/Strategic/Opportunist/opportunist_trait_data.tres" id="7_avv5r"]
+[ext_resource type="Resource" uid="uid://1gf7vwofpq0g" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_trait_data.tres" id="5_w5765"]
+[ext_resource type="Resource" uid="uid://cwrhn5awc55g2" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/tractical_trait_data.tres" id="7_avv5r"]
 
 [sub_resource type="Resource" id="Resource_f1t4x"]
 script = ExtResource("4_qdcpw")

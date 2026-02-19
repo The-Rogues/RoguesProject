@@ -31,15 +31,15 @@ const ATTACK_PROJECTILE = preload("res://BattleSystem/BattleActions/Projectiles/
 
 
 func _execute(battle_instance:BattleManager, action_user:BattleEntity):
-	var targeting := _resolve_target(battle_instance, action_user)
+	targeting = _resolve_target(battle_instance, action_user)
 	
 	for target in targeting:
 		if not target:
 			continue
 		
 		var direction: Vector2 = action_user.global_position.direction_to(
-					target.global_position
-					)
+				target.global_position
+		)
 		var target_is_below = target.global_position.y > action_user.global_position.y
 		
 		var min_angle:float
@@ -58,27 +58,18 @@ func _execute(battle_instance:BattleManager, action_user:BattleEntity):
 		
 		var projectile: AttackProjectile = ATTACK_PROJECTILE.instantiate()
 		action_user.add_child(projectile)
-		var damage_target:AttackProjectile.DamageTarget
-		
-		if target.entity_data is CharacterData:
-			damage_target = AttackProjectile.DamageTarget.PLAYER
-		elif target.entity_data is EnemyData:
-			damage_target = AttackProjectile.DamageTarget.ENEMY
-		else:
-			# Panic case
-			damage_target = AttackProjectile.DamageTarget.PLAYER
 		
 		var final_damage:int = impact_damage
 		if action_user is BattleEntity:
 			final_damage = action_user.get_attack_damage(final_damage)
 		
 		projectile.configure(
-			damage_target,
+			action_user,
 			projectile_texture,
 			speed,
-			impact_damage,
+			final_damage,
 			face_direction
 		)
 		
 		projectile.spawn_and_launch(action_user.global_position, direction)
-		await action_user.get_tree().create_timer(0.15).timeout
+		await battle_instance.action_delay()

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://chjspg3xitqc4"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_bt1a0"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="2_1irc1"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="2_26ccs"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="3_1irc1"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="3_moxos"]
+
+[sub_resource type="Resource" id="Resource_35pxf"]
+script = ExtResource("2_1irc1")
+damage = 12
+target = 2
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_hqmi8"]
+script = ExtResource("2_26ccs")
+name = "Hinder"
+description = "Deals 12 damage. If target is below 2/3rds HP, deals 2 instead."
+actions = Array[ExtResource("1_bt1a0")]([SubResource("Resource_35pxf")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("3_1irc1")
+energy_cost = 3
+move = SubResource("Resource_hqmi8")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

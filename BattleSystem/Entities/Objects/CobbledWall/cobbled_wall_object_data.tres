@@ -1,22 +1,14 @@
-[gd_resource type="Resource" script_class="BattleObjectData" format=3 uid="uid://0413e1iwchac"]
+[gd_resource type="Resource" script_class="ObjectEntityData" format=3 uid="uid://du1e86sv52sf0"]
 
-[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_108rp"]
-[ext_resource type="Script" uid="uid://c3jljqw3ahnfx" path="res://BattleSystem/Entities/Behaviours/ondeath_pop.gd" id="2_5n43x"]
 [ext_resource type="Texture2D" uid="uid://ceemipxhdl63u" path="res://BattleSystem/Entities/Objects/CobbledWall/cobbled_wall_texture.tres" id="3_mna5y"]
-[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://BattleSystem/Entities/BaseScripts/battle_object_data.gd" id="4_q2dcu"]
-
-[sub_resource type="Resource" id="Resource_clqlc"]
-script = ExtResource("2_5n43x")
-metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://BattleSystem/Entities/BaseScripts/object_entity_data.gd" id="4_q2dcu"]
 
 [resource]
 script = ExtResource("4_q2dcu")
 object_type = 1
 attack_filter = 2
-damaged_by_launch_body = true
 display_texture = ExtResource("3_mna5y")
-name = "Cobble Wall"
-health_points = 40
-wait_to_hide_sprite = true
-behaviours = Array[ExtResource("1_108rp")]([SubResource("Resource_clqlc")])
+name = "Cobbled Wall"
+description = "Offers temporary protection. Crumbles easily"
+max_health = 40
 metadata/_custom_type_script = "uid://o5nbdchxwujp"

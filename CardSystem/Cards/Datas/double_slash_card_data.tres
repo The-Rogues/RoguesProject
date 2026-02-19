@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dhat16iba5tlg"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_efvub"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="1_p0vgv"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="2_hwndd"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="2_scn4k"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="3_dfiws"]
+
+[sub_resource type="Resource" id="Resource_nqx22"]
+script = ExtResource("2_hwndd")
+target = 2
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_uoktn"]
+script = ExtResource("2_hwndd")
+target = 4
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_hwndd"]
+script = ExtResource("2_scn4k")
+name = "Double Slash"
+description = "Deals 2 damage twice"
+actions = Array[ExtResource("1_efvub")]([SubResource("Resource_nqx22"), SubResource("Resource_uoktn")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("1_p0vgv")
+move = SubResource("Resource_hwndd")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

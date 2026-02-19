@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://041gwracsv52"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="1_418ud"]
+[ext_resource type="Texture2D" uid="uid://7tbklim4gu2e" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0028_emoji29.png" id="2_t0xhi"]
+
+[resource]
+script = ExtResource("1_418ud")
+targeting_bias = 2
+trait_icon = ExtResource("2_t0xhi")
+id = "brute"
+name = "Brute"
+description = "Uses violence to solve their problems. Prefers targeting weaker enemies. Easy to anger."
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

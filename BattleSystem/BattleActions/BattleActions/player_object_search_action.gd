@@ -2,7 +2,7 @@ extends BattleAction
 class_name PlayerObjectSearchAction
 
 enum ObjectType {OPEN, COVER, TREASURE, WEAPON}
-@export var object_type:BattleObjectData.Type
+@export var object_type:ObjectEntityData.Type
 @export var conditional_action:BattleAction
 
 func _execute(battle_instance:BattleManager, action_user:BattleEntity):

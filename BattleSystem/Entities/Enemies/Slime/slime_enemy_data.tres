@@ -1,31 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ctt40rvl2uset"]
+[gd_resource type="Resource" script_class="BattleEntityData" format=3 uid="uid://ctt40rvl2uset"]
 
-[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_bu8ee"]
-[ext_resource type="Script" uid="uid://c3jljqw3ahnfx" path="res://BattleSystem/Entities/Behaviours/ondeath_pop.gd" id="2_bu8ee"]
-[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="4_7f4jj"]
-[ext_resource type="Script" uid="uid://qxob3eo8esih" path="res://BattleSystem/Entities/Behaviours/on_turn_regenerate_health.gd" id="4_qt5w1"]
 [ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://BattleSystem/Entities/Enemies/Slime/slime_texture.tres" id="4_qx4hj"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="6_bu8ee"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="6_vo3w3"]
-[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/IntentIcons/attack_intent_icon.tres" id="7_7f4jj"]
+[ext_resource type="Resource" uid="uid://b7bt32bi465gh" path="res://BattleSystem/StatusEffects/Weakened/weakness_status_effect_data.tres" id="7_3gk7v"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://BattleSystem/Entities/ActionIntents/attack_intent_icon.tres" id="7_7f4jj"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="8_0h6rk"]
+[ext_resource type="Script" uid="uid://5hjapp3udi62" path="res://BattleSystem/BattleActions/BattleActions/heal_entity_action.gd" id="8_bu8ee"]
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="9_4kgyc"]
-[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_dla6b"]
-[ext_resource type="Script" uid="uid://b66w2ww6promu" path="res://BattleSystem/BattleActions/BattleActions/add_status_effect_action.gd" id="10_oqw0v"]
-[ext_resource type="Resource" uid="uid://b0ksaxetd0aye" path="res://BattleSystem/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres" id="11_dla6b"]
-[ext_resource type="Script" uid="uid://5hjapp3udi62" path="res://BattleSystem/BattleActions/BattleActions/heal_entity_action.gd" id="12_tjf6l"]
-
-[sub_resource type="Resource" id="Resource_qt5w1"]
-script = ExtResource("2_bu8ee")
-metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
-
-[sub_resource type="Resource" id="Resource_bx14i"]
-script = ExtResource("4_qt5w1")
-health = 4
-metadata/_custom_type_script = "uid://qxob3eo8esih"
-
-[sub_resource type="Resource" id="Resource_0h6rk"]
-script = ExtResource("4_7f4jj")
-metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/battle_entity_data.gd" id="9_dla6b"]
 
 [sub_resource type="Resource" id="Resource_48npq"]
 script = ExtResource("9_4kgyc")
@@ -40,29 +23,30 @@ description = "Deals 5 damage."
 actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_48npq")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
-[sub_resource type="Resource" id="Resource_g5nmy"]
-script = ExtResource("10_oqw0v")
-status_effect = ExtResource("11_dla6b")
-duration = 2
-stack_count = 3
-metadata/_custom_type_script = "uid://b66w2ww6promu"
+[sub_resource type="Resource" id="Resource_bu8ee"]
+script = ExtResource("6_bu8ee")
+status_effect = ExtResource("7_3gk7v")
+status_duration = 2
+stack_count = 2
+target = 1
+metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_ucdgb"]
 script = ExtResource("6_vo3w3")
 action_display_icon = ExtResource("7_7f4jj")
 name = "Acid"
-description = "Inflicts vulnerability for 2 turns."
-actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_g5nmy")])
+description = "Inflicts 2 weakness for next turn."
+actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_bu8ee")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
-[sub_resource type="Resource" id="Resource_o3am5"]
+[sub_resource type="Resource" id="Resource_qt5w1"]
 script = ExtResource("9_4kgyc")
 damage = 2
 target = 1
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
-[sub_resource type="Resource" id="Resource_matid"]
-script = ExtResource("12_tjf6l")
+[sub_resource type="Resource" id="Resource_bx14i"]
+script = ExtResource("8_bu8ee")
 health = 4
 metadata/_custom_type_script = "uid://5hjapp3udi62"
 
@@ -71,16 +55,13 @@ script = ExtResource("6_vo3w3")
 action_display_icon = ExtResource("7_7f4jj")
 name = "Absorb"
 description = "Deals 2 damage and heals 4."
-actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_o3am5"), SubResource("Resource_matid")])
+actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_qt5w1"), SubResource("Resource_bx14i")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("9_dla6b")
-reward_amount = 70
 move_set = Array[ExtResource("6_vo3w3")]([SubResource("Resource_tp02r"), SubResource("Resource_ucdgb"), SubResource("Resource_alf15")])
 display_texture = ExtResource("4_qx4hj")
 name = "Slime"
-health_points = 42
-wait_to_hide_sprite = true
-behaviours = Array[ExtResource("1_bu8ee")]([SubResource("Resource_qt5w1"), SubResource("Resource_bx14i"), SubResource("Resource_0h6rk")])
+max_health = 42
 metadata/_custom_type_script = "uid://sxih45j4ip5w"
