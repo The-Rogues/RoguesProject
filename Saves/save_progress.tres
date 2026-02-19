@@ -5,20 +5,20 @@
 [ext_resource type="Script" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="2_rcxs1"]
 [ext_resource type="Script" path="res://Globals/PersistentResources/run_progress.gd" id="3_0gx0n"]
 [ext_resource type="Script" path="res://PersonalitySystem/PersonalityTraits/trait_data.gd" id="3_02w6n"]
-[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0031_emoji32.png" id="4_msjhh"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="5_w0sie"]
+[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0020_emoji21.png" id="4_msjhh"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres" id="5_w0sie"]
 [ext_resource type="Script" path="res://GeneralAssets/Resources/stat.gd" id="6_pic50"]
 [ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0056_emoji57.png" id="7_gcsfp"]
 [ext_resource type="Script" path="res://PersonalitySystem/PlayerCharacter/character_data.gd" id="8_3dqjj"]
-[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0046_emoji47.png" id="9_8uu1w"]
+[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0045_emoji46.png" id="9_8uu1w"]
 
 [sub_resource type="Resource" id="Resource_osl4a"]
 script = ExtResource("3_02w6n")
 trait_icon = ExtResource("4_msjhh")
-id = "skiddish"
-name = "Skiddish"
-trait_display_description = "Sensative. Can lose control in conflict."
-weight = 1
+id = "careful"
+name = "Careful"
+trait_display_description = "Avoids risky actions and likes to find cover. Naturally focused when protected."
+weight = 4
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_rcxs1"]
@@ -34,16 +34,16 @@ trait_icon = ExtResource("7_gcsfp")
 id = "merciful"
 name = "Merciful"
 trait_display_description = "Lowers attack when enemies are weak. Avoids conflict and prefers to spare."
-weight = 8
+weight = 5
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_bn7m0"]
 script = ExtResource("3_02w6n")
 trait_icon = ExtResource("9_8uu1w")
-id = "laidback"
-name = "Laid Back"
-trait_display_description = "Relaxes in most circumstances. Likes to talk. Doesn't spend a lot of energy"
-weight = 2
+id = "opportunist"
+name = "Opportunist"
+trait_display_description = "Uses their enviornment to give themself the offensive advantage."
+weight = 3
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_gvrsj"]
@@ -53,7 +53,7 @@ defensive_trait = SubResource("Resource_osl4a")
 strategic_trait = SubResource("Resource_bn7m0")
 energy = SubResource("Resource_rcxs1")
 display_texture = ExtResource("5_w0sie")
-name = "Ollie"
+name = "Eris"
 health_points = 80
 wait_to_hide_sprite = true
 
@@ -61,8 +61,8 @@ wait_to_hide_sprite = true
 script = ExtResource("3_0gx0n")
 character_data = SubResource("Resource_gvrsj")
 card_deck = ExtResource("1_jw4ln")
-backstory = "They step into the dungeon with no plan at all, trusting things will turn out alright in the end."
-map_seed = 3642184060
-player_node_index = 21
-floor_progress = 3
-gold = 990
+backstory = "Crossing the threshold with a single goal in mind, ascending their spirit by going through a spiritual trial."
+map_seed = 562390825
+player_node_index = 54
+floor_progress = 6
+gold = 1464
