@@ -10,6 +10,7 @@ extends Node2D
 @onready var close_menu: Control = $UILayer/Control/CloseMenu
 @onready var start_run_button: Button = $UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/StartRun
 @onready var reset_run_button: Button = $UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Reset
+@onready var resume_battle_button: Button = $UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/ResumeBattle
 
 
 
@@ -20,8 +21,7 @@ func _ready() -> void:
 	credits_menu.visible = false
 	close_menu.visible = false
 	options_menu.close.connect(show_main_menu)
-	reset_run_button.visible = GlobalSaveManager.has_save()
-	var p: RunProgress = GlobalSaveManager.load_run()
+	_update_menu_buttons()
 
 
 
@@ -58,6 +58,23 @@ func _on_start_run_button_up() -> void:
 	else:
 		_start_new_run()
 
+func _on_resume_battle_button_up() -> void:
+	var p: RunProgress = GlobalSaveManager.load_run()
+	if p == null:
+		GlobalSaveManager.reset()
+		_update_menu_buttons()
+		return
+
+	if p.battle == null or (not p.battle.is_active) or p.battle.enemies.is_empty():
+		_update_menu_buttons()
+		return
+
+	GlobalSessionManager.run_progress = p
+	GlobalSessionManager.started_session = true
+
+	GlobalSceneLoader.load_battle_scene()
+
+
 func _update_start_button_text() -> void:
 	start_run_button.text = "Load Run" if GlobalSaveManager.has_save() else "Start Run"
 	
@@ -88,4 +105,31 @@ func _on_reset_button_up() -> void:
 	GlobalSaveManager.reset()
 	GlobalSessionManager.run_progress = null
 	get_viewport().gui_disable_input = false
-	_start_new_run()
+	_update_menu_buttons()
+
+	
+func _update_menu_buttons() -> void:
+	var has := GlobalSaveManager.has_save()
+
+	# Start button becomes Load if any save exists
+	start_run_button.text = "Load Run" if has else "Start Run"
+
+	# Reset visible if any save exists
+	reset_run_button.visible = has
+
+	# Resume only if battle snapshot exists
+	resume_battle_button.visible = _has_resumable_battle()
+
+func _has_resumable_battle() -> bool:
+	if not GlobalSaveManager.has_save():
+		return false
+
+	var p: RunProgress = GlobalSaveManager.load_run()
+	if p == null:
+		return false
+
+	return (
+		p.battle != null
+		and p.battle.is_active
+		and not p.battle.enemies.is_empty()
+	)

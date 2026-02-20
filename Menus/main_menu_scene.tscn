@@ -155,6 +155,17 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
+[node name="ResumeBattle" type="Button" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer" unique_id=1631680442]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_fvvvu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k7suw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
+text = "Resume Battle"
+
 [node name="StartRun" type="Button" parent="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer" unique_id=762478144]
 texture_filter = 1
 layout_mode = 2
@@ -349,6 +360,7 @@ theme_override_font_sizes/font_size = 32
 text = "Closing..."
 horizontal_alignment = 1
 
+[connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/ResumeBattle" to="." method="_on_resume_battle_button_up"]
 [connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/StartRun" to="." method="_on_start_run_button_up"]
 [connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Options" to="." method="_on_options_button_up"]
 [connection signal="button_up" from="UILayer/Control/MainMenu/MarginContainer/MainMenuElements/VBoxContainer/Credits" to="." method="_on_credits_button_up"]
