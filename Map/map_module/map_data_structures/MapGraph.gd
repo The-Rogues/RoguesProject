@@ -16,7 +16,6 @@ signal player_pos_changed(new_pos: RefCounted)
 var node_arr: Array[RefCounted] # An array which will hold the MapGraph's individual nodes.
 var map_layers: int # An integer which will hold the number of layers in the graph for quick reference.
 var max_layer_nodes: int # An integer which will hold the largest number of nodes available to a single layer.
-var num_mandatory: int
 var player_pos: RefCounted: # A reference to the MapGraphNode that the player is currently located at.
 	# This function is called whenever the player's position attempts to change.
 	set(new_pos):
@@ -80,7 +79,6 @@ func _init(
 	
 	# Init data member.
 	max_layer_nodes = max_layer_sz
-	num_mandatory = mandatory_node_amnt
 	
 	# Create RandomNumberGernerator and give it the seed.
 	var rand_gen = RandomNumberGenerator.new()
@@ -550,13 +548,10 @@ func get_layer(in_layer: int) -> Array[RefCounted]:
 # Return: void.
 func populate_events() -> void:
 	for i in range(0, node_arr.size()):
-		if (i == node_arr.size() - 1) || (get_layer(node_arr[i].node_layer).size() == 1):
-			node_arr[i].node_data = 2
+		if node_arr[i].node_layer % 2 == 0:
+			node_arr[i].node_data = false # Even layered nodes are not battle nodes.
 		else:
-			if node_arr[i].node_layer % 2 == 0:
-				node_arr[i].node_data = 0 # Even layered nodes are not battle nodes.
-			else:
-				node_arr[i].node_data = 1 # Odd layered nodes are battle nodes.
+			node_arr[i].node_data = true # Odd layered nodes are battle nodes.
 			
 func get_player_node_index() -> int:
 	return node_arr.find(player_pos)

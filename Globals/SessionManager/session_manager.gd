@@ -51,12 +51,10 @@ func _attach_map_callbacks():
 			# save position on arrival
 			run_progress.player_node_index = run_progress.run_map.get_player_node_index()
 			# trigger scene
-			if corr_node.node_data == 1:
+			if corr_node.node_data:
 				GlobalSceneLoader.load_battle_scene()
-			elif corr_node.node_data == 0:
+			else:
 				GlobalSceneLoader.load_shop_scene()
-			elif corr_node.node_data == 2:
-				GlobalSceneLoader.load_scene("res://Map/test_screen/TestScreen.tscn")
 			run_progress.total_rooms_explored += 1
 			GlobalSaveManager.save_run(run_progress)
 	)
