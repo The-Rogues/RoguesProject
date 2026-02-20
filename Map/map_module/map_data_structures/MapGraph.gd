@@ -550,7 +550,7 @@ func get_layer(in_layer: int) -> Array[RefCounted]:
 # Return: void.
 func populate_events() -> void:
 	for i in range(0, node_arr.size()):
-		if i == node_arr.size() - 1:
+		if (i == node_arr.size() - 1) || (get_layer(node_arr[i].node_layer).size() == 1):
 			node_arr[i].node_data = 2
 		else:
 			if node_arr[i].node_layer % 2 == 0:
