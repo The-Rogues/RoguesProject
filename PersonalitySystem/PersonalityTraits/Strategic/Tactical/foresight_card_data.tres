@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://sj70mj1xqys8"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="1_3en82"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_ge478"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="2_qr1lc"]
+
+[sub_resource type="Resource" id="Resource_5uaq8"]
+script = ExtResource("2_qr1lc")
+name = "Foresight"
+description = "Creates an opportunity in a random position."
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("1_3en82")
+energy_cost = 2
+move = SubResource("Resource_5uaq8")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

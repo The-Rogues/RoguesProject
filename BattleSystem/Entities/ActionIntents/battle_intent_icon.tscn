@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://5dltxoue1tck"]
+
+[ext_resource type="Script" uid="uid://s6uv0s0r6sx5" path="res://BattleSystem/Entities/ActionIntents/battle_intent_icon.gd" id="1_k6fil"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/ActionIntents/projectile_attack_intent_icon.tres" id="2_bedpj"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://GeneralAssets/UI/ContextPanel/hover_pop_up.gd" id="3_t63nv"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://GeneralAssets/UI/ContextPanel/context_panel.tscn" id="3_w1xab"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="4_tcrcb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4heb"]
+
+[node name="BattleIntentIcon" type="Control" unique_id=1912680910]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 1
+script = ExtResource("1_k6fil")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1811394537]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q4heb")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1032552048]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/MarginContainer" unique_id=835158164 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("2_bedpj")
+script = ExtResource("3_t63nv")
+context_panel = NodePath("../../../ContextPanel")
+
+[node name="ContextPanel" parent="." unique_id=1838000936 instance=ExtResource("3_w1xab")]
+visible = false
+layout_mode = 1
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 230.0
+offset_bottom = 80.0
+mouse_filter = 2
+
+[node name="Amplifier" type="Label" parent="." unique_id=1766179860]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_tcrcb")
+theme_override_font_sizes/font_size = 13
+text = "1"

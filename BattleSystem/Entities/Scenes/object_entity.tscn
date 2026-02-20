@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://dg7o7sk51nk0y"]
+
+[ext_resource type="Script" uid="uid://dq0gcwe8cxfs2" path="res://BattleSystem/Entities/Scenes/object_entity.gd" id="1_s7ai3"]
+[ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://GeneralAssets/ParticleEffects/star_pop.tscn" id="2_mn4ql"]
+[ext_resource type="Texture2D" uid="uid://ceemipxhdl63u" path="res://BattleSystem/Entities/Objects/CobbledWall/cobbled_wall_texture.tres" id="3_hspkp"]
+[ext_resource type="AnimationLibrary" uid="uid://cexw0d2a12sr1" path="res://BattleSystem/Entities/Animations/battle_object.res" id="4_tlw5s"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://GeneralAssets/UI/ContextPanel/hover_pop_up.gd" id="5_f87p8"]
+[ext_resource type="Script" uid="uid://cuphtsbdj1lq7" path="res://BattleSystem/Scenes/damage_numbers_spawner.gd" id="5_h83bm"]
+[ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://GeneralAssets/UI/HealthBar/health_bar.tscn" id="7_r5ml1"]
+[ext_resource type="Script" uid="uid://48mcoyquoyhq" path="res://GeneralAssets/UI/ui_visability_timer.gd" id="8_20o02"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://GeneralAssets/UI/ContextPanel/context_panel.tscn" id="9_uaovw"]
+
+[sub_resource type="Shader" id="Shader_qs5c0"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sr3yh"]
+resource_local_to_scene = true
+shader = SubResource("Shader_qs5c0")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7kj"]
+size = Vector2(70, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rg1p"]
+size = Vector2(64, 53)
+
+[node name="BattleObject" type="Node2D" unique_id=1480715373]
+script = ExtResource("1_s7ai3")
+
+[node name="DamageParticles" parent="." unique_id=232237618 instance=ExtResource("2_mn4ql")]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1078302553]
+texture_filter = 1
+material = SubResource("ShaderMaterial_sr3yh")
+position = Vector2(0, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_hspkp")
+offset = Vector2(0, -16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1771980315]
+libraries/battle_object = ExtResource("4_tlw5s")
+
+[node name="BounceBox" type="StaticBody2D" parent="." unique_id=1559131223]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceBox" unique_id=734601592]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_sr7kj")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=261636256]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=586477694]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_6rg1p")
+
+[node name="UI" type="Control" parent="." unique_id=795100728 node_paths=PackedStringArray("context_panel")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -44.0
+offset_right = 40.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(44, 0)
+size_flags_horizontal = 4
+script = ExtResource("5_f87p8")
+context_panel = NodePath("ContextPanel")
+
+[node name="Display" type="VBoxContainer" parent="UI" unique_id=248893853]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+
+[node name="HealthBar" parent="UI/Display" unique_id=231057238 instance=ExtResource("7_r5ml1")]
+layout_mode = 2
+display_numbers = false
+
+[node name="NumbersSpawner" type="Control" parent="UI" unique_id=1971109296]
+anchors_preset = 0
+offset_left = 44.0
+offset_top = 5.0
+offset_right = 84.0
+offset_bottom = 45.0
+mouse_filter = 2
+script = ExtResource("5_h83bm")
+
+[node name="UIDissapearTimer" type="Timer" parent="UI" unique_id=726064489 node_paths=PackedStringArray("control")]
+script = ExtResource("8_20o02")
+control = NodePath("../Display")
+
+[node name="ContextPanel" parent="UI" unique_id=1838000936 instance=ExtResource("9_uaovw")]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -27.0
+offset_right = 252.0
+offset_bottom = 33.0
+grow_vertical = 2
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="UI/UIDissapearTimer" to="UI/UIDissapearTimer" method="_on_timeout"]

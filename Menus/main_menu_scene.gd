@@ -80,11 +80,6 @@ func _load_run() -> void:
 
 
 func _start_new_run() -> void:
-	var p: RunProgress = RunProgress.new(null, "")
-	p.map_seed = randi()
-	p.player_node_index = 0
-	GlobalSaveManager.save_run(p)
-	GlobalSessionManager.run_progress = p
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.CHARACTER_GENERATOR_PATH)
 
 

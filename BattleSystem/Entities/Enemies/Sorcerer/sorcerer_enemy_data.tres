@@ -1,45 +1,35 @@
-[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cg30v23ohr5mc"]
+[gd_resource type="Resource" script_class="BattleEntityData" format=3 uid="uid://cg30v23ohr5mc"]
 
-[ext_resource type="Script" uid="uid://c81i6a08v6gb3" path="res://BattleSystem/Entities/Behaviours/entity_behaviour.gd" id="1_f5stk"]
-[ext_resource type="Script" uid="uid://bvtbdibpvhlx4" path="res://BattleSystem/Entities/Behaviours/on_load_display_enemy_intent.gd" id="2_eb62g"]
-[ext_resource type="Script" uid="uid://c3jljqw3ahnfx" path="res://BattleSystem/Entities/Behaviours/ondeath_pop.gd" id="3_rekp0"]
 [ext_resource type="Texture2D" uid="uid://dte5dnc52hrbn" path="res://BattleSystem/Entities/Enemies/Sorcerer/sorcerer_texture.tres" id="4_gqmd2"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_44oxg"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="5_rekp0"]
+[ext_resource type="Script" uid="uid://do2ilxi6n20dy" path="res://BattleSystem/StatusEffects/Protected/protected_status_effect_script.gd" id="6_alaul"]
 [ext_resource type="Texture2D" uid="uid://djjgc67emtqut" path="res://BattleSystem/StatusEffects/Protected/protected_condition_status_icon.tres" id="6_gqmd2"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="7_alaul"]
-[ext_resource type="Script" uid="uid://b66w2ww6promu" path="res://BattleSystem/BattleActions/BattleActions/add_status_effect_action.gd" id="8_nad66"]
-[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/enemy_data.gd" id="9_ljnds"]
-[ext_resource type="Resource" uid="uid://be5d5xjhidpxh" path="res://BattleSystem/StatusEffects/Protected/protected_status_effect_data.tres" id="9_oakic"]
-[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/IntentIcons/projectile_attack_intent_icon.tres" id="10_ljnds"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://BattleSystem/Entities/BaseScripts/battle_entity_data.gd" id="9_ljnds"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://BattleSystem/Entities/ActionIntents/projectile_attack_intent_icon.tres" id="10_ljnds"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://BattleSystem/BattleActions/BattleActions/shoot_projectile_action.gd" id="10_vckan"]
 [ext_resource type="Texture2D" uid="uid://4jeymnoxuans" path="res://BattleSystem/Entities/Enemies/Sorcerer/magic_slash_texture.tres" id="11_lipq7"]
 [ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://BattleSystem/BattleActions/BattleActions/repeat_action.gd" id="11_ljnds"]
-[ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://BattleSystem/Entities/IntentIcons/sabotage_intent_icon.tres" id="14_6epgn"]
-[ext_resource type="Resource" uid="uid://dphdw118a7jkp" path="res://BattleSystem/StatusEffects/Petrified/petrified_status_effect.tres" id="15_sqj68"]
-[ext_resource type="Resource" uid="uid://b0ksaxetd0aye" path="res://BattleSystem/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres" id="16_kbigj"]
 
-[sub_resource type="Resource" id="Resource_dmpfo"]
-script = ExtResource("2_eb62g")
-metadata/_custom_type_script = "uid://bvtbdibpvhlx4"
+[sub_resource type="Resource" id="Resource_nad66"]
+script = ExtResource("6_alaul")
+metadata/_custom_type_script = "uid://do2ilxi6n20dy"
 
-[sub_resource type="Resource" id="Resource_kqcdo"]
-script = ExtResource("3_rekp0")
-metadata/_custom_type_script = "uid://c3jljqw3ahnfx"
-
-[sub_resource type="Resource" id="Resource_lipq7"]
-script = ExtResource("8_nad66")
-status_effect = ExtResource("9_oakic")
-duration = 2
-stack_count = 4
+[sub_resource type="Resource" id="Resource_oakic"]
+script = ExtResource("5_rekp0")
+status_effect = SubResource("Resource_nad66")
+status_duration = 2
+stack_count = 2
 target = 3
-metadata/_custom_type_script = "uid://b66w2ww6promu"
+metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_6epgn"]
 script = ExtResource("5_44oxg")
 action_display_icon = ExtResource("6_gqmd2")
 name = "Wall Off"
-description = "Protects all enemies for 2 turns"
-actions = Array[ExtResource("7_alaul")]([SubResource("Resource_lipq7")])
+description = "Protects all enemies for next turn."
+actions = Array[ExtResource("7_alaul")]([SubResource("Resource_oakic")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_sqj68"]
@@ -48,7 +38,7 @@ projectile_texture = ExtResource("11_lipq7")
 face_direction = true
 impact_damage = 9
 speed = 450.0
-direction_range = 0.2
+direction_range = 0.1
 target = 1
 metadata/_custom_type_script = "uid://c3uyo8xsai327"
 
@@ -66,38 +56,10 @@ description = "Fires 3 low-accuracy projectiles. Deals 9 damage on impact"
 actions = Array[ExtResource("7_alaul")]([SubResource("Resource_kbigj")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
-[sub_resource type="Resource" id="Resource_wwvtb"]
-script = ExtResource("8_nad66")
-status_effect = ExtResource("15_sqj68")
-duration = 2
-target = 1
-metadata/_custom_type_script = "uid://b66w2ww6promu"
-
-[sub_resource type="Resource" id="Resource_ukhjy"]
-script = ExtResource("8_nad66")
-status_effect = ExtResource("16_kbigj")
-duration = 2
-stack_count = 3
-target = 1
-metadata/_custom_type_script = "uid://b66w2ww6promu"
-
-[sub_resource type="Resource" id="Resource_pbook"]
-script = ExtResource("5_44oxg")
-action_display_icon = ExtResource("14_6epgn")
-move_type = 1
-name = "Shackle"
-description = "Inflicts petrification and vulnerability for the next turn."
-actions = Array[ExtResource("7_alaul")]([SubResource("Resource_wwvtb"), SubResource("Resource_ukhjy")])
-metadata/_custom_type_script = "uid://c410dannt5adg"
-
 [resource]
 script = ExtResource("9_ljnds")
-reward_amount = 140
-move_set = Array[ExtResource("5_44oxg")]([SubResource("Resource_6epgn"), SubResource("Resource_3412g"), SubResource("Resource_pbook")])
-rarity = 1
+move_set = Array[ExtResource("5_44oxg")]([SubResource("Resource_6epgn"), SubResource("Resource_3412g")])
 display_texture = ExtResource("4_gqmd2")
 name = "Caster"
-health_points = 90
-wait_to_hide_sprite = true
-behaviours = Array[ExtResource("1_f5stk")]([SubResource("Resource_dmpfo"), SubResource("Resource_kqcdo")])
+max_health = 60
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

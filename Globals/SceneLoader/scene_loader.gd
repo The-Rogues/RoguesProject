@@ -1,6 +1,11 @@
-# Intended to be used as a global object for loading scenes & battles
 extends Node2D
 class_name SceneLoader
+## A Script for managing scene transitions with a laoding screen.
+##
+## Maintains paths to commonly visited scenes for convenvenience such as battle
+## scene, main menu, map scene, character generator, and item shop.
+## If you are implementing bosses, please include their scenes in this script.
+
 
 # Signals for tracking load progress
 signal started_loading_scene
@@ -11,7 +16,6 @@ signal scene_loaded
 var pending_battle_configuration:BattleSceneConfiguration
 var pending_shop_data:ShopData
 
-# TODO: 
 const FLOOR_1_SPAWN_POOL = preload("res://BattleSystem/Configuration/SpawnPools/floor_1_spawn_pool.tres")
 const FLOOR_1_SHOP_DATA = preload("res://Map/ItemShop/ShopDatas/floor_1_shop_data.tres")
 
@@ -31,10 +35,14 @@ var loaded_scene
 var loading_scene_path:String = ""
 var loading_scene:bool = false
 
+# -------------------------------------------------
+# _ready & _process functions
+# -------------------------------------------------
 func _ready() -> void:
 	load_progresses_updated.connect(_on_load_progress_updated)
 	scene_loaded.connect(_on_scene_loaded)
 	started_loading_scene.connect(_on_started_loading_scene)
+
 
 func _process(delta: float) -> void:
 	if !loading_scene:
@@ -50,21 +58,44 @@ func _process(delta: float) -> void:
 		scene_loaded.emit()
 		loading_scene = false
 
+# -------------------------------------------------
+# Scene load requests
+# -------------------------------------------------
 func load_scene(scene_path:String):
 	ResourceLoader.load_threaded_request(scene_path)
 	loading_scene = true
 	loading_scene_path = scene_path
 	started_loading_scene.emit()
 
+
 func load_battle_scene():
 	if loading_scene:
 		return
 	
-	create_battle_scene_configuration()
+	_create_battle_scene_configuration()
 	ResourceLoader.load_threaded_request(BATTLE_SCENE_PATH)
 	loading_scene_path = BATTLE_SCENE_PATH
 	loading_scene = true
 	started_loading_scene.emit()
+
+
+func _create_battle_scene_configuration():
+	# TODO: Change spawn pool depending on floor the player is on
+	var battle_config = BattleSceneConfiguration.new(
+		FLOOR_1_SPAWN_POOL.get_enemy_encounter(),
+		FLOOR_1_SPAWN_POOL.get_object_layout(),
+		GlobalSessionManager.run_progress.personality_data,
+		GlobalSessionManager.run_progress.character_entity_data,
+		GlobalSessionManager.run_progress.held_items,
+		GlobalSessionManager.run_progress.card_deck,
+		GlobalSessionManager.run_progress.max_energy,
+		GlobalSessionManager.run_progress.current_health
+	)
+	
+	pending_battle_configuration = battle_config
+	
+	return battle_config
+
 
 func load_shop_scene():
 	if loading_scene:
@@ -77,39 +108,35 @@ func load_shop_scene():
 	loading_scene = true
 	started_loading_scene.emit()
 
+# -------------------------------------------------
+# Getters
+# -------------------------------------------------
+func get_shop_items():
+	var shop_items:Array[ItemData] = pending_shop_data.get_shop_items()
+	pending_shop_data = null
+	return shop_items
+
+# -------------------------------------------------
+# Loading scene events
+# -------------------------------------------------
 func _on_started_loading_scene():
 	var load_texture:Texture2D
 	if GlobalSessionManager.started_session:
-		load_texture = GlobalSessionManager.get_character_sprite()
+		load_texture = GlobalSessionManager.get_character_texture()
 	else:
 		load_texture = loading_sprite_varients.pick_random()
 	sprite_2d.texture = load_texture
 	
 	loading_screen_layer.visible = true
-	character_animator.play("battle_entity/march")
+	character_animator.play("loading")
 
-func create_battle_scene_configuration():
-	# TODO: Change spawn pool depending on floor the player is on
-	var battle_config = BattleSceneConfiguration.new(
-		GlobalSessionManager.get_character(),
-		GlobalSessionManager.get_heald_items(),
-		FLOOR_1_SPAWN_POOL.get_enemies() as Array[EnemyData],
-		FLOOR_1_SPAWN_POOL.get_object_layout()
-	)
-	pending_battle_configuration = battle_config
-	
-	return battle_config
-
-func get_shop_items():
-	var shop_items:Array[ItemData] = pending_shop_data.get_shop_items()
-	pending_shop_data = null
-	return shop_items
 
 func _on_scene_loaded():
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(loaded_scene)
 	loading_screen_layer.visible = false
 	character_animator.stop()
+
 
 func _on_load_progress_updated(progress):
 	load_progress_bar.value = progress

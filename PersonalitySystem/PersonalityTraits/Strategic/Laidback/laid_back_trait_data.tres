@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://bx6a3knmi6k3m"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="1_c1d1y"]
+[ext_resource type="Texture2D" uid="uid://bcjsbp23cny3h" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0046_emoji47.png" id="2_w8t77"]
+
+[resource]
+script = ExtResource("1_c1d1y")
+trait_icon = ExtResource("2_w8t77")
+id = "laidback"
+name = "Laidback"
+description = "Comfortable in most situations. Conserves energy until the right moment to act."
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

@@ -39,7 +39,7 @@ func initialize(items:Array[ItemData]):
 
 func create_item_slot(item_data:ItemData, index:int):
 	if index >= minimum_item_slot_count or minimum_item_slot_count == 0:
-		var item_slot:ShopItemSlot = ITEM_UI.instantiate()
+		var item_slot:ItemSlotUI = ITEM_UI.instantiate()
 		add_child(item_slot)
 		item_slots.append(item_slot)
 	var item_slot = get_child(index)

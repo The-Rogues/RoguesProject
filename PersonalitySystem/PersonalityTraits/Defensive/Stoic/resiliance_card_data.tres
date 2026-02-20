@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cs43dcisqaddm"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_tb6xy"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="2_gcteg"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="3_6j2mb"]
+
+[sub_resource type="Resource" id="Resource_vtnkl"]
+script = ExtResource("2_gcteg")
+move_type = 1
+name = "Endure"
+description = "+2 protection for each time attacked this turn."
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("3_6j2mb")
+move = SubResource("Resource_vtnkl")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

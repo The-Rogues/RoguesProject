@@ -65,6 +65,8 @@ vertical_alignment = 1
 
 [node name="ItemInterface" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=92166697 instance=ExtResource("3_2dwta")]
 layout_mode = 2
+minimum_item_slot_count = 3
+force_initialize = false
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=534953933]
 layout_mode = 2

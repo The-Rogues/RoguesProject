@@ -7,7 +7,7 @@ class_name StatusEffectIcon
 
 var instance: StatusEffect
 
-func bind(status_instance: StatusEffect):
+func initialize(status_instance: StatusEffect):
 	instance = status_instance
 	icon.texture = instance.effect.icon
 	update_ui()

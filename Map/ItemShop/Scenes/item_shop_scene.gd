@@ -18,13 +18,13 @@ func _ready() -> void:
 	shop_menu.visible = false
 	sell_menu.visible = false
 	
-	character_sprite.texture = GlobalSessionManager.get_character_sprite()
+	character_sprite.texture = GlobalSessionManager.get_character_texture()
 	
 	if GlobalSceneLoader.pending_shop_data:
 		shop_items = GlobalSceneLoader.get_shop_items()
 	else:
 		shop_items = override_shop_items
-	sell_items = GlobalSessionManager.get_heald_items()
+	sell_items = GlobalSessionManager.run_progress.held_items
 	if sell_items:
 		no_sell_label.visible = false
 		sell_item_interface.initialize(sell_items)
@@ -45,19 +45,16 @@ func _on_leave_button_up() -> void:
 
 func _on_buy_item(index:int):
 	print("attempt buy")
-	if not GlobalSessionManager.can_buy_item(shop_items[index].shop_price):
+	if not GlobalSessionManager.buy_item(shop_items[index]):
 		return
-	GlobalSessionManager.buy_item(shop_items[index])
+	
 	buy_item_interface.confirm_transaction(index)
 	
 	no_sell_label.visible = false
-	sell_items = GlobalSessionManager.get_heald_items()
+	sell_items = GlobalSessionManager.run_progress.held_items
 	sell_item_interface.initialize(sell_items)
 
 func _on_sell_item(index:int):
-	if !GlobalSessionManager.can_sell_item(sell_items[index]):
-		return
-	
 	GlobalSessionManager.sell_held_item(sell_items[index])
 	sell_item_interface.confirm_transaction(index)
 	

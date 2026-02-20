@@ -8,7 +8,7 @@ class_name SpriteFlasher
 const flash_material:Material = preload("res://GeneralAssets/Shaders/SpriteFlasher/flash_sprite_material.tres")
 
 func _ready() -> void:
-	sprite_2d.material = flash_material
+	sprite_2d.material = flash_material.duplicate(true)
 
 func flash_sprite():
 	var mat := sprite_2d.material as ShaderMaterial

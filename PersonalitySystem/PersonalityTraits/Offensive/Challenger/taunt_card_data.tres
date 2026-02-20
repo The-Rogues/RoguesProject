@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d22rcskpb7ap6"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="1_8sbl5"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_gg5wh"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="2_2hc31"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="3_gswia"]
+[ext_resource type="Resource" uid="uid://b0ksaxetd0aye" path="res://BattleSystem/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres" id="4_n8hci"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_xram2"]
+
+[sub_resource type="Resource" id="Resource_vq5wx"]
+script = ExtResource("3_gswia")
+status_effect = ExtResource("4_n8hci")
+status_duration = 3
+stack_count = 2
+target = 4
+metadata/_custom_type_script = "uid://s304n8psvt04"
+
+[sub_resource type="Resource" id="Resource_b50eh"]
+script = ExtResource("2_2hc31")
+damage = 0
+status_effects = Array[ExtResource("3_gswia")]([SubResource("Resource_vq5wx")])
+target = 2
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_1x01y"]
+script = ExtResource("5_xram2")
+move_type = 1
+name = "Taunt"
+description = "Inflicts Anger and Vulnerability for 3 turns."
+actions = Array[ExtResource("1_gg5wh")]([SubResource("Resource_b50eh")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("1_8sbl5")
+energy_cost = 1
+move = SubResource("Resource_1x01y")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -1,32 +1,38 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cpcm1bkfedbjv"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_uk0b2"]
-[ext_resource type="Script" uid="uid://wa5kcoyx6fgx" path="res://BattleSystem/BattleActions/BattleActions/damage_and_status_action.gd" id="2_y31sd"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="4_y31sd"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="2_y31sd"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="3_eqn1h"]
+[ext_resource type="Resource" uid="uid://b7bt32bi465gh" path="res://BattleSystem/StatusEffects/Weakened/weakness_status_effect_data.tres" id="4_a1fdx"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="5_a1fdx"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="5_eqn1h"]
-[ext_resource type="Resource" uid="uid://b0ksaxetd0aye" path="res://BattleSystem/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres" id="5_uk0b2"]
-[ext_resource type="Resource" uid="uid://041gwracsv52" path="res://PersonalitySystem/PersonalityTraits/Traits/Offensive/Brute/brute_trait_data.tres" id="5_wqdmm"]
+[ext_resource type="Resource" uid="uid://041gwracsv52" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_trait_data.tres" id="5_wqdmm"]
 [ext_resource type="Script" uid="uid://csd6aipkoxola" path="res://BattleSystem/BattleActions/BattleActions/alternate_personality_personality_action.gd" id="6_p06d3"]
 
 [sub_resource type="Resource" id="Resource_vd1kp"]
-script = ExtResource("2_y31sd")
-status_effect = ExtResource("5_uk0b2")
-duration = 2
-stack_count = 4
-target = 2
-metadata/_custom_type_script = "uid://wa5kcoyx6fgx"
+script = ExtResource("3_eqn1h")
+status_effect = ExtResource("4_a1fdx")
+status_duration = 2
+stack_count = 2
+target = 4
+metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_etx3r"]
-script = ExtResource("4_y31sd")
+script = ExtResource("2_y31sd")
+status_effects = Array[ExtResource("3_eqn1h")]([SubResource("Resource_vd1kp")])
 target = 2
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_s5m1e"]
+script = ExtResource("2_y31sd")
+target = 2
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_oivea"]
 script = ExtResource("6_p06d3")
 personality_trait = ExtResource("5_wqdmm")
-default_action = SubResource("Resource_etx3r")
-alternate_action = SubResource("Resource_vd1kp")
+default_action = SubResource("Resource_s5m1e")
+alternate_action = SubResource("Resource_etx3r")
 metadata/_custom_type_script = "uid://csd6aipkoxola"
 
 [sub_resource type="Resource" id="Resource_qy5g6"]
@@ -34,7 +40,7 @@ script = ExtResource("5_a1fdx")
 name = "Strike"
 description = "Deals 6 damage.
 If Brute, inflicts vulnerability for the next turn."
-actions = Array[ExtResource("1_uk0b2")]([SubResource("Resource_s5m1e")])
+actions = Array[ExtResource("1_uk0b2")]([SubResource("Resource_oivea")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

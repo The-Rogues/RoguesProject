@@ -4,12 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://1ipkbhxl3ark" path="res://BattleSystem/BattleField/battle_field.tscn" id="2_ceml1"]
 [ext_resource type="Script" uid="uid://05khfkwi3t2f" path="res://BattleSystem/BattleFlowManager/battle_manager.gd" id="2_laop5"]
 [ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://CardSystem/Scenes/play_area.tscn" id="3_nuuou"]
-[ext_resource type="Resource" uid="uid://c5lm4cl0xdwwq" path="res://CardSystem/Decks/starting_card_deck.tres" id="3_r734y"]
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://CardSystem/card_play_hand.gd" id="4_cgsmb"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="5_7j1wb"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://BattleSystem/Scenes/energy_counter.tscn" id="7_e1j2j"]
-[ext_resource type="PackedScene" uid="uid://dys3hydaairuy" path="res://BattleSystem/Entities/battle_entity_template.tscn" id="8_ao6ux"]
-[ext_resource type="Resource" uid="uid://dj231k2t6krxk" path="res://PersonalitySystem/PlayerCharacter/default_character_data.tres" id="9_7lneo"]
 [ext_resource type="PackedScene" uid="uid://b2sastodcwsbx" path="res://Menus/game_dash_board.tscn" id="9_prne7"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://BattleSystem/Scenes/battle_results_ui.tscn" id="10_tmnld"]
 [ext_resource type="Texture2D" uid="uid://dijrwcokcngwv" path="res://Menus/deck_icon_normal.tres" id="13_r734y"]
@@ -25,26 +22,11 @@ b = Vector2(-1151, -3)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2adx"]
 bg_color = Color(0.03529412, 0.007843138, 0.05490196, 1)
 
-[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "character_entity", "end_turn_button", "battle_results_display")]
+[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "end_turn_button", "battle_results_display")]
 script = ExtResource("1_jfmiq")
 battle_manager = NodePath("BattleManager")
-character_entity = NodePath("Player")
 end_turn_button = NodePath("UILayer/Control/BattleInterface/EndTurnButton")
 battle_results_display = NodePath("BattleResultDisplay")
-
-[node name="BattleManager" type="Node" parent="." unique_id=1665866141 node_paths=PackedStringArray("battle_field", "enemy_delay_timer", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui", "item_interface")]
-script = ExtResource("2_laop5")
-battle_field = NodePath("../BattleField")
-enemy_delay_timer = NodePath("EnemyDelayTimer")
-energy_counter = NodePath("../UILayer/Control/BattleInterface/EnergyCounter")
-player_card_hand = NodePath("../PlayerCardHand")
-draw_pile = ExtResource("3_r734y")
-draw_pile_ui = NodePath("../UILayer/Control/BattleInterface/DrawPileViewer")
-discard_pile_ui = NodePath("../UILayer/Control/BattleInterface/DiscardPileViewer")
-item_interface = NodePath("../UILayer/Control/GameDashBoard/MarginContainer/HBoxContainer/VBoxContainer/ItemInterface")
-
-[node name="EnemyDelayTimer" type="Timer" parent="BattleManager" unique_id=202726847]
-wait_time = 0.8
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=285933358]
 custom_minimum_size = Vector2(1152, 628)
@@ -57,39 +39,55 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.10613311, 0.117434226, 0.1356673, 1)
 
-[node name="BattleField" parent="." unique_id=314861 node_paths=PackedStringArray("player_entity") instance=ExtResource("2_ceml1")]
+[node name="BattleManager" type="Node2D" parent="." unique_id=948342459 node_paths=PackedStringArray("battle_field", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui", "item_interface", "enemy_delay_timer")]
+script = ExtResource("2_laop5")
+battle_field = NodePath("BattleField")
+energy_counter = NodePath("../UILayer/Control/BattleInterface/EnergyCounter")
+player_card_hand = NodePath("../UILayer/PlayerCardHand")
+draw_pile_ui = NodePath("../UILayer/Control/BattleInterface/DrawPileViewer")
+discard_pile_ui = NodePath("../UILayer/Control/BattleInterface/DiscardPileViewer")
+item_interface = NodePath("../UILayer/Control/GameDashBoard/MarginContainer/HBoxContainer/VBoxContainer/ItemInterface")
+enemy_delay_timer = NodePath("EnemyDelayTimer")
+
+[node name="EnemyDelayTimer" type="Timer" parent="BattleManager" unique_id=202726847]
+wait_time = 0.8
+
+[node name="ActionDelayTimer" type="Timer" parent="BattleManager" unique_id=1591741571]
+wait_time = 0.25
+
+[node name="BattleField" parent="BattleManager" unique_id=314861 instance=ExtResource("2_ceml1")]
 position = Vector2(556, 381)
-player_entity = NodePath("../Player")
 battle_object_offset = Vector2(0, -50)
 
-[node name="PlayerCardHand" type="Node2D" parent="." unique_id=1303605846]
-position = Vector2(0, 210)
-script = ExtResource("4_cgsmb")
-y_position = 300.0
-fan_angle = 10.0
+[node name="Entities" type="Node2D" parent="BattleManager" unique_id=375418201]
 
-[node name="Player" parent="." unique_id=1657833200 instance=ExtResource("8_ao6ux")]
-position = Vector2(550, 535)
-entity_data = ExtResource("9_7lneo")
+[node name="CharacterSpawnPoint" type="Node2D" parent="BattleManager/Entities" unique_id=744801885]
+position = Vector2(557, 648)
 
-[node name="CollisionWalls" type="StaticBody2D" parent="." unique_id=1386891855]
+[node name="CollisionWalls" type="StaticBody2D" parent="BattleManager" unique_id=1386891855]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionWalls" unique_id=542169655]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleManager/CollisionWalls" unique_id=542169655]
 shape = SubResource("SegmentShape2D_lahee")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionWalls" unique_id=48975222]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BattleManager/CollisionWalls" unique_id=48975222]
 position = Vector2(1152, 0)
 shape = SubResource("SegmentShape2D_lahee")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CollisionWalls" unique_id=1221524123]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BattleManager/CollisionWalls" unique_id=1221524123]
 position = Vector2(1152, 84)
 shape = SubResource("SegmentShape2D_o1our")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="CollisionWalls" unique_id=703516065]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BattleManager/CollisionWalls" unique_id=703516065]
 position = Vector2(1152, 448)
 shape = SubResource("SegmentShape2D_o1our")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]
+
+[node name="PlayerCardHand" type="Node2D" parent="UILayer" unique_id=1303605846]
+position = Vector2(0, 210)
+script = ExtResource("4_cgsmb")
+y_position = 300.0
+fan_angle = 10.0
 
 [node name="PlayArea" parent="UILayer" unique_id=574541479 instance=ExtResource("3_nuuou")]
 position = Vector2(546, 263)
@@ -251,7 +249,6 @@ visible = false
 [connection signal="button_up" from="UILayer/Control/Debugging/Win button" to="." method="_on_win_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging/TestPlayerDamage" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="UILayer/Control/Debugging/TestEnemyDamage" to="." method="_on_test_enemy_damage_button_up"]
-[connection signal="button_up" from="UILayer/Control/Debugging/Add Card" to="BattleManager" method="_on_add_card_button_up"]
 [connection signal="button_up" from="UILayer/Control/BattleInterface/EndTurnButton" to="." method="_on_end_turn_button_up"]
 [connection signal="button_up" from="UILayer/Control/BattleInterface/EndTurnButton" to="." method="_on_end_turn_button_button_up"]
 

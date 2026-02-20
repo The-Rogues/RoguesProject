@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://mmtyk80ya2dp"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_ebxik"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="2_anweg"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="3_037jn"]
+
+[sub_resource type="Resource" id="Resource_j3bd5"]
+script = ExtResource("2_anweg")
+name = "Fake Punch"
+description = "If HP is higher then target's, enemy flinches and skips their next attack."
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("3_037jn")
+energy_cost = 2
+move = SubResource("Resource_j3bd5")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

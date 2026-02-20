@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://l2sxjofae18b"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="1_hqwrh"]
+[ext_resource type="Texture2D" uid="uid://dhn40t2jr1d6q" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0068_emoji69.png" id="2_8v4ed"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_hqwrh")
+trait_icon = ExtResource("2_8v4ed")
+id = "naive"
+name = "Naive"
+description = "Trusts things will work out in the end. Not intimidated by monsters."
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

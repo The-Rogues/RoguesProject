@@ -62,15 +62,18 @@ horizontal_alignment = 2
 
 [node name="NameLabel" type="Label" parent="CardUI/MarginContainer/VBoxContainer" unique_id=280635127]
 texture_filter = 1
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_a6rhs")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "name"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardUI/MarginContainer/VBoxContainer" unique_id=1901218588]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 8
 mouse_filter = 2
 
 [node name="Devider" type="TextureRect" parent="CardUI/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1455932293]
@@ -83,8 +86,8 @@ texture = ExtResource("4_eib7d")
 texture_filter = 1
 custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
-size_flags_vertical = 10
-theme_override_font_sizes/font_size = 10
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 8
 text = "Brief card behaviour description"
 horizontal_alignment = 1
 autowrap_mode = 3

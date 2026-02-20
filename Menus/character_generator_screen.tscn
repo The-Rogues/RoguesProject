@@ -29,6 +29,16 @@
 [ext_resource type="Texture2D" uid="uid://ucdn72jkwj6a" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres" id="25_knji5"]
 [ext_resource type="Texture2D" uid="uid://bh5i87d23o2op" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres" id="26_jnj6x"]
 [ext_resource type="Texture2D" uid="uid://b4ruwl8uy6s8m" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres" id="27_eifsp"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="28_y4i3p"]
+[ext_resource type="Resource" uid="uid://041gwracsv52" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_trait_data.tres" id="29_nyook"]
+[ext_resource type="Resource" uid="uid://1gf7vwofpq0g" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_trait_data.tres" id="30_grb3g"]
+[ext_resource type="Resource" uid="uid://cy7rcje5kdiml" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_trait_data.tres" id="31_p0xxf"]
+[ext_resource type="Resource" uid="uid://drt77f0ht5qj2" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_trait_data.tres" id="32_gdfka"]
+[ext_resource type="Resource" uid="uid://l2sxjofae18b" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_trait_data.tres" id="33_uwofx"]
+[ext_resource type="Resource" uid="uid://b7kiwqqcgj4el" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_trait_data.tres" id="34_smodt"]
+[ext_resource type="Resource" uid="uid://dwcy6ljp0cp4h" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/greedy_trait_data.tres" id="35_i6q16"]
+[ext_resource type="Resource" uid="uid://bx6a3knmi6k3m" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laid_back_trait_data.tres" id="36_kqxcu"]
+[ext_resource type="Resource" uid="uid://cwrhn5awc55g2" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/tractical_trait_data.tres" id="37_nyook"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pdas"]
 bg_color = Color(0.0002225801, 6.145411e-05, 0.00018586668, 1)
@@ -47,6 +57,17 @@ grow_vertical = 2
 script = ExtResource("1_eisx4")
 character_sprite_varients = Array[Texture2D]([ExtResource("3_ntpg3"), ExtResource("3_hhvwy"), ExtResource("4_wpnsw"), ExtResource("5_ntilo"), ExtResource("6_aprn4"), ExtResource("7_qtcf8"), ExtResource("8_k2qyi"), ExtResource("9_un5wy"), ExtResource("10_ycl7g"), ExtResource("11_bylt5"), ExtResource("12_tfpat"), ExtResource("13_vbrq4"), ExtResource("14_5hr8u"), ExtResource("15_ur1b6"), ExtResource("16_3151j"), ExtResource("17_y8k5k"), ExtResource("18_b21tc"), ExtResource("19_lhlbj"), ExtResource("20_o4ruh"), ExtResource("21_rumux"), ExtResource("22_p06wf"), ExtResource("23_gm1mi"), ExtResource("24_uup36"), ExtResource("25_knji5"), ExtResource("26_jnj6x"), ExtResource("27_eifsp")])
 name_varients = Array[String](["Edan", "Joah", "Abel", "Basil", "Wisper", "Robin", "Ram", "Juse", "Kinrid", "Mousou", "Weeply", "Lars", "Ollie", "Ash", "Smithly", "Krita", "Sam", "Eris", "Finch", "Judas", "Cyrprus", "Shiphra", "Salome", "Xavier", "Erdrick", "Gilbert"])
+personality_traits = Dictionary[String, ExtResource("28_y4i3p")]({
+"Brute": ExtResource("29_nyook"),
+"Challenger": ExtResource("30_grb3g"),
+"Fickle": ExtResource("34_smodt"),
+"Greedy": ExtResource("35_i6q16"),
+"Laidback": ExtResource("36_kqxcu"),
+"Merciful": ExtResource("31_p0xxf"),
+"Naive": ExtResource("33_uwofx"),
+"Stoic": ExtResource("32_gdfka"),
+"Tactical": ExtResource("37_nyook")
+})
 
 [node name="Background" type="PanelContainer" parent="." unique_id=471771454]
 layout_mode = 1
@@ -159,7 +180,7 @@ selected = 0
 item_count = 3
 popup/item_0/text = "Brute"
 popup/item_0/id = 0
-popup/item_1/text = "Valorous"
+popup/item_1/text = "Challenger"
 popup/item_1/id = 1
 popup/item_2/text = "Merciful"
 popup/item_2/id = 2
@@ -184,11 +205,11 @@ theme_override_fonts/font = ExtResource("4_hodoh")
 theme_override_font_sizes/font_size = 16
 selected = 0
 item_count = 3
-popup/item_0/text = "Careful"
+popup/item_0/text = "Stoic"
 popup/item_0/id = 0
-popup/item_1/text = "Stoic"
+popup/item_1/text = "Naive"
 popup/item_1/id = 1
-popup/item_2/text = "Skiddish"
+popup/item_2/text = "Fickle"
 popup/item_2/id = 2
 
 [node name="Weight" type="SpinBox" parent="Background/MarginContainer/CharacterInfo/VBox2/DefensiveTrait" unique_id=753772764]
@@ -211,11 +232,11 @@ theme_override_fonts/font = ExtResource("4_hodoh")
 theme_override_font_sizes/font_size = 16
 selected = 0
 item_count = 3
-popup/item_0/text = "Opportunist"
+popup/item_0/text = "Greedy"
 popup/item_0/id = 0
-popup/item_1/text = "Greedy"
+popup/item_1/text = "Laidback"
 popup/item_1/id = 1
-popup/item_2/text = "LaidBack"
+popup/item_2/text = "Tactical"
 popup/item_2/id = 2
 
 [node name="Weight" type="SpinBox" parent="Background/MarginContainer/CharacterInfo/VBox2/StrategicTrait" unique_id=1879513240]
