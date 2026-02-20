@@ -33,7 +33,7 @@ func initialize(new_player_entity:BattleEntity,
 		new_battle_field:BattleField,
 		resuming: bool = false):
 
-	# ✅ Reset per-battle state
+	#  Reset per-battle state
 	battle_state = BattleState.PLAYER_TURN
 	enemies.clear()
 	living_enemies.clear()
@@ -41,7 +41,7 @@ func initialize(new_player_entity:BattleEntity,
 	player_entity = new_player_entity
 	battle_field = new_battle_field
 
-	# ✅ Fresh queue every time
+	#  Fresh queue every time
 	action_queue = ActionQueue.new()
 
 	energy_counter.initialize(new_player_entity.entity_data.energy.value)
@@ -54,7 +54,7 @@ func initialize(new_player_entity:BattleEntity,
 		if not enemy.defeated.is_connected(_on_entity_defeated):
 			enemy.defeated.connect(_on_entity_defeated)
 
-		# ✅ Do NOT overwrite restored next_move on resume
+		#  Do NOT overwrite restored next_move on resume
 		if enemy.entity_data is EnemyData and not resuming:
 			(enemy.entity_data as EnemyData).choose_next_move()
 
