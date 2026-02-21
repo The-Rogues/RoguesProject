@@ -30,15 +30,15 @@
 [ext_resource type="Texture2D" uid="uid://bh5i87d23o2op" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres" id="26_jnj6x"]
 [ext_resource type="Texture2D" uid="uid://b4ruwl8uy6s8m" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres" id="27_eifsp"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="28_y4i3p"]
-[ext_resource type="Resource" uid="uid://041gwracsv52" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_trait_data.tres" id="29_nyook"]
-[ext_resource type="Resource" uid="uid://1gf7vwofpq0g" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_trait_data.tres" id="30_grb3g"]
-[ext_resource type="Resource" uid="uid://cy7rcje5kdiml" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_trait_data.tres" id="31_p0xxf"]
-[ext_resource type="Resource" uid="uid://drt77f0ht5qj2" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_trait_data.tres" id="32_gdfka"]
-[ext_resource type="Resource" uid="uid://l2sxjofae18b" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_trait_data.tres" id="33_uwofx"]
-[ext_resource type="Resource" uid="uid://b7kiwqqcgj4el" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_trait_data.tres" id="34_smodt"]
-[ext_resource type="Resource" uid="uid://dwcy6ljp0cp4h" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/greedy_trait_data.tres" id="35_i6q16"]
-[ext_resource type="Resource" uid="uid://bx6a3knmi6k3m" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laid_back_trait_data.tres" id="36_kqxcu"]
-[ext_resource type="Resource" uid="uid://cwrhn5awc55g2" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/tractical_trait_data.tres" id="37_nyook"]
+[ext_resource type="Resource" uid="uid://1upv5oqngen2" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="29_nyook"]
+[ext_resource type="Resource" uid="uid://7epx4qjcbi0d" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_offense_trait.tres" id="30_grb3g"]
+[ext_resource type="Resource" uid="uid://sa8th36l0hdn" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="31_p0xxf"]
+[ext_resource type="Resource" uid="uid://bqc165qthu2fl" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/greedy_strategic_trait.tres" id="32_gdfka"]
+[ext_resource type="Resource" uid="uid://clcyhbp2diuiv" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="33_uwofx"]
+[ext_resource type="Resource" uid="uid://bpwwjfbysqftr" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="34_smodt"]
+[ext_resource type="Resource" uid="uid://cv1o5v65kh868" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="35_i6q16"]
+[ext_resource type="Resource" uid="uid://bg0cxhjwui5pk" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres" id="36_kqxcu"]
+[ext_resource type="Resource" uid="uid://bpgjx5nhh8cwi" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/tactical_strategic_trait.tres" id="37_g8mns"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pdas"]
 bg_color = Color(0.0002225801, 6.145411e-05, 0.00018586668, 1)
@@ -60,13 +60,13 @@ name_varients = Array[String](["Edan", "Joah", "Abel", "Basil", "Wisper", "Robin
 personality_traits = Dictionary[String, ExtResource("28_y4i3p")]({
 "Brute": ExtResource("29_nyook"),
 "Challenger": ExtResource("30_grb3g"),
-"Fickle": ExtResource("34_smodt"),
-"Greedy": ExtResource("35_i6q16"),
-"Laidback": ExtResource("36_kqxcu"),
-"Merciful": ExtResource("31_p0xxf"),
-"Naive": ExtResource("33_uwofx"),
-"Stoic": ExtResource("32_gdfka"),
-"Tactical": ExtResource("37_nyook")
+"Fickle": ExtResource("31_p0xxf"),
+"Greedy": ExtResource("32_gdfka"),
+"Laidback": ExtResource("33_uwofx"),
+"Merciful": ExtResource("34_smodt"),
+"Naive": ExtResource("35_i6q16"),
+"Stoic": ExtResource("36_kqxcu"),
+"Tactical": ExtResource("37_g8mns")
 })
 
 [node name="Background" type="PanelContainer" parent="." unique_id=471771454]

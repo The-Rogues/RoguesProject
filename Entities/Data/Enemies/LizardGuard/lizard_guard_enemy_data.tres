@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="7_sxtw1"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="8_j2r17"]
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="8_ngo2l"]
-[ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://Battle/Actions/Atomic/repeat_action.gd" id="10_ngo2l"]
+[ext_resource type="Script" uid="uid://v7b7ypqvpued" path="res://Battle/Actions/Atomic/parry_entity_action.gd" id="10_ir6iw"]
 [ext_resource type="Resource" uid="uid://bi42scpbcsgo8" path="res://Battle/Actions/StatusEffects/Bleeding/bleeding_status_effect_data.tres" id="10_qou3d"]
 [ext_resource type="Texture2D" uid="uid://br17g8fi4rhb5" path="res://Battle/UI/BattleIntentIcons/support_intent_icon.tres" id="11_rfmek"]
 [ext_resource type="Resource" uid="uid://c55148r33pa1e" path="res://Battle/Actions/StatusEffects/Strength/strength_status_effect_data.tres" id="12_nlv02"]
@@ -49,23 +49,17 @@ description = "Adds strength to ally next turn."
 actions = Array[ExtResource("7_sxtw1")]([SubResource("Resource_qou3d")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
-[sub_resource type="Resource" id="Resource_nlv02"]
-script = ExtResource("8_ngo2l")
-damage = 7
-target = 1
-metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
-
-[sub_resource type="Resource" id="Resource_jntxj"]
-script = ExtResource("10_ngo2l")
-battle_action = SubResource("Resource_nlv02")
-metadata/_custom_type_script = "uid://cbfakii4lpgc1"
+[sub_resource type="Resource" id="Resource_hag0i"]
+script = ExtResource("10_ir6iw")
+parry = 5
+metadata/_custom_type_script = "uid://v7b7ypqvpued"
 
 [sub_resource type="Resource" id="Resource_bnh0d"]
 script = ExtResource("5_d15et")
 action_display_icon = ExtResource("6_pymi5")
-name = "Tail whip"
-description = "Deals 7 damage."
-actions = Array[ExtResource("7_sxtw1")]([SubResource("Resource_jntxj")])
+name = "Prepare"
+description = "Gains 5 parry."
+actions = Array[ExtResource("7_sxtw1")]([SubResource("Resource_hag0i")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

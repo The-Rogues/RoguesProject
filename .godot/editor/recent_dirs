@@ -1,7 +1,14 @@
+res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/
+res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/
+res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/
+res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/
+res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/
+res://PersonalitySystem/PersonalityTraits/Offensive/Brute/
+res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/
+res://PersonalitySystem/PersonalityTraits/Defensive/Naive/
+res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/
 res://Battle/UI/
 res://Testing/BattleTestButtons/
-res://GeneralAssets/UI/StatIcon/
-res://GeneralAssets/UI/
 res://PersonalitySystem/PlayerCharacter/
 res://Testing/
 res://Menus/

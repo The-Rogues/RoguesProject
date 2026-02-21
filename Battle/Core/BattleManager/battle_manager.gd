@@ -102,8 +102,15 @@ func initialize(
 	discard_pile_ui._initialize(discard_pile)
 	energy_counter.initialize(energy)
 	
+	player_entity.damaged.connect(_on_player_damaged)
+	
 	# Starting Battle
 	_start_player_turn()
+
+
+func _on_player_damaged(amount:int):
+	character_personality.defensive_trait.process_damage(self)
+	pass
 
 
 func _position_enemies(enemies:Array[BattleEntity]):
@@ -157,6 +164,9 @@ func _start_player_turn():
 	if battle_state != BattleState.PLAYER_TURN:
 		return
 	
+	player_entity.parry.set_to_zero()
+	player_entity.defense.set_to_zero()
+	
 	if draw_pile.cards.is_empty():
 		discard_pile.transfer_cards_to_deck(draw_pile, true)
 	
@@ -178,6 +188,10 @@ func _start_player_turn():
 func end_player_turn() -> void:
 	if battle_state != BattleState.PLAYER_TURN:
 		return
+	
+	for enemy in living_enemies:
+		enemy.parry.set_to_zero()
+		enemy.defense.set_to_zero()
 	
 	for card_ui in player_card_hand.card_uis:
 		discard_pile.add_card(card_ui.card_data)

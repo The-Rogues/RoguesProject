@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 [sub_resource type="Resource" id="Resource_g7hng"]
 script = ExtResource("13_hb4j3")
 projectile_texture = ExtResource("12_1d1k7")
-impact_damage = 7
+impact_damage = 2
 speed = 300.0
 direction_range = 0.0
 target = 1
@@ -45,7 +45,7 @@ script = ExtResource("5_2krmu")
 action_display_icon = ExtResource("11_3ccjd")
 move_type = 1
 name = "Poison Cloud"
-description = "Fires a high-accuracy poisonous cloud. Deals 7 damage on impact."
+description = "Fires a high-accuracy poisonous cloud. Deals 2 damage on impact."
 actions = Array[ExtResource("7_mtf3b")]([SubResource("Resource_g7hng")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

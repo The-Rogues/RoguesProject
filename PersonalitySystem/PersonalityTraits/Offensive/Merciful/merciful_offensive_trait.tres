@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OffensiveTrait" format=3 uid="uid://bpwwjfbysqftr"]
+
+[ext_resource type="Script" uid="uid://clg6wfr8i5i2c" path="res://PersonalitySystem/PersonalityTraits/offensive_trait.gd" id="1_exrva"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_exrva"]
+load_path = "res://.godot/imported/meadow__0056_emoji57.png-ba518cdfa2aca8c72633cf2e813c6e45.ctex"
+
+[resource]
+script = ExtResource("1_exrva")
+trait_icon = SubResource("CompressedTexture2D_exrva")
+id = "merciful"
+name = "Merciful"
+description = "Compassionate towards all. Holds back when opponents are at low health to allow for sparing."
+metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

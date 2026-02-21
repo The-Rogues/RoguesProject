@@ -1,16 +1,18 @@
 [gd_resource type="Resource" script_class="VulnerableStatusEffect" format=3 uid="uid://b0ksaxetd0aye"]
 
-[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Kenny Art/Icons/Icons_RPG.png" id="1_6ae2g"]
 [ext_resource type="Script" uid="uid://gaikgthau1ai" path="res://Battle/Actions/StatusEffects/Vulnerable/vulnerable_status_effect_script.gd" id="1_xfvbi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ylnqy"]
-atlas = ExtResource("1_6ae2g")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kixvr"]
+load_path = "res://.godot/imported/Icons_RPG.png-0f9899bba9376655add9a0d4baa9d623.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aar8d"]
+atlas = SubResource("CompressedTexture2D_kixvr")
 region = Rect2(32, 16, 16, 16)
 
 [resource]
 script = ExtResource("1_xfvbi")
 id = "vulnerable"
 display_name = "Vulnerable"
-icon = SubResource("AtlasTexture_ylnqy")
+icon = SubResource("AtlasTexture_aar8d")
 is_stackable = true
 metadata/_custom_type_script = "uid://gaikgthau1ai"

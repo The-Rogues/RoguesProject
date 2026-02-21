@@ -4,7 +4,7 @@ class_name ParryComponent
 signal parry_changed(current)
 signal reached_zero
 
-var current_parry: int = 1
+var current_parry: int = 0
 
 
 func add_parry(amount:int):

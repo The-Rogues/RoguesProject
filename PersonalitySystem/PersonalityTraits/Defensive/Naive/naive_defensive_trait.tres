@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DefensiveTrait" format=3 uid="uid://cv1o5v65kh868"]
+
+[ext_resource type="Script" uid="uid://3ognrb8kkptl" path="res://PersonalitySystem/PersonalityTraits/defensive_trait.gd" id="1_fp7g2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fp7g2"]
+load_path = "res://.godot/imported/meadow__0068_emoji69.png-0f0f87530d25514379b8602f8420a352.ctex"
+
+[resource]
+script = ExtResource("1_fp7g2")
+trait_icon = SubResource("CompressedTexture2D_fp7g2")
+id = "naive"
+name = "Naive"
+description = "Trusts things will work out in the end. Not intimidated by monsters."
+metadata/_custom_type_script = "uid://3ognrb8kkptl"

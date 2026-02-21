@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DefensiveTrait" format=3 uid="uid://bg0cxhjwui5pk"]
+
+[ext_resource type="Script" uid="uid://3ognrb8kkptl" path="res://PersonalitySystem/PersonalityTraits/defensive_trait.gd" id="1_p0ap8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0ap8"]
+load_path = "res://.godot/imported/meadow__0026_emoji27.png-b84c51cc49af0f92b1bb63ce1e3440e2.ctex"
+
+[resource]
+script = ExtResource("1_p0ap8")
+trait_icon = SubResource("CompressedTexture2D_p0ap8")
+id = "stoic"
+name = "Stoic"
+description = "Remains focused under pressure. Mentally resilient."
+metadata/_custom_type_script = "uid://3ognrb8kkptl"

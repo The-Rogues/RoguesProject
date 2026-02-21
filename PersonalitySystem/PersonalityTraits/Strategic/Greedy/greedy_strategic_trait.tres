@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StrategicTrait" format=3 uid="uid://bqc165qthu2fl"]
+
+[ext_resource type="Script" uid="uid://bllaybhbcrgk4" path="res://PersonalitySystem/PersonalityTraits/strategic_trait.gd" id="1_3q284"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3q284"]
+load_path = "res://.godot/imported/meadow__0009_emoji10.png-bba5870ff8ffb1318a4d43bd2b0d415c.ctex"
+
+[resource]
+script = ExtResource("1_3q284")
+trait_icon = SubResource("CompressedTexture2D_3q284")
+id = "greedy"
+name = "Greedy"
+description = "Comfortable taking risks for gratification. Moves towards treasures."
+metadata/_custom_type_script = "uid://bllaybhbcrgk4"

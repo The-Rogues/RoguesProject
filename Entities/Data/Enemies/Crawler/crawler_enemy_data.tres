@@ -6,32 +6,52 @@
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="5_8mef5"]
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="5_nc1u1"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="6_km68d"]
-[ext_resource type="Resource" uid="uid://bi42scpbcsgo8" path="res://Battle/Actions/StatusEffects/Bleeding/bleeding_status_effect_data.tres" id="7_5vsgt"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="7_8fh8y"]
+[ext_resource type="Script" uid="uid://bbrryb5rbwnlc" path="res://Battle/Actions/StatusEffects/Bleeding/bleeding_status_effect_data_script.gd" id="7_nwij7"]
+[ext_resource type="Script" uid="uid://dfryc03umw0fy" path="res://Battle/Actions/Atomic/random_chance_action.gd" id="8_l3fm4"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="8_nc1u1"]
 [ext_resource type="Texture2D" uid="uid://fxqou0ng1n4b" path="res://Entities/Data/Enemies/Crawler/fire_projectile.png" id="12_hdm68"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/shoot_projectile_action.gd" id="13_qj478"]
 
-[sub_resource type="Resource" id="Resource_nxvqn"]
+[sub_resource type="Resource" id="Resource_8fh8y"]
+script = ExtResource("5_nc1u1")
+damage = 2
+target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_skdrs"]
+load_path = "res://.godot/imported/Icons_RPG.png-0f9899bba9376655add9a0d4baa9d623.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qchy7"]
+atlas = SubResource("CompressedTexture2D_skdrs")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_jwott"]
+script = ExtResource("7_nwij7")
+id = "bleeding"
+display_name = "Bleeding"
+icon = SubResource("AtlasTexture_qchy7")
+is_stackable = true
+metadata/_custom_type_script = "uid://bbrryb5rbwnlc"
+
+[sub_resource type="Resource" id="Resource_4w1nt"]
 script = ExtResource("6_km68d")
-status_effect = ExtResource("7_5vsgt")
+status_effect = SubResource("Resource_jwott")
 status_duration = 2
 target = 4
 metadata/_custom_type_script = "uid://s304n8psvt04"
 
-[sub_resource type="Resource" id="Resource_8fh8y"]
-script = ExtResource("5_nc1u1")
-damage = 2
-status_effects = Array[ExtResource("6_km68d")]([SubResource("Resource_nxvqn")])
-target = 1
-metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+[sub_resource type="Resource" id="Resource_k6l1y"]
+script = ExtResource("8_l3fm4")
+conditional_action = SubResource("Resource_4w1nt")
+metadata/_custom_type_script = "uid://dfryc03umw0fy"
 
 [sub_resource type="Resource" id="Resource_q8lj5"]
 script = ExtResource("5_6sevn")
 action_display_icon = ExtResource("3_cmwq8")
 name = "Crunch"
-description = "Deals 2 damage. Inflicts bleeding for 2 turns."
-actions = Array[ExtResource("7_8fh8y")]([SubResource("Resource_8fh8y")])
+description = "Deals 2 damage. Chance to inflict bleeding for 2 turns."
+actions = Array[ExtResource("7_8fh8y")]([SubResource("Resource_8fh8y"), SubResource("Resource_k6l1y")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_3aju0"]

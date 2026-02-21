@@ -8,15 +8,15 @@ class_name PersonalityData
 
 
 ## Influences capacity and attitude towards violence.
-@export var offensive_trait:PersonalityTrait
+@export var offensive_trait:OffensiveTrait
 ## Controls how much the offensive trait is priotized over other traits.
 @export_range(1, 10) var offensive_weight:int
 ## Influences capacity and attitude towards self-preservation.
-@export var defensive_trait:PersonalityTrait
+@export var defensive_trait:DefensiveTrait
 ## Controls how much the defensive trait is priotized over other traits.
 @export_range(1, 10) var defensive_weight:int
 ## Supplimentary motivation for other natures.
-@export var strategic_trait:PersonalityTrait
+@export var strategic_trait:StrategicTrait
 ## Controls how much the strategic trait is priotized over other traits.
 @export_range(1, 10) var strategic_weight:int
 
@@ -51,11 +51,12 @@ func has_trait(trait_id:String):
 		return true
 	return false
 
+
 # Constructor
 func initialize(
-			new_offensive_trait:PersonalityTrait,
-			new_defensive_trait:PersonalityTrait,
-			new_strategic_trait:PersonalityTrait,
+			new_offensive_trait:OffensiveTrait,
+			new_defensive_trait:DefensiveTrait,
+			new_strategic_trait:StrategicTrait,
 			new_offensive_weight:int = 5,
 			new_defensive_weight:int = 5,
 			new_strategic_weight:int = 5,

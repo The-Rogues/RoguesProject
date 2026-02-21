@@ -26,7 +26,7 @@ func _resolve_target(
 			if action_user == battle_instance.player_entity:
 				
 				return [
-						battle_instance.character_personality.get_target(
+						battle_instance.character_personality.offensive_trait.get_priority_target(
 								target_canidates
 						)
 				] as Array[BattleEntity]

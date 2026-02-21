@@ -1,3 +1,3 @@
-res://BattleSystem/BattleActions/BaseScripts/battle_move.gd
+res://PersonalitySystem/PersonalityTraits/strategic_trait.gd
 AtlasTexture
 CardData

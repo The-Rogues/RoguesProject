@@ -83,8 +83,8 @@ func heal(amount:float):
 
 func _on_new_turn_started():
 	super()
-	defense.set_to_zero()
-	parry.set_to_zero()
+	#defense.set_to_zero()
+	#parry.set_to_zero()
 	status_conditions.decay_status_effects()
 
 # -------------------------------------------------
