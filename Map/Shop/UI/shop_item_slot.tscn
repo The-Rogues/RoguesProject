@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bhoyj47vo0mi6"]
+
+[ext_resource type="Script" uid="uid://d2s43svsd0p8j" path="res://Map/Shop/UI/shop_item_slot.gd" id="1_a70tv"]
+[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-015.png" id="2_q8lr2"]
+[ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-000.png" id="3_lgvpc"]
+[ext_resource type="Texture2D" uid="uid://3yhuy07634st" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-009.png" id="4_dlxbw"]
+[ext_resource type="Texture2D" uid="uid://k7mt5uhwsy0h" path="res://Items/Data/HealthPotion/health_potion_texture.tres" id="5_k7r5e"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="6_ixjsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffdei"]
+atlas = ExtResource("2_q8lr2")
+
+[node name="ShopItemSlot" type="Control" unique_id=1515963044]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+script = ExtResource("1_a70tv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=522750474]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.0
+offset_right = 106.0
+offset_bottom = 142.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = -1
+
+[node name="ItemIcon" type="TextureButton" parent="VBoxContainer" unique_id=1774552831]
+self_modulate = Color(0.13750926, 0.019640073, 0.067801565, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_ffdei")
+texture_pressed = ExtResource("3_lgvpc")
+texture_hover = ExtResource("4_dlxbw")
+texture_disabled = ExtResource("2_q8lr2")
+texture_focused = ExtResource("2_q8lr2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Item" type="TextureRect" parent="VBoxContainer/ItemIcon" unique_id=1402585597]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_k7r5e")
+
+[node name="PriceLabel" type="Label" parent="VBoxContainer" unique_id=318307990]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_ixjsq")
+text = "100G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellStatusLabel" type="Label" parent="." unique_id=491390649]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -7.5
+offset_right = 57.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_ixjsq")
+text = "Sold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="VBoxContainer/ItemIcon" to="." method="_on_item_slot_clicked"]

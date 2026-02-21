@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b7q5uhsqn0chi"]
 
-[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="1_jgewy"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://BattleSystem/BattleActions/BattleActions/damage_entity_action.gd" id="2_ujwtt"]
-[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="2_xdiqx"]
-[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://BattleSystem/BattleActions/BattleActions/status_effect_action.gd" id="3_6uivh"]
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://CardSystem/Cards/card_data.gd" id="3_etgih"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_jgewy"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="2_ujwtt"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_xdiqx"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="3_6uivh"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_etgih"]
 [ext_resource type="Resource" uid="uid://b7kiwqqcgj4el" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_trait_data.tres" id="4_ndeka"]
-[ext_resource type="Script" uid="uid://csd6aipkoxola" path="res://BattleSystem/BattleActions/BattleActions/alternate_personality_personality_action.gd" id="5_8l37m"]
+[ext_resource type="Script" uid="uid://csd6aipkoxola" path="res://Battle/Actions/Atomic/alternate_personality_personality_action.gd" id="5_8l37m"]
 
 [sub_resource type="Resource" id="Resource_k7a6b"]
 script = ExtResource("2_ujwtt")

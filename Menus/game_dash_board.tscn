@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b2sastodcwsbx"]
 
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="1_nhbhh"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_nhbhh"]
 [ext_resource type="PackedScene" uid="uid://dbt3n70fcylp3" path="res://PersonalitySystem/traits_display.tscn" id="2_oag4o"]
-[ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://ItemSystem/Scenes/item_interface.tscn" id="3_2dwta"]
-[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://ItemSystem/GoldLabel/session_gold_label.tscn" id="4_glcam"]
-[ext_resource type="Texture2D" uid="uid://wk3j8bkwhxyl" path="res://ItemSystem/Items/Barricade/barricade_texture.tres" id="5_pmlv7"]
-[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://BattleSystem/Scenes/exit_button.gd" id="6_1o4un"]
+[ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://Items/Scenes/item_interface.tscn" id="3_2dwta"]
+[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://Items/GoldLabel/session_gold_label.tscn" id="4_glcam"]
+[ext_resource type="Texture2D" uid="uid://wk3j8bkwhxyl" path="res://Items/Data/Barricade/barricade_texture.tres" id="5_pmlv7"]
+[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://General/UI/exit_button.gd" id="6_1o4un"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3876o"]
 bg_color = Color(0.03529412, 0.007843138, 0.05490196, 1)
@@ -65,8 +65,9 @@ vertical_alignment = 1
 
 [node name="ItemInterface" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=92166697 instance=ExtResource("3_2dwta")]
 layout_mode = 2
-minimum_item_slot_count = 3
-force_initialize = false
+override_item_datas = null
+minimum_item_slot_count = null
+force_initialize = null
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=534953933]
 layout_mode = 2

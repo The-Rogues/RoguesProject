@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dr2gs0q1j4pwc"]
-
-[ext_resource type="Script" uid="uid://c36fyavutmf3f" path="res://Globals/SessionManager/session_manager.gd" id="1_bkaj7"]
-
-[node name="SessionManager" type="Node2D" unique_id=26354567]
-script = ExtResource("1_bkaj7")

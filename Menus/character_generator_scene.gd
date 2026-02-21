@@ -102,7 +102,7 @@ func _on_start_battle_button_up() -> void:
 		name_label.text,
 		backstory_label.text,
 		personality_data,
-		load("res://CardSystem/Decks/starting_card_deck.tres")
+		load("res://Cards/Decks/starting_card_deck.tres")
 	)
 	
 	GlobalSessionManager.run_progress.map_seed = randi()

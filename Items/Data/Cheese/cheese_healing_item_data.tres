@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HealingItemData" format=3 uid="uid://cj7sd5horucgq"]
+
+[ext_resource type="Script" uid="uid://r866baqwt8v4" path="res://Items/Core/healing_item_data.gd" id="1_7fnxp"]
+[ext_resource type="Texture2D" uid="uid://c2fwr2d5vfqbb" path="res://Items/Data/Cheese/cheese_texture.tres" id="1_akb10"]
+
+[resource]
+script = ExtResource("1_7fnxp")
+health = 35
+rarity = 1
+name = "Cheese"
+description = "Restores 35 HP"
+display_texture = ExtResource("1_akb10")
+usable_out_of_battle = true
+shop_price = 220
+sell_price = 60
+metadata/_custom_type_script = "uid://r866baqwt8v4"

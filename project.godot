@@ -20,8 +20,8 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
 
-GlobalSessionManager="*res://Globals/SessionManager/session_manager.tscn"
-GlobalSceneLoader="*res://Globals/SceneLoader/scene_loader.tscn"
+GlobalSessionManager="*res://Globals/SceneManagement/session_manager.tscn"
+GlobalSceneLoader="*res://Globals/SceneManagement/scene_loader.tscn"
 GlobalSaveManager="*uid://lnp0r05fc1u2"
 
 [display]

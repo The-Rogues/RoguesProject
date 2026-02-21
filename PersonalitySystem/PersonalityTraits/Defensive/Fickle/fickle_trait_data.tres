@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://b7kiwqqcgj4el"]
 
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="1_l43po"]
-[ext_resource type="Texture2D" uid="uid://cxqtonfeqt8r" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0031_emoji32.png" id="2_sa3o5"]
+[ext_resource type="Texture2D" uid="uid://cxqtonfeqt8r" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0031_emoji32.png" id="2_sa3o5"]
 
 [resource]
 resource_local_to_scene = true

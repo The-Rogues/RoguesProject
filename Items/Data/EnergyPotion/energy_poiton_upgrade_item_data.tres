@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeCharacterItemData" format=3 uid="uid://cjym6bgcm3g2r"]
+
+[ext_resource type="Texture2D" uid="uid://dtq808atl3kp7" path="res://Items/Data/EnergyPotion/energy_potion_texture.tres" id="1_nfppo"]
+[ext_resource type="Script" uid="uid://mlgfk3lto5e4" path="res://Items/Core/upgrade_character_item_data.gd" id="1_v80aq"]
+
+[resource]
+script = ExtResource("1_v80aq")
+upgrade = 1
+rarity = 2
+name = "Energy Potion"
+description = "Permenently increases energy by 1 point"
+display_texture = ExtResource("1_nfppo")
+shop_price = 2000
+sell_price = 1000
+metadata/_custom_type_script = "uid://mlgfk3lto5e4"

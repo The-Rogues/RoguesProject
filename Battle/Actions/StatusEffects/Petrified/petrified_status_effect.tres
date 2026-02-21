@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PetrifiedStatusEffect" format=3 uid="uid://dphdw118a7jkp"]
+
+[ext_resource type="Script" uid="uid://dnao0jog5sb6i" path="res://Battle/Actions/StatusEffects/Petrified/petrified_status_effect_data.gd" id="1_j8u1e"]
+[ext_resource type="Texture2D" uid="uid://cr67m7jqjf088" path="res://Battle/Actions/StatusEffects/Petrified/petrified_texture.tres" id="1_t28gj"]
+
+[resource]
+script = ExtResource("1_j8u1e")
+id = "petrified"
+display_name = "Petrified"
+icon = ExtResource("1_t28gj")
+metadata/_custom_type_script = "uid://dnao0jog5sb6i"

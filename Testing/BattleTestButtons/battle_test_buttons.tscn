@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://7doidnfxvws4"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_kbqik"]
+[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-015.png" id="1_vu5dy"]
+[ext_resource type="Script" uid="uid://cn55mymxubtt5" path="res://Testing/BattleTestButtons/battle_test_buttons.gd" id="2_jig8v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12og6"]
+texture = ExtResource("1_vu5dy")
+texture_margin_top = 8.0
+texture_margin_bottom = 8.0
+
+[node name="BattleTestButtons" type="PanelContainer" unique_id=98555504]
+self_modulate = Color(0, 0, 0, 0.5294118)
+texture_filter = 1
+custom_minimum_size = Vector2(125, 40)
+offset_right = 125.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_12og6")
+script = ExtResource("2_jig8v")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1836151258]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1536826689]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1236967739]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.8156863, 0.67058825, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 13
+text = "Debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1870704031]
+layout_mode = 2
+
+[node name="Win" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1476342063]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 8
+text = "Win Button"
+
+[node name="DamagePlayer" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1989905889]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 8
+text = "Damage player"
+
+[node name="DamageEnemy" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1689253005]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 8
+text = "Damage Enemy"
+
+[node name="AddCard" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1472989463]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 8
+text = "Add Card"
+
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/Label" to="." method="_on_label_gui_input"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/Win" to="." method="_on_win_button_up"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Options/DamagePlayer" to="." method="_on_damage_player_pressed"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/DamageEnemy" to="." method="_on_damage_enemy_button_up"]

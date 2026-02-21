@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bpl0tdumsdrc8"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_y70oy"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="2_g3w0r"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="3_g3w0r"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_f4ww8"]
+[ext_resource type="Script" uid="uid://7y4m1pq8ls3m" path="res://Battle/Actions/Atomic/move_player_action.gd" id="4_xx86d"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="5_xx86d"]
+
+[sub_resource type="Resource" id="Resource_1hv3l"]
+script = ExtResource("2_g3w0r")
+target = 2
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_nvp1i"]
+script = ExtResource("4_xx86d")
+direction = 2
+metadata/_custom_type_script = "uid://7y4m1pq8ls3m"
+
+[sub_resource type="Resource" id="Resource_hu54y"]
+script = ExtResource("4_f4ww8")
+name = "Swing"
+description = "Deal 6 damage. Move to an adjacent position."
+actions = Array[ExtResource("1_y70oy")]([SubResource("Resource_1hv3l"), SubResource("Resource_nvp1i")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("5_xx86d")
+energy_cost = 2
+move = SubResource("Resource_hu54y")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

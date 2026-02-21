@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dubpebcoffte8"]
+
+[ext_resource type="Script" uid="uid://by1udu2kn1o3m" path="res://Battle/UI/play_area.gd" id="1_cpvpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po0ka"]
+size = Vector2(541, 321)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njv5g"]
+bg_color = Color(0.81960785, 0.5294118, 0, 0.42745098)
+
+[node name="PlayArea" type="Area2D" unique_id=362766689]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_cpvpb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=424953540]
+position = Vector2(-1.5, -1.5)
+shape = SubResource("RectangleShape2D_po0ka")
+
+[node name="Label" type="Label" parent="." unique_id=1651994852]
+offset_left = -280.0
+offset_top = 160.0
+offset_right = -194.0
+offset_bottom = 183.0
+text = "Drag inside to play"
+
+[node name="Panel" type="Panel" parent="Label" unique_id=448467504]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = -330.0
+offset_right = 45.0
+offset_bottom = -290.0
+scale = Vector2(13.620984, 8.213342)
+theme_override_styles/panel = SubResource("StyleBoxFlat_njv5g")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

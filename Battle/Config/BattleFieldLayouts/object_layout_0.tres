@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BattleObjectLayout" format=3 uid="uid://u2bk5w02lfo3"]
+
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://Entities/Core/object_entity_data.gd" id="1_ax2oy"]
+[ext_resource type="Resource" uid="uid://bxjr3qb6y8aab" path="res://Entities/Data/Objects/Barrel/barrel_object_data.tres" id="2_amlcy"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://Battle/Config/battle_object_layout.gd" id="2_hp4xm"]
+
+[resource]
+script = ExtResource("2_hp4xm")
+layout = Dictionary[int, ExtResource("1_ax2oy")]({
+0: null,
+1: ExtResource("2_amlcy"),
+2: null,
+3: ExtResource("2_amlcy"),
+4: null
+})
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

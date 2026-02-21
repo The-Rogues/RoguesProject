@@ -1,76 +1,65 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" path="res://CardSystem/Cards/card_data.gd" id="1_sqevk"]
-[ext_resource type="Resource" path="res://CardSystem/Cards/Datas/swing_card_data.tres" id="2_bn7m0"]
-[ext_resource type="Resource" path="res://CardSystem/Cards/Datas/strike_card_data.tres" id="3_gvrsj"]
-[ext_resource type="Resource" path="res://CardSystem/Cards/Datas/step_card_data.tres" id="4_ldui5"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/retreat_card_data.tres" id="5_hxw8v"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/rest_card_data.tres" id="6_gbghs"]
-[ext_resource type="Resource" path="res://CardSystem/Cards/Datas/arrow_shot_card_data.tres" id="7_rp2d1"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="8_4g6sv"]
-[ext_resource type="Resource" path="res://CardSystem/Cards/Datas/shield_break_card_data.tres" id="9_jq1ju"]
-[ext_resource type="Script" path="res://BattleSystem/BattleActions/BaseScripts/battle_action.gd" id="10_8csqo"]
-[ext_resource type="Script" path="res://BattleSystem/BattleActions/BaseScripts/battle_move.gd" id="11_fucgn"]
-[ext_resource type="Script" path="res://CardSystem/Decks/card_deck.gd" id="12_5w8pu"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_16.tres" id="13_fad0b"]
-[ext_resource type="Script" path="res://BattleSystem/Entities/BaseScripts/entity_data.gd" id="14_p7mxt"]
-[ext_resource type="Script" path="res://ItemSystem/Items/BaseScripts/item_data.gd" id="15_4f4mg"]
-[ext_resource type="Script" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="16_7ka2q"]
-[ext_resource type="Texture2D" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0031_emoji32.png" id="17_mt2ww"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_trait_data.tres" id="18_5uo2u"]
-[ext_resource type="Script" path="res://PersonalitySystem/PlayerCharacter/personality_data.gd" id="19_7217t"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/greedy_trait_data.tres" id="20_frnig"]
-[ext_resource type="Script" path="res://Globals/PersistentResources/run_progress.gd" id="21_7t2m7"]
+[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_3dqjj"]
+[ext_resource type="Resource" path="res://Cards/Shared/strike_card_data.tres" id="2_8uu1w"]
+[ext_resource type="Resource" path="res://Cards/Shared/defend_card_data.tres" id="3_osl4a"]
+[ext_resource type="Resource" path="res://Cards/Shared/counter_card_data.tres" id="4_73m4a"]
+[ext_resource type="Resource" path="res://Cards/Shared/move_card_data.tres" id="5_sqevk"]
+[ext_resource type="Resource" path="res://Cards/Shared/sling_shot_card_data.tres" id="6_bn7m0"]
+[ext_resource type="Resource" path="res://Cards/Shared/swing_card_data.tres" id="7_gvrsj"]
+[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="8_ldui5"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_22.tres" id="9_hxw8v"]
+[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="10_gbghs"]
+[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="11_rp2d1"]
+[ext_resource type="Script" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="12_4g6sv"]
+[ext_resource type="Resource" path="res://Items/Data/Apple/apple_healing_item_data.tres" id="12_8uu1w"]
+[ext_resource type="Texture2D" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0068_emoji69.png" id="13_jq1ju"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_trait_data.tres" id="14_8csqo"]
+[ext_resource type="Script" path="res://PersonalitySystem/PlayerCharacter/personality_data.gd" id="15_fucgn"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laid_back_trait_data.tres" id="16_5w8pu"]
+[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="17_fad0b"]
 
-[sub_resource type="Resource" id="Resource_npwgh"]
-script = ExtResource("11_fucgn")
-name = "Nothing"
-description = "This card does nothing"
-metadata/_custom_type_script = "uid://c410dannt5adg"
-
-[sub_resource type="Resource" id="Resource_1qcur"]
-script = ExtResource("1_sqevk")
-move = SubResource("Resource_npwgh")
-metadata/_custom_type_script = "uid://eoxthn8b82t6"
-
-[sub_resource type="Resource" id="Resource_1dr7u"]
+[sub_resource type="Resource" id="Resource_p7mxt"]
 resource_local_to_scene = true
-script = ExtResource("12_5w8pu")
-cards = Array[ExtResource("1_sqevk")]([ExtResource("2_bn7m0"), ExtResource("2_bn7m0"), ExtResource("3_gvrsj"), ExtResource("4_ldui5"), ExtResource("4_ldui5"), ExtResource("4_ldui5"), ExtResource("5_hxw8v"), ExtResource("6_gbghs"), ExtResource("6_gbghs"), ExtResource("7_rp2d1"), ExtResource("8_4g6sv"), ExtResource("7_rp2d1"), ExtResource("3_gvrsj"), ExtResource("9_jq1ju"), ExtResource("3_gvrsj"), SubResource("Resource_1qcur")])
+script = ExtResource("8_ldui5")
+cards = Array[ExtResource("1_3dqjj")]([ExtResource("2_8uu1w"), ExtResource("2_8uu1w"), ExtResource("2_8uu1w"), ExtResource("3_osl4a"), ExtResource("3_osl4a"), ExtResource("4_73m4a"), ExtResource("4_73m4a"), ExtResource("5_sqevk"), ExtResource("5_sqevk"), ExtResource("5_sqevk"), ExtResource("6_bn7m0"), ExtResource("7_gvrsj")])
 metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
 
-[sub_resource type="Resource" id="Resource_d00nl"]
-script = ExtResource("14_p7mxt")
-display_texture = ExtResource("13_fad0b")
+[sub_resource type="Resource" id="Resource_4f4mg"]
+script = ExtResource("10_gbghs")
+display_texture = ExtResource("9_hxw8v")
 id = "player"
-name = "Erdrick"
-description = "Drawn by rumors of powerful adversaries, they climb the tower seeking rivals worthy of their resolve."
+name = "Robin"
+description = "Curiosity outweighs caution as they step inside, convinced that things will somehow work out."
 max_health = 80
 
-[sub_resource type="Resource" id="Resource_dgsbt"]
+[sub_resource type="Resource" id="Resource_7ka2q"]
 resource_local_to_scene = true
-script = ExtResource("16_7ka2q")
-moving_bias = 2
-trait_icon = ExtResource("17_mt2ww")
-id = "sensative"
-name = "Sensative"
-description = "Changes their mind frequently under pressure. Scared when HP is low."
+script = ExtResource("12_4g6sv")
+trait_icon = ExtResource("13_jq1ju")
+id = "naive"
+name = "Naive"
+description = "Trusts things will work out in the end. Not intimidated by monsters."
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
-[sub_resource type="Resource" id="Resource_8ah14"]
-script = ExtResource("19_7217t")
-offensive_trait = ExtResource("18_5uo2u")
-offensive_weight = 2
-defensive_trait = SubResource("Resource_dgsbt")
-defensive_weight = 2
-strategic_trait = ExtResource("20_frnig")
-strategic_weight = 9
+[sub_resource type="Resource" id="Resource_mt2ww"]
+script = ExtResource("15_fucgn")
+offensive_trait = ExtResource("14_8csqo")
+offensive_weight = 5
+defensive_trait = SubResource("Resource_7ka2q")
+defensive_weight = 3
+strategic_trait = ExtResource("16_5w8pu")
+strategic_weight = 2
 
 [resource]
-script = ExtResource("21_7t2m7")
-personality_data = SubResource("Resource_8ah14")
-character_entity_data = SubResource("Resource_d00nl")
-character_backstory = "Drawn by rumors of powerful adversaries, they climb the tower seeking rivals worthy of their resolve."
-map_seed = 272169276
-player_node_index = 3
-card_deck = SubResource("Resource_1dr7u")
+script = ExtResource("17_fad0b")
+personality_data = SubResource("Resource_mt2ww")
+character_entity_data = SubResource("Resource_4f4mg")
+current_health = 1
+character_backstory = "Curiosity outweighs caution as they step inside, convinced that things will somehow work out."
+map_seed = 3484233115
+floor_progress = 3
+player_node_index = 18
+card_deck = SubResource("Resource_p7mxt")
+held_items = Array[ExtResource("11_rp2d1")]([ExtResource("12_8uu1w"), ExtResource("12_8uu1w")])
+gold = 231

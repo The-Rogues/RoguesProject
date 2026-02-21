@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="BattleEntityData" format=3 uid="uid://ctt40rvl2uset"]
+
+[ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://Entities/Data/Enemies/Slime/slime_texture.tres" id="4_qx4hj"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="6_bu8ee"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="6_vo3w3"]
+[ext_resource type="Resource" uid="uid://b7bt32bi465gh" path="res://Battle/Actions/StatusEffects/Weakened/weakness_status_effect_data.tres" id="7_3gk7v"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://Battle/UI/BattleIntentIcons/attack_intent_icon.tres" id="7_7f4jj"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="8_0h6rk"]
+[ext_resource type="Script" uid="uid://5hjapp3udi62" path="res://Battle/Actions/Atomic/heal_entity_action.gd" id="8_bu8ee"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="9_4kgyc"]
+[ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="9_dla6b"]
+
+[sub_resource type="Resource" id="Resource_48npq"]
+script = ExtResource("9_4kgyc")
+damage = 5
+target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_tp02r"]
+script = ExtResource("6_vo3w3")
+action_display_icon = ExtResource("7_7f4jj")
+description = "Deals 5 damage."
+actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_48npq")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_bu8ee"]
+script = ExtResource("6_bu8ee")
+status_effect = ExtResource("7_3gk7v")
+status_duration = 2
+stack_count = 2
+target = 1
+metadata/_custom_type_script = "uid://s304n8psvt04"
+
+[sub_resource type="Resource" id="Resource_ucdgb"]
+script = ExtResource("6_vo3w3")
+action_display_icon = ExtResource("7_7f4jj")
+name = "Acid"
+description = "Inflicts 2 weakness for next turn."
+actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_bu8ee")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_qt5w1"]
+script = ExtResource("9_4kgyc")
+damage = 2
+target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_bx14i"]
+script = ExtResource("8_bu8ee")
+health = 4
+metadata/_custom_type_script = "uid://5hjapp3udi62"
+
+[sub_resource type="Resource" id="Resource_alf15"]
+script = ExtResource("6_vo3w3")
+action_display_icon = ExtResource("7_7f4jj")
+name = "Absorb"
+description = "Deals 2 damage and heals 4."
+actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_qt5w1"), SubResource("Resource_bx14i")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("9_dla6b")
+move_set = Array[ExtResource("6_vo3w3")]([SubResource("Resource_tp02r"), SubResource("Resource_ucdgb"), SubResource("Resource_alf15")])
+display_texture = ExtResource("4_qx4hj")
+name = "Slime"
+max_health = 42
+metadata/_custom_type_script = "uid://sxih45j4ip5w"

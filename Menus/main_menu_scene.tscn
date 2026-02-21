@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d0aidcrg5d7kd"]
 
 [ext_resource type="Script" uid="uid://bf8na5vpjce6h" path="res://Menus/main_menu_scene.gd" id="1_k7suw"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="2_l7n8r"]
-[ext_resource type="Texture2D" uid="uid://c376h7t33pa0t" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-003.png" id="2_u6jki"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_l7n8r"]
+[ext_resource type="Texture2D" uid="uid://c376h7t33pa0t" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-003.png" id="2_u6jki"]
 [ext_resource type="PackedScene" uid="uid://cq0uplsomgf1v" path="res://Menus/options_menu.tscn" id="3_l7n8r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07i5k"]

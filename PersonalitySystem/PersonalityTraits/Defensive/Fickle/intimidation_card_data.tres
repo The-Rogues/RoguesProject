@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://mmtyk80ya2dp"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_3roq6"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_f1xaa"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_fadgf"]
+
+[sub_resource type="Resource" id="Resource_j3bd5"]
+script = ExtResource("2_f1xaa")
+name = "Intimidation"
+description = "If target has lower HP, they become scared."
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("3_fadgf")
+energy_cost = 2
+move = SubResource("Resource_j3bd5")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

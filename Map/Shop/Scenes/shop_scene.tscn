@@ -1,0 +1,385 @@
+[gd_scene format=3 uid="uid://c6ggjvrmk1eoy"]
+
+[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_0.tres" id="1_bt8o4"]
+[ext_resource type="Script" uid="uid://7ymmg45xhdak" path="res://Map/Shop/Scenes/shop_scene.gd" id="1_jq6m6"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Items/Core/item_data.gd" id="2_jyd0f"]
+[ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://Items/Data/Apple/apple_healing_item_data.tres" id="3_5ug6c"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_jq6m6"]
+[ext_resource type="Resource" uid="uid://dlviwum7qlyod" path="res://Items/Data/Bread/bread_healing_item_data.tres" id="4_bgko6"]
+[ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://Items/Scenes/item_slot.tscn" id="5_8bdd0"]
+[ext_resource type="Resource" uid="uid://dm6o6i3wayjsk" path="res://Items/Data/Rat/rat_item_data.tres" id="5_ycyw5"]
+[ext_resource type="Resource" uid="uid://qcc2u0ao21oo" path="res://Items/Data/CardPack/card_pack_item_data.tres" id="6_oosqx"]
+[ext_resource type="Resource" uid="uid://d22vj3yb6c7lp" path="res://Items/Data/Barricade/barricade_item_data.tres" id="7_4tva3"]
+[ext_resource type="Script" uid="uid://crame3tjbrvn4" path="res://Items/Scenes/shop_item_interface.gd" id="7_acpms"]
+[ext_resource type="Resource" uid="uid://704fo14vdxkf" path="res://Items/Data/WackBat/wack_bat_item_data.tres" id="8_3r1d8"]
+[ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="8_ff7t1"]
+[ext_resource type="Resource" uid="uid://cj7sd5horucgq" path="res://Items/Data/Cheese/cheese_healing_item_data.tres" id="9_a5r3d"]
+[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://Items/GoldLabel/session_gold_label.tscn" id="9_acpms"]
+[ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://Map/Shop/ShopKeepers/shop_desk.tres" id="9_rdf4x"]
+[ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_1.tres" id="11_lsasn"]
+[ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_2.tres" id="12_odkx1"]
+[ext_resource type="Texture2D" uid="uid://cgkstjg1haxst" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_3.tres" id="13_qvs08"]
+[ext_resource type="Texture2D" uid="uid://d2d4b83w6j3r" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-004.png" id="15_377eg"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://General/UI/ContextPanel/context_panel.tscn" id="15_uygeh"]
+[ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://General/Effects/Particles/star_pop.tscn" id="17_rrix6"]
+[ext_resource type="AnimationLibrary" uid="uid://hk7ap1n5v04i" path="res://Entities/Animations/entity.res" id="19_3aoen"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iq5vf"]
+texture = ExtResource("8_ff7t1")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0.0341224, 0.008799729, 0.05652272, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uygeh"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("15_377eg")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="Shader" id="Shader_q0abo"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uygeh"]
+resource_local_to_scene = true
+shader = SubResource("Shader_q0abo")
+shader_parameter/flash_color = Color(0.90186185, 0.90186185, 0.90186185, 1)
+shader_parameter/flash_value = 0.0
+
+[node name="ShopScreen" type="Control" unique_id=1932341387]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jq6m6")
+override_shop_items = Array[ExtResource("2_jyd0f")]([ExtResource("3_5ug6c"), ExtResource("3_5ug6c"), ExtResource("4_bgko6"), ExtResource("5_ycyw5"), ExtResource("6_oosqx"), ExtResource("7_4tva3"), ExtResource("8_3r1d8"), ExtResource("9_a5r3d")])
+shop_keeper_varients = Array[Texture2D]([ExtResource("1_bt8o4"), ExtResource("11_lsasn"), ExtResource("12_odkx1"), ExtResource("13_qvs08")])
+
+[node name="Panel" type="Panel" parent="." unique_id=1284427762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iq5vf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1852655927]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2140651362]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1835938482]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -228.0
+offset_bottom = 57.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=225832608]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 30
+
+[node name="PlayerGold" parent="CanvasLayer/Control/HBoxContainer/MarginContainer" unique_id=1751191548 instance=ExtResource("9_acpms")]
+layout_mode = 2
+
+[node name="ShopInterface" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1256575698]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ShopInterface" unique_id=1799654957]
+custom_minimum_size = Vector2(0, 269)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/ShopInterface/VBoxContainer" unique_id=1186176393]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uygeh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer" unique_id=1606888787]
+custom_minimum_size = Vector2(832, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="ShopItems" type="FlowContainer" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1556862084]
+visible = false
+custom_minimum_size = Vector2(495, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+alignment = 1
+script = ExtResource("7_acpms")
+
+[node name="ItemSlotUI" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=1515963044 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI2" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=1357616658 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI3" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=71979454 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI4" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=176463253 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI5" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=588020058 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI6" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=1030027490 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI7" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=83959530 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI8" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=1523692159 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI9" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=297096130 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI10" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems" unique_id=125037299 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="SellableItems" type="FlowContainer" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer" unique_id=847870647]
+visible = false
+custom_minimum_size = Vector2(495, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+alignment = 1
+script = ExtResource("7_acpms")
+transaction_type = 1
+
+[node name="ItemSlotUI" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=1849255930 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI2" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=106984178 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI3" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=359743453 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI4" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=2124843458 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI5" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=1135415420 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI6" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=1308018278 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI7" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=750439130 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI8" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=1230239290 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI9" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=167268207 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemSlotUI10" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/SellableItems" unique_id=957979799 instance=ExtResource("5_8bdd0")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ItemInfo" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1838000936 instance=ExtResource("15_uygeh")]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+
+[node name="MenuOptions" type="HBoxContainer" parent="CanvasLayer/Control/ShopInterface/VBoxContainer" unique_id=1582210359]
+layout_mode = 2
+
+[node name="Shop" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions" unique_id=1561334356]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "SHOP"
+
+[node name="Sell" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions" unique_id=1141430335]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "SELL"
+
+[node name="Leave" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions" unique_id=468685090]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "Leave"
+
+[node name="ShopOptions" type="HBoxContainer" parent="CanvasLayer/Control/ShopInterface/VBoxContainer" unique_id=993568706]
+visible = false
+layout_mode = 2
+
+[node name="Buy" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions" unique_id=1194088481]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "Buy"
+
+[node name="Barter" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions" unique_id=1134754798]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "Barter"
+
+[node name="Back" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions" unique_id=1488126523]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="SellOptions" type="HBoxContainer" parent="CanvasLayer/Control/ShopInterface/VBoxContainer" unique_id=1975735309]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Sell" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/SellOptions" unique_id=329679661]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "Sell"
+
+[node name="Leave" type="Button" parent="CanvasLayer/Control/ShopInterface/VBoxContainer/SellOptions" unique_id=1908839000]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_jq6m6")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="ShopKeeper" type="Node2D" parent="." unique_id=1266733250]
+position = Vector2(545, 198)
+scale = Vector2(2, 2)
+
+[node name="DamageParticles" parent="ShopKeeper" unique_id=232237618 instance=ExtResource("17_rrix6")]
+texture_filter = 1
+
+[node name="SpriteRoot" type="Node2D" parent="ShopKeeper" unique_id=1204279553]
+position = Vector2(0, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="ShopKeeper/SpriteRoot" unique_id=1501627755]
+texture_filter = 1
+material = SubResource("ShaderMaterial_uygeh")
+position = Vector2(0, 8)
+scale = Vector2(2, 2)
+texture = ExtResource("1_bt8o4")
+offset = Vector2(0, -16)
+
+[node name="EntityAnimator" type="AnimationPlayer" parent="ShopKeeper" unique_id=506054819]
+libraries/entity = ExtResource("19_3aoen")
+
+[node name="ShopDesk" type="Sprite2D" parent="." unique_id=1251366015]
+texture_filter = 1
+position = Vector2(491, 249)
+scale = Vector2(2, 2)
+texture = ExtResource("9_rdf4x")
+
+[node name="ShopDesk2" type="Sprite2D" parent="." unique_id=2117574105]
+texture_filter = 1
+position = Vector2(557, 249)
+scale = Vector2(2, 2)
+texture = ExtResource("9_rdf4x")
+
+[node name="ShopDesk3" type="Sprite2D" parent="." unique_id=2105749024]
+texture_filter = 1
+position = Vector2(621, 249)
+scale = Vector2(2, 2)
+texture = ExtResource("9_rdf4x")
+
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Shop" to="." method="_on_shop_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Sell" to="." method="_on_open_sell_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_on_leave_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_back_to_menu_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Buy" to="." method="_on_buy_item"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Barter" to="." method="_on_barter_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Back" to="." method="_on_back_from_shop_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Back" to="." method="_back_to_menu_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/SellOptions/Sell" to="." method="_on_sell_item"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/SellOptions/Leave" to="." method="_back_to_menu_button_up"]
+[connection signal="animation_finished" from="ShopKeeper/EntityAnimator" to="ShopKeeper/EntityAnimator" method="_on_animation_finished"]

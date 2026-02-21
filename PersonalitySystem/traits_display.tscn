@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dbt3n70fcylp3"]
 
-[ext_resource type="Texture2D" uid="uid://7tbklim4gu2e" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0028_emoji29.png" id="1_0lwet"]
+[ext_resource type="Texture2D" uid="uid://7tbklim4gu2e" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0028_emoji29.png" id="1_0lwet"]
 [ext_resource type="Script" uid="uid://7f0ek6d467qa" path="res://PersonalitySystem/traits_display.gd" id="1_o10x6"]
-[ext_resource type="Script" uid="uid://pxlprseij451" path="res://GeneralAssets/UI/ContextPanel/hover_pop_up.gd" id="2_o10x6"]
-[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://GeneralAssets/UI/ContextPanel/context_panel.tscn" id="3_a2fav"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="3_nuge6"]
-[ext_resource type="Texture2D" uid="uid://fipkp3167c1d" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0026_emoji27.png" id="4_aaoii"]
-[ext_resource type="Texture2D" uid="uid://qtxteloxo0em" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0009_emoji10.png" id="5_nuge6"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://General/UI/ContextPanel/hover_context_popup.gd" id="2_o10x6"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://General/UI/ContextPanel/context_panel.tscn" id="3_a2fav"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_nuge6"]
+[ext_resource type="Texture2D" uid="uid://fipkp3167c1d" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0026_emoji27.png" id="4_aaoii"]
+[ext_resource type="Texture2D" uid="uid://qtxteloxo0em" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0009_emoji10.png" id="5_nuge6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2fav"]
 

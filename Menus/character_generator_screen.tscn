@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b2ol1op1ilke1"]
 
 [ext_resource type="Script" uid="uid://d3bx1ip7splkn" path="res://Menus/character_generator_scene.gd" id="1_eisx4"]
-[ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://GeneralAssets/PlaceholderArt/Kenny Art/Fantasy UI/Default/Border/panel-border-007.png" id="2_tr8lr"]
+[ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Border/panel-border-007.png" id="2_tr8lr"]
 [ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_hhvwy"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="3_ntpg3"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://GeneralAssets/Fonts/dungeon-mode.ttf" id="4_hodoh"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="4_hodoh"]
 [ext_resource type="Texture2D" uid="uid://ceevb82tjfvvo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="4_wpnsw"]
 [ext_resource type="Texture2D" uid="uid://cd4vrwm5pi613" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="5_ntilo"]
 [ext_resource type="Texture2D" uid="uid://rpc04f3p2p63" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="6_aprn4"]

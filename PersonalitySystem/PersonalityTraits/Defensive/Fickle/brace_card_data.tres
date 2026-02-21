@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bteav3r66esld"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_dboid"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_k76gq"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_kdfg6"]
+
+[sub_resource type="Resource" id="Resource_j3bd5"]
+script = ExtResource("2_k76gq")
+name = "Brace"
+description = "Gain 1 block if moved to position with no objects. Discard."
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("3_kdfg6")
+energy_cost = 2
+move = SubResource("Resource_j3bd5")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

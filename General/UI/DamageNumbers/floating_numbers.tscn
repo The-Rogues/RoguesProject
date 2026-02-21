@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ddjdl8812mp5r"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_amboi"]
+[ext_resource type="Script" uid="uid://cf6ks2qdiu31l" path="res://General/UI/DamageNumbers/floating_numbers.gd" id="2_b26m0"]
+
+[node name="PopNumbers" type="Label" unique_id=449458355]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_amboi")
+theme_override_font_sizes/font_size = 13
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_b26m0")
+speed = 45.0
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1348083518]
+wait_time = 2.0
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

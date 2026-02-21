@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://1gf7vwofpq0g"]
 
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="1_m3aps"]
-[ext_resource type="Texture2D" uid="uid://dnaiwvq7m70kk" path="res://GeneralAssets/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0063_emoji64.png" id="2_s54v3"]
+[ext_resource type="Texture2D" uid="uid://dnaiwvq7m70kk" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0063_emoji64.png" id="2_s54v3"]
 
 [resource]
 script = ExtResource("1_m3aps")
