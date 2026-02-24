@@ -8,6 +8,7 @@ script = ExtResource("2_n77ci")
 object_type = 2
 attack_filter = 1
 display_texture = ExtResource("1_y1si4")
+id = "treasure"
 name = "Treasure Pot"
 description = "Something may be inside."
 max_health = 5

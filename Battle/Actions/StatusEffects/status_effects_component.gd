@@ -96,3 +96,8 @@ func decay_status_effects() -> void:
 			remove_status(instance)
 	for status_icon in stutus_display.get_children():
 		status_icon.update_ui()
+
+
+func clear_status_effects() -> void:
+	for effect in status_effects:
+		remove_status(effect)

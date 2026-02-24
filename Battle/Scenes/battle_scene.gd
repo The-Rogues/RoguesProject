@@ -12,6 +12,7 @@ class_name BattleScene
 @export var battle_manager: BattleManager
 @export var end_turn_button: Button
 @export var battle_results_display: BattleResultLayer
+@export var turn_banner: BannerPopup
 
 
 func _ready() -> void:
@@ -39,18 +40,26 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	
 	await battle_results_display.fade_out()
 	battle_results_display.visible = false
-	_started_player_turn()
+	await get_tree().create_timer(0.5).timeout
+	await turn_banner.display("Battle Start")
+	battle_manager._start_player_turn()
+	end_turn_button.disabled = false
+	#_started_player_turn()
 
 
 func _on_end_turn_button_up() -> void:
 	end_turn_button.disabled = true
+	end_turn_button.text = "Enemy Turn"
 	battle_manager.end_player_turn()
+	await turn_banner.display("Enemy Turn")
+	battle_manager._start_enemy_turn()
 	pass # Replace with function body.
 
 
 func _started_player_turn():
+	await turn_banner.display("Player Turn\nTurn " + str(battle_manager.turn_count))
 	end_turn_button.disabled = false
-
+	end_turn_button.text = "End Turn"
 
 func _on_battle_ended(player_won:bool):
 	end_turn_button.visible = false

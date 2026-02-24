@@ -7,6 +7,9 @@ class_name PersonalityData
 ## that stores it's instance in a persistent manner.
 
 
+signal updated_traits(data:PersonalityData)
+signal changed_trait(personality_trait:PersonalityTrait)
+
 ## Influences capacity and attitude towards violence.
 @export var offensive_trait:OffensiveTrait
 ## Controls how much the offensive trait is priotized over other traits.
@@ -19,6 +22,60 @@ class_name PersonalityData
 @export var strategic_trait:StrategicTrait
 ## Controls how much the strategic trait is priotized over other traits.
 @export_range(1, 10) var strategic_weight:int
+
+
+func change_offensive_trait(personality_trait:PersonalityTrait, weight:int = -1):
+	offensive_trait = personality_trait
+	if weight > 0 and weight < 11:
+		offensive_weight = weight
+	updated_traits.emit(self)
+	changed_trait.emit(offensive_trait)
+
+
+func change_defensive_trait(personality_trait:PersonalityTrait, weight:int = -1):
+	defensive_trait = personality_trait
+	if weight > 0 and weight < 11:
+		defensive_weight = weight
+	updated_traits.emit(self)
+	changed_trait.emit(defensive_trait)
+
+
+func change_strategic_trait(personality_trait:PersonalityTrait, weight:int = -1):
+	strategic_trait = personality_trait
+	if weight > 0 and weight < 11:
+		strategic_weight = weight
+	updated_traits.emit(self)
+	changed_trait.emit(strategic_trait)
+
+
+func modify_offense(amount:int, set_exact:bool=false):
+	if set_exact:
+		offensive_weight = amount
+	elif amount > 0:
+		offensive_weight = min(offensive_weight + amount, 10)
+	else:
+		offensive_weight = max(offensive_weight - amount, 1)
+	updated_traits.emit(self)
+
+
+func modify_defense(amount:int, set_exact:bool=false):
+	if set_exact:
+		offensive_weight = amount
+	elif amount > 0:
+		defensive_weight = min(defensive_weight + amount, 10)
+	else:
+		defensive_weight = max(defensive_weight - amount, 1)
+	updated_traits.emit(self)
+
+
+func modify_strategy(amount:int, set_exact:bool=false):
+	if set_exact:
+		offensive_weight = amount
+	elif amount > 0:
+		strategic_weight = min(strategic_weight + amount, 10)
+	else:
+		strategic_weight = max(strategic_weight - amount, 1)
+	updated_traits.emit(self)
 
 
 ## Chooses highest priority trait by weight. If weights are the same prioritize 

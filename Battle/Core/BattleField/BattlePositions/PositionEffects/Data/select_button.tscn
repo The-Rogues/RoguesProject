@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://m04fo4g25f7v"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_c4klp"]
+[ext_resource type="Script" uid="uid://b0c1722n1xvls" path="res://Testing/select_icon_button.gd" id="2_vd0qa"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://Battle/UI/BattleIntentIcons/special_move_intent_icon.tres" id="3_5mxya"]
+
+[node name="SelectButton" type="Label" unique_id=395129651]
+texture_filter = 1
+offset_right = 128.0
+offset_bottom = 22.0
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("1_c4klp")
+theme_override_font_sizes/font_size = 24
+text = "button"
+script = ExtResource("2_vd0qa")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1512665171]
+visible = false
+layout_mode = 0
+offset_left = -45.0
+offset_top = -4.0
+offset_right = -13.0
+offset_bottom = 28.0
+mouse_filter = 2
+texture = ExtResource("3_5mxya")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

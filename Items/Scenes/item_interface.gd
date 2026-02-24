@@ -19,9 +19,14 @@ func _process(delta: float) -> void:
 		_on_item_clicked(-1)
 		pass
 
+
 func initialize(items:Array[ItemData]):
+	update_ui(items)
+
+
+func update_ui(items:Array[ItemData]):
 	if items.is_empty():
-		return
+		clear_item_slots()
 	
 	for child in get_children():
 		child.queue_free()
@@ -35,7 +40,7 @@ func initialize(items:Array[ItemData]):
 	
 	for i in range(0, items.size()):
 		create_item_slot(items[i], i)
-	pass
+
 
 func create_item_slot(item_data:ItemData, index:int):
 	if index >= minimum_item_slot_count or minimum_item_slot_count == 0:

@@ -10,5 +10,5 @@ script = ExtResource("1_exrva")
 trait_icon = SubResource("CompressedTexture2D_exrva")
 id = "merciful"
 name = "Merciful"
-description = "Compassionate towards all. Holds back when opponents are at low health to allow for sparing."
+description = "Compassionate. Avoids violence when possible. "
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

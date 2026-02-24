@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="8_6or30"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="8_l6u86"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="11_6or30"]
+[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="11_vls3k"]
 [ext_resource type="Texture2D" uid="uid://baa3y77gqbgce" path="res://Entities/Data/Enemies/Golem/boulder_projectile_texture.tres" id="14_1a47e"]
-[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/shoot_projectile_action.gd" id="15_578nu"]
 
 [sub_resource type="Resource" id="Resource_0cvw6"]
 script = ExtResource("5_vls3k")
@@ -29,22 +29,22 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_6dnsr"]
 script = ExtResource("8_6or30")
-damage = 8
 target = 1
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_a5vma"]
 script = ExtResource("5_tgoyo")
+is_attack = true
 action_display_icon = ExtResource("7_stx26")
 name = "Crush"
-description = "Deals 8 damage"
+description = "Deals 6 damage"
 actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_6dnsr")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_k3btu"]
-script = ExtResource("15_578nu")
+script = ExtResource("11_vls3k")
 projectile_texture = ExtResource("14_1a47e")
-impact_damage = 10
+impact_damage = 8
 direction_range = 0.18
 target = 1
 metadata/_custom_type_script = "uid://c3uyo8xsai327"
@@ -54,7 +54,7 @@ script = ExtResource("5_tgoyo")
 action_display_icon = ExtResource("8_l6u86")
 move_type = 1
 name = "Rock Throw"
-description = "Throws a medium-accuracy boulder. Deals 10 damage on impact."
+description = "Throws a medium-accuracy boulder. Deals 8 damage on impact."
 actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_k3btu")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
@@ -63,4 +63,5 @@ script = ExtResource("11_6or30")
 move_set = Array[ExtResource("5_tgoyo")]([SubResource("Resource_cad4d"), SubResource("Resource_a5vma"), SubResource("Resource_8ptbf")])
 display_texture = ExtResource("4_x6xqj")
 name = "Golem"
+max_health = 60
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

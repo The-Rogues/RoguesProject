@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_balau"]
-bg_color = Color(0.019607844, 0.019607844, 0.019607844, 0.91764706)
+bg_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q37af"]
 bg_color = Color(0.34470457, 0.6951066, 0.29308626, 1)

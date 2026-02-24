@@ -9,23 +9,28 @@
 [ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://Battle/UI/BattleIntentIcons/sabotage_intent_icon.tres" id="9_80k7w"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="9_awpy6"]
 [ext_resource type="Resource" uid="uid://b7bt32bi465gh" path="res://Battle/Actions/StatusEffects/Weakened/weakness_status_effect_data.tres" id="11_vy18y"]
+[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="11_wl333"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="12_i4lj6"]
 [ext_resource type="Texture2D" uid="uid://cnyam2dulsgh7" path="res://General/Effects/Particles/poof_texture.tres" id="13_j0cjp"]
-[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/shoot_projectile_action.gd" id="14_qefsj"]
 [ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://Battle/Actions/Atomic/repeat_action.gd" id="15_hmkdq"]
 
 [sub_resource type="Resource" id="Resource_i7u8c"]
 script = ExtResource("8_gaoop")
-damage = 12
+damage = 10
 target = 1
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_yt0p1"]
+script = ExtResource("8_gaoop")
+damage = 4
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_xsb1p"]
 script = ExtResource("5_w4m72")
 action_display_icon = ExtResource("6_b0oit")
 name = "Charge"
-description = "Deals 12 damage."
-actions = Array[ExtResource("7_dikaf")]([SubResource("Resource_i7u8c")])
+description = "Attacks for 10 damage. Self harms 4 damage."
+actions = Array[ExtResource("7_dikaf")]([SubResource("Resource_i7u8c"), SubResource("Resource_yt0p1")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_rnuhu"]
@@ -46,7 +51,7 @@ actions = Array[ExtResource("7_dikaf")]([SubResource("Resource_rnuhu")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_deit5"]
-script = ExtResource("14_qefsj")
+script = ExtResource("11_wl333")
 projectile_texture = ExtResource("13_j0cjp")
 face_direction = true
 impact_damage = 9
@@ -74,5 +79,5 @@ script = ExtResource("9_awpy6")
 move_set = Array[ExtResource("5_w4m72")]([SubResource("Resource_xsb1p"), SubResource("Resource_nvtt8"), SubResource("Resource_71wyq")])
 display_texture = ExtResource("3_wihyi")
 name = "Minotaur"
-max_health = 112
+max_health = 50
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

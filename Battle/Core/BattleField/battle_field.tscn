@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://d3g4vyahucwgo" path="res://Battle/Core/BattleField/battle_field.gd" id="1_4ijax"]
 [ext_resource type="PackedScene" uid="uid://bgl7m0q246gct" path="res://Battle/Core/BattleField/BattlePositions/battle_position.tscn" id="2_ikxlt"]
 
-[node name="BattleField" type="Node2D" unique_id=198434553]
+[node name="BattleField" type="Node2D" unique_id=198434553 node_paths=PackedStringArray("battle_positions")]
 script = ExtResource("1_4ijax")
-opportunity_chance = 0.5
+battle_positions = [NodePath("BattlePosition"), NodePath("BattlePosition2"), NodePath("BattlePosition3"), NodePath("BattlePosition4"), NodePath("BattlePosition5")]
 
 [node name="BattlePosition" parent="." unique_id=1066525276 instance=ExtResource("2_ikxlt")]
 position = Vector2(-223, 0)

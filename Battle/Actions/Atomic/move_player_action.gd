@@ -11,14 +11,10 @@ func _execute(battle_instance:BattleManager, action_user:BattleEntity):
 		await battle_instance.action_delay()
 		return
 	
-	var dir:int = battle_instance.battle_field.get_nearest_object_direction(
-		ObjectEntityData.Type.COVER
-	)
+	var dir:int = battle_instance.character_personality.strategic_trait.get_direction(battle_instance.battle_field)
+	if dir == 1:
+		battle_instance.battle_field.move_entity_right()
+	else:
+		battle_instance.battle_field.move_entity_left()
 	
-	#var dir:int = steps
-	if direction == DirectionType.LEFT:
-		dir = -dir
-	elif direction == DirectionType.RIGHT:
-		pass
-	battle_instance.battle_field.move_player(dir)
-	await battle_instance.battle_field.moved_position
+	await battle_instance.battle_field.entity_arrived

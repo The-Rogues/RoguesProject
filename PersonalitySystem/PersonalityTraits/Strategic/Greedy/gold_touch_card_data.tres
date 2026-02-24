@@ -1,17 +1,30 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c7ymer7vrn7v0"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_n3x2y"]
+[ext_resource type="Script" uid="uid://dtg5w0gjypdhe" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/gold_touch_turn_event.gd" id="2_f8rmo"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_srydn"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_6jpop"]
+[ext_resource type="Script" uid="uid://qudkybqhn7y6" path="res://Battle/Actions/Atomic/battle_event_action.gd" id="3_d3fvq"]
+
+[sub_resource type="Resource" id="Resource_uj106"]
+script = ExtResource("2_f8rmo")
+metadata/_custom_type_script = "uid://dtg5w0gjypdhe"
+
+[sub_resource type="Resource" id="Resource_t5ew6"]
+script = ExtResource("3_d3fvq")
+battle_turn_event = SubResource("Resource_uj106")
+metadata/_custom_type_script = "uid://qudkybqhn7y6"
 
 [sub_resource type="Resource" id="Resource_mygmw"]
 script = ExtResource("2_srydn")
 name = "Gold Touch"
 description = "Gain 100 gold for every enemy defeated this turn"
+actions = Array[ExtResource("1_n3x2y")]([SubResource("Resource_t5ew6")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("3_6jpop")
 energy_cost = 3
+discard_after_play = true
 move = SubResource("Resource_mygmw")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

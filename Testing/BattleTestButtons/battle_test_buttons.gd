@@ -8,7 +8,7 @@ class_name BattleTestButtons
 
 func _on_label_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == 0 and event.is_pressed():
+		if event.is_pressed():
 			options.visible = !options.visible
 	pass # Replace with function body.
 
@@ -47,4 +47,16 @@ func _on_add_card_button_up() -> void:
 	var card_data = deck.draw_card()
 	battle_manager.player_card_hand.draw_card(card_data)
 	battle_manager.card_drawn.emit(card_data)
+	pass # Replace with function body.
+
+
+func _on_add_gold_button_up() -> void:
+	GlobalSessionManager.increase_gold(250)
+	pass # Replace with function body.
+
+
+func _on_draw_card_button_up() -> void:
+	var card = battle_manager.draw_pile.draw_card()
+	if card:
+		battle_manager.player_card_hand.draw_card(card)
 	pass # Replace with function body.

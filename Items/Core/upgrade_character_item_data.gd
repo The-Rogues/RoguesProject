@@ -18,10 +18,8 @@ enum UpgradeType {MAX_HEALTH, MAX_ENERGY, ITEM_CAPACITY}
 func _use_item(entity: BattleEntity, battle:BattleManager = null) -> void:
 	var current_max:int = 0
 	if upgrade == UpgradeType.MAX_HEALTH:
-		current_max = entity.entity_data.health.max_value
-		entity.entity_data.health.max_value = current_max + increase
-		entity.healed.emit(0)
-		GlobalSessionManager.upgrade_health(increase)
+		entity.increase_max_health(increase)
+		GlobalSessionManager.increase_max_health(entity._health.current_health)
 	elif upgrade == UpgradeType.MAX_ENERGY:
 		current_max = entity.entity_data.energy.max_value
 		entity.entity_data.energy.max_value = current_max + increase

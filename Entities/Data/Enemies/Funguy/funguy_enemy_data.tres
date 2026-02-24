@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="7_mtf3b"]
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="8_cto4h"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://Battle/UI/BattleIntentIcons/attack_intent_icon.tres" id="9_mtf3b"]
+[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="10_gvve7"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="11_3ccjd"]
 [ext_resource type="Texture2D" uid="uid://cnyam2dulsgh7" path="res://General/Effects/Particles/poof_texture.tres" id="12_1d1k7"]
-[ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/shoot_projectile_action.gd" id="13_hb4j3"]
 
 [sub_resource type="Resource" id="Resource_a8p44"]
 script = ExtResource("8_cto4h")
@@ -32,7 +32,7 @@ actions = Array[ExtResource("7_mtf3b")]([SubResource("Resource_a8p44"), SubResou
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_g7hng"]
-script = ExtResource("13_hb4j3")
+script = ExtResource("10_gvve7")
 projectile_texture = ExtResource("12_1d1k7")
 impact_damage = 2
 speed = 300.0
@@ -54,6 +54,6 @@ script = ExtResource("6_1hmcs")
 move_set = Array[ExtResource("5_2krmu")]([SubResource("Resource_c4w14"), SubResource("Resource_gsos7")])
 display_texture = ExtResource("4_t3c1n")
 name = "Funguy"
-max_health = 30
+max_health = 20
 launch_when_defeated = true
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

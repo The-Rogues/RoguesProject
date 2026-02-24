@@ -64,7 +64,7 @@ func _update_card_layout() -> void:
 		return
 	
 	var count:float = card_uis.size()
-	var center_x:float = screen_size.x * 0.5
+	var center_x:float = screen_size.x * 0.45
 	
 	for i in count:
 		var card:CardUI = card_uis[i]

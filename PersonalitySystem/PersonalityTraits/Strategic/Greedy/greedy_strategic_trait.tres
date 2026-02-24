@@ -10,5 +10,5 @@ script = ExtResource("1_3q284")
 trait_icon = SubResource("CompressedTexture2D_3q284")
 id = "greedy"
 name = "Greedy"
-description = "Comfortable taking risks for gratification. Moves towards treasures."
+description = "Comfortable taking risks. Motivated by treasure."
 metadata/_custom_type_script = "uid://bllaybhbcrgk4"

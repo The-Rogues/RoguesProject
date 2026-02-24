@@ -11,5 +11,5 @@ targeting_bias = 2
 trait_icon = SubResource("CompressedTexture2D_fx77m")
 id = "brute"
 name = "Brute"
-description = "Uses violence to solve their problems. Prefers targeting weaker enemies. Easy to anger."
+description = "Head strong and short-tempered. Prefers targeting weaker enemies."
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

@@ -10,7 +10,7 @@ class_name ShopData
 ## List of possible items that can appear in shops.
 @export var shop_item_pool:Array[ItemData]
 
-const MIN_SHOP_ITEM_COUNT = 3
+const MIN_SHOP_ITEM_COUNT = 6
 const MAX_SHOP_ITEM_COUNT = 8
 
 

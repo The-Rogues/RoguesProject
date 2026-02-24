@@ -73,12 +73,6 @@ func initialize_new_run(
 	self.character_backstory = character_backstory
 	self.character_experience_log = []
 	
-	self.map_seed = 0
-	self.floor_progress = 1
-	self.current_floor = 1
-	self.player_node_index = 0
-	self.battle = null
-	self.run_map = null  # always reconstructed from seed
 	
 	self.card_deck = card_deck.duplicate(true)
 	self.held_items = []

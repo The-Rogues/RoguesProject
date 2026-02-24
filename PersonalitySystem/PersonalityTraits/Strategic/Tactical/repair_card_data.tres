@@ -3,16 +3,23 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_3imbr"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_jhi1h"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_qfjb6"]
+[ext_resource type="Script" uid="uid://cxvl7ao6xku11" path="res://Battle/Actions/Atomic/repair_object_action.gd" id="2_r2irw"]
+
+[sub_resource type="Resource" id="Resource_hinfj"]
+script = ExtResource("2_r2irw")
+amount = 10
+metadata/_custom_type_script = "uid://cxvl7ao6xku11"
 
 [sub_resource type="Resource" id="Resource_bltpm"]
 script = ExtResource("2_qfjb6")
 move_type = 1
 name = "Repair"
-description = "Restores 10 HP to an object infront of the player"
+description = "Restores 10 HP to an object infront of the user."
+actions = Array[ExtResource("1_jhi1h")]([SubResource("Resource_hinfj")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("1_3imbr")
-energy_cost = 3
+energy_cost = 2
 move = SubResource("Resource_bltpm")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

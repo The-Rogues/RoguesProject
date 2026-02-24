@@ -8,6 +8,7 @@ script = ExtResource("3_jxmos")
 object_type = 1
 attack_filter = 2
 display_texture = ExtResource("3_0f5cm")
+id = "cover"
 name = "Stone Wall"
 description = "Very durable."
 max_health = 80

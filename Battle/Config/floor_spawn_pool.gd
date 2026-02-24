@@ -59,8 +59,6 @@ func pick_ranked_item_recusive(dictionary:Dictionary, rarity:Rarity):
 	if rarity == Rarity.COMMON and dictionary[rarity].is_empty():
 		return null
 	
-	print("VaR:", dictionary[rarity].size())
-	print("SPEC:", rarity)
 	
 	return dictionary[rarity].pick_random()
 

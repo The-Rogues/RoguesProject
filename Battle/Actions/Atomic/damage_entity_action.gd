@@ -7,7 +7,8 @@ class_name DamageEntityAction
 enum SampleFrom {
 	OFFENSIVE_WEIGHT,
 	DEFENSIVE_WEIGHT,
-	STRATEGIC_WEIGHT
+	STRATEGIC_WEIGHT,
+	LAST_DAMAGE_TOTAL,
 	}
 @export var sample_from:SampleFrom
 @export var use_damage_sampling:bool = false
@@ -27,13 +28,14 @@ func _execute(battle_instance:BattleManager, action_user:BattleEntity):
 				sampled_damage = battle_instance.character_personality.defensive_weight
 			SampleFrom.STRATEGIC_WEIGHT:
 				sampled_damage = battle_instance.character_personality.strategic_weight
+			SampleFrom.LAST_DAMAGE_TOTAL:
+				sampled_damage = action_user.damage_taken
 		final_damage += sampled_damage
 	
 	if action_user:
 		final_damage = action_user.get_attack_damage(final_damage)
 	
-	var battle_object:ObjectEntity = \
-			battle_instance.battle_field.get_object_infront_of_player()
+	var battle_object:ObjectEntity = battle_instance.battle_field.get_object()
 	if battle_object:
 		final_damage = final_damage * battle_object.data.damage_amplifier
 	

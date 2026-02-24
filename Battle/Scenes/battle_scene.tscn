@@ -7,12 +7,12 @@
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://Cards/Core/card_play_hand.gd" id="4_cgsmb"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="5_7j1wb"]
 [ext_resource type="PackedScene" uid="uid://7doidnfxvws4" path="res://Testing/BattleTestButtons/battle_test_buttons.tscn" id="6_2203u"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Items/Core/item_data.gd" id="7_1eksv"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://Battle/UI/energy_counter.tscn" id="7_e1j2j"]
 [ext_resource type="PackedScene" uid="uid://b2sastodcwsbx" path="res://Menus/game_dash_board.tscn" id="9_prne7"]
-[ext_resource type="Texture2D" uid="uid://ddluyw1tbuqhg" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-030.png" id="9_scyfg"]
+[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://Battle/Scenes/battle_results.tscn" id="10_tmnld"]
 [ext_resource type="Texture2D" uid="uid://dijrwcokcngwv" path="res://Cards/UI/deck_icon_normal.tres" id="13_r734y"]
+[ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://General/UI/banner_popup.tscn" id="14_2203u"]
 [ext_resource type="Texture2D" uid="uid://bple1k07y4let" path="res://Cards/UI/deck_icon_hover.tres" id="14_r734y"]
 [ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://Cards/UI/deck_viewer.tscn" id="15_1mkj3"]
 
@@ -22,67 +22,53 @@ b = Vector2(3, 452)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o1our"]
 b = Vector2(-1151, -3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2adx"]
-bg_color = Color(0.03529412, 0.007843138, 0.05490196, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u58pi"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r058c"]
-texture = ExtResource("9_scyfg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ll6p"]
+texture = SubResource("CompressedTexture2D_u58pi")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
-modulate_color = Color(0.8648944, 0.5183626, 0.09812199, 1)
+modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c560j"]
-load_path = "res://.godot/imported/panel-030.png-7d82b9b410ec2c91f808568517eee2cc.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pg3n7"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb1pv"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-texture = SubResource("CompressedTexture2D_c560j")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4dh3"]
+texture = SubResource("CompressedTexture2D_pg3n7")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
-modulate_color = Color(0.57676387, 0.22261018, 0.0988427, 1)
+modulate_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0x8jc"]
-load_path = "res://.godot/imported/panel-030.png-7d82b9b410ec2c91f808568517eee2cc.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3w7x8"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1eksv"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-texture = SubResource("CompressedTexture2D_0x8jc")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ectca"]
+texture = SubResource("CompressedTexture2D_3w7x8")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
-modulate_color = Color(0.5011826, 0.29307196, 0.09004875, 1)
+modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xilgi"]
-load_path = "res://.godot/imported/panel-030.png-7d82b9b410ec2c91f808568517eee2cc.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2203u"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-texture = SubResource("CompressedTexture2D_xilgi")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nn42q"]
+texture = ExtResource("10_2203u")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
-modulate_color = Color(0.32434112, 0.048048824, 0.06393867, 1)
+modulate_color = Color(0, 0, 0, 1)
 
-[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "end_turn_button", "battle_results_display")]
+[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "end_turn_button", "battle_results_display", "turn_banner")]
 script = ExtResource("1_jfmiq")
 battle_manager = NodePath("BattleManager")
 end_turn_button = NodePath("UILayer/BattleInterface/EndTurn")
 battle_results_display = NodePath("BattleResultDisplay")
+turn_banner = NodePath("UILayer/BattleInterface/TurnBanner")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=285933358]
 custom_minimum_size = Vector2(1152, 628)
@@ -93,30 +79,28 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.10613311, 0.117434226, 0.1356673, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="PlayArea" parent="." unique_id=574541479 instance=ExtResource("3_nuuou")]
 position = Vector2(546, 263)
 
-[node name="BattleManager" type="Node2D" parent="." unique_id=948342459 node_paths=PackedStringArray("battle_field", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui", "item_interface", "enemy_delay_timer")]
+[node name="BattleManager" type="Node2D" parent="." unique_id=948342459 node_paths=PackedStringArray("battle_field", "energy_counter", "player_card_hand", "draw_pile_ui", "discard_pile_ui", "battle_display", "enemy_delay_timer")]
 script = ExtResource("2_laop5")
 battle_field = NodePath("BattleField")
 energy_counter = NodePath("../UILayer/BattleInterface/EnergyCounter")
 player_card_hand = NodePath("../UILayer/PlayerCardHand")
 draw_pile_ui = NodePath("../UILayer/BattleInterface/DrawPileViewer")
 discard_pile_ui = NodePath("../UILayer/BattleInterface/DiscardPileViewer")
-item_interface = NodePath("../UILayer/BattleInterface/GameDashBoard/MarginContainer/HBoxContainer/VBoxContainer/ItemInterface")
+battle_display = NodePath("../UILayer/BattleInterface/GameDashBoard")
 enemy_delay_timer = NodePath("EnemyDelayTimer")
 
 [node name="EnemyDelayTimer" type="Timer" parent="BattleManager" unique_id=202726847]
-wait_time = 0.8
 
 [node name="ActionDelayTimer" type="Timer" parent="BattleManager" unique_id=1591741571]
-wait_time = 0.25
+wait_time = 0.3
 
 [node name="BattleField" parent="BattleManager" unique_id=314861 instance=ExtResource("2_ceml1")]
-position = Vector2(556, 381)
-battle_object_offset = Vector2(0, -50)
+position = Vector2(556, 406)
 
 [node name="Entities" type="Node2D" parent="BattleManager" unique_id=375418201]
 
@@ -166,12 +150,16 @@ mouse_filter = 2
 
 [node name="GameDashBoard" parent="UILayer/BattleInterface" unique_id=894429948 instance=ExtResource("9_prne7")]
 layout_mode = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2adx")
 
-[node name="ItemInterface" parent="UILayer/BattleInterface/GameDashBoard/MarginContainer/HBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(894429948, 1075437844) index="1" unique_id=92166697]
-override_item_datas = Array[ExtResource("7_1eksv")]([])
-minimum_item_slot_count = 3
-force_initialize = false
+[node name="Label" type="Label" parent="UILayer/BattleInterface" unique_id=626152939]
+texture_filter = 1
+layout_mode = 0
+offset_left = 162.0
+offset_top = 449.0
+offset_right = 247.0
+offset_bottom = 472.0
+theme_override_fonts/font = ExtResource("5_7j1wb")
+text = "Energy"
 
 [node name="EnergyCounter" parent="UILayer/BattleInterface" unique_id=396974568 instance=ExtResource("7_e1j2j")]
 layout_mode = 1
@@ -193,20 +181,19 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -315.0
-offset_top = -183.0
-offset_right = -98.0
-offset_bottom = -127.0
+offset_left = -308.0
+offset_top = -190.0
+offset_right = -128.0
+offset_bottom = -142.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_outline_color = Color(0.3309177, 0.03711952, 0.02138229, 1)
 theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("5_7j1wb")
-theme_override_font_sizes/font_size = 26
-theme_override_styles/normal = SubResource("StyleBoxTexture_r058c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_hb1pv")
-theme_override_styles/hover = SubResource("StyleBoxTexture_1eksv")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_2203u")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ll6p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s4dh3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ectca")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_nn42q")
 text = "End Turn"
 
 [node name="DiscardPile" type="VBoxContainer" parent="UILayer/BattleInterface" unique_id=928422935]
@@ -234,6 +221,7 @@ stretch_mode = 0
 [node name="PileName" type="Label" parent="UILayer/BattleInterface/DiscardPile" unique_id=1710436885]
 texture_filter = 1
 layout_mode = 2
+theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("5_7j1wb")
 theme_override_font_sizes/font_size = 13
 text = "Discard
@@ -269,6 +257,7 @@ stretch_mode = 0
 [node name="PileName" type="Label" parent="UILayer/BattleInterface/Drawpile" unique_id=1045514532]
 texture_filter = 1
 layout_mode = 2
+theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("5_7j1wb")
 theme_override_font_sizes/font_size = 13
 text = "Draw
@@ -285,6 +274,11 @@ activation_button = NodePath("../Drawpile/DrawPileButton")
 visible = false
 layout_mode = 1
 activation_button = NodePath("../DiscardPile/DiscardPileButton")
+
+[node name="TurnBanner" parent="UILayer/BattleInterface" unique_id=1379108646 instance=ExtResource("14_2203u")]
+layout_mode = 1
+offset_top = -31.0
+offset_bottom = 44.0
 
 [node name="BattleResultDisplay" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
 visible = false

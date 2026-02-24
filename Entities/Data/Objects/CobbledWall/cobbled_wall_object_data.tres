@@ -8,6 +8,7 @@ script = ExtResource("4_q2dcu")
 object_type = 1
 attack_filter = 2
 display_texture = ExtResource("3_mna5y")
+id = "cover"
 name = "Cobbled Wall"
 description = "Offers temporary protection. Crumbles easily"
 max_health = 40

@@ -1,13 +1,26 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://brof3o6k4me4x"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_tfvea"]
+[ext_resource type="Script" uid="uid://ctbufwjnhq4dy" path="res://Battle/Actions/Atomic/gold_action.gd" id="2_8dx87"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_nh66v"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_dog7q"]
+[ext_resource type="Script" uid="uid://b3topl4mteo5g" path="res://Battle/Actions/Atomic/draw_card_action.gd" id="3_msm5u"]
+
+[sub_resource type="Resource" id="Resource_msm5u"]
+script = ExtResource("2_8dx87")
+min_gold = -25
+metadata/_custom_type_script = "uid://ctbufwjnhq4dy"
+
+[sub_resource type="Resource" id="Resource_usfes"]
+script = ExtResource("3_msm5u")
+draw_count = 2
+metadata/_custom_type_script = "uid://b3topl4mteo5g"
 
 [sub_resource type="Resource" id="Resource_mygmw"]
 script = ExtResource("2_nh66v")
 name = "Invest"
-description = "Spend 25 gold to draw 2 cards from deck"
+description = "Spend 25 gold to try and draw 2 cards from deck."
+actions = Array[ExtResource("1_tfvea")]([SubResource("Resource_msm5u"), SubResource("Resource_usfes")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

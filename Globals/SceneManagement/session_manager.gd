@@ -5,6 +5,9 @@ class_name SessionManager
 ## Inteded use for safe access and manipulation of run progress as the player
 ## plays through the game
 
+signal current_health_updated(new_value:int)
+signal max_health_updated(new_value:int)
+signal traits_updated()
 signal gold_updated(new_value:int)
 
 var run_progress: RunProgress
@@ -31,17 +34,21 @@ func initialize_new_run(
 	
 	initialize_map()
 	
-	GlobalSaveManager.save_run(run_progress)
 	started_session = true
+	GlobalSaveManager.save_run(run_progress)
 
 
 # Fletcher - Make a unique map for the game session. Add callback to load the battle scene when a node is clicked.
-func initialize_map():
-	if run_progress.map_seed != 0:
-		return 
+func initialize_map() -> void:
+	# Branch executes of no save data
+	if !GlobalSaveManager.has_save():
+		# Create new map configuration
+		run_progress.map_seed = randi()
+		run_progress.player_node_index = 0
 	
-	run_progress.map_seed = randi()
+	# Maps always reconstructed from seed
 	run_progress.run_map = MapManager.new(run_progress.map_seed)
+	run_progress.run_map.set_player_node_index(run_progress.player_node_index)
 	_attach_map_callbacks()
 
 
@@ -94,6 +101,7 @@ func increase_max_health(amount:int):
 	
 	run_progress.character_entity_data.max_health += amount
 	GlobalSaveManager.save_run(run_progress)
+	max_health_updated.emit(run_progress.character_entity_data.max_health)
 
 
 func increase_max_energy(amount:int):
@@ -121,6 +129,7 @@ func change_offensive_trait(new_trait:PersonalityTrait, weight:int = -1):
 	
 	run_progress.total_personality_shifts += 1
 	GlobalSaveManager.save_run(run_progress)
+	traits_updated.emit()
 
 
 func change_defensive_trait(new_trait:PersonalityTrait, weight:int = -1):
@@ -131,6 +140,7 @@ func change_defensive_trait(new_trait:PersonalityTrait, weight:int = -1):
 	
 	run_progress.total_personality_shifts += 1
 	GlobalSaveManager.save_run(run_progress)
+	traits_updated.emit()
 
 
 func change_strategic_trait(new_trait:PersonalityTrait, weight:int = -1):
@@ -141,6 +151,7 @@ func change_strategic_trait(new_trait:PersonalityTrait, weight:int = -1):
 	
 	run_progress.total_personality_shifts += 1
 	GlobalSaveManager.save_run(run_progress)
+	traits_updated.emit()
 
 
 func save_character_health(current_health:int):
@@ -148,6 +159,7 @@ func save_character_health(current_health:int):
 		return
 	
 	run_progress.current_health = current_health
+	current_health_updated.emit(current_health)
 
 # -------------------------------------------------
 # Managing gold & items

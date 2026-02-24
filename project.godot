@@ -26,7 +26,7 @@ GlobalSaveManager="*uid://lnp0r05fc1u2"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [rendering]

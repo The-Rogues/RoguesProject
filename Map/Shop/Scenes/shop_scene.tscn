@@ -30,7 +30,7 @@ texture_margin_left = 18.0
 texture_margin_top = 18.0
 texture_margin_right = 18.0
 texture_margin_bottom = 18.0
-modulate_color = Color(0.0341224, 0.008799729, 0.05652272, 1)
+modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uygeh"]
 content_margin_left = 32.0
@@ -105,9 +105,6 @@ grow_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/margin_top = 30
-
-[node name="PlayerGold" parent="CanvasLayer/Control/HBoxContainer/MarginContainer" unique_id=1751191548 instance=ExtResource("9_acpms")]
-layout_mode = 2
 
 [node name="ShopInterface" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1256575698]
 layout_mode = 1
@@ -333,6 +330,17 @@ theme_override_fonts/font = ExtResource("3_jq6m6")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
+[node name="PlayerGold" parent="CanvasLayer/Control" unique_id=1751191548 instance=ExtResource("9_acpms")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -154.0
+offset_top = 26.0
+offset_right = -62.0
+offset_bottom = 53.0
+grow_horizontal = 0
+
 [node name="ShopKeeper" type="Node2D" parent="." unique_id=1266733250]
 position = Vector2(545, 198)
 scale = Vector2(2, 2)
@@ -374,12 +382,12 @@ texture = ExtResource("9_rdf4x")
 
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Shop" to="." method="_on_shop_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Sell" to="." method="_on_open_sell_button_up"]
-[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_on_leave_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_back_to_menu_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_on_leave_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Buy" to="." method="_on_buy_item"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Barter" to="." method="_on_barter_button_up"]
-[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Back" to="." method="_on_back_from_shop_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Back" to="." method="_back_to_menu_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Back" to="." method="_on_back_from_shop_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/SellOptions/Sell" to="." method="_on_sell_item"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/SellOptions/Leave" to="." method="_back_to_menu_button_up"]
 [connection signal="animation_finished" from="ShopKeeper/EntityAnimator" to="ShopKeeper/EntityAnimator" method="_on_animation_finished"]

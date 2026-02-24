@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bteav3r66esld"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_dex5a"]
+[ext_resource type="Script" uid="uid://5hjapp3udi62" path="res://Battle/Actions/Atomic/heal_entity_action.gd" id="2_15te8"]
+[ext_resource type="Script" uid="uid://bpm14e3kii57u" path="res://Battle/Actions/Atomic/on_object_action.gd" id="3_rdy6l"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_xl5gy"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="5_3ov4h"]
+
+[sub_resource type="Resource" id="Resource_xr2w4"]
+script = ExtResource("2_15te8")
+health = 8
+metadata/_custom_type_script = "uid://5hjapp3udi62"
+
+[sub_resource type="Resource" id="Resource_3i4kx"]
+script = ExtResource("3_rdy6l")
+object_id = "cover"
+conditional_action = SubResource("Resource_xr2w4")
+metadata/_custom_type_script = "uid://bpm14e3kii57u"
+
+[sub_resource type="Resource" id="Resource_j3bd5"]
+script = ExtResource("4_xl5gy")
+name = "Recoup"
+description = "If behind cover, heals 8 health"
+actions = Array[ExtResource("1_dex5a")]([SubResource("Resource_3i4kx")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("5_3ov4h")
+energy_cost = 2
+move = SubResource("Resource_j3bd5")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

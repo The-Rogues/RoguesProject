@@ -7,8 +7,8 @@ signal hovered(card: CardUI, is_hovering: bool)
 @export var card_data: CardData
 @export var force_initialization := false
 
-@onready var energy_label: Label = $CardUI/MarginContainer/VBoxContainer/EnergyLabel
-@onready var name_label: Label = $CardUI/MarginContainer/VBoxContainer/NameLabel
+@onready var energy_label: Label = $PanelContainer/EnergyLabel
+@onready var name_label: Label = $CardUI/MarginContainer/VBoxContainer/Panel/NameLabel
 @onready var description_label: Label = $CardUI/MarginContainer/VBoxContainer/VBoxContainer/DescriptionLabel
 
 var base_scale: Vector2

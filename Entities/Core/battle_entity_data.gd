@@ -12,6 +12,7 @@ signal new_move_chosen(enemy_action:BattleMove)
 # Stores all possible moves the enemy can choose from and additional
 # information for display
 @export var move_set:Array[BattleMove]
+@export_range(0,0.99) var spare_resistence:float = 0.1
 var next_move:BattleMove
 
 func get_battle_move():

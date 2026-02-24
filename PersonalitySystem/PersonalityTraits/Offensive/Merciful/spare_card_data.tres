@@ -2,12 +2,19 @@
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_kx56i"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_w488i"]
+[ext_resource type="Script" uid="uid://bse7c1c5q3poy" path="res://Battle/Actions/Atomic/spare_action.gd" id="2_3y4xw"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_6ej5m"]
+
+[sub_resource type="Resource" id="Resource_886to"]
+script = ExtResource("2_3y4xw")
+target = 2
+metadata/_custom_type_script = "uid://bse7c1c5q3poy"
 
 [sub_resource type="Resource" id="Resource_hqmi8"]
 script = ExtResource("2_6ej5m")
 name = "Spare"
-description = "Chance to spare target, taking them out of the battle. Odds increase if target is at lower health."
+description = "Chance to spare enemy. Odds increase if enemy is weakend first."
+actions = Array[ExtResource("1_kx56i")]([SubResource("Resource_886to")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

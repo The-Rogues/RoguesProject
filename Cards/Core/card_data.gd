@@ -12,6 +12,8 @@ enum Rarity {COMMON, UNCOMMON, RARE}
 @export var rarity:Rarity = Rarity.COMMON
 ## Sets the default cost it will take to play the card
 @export var energy_cost:int = 0
+@export var discard_after_play:bool = false
+@export var discard_all_after_play:bool = false
 ## Sets what actions will be perfomed when playing the card, seperated by 
 ## specified target
 @export var move:BattleMove

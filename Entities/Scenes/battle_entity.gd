@@ -22,6 +22,8 @@ var defense:DefenseComponent
 var parry:ParryComponent
 var status_conditions:StatusEffectsComponent
 var can_move:bool = true
+var damage_taken:int = 0
+var spared:bool = false
 
 # Updates data and display of entity
 func initialize(entity_data:EntityData, starting_health:int = -1):
@@ -30,6 +32,11 @@ func initialize(entity_data:EntityData, starting_health:int = -1):
 	parry = ParryComponent.new()
 	status_conditions = StatusEffectsComponent.new()
 	status_conditions.initialize(self, status_parent)
+	
+	if entity_data is BattleEntityData:
+		var sb = StyleBoxFlat.new()
+		health_bar.add_theme_stylebox_override("fill", sb)
+		sb.bg_color = Color(0.784, 0.173, 0.276, 1.0)
 	
 	defense.defense_changed.connect(defense_stat_icon.update_ui)
 	parry.parry_changed.connect(parry_stat_icon.update_ui)
@@ -55,6 +62,7 @@ func take_damage(amount:float, attacker:BattleEntity = null):
 		damage = defense.block_damage(damage)
 		
 		_health.take_damage(damage)
+		damage_taken += damage
 		damaged.emit(damage)
 	else:
 		damaged.emit(0)
@@ -65,8 +73,9 @@ func take_damage(amount:float, attacker:BattleEntity = null):
 	if last_attacker and parry.current_parry > 0:
 		animation_player.play("entity/attack")
 		await animation_player.animation_finished
-		if not attacker.is_defeated:
-			attacker.take_damage(parry.use_parry())
+		if attacker:
+			if not attacker.is_defeated:
+				attacker.take_damage(parry.use_parry())
 	else:
 		await animation_player.animation_finished
 	animation_player.play("entity/idle")
@@ -85,6 +94,7 @@ func _on_new_turn_started():
 	super()
 	#defense.set_to_zero()
 	#parry.set_to_zero()
+	damage_taken = 0
 	status_conditions.decay_status_effects()
 
 # -------------------------------------------------
@@ -104,8 +114,15 @@ func move_to(new_position:Vector2):
 	arrived.emit()
 
 
+func spare():
+	spared = true
+	move_to(Vector2(global_position.x, 100))
+	await arrived
+	kill()
+
+
 func _on_started_moving():
-	animation_player.stop()
+	#animation_player.stop()
 	animation_player.play("entity/march")
 
 

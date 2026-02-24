@@ -11,7 +11,7 @@ offset_bottom = 24.0
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2044757605]
 modulate = Color(0.79607844, 0.52156866, 0, 1)
 texture_filter = 1
-custom_minimum_size = Vector2(24, 24)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4

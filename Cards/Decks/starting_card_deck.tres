@@ -6,11 +6,14 @@
 [ext_resource type="Resource" uid="uid://cpcm1bkfedbjv" path="res://Cards/Shared/strike_card_data.tres" id="3_4riwa"]
 [ext_resource type="Resource" uid="uid://dhat16iba5tlg" path="res://Cards/Shared/counter_card_data.tres" id="5_f4ede"]
 [ext_resource type="Resource" uid="uid://dgt1ffuwrstbt" path="res://Cards/Shared/move_card_data.tres" id="8_ec414"]
+[ext_resource type="Resource" uid="uid://b2mj2k04lyi5h" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/retreat_card_data.tres" id="8_eh4ey"]
 [ext_resource type="Resource" uid="uid://cuwc8ueu7aloa" path="res://Cards/Shared/defend_card_data.tres" id="9_4riwa"]
+[ext_resource type="Resource" uid="uid://sj70mj1xqys8" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/foresight_card_data.tres" id="9_eh4ey"]
 [ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://Cards/Shared/swing_card_data.tres" id="9_x3eug"]
+[ext_resource type="Resource" uid="uid://fjgvub4ciops" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/plot_amor_card_data.tres" id="10_eh4ey"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_cltlr")
-cards = Array[ExtResource("1_qkhdm")]([ExtResource("3_4riwa"), ExtResource("3_4riwa"), ExtResource("3_4riwa"), ExtResource("9_4riwa"), ExtResource("9_4riwa"), ExtResource("5_f4ede"), ExtResource("5_f4ede"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("2_4riwa"), ExtResource("9_x3eug")])
+cards = Array[ExtResource("1_qkhdm")]([ExtResource("3_4riwa"), ExtResource("3_4riwa"), ExtResource("3_4riwa"), ExtResource("9_4riwa"), ExtResource("9_4riwa"), ExtResource("5_f4ede"), ExtResource("5_f4ede"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("2_4riwa"), ExtResource("9_x3eug"), ExtResource("8_eh4ey"), ExtResource("9_eh4ey"), ExtResource("10_eh4ey")])
 metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"

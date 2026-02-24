@@ -5,6 +5,12 @@ signal battle_ended(player_won:bool)
 signal card_drawn(card_data:CardData)
 signal played_card(card_data:CardData)
 signal new_turn_started
+signal player_turn_ended
+signal enemy_turn_ended
+signal item_used(
+		item:ItemData,
+		remaining:Array[ItemData]
+)
 
 @export var battle_field: BattleField
 
@@ -15,7 +21,8 @@ signal new_turn_started
 @export var draw_pile_ui: CardDeckViewerUI
 @export var discard_pile_ui: CardDeckViewerUI
 
-@export var item_interface:ItemInterface
+@export var battle_display:GameSessionDisplay
+#@export var item_interface:ItemInterface
 
 @export var enemy_delay_timer: Timer
 @onready var action_delay_timer: Timer = $ActionDelayTimer
@@ -34,6 +41,7 @@ var enemy_encounter:EnemyEncounter
 
 var action_queue:BattleActionQueue
 var action_intentions:Dictionary[BattleEntity, BattleIntentIcon]
+var battle_events:BattleEventsManager
 
 var turn_count:int = 0
 var held_items:Array[ItemData]
@@ -83,13 +91,9 @@ func initialize(
 	
 	# Load Battle Objects & Battle Positions
 	battle_field.initialize(battle_object_layout, player_entity)
-	battle_field.initialize_player(player_entity)
 	action_queue = BattleActionQueue.new()
-	
-	# Setting up items
-	held_items = items.duplicate(true)
-	item_interface.initialize(held_items)
-	item_interface.activate_item.connect(_on_use_item)
+	battle_events = BattleEventsManager.new()
+	battle_events.initialize(self)
 	
 	# Setting up Cards
 	discard_pile = CardDeck.new() #initialize discard_pile
@@ -102,10 +106,19 @@ func initialize(
 	discard_pile_ui._initialize(discard_pile)
 	energy_counter.initialize(energy)
 	
+	# Setting up items
+	held_items = items.duplicate(true)
+	
+	# Setting battle display
+	battle_display.initialize_with_battle(self)
+	battle_display.item_interface.activate_item.connect(_on_use_item)
+	#item_interface.initialize(held_items)
+	#item_interface.activate_item.connect(_on_use_item)
+	
 	player_entity.damaged.connect(_on_player_damaged)
 	
 	# Starting Battle
-	_start_player_turn()
+	#_start_player_turn()
 
 
 func _on_player_damaged(amount:int):
@@ -144,6 +157,7 @@ func create_action_intent(entity:BattleEntity):
 	var new_intent_icon:BattleIntentIcon = INTENT_ICON.instantiate()
 	entity.add_child(new_intent_icon)
 	new_intent_icon.global_position.y -= 70
+	new_intent_icon.global_position.x -= 12
 	new_intent_icon.initialize(next_move)
 	action_intentions[entity] = new_intent_icon
 
@@ -168,7 +182,7 @@ func _start_player_turn():
 	player_entity.defense.set_to_zero()
 	
 	if draw_pile.cards.is_empty():
-		discard_pile.transfer_cards_to_deck(draw_pile, true)
+		discard_pile.transfer_cards_to_deck(draw_pile, true, true)
 	
 	var drawn_cards = draw_pile.draw_cards(5)
 	for card in drawn_cards:
@@ -197,20 +211,22 @@ func end_player_turn() -> void:
 		discard_pile.add_card(card_ui.card_data)
 	player_card_hand.clear_hand()
 	
+	player_turn_ended.emit()
 	battle_state = BattleState.ENEMY_TURN
-	_start_enemy_turn()
 
 
 func _start_enemy_turn() -> void:
+	await get_tree().create_timer(0.5).timeout
 	for entity in action_intentions:
-		resolve_enemy_intention(entity)
 		enemy_delay_timer.start()
+		resolve_enemy_intention(entity)
 		await enemy_delay_timer.timeout
 	
 	if !action_queue.queue.is_empty():
 		await action_queue.processed_all_actions
 	
-	await get_tree().create_timer(1).timeout
+	enemy_turn_ended.emit()
+	await get_tree().create_timer(1.2).timeout
 	
 	battle_state = BattleState.PLAYER_TURN
 	_start_player_turn()
@@ -248,10 +264,11 @@ func _on_use_item(item_index:int):
 	held_items[item_index]._use_item(player_entity, self)
 	GlobalSessionManager._remove_held_item(held_items[item_index])
 	
-	held_items.pop_at(item_index)
-	item_interface.initialize(held_items)
-	if held_items.is_empty():
-		item_interface.clear_item_slots()
+	var used_item:ItemData = held_items.pop_at(item_index)
+	#item_interface.initialize(held_items)
+	item_used.emit(used_item, held_items)
+	#if held_items.is_empty():
+	#	item_interface.clear_item_slots()
 
 func _on_entity_defeated(battle_entity:BattleEntity):
 	if player_entity.is_defeated:

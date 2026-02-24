@@ -11,6 +11,7 @@ class_name Entity
 ## emitting signals for status changes and coordinating animations in
 ## response to combat events.
 
+signal increased_max_health(current:int)
 signal defeated(entity:Entity)
 signal healed(amount:int)
 signal damaged(amount:int)
@@ -44,6 +45,7 @@ var last_attacker:BattleEntity = null
 var is_defeated:bool = false
 var can_heal:bool = true
 var can_take_damage:bool = true
+var ignore_projectiles:bool = false
 
 # -------------------------------------------------
 # Initializing & deleting game session
@@ -65,13 +67,11 @@ func initialize(entity_data:EntityData, starting_health:int = -1):
 	# Ensures resource for entity_data is unique to this instance
 	data = entity_data
 	sprite_2d.texture = entity_data.display_texture
-	#animation_player.add_animation_library(
-			#"entity",
-			#entity_data.animation_library
-	#)
+	
 	_health = HealthComponent.new(entity_data.max_health)
 	if starting_health > -1:
 		_health.current_health = starting_health
+	
 	
 	if name_label:
 		name_label.text = entity_data.name
@@ -121,6 +121,12 @@ func heal(amount:float):
 	animation_player.stop()
 	animation_player.play("entity/heal")
 	await animation_player.animation_finished
+
+
+func increase_max_health(amount:int):
+	_health.max_health += amount
+	_health.health_changed.emit(_health.current_health, _health.max_health)
+	increased_max_health.emit(_health.max_health)
 
 
 # Will trigger _on_defeated logic via signal from initialize

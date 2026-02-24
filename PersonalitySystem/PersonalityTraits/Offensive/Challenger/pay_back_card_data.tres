@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://btty5jrbwykeo"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_tjkli"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="2_4lo3m"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="3_4lo3m"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="3_08c5w"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="4_oyp8o"]
+
+[sub_resource type="Resource" id="Resource_b50eh"]
+script = ExtResource("2_4lo3m")
+damage = 0
+sample_from = 3
+use_damage_sampling = true
+target = 2
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_1x01y"]
+script = ExtResource("3_08c5w")
+name = "Pay Back"
+description = "Deal the total amount of damage you took last turn."
+actions = Array[ExtResource("1_tjkli")]([SubResource("Resource_b50eh")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("4_oyp8o")
+energy_cost = 4
+move = SubResource("Resource_1x01y")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

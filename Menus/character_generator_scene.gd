@@ -96,7 +96,6 @@ func _on_start_battle_button_up() -> void:
 			strategic_weight.value
 	)
 	
-	
 	GlobalSessionManager.initialize_new_run(
 		character_sprite.texture,
 		name_label.text,
@@ -104,12 +103,6 @@ func _on_start_battle_button_up() -> void:
 		personality_data,
 		load("res://Cards/Decks/starting_card_deck.tres")
 	)
-	
-	GlobalSessionManager.run_progress.map_seed = randi()
-	GlobalSessionManager.run_progress.player_node_index = 0
-	GlobalSaveManager.save_run(GlobalSessionManager.run_progress)
-	
-	GlobalSaveManager.save_run(GlobalSessionManager.run_progress)
 	
 	# Fletcher - Changed from load battle scene to load map scene.
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)

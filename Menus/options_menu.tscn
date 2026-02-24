@@ -2,45 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_3l5it"]
 [ext_resource type="Script" uid="uid://8ydj2bjd1wqa" path="res://Menus/options_menu.gd" id="1_pnmk5"]
-[ext_resource type="Texture2D" uid="uid://c376h7t33pa0t" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-003.png" id="2_pnmk5"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvvvu"]
-content_margin_left = 26.0
-content_margin_top = 18.0
-content_margin_right = 26.0
-content_margin_bottom = 18.0
-texture = ExtResource("2_pnmk5")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_07i5k"]
-load_path = "res://.godot/imported/panel-003.png-2da624981b42830125a8f21c4185f849.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7suw"]
-content_margin_left = 26.0
-content_margin_top = 18.0
-content_margin_right = 26.0
-content_margin_bottom = 18.0
-texture = SubResource("CompressedTexture2D_07i5k")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-modulate_color = Color(0.4109551, 0.15690279, 0.36061883, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u6jki"]
-content_margin_left = 26.0
-content_margin_top = 18.0
-content_margin_right = 26.0
-content_margin_bottom = 18.0
-texture = ExtResource("2_pnmk5")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-modulate_color = Color(0.31907254, 0.33031124, 0.5477941, 1)
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://Battle/Core/BattleField/BattlePositions/PositionEffects/Data/select_button.tscn" id="3_7gq10"]
 
 [node name="OptionsMenu" type="Control" unique_id=2034364420]
 layout_mode = 3
@@ -164,16 +126,12 @@ placeholder_text = "w=Forward"
 max_length = 100
 expand_to_text_length = true
 
-[node name="GoBack" type="Button" parent="OptionsMenuElements" unique_id=396238013]
-texture_filter = 1
+[node name="Return" parent="OptionsMenuElements" unique_id=395129651 instance=ExtResource("3_7gq10")]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_3l5it")
-theme_override_font_sizes/font_size = 26
-theme_override_styles/normal = SubResource("StyleBoxTexture_fvvvu")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_k7suw")
-theme_override_styles/hover = SubResource("StyleBoxTexture_u6jki")
-text = "Go back"
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Return"
+horizontal_alignment = 1
 
-[connection signal="button_up" from="OptionsMenuElements/GoBack" to="." method="_on_go_back_button_up"]
+[connection signal="clicked" from="OptionsMenuElements/Return" to="." method="_on_go_back_button_up"]

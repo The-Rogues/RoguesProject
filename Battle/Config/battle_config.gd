@@ -1,4 +1,4 @@
-extends RefCounted
+extends Resource
 class_name BattleSceneConfiguration
 ## RefCounted used to store temporary compact configuration data for [BattleScene]
 ##
@@ -7,14 +7,14 @@ class_name BattleSceneConfiguration
 ## from a global.
 
 
-var enemy_encounter:EnemyEncounter = null
-var object_layout:BattleObjectLayout = null
-var character_entity_data:EntityData = null
-var personality_data:PersonalityData = null
-var held_items:Array[ItemData] = []
-var card_deck:CardDeck
-var energy:int = 5
-var current_character_health:int
+@export var enemy_encounter:EnemyEncounter = null
+@export var object_layout:BattleObjectLayout = null
+@export var character_entity_data:EntityData = null
+@export var personality_data:PersonalityData = null
+@export var held_items:Array[ItemData] = []
+@export var card_deck:CardDeck
+@export var energy:int = 5
+@export var current_character_health:int
 
 
 func _init(

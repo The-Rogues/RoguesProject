@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PositionEffectData" format=3 uid="uid://w18rfptn6sb0"]
+
+[ext_resource type="Texture2D" uid="uid://e6ny87os8hbc" path="res://Battle/Actions/StatusEffects/Regenerating/regenerating_status_effect_texture.tres" id="1_wfhq3"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://Battle/Core/BattleField/BattlePositions/position_effect_data.gd" id="2_pqg4r"]
+
+[resource]
+script = ExtResource("2_pqg4r")
+name = "charge"
+use_particles = true
+duration = 3
+position_texture_color = Color(0.4745098, 0.8784314, 0.39215687, 1)
+particle_texture = ExtResource("1_wfhq3")
+particle_texture_color = Color(0.4745098, 0.8784314, 0.39215687, 1)
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"

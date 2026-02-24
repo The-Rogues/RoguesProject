@@ -1,28 +1,22 @@
 [gd_scene format=3 uid="uid://bgl7m0q246gct"]
 
-[ext_resource type="Texture2D" uid="uid://dxunydpuloswx" path="res://Battle/Core/BattleField/BattlePositions/battle_position_texture.tres" id="1_02k21"]
 [ext_resource type="Script" uid="uid://cmrvp5643trh" path="res://Battle/Core/BattleField/BattlePositions/battle_position.gd" id="1_yc0tb"]
-[ext_resource type="Texture2D" uid="uid://du0mhjd4rafgh" path="res://Battle/Core/BattleField/BattlePositions/charged_position_texture.tres" id="3_6udjb"]
+[ext_resource type="Texture2D" uid="uid://bbna6hlij55gb" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-014.png" id="2_l1an8"]
+[ext_resource type="PackedScene" uid="uid://brdj4nvdxusu6" path="res://Battle/Core/BattleField/BattlePositions/PositionEffects/position_effect.tscn" id="3_n6c44"]
 
 [node name="BattlePosition" type="Node2D" unique_id=871404214]
 script = ExtResource("1_yc0tb")
-defense_color = Color(0.06079697, 0.33492967, 0.7096267, 1)
-offense_color = Color(1, 0.21906406, 0.25121477, 1)
-aggression_color = Color(0.88776773, 0.3185661, 0.11555747, 1)
-preservation_color = Color(0, 0.60543, 0.64711386, 1)
-motivation_color = Color(0, 0.6679592, 0.2255308, 1)
-default_color = Color(1, 1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=830402643]
-modulate = Color(0.103743516, 0.10374353, 0.103743516, 1)
+modulate = Color(0.10974743, 0.10571756, 0.16943917, 1)
 texture_filter = 1
-position = Vector2(0, 22)
-scale = Vector2(6, 1)
-texture = ExtResource("1_02k21")
+position = Vector2(0, 16)
+scale = Vector2(0.6, 0.4)
+texture = ExtResource("2_l1an8")
 
-[node name="OpportunitySprite" type="Sprite2D" parent="." unique_id=1577265998]
+[node name="ObjectSlot" type="Node2D" parent="." unique_id=2144847845]
+position = Vector2(0, -50)
+
+[node name="PositionEffect" parent="." unique_id=1528126349 instance=ExtResource("3_n6c44")]
 visible = false
-texture_filter = 1
-position = Vector2(0, 20)
-scale = Vector2(6, 1)
-texture = ExtResource("3_6udjb")
+position = Vector2(0, 16)

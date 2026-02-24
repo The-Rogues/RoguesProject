@@ -6,14 +6,15 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phasc"]
 texture = ExtResource("1_14737")
-modulate_color = Color(0.96268386, 0.59489334, 0.18614554, 1)
 
 [node name="EnergyCounter" type="PanelContainer" unique_id=396974568]
 custom_minimum_size = Vector2(64, 64)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_phasc")
 script = ExtResource("2_bm7x4")
+active_color = Color(0.9607843, 0.59607846, 0.18431373, 1)
+inactive_color = Color(0.47003037, 0.12815171, 0.048092514, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1012317755]
 texture_filter = 1

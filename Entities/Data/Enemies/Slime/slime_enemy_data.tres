@@ -12,14 +12,15 @@
 
 [sub_resource type="Resource" id="Resource_48npq"]
 script = ExtResource("9_4kgyc")
-damage = 5
+damage = 4
 target = 1
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_tp02r"]
 script = ExtResource("6_vo3w3")
+is_attack = true
 action_display_icon = ExtResource("7_7f4jj")
-description = "Deals 5 damage."
+description = "Deals 4 damage."
 actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_48npq")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
@@ -33,6 +34,7 @@ metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_ucdgb"]
 script = ExtResource("6_vo3w3")
+is_attack = true
 action_display_icon = ExtResource("7_7f4jj")
 name = "Acid"
 description = "Inflicts 2 weakness for next turn."
@@ -52,6 +54,7 @@ metadata/_custom_type_script = "uid://5hjapp3udi62"
 
 [sub_resource type="Resource" id="Resource_alf15"]
 script = ExtResource("6_vo3w3")
+is_attack = true
 action_display_icon = ExtResource("7_7f4jj")
 name = "Absorb"
 description = "Deals 2 damage and heals 4."
@@ -63,5 +66,5 @@ script = ExtResource("9_dla6b")
 move_set = Array[ExtResource("6_vo3w3")]([SubResource("Resource_tp02r"), SubResource("Resource_ucdgb"), SubResource("Resource_alf15")])
 display_texture = ExtResource("4_qx4hj")
 name = "Slime"
-max_health = 42
+max_health = 25
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

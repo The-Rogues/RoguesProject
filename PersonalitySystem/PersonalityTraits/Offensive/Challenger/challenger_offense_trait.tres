@@ -11,4 +11,5 @@ targeting_bias = 1
 trait_icon = SubResource("CompressedTexture2D_7n42b")
 id = "challenger"
 name = "Challenger"
+description = "Looks to challenge themself. Targets strong opponents."
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

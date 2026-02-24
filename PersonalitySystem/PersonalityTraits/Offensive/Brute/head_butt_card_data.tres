@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_xdiqx"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="3_6uivh"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_etgih"]
-[ext_resource type="Resource" uid="uid://b7kiwqqcgj4el" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_trait_data.tres" id="4_ndeka"]
 [ext_resource type="Script" uid="uid://csd6aipkoxola" path="res://Battle/Actions/Atomic/alternate_personality_personality_action.gd" id="5_8l37m"]
 
 [sub_resource type="Resource" id="Resource_k7a6b"]
@@ -19,9 +18,12 @@ script = ExtResource("2_ujwtt")
 damage = 4
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
+[sub_resource type="Resource" id="Resource_emvd8"]
+metadata/__load_path__ = "res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_trait_data.tres"
+
 [sub_resource type="Resource" id="Resource_eoi3t"]
 script = ExtResource("5_8l37m")
-personality_trait = ExtResource("4_ndeka")
+personality_trait = SubResource("Resource_emvd8")
 default_action = SubResource("Resource_bxx4r")
 metadata/_custom_type_script = "uid://csd6aipkoxola"
 

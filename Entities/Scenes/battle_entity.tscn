@@ -126,23 +126,28 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 15.0
+offset_right = 1.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(22, -3)
+
+[node name="HealthBar" parent="UI/Display" unique_id=1638125087 instance=ExtResource("7_ntd4e")]
+custom_minimum_size = Vector2(90, 4)
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="NameLabel" type="Label" parent="UI/Display" unique_id=55657958]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_gatny")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 12
 text = "Unkown"
 horizontal_alignment = 1
-
-[node name="HealthBar" parent="UI/Display" unique_id=1638125087 instance=ExtResource("7_ntd4e")]
-custom_minimum_size = Vector2(43, 6)
-layout_mode = 2
-size_flags_horizontal = 4
 
 [node name="StatusConditions" type="HBoxContainer" parent="UI/Display" unique_id=965637377]
 layout_mode = 2
@@ -152,20 +157,26 @@ script = ExtResource("8_j534h")
 control = NodePath("../Display")
 
 [node name="DamageNumbers" type="Control" parent="UI" unique_id=693407505]
-anchors_preset = 0
-offset_left = 21.0
-offset_top = 5.0
-offset_right = 64.0
-offset_bottom = 5.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -47.0
+offset_right = 22.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("5_rn367")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=1164205110]
 layout_mode = 0
-offset_left = -34.0
-offset_top = 4.0
-offset_right = 16.0
-offset_bottom = 28.0
+offset_left = -44.0
+offset_right = 6.0
+offset_bottom = 24.0
 theme_override_constants/separation = 2
 alignment = 2
 

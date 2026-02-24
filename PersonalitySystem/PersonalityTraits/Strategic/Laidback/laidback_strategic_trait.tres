@@ -8,5 +8,5 @@ script = ExtResource("1_oj5bv")
 trait_icon = ExtResource("2_j4lr6")
 id = "laidback"
 name = "Laidback"
-description = "Comfortable in most situations. Conserves energy until the right moment to act."
+description = "Calm in most situations. Conserves energy until the right moment to act."
 metadata/_custom_type_script = "uid://bllaybhbcrgk4"

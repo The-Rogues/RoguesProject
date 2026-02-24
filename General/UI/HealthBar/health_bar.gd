@@ -18,6 +18,7 @@ func initialize(health_component:HealthComponent):
 	health_label.text = str(int(value)) + "/" + str(int(max_value))
 	health_component.health_changed.connect(_on_health_changed)
 
+
 func _on_health_changed(current:int, max:int):
 	value = current
 	if health_label:

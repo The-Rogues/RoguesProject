@@ -1,129 +1,125 @@
 [gd_scene format=3 uid="uid://dbt3n70fcylp3"]
 
-[ext_resource type="Texture2D" uid="uid://7tbklim4gu2e" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0028_emoji29.png" id="1_0lwet"]
 [ext_resource type="Script" uid="uid://7f0ek6d467qa" path="res://PersonalitySystem/traits_display.gd" id="1_o10x6"]
 [ext_resource type="Script" uid="uid://pxlprseij451" path="res://General/UI/ContextPanel/hover_context_popup.gd" id="2_o10x6"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://General/UI/ContextPanel/context_panel.tscn" id="3_a2fav"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_nuge6"]
-[ext_resource type="Texture2D" uid="uid://fipkp3167c1d" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0026_emoji27.png" id="4_aaoii"]
-[ext_resource type="Texture2D" uid="uid://qtxteloxo0em" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0009_emoji10.png" id="5_nuge6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2fav"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaoii"]
-
 [node name="TraitsDisplay" type="PanelContainer" unique_id=1527129464]
-offset_right = 205.0
-offset_bottom = 59.0
+offset_right = 225.0
+offset_bottom = 26.0
 size_flags_vertical = 0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_a2fav")
 script = ExtResource("1_o10x6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1677645526]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=997732154]
+[node name="Offensive" type="VBoxContainer" parent="HBoxContainer" unique_id=513094981]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_aaoii")
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=1785719479]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=838283492]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=763705832]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 16
-
-[node name="OffensiveTraitRect" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1219277905 node_paths=PackedStringArray("context_panel")]
-self_modulate = Color(1, 1, 1, 0.62352943)
+[node name="Trait" type="Label" parent="HBoxContainer/Offensive" unique_id=2132987890 node_paths=PackedStringArray("context_panel")]
 texture_filter = 1
-custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("1_0lwet")
-expand_mode = 1
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 14
+text = "Trait"
+horizontal_alignment = 1
 script = ExtResource("2_o10x6")
-context_panel = NodePath("OffensiveContext")
+context_panel = NodePath("Context")
+dynamic_positioning = false
 
-[node name="OffensiveContext" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/OffensiveTraitRect" unique_id=1838000936 instance=ExtResource("3_a2fav")]
+[node name="Context" parent="HBoxContainer/Offensive/Trait" unique_id=1838000936 instance=ExtResource("3_a2fav")]
 visible = false
 layout_mode = 0
-offset_left = 18.0
-offset_top = -41.0
-offset_right = 230.0
-offset_bottom = 19.0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
 
-[node name="OffensiveWeightLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/OffensiveTraitRect" unique_id=1054567618]
-layout_mode = 0
-offset_top = 28.0
-offset_right = 28.0
-offset_bottom = 43.0
+[node name="Weight" type="Label" parent="HBoxContainer/Offensive" unique_id=184623648]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
 theme_override_fonts/font = ExtResource("3_nuge6")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 text = "10"
 horizontal_alignment = 1
 
-[node name="DefensiveTraitRect" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=56787649 node_paths=PackedStringArray("context_panel")]
-self_modulate = Color(1, 1, 1, 0.62352943)
-texture_filter = 1
-custom_minimum_size = Vector2(28, 28)
+[node name="Defensive" type="VBoxContainer" parent="HBoxContainer" unique_id=1234411490]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("4_aaoii")
-expand_mode = 1
-script = ExtResource("2_o10x6")
-context_panel = NodePath("DefensiveContext")
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
 
-[node name="DefensiveContext" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DefensiveTraitRect" unique_id=158347691 instance=ExtResource("3_a2fav")]
+[node name="Trait" type="Label" parent="HBoxContainer/Defensive" unique_id=2133974777 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 14
+text = "Trait"
+horizontal_alignment = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("Context")
+dynamic_positioning = false
+
+[node name="Context" parent="HBoxContainer/Defensive/Trait" unique_id=1642401931 instance=ExtResource("3_a2fav")]
 visible = false
 layout_mode = 0
-offset_left = 18.0
-offset_top = -41.0
-offset_right = 230.0
-offset_bottom = 19.0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
 
-[node name="DefensiveWeightLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/DefensiveTraitRect" unique_id=1979068592]
-layout_mode = 0
-offset_top = 28.0
-offset_right = 28.0
-offset_bottom = 43.0
+[node name="Weight" type="Label" parent="HBoxContainer/Defensive" unique_id=1082016512]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
 theme_override_fonts/font = ExtResource("3_nuge6")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 text = "10"
 horizontal_alignment = 1
 
-[node name="StrategicRect" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=441853595 node_paths=PackedStringArray("context_panel")]
-self_modulate = Color(1, 1, 1, 0.62352943)
-texture_filter = 1
-custom_minimum_size = Vector2(28, 28)
+[node name="Strategic" type="VBoxContainer" parent="HBoxContainer" unique_id=417468649]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("5_nuge6")
-expand_mode = 1
-script = ExtResource("2_o10x6")
-context_panel = NodePath("StrategicContext")
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
 
-[node name="StrategicContext" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/StrategicRect" unique_id=1691229288 instance=ExtResource("3_a2fav")]
+[node name="Trait" type="Label" parent="HBoxContainer/Strategic" unique_id=1473143626 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 14
+text = "Trait"
+horizontal_alignment = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("Context")
+dynamic_positioning = false
+
+[node name="Context" parent="HBoxContainer/Strategic/Trait" unique_id=2130937330 instance=ExtResource("3_a2fav")]
 visible = false
 layout_mode = 0
-offset_left = 18.0
-offset_top = -41.0
-offset_right = 230.0
-offset_bottom = 19.0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
 
-[node name="StrategicLabel" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/StrategicRect" unique_id=1239143003]
-layout_mode = 0
-offset_top = 28.0
-offset_right = 28.0
-offset_bottom = 43.0
+[node name="Weight" type="Label" parent="HBoxContainer/Strategic" unique_id=482142294]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
 theme_override_fonts/font = ExtResource("3_nuge6")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 text = "10"
 horizontal_alignment = 1

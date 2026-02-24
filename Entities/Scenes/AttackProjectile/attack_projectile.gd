@@ -1,6 +1,9 @@
 extends Area2D
 class_name AttackProjectile
 
+signal destroyed
+
+
 enum DamageTarget {PLAYER, ENEMY}
 @export var damages:DamageTarget
 @export var speed: float = 500.0
@@ -13,11 +16,15 @@ var active:bool = false
 var velocity: Vector2 = Vector2.ZERO
 var projectile_owner
 
-#func _ready():
-	# Connect the body_entered signal to a function to handle collisions
-	#body_entered.connect(_on_body_entered)
-	# Connect the Timer's timeout signal to queue_free
-	#timer.timeout.connect(_on_timer_timeout)
+const FLOATING_NUMBERS = preload(
+		"res://General/UI/DamageNumbers/floating_numbers.tscn"
+)
+
+func display_floating_numbers(text:String, parent):
+	var new_pop_text = FLOATING_NUMBERS.instantiate()
+	parent.add_child(new_pop_text)
+	
+	new_pop_text.initialize(text, Color.DIM_GRAY)
 
 func _physics_process(delta):
 	if !active:
@@ -62,8 +69,14 @@ func _on_body_entered(body):
 		if collision_projectile_owner is ObjectEntity:
 			if collision_projectile_owner.data.attack_filter != ObjectEntityData.AttackFilter.IGNORE:
 				collision_projectile_owner.take_damage(damage)
+				destroyed.emit()
 		else:
-			body.get_parent().take_damage(damage)
+			if not body.get_parent().ignore_projectiles:
+				body.get_parent().take_damage(damage)
+				destroyed.emit()
+			else:
+				display_floating_numbers("Miss...", body.get_parent())
+				return
 	else:
 		return
 	
@@ -74,6 +87,7 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	# Remove the projectile after a set time to prevent it from traveling forever
+	destroyed.emit()
 	queue_free()
 
 func spawn_particles(position:Vector2):

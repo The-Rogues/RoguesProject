@@ -1,76 +1,88 @@
 extends Node2D
 class_name BattlePosition
-## Battlefield position node that manages temporary combat opportunities.
+## Represents a static position a [BattleEntity] can be moved towards in battles.
 ##
-## Tracks and visually represents short-lived opportunity states (such as
-## offense, defense, or preservation) associated with a battle position.
-## Opportunities decay over time and automatically reset once their lifespan
-## expires.
-##
-## This node is responsible for opportunity state management and visual
-## feedback only; higher-level battle logic determines when opportunities
-## are created or consumed.
+## Battle positions can have objects infront of them and the position itself
+## can have a effect when stood on or exited. Both affect the entity standing
+## on the position so the player can be enticed or avoid positions throughout
+## a battle. BattlePositions will act as normal if they have no objects or 
+## effects assigned. The ideal implementation of a [BattlePosition] is for it
+## to be stored in a serialized array as part of a battle position management
+## script
 
-enum Opportunity {NONE, DEFENSE, OFFENSE, AGGRESSION, PRESERVATION, MOTIVATION}
-@export var opportunity:Opportunity = Opportunity.NONE
+@onready var object_slot: Node2D = $ObjectSlot
+var object:ObjectEntity
+@onready var effect: PositionEffect = $PositionEffect
+var entity:BattleEntity
 
-@export var defense_color:Color
-@export var offense_color:Color
-@export var aggression_color:Color
-@export var preservation_color:Color
-@export var motivation_color:Color
-@export var default_color:Color
+const OBJECT = preload("res://Entities/Scenes/object_entity.tscn")
+const FLOATING_NUMBERS = preload(
+		"res://General/UI/DamageNumbers/floating_numbers.tscn"
+)
 
-var life_span:int = 0
-
-@onready var opportunity_sprite: Sprite2D = $OpportunitySprite
-
-func has_opportunity():
-	return opportunity != Opportunity.NONE
-
-func decay():
-	if life_span == 0:
-		return
-	life_span -= 1
-	if life_span == 0:
-		opportunity = Opportunity.NONE
-		opportunity_sprite.visible = false
-
-func set_opportunity(new_opportunity:Opportunity):
-	if has_opportunity():
-		return
-	life_span = randi_range(1, 3)
-	opportunity = new_opportunity
-	opportunity_sprite.visible = true
+func display_floating_numbers(text:String):
+	var new_pop_text = FLOATING_NUMBERS.instantiate()
+	add_child(new_pop_text)
 	
-	match opportunity:
-		Opportunity.DEFENSE:
-			opportunity_sprite.modulate = defense_color
-		Opportunity.OFFENSE:
-			opportunity_sprite.modulate = offense_color
-		Opportunity.AGGRESSION:
-			opportunity_sprite.modulate = aggression_color
-		Opportunity.PRESERVATION:
-			opportunity_sprite.modulate = preservation_color
-		Opportunity.MOTIVATION:
-			opportunity_sprite.modulate = motivation_color
-		Opportunity.NONE:
-			opportunity_sprite.modulate = default_color
-			opportunity_sprite.visible = false
-'''
-func on_player_entered_opportunity(battle_position:BattlePosition):
-	if !player_entity:
+	new_pop_text.initialize(text, Color.WHITE)
+
+
+func set_object(object_data:ObjectEntityData):
+	if not object_data:
 		return
 	
-	if !battle_position.has_opportunity():
-		player_on_opportunity = false
-		return
+	var object_entity:ObjectEntity = OBJECT.instantiate()	
+	object_slot.add_child(object_entity)
+	object_entity.initialize(object_data)
+	object_entity.global_position = object_slot.global_position
+	object = object_entity
 	
-	match battle_position.opportunity:
-		BattlePosition.Opportunity.DEFENSE:
-			player_entity.entity_data.defense_amplifier.increase(0.5)
-		BattlePosition.Opportunity.OFFENSE:
-			player_entity.entity_data.attack_amplifier.increase(0.5)
+	object.defeated.connect(remove_object)
+
+
+func remove_object(object_entity:Entity):
+	if object:
+		object.queue_free()
+		object = null
+
+
+func set_effect(effect_data:PositionEffectData):
+	if !effect.data:
+		effect.initialize(effect_data)
+		display_floating_numbers(effect_data.name)
+	elif effect.data.priority < effect_data.priority:
+		effect.initialize(effect_data)
+		display_floating_numbers(effect_data.name)
+	effect_data.ended.connect(remove_effect)
 	
-	player_on_opportunity = true
-'''
+	if entity:
+		on_entity_entered(entity)
+
+
+func remove_effect():
+	if effect.data:
+		effect.end_effect()
+	display_floating_numbers("Effect Over")
+
+
+func on_entity_entered(battle_entity:BattleEntity):
+	if effect.data:
+		print("entered")
+		effect.data.on_entered(battle_entity)
+	
+	entity = battle_entity
+
+
+func on_entity_exited(battle_entity:BattleEntity):
+	if effect.data:
+		effect.data.on_exited(battle_entity)
+	
+	entity  = null
+
+
+func start_turn():
+	if effect.data and entity:
+		effect.data.on_turn_started(entity)
+	
+	if object:
+		object._on_new_turn_started()

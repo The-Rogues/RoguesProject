@@ -1,3 +1,3 @@
-res://PersonalitySystem/PersonalityTraits/strategic_trait.gd
+res://Cards/Core/card_data.gd
 AtlasTexture
 CardData
