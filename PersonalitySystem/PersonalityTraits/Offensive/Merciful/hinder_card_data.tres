@@ -1,22 +1,23 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://chjspg3xitqc4"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_bt1a0"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="2_1irc1"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_26ccs"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_1irc1"]
+[ext_resource type="Resource" uid="uid://b7bt32bi465gh" path="res://Battle/Actions/StatusEffects/Weakened/weakness_status_effect_data.tres" id="3_bjf36"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="3_moxos"]
 
-[sub_resource type="Resource" id="Resource_35pxf"]
-script = ExtResource("2_1irc1")
-damage = 12
-target = 2
-metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+[sub_resource type="Resource" id="Resource_y3ov6"]
+script = ExtResource("3_moxos")
+status_effect = ExtResource("3_bjf36")
+status_duration = 1
+metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_hqmi8"]
 script = ExtResource("2_26ccs")
-name = "Hinder"
-description = "Deals 12 damage. If target is below 2/3rds HP, deals 2 instead."
-actions = Array[ExtResource("1_bt1a0")]([SubResource("Resource_35pxf")])
+move_type = 1
+name = "Hold back"
+description = "User gains weakness until next turn."
+actions = Array[ExtResource("1_bt1a0")]([SubResource("Resource_y3ov6")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

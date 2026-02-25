@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cnaxagwekem21"]
+
+[ext_resource type="Script" uid="uid://dr4qudbgh0so8" path="res://Testing/Moods/emote.gd" id="1_kcenv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c1yrt"]
+load_path = "res://.godot/imported/emote__.png-c18fc169bd3d2734915af2d5a546d210.ctex"
+
+[node name="Emote" type="Node2D" unique_id=1363784822]
+script = ExtResource("1_kcenv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1856688397]
+texture_filter = 1
+position = Vector2(0, -9)
+texture = SubResource("CompressedTexture2D_c1yrt")

@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_l7n8r"]
 [ext_resource type="Texture2D" uid="uid://c376h7t33pa0t" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-003.png" id="2_u6jki"]
 [ext_resource type="PackedScene" uid="uid://cq0uplsomgf1v" path="res://Menus/options_menu.tscn" id="3_l7n8r"]
-[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://Battle/Core/BattleField/BattlePositions/PositionEffects/Data/select_button.tscn" id="4_1yt4p"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://Testing/select_button.tscn" id="4_1yt4p"]
 [ext_resource type="Script" uid="uid://cdpe0m5vwdr35" path="res://Menus/start_menu.gd" id="5_vv2lb"]
 [ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Border/panel-border-007.png" id="6_ijfeh"]
 [ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_r372n"]
@@ -237,7 +237,6 @@ text = "Exit game"
 horizontal_alignment = 1
 
 [node name="StartMenu" type="Control" parent="UILayer/Control" unique_id=1405818906 node_paths=PackedStringArray("main_menu")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

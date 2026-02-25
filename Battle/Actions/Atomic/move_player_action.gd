@@ -5,7 +5,7 @@ enum DirectionType {LEFT, RIGHT, RANDOM}
 @export var direction:DirectionType
 @export_range(1, 4) var steps:int = 1
 
-func _execute(battle_instance:BattleManager, action_user:BattleEntity):
+func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	if not battle_instance.player_entity.can_move:
 		battle_instance.player_entity.animation_player.play("entity/healed")
 		await battle_instance.action_delay()

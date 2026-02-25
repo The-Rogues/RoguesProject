@@ -12,8 +12,6 @@ func initialize(battle_move:BattleMove):
 	icon.texture = battle_move.action_display_icon
 	amplifier.text = ""
 	context_panel.set_context(battle_move.description)
-	if battle_move.is_attack:
-		amplifier.text = str(battle_move.get_total_damage())
 	self.battle_move = battle_move
 	animation_player.play("idle")
 

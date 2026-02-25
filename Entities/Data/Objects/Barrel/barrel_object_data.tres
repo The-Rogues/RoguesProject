@@ -10,8 +10,10 @@ attack_filter = 1
 display_texture = ExtResource("3_g83gj")
 id = "object"
 name = "Barrel"
-description = "Thrown when attacked."
-max_health = 10
+description = "Barrel.
+Type: Weapon
+Thrown when attacked."
+max_health = 1
 launch_when_defeated = true
 bounce_count = 1
 metadata/_custom_type_script = "uid://o5nbdchxwujp"

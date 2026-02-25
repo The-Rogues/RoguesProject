@@ -16,8 +16,11 @@ signal arrived
 
 @onready var defense_stat_icon: StatIcon = $UI/HBoxContainer/DefenseStatIcon
 @onready var parry_stat_icon: StatIcon = $UI/HBoxContainer/ParryStatIcon
+@onready var object_holder: PanelContainer = $UI/ObjectHolder
+@onready var object_texture: TextureRect = $UI/ObjectHolder/ObjectTexture
+@onready var status_parent: HBoxContainer = $UI/Display/StatusConditions
 
-
+var carried_object:ObjectEntityData
 var defense:DefenseComponent
 var parry:ParryComponent
 var status_conditions:StatusEffectsComponent
@@ -95,7 +98,7 @@ func _on_new_turn_started():
 	#defense.set_to_zero()
 	#parry.set_to_zero()
 	damage_taken = 0
-	status_conditions.decay_status_effects()
+	#status_conditions.decay_status_effects()
 
 # -------------------------------------------------
 # Movement functions
@@ -119,6 +122,19 @@ func spare():
 	move_to(Vector2(global_position.x, 100))
 	await arrived
 	kill()
+
+
+func carry_object(object_data:ObjectEntityData):
+	carried_object = object_data
+	object_holder.visible = true
+	object_texture.texture = object_data.display_texture
+
+
+func drop_object():
+	if carried_object:
+		carried_object = null
+		object_holder.visible = false
+		object_texture.texture = null
 
 
 func _on_started_moving():

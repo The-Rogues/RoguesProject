@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeakenedStatusEffect" format=3 uid="uid://b7bt32bi465gh"]
 
-[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Kenny Art/Icons/Icons_RPG.png" id="1_jwpu3"]
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Nikoichu/Icons/Icons_RPG.png" id="1_jwpu3"]
 [ext_resource type="Script" uid="uid://c8hec3cwr5d65" path="res://Battle/Actions/StatusEffects/Weakened/weakened_status_effect_data_script.gd" id="1_mr685"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bwrg"]

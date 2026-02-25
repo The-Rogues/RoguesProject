@@ -1,36 +1,33 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bg6c4g3c1qp6p"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_8pglv"]
-[ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://General/PlaceholderArt/32rogues/tiles.png" id="2_8pglv"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="3_4wcro"]
-[ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://Battle/Actions/Atomic/repeat_action.gd" id="4_3oir0"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="5_v45xr"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="6_4rhfl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3e3kx"]
-atlas = ExtResource("2_8pglv")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2oxtb"]
+load_path = "res://.godot/imported/tiles.png-a705a94bb8804d221c01cbb94d207775.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfx5x"]
+atlas = SubResource("CompressedTexture2D_2oxtb")
 region = Rect2(128, 264, 24, 24)
 
-[sub_resource type="Resource" id="Resource_j3bq8"]
+[sub_resource type="Resource" id="Resource_8pglv"]
 script = ExtResource("3_4wcro")
-projectile_texture = SubResource("AtlasTexture_3e3kx")
+projectile_texture = SubResource("AtlasTexture_xfx5x")
 impact_damage = 7
-direction_range = 0.1
+direction_range = 0.2
+shots = 3
+damages = 1
 target = 2
 metadata/_custom_type_script = "uid://c3uyo8xsai327"
-
-[sub_resource type="Resource" id="Resource_ffhl2"]
-script = ExtResource("4_3oir0")
-battle_action = SubResource("Resource_j3bq8")
-repeat = 3
-metadata/_custom_type_script = "uid://cbfakii4lpgc1"
 
 [sub_resource type="Resource" id="Resource_6vqh4"]
 script = ExtResource("5_v45xr")
 move_type = 1
 name = "Sling Shot"
 description = "Fires 3 accurate pellets. Deal 7 damage on impact."
-actions = Array[ExtResource("1_8pglv")]([SubResource("Resource_ffhl2")])
+actions = Array[ExtResource("1_8pglv")]([SubResource("Resource_8pglv")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

@@ -1,0 +1,14 @@
+MarginContainer
+Label
+VBoxContainer
+Panel
+HBoxContainer
+PanelContainer
+Sprite2D
+TextureRect
+AnimationPlayer
+AnimationTree
+TextEdit
+CPUParticles2D
+GPUParticles2D
+Node2D

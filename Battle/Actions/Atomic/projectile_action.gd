@@ -11,7 +11,6 @@ class_name ProjectileAction
 ##
 ## Projectile handle their own logic for damaging entities
 
-
 const ATTACK_PROJECTILE = preload(
 		"res://Entities/Scenes/AttackProjectile/attack_projectile.tscn"
 )
@@ -31,47 +30,114 @@ const ATTACK_PROJECTILE = preload(
 ## targeted entity's position
 @export_range(0, 1) var direction_range:float = 0.35
 
+@export_range(1, 99) var shots:int = 1
+enum RepeatTargetMode { LOCK_TARGETS, REROLL_TARGETS }
+@export var repeat_mode:RepeatTargetMode = RepeatTargetMode.LOCK_TARGETS
+enum HitEffect {
+	NONE,
+	BLOCK,
+	PARRY,
+	STATUS,
+}
 
-func _execute(battle_instance:BattleManager, action_user:BattleEntity):
-	targeting = _resolve_target(battle_instance, action_user)
+enum DamageTarget {PLAYER, ENEMY}
+@export var effect:HitEffect
+@export var damages:DamageTarget
+@export var effect_amount:int
+@export var status:StatusEffectData
+@export var stack:int
+@export var duration:int
+
+
+func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
+	var locked_targets:Array[BattleEntity] = []
 	
-	for target in targeting:
+	if repeat_mode == RepeatTargetMode.LOCK_TARGETS:
+		locked_targets = _resolve_target(battle_instance, _action_user)
+	
+	for shot in shots:
+		var targets := locked_targets if repeat_mode == RepeatTargetMode.LOCK_TARGETS \
+			else _resolve_target(battle_instance, _action_user)
+	
+		_fire_projectiles(battle_instance, _action_user, targets)
+
+
+func _fire_projectiles(
+	battle_instance:BattleManager,
+	_action_user:BattleEntity,
+	targets:Array[BattleEntity]
+):
+	for target in targets:
 		if not target:
 			continue
 		
-		var direction: Vector2 = action_user.global_position.direction_to(
-				target.global_position
-		)
-		var target_is_below = target.global_position.y > action_user.global_position.y
+		var direction := _calculate_direction(_action_user, target)
+		var damage := _calculate_damage(_action_user)
 		
-		var min_angle:float
-		var max_angle:float
-		if target_is_below:
-			# Only allow downward deviation
-			min_angle = 0.0
-			max_angle = direction_range * PI
-		else:
-			# Only allow upward deviation
-			min_angle = -direction_range * PI
-			max_angle = 0.0
+		var projectile := _spawn_projectile(_action_user, direction, damage)
+		projectile.spawn_and_launch(_action_user.global_position, direction)
 		
-		var angle_offset:float = randf_range(min_angle, max_angle)
-		direction = direction.rotated(angle_offset)
-		
-		var projectile: AttackProjectile = ATTACK_PROJECTILE.instantiate()
-		action_user.add_child(projectile)
-		
-		var final_damage:int = impact_damage
-		if action_user is BattleEntity:
-			final_damage = action_user.get_attack_damage(final_damage)
-		
-		projectile.configure(
-			action_user,
-			projectile_texture,
-			speed,
-			final_damage,
-			face_direction
-		)
-		
-		projectile.spawn_and_launch(action_user.global_position, direction)
 		await battle_instance.action_delay()
+
+
+func _calculate_direction(
+	user:BattleEntity,
+	target:BattleEntity
+) -> Vector2:
+	var base_direction := user.global_position.direction_to(
+		target.global_position
+	)
+	
+	if direction_range <= 0:
+		return base_direction
+	
+	var target_below := target.global_position.y > user.global_position.y
+	var min_angle := 0.0
+	var max_angle := 0.0
+	
+	if target_below:
+		max_angle = direction_range * PI
+	else:
+		min_angle = -direction_range * PI
+	
+	return base_direction.rotated(randf_range(min_angle, max_angle))
+
+
+func _calculate_damage(user:BattleEntity) -> int:
+	var damage := impact_damage
+	damage = user.get_attack_damage(damage)
+	return max(damage, 0)
+
+
+func _spawn_projectile(
+	user:BattleEntity,
+	direction:Vector2,
+	damage:int
+) -> AttackProjectile:
+	var projectile:AttackProjectile = ATTACK_PROJECTILE.instantiate()
+	user.add_child(projectile)
+	
+	projectile.configure(
+		user,
+		projectile_texture,
+		speed,
+		damage,
+		face_direction
+	)
+	
+	match effect:
+		HitEffect.NONE:
+			pass
+		HitEffect.BLOCK:
+			projectile.effect == AttackProjectile.HitEffect.BLOCK
+			projectile.effect_amount = effect_amount
+		HitEffect.PARRY:
+			projectile.effect == AttackProjectile.HitEffect.PARRY
+			projectile.effect_amount = effect_amount
+		HitEffect.STATUS:
+			projectile.effect == AttackProjectile.HitEffect.STATUS
+			projectile.status = status
+			projectile.duration = duration
+			projectile.stack = stack
+	
+	return projectile

@@ -3,7 +3,10 @@ class_name PlotArmorTurnEvent
 
 @export_range(1,99) var duration:int = 1
 
-func initialize(new_battle_instance:BattleManager) -> void:
+func initialize(
+		new_battle_instance:BattleManager, 
+		user:BattleEntity = null
+) -> void:
 	super(new_battle_instance)
 	new_battle_instance.new_turn_started.connect(_on_new_turn_started)
 	new_battle_instance.player_entity.ignore_projectiles = true

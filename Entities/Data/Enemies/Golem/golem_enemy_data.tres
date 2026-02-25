@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://boepg3dye1jmp" path="res://Entities/Data/Enemies/Golem/golem_texture.tres" id="4_x6xqj"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="5_l6u86"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="5_tgoyo"]
-[ext_resource type="Script" uid="uid://bs3431dxsoy63" path="res://Battle/Actions/Atomic/block_entity_action.gd" id="5_vls3k"]
+[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="5_vls3k"]
 [ext_resource type="Texture2D" uid="uid://djjgc67emtqut" path="res://Battle/Actions/StatusEffects/Protected/protected_condition_status_icon.tres" id="6_tgoyo"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://Battle/UI/BattleIntentIcons/attack_intent_icon.tres" id="7_stx26"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/attack_action.gd" id="7_vls3k"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="7_wbk3t"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="8_6or30"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="8_l6u86"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="11_6or30"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="11_vls3k"]
@@ -15,20 +15,19 @@
 
 [sub_resource type="Resource" id="Resource_0cvw6"]
 script = ExtResource("5_vls3k")
-block = 5
-metadata/_custom_type_script = "uid://bs3431dxsoy63"
+metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
 [sub_resource type="Resource" id="Resource_cad4d"]
 script = ExtResource("5_tgoyo")
 action_display_icon = ExtResource("6_tgoyo")
 move_type = 1
 name = "Harden"
-description = "Gains 5 block."
+description = "Gain 6 block."
 actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_0cvw6")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_6dnsr"]
-script = ExtResource("8_6or30")
+script = ExtResource("7_vls3k")
 target = 1
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
@@ -37,7 +36,7 @@ script = ExtResource("5_tgoyo")
 is_attack = true
 action_display_icon = ExtResource("7_stx26")
 name = "Crush"
-description = "Deals 6 damage"
+description = "Deal 6 damage"
 actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_6dnsr")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
@@ -54,7 +53,7 @@ script = ExtResource("5_tgoyo")
 action_display_icon = ExtResource("8_l6u86")
 move_type = 1
 name = "Rock Throw"
-description = "Throws a medium-accuracy boulder. Deals 8 damage on impact."
+description = "Throws a medium-accuracy boulder. Deal 8 damage on impact."
 actions = Array[ExtResource("7_wbk3t")]([SubResource("Resource_k3btu")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

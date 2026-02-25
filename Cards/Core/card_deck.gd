@@ -37,6 +37,7 @@ func add_cards(new_card_datas:Array[CardData]) -> void:
 
 func remove_card(card_data:CardData) -> void:
 	cards.erase(card_data)
+	deck_updated.emit(cards)
 
 ## Moves all stored card datas to another deck
 func transfer_cards_to_deck(

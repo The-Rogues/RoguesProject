@@ -17,7 +17,7 @@ func _ready() -> void:
 	else:
 		pass
 
-func initialize_with_battle(battle_instance:BattleManager):
+func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:CardDeck):
 	character_name.text = battle_instance.player_entity.data.name
 	character_context.set_context(character_name.text + "'s current health.")
 	current_health.text = str(
@@ -31,7 +31,7 @@ func initialize_with_battle(battle_instance:BattleManager):
 	)
 	
 	deck_viewer._initialize(
-		battle_instance.draw_pile
+		starting_card_deck
 	)
 	
 	item_interface.initialize(

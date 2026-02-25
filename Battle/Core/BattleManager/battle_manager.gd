@@ -15,14 +15,9 @@ signal item_used(
 @export var battle_field: BattleField
 
 @export var energy_counter:EnergyCounter
-@export var player_card_hand: CardPlayHand
-@export var draw_pile: CardDeck
-@export var discard_pile: CardDeck
-@export var draw_pile_ui: CardDeckViewerUI
-@export var discard_pile_ui: CardDeckViewerUI
+@export var battle_card_manager:BattleCardManager
 
 @export var battle_display:GameSessionDisplay
-#@export var item_interface:ItemInterface
 
 @export var enemy_delay_timer: Timer
 @onready var action_delay_timer: Timer = $ActionDelayTimer
@@ -96,24 +91,16 @@ func initialize(
 	battle_events.initialize(self)
 	
 	# Setting up Cards
-	discard_pile = CardDeck.new() #initialize discard_pile
-	draw_pile = starting_card_deck.duplicate(true)
-	discard_pile.name = "Discard Pile"
-	draw_pile.name = "Draw Pile"
-	player_card_hand.play_card.connect(_on_try_play_card)
-	draw_pile.cards.shuffle()
-	draw_pile_ui._initialize(draw_pile)
-	discard_pile_ui._initialize(discard_pile)
+	battle_card_manager.initialize(starting_card_deck)
+	battle_card_manager.try_play_card.connect(_on_try_play_card)
 	energy_counter.initialize(energy)
 	
 	# Setting up items
 	held_items = items.duplicate(true)
 	
 	# Setting battle display
-	battle_display.initialize_with_battle(self)
+	battle_display.initialize_with_battle(self, starting_card_deck)
 	battle_display.item_interface.activate_item.connect(_on_use_item)
-	#item_interface.initialize(held_items)
-	#item_interface.activate_item.connect(_on_use_item)
 	
 	player_entity.damaged.connect(_on_player_damaged)
 	
@@ -181,17 +168,12 @@ func _start_player_turn():
 	player_entity.parry.set_to_zero()
 	player_entity.defense.set_to_zero()
 	
-	if draw_pile.cards.is_empty():
-		discard_pile.transfer_cards_to_deck(draw_pile, true, true)
-	
-	var drawn_cards = draw_pile.draw_cards(5)
-	for card in drawn_cards:
-		if card != null:
-			player_card_hand.draw_card(card)
-			card_drawn.emit(card)
+	battle_card_manager.reshuffle_deck()
+	battle_card_manager.draw_card(5)
 	
 	for enemy in living_enemies:
 		create_action_intent(enemy)
+		enemy.status_conditions.decay_status_effects()
 	
 	battle_field.on_new_turn_started()
 	
@@ -203,13 +185,13 @@ func end_player_turn() -> void:
 	if battle_state != BattleState.PLAYER_TURN:
 		return
 	
+	player_entity.status_conditions.decay_status_effects()
+	
 	for enemy in living_enemies:
 		enemy.parry.set_to_zero()
 		enemy.defense.set_to_zero()
 	
-	for card_ui in player_card_hand.card_uis:
-		discard_pile.add_card(card_ui.card_data)
-	player_card_hand.clear_hand()
+	battle_card_manager.transfer_hand_to_discard()
 	
 	player_turn_ended.emit()
 	battle_state = BattleState.ENEMY_TURN
@@ -231,6 +213,7 @@ func _start_enemy_turn() -> void:
 	battle_state = BattleState.PLAYER_TURN
 	_start_player_turn()
 
+
 func _execute_battle_move(battle_move:BattleMove, user:BattleEntity):
 	if battle_move.move_type == BattleMove.MoveType.PHYSICAL:
 		user.animation_player.play("entity/attack")
@@ -245,20 +228,21 @@ func _execute_battle_move(battle_move:BattleMove, user:BattleEntity):
 		action_queue.enqueue(action, self, user)
 	user.animation_player.play("entity/idle")
 
+
 func _on_try_play_card(card_ui:CardUI):
 	var card_data:CardData = card_ui.card_data
 	if !energy_counter.can_play_card(card_data):
-		player_card_hand.reject_play()
-		return
-	player_card_hand.confirm_play(card_ui)
-	
-	play_card(card_data)
+		battle_card_manager.reject_play()
+	else:
+		#battle_card_manager.player_card_hand.confirm_play(card_ui)
+		battle_card_manager.play_card(card_ui)
+		process_card(card_data)
 
-func play_card(card_data:CardData):
-	discard_pile.add_card(card_data)
+
+func process_card(card_data:CardData):
 	energy_counter.spend_energy(card_data.energy_cost)
 	_execute_battle_move(card_data.move, player_entity)
-	played_card.emit(card_data)
+
 
 func _on_use_item(item_index:int):
 	held_items[item_index]._use_item(player_entity, self)
@@ -270,18 +254,19 @@ func _on_use_item(item_index:int):
 	#if held_items.is_empty():
 	#	item_interface.clear_item_slots()
 
+
 func _on_entity_defeated(battle_entity:BattleEntity):
 	if player_entity.is_defeated:
 		battle_ended.emit(false)
 		
-		player_card_hand.visible = false
+		battle_card_manager.hide_hand()
 		return
 	
 	if battle_entity in enemies:
 		living_enemies.erase(battle_entity)
 	
 	if living_enemies.is_empty():
-		player_card_hand.visible = false
+		battle_card_manager.hide_hand()
 		battle_ended.emit(true)
 	
 	if action_intentions.has(battle_entity):

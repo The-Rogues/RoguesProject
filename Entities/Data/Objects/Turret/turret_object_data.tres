@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ObjectEntityData" format=3 uid="uid://b4l5602gonh2p"]
+
+[ext_resource type="Texture2D" uid="uid://bgsvobbbhkx35" path="res://Entities/Data/Objects/Turret/turret_texture.tres" id="1_1jgpr"]
+[ext_resource type="Texture2D" uid="uid://fxqou0ng1n4b" path="res://Entities/Data/Enemies/Crawler/fire_projectile.png" id="2_1dtsh"]
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://Entities/Core/object_entity_data.gd" id="2_1jgpr"]
+
+[resource]
+script = ExtResource("2_1jgpr")
+object_type = 3
+attack_filter = 1
+fire_projectile = true
+projectile_texture = ExtResource("2_1dtsh")
+face_direction = true
+impact_damage = 4
+direction_range = 0.2
+projectile_count = 3
+display_texture = ExtResource("1_1jgpr")
+id = "weapon"
+name = "Magic Pot"
+description = "Magic Pot
+Type: Weapon
+Fires 3 projectiles at the end of the enemy's turn. Deal 4 damage on impact."
+max_health = 40
+metadata/_custom_type_script = "uid://o5nbdchxwujp"

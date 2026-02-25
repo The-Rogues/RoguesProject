@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_62gws"]
 script = ExtResource("2_1g15j")
 move_type = 1
-name = "Rush in"
+name = ""
 description = "Gain 2 energy. Next turn have 2 less energy."
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

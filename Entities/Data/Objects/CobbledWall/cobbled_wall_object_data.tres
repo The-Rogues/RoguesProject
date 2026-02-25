@@ -10,6 +10,8 @@ attack_filter = 2
 display_texture = ExtResource("3_mna5y")
 id = "cover"
 name = "Cobbled Wall"
-description = "Offers temporary protection. Crumbles easily"
+description = "Cobbled Wall
+Type: Cover
+Offers temporary protection."
 max_health = 40
 metadata/_custom_type_script = "uid://o5nbdchxwujp"

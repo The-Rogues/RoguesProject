@@ -19,5 +19,8 @@ func display_floating_numbers(text:String, parent):
 	
 	new_pop_text.initialize(text, Color.DIM_GRAY)
 
-func initialize(new_battle_instance:BattleManager) -> void:
+func initialize(
+		new_battle_instance:BattleManager, 
+		user:BattleEntity = null
+) -> void:
 	battle_instance = new_battle_instance

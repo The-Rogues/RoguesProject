@@ -3,7 +3,10 @@ class_name GoldTouchTurnEvent
 
 @export var gold:int = 100
 
-func initialize(new_battle_instance:BattleManager) -> void:
+func initialize(
+		new_battle_instance:BattleManager, 
+		user:BattleEntity = null
+) -> void:
 	super(new_battle_instance)
 	for enemy in battle_instance.living_enemies:
 		enemy.defeated.connect(_on_enemy_defeated)

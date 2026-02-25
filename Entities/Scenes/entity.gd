@@ -37,7 +37,6 @@ const LUANCH_BODY = preload("res://General/LaunchBody/launch_spin_body.tscn")
 
 @onready var bounce_collision: CollisionShape2D = $BounceBox/CollisionShape2D
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D
-@onready var status_parent: HBoxContainer = $UI/Display/StatusConditions
 
 
 var _health:HealthComponent

@@ -8,7 +8,10 @@ var rival_label_instance:Label
 
 const RIVAL_LABEL = preload("res://Battle/Core/BattleManager/Events/rival_label.tscn")
 
-func initialize(new_battle_instance:BattleManager) -> void:
+func initialize(
+		new_battle_instance:BattleManager, 
+		user:BattleEntity = null
+) -> void:
 	super(new_battle_instance)
 	new_battle_instance.new_turn_started.connect(on_turn_started)
 	var canidates:Array[BattleEntity] = battle_instance.living_enemies
@@ -32,16 +35,17 @@ func _on_rival_defeated(battle_entity:BattleEntity):
 	target_entity.defeated.disconnect(_on_rival_defeated)
 	battle_instance.new_turn_started.disconnect(on_turn_started)
 
+
 func on_turn_started() -> void:
 	if target_entity.is_defeated:
 		event_ended.emit(self)
 		battle_instance.new_turn_started.disconnect(on_turn_started)
 	
-	var player_attack = DamageEntityAction.new()
+	var player_attack = AttackAction.new()
 	player_attack.damage = player_damage
 	player_attack.target = TargetedBattleAction.TargetType.INHERITED
 	player_attack.inherited_targeting = [target_entity] as Array[BattleEntity]
-	var enemy_attack = DamageEntityAction.new()
+	var enemy_attack = AttackAction.new()
 	enemy_attack.damage = player_damage
 	enemy_attack.target = TargetedBattleAction.TargetType.PLAYER
 	

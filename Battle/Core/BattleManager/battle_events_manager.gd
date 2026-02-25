@@ -10,12 +10,12 @@ func initialize(
 	battle_instance = new_battle_instance
 
 
-func add_event(battle_event:BattleTurnEvent) -> void:
+func add_event(battle_event:BattleTurnEvent, user:BattleEntity = null) -> void:
 	for instance in battle_events:
 		if battle_events.has(instance):
 			return
 	
-	battle_event.initialize(battle_instance)
+	battle_event.initialize(battle_instance, user)
 	battle_events.append(battle_event)
 	battle_event.event_ended.connect(_on_event_ended)
 

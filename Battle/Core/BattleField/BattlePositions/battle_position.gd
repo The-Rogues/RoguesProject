@@ -10,6 +10,8 @@ class_name BattlePosition
 ## to be stored in a serialized array as part of a battle position management
 ## script
 
+signal object_removed(object:ObjectEntity)
+
 @onready var object_slot: Node2D = $ObjectSlot
 var object:ObjectEntity
 @onready var effect: PositionEffect = $PositionEffect
@@ -67,10 +69,12 @@ func remove_effect():
 
 func on_entity_entered(battle_entity:BattleEntity):
 	if effect.data:
-		print("entered")
 		effect.data.on_entered(battle_entity)
 	
 	entity = battle_entity
+	if battle_entity.carried_object and not object:
+		set_object(battle_entity.carried_object)
+		battle_entity.drop_object()
 
 
 func on_entity_exited(battle_entity:BattleEntity):
@@ -86,3 +90,5 @@ func start_turn():
 	
 	if object:
 		object._on_new_turn_started()
+	elif entity and entity.carried_object:
+		set_object(entity.carried_object)

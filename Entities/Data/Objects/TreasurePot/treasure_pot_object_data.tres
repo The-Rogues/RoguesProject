@@ -10,6 +10,8 @@ attack_filter = 1
 display_texture = ExtResource("1_y1si4")
 id = "treasure"
 name = "Treasure Pot"
-description = "Something may be inside."
+description = "Pot
+Type: Treasure
+May hide treasure inside"
 max_health = 5
 metadata/_custom_type_script = "uid://o5nbdchxwujp"

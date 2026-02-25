@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_8sbl5"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_gg5wh"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="2_2hc31"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/attack_action.gd" id="2_2hc31"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="3_gswia"]
 [ext_resource type="Resource" uid="uid://b0ksaxetd0aye" path="res://Battle/Actions/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres" id="4_n8hci"]
 [ext_resource type="Resource" uid="uid://c55148r33pa1e" path="res://Battle/Actions/StatusEffects/Strength/strength_status_effect_data.tres" id="4_sm2eu"]

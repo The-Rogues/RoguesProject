@@ -3,34 +3,26 @@
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_cch6l"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_guk26"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_5pqac"]
-[ext_resource type="Script" uid="uid://ctbufwjnhq4dy" path="res://Battle/Actions/Atomic/gold_action.gd" id="2_876ip"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/damage_entity_action.gd" id="3_pirg2"]
-[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="4_mvyl0"]
-[ext_resource type="Script" uid="uid://dfryc03umw0fy" path="res://Battle/Actions/Atomic/random_chance_action.gd" id="5_34cad"]
+[ext_resource type="Script" uid="uid://cq3s1j6odaltq" path="res://Battle/Actions/Atomic/conditional_action.gd" id="2_j4p4k"]
+[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="3_4tbis"]
 
-[sub_resource type="Resource" id="Resource_nwyhk"]
-script = ExtResource("2_876ip")
-min_gold = 100
-bonus_gold = 100
-metadata/_custom_type_script = "uid://ctbufwjnhq4dy"
+[sub_resource type="Resource" id="Resource_876ip"]
+script = ExtResource("3_4tbis")
+effect = 4
+amount = 100
+bonus_random = 100
+metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
-[sub_resource type="Resource" id="Resource_ctner"]
-script = ExtResource("3_pirg2")
-damage = 8
-metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
-
-[sub_resource type="Resource" id="Resource_fehs5"]
-script = ExtResource("5_34cad")
-chance = 0.30000000000000004
-conditional_action = SubResource("Resource_nwyhk")
-otherwise_action = SubResource("Resource_ctner")
-metadata/_custom_type_script = "uid://dfryc03umw0fy"
+[sub_resource type="Resource" id="Resource_pirg2"]
+script = ExtResource("2_j4p4k")
+true_action = SubResource("Resource_876ip")
+metadata/_custom_type_script = "uid://cq3s1j6odaltq"
 
 [sub_resource type="Resource" id="Resource_mygmw"]
 script = ExtResource("2_5pqac")
 name = "Pick Pocket"
 description = "Chance to steel 100-200 gold. Otherwise take 8 damage."
-actions = Array[ExtResource("1_cch6l")]([SubResource("Resource_fehs5")])
+actions = Array[ExtResource("1_cch6l")]([SubResource("Resource_pirg2")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

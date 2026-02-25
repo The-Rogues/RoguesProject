@@ -3,18 +3,18 @@ class_name SpareAction
 
 @export_range(0, 0.9) var added_chance:float = 0
 
-func _execute(battle_instance:BattleManager, action_user:BattleEntity):
-	targeting = _resolve_target(battle_instance, action_user)
+func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
+	targeting = _resolve_target(battle_instance, _action_user)
 	
 	for target in targeting:
 		var spare_chance = 0.1
 		spare_chance = min(1, spare_chance + added_chance)
 		if target._health.current_health < 20:
-			spare_chance = min(1, spare_chance + 0.2)
+			spare_chance = min(1, spare_chance + 0.3)
 		
-		if action_user == battle_instance.player_entity and \
+		if _action_user == battle_instance.player_entity and \
 				battle_instance.character_personality.offensive_trait.id == "merciful":
-			spare_chance = min(1, spare_chance + 0.2)
+			spare_chance = min(1, spare_chance + 0.1)
 		#Todo: Check if target is pacified in emotion system
 		
 		spare_chance -= target.data.spare_resistence

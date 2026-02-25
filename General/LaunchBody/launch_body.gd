@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name LaunchBody
+
 # Export variables to easily adjust speed in the inspector
 @export var speed : float = 400
 @export_range(0, 1) var bounce_range:float = 0.35

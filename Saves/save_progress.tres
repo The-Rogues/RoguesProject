@@ -1,56 +1,53 @@
-[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://1byxksqnu5lj"]
+[gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_osl4a"]
-[ext_resource type="Resource" uid="uid://cpcm1bkfedbjv" path="res://Cards/Shared/strike_card_data.tres" id="2_73m4a"]
-[ext_resource type="Resource" uid="uid://cuwc8ueu7aloa" path="res://Cards/Shared/defend_card_data.tres" id="3_sqevk"]
-[ext_resource type="Resource" uid="uid://dhat16iba5tlg" path="res://Cards/Shared/counter_card_data.tres" id="4_bn7m0"]
-[ext_resource type="Resource" uid="uid://dgt1ffuwrstbt" path="res://Cards/Shared/move_card_data.tres" id="5_gvrsj"]
-[ext_resource type="Resource" uid="uid://bg6c4g3c1qp6p" path="res://Cards/Shared/sling_shot_card_data.tres" id="6_ldui5"]
-[ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://Cards/Shared/swing_card_data.tres" id="7_hxw8v"]
-[ext_resource type="Resource" uid="uid://b2mj2k04lyi5h" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/retreat_card_data.tres" id="8_gbghs"]
-[ext_resource type="Resource" uid="uid://sj70mj1xqys8" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/foresight_card_data.tres" id="9_rp2d1"]
-[ext_resource type="Resource" uid="uid://fjgvub4ciops" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/plot_amor_card_data.tres" id="10_4g6sv"]
-[ext_resource type="Script" uid="uid://c7c4s2eiw0kq7" path="res://Cards/Core/card_deck.gd" id="11_jq1ju"]
-[ext_resource type="Texture2D" uid="uid://dbfpup62ss0wb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="12_osl4a"]
-[ext_resource type="Script" uid="uid://bl4k7bqmeimo" path="res://Entities/Core/entity_data.gd" id="13_fucgn"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Items/Core/item_data.gd" id="14_5w8pu"]
-[ext_resource type="Resource" uid="uid://cv1o5v65kh868" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="15_73m4a"]
-[ext_resource type="Resource" uid="uid://7epx4qjcbi0d" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_offense_trait.tres" id="16_73m4a"]
-[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://PersonalitySystem/personality_data.gd" id="17_4f4mg"]
-[ext_resource type="Resource" uid="uid://clcyhbp2diuiv" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="18_sqevk"]
-[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://Globals/ProgressTracking/run_progress.gd" id="19_mt2ww"]
+[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_osl4a"]
+[ext_resource type="Resource" path="res://Cards/Shared/strike_card_data.tres" id="2_73m4a"]
+[ext_resource type="Resource" path="res://Cards/Shared/defend_card_data.tres" id="3_sqevk"]
+[ext_resource type="Resource" path="res://Cards/Shared/counter_card_data.tres" id="4_bn7m0"]
+[ext_resource type="Resource" path="res://Cards/Shared/move_card_data.tres" id="5_gvrsj"]
+[ext_resource type="Resource" path="res://Cards/Shared/sling_shot_card_data.tres" id="6_ldui5"]
+[ext_resource type="Resource" path="res://Cards/Shared/swing_card_data.tres" id="7_hxw8v"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/turret_card_data.tres" id="8_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/invest_card_data.tres" id="9_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/plot_amor_card_data.tres" id="10_4g6sv"]
+[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="11_jq1ju"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_13.tres" id="12_osl4a"]
+[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="13_fucgn"]
+[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="14_5w8pu"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="15_73m4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="16_73m4a"]
+[ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="17_4f4mg"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="18_sqevk"]
+[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="19_mt2ww"]
 
 [sub_resource type="Resource" id="Resource_bn7m0"]
 resource_local_to_scene = true
 script = ExtResource("11_jq1ju")
-cards = Array[ExtResource("1_osl4a")]([ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("3_sqevk"), ExtResource("3_sqevk"), ExtResource("4_bn7m0"), ExtResource("4_bn7m0"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("6_ldui5"), ExtResource("7_hxw8v"), ExtResource("8_gbghs"), ExtResource("9_rp2d1"), ExtResource("10_4g6sv")])
+cards = Array[ExtResource("1_osl4a")]([ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("3_sqevk"), ExtResource("3_sqevk"), ExtResource("4_bn7m0"), ExtResource("4_bn7m0"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("6_ldui5"), ExtResource("7_hxw8v"), ExtResource("8_osl4a"), ExtResource("9_osl4a"), ExtResource("10_4g6sv")])
 metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
 
 [sub_resource type="Resource" id="Resource_gvrsj"]
 script = ExtResource("13_fucgn")
 display_texture = ExtResource("12_osl4a")
 id = "player"
-name = "Shiphra"
-description = "Drawn by rumors of powerful adversaries, they climb the tower seeking rivals worthy of their resolve."
+name = "Krita"
+description = "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence."
 max_health = 80
 
 [sub_resource type="Resource" id="Resource_ldui5"]
 script = ExtResource("17_4f4mg")
 offensive_trait = ExtResource("16_73m4a")
-offensive_weight = 6
+offensive_weight = 8
 defensive_trait = ExtResource("15_73m4a")
-defensive_weight = 1
+defensive_weight = 7
 strategic_trait = ExtResource("18_sqevk")
-strategic_weight = 1
+strategic_weight = 8
 
 [resource]
 script = ExtResource("19_mt2ww")
 personality_data = SubResource("Resource_ldui5")
 character_entity_data = SubResource("Resource_gvrsj")
-current_health = 74
-character_backstory = "Drawn by rumors of powerful adversaries, they climb the tower seeking rivals worthy of their resolve."
-map_seed = 3101235181
-floor_progress = 2
-player_node_index = 13
+character_backstory = "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence."
+map_seed = 123935934
+player_node_index = 2
 card_deck = SubResource("Resource_bn7m0")
-gold = 211

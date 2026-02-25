@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vao34ydkwbdh"]
 
 [ext_resource type="Script" uid="uid://6hi8qy1m5pkx" path="res://General/UI/StatIcon/stat_icon.gd" id="1_6hitm"]
-[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Kenny Art/Icons/Icons_RPG.png" id="2_m4n2d"]
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Nikoichu/Icons/Icons_RPG.png" id="2_m4n2d"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="4_n5ujp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ltku"]

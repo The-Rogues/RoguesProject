@@ -9,14 +9,10 @@
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="9_ljnds"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="9_tpdpk"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="10_ljnds"]
-[ext_resource type="Texture2D" uid="uid://4jeymnoxuans" path="res://Entities/Data/Enemies/Sorcerer/magic_slash_texture.tres" id="11_lipq7"]
-[ext_resource type="Script" uid="uid://cbfakii4lpgc1" path="res://Battle/Actions/Atomic/repeat_action.gd" id="11_ljnds"]
 
 [sub_resource type="Resource" id="Resource_oakic"]
 script = ExtResource("5_rekp0")
-status_effect = ExtResource("6_tpdpk")
-status_duration = 2
-stack_count = 2
+status = ExtResource("6_tpdpk")
 target = 3
 metadata/_custom_type_script = "uid://s304n8psvt04"
 
@@ -24,32 +20,23 @@ metadata/_custom_type_script = "uid://s304n8psvt04"
 script = ExtResource("5_44oxg")
 action_display_icon = ExtResource("6_gqmd2")
 name = "Wall Off"
-description = "Protects all enemies for next turn."
+description = "All allies gain protection."
 actions = Array[ExtResource("7_alaul")]([SubResource("Resource_oakic")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
-[sub_resource type="Resource" id="Resource_sqj68"]
+[sub_resource type="Resource" id="Resource_abbt1"]
 script = ExtResource("9_tpdpk")
-projectile_texture = ExtResource("11_lipq7")
 face_direction = true
 impact_damage = 4
-speed = 450.0
-direction_range = 0.1
-target = 1
+shots = 3
 metadata/_custom_type_script = "uid://c3uyo8xsai327"
-
-[sub_resource type="Resource" id="Resource_kbigj"]
-script = ExtResource("11_ljnds")
-battle_action = SubResource("Resource_sqj68")
-repeat = 3
-metadata/_custom_type_script = "uid://cbfakii4lpgc1"
 
 [sub_resource type="Resource" id="Resource_3412g"]
 script = ExtResource("5_44oxg")
 action_display_icon = ExtResource("10_ljnds")
 name = "Magic Slash"
 description = "Fires 3 low-accuracy projectiles. Deals 4 damage on impact"
-actions = Array[ExtResource("7_alaul")]([SubResource("Resource_kbigj")])
+actions = Array[ExtResource("7_alaul")]([SubResource("Resource_abbt1")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

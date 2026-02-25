@@ -10,6 +10,8 @@ attack_filter = 2
 display_texture = ExtResource("3_0f5cm")
 id = "cover"
 name = "Stone Wall"
-description = "Very durable."
+description = "Stone Wall
+Type: Cover
+Offers long lasting protection."
 max_health = 80
 metadata/_custom_type_script = "uid://o5nbdchxwujp"

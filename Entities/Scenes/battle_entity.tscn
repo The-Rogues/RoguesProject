@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://48mcoyquoyhq" path="res://General/UI/ui_visability_timer.gd" id="8_j534h"]
 [ext_resource type="PackedScene" uid="uid://vao34ydkwbdh" path="res://General/UI/StatIcon/stat_icon.tscn" id="9_s8nop"]
 [ext_resource type="Texture2D" uid="uid://djjgc67emtqut" path="res://Battle/Actions/StatusEffects/Protected/protected_condition_status_icon.tres" id="10_l5o3c"]
+[ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-015.png" id="11_msfa7"]
 
 [sub_resource type="Shader" id="Shader_q0abo"]
 code = "shader_type canvas_item;
@@ -70,6 +71,13 @@ radius = 24.083189
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2vri6"]
 radius = 17.029387
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xddqf"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("11_msfa7")
 
 [node name="BattleEntity" type="Node2D" unique_id=293226690]
 script = ExtResource("1_j8war")
@@ -189,6 +197,19 @@ visible = false
 self_modulate = Color(4.5242905e-06, 0.6081779, 0.81032306, 1)
 layout_mode = 2
 texture = ExtResource("10_l5o3c")
+
+[node name="ObjectHolder" type="PanelContainer" parent="UI" unique_id=2016788437]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = -86.0
+offset_right = 64.0
+offset_bottom = -50.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xddqf")
+
+[node name="ObjectTexture" type="TextureRect" parent="UI/ObjectHolder" unique_id=338313515]
+texture_filter = 1
+layout_mode = 2
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -125,3 +125,13 @@ func initialize(
 		offensive_weight = new_offensive_weight
 		defensive_weight = new_defensive_weight
 		strategic_weight = new_strategic_weight
+
+
+func get_target_entity(entities:Array[BattleEntity]) -> BattleEntity:
+	match offensive_trait.targeting_bias:
+		offensive_trait.TargetingBiasType.HEALTHIEST:
+			return offensive_trait.get_healthiest_target(entities)
+		offensive_trait.TargetingBiasType.UNHEALTHIEST:
+			return offensive_trait.get_unhealthiest_target(entities)
+		_:
+			return entities.pick_random()
