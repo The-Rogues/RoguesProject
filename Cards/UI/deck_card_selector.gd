@@ -33,7 +33,7 @@ func _on_card_hovered(card: CardUI, hovering: bool) -> void:
 
 
 func _on_card_selected(card:CardUI):
-	selected_card.emit(card.card_data)
+	selected_card.emit(card.card_data, queried_deck)
 	visible = false
 	pass
 

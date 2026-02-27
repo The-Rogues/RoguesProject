@@ -31,14 +31,14 @@
 [ext_resource type="Texture2D" uid="uid://b4ruwl8uy6s8m" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres" id="27_eifsp"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="28_y4i3p"]
 [ext_resource type="Resource" uid="uid://1upv5oqngen2" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="29_nyook"]
-[ext_resource type="Resource" uid="uid://7epx4qjcbi0d" path="res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/challenger_offense_trait.tres" id="30_grb3g"]
+[ext_resource type="Resource" uid="uid://7epx4qjcbi0d" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_trait_data.tres" id="30_grb3g"]
 [ext_resource type="Resource" uid="uid://sa8th36l0hdn" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="31_p0xxf"]
 [ext_resource type="Resource" uid="uid://bqc165qthu2fl" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/greedy_strategic_trait.tres" id="32_gdfka"]
 [ext_resource type="Resource" uid="uid://clcyhbp2diuiv" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="33_uwofx"]
 [ext_resource type="Resource" uid="uid://bpwwjfbysqftr" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="34_smodt"]
 [ext_resource type="Resource" uid="uid://cv1o5v65kh868" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="35_i6q16"]
 [ext_resource type="Resource" uid="uid://bg0cxhjwui5pk" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres" id="36_kqxcu"]
-[ext_resource type="Resource" uid="uid://bpgjx5nhh8cwi" path="res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/tactical_strategic_trait.tres" id="37_g8mns"]
+[ext_resource type="Resource" uid="uid://bpgjx5nhh8cwi" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="37_g8mns"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pdas"]
 bg_color = Color(0.0002225801, 6.145411e-05, 0.00018586668, 1)

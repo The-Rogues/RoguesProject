@@ -1,6 +1,16 @@
 [gd_resource type="Resource" script_class="OffensiveTrait" format=3 uid="uid://bpwwjfbysqftr"]
 
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_4s1uj"]
 [ext_resource type="Script" uid="uid://clg6wfr8i5i2c" path="res://PersonalitySystem/PersonalityTraits/offensive_trait.gd" id="1_exrva"]
+[ext_resource type="Resource" uid="uid://chjspg3xitqc4" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/strike_card_data.tres" id="1_kxe6k"]
+[ext_resource type="Resource" uid="uid://dro5ef0s8m4y1" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/self_defense_card_data.tres" id="2_4s1uj"]
+[ext_resource type="Resource" uid="uid://c8utm8k618b2j" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/spare_card_data.tres" id="3_nljhk"]
+[ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="5_nljhk"]
+
+[sub_resource type="Resource" id="Resource_3nqmp"]
+script = ExtResource("5_nljhk")
+common = Array[ExtResource("1_4s1uj")]([ExtResource("1_kxe6k"), ExtResource("2_4s1uj"), ExtResource("3_nljhk")])
+metadata/_custom_type_script = "uid://coht23i0qahwq"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_exrva"]
 load_path = "res://.godot/imported/meadow__0056_emoji57.png-ba518cdfa2aca8c72633cf2e813c6e45.ctex"
@@ -11,4 +21,5 @@ trait_icon = SubResource("CompressedTexture2D_exrva")
 id = "merciful"
 name = "Merciful"
 description = "Compassionate. Avoids violence when possible. "
+card_pool = SubResource("Resource_3nqmp")
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

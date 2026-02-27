@@ -1,4 +1,10 @@
+res://Battle/Loot/
+res://Cards/Pools/
 res://Testing/
+res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/
+res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/
+res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/
+res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/
 res://Testing/Moods/
 res://Cards/UI/
 res://Cards/Core/
@@ -9,14 +15,8 @@ res://Battle/Core/BattleField/BattlePositions/PositionEffects/Data/
 res://Battle/Core/BattleField/BattlePositions/PositionEffects/
 res://Battle/Core/BattleField/BattlePositions/
 res://General/Fonts/
-res://PersonalitySystem/PersonalityTraits/Strategic/Tactical/
-res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/
-res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/
 res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/
-res://PersonalitySystem/PersonalityTraits/Offensive/Challenger/
 res://PersonalitySystem/PersonalityTraits/Offensive/Brute/
 res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/
 res://PersonalitySystem/PersonalityTraits/Defensive/Naive/
 res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/
-res://Battle/UI/
-res://Testing/BattleTestButtons/

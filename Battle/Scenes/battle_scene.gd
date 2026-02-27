@@ -13,6 +13,9 @@ class_name BattleScene
 @export var end_turn_button: Button
 @export var battle_results_display: BattleResultLayer
 @export var turn_banner: BannerPopup
+@export var battle_win_screen: BattleWinScreen
+@onready var battle_interface: Control = $UILayer/BattleInterface
+@onready var finisher: ColorRect = $Finisher
 
 
 func _ready() -> void:
@@ -64,12 +67,25 @@ func _started_player_turn():
 func _on_battle_ended(player_won:bool):
 	end_turn_button.visible = false
 	if player_won:
-		await get_tree().create_timer(3).timeout
-		battle_results_display.set_result(
-				player_won, 
-				battle_manager.player_entity, 
-				battle_manager.enemy_encounter
+		finisher.visible = true
+		battle_manager.battle_display.visible = false
+		battle_interface.visible = false
+		
+		Engine.time_scale = 0.35
+		await get_tree().create_timer(0.6).timeout
+		finisher.visible = false
+		battle_interface.visible = true
+		battle_manager.battle_display.visible = true
+		Engine.time_scale = 1
+		GlobalSessionManager.increase_gold(battle_manager.enemy_encounter.get_gold_reward())
+		await get_tree().create_timer(4).timeout
+		battle_win_screen.initialize(
+			battle_manager.enemy_encounter,
+			battle_manager
 		)
+		battle_interface.visible = false
+		battle_manager.battle_display.visible = false
+		battle_win_screen.visible = true
 	else:
 		await get_tree().create_timer(0.5).timeout
 		battle_results_display.set_result(

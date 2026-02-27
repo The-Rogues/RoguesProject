@@ -9,11 +9,12 @@
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="9_ljnds"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="9_tpdpk"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="10_ljnds"]
+[ext_resource type="Texture2D" uid="uid://4jeymnoxuans" path="res://Entities/Data/Enemies/Sorcerer/magic_slash_texture.tres" id="11_lipq7"]
 
 [sub_resource type="Resource" id="Resource_oakic"]
 script = ExtResource("5_rekp0")
 status = ExtResource("6_tpdpk")
-target = 3
+targeting = 3
 metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_6epgn"]
@@ -26,9 +27,12 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_abbt1"]
 script = ExtResource("9_tpdpk")
+projectile_texture = ExtResource("11_lipq7")
 face_direction = true
 impact_damage = 4
+speed = 500.0
 shots = 3
+targeting = 1
 metadata/_custom_type_script = "uid://c3uyo8xsai327"
 
 [sub_resource type="Resource" id="Resource_3412g"]

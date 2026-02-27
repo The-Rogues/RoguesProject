@@ -60,6 +60,7 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 			else _resolve_target(battle_instance, _action_user)
 	
 		_fire_projectiles(battle_instance, _action_user, targets)
+		await _fire_delay(battle_instance)
 
 
 func _fire_projectiles(
@@ -99,6 +100,7 @@ func _calculate_direction(
 		max_angle = direction_range * PI
 	else:
 		min_angle = -direction_range * PI
+	
 	
 	return base_direction.rotated(randf_range(min_angle, max_angle))
 
@@ -141,3 +143,9 @@ func _spawn_projectile(
 			projectile.stack = stack
 	
 	return projectile
+
+
+func _fire_delay(battle_instance:BattleManager):
+	# Delay is different so that if multiple entities are targeted, they play
+	# damage animations in unison vs sequentially.
+	await battle_instance.action_delay()

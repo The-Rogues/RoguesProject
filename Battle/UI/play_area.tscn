@@ -3,10 +3,16 @@
 [ext_resource type="Script" uid="uid://by1udu2kn1o3m" path="res://Battle/UI/play_area.gd" id="1_cpvpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po0ka"]
-size = Vector2(541, 321)
+size = Vector2(541, 217)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njv5g"]
-bg_color = Color(0.81960785, 0.5294118, 0, 0.42745098)
+bg_color = Color(0.7411765, 0.5764706, 0, 0.10980392)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.42745098, 0.17254902, 0.7647059)
+border_blend = true
 
 [node name="PlayArea" type="Area2D" unique_id=362766689]
 collision_layer = 2
@@ -14,23 +20,16 @@ collision_mask = 4
 script = ExtResource("1_cpvpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=424953540]
-position = Vector2(-1.5, -1.5)
+position = Vector2(0, -62.5)
 shape = SubResource("RectangleShape2D_po0ka")
+debug_color = Color(0, 0.6, 0.69803923, 0.40784314)
 
-[node name="Label" type="Label" parent="." unique_id=1651994852]
-offset_left = -280.0
-offset_top = 160.0
-offset_right = -194.0
-offset_bottom = 183.0
-text = "Drag inside to play"
-
-[node name="Panel" type="Panel" parent="Label" unique_id=448467504]
+[node name="Panel" type="Panel" parent="." unique_id=448467504]
 visible = false
-layout_mode = 0
-offset_left = 5.0
-offset_top = -330.0
-offset_right = 45.0
-offset_bottom = -290.0
+offset_left = -275.0
+offset_top = -170.0
+offset_right = -235.0
+offset_bottom = -143.21431
 scale = Vector2(13.620984, 8.213342)
 theme_override_styles/panel = SubResource("StyleBoxFlat_njv5g")
 

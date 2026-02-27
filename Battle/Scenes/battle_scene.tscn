@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://Battle/Scenes/battle_results.tscn" id="10_tmnld"]
 [ext_resource type="PackedScene" uid="uid://bdtsaiqt260fy" path="res://Cards/UI/battle_card_manager.tscn" id="12_hb1pv"]
+[ext_resource type="PackedScene" uid="uid://b8hfe4x15naiu" path="res://Testing/battle_win_screen.tscn" id="13_1eksv"]
 [ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://General/UI/banner_popup.tscn" id="14_2203u"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
@@ -61,12 +62,13 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
-[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "end_turn_button", "battle_results_display", "turn_banner")]
+[node name="BattleScreen" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_manager", "end_turn_button", "battle_results_display", "turn_banner", "battle_win_screen")]
 script = ExtResource("1_jfmiq")
 battle_manager = NodePath("BattleManager")
 end_turn_button = NodePath("UILayer/BattleInterface/EndTurn")
 battle_results_display = NodePath("BattleResultDisplay")
 turn_banner = NodePath("UILayer/BattleInterface/TurnBanner")
+battle_win_screen = NodePath("UILayer/BattleWinScreen")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=285933358]
 custom_minimum_size = Vector2(1152, 628)
@@ -79,15 +81,27 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="PlayArea" parent="." unique_id=574541479 instance=ExtResource("3_nuuou")]
+[node name="Finisher" type="ColorRect" parent="." unique_id=1491237114]
+visible = false
+custom_minimum_size = Vector2(1152, 628)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayArea" parent="." unique_id=574541479 node_paths=PackedStringArray("card_hand") instance=ExtResource("3_nuuou")]
 position = Vector2(546, 263)
+card_hand = NodePath("../UILayer/BattleInterface/PlayerCardHand")
 
 [node name="BattleManager" type="Node2D" parent="." unique_id=948342459 node_paths=PackedStringArray("battle_field", "energy_counter", "battle_card_manager", "battle_display", "enemy_delay_timer")]
 script = ExtResource("2_laop5")
 battle_field = NodePath("BattleField")
 energy_counter = NodePath("../UILayer/BattleInterface/EnergyCounter")
 battle_card_manager = NodePath("../UILayer/BattleInterface/BattleCardManager")
-battle_display = NodePath("../UILayer/BattleInterface/GameDashBoard")
+battle_display = NodePath("../UILayer/GameDashBoard")
 enemy_delay_timer = NodePath("EnemyDelayTimer")
 
 [node name="EnemyDelayTimer" type="Timer" parent="BattleManager" unique_id=202726847]
@@ -122,12 +136,6 @@ shape = SubResource("SegmentShape2D_o1our")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]
 
-[node name="PlayerCardHand" type="Node2D" parent="UILayer" unique_id=1303605846]
-position = Vector2(0, 210)
-script = ExtResource("4_cgsmb")
-y_position = 300.0
-fan_angle = 10.0
-
 [node name="BattleTestButtons" parent="UILayer" unique_id=98555504 node_paths=PackedStringArray("battle_manager") instance=ExtResource("6_2203u")]
 offset_left = 6.0
 offset_top = 88.0
@@ -143,9 +151,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="GameDashBoard" parent="UILayer/BattleInterface" unique_id=894429948 instance=ExtResource("9_prne7")]
-layout_mode = 1
 
 [node name="Label" type="Label" parent="UILayer/BattleInterface" unique_id=626152939]
 texture_filter = 1
@@ -199,11 +204,22 @@ offset_bottom = 44.0
 
 [node name="BattleCardManager" parent="UILayer/BattleInterface" unique_id=1468312817 node_paths=PackedStringArray("card_hand") instance=ExtResource("12_hb1pv")]
 layout_mode = 1
-card_hand = NodePath("../../PlayerCardHand")
+card_hand = NodePath("../PlayerCardHand")
+
+[node name="PlayerCardHand" type="Node2D" parent="UILayer/BattleInterface" unique_id=1303605846]
+position = Vector2(0, 210)
+script = ExtResource("4_cgsmb")
+y_position = 300.0
+fan_angle = 10.0
+
+[node name="BattleWinScreen" parent="UILayer" unique_id=1026795570 instance=ExtResource("13_1eksv")]
+visible = false
+
+[node name="GameDashBoard" parent="UILayer" unique_id=894429948 instance=ExtResource("9_prne7")]
 
 [node name="BattleResultDisplay" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
 visible = false
 
 [connection signal="button_up" from="UILayer/BattleInterface/EndTurn" to="." method="_on_end_turn_button_up"]
 
-[editable path="UILayer/BattleInterface/GameDashBoard"]
+[editable path="UILayer/GameDashBoard"]

@@ -1,26 +1,16 @@
 extends TargetedBattleAction
 class_name AttackAction
 ## An action that deals damage to targeted entities with configurable damage,
-## repeating hits, and potential side effects.
+## repeating hits, and optional secondary effects.
 ##
 ## Use as a component in an instance of a [BattleMove]
 
 ## The base damage that the attack will deal.
 @export_range(0, 999) var base_damage:int = 6
 
-@export_group("Repeat")
-## Times the target will be damaged
+## Times the attack will be repeated. 1 = Hit Once.
 @export_range(1, 99) var hits:int = 1
-enum RepeatTargetMode {
-	## Same entities will be hit on repeat
-	LOCK_TARGETS, 
-	## Different entities may be hit on repeat
-	REROLL_TARGETS 
-}
-## Sets if the same or different targets are hit when attack is repeated
-@export var repeat_mode:RepeatTargetMode = RepeatTargetMode.LOCK_TARGETS
 
-@export_group("Damage Sampling")
 ## Enum used for replacing base damage with a different stat
 enum SampleFrom {
 	## Uses only base damage.
@@ -32,65 +22,84 @@ enum SampleFrom {
 	## Replaces base damage with weight of character's strategic trait.
 	STRATEGIC_WEIGHT,
 	## Replaces base damage with user's current block value.
-	USER_DEFENSE,
+	USER_BLOCK,
 	## Replaces base damage with user's current parry value.
 	USER_PARRY,
 	## Replaces base damage with the total damage the user took last turn.
 	LAST_DAMAGE_TAKEN,
 }
+## Set to include a different stat to contribute to damage calculation. Ex.
+## Damage = base_damage + user_block.
 @export var sample_from:SampleFrom = SampleFrom.NONE
 
-@export_group("Status Effects")
-@export var status_effects:Array[StatusEffectAction]
+## An action that will be performed on the same target after an attack. Applied
+## once. Ideal for single target attacks where you wish to apply a status effect
+## on the target after dealing damage.
+@export var secondary_action:TargetedBattleAction
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
-	var locked_targets:Array[BattleEntity] = []
-	
-	if repeat_mode == RepeatTargetMode.LOCK_TARGETS:
-		locked_targets = _resolve_target(battle_instance, _action_user)
+	super(battle_instance, _action_user)
 	
 	for hit in hits:
-		var targets = locked_targets if repeat_mode == RepeatTargetMode.LOCK_TARGETS \
-			else _resolve_target(battle_instance, _action_user)
-		
 		_apply_hit(battle_instance, _action_user, targets)
+	
+	for target in targets:
+		_enqueue_secondary_action(
+				battle_instance, 
+				_action_user,
+				target,
+				secondary_action
+		)
+
 
 func _apply_hit(
 	battle_instance:BattleManager,
-	_action_user:BattleEntity,
-	targets:Array[BattleEntity]
+	action_user:BattleEntity,
+	_targets:Array[BattleEntity]
 ):
-	var damage = _calculate_damage(battle_instance, _action_user)
+	var damage = _calculate_damage(battle_instance, action_user)
 	var battle_object = battle_instance.battle_field.get_object()
 	
-	for target in targets:
+	for target in _targets:
 		# Object interception
-		if _apply_object_intercept(battle_object, damage, _action_user):
+		if _object_intercepts(battle_object, damage, action_user):
 			await battle_instance.action_delay()
 			continue
 		
 		# Deal damage
-		target.take_damage(damage, _action_user)
+		target.take_damage(damage, action_user)
 		
 		await battle_instance.action_delay()
-		
-		# Apply status effects PER HIT
-		_enqueue_status_effects(
-			battle_instance,
-			_action_user,
-			target
-		)
+
+
+func _object_intercepts(
+	battle_object:ObjectEntity,
+	damage:int,
+	action_user:BattleEntity
+) -> bool:
+	if not battle_object:
+		return false
+	
+	match battle_object.data.attack_filter:
+		ObjectEntityData.AttackFilter.BLOCK:
+			return true
+		ObjectEntityData.AttackFilter.INTERCEPT:
+			battle_object.take_damage(damage, action_user)
+			return true
+	
+	return false
 
 
 func _calculate_damage(
 	battle_instance:BattleManager,
-	_action_user:BattleEntity
+	action_user:BattleEntity
 ) -> int:
 	var damage:int = base_damage
-	damage += _sample_damage(battle_instance, _action_user)
+	damage += _sample_damage(battle_instance, action_user)
 	
-	if _action_user:
-		damage = _action_user.get_attack_damage(damage)
+	# If attacker is a BattleEntity modify damage output
+	if action_user:
+		damage = action_user.get_attack_damage(damage)
 	
 	var battle_object = battle_instance.battle_field.get_object()
 	if battle_object:
@@ -101,65 +110,50 @@ func _calculate_damage(
 
 func _sample_damage(
 	battle_instance:BattleManager,
-	_action_user:BattleEntity
+	action_user:BattleEntity
 ) -> int:
 	match sample_from:
 		SampleFrom.OFFENSIVE_WEIGHT:
-			return battle_instance.character_personality.offensive_weight
+			return battle_instance.character_personality.offensive_weight + base_damage
 		SampleFrom.DEFENSIVE_WEIGHT:
-			return battle_instance.character_personality.defensive_weight
+			return battle_instance.character_personality.defensive_weight + base_damage
 		SampleFrom.STRATEGIC_WEIGHT:
-			return battle_instance.character_personality.strategic_weight
-		SampleFrom.USER_DEFENSE:
-			return _action_user.defense.current_defense
+			return battle_instance.character_personality.strategic_weight + base_damage
+		SampleFrom.USER_BLOCK:
+			return action_user.defense.current_defense + base_damage
 		SampleFrom.USER_PARRY:
-			return _action_user.parry.current_parry
+			return action_user.parry.current_parry + base_damage
 		SampleFrom.LAST_DAMAGE_TAKEN:
-			return _action_user.damage_taken
+			return action_user.damage_taken + base_damage
 		_:
-			return 0
+			return base_damage
 
 
-func _apply_object_intercept(
-	battle_object:ObjectEntity,
-	damage:int,
-	_action_user:BattleEntity
-) -> bool:
-	if not battle_object:
-		return false
-	
-	match battle_object.data.attack_filter:
-		ObjectEntityData.AttackFilter.BLOCK:
-			return true
-		ObjectEntityData.AttackFilter.INTERCEPT:
-			battle_object.take_damage(damage, _action_user)
-			return true
-	
-	return false
-
-
-func _enqueue_status_effects(
+func _enqueue_secondary_action(
 	battle_instance:BattleManager,
-	_action_user:BattleEntity,
-	_target:BattleEntity
+	action_user:BattleEntity,
+	_targets:BattleEntity,
+	targeted_action:TargetedBattleAction
 ):
-	for status in status_effects:
-		var action:StatusEffectAction = status.duplicate(true)
-		# Overrides targeting of status action to target same entity
-		action.target = TargetType.INHERITED
-		action.inherited_targeting = [_target]
-		
-		battle_instance.action_queue.enqueue(
-			action,
-			battle_instance,
-			_action_user
-		)
+	if !targeted_action:
+		return
+	
+	var action:TargetedBattleAction = targeted_action.duplicate(true)
+	# Overrides targeting of targeted action to target same entity
+	action.targeting = TargetingOption.INHERITED
+	action.inherited_targeting = [_targets]
+	
+	battle_instance.action_queue.enqueue(
+		action,
+		battle_instance,
+		action_user
+	)
 
 
 func _damage_delay(battle_instance:BattleManager):
 	# Delay is different so that if multiple entities are targeted, they play
 	# damage animations in unison vs sequentially.
-	if targeting.size() == 1:
+	if targets.size() == 1:
 		await battle_instance.action_delay()
 	else:
 		await battle_instance.get_tree().create_timer(0.05).timeout

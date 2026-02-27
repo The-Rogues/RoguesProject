@@ -20,36 +20,37 @@
 
 [sub_resource type="Resource" id="Resource_8ycwj"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 200
+base_gold_amount = 800
 encounter_id = "encounter_0"
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("3_wildr"), ExtResource("5_otr41")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [sub_resource type="Resource" id="Resource_wmmnw"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 200
+base_gold_amount = 800
 encounter_id = "encounter_1"
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("4_mxlgk"), ExtResource("4_mxlgk")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [sub_resource type="Resource" id="Resource_2h6xe"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 210
+base_gold_amount = 800
 encounter_id = "encounter_2"
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("4_mxlgk"), ExtResource("7_782xx"), ExtResource("4_mxlgk")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [sub_resource type="Resource" id="Resource_h8wkk"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 200
-bonus_gold_amount = 120
+base_gold_amount = 800
+bonus_gold_amount = 200
 encounter_id = "encounter_2"
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("5_otr41"), ExtResource("6_jbitl"), ExtResource("5_otr41")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [sub_resource type="Resource" id="Resource_mgnes"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 300
+base_gold_amount = 1000
+bonus_gold_amount = 250
 encounter_id = "encounter_3"
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("7_782xx"), ExtResource("8_cgdju")])
 rarity = 2
@@ -57,13 +58,15 @@ metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [sub_resource type="Resource" id="Resource_dhh2s"]
 script = ExtResource("1_mdg33")
+base_gold_amount = 800
+bonus_gold_amount = 200
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("9_k7bso"), ExtResource("10_3ftib"), ExtResource("9_k7bso")])
 rarity = 2
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [sub_resource type="Resource" id="Resource_n81qe"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 200
+base_gold_amount = 800
 bonus_gold_amount = 200
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("9_k7bso"), ExtResource("8_cgdju")])
 rarity = 1
@@ -71,8 +74,8 @@ metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [sub_resource type="Resource" id="Resource_v3aki"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 200
-bonus_gold_amount = 120
+base_gold_amount = 800
+bonus_gold_amount = 200
 enemies = Array[ExtResource("2_wv7ji")]([ExtResource("9_k7bso"), ExtResource("9_k7bso")])
 rarity = 2
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

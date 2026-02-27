@@ -1,36 +1,27 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b7q5uhsqn0chi"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_jgewy"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/attack_action.gd" id="2_ujwtt"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/attack_action.gd" id="2_vu6u0"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_xdiqx"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="3_6uivh"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_etgih"]
-[ext_resource type="Resource" uid="uid://sa8th36l0hdn" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="4_cxqed"]
-[ext_resource type="Script" uid="uid://cq3s1j6odaltq" path="res://Battle/Actions/Atomic/conditional_action.gd" id="5_8kb17"]
 
-[sub_resource type="Resource" id="Resource_mmv2p"]
-script = ExtResource("2_ujwtt")
-damage = 10
+[sub_resource type="Resource" id="Resource_emvd8"]
+script = ExtResource("2_vu6u0")
+base_damage = 12
 target = 2
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
-[sub_resource type="Resource" id="Resource_73yen"]
-script = ExtResource("2_ujwtt")
+[sub_resource type="Resource" id="Resource_cxqed"]
+script = ExtResource("2_vu6u0")
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
-
-[sub_resource type="Resource" id="Resource_qoval"]
-script = ExtResource("5_8kb17")
-true_action = SubResource("Resource_73yen")
-personality_trait = ExtResource("4_cxqed")
-weight_threshold = 4
-metadata/_custom_type_script = "uid://cq3s1j6odaltq"
 
 [sub_resource type="Resource" id="Resource_iytfm"]
 script = ExtResource("2_xdiqx")
 move_type = 1
-name = "Headbutt"
-description = "Deals 10 damage. If Fickle, lose 4 HP"
-actions = Array[ExtResource("1_jgewy")]([SubResource("Resource_mmv2p"), SubResource("Resource_qoval")])
+name = "Tackle"
+description = "Deal 12 damage. Lose 6 HP"
+actions = Array[ExtResource("1_jgewy")]([SubResource("Resource_emvd8"), SubResource("Resource_cxqed")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

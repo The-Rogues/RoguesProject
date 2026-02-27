@@ -149,8 +149,8 @@ func _on_defeated():
 	
 	animation_player.stop()
 	animation_player.play("entity/defeat")
-	await animation_player.animation_finished
 	defeated.emit(self)
+	await animation_player.animation_finished
 	
 	ui_dissapear_timer.start()
 	sprite_2d.visible = false

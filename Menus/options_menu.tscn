@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_3l5it"]
 [ext_resource type="Script" uid="uid://8ydj2bjd1wqa" path="res://Menus/options_menu.gd" id="1_pnmk5"]
-[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://Testing/select_button.tscn" id="3_7gq10"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="3_7gq10"]
 
 [node name="OptionsMenu" type="Control" unique_id=2034364420]
 layout_mode = 3

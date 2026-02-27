@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://dqdptmvdxw6eu"]
+
+[ext_resource type="Script" uid="uid://fe0qbvyknrly" path="res://Testing/battle_loot_panel.gd" id="1_tkte2"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_spaav"]
+[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://Items/GoldLabel/gold_icon.tres" id="3_vdxii"]
+[ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-015.png" id="4_p1bjo"]
+[ext_resource type="Texture2D" uid="uid://8xsk77v3dra5" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-000.png" id="5_30mmx"]
+[ext_resource type="Texture2D" uid="uid://dt54emky1k6y1" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-008.png" id="6_re1ta"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://Items/Data/CardPack/card_pack_texture.tres" id="7_ktt6i"]
+[ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://Items/Data/Apple/apple_texture.tres" id="8_fp316"]
+[ext_resource type="PackedScene" uid="uid://bfyabdwaoylaf" path="res://Testing/card_loot_selector.tscn" id="9_spaav"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n6o7m"]
+load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da44t"]
+texture = SubResource("CompressedTexture2D_n6o7m")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+modulate_color = Color(0.6158282, 0.6158286, 0.6158285, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sihop"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2pxu"]
+texture = ExtResource("4_p1bjo")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_chlob"]
+texture = ExtResource("5_30mmx")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkbln"]
+texture = ExtResource("6_re1ta")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[node name="LootPanel" type="PanelContainer" unique_id=1482960324]
+texture_filter = 1
+custom_minimum_size = Vector2(550, 261)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -97.0
+offset_right = 279.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_da44t")
+script = ExtResource("1_tkte2")
+
+[node name="Panel" type="Panel" parent="." unique_id=482502129]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_sihop")
+
+[node name="Elements" type="VBoxContainer" parent="." unique_id=1516584069]
+layout_mode = 2
+
+[node name="HeaderMargin" type="MarginContainer" parent="Elements" unique_id=234648358]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Header" type="Label" parent="Elements/HeaderMargin" unique_id=108326519]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_spaav")
+text = "Loot
+Click on rewards to accept"
+horizontal_alignment = 1
+
+[node name="Rewards" type="VBoxContainer" parent="Elements" unique_id=55607638]
+custom_minimum_size = Vector2(0, 241)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="Gold" type="HBoxContainer" parent="Elements/Rewards" unique_id=1856689579]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Elements/Rewards/Gold" unique_id=464573538]
+modulate = Color(0.79607844, 0.52156866, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_vdxii")
+
+[node name="Collect" type="Button" parent="Elements/Rewards/Gold" unique_id=1740824808]
+texture_filter = 1
+custom_minimum_size = Vector2(302, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_spaav")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s2pxu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_chlob")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nkbln")
+text = "100 Gold"
+
+[node name="Cards" type="HBoxContainer" parent="Elements/Rewards" unique_id=337385412]
+custom_minimum_size = Vector2(338, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Elements/Rewards/Cards" unique_id=716323043]
+modulate = Color(0.79607844, 0.52156866, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("7_ktt6i")
+
+[node name="Collect" type="Button" parent="Elements/Rewards/Cards" unique_id=836644307]
+texture_filter = 1
+custom_minimum_size = Vector2(302, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_spaav")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s2pxu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_chlob")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nkbln")
+text = "Add 2 cards to deck"
+
+[node name="Item" type="HBoxContainer" parent="Elements/Rewards" unique_id=296212790]
+visible = false
+custom_minimum_size = Vector2(338, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Elements/Rewards/Item" unique_id=1642380385]
+modulate = Color(0.79607844, 0.52156866, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("8_fp316")
+
+[node name="Collect" type="Button" parent="Elements/Rewards/Item" unique_id=1698501030]
+texture_filter = 1
+custom_minimum_size = Vector2(302, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_spaav")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s2pxu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_chlob")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nkbln")
+text = "Apple"
+
+[node name="RewardsCollected" type="Label" parent="." unique_id=1232116444]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_spaav")
+text = "All rewards collected"
+horizontal_alignment = 1
+
+[node name="SharedCardDraw" parent="." unique_id=1216392286 instance=ExtResource("9_spaav")]
+visible = false
+layout_mode = 2
+header_title = "Shared Cards"
+
+[node name="TraitCardDraw" parent="." unique_id=747640687 instance=ExtResource("9_spaav")]
+visible = false
+layout_mode = 2
+header_title = "Trait Cards"
+
+[connection signal="button_up" from="Elements/Rewards/Gold/Collect" to="." method="_on_collect_gold_button_up"]
+[connection signal="button_up" from="Elements/Rewards/Cards/Collect" to="." method="_on_collect_cards_button_up"]
+[connection signal="button_up" from="Elements/Rewards/Item/Collect" to="." method="_on_collect_item_button_up"]
+[connection signal="selected_card" from="SharedCardDraw" to="." method="_on_shared_card_draw_selected_card"]
+[connection signal="skipped" from="SharedCardDraw" to="." method="_on_shared_card_draw_skipped"]
+[connection signal="selected_card" from="TraitCardDraw" to="." method="_on_trait_card_draw_selected_card"]

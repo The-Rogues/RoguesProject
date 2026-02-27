@@ -108,10 +108,9 @@ func get_direction_to_object(object_id:String):
 		return -1
 
 ## Returns object in current entity position
-func get_object():
+func get_object() -> ObjectEntity:
 	if not entity:
 		return null
-	
 	return battle_positions[entity_position].object
 
 

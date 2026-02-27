@@ -1,6 +1,16 @@
 [gd_resource type="Resource" script_class="DefensiveTrait" format=3 uid="uid://bg0cxhjwui5pk"]
 
+[ext_resource type="Resource" uid="uid://chqe2kflhqryw" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/punishment_card_data.tres" id="1_kbyhe"]
 [ext_resource type="Script" uid="uid://3ognrb8kkptl" path="res://PersonalitySystem/PersonalityTraits/defensive_trait.gd" id="1_p0ap8"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_qk5r5"]
+[ext_resource type="Resource" uid="uid://cs43dcisqaddm" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/endure_card_data.tres" id="2_qk5r5"]
+[ext_resource type="Resource" uid="uid://bf8mvwg7slv57" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/counter_card_data.tres" id="3_dhnq2"]
+[ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="4_dhnq2"]
+
+[sub_resource type="Resource" id="Resource_41dqb"]
+script = ExtResource("4_dhnq2")
+common = Array[ExtResource("1_qk5r5")]([ExtResource("2_qk5r5"), ExtResource("1_kbyhe"), ExtResource("3_dhnq2")])
+metadata/_custom_type_script = "uid://coht23i0qahwq"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0ap8"]
 load_path = "res://.godot/imported/meadow__0026_emoji27.png-b84c51cc49af0f92b1bb63ce1e3440e2.ctex"
@@ -11,4 +21,5 @@ trait_icon = SubResource("CompressedTexture2D_p0ap8")
 id = "stoic"
 name = "Stoic"
 description = "Remains focused under pressure. Mentally resilient."
+card_pool = SubResource("Resource_41dqb")
 metadata/_custom_type_script = "uid://3ognrb8kkptl"

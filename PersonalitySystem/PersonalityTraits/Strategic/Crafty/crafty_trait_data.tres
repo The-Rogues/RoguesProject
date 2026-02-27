@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="StrategicTrait" format=3 uid="uid://bpgjx5nhh8cwi"]
+
+[ext_resource type="Resource" uid="uid://sj70mj1xqys8" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/foresight_card_data.tres" id="1_fag4n"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_wsri2"]
+[ext_resource type="Script" uid="uid://bllaybhbcrgk4" path="res://PersonalitySystem/PersonalityTraits/strategic_trait.gd" id="2_mg0t0"]
+[ext_resource type="Resource" uid="uid://cwcvc1a62ykkm" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres" id="2_wsri2"]
+[ext_resource type="Texture2D" uid="uid://c1oiqko86osld" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0070_emoji70.png" id="3_ji33g"]
+[ext_resource type="Resource" uid="uid://50nh10oiu34" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres" id="3_o0odh"]
+[ext_resource type="Resource" uid="uid://d3qw0rvn76c2q" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/turret_card_data.tres" id="4_nbpp1"]
+[ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="6_o0odh"]
+
+[sub_resource type="Resource" id="Resource_nbpp1"]
+script = ExtResource("6_o0odh")
+common = Array[ExtResource("1_wsri2")]([ExtResource("1_fag4n"), ExtResource("2_wsri2"), ExtResource("3_o0odh"), ExtResource("4_nbpp1")])
+metadata/_custom_type_script = "uid://coht23i0qahwq"
+
+[resource]
+script = ExtResource("2_mg0t0")
+trait_icon = ExtResource("3_ji33g")
+id = "crafty"
+name = "Crafty"
+description = "Perceptive of their environment. Enjoys making opportunities."
+card_pool = SubResource("Resource_nbpp1")
+metadata/_custom_type_script = "uid://bllaybhbcrgk4"

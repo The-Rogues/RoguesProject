@@ -1,6 +1,6 @@
 extends BattleAction
 class_name BattleEventAction
-## Action for adding a rule to a batte. Use as components to build [BattleMove].
+## An action dedicated to applying a battle rule to a battle
 
 @export var battle_turn_event:BattleTurnEvent
 

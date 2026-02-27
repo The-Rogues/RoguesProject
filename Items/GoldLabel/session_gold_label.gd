@@ -22,6 +22,6 @@ func _on_gold_updated(new_amount: int) -> void:
 	
 	added_gold = true
 	var tween := create_tween()
-	tween.tween_property(self, "gold", total, 0.5)
+	tween.tween_property(self, "gold", total, 1.65)
 	await tween.finished
 	added_gold = false

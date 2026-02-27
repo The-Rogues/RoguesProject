@@ -14,4 +14,4 @@ class_name PersonalityTrait
 @export var name:String
 ## Displayed when trait is made visible and mouse is hovered over trait icon.
 @export_multiline var description:String
-@export var associated_cards:Array[CardData]
+@export var card_pool:CardPool

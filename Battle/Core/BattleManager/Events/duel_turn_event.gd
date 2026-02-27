@@ -43,11 +43,11 @@ func on_turn_started() -> void:
 	
 	var player_attack = AttackAction.new()
 	player_attack.damage = player_damage
-	player_attack.target = TargetedBattleAction.TargetType.INHERITED
+	player_attack.target = TargetedBattleAction.TargetingOption.INHERITED
 	player_attack.inherited_targeting = [target_entity] as Array[BattleEntity]
 	var enemy_attack = AttackAction.new()
 	enemy_attack.damage = player_damage
-	enemy_attack.target = TargetedBattleAction.TargetType.PLAYER
+	enemy_attack.target = TargetedBattleAction.TargetingOption.PLAYER
 	
 	battle_instance.action_queue.enqueue(
 		player_attack,

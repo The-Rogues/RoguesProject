@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://mmtyk80ya2dp"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_w06bk"]
+[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="2_5lngt"]
+[ext_resource type="Script" uid="uid://bbopygco2e4m7" path="res://Battle/Actions/Atomic/object_action.gd" id="3_54ojj"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_lu613"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="5_j8lke"]
+
+[sub_resource type="Resource" id="Resource_ml437"]
+script = ExtResource("2_5lngt")
+effect = 2
+metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
+
+[sub_resource type="Resource" id="Resource_tb0jv"]
+script = ExtResource("2_5lngt")
+amount = 2
+metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
+
+[sub_resource type="Resource" id="Resource_gooqs"]
+script = ExtResource("3_54ojj")
+action_type = 1
+search_object_id = "cover"
+on_found_action = SubResource("Resource_ml437")
+on_not_found_action = SubResource("Resource_tb0jv")
+metadata/_custom_type_script = "uid://bbopygco2e4m7"
+
+[sub_resource type="Resource" id="Resource_j3bd5"]
+script = ExtResource("4_lu613")
+name = "Psyche Up"
+description = "Heal 6 HP if behind cover. Gain 2 block otherwise."
+actions = Array[ExtResource("1_w06bk")]([SubResource("Resource_gooqs")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("5_j8lke")
+energy_cost = 2
+move = SubResource("Resource_j3bd5")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

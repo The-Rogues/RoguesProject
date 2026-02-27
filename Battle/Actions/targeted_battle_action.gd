@@ -6,7 +6,7 @@ class_name TargetedBattleAction
 ## needs to be interacted with.
 
 ## Enum for targeting options of a targeted battle action.
-enum TargetType {
+enum TargetingOption {
 	## Targeting chooses the entity who is executing the action.
 	USER, 
 	## Targeting chooses the player's character.
@@ -21,15 +21,21 @@ enum TargetType {
 	INHERITED
 }
 # Sets what entities targeted
-@export var target:TargetType
+@export var targeting:TargetingOption
 
 ## The resolved targeting set after calling _resolve_target(). Is empty otherwise.
-var targeting:Array[BattleEntity]
+var targets:Array[BattleEntity]
 ## Targeting explicitly set by another script. Used if target is TargetType.INHERITED
 var inherited_targeting:Array[BattleEntity]
 
-@abstract
-func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null)
+
+func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
+	targets = []
+	if inherited_targeting: 
+		targets = inherited_targeting
+	else :
+		targets = _resolve_target(battle_instance, _action_user)
+
 
 ## Returns an array of entities according to the targeting option set in target
 ## member value.
@@ -37,27 +43,32 @@ func _resolve_target(
 	battle_instance:BattleManager, 
 	action_user:BattleEntity
 ) -> Array[BattleEntity]:
-	match target:
-		TargetType.USER:
+	match targeting:
+		TargetingOption.USER:
 			return [action_user] as Array[BattleEntity]
 			
-		TargetType.PLAYER:
+		TargetingOption.PLAYER:
 			return [battle_instance.player_entity] as Array[BattleEntity]
 			
-		TargetType.ENEMY:
-			var target_canidates:Array[BattleEntity] = battle_instance.living_enemies
-			var targets = battle_instance.character_personality.get_target_entity(
-					target_canidates
-			)
+		TargetingOption.ENEMY:
+			# Target an enemy the character is biased towards if user is the
+			# player character.
 			if action_user == battle_instance.player_entity:
-				return [targets] as Array[BattleEntity]
-			else:
-				return [target_canidates.pick_random()] as Array[BattleEntity]
+				return [
+					battle_instance.character_personality.get_target_entity(
+							battle_instance.living_enemies
+					)
+				]
+			# Otherwise, assume enemy is targeting allies, excluding self.
+			var target_canidates:Array[BattleEntity] = battle_instance.living_enemies
+			if target_canidates.has(action_user):
+				target_canidates.erase(action_user)
+			return [target_canidates.pick_random()] as Array[BattleEntity]
 			
-		TargetType.ALL_ENEMIES:
+		TargetingOption.ALL_ENEMIES:
 			return battle_instance.living_enemies
 			
-		TargetType.INHERITED:
+		TargetingOption.INHERITED:
 			return inherited_targeting
 			
 		_:

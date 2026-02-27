@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b8hfe4x15naiu"]
+
+[ext_resource type="Script" uid="uid://b1kntb7wwj67n" path="res://Testing/battle_win_screen.gd" id="1_uh5w0"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_5m41t"]
+[ext_resource type="PackedScene" uid="uid://dqdptmvdxw6eu" path="res://Testing/loot_panel.tscn" id="3_8ehk7"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="4_hysvd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njocm"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="BattleWinScreen" type="Control" unique_id=1026795570]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_uh5w0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=525858810]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_njocm")
+metadata/_edit_use_anchors_ = true
+
+[node name="HeaderMargin" type="MarginContainer" parent="." unique_id=2070042934]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -340.0
+offset_right = 340.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 120
+
+[node name="StatusLabel" type="Label" parent="HeaderMargin" unique_id=1687520291]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.8, 0.08235294, 1)
+theme_override_fonts/font = ExtResource("2_5m41t")
+theme_override_font_sizes/font_size = 51
+text = "Victory!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loot" parent="." unique_id=1482960324 instance=ExtResource("3_8ehk7")]
+layout_mode = 1
+offset_left = -275.0
+offset_top = -114.0
+offset_right = 275.0
+offset_bottom = 220.0
+
+[node name="ContinueMargin" type="MarginContainer" parent="." unique_id=668902310]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.5
+offset_top = -70.0
+offset_right = 118.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 40
+
+[node name="Continue" parent="ContinueMargin" unique_id=1757557941 instance=ExtResource("4_hysvd")]
+layout_mode = 2
+text = "Skip Rewards"
+horizontal_alignment = 1
+
+[connection signal="clicked" from="ContinueMargin/Continue" to="." method="_on_continue_clicked"]

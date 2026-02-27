@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://bse7c1c5q3poy"
 [sub_resource type="Resource" id="Resource_hqmi8"]
 script = ExtResource("2_6ej5m")
 name = "Spare"
-description = "Chance to spare enemy. Odds increase if enemy is weakend first."
+description = "Chance to spare the target. This chance is increased if the target’s HP is below 2/3rds."
 actions = Array[ExtResource("1_kx56i")]([SubResource("Resource_886to")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

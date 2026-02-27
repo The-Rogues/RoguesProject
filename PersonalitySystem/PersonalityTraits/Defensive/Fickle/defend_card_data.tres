@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b2mj2k04lyi5h"]
+
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_priyy"]
+[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="2_ik1yx"]
+[ext_resource type="Script" uid="uid://7y4m1pq8ls3m" path="res://Battle/Actions/Atomic/move_player_action.gd" id="3_kkdks"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_cw403"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="5_jxh81"]
+
+[sub_resource type="Resource" id="Resource_trhjf"]
+script = ExtResource("2_ik1yx")
+effect = null
+amount = null
+bonus_random = null
+reset_value = null
+sample_from = null
+targeting = null
+metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
+
+[sub_resource type="Resource" id="Resource_bsb7d"]
+script = ExtResource("3_kkdks")
+direction = 2
+metadata/_custom_type_script = "uid://7y4m1pq8ls3m"
+
+[sub_resource type="Resource" id="Resource_j3bd5"]
+script = ExtResource("4_cw403")
+move_type = 1
+name = "Defend"
+description = "Gain 6 block. Move to adjacent position."
+actions = Array[ExtResource("1_priyy")]([SubResource("Resource_trhjf"), SubResource("Resource_bsb7d")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("5_jxh81")
+energy_cost = 2
+move = SubResource("Resource_j3bd5")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

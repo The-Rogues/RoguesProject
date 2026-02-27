@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_mb41f"]
 [ext_resource type="Script" uid="uid://dodeesjdahjxm" path="res://Testing/card_loot_selector.gd" id="1_s54wm"]
 [ext_resource type="PackedScene" uid="uid://b6kxom317vkry" path="res://Cards/UI/card.tscn" id="2_s54wm"]
-[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://Testing/select_button.tscn" id="3_fghai"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="3_fghai"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n6o7m"]
 load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
@@ -41,7 +41,18 @@ alignment = 1
 layout_mode = 2
 theme_override_constants/margin_top = 24
 
-[node name="Header" type="Label" parent="VBoxContainer/HeaderMargin" unique_id=582588589]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HeaderMargin" unique_id=1192103361]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="Label" parent="VBoxContainer/HeaderMargin/VBoxContainer" unique_id=582588589]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mb41f")
+theme_override_font_sizes/font_size = 24
+text = "Draw"
+horizontal_alignment = 1
+
+[node name="Header2" type="Label" parent="VBoxContainer/HeaderMargin/VBoxContainer" unique_id=1541172538]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_mb41f")
 text = "Choose a card to add to your deck"
