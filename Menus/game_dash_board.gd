@@ -8,6 +8,7 @@ class_name GameSessionDisplay
 @onready var traits_display: TraitDisplay = $Container/LeftElements/Traits/TraitsDisplay
 @onready var deck_viewer: CardDeckViewerUI = $DeckViewer
 @onready var item_interface: ItemInterface = $Container/RightElements/Items/ItemInterface
+@onready var deck_button: TextureButton = $Container/RightElements/Deck/DeckButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -44,6 +45,7 @@ func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:Ca
 	
 	battle_instance.item_used.connect(_on_item_used)
 
+
 func _on_health_changed(current:int, max:int):
 	current_health.text = str(current) + "/" + str(max)
 	pass
@@ -51,3 +53,7 @@ func _on_health_changed(current:int, max:int):
 
 func _on_item_used(item:ItemData, remaining:Array[ItemData]):
 	item_interface.update_ui(remaining)
+
+
+func disable_deck_viewer(disable:bool):
+	deck_button.disabled = disable

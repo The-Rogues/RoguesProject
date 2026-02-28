@@ -9,6 +9,7 @@ signal current_health_updated(new_value:int)
 signal max_health_updated(new_value:int)
 signal traits_updated()
 signal gold_updated(new_value:int)
+signal gold_added(added_amount:int)
 
 var run_progress: RunProgress
 var started_session:bool = false
@@ -172,6 +173,7 @@ func increase_gold(amount:int):
 	run_progress.total_gold_collected +=amount
 	
 	gold_updated.emit(run_progress.gold)
+	gold_added.emit(amount)
 	GlobalSaveManager.save_run(run_progress)
 
 

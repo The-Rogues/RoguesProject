@@ -15,6 +15,7 @@ signal hovered(card: CardUI, is_hovering: bool)
 var base_scale: Vector2
 var hover_scale := 0.08
 var in_play_area := false
+var check_for_play_area:bool = true
 
 
 func _ready() -> void:
@@ -78,5 +79,6 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 
 
 func _on_area_2d_area_exited(_area: Area2D) -> void:
-	in_play_area = false
-	show_border(false)
+	if check_for_play_area:
+		in_play_area = false
+		show_border(false)

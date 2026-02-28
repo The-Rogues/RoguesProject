@@ -113,3 +113,14 @@ res://Battle/Actions/Atomic/personality_weight_action.gd
 res://Battle/Actions/Atomic/spare_action.gd
 res://Battle/Actions/Atomic/status_effect_action.gd
 res://Battle/Core/BattleManager/Events/duel_turn_event.gd
+res://Testing/card_tester.tscn
+res://Cards/Core/card_play_hand.gd
+res://Menus/game_dash_board.gd
+res://Menus/game_dash_board.tscn
+res://Cards/Core/battle_card_manager.gd
+res://Cards/UI/deck_viewer.gd
+res://Cards/UI/deck_viewer.tscn
+res://Cards/UI/battle_card_manager.tscn
+res://Cards/Decks/starting_card_deck.tres
+res://Cards/Core/card_deck.gd
+res://Globals/SceneManagement/session_manager.gd

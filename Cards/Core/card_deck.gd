@@ -43,23 +43,12 @@ func remove_card(card_data:CardData) -> void:
 func transfer_cards_to_deck(
 		target_card_deck:CardDeck, 
 		shuffle:bool = false,
-		keep_discarded_cards:bool = false
 ):
-	# Saving current card data
-	var card_datas:Array[CardData] = []
-	var keep_pile:Array[CardData] = []
 	
-	for card_data in cards:
-		if keep_discarded_cards and card_data.discard_after_play:
-			keep_pile.append(card_data)
-		else:
-			card_datas.append(card_data)
+	target_card_deck.cards = cards.duplicate(true)
 	
 	# Remove cards from this deck
 	cards.clear()
-	cards = keep_pile.duplicate(true)
-	# adds saved card datas to target deck
-	target_card_deck.add_cards(card_datas)
 	if shuffle:
 		target_card_deck.cards.shuffle()
 	# signal this deck was updated and is now empty

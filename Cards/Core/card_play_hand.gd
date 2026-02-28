@@ -8,7 +8,7 @@ signal released_card
 @export var y_position: float = 700
 @export var fan_angle: float = 20.0
 @export var fan_spacing: float = 90.0
-@export var force_initialization := false
+@export var force_initialization:bool = false
 @export var card_datas: Array[CardData]
 
 const CARD_UI = preload("res://Cards/UI/card.tscn")
@@ -24,6 +24,7 @@ var screen_size:Vector2
 func _ready() -> void:
 	screen_size = get_viewport().size
 	if force_initialization:
+		print(card_datas)
 		initialize(card_datas)
 
 func _process(_delta: float) -> void:
@@ -40,8 +41,10 @@ func _process(_delta: float) -> void:
 # -------------------------------------------------
 
 func initialize(new_card_datas: Array[CardData]) -> void:
+	print(new_card_datas)
 	clear_hand()
 	for data in new_card_datas:
+		print("drawn")
 		draw_card(data)
 
 func draw_card(new_card_data: CardData) -> void:

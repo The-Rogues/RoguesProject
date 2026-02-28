@@ -15,5 +15,6 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_cltlr")
+name = "Your Deck"
 cards = Array[ExtResource("1_qkhdm")]([ExtResource("3_4riwa"), ExtResource("3_4riwa"), ExtResource("3_4riwa"), ExtResource("9_4riwa"), ExtResource("9_4riwa"), ExtResource("5_f4ede"), ExtResource("5_f4ede"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("8_ec414"), ExtResource("2_4riwa"), ExtResource("9_x3eug"), ExtResource("8_eh4ey"), ExtResource("9_eh4ey"), ExtResource("10_eh4ey")])
 metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"

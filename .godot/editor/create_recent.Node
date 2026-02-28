@@ -1,8 +1,8 @@
+Panel
 VBoxContainer
 HBoxContainer
 Button
 TextureButton
-Panel
 Sprite2D
 AnimationPlayer
 TextureRect

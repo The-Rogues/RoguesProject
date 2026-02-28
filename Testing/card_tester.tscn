@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://buoro5rsltq42"]
+
+[ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://Battle/UI/play_area.tscn" id="1_05vuj"]
+[ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://Cards/Core/card_play_hand.gd" id="2_wpt87"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_h7bk0"]
+[ext_resource type="Resource" uid="uid://cpcm1bkfedbjv" path="res://Cards/Shared/strike_card_data.tres" id="4_bjcs0"]
+
+[node name="CardTester" type="Node2D" unique_id=290528569]
+
+[node name="PlayArea" parent="." unique_id=362766689 node_paths=PackedStringArray("card_hand") instance=ExtResource("1_05vuj")]
+position = Vector2(546, 263)
+card_hand = NodePath("")
+
+[node name="PlayerCardHand" type="Node2D" parent="." unique_id=867821311]
+position = Vector2(0, 210)
+script = ExtResource("2_wpt87")
+y_position = 300.0
+fan_angle = 10.0
+force_initialization = true
+card_datas = Array[ExtResource("3_h7bk0")]([ExtResource("4_bjcs0")])

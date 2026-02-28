@@ -114,6 +114,13 @@ func get_object() -> ObjectEntity:
 	return battle_positions[entity_position].object
 
 
+func get_current_position() -> BattlePosition:
+	if not entity:
+		return null
+	
+	return battle_positions[entity_position]
+
+
 func on_new_turn_started():
 	print("battle field")
 	for pos in battle_positions:

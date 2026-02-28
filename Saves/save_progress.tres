@@ -11,18 +11,19 @@
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/invest_card_data.tres" id="9_rp2d1"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/plot_amor_card_data.tres" id="10_4g6sv"]
 [ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="11_jq1ju"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_19.tres" id="12_osl4a"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_17.tres" id="12_osl4a"]
 [ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="13_fucgn"]
 [ext_resource type="Script" path="res://Items/Core/item_data.gd" id="14_5w8pu"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="15_73m4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="16_sqevk"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="16_73m4a"]
 [ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="17_4f4mg"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="18_sqevk"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/greedy_strategic_trait.tres" id="18_sqevk"]
 [ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="19_mt2ww"]
 
 [sub_resource type="Resource" id="Resource_bn7m0"]
 resource_local_to_scene = true
 script = ExtResource("11_jq1ju")
+name = "Your Deck"
 cards = Array[ExtResource("1_osl4a")]([ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("3_sqevk"), ExtResource("3_sqevk"), ExtResource("4_bn7m0"), ExtResource("4_bn7m0"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("6_ldui5"), ExtResource("7_hxw8v"), ExtResource("8_gbghs"), ExtResource("9_rp2d1"), ExtResource("10_4g6sv")])
 metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
 
@@ -30,24 +31,24 @@ metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
 script = ExtResource("13_fucgn")
 display_texture = ExtResource("12_osl4a")
 id = "player"
-name = "Basil"
+name = "Mousou"
 description = "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence."
 max_health = 80
 
 [sub_resource type="Resource" id="Resource_ldui5"]
 script = ExtResource("17_4f4mg")
-offensive_trait = ExtResource("16_sqevk")
-offensive_weight = 8
+offensive_trait = ExtResource("16_73m4a")
+offensive_weight = 4
 defensive_trait = ExtResource("15_73m4a")
-defensive_weight = 7
+defensive_weight = 9
 strategic_trait = ExtResource("18_sqevk")
-strategic_weight = 10
+strategic_weight = 9
 
 [resource]
 script = ExtResource("19_mt2ww")
 personality_data = SubResource("Resource_ldui5")
 character_entity_data = SubResource("Resource_gvrsj")
 character_backstory = "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence."
-map_seed = 3056724266
-player_node_index = 3
+map_seed = 3948493760
+player_node_index = 4
 card_deck = SubResource("Resource_bn7m0")

@@ -17,11 +17,15 @@ class_name BattleScene
 @onready var battle_interface: Control = $UILayer/BattleInterface
 @onready var finisher: ColorRect = $Finisher
 
+const FLOATING_NUMBERS = preload(
+		"res://General/UI/DamageNumbers/floating_numbers.tscn"
+)
 
 func _ready() -> void:
 	if GlobalSceneLoader.pending_battle_configuration:
 		initialize(GlobalSceneLoader.pending_battle_configuration)
 		GlobalSceneLoader.pending_battle_configuration = null
+		GlobalSessionManager.gold_added.connect(_on_collected_gold)
 
 
 func initialize(battle_configuration:BattleSceneConfiguration):
@@ -47,7 +51,6 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	await turn_banner.display("Battle Start")
 	battle_manager._start_player_turn()
 	end_turn_button.disabled = false
-	#_started_player_turn()
 
 
 func _on_end_turn_button_up() -> void:
@@ -84,7 +87,6 @@ func _on_battle_ended(player_won:bool):
 			battle_manager
 		)
 		battle_interface.visible = false
-		battle_manager.battle_display.visible = false
 		battle_win_screen.visible = true
 	else:
 		await get_tree().create_timer(0.5).timeout
@@ -93,3 +95,16 @@ func _on_battle_ended(player_won:bool):
 				battle_manager.player_entity, 
 				battle_manager.enemy_encounter
 		)
+
+
+func display_floating_numbers(text:String, position:Vector2):
+	var new_pop_text = FLOATING_NUMBERS.instantiate()
+	add_child(new_pop_text)
+	new_pop_text.global_position = position
+	
+	new_pop_text.initialize(text, Color.ORANGE)
+
+
+func _on_collected_gold(new_value:int):
+	display_floating_numbers(str(new_value), battle_manager.player_entity.global_position)
+	pass

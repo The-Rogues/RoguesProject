@@ -31,13 +31,16 @@ func _on_card_selected(card_data:CardData):
 	GlobalSessionManager.run_progress.card_deck.add_card(card_data)
 	pass
 
+
 func _on_continue_clicked() -> void:
 	if GlobalSessionManager.run_progress == null:
 		GlobalSceneLoader.load_scene(GlobalSceneLoader.MAIN_MENU_PATH)
 		return
+	
 	GlobalSaveManager.save_run(GlobalSessionManager.run_progress)
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)
 	pass # Replace with function body.
+
 
 func _clear_battle_lock() -> void:
 	if GlobalSessionManager.run_progress == null:

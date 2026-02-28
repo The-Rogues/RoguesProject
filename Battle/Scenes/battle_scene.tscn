@@ -91,10 +91,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PlayArea" parent="." unique_id=574541479 node_paths=PackedStringArray("card_hand") instance=ExtResource("3_nuuou")]
-position = Vector2(546, 263)
-card_hand = NodePath("../UILayer/BattleInterface/PlayerCardHand")
+color = Color(0.65225786, 0.19287637, 0.14407057, 1)
 
 [node name="BattleManager" type="Node2D" parent="." unique_id=948342459 node_paths=PackedStringArray("battle_field", "energy_counter", "battle_card_manager", "battle_display", "enemy_delay_timer")]
 script = ExtResource("2_laop5")
@@ -202,8 +199,8 @@ layout_mode = 1
 offset_top = -31.0
 offset_bottom = 44.0
 
-[node name="BattleCardManager" parent="UILayer/BattleInterface" unique_id=1468312817 node_paths=PackedStringArray("card_hand") instance=ExtResource("12_hb1pv")]
-layout_mode = 1
+[node name="PlayArea" parent="UILayer/BattleInterface" unique_id=574541479 node_paths=PackedStringArray("card_hand") instance=ExtResource("3_nuuou")]
+position = Vector2(546, 263)
 card_hand = NodePath("../PlayerCardHand")
 
 [node name="PlayerCardHand" type="Node2D" parent="UILayer/BattleInterface" unique_id=1303605846]
@@ -211,6 +208,10 @@ position = Vector2(0, 210)
 script = ExtResource("4_cgsmb")
 y_position = 300.0
 fan_angle = 10.0
+
+[node name="BattleCardManager" parent="UILayer/BattleInterface" unique_id=1468312817 node_paths=PackedStringArray("card_hand") instance=ExtResource("12_hb1pv")]
+layout_mode = 1
+card_hand = NodePath("../PlayerCardHand")
 
 [node name="BattleWinScreen" parent="UILayer" unique_id=1026795570 instance=ExtResource("13_1eksv")]
 visible = false
@@ -221,5 +222,3 @@ visible = false
 visible = false
 
 [connection signal="button_up" from="UILayer/BattleInterface/EndTurn" to="." method="_on_end_turn_button_up"]
-
-[editable path="UILayer/GameDashBoard"]
