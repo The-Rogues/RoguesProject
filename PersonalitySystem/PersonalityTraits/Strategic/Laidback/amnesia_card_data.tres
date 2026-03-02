@@ -20,7 +20,6 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("4_sw2bp")
-rarity = 1
 energy_cost = 3
 move = SubResource("Resource_e1k2i")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

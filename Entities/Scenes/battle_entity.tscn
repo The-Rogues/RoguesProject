@@ -79,8 +79,9 @@ content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("11_msfa7")
 
-[node name="BattleEntity" type="Node2D" unique_id=293226690]
+[node name="BattleEntity" type="Node2D" unique_id=293226690 node_paths=PackedStringArray("name_label")]
 script = ExtResource("1_j8war")
+name_label = NodePath("UI/Display/NameLabel")
 
 [node name="DamageParticles" parent="." unique_id=232237618 instance=ExtResource("2_s8nop")]
 texture_filter = 1
@@ -162,7 +163,7 @@ layout_mode = 2
 
 [node name="UIDissapearTimer" type="Timer" parent="UI" unique_id=1944120485 node_paths=PackedStringArray("control")]
 script = ExtResource("8_j534h")
-control = NodePath("../Display")
+control = NodePath("..")
 
 [node name="DamageNumbers" type="Control" parent="UI" unique_id=693407505]
 layout_mode = 1

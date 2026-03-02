@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_q50e4"]
 [ext_resource type="Script" uid="uid://7y4m1pq8ls3m" path="res://Battle/Actions/Atomic/move_player_action.gd" id="2_bcdlx"]
-[ext_resource type="Script" uid="uid://bcq14t4i2bawx" path="res://Battle/Actions/Atomic/card_action.gd" id="3_swyll"]
+[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="3_q50e4"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_tyeqh"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="5_8xqnw"]
 
@@ -11,15 +11,17 @@ script = ExtResource("2_bcdlx")
 direction = 2
 metadata/_custom_type_script = "uid://7y4m1pq8ls3m"
 
-[sub_resource type="Resource" id="Resource_kac7d"]
-script = ExtResource("3_swyll")
-metadata/_custom_type_script = "uid://bcq14t4i2bawx"
+[sub_resource type="Resource" id="Resource_bcdlx"]
+script = ExtResource("3_q50e4")
+effect = 4
+amount = 10
+metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
 [sub_resource type="Resource" id="Resource_4o1fk"]
 script = ExtResource("4_tyeqh")
 name = "Move"
-description = "Move to an adjacent position. Draw 1 card."
-actions = Array[ExtResource("1_q50e4")]([SubResource("Resource_unnkc"), SubResource("Resource_kac7d")])
+description = "Move to an adjacent position. Gain 10 gold every additional move"
+actions = Array[ExtResource("1_q50e4")]([SubResource("Resource_unnkc"), SubResource("Resource_bcdlx")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

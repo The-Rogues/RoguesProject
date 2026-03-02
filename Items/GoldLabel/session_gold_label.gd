@@ -5,6 +5,10 @@ var added_gold:bool = false
 
 
 func _ready() -> void:
+	initialize()
+
+
+func initialize():
 	if GlobalSessionManager.run_progress:
 		gold = GlobalSessionManager.run_progress.gold
 		GlobalSessionManager.gold_updated.connect(_on_gold_updated)
@@ -22,6 +26,9 @@ func _on_gold_updated(new_amount: int) -> void:
 	
 	added_gold = true
 	var tween := create_tween()
-	tween.tween_property(self, "gold", total, 1.65)
+	if new_amount > 100:
+		tween.tween_property(self, "gold", total, 1.65)
+	else:
+		tween.tween_property(self, "gold", total, 0.5)
 	await tween.finished
 	added_gold = false

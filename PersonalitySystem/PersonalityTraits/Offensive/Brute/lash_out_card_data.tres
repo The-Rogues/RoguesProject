@@ -1,18 +1,34 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://7n3mqrwdvr7"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_bvj7j"]
+[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/attack_action.gd" id="2_jkk0a"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="2_y16mb"]
+[ext_resource type="Script" uid="uid://3upnhldpsxbt" path="res://Battle/Actions/Atomic/personality_weight_action.gd" id="3_s73fj"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="5_hprym"]
+
+[sub_resource type="Resource" id="Resource_5kh8j"]
+script = ExtResource("2_jkk0a")
+base_damage = 0
+hits = 2
+sample_from = 1
+targeting = 3
+metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
+
+[sub_resource type="Resource" id="Resource_s73on"]
+script = ExtResource("3_s73fj")
+set_to_exact = true
+change = 1
+metadata/_custom_type_script = "uid://3upnhldpsxbt"
 
 [sub_resource type="Resource" id="Resource_4xya5"]
 script = ExtResource("5_hprym")
 name = "Lash Out"
-description = "Deals damage equal to offensive weight 2 twice. Sets offensive weight to 1."
+description = "Deals damage equal to offensive weight twice. Sets offensive weight to 1."
+actions = Array[ExtResource("1_bvj7j")]([SubResource("Resource_5kh8j"), SubResource("Resource_s73on")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("2_y16mb")
-rarity = 1
 energy_cost = 2
 move = SubResource("Resource_4xya5")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

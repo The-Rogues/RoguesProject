@@ -135,3 +135,11 @@ func get_target_entity(entities:Array[BattleEntity]) -> BattleEntity:
 			return offensive_trait.get_unhealthiest_target(entities)
 		_:
 			return entities.pick_random()
+
+
+func get_starting_deck():
+	var deck = CardDeck.new()
+	deck.add_cards(offensive_trait.default_cards)
+	deck.add_cards(defensive_trait.default_cards)
+	deck.add_cards(strategic_trait.default_cards)
+	return deck

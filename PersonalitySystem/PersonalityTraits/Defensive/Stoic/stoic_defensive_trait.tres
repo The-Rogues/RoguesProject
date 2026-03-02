@@ -22,4 +22,5 @@ id = "stoic"
 name = "Stoic"
 description = "Remains focused under pressure. Mentally resilient."
 card_pool = SubResource("Resource_41dqb")
+default_cards = Array[ExtResource("1_qk5r5")]([ExtResource("3_dhnq2"), ExtResource("3_dhnq2"), ExtResource("3_dhnq2"), ExtResource("3_dhnq2"), ExtResource("2_qk5r5")])
 metadata/_custom_type_script = "uid://3ognrb8kkptl"

@@ -34,7 +34,7 @@ const backstories := {
 	"Fickle": "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape.",
 	"Greedy": "Promises of wealth lure them inward, certain that gold is worth any risk the tower demands.",
 	"Laidback": "With little concern for danger or reward, they wander into the tower with no plan and no urgency.",
-	"Tactical": "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
+	"Crafty": "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
 }
 
 
@@ -101,7 +101,7 @@ func _on_start_battle_button_up() -> void:
 		name_label.text,
 		backstory_label.text,
 		personality_data,
-		load("res://Cards/Decks/starting_card_deck.tres")
+		personality_data.get_starting_deck()
 	)
 	
 	# Fletcher - Changed from load battle scene to load map scene.

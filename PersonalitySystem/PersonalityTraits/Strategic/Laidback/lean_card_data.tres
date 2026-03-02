@@ -1,30 +1,30 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c6774gwn7h8po"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_c3ymi"]
-[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="2_fuf7i"]
+[ext_resource type="Script" uid="uid://cq3s1j6odaltq" path="res://Battle/Actions/Atomic/conditional_action.gd" id="2_fuf7i"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="3_bw0vx"]
-[ext_resource type="Script" uid="uid://bbopygco2e4m7" path="res://Battle/Actions/Atomic/object_action.gd" id="3_fuf7i"]
+[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="3_oxerf"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="4_oxerf"]
 
-[sub_resource type="Resource" id="Resource_bw0vx"]
-script = ExtResource("2_fuf7i")
+[sub_resource type="Resource" id="Resource_0hi83"]
+script = ExtResource("3_oxerf")
 effect = 3
 amount = 1
 metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
-[sub_resource type="Resource" id="Resource_oxerf"]
-script = ExtResource("3_fuf7i")
-action_type = 1
-move_to_object = false
-on_found_action = SubResource("Resource_bw0vx")
-metadata/_custom_type_script = "uid://bbopygco2e4m7"
+[sub_resource type="Resource" id="Resource_rgyw5"]
+script = ExtResource("2_fuf7i")
+true_action = SubResource("Resource_0hi83")
+condition = 6
+object_id = "cover"
+metadata/_custom_type_script = "uid://cq3s1j6odaltq"
 
 [sub_resource type="Resource" id="Resource_e1k2i"]
 script = ExtResource("3_bw0vx")
 move_type = 1
 name = "Lean"
 description = "If behind an object gain 1 energy."
-actions = Array[ExtResource("1_c3ymi")]([SubResource("Resource_oxerf")])
+actions = Array[ExtResource("1_c3ymi")]([SubResource("Resource_rgyw5")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

@@ -13,8 +13,6 @@ func _ready() -> void:
 	if force_initialize:
 		initialize(override_item_datas)
 
-func _process(delta: float) -> void:
-	pass
 
 func initialize(items:Array[ItemData]):
 	if items.is_empty():
@@ -40,9 +38,6 @@ func create_shop_item_slot(item_data:ItemData, index:int):
 
 func _on_item_selected(index:int, transaction_completed:bool):
 	selected_item.emit(index, transaction_type, transaction_completed)
-
-func _on_item_clicked(index:int):
-	pass
 
 
 func confirm_transaction(index:int):

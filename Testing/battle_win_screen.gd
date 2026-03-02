@@ -10,7 +10,7 @@ func initialize(encounter:EnemyEncounter, battle_instance:BattleManager):
 	loot.initialize(
 		encounter.get_gold_reward(),
 		SHARED_CARDS,
-		battle_instance.character_personality
+		battle_instance.player_personality
 	)
 	
 	GlobalSessionManager.save_character_health(

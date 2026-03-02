@@ -93,6 +93,11 @@ func heal(amount:float):
 	animation_player.play("entity/idle")
 
 
+func _launch_body():
+	if !spared:
+		super()
+
+
 func _on_new_turn_started():
 	super()
 	#defense.set_to_zero()
@@ -119,7 +124,7 @@ func move_to(new_position:Vector2):
 
 func spare():
 	spared = true
-	move_to(Vector2(global_position.x, 100))
+	move_to(Vector2(global_position.x, -100))
 	await arrived
 	kill()
 
@@ -138,7 +143,7 @@ func drop_object():
 
 
 func _on_started_moving():
-	#animation_player.stop()
+	animation_player.stop()
 	animation_player.play("entity/march")
 
 

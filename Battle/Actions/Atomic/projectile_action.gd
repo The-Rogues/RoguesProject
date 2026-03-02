@@ -15,6 +15,8 @@ const ATTACK_PROJECTILE = preload(
 		"res://Entities/Scenes/AttackProjectile/attack_projectile.tscn"
 )
 
+signal finished
+
 ## Replaces the default projectile texture
 @export var projectile_texture:Texture2D
 ## Toggles whether the projectile sprite will rotate to face it's movement
@@ -24,7 +26,7 @@ const ATTACK_PROJECTILE = preload(
 ## targeted entity
 @export var impact_damage:int
 ## Controls the speed that the projectile moves 
-@export var speed : float = 400
+@export var speed: float = 400
 ## Controls the deviation in angular degrees that the projectile will launch
 ## towards. Set to 0 if you want the projectile to move straight towards the
 ## targeted entity's position
@@ -47,7 +49,7 @@ enum DamageTarget {PLAYER, ENEMY}
 @export var status:StatusEffectData
 @export var stack:int
 @export var duration:int
-
+var projectile_count:int = 0
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	var locked_targets:Array[BattleEntity] = []
@@ -77,7 +79,8 @@ func _fire_projectiles(
 		
 		var projectile := _spawn_projectile(_action_user, direction, damage)
 		projectile.spawn_and_launch(_action_user.global_position, direction)
-		
+		projectile_count += 1
+		projectile.destroyed.connect(_on_projectile_destoyed)
 		await battle_instance.action_delay()
 
 
@@ -149,3 +152,10 @@ func _fire_delay(battle_instance:BattleManager):
 	# Delay is different so that if multiple entities are targeted, they play
 	# damage animations in unison vs sequentially.
 	await battle_instance.action_delay()
+
+
+func _on_projectile_destoyed():
+	projectile_count -= 1
+	print("destoryed ", projectile_count)
+	if projectile_count == 0:
+		finished.emit()

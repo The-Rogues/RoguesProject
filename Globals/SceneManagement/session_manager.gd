@@ -177,6 +177,16 @@ func increase_gold(amount:int):
 	GlobalSaveManager.save_run(run_progress)
 
 
+func decrease_gold(amount:int):
+	if run_progress == null:
+		return
+	
+	run_progress.gold -= amount
+	
+	gold_updated.emit(run_progress.gold)
+	GlobalSaveManager.save_run(run_progress)
+
+
 func can_buy(price:int):
 	if run_progress == null:
 		return false

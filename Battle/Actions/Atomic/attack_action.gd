@@ -41,7 +41,7 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	super(battle_instance, _action_user)
 	
 	for hit in hits:
-		_apply_hit(battle_instance, _action_user, targets)
+		await _apply_hit(battle_instance, _action_user, targets)
 	
 	for target in targets:
 		_enqueue_secondary_action(
@@ -63,6 +63,7 @@ func _apply_hit(
 	for target in _targets:
 		# Object interception
 		if _object_intercepts(battle_object, damage, action_user):
+			battle_object.take_damage(damage, action_user)
 			await battle_instance.action_delay()
 			continue
 		
@@ -114,19 +115,19 @@ func _sample_damage(
 ) -> int:
 	match sample_from:
 		SampleFrom.OFFENSIVE_WEIGHT:
-			return battle_instance.character_personality.offensive_weight + base_damage
+			return battle_instance.player_personality.offensive_weight
 		SampleFrom.DEFENSIVE_WEIGHT:
-			return battle_instance.character_personality.defensive_weight + base_damage
+			return battle_instance.player_personality.defensive_weight
 		SampleFrom.STRATEGIC_WEIGHT:
-			return battle_instance.character_personality.strategic_weight + base_damage
+			return battle_instance.player_personality.strategic_weight
 		SampleFrom.USER_BLOCK:
-			return action_user.defense.current_defense + base_damage
+			return action_user.defense.current_defense
 		SampleFrom.USER_PARRY:
-			return action_user.parry.current_parry + base_damage
+			return action_user.parry.current_parry
 		SampleFrom.LAST_DAMAGE_TAKEN:
-			return action_user.damage_taken + base_damage
+			return action_user.damage_taken
 		_:
-			return base_damage
+			return 0
 
 
 func _enqueue_secondary_action(

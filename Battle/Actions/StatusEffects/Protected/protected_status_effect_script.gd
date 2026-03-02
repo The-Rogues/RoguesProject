@@ -3,7 +3,7 @@ class_name ProtectedStatusEffect
 
 
 func modify_incoming_damage(amount: int, instance: StatusEffect) -> int:
-	return max(1, int(amount / 2))
+	return int(max(amount / 2, 1))
 
 
 func get_description(instance: StatusEffect) -> String:

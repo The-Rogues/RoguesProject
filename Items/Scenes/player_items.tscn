@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cuukmx5jhs7wn"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_0gffy"]
+[ext_resource type="Script" uid="uid://reh5a1s00m3f" path="res://Items/Scenes/player_items.gd" id="1_bskay"]
+[ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://Items/Scenes/item_interface.tscn" id="2_bskay"]
+
+[node name="Items" type="VBoxContainer" unique_id=1695638652]
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_bskay")
+
+[node name="Header" type="Label" parent="." unique_id=829816169]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0gffy")
+theme_override_font_sizes/font_size = 20
+text = "-Items-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemInterface" parent="." unique_id=92166697 instance=ExtResource("2_bskay")]
+layout_mode = 2
+size_flags_horizontal = 4
+minimum_item_slot_count = 3
+force_initialize = false

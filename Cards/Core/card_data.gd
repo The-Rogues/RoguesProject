@@ -6,17 +6,13 @@ class_name CardData
 ## to perform. Intended to be used as a creatable asset that is passed
 ## to CardUI for initialization
 
-enum Rarity {COMMON, UNCOMMON, RARE}
-## Controls how likely the card available in shops or rewarded to the player
-## in special events
-@export var rarity:Rarity = Rarity.COMMON
+@export var id:int = 0
 ## Sets the default cost it will take to play the card
 @export var energy_cost:int = 0
 @export var discard_after_play:bool = false
-@export var discard_all_after_play:bool = false
 ## Sets what actions will be perfomed when playing the card, seperated by 
 ## specified target
 @export var move:BattleMove
-
+@export var primary_action:BattleAction
+@export var secondary_action:BattleAction
 #TODO: Experiment with cards having display image 
-#TODO: Implement conditional play moves depending on personality trais and weights

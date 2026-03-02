@@ -1,5 +1,7 @@
 extends Label
-class_name PopNumbers
+class_name FloatingNumbers
+
+signal finished
 
 var active:bool = false
 @export var speed:float = 55.0
@@ -22,5 +24,6 @@ func _process(delta: float) -> void:
 	global_position.y -= speed * delta
 
 func _on_life_timer_timeout() -> void:
+	finished.emit()
 	queue_free()
 	pass # Replace with function body.

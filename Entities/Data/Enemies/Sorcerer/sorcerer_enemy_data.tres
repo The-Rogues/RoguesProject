@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="9_ljnds"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="9_tpdpk"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="10_ljnds"]
+[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="10_tpdpk"]
 [ext_resource type="Texture2D" uid="uid://4jeymnoxuans" path="res://Entities/Data/Enemies/Sorcerer/magic_slash_texture.tres" id="11_lipq7"]
 
 [sub_resource type="Resource" id="Resource_oakic"]
@@ -29,8 +30,9 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 script = ExtResource("9_tpdpk")
 projectile_texture = ExtResource("11_lipq7")
 face_direction = true
-impact_damage = 4
+impact_damage = 6
 speed = 500.0
+direction_range = 0.1
 shots = 3
 targeting = 1
 metadata/_custom_type_script = "uid://c3uyo8xsai327"
@@ -39,14 +41,26 @@ metadata/_custom_type_script = "uid://c3uyo8xsai327"
 script = ExtResource("5_44oxg")
 action_display_icon = ExtResource("10_ljnds")
 name = "Magic Slash"
-description = "Fires 3 low-accuracy projectiles. Deals 4 damage on impact"
+description = "Fires 3 low-accuracy projectiles. Deals 6 damage on impact"
 actions = Array[ExtResource("7_alaul")]([SubResource("Resource_abbt1")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_u6yi4"]
+script = ExtResource("10_tpdpk")
+metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
+
+[sub_resource type="Resource" id="Resource_brals"]
+script = ExtResource("5_44oxg")
+move_type = 1
+name = "Prepare"
+description = "Gain 6 block"
+actions = Array[ExtResource("7_alaul")]([SubResource("Resource_u6yi4")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("9_ljnds")
-move_set = Array[ExtResource("5_44oxg")]([SubResource("Resource_6epgn"), SubResource("Resource_3412g")])
+move_set = Array[ExtResource("5_44oxg")]([SubResource("Resource_6epgn"), SubResource("Resource_3412g"), SubResource("Resource_brals")])
 display_texture = ExtResource("4_gqmd2")
 name = "Caster"
-max_health = 60
+max_health = 56
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

@@ -1,3 +1,7 @@
+res://Menus/
+res://Items/Scenes/
+res://General/UI/LimitedTextEdit/
+res://Testing/CharacterGenerator/
 res://Testing/
 res://Battle/Loot/
 res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/
@@ -16,6 +20,3 @@ res://Battle/Core/BattleField/BattlePositions/
 res://General/Fonts/
 res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/
 res://PersonalitySystem/PersonalityTraits/Offensive/Brute/
-res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/
-res://PersonalitySystem/PersonalityTraits/Defensive/Naive/
-res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/

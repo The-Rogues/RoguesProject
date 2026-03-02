@@ -30,7 +30,7 @@ const LUANCH_BODY = preload("res://General/LaunchBody/launch_spin_body.tscn")
 
 @onready var damage_numbers: DamageNumbers = $UI/DamageNumbers
 @onready var health_bar: HealthBar = $UI/Display/HealthBar
-@onready var name_label: Label = $UI/Display/NameLabel
+@export var name_label: Label
 @onready var ui_dissapear_timer: Timer = $UI/UIDissapearTimer
 
 @onready var damage_particles: CPUParticles2D = $DamageParticles
@@ -157,19 +157,24 @@ func _on_defeated():
 	damage_particles.emitting = true
 	
 	if data.launch_when_defeated:
-		var launch_body:LaunchBody = LUANCH_BODY.instantiate()
-		add_child(launch_body)
-		launch_body.initialize(
-			data.launch_speed,
-			data.bounce_count,
-			data.launch_impact_damage,
-			data.display_texture
-		)
-		var direction:Vector2 = Vector2(0, -1)
-		if last_attacker != null:
-			if last_attacker.global_position.y < global_position.y:
-				direction = Vector2(0, 1)
-		launch_body.launch(direction)
+		_launch_body()
+
+
+func _launch_body():
+	var launch_body:LaunchBody = LUANCH_BODY.instantiate()
+	get_parent().add_child(launch_body)
+	launch_body.global_position = global_position
+	launch_body.initialize(
+		data.launch_speed,
+		data.bounce_count,
+		data.launch_impact_damage,
+		data.display_texture
+	)
+	var direction:Vector2 = Vector2(0, -1)
+	if last_attacker != null:
+		if last_attacker.global_position.y < global_position.y:
+			direction = Vector2(0, 1)
+	launch_body.launch(direction)
 
 
 func _on_new_turn_started():

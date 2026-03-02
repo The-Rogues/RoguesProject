@@ -59,14 +59,14 @@ character_sprite_varients = Array[Texture2D]([ExtResource("3_ntpg3"), ExtResourc
 name_varients = Array[String](["Edan", "Joah", "Abel", "Basil", "Wisper", "Robin", "Ram", "Juse", "Kinrid", "Mousou", "Weeply", "Lars", "Ollie", "Ash", "Smithly", "Krita", "Sam", "Eris", "Finch", "Judas", "Cyrprus", "Shiphra", "Salome", "Xavier", "Erdrick", "Gilbert"])
 personality_traits = Dictionary[String, ExtResource("28_y4i3p")]({
 "Brute": ExtResource("29_nyook"),
-"Challenger": ExtResource("30_grb3g"),
+"Crafty": ExtResource("37_g8mns"),
 "Fickle": ExtResource("31_p0xxf"),
 "Greedy": ExtResource("32_gdfka"),
 "Laidback": ExtResource("33_uwofx"),
 "Merciful": ExtResource("34_smodt"),
 "Naive": ExtResource("35_i6q16"),
 "Stoic": ExtResource("36_kqxcu"),
-"Tactical": ExtResource("37_g8mns")
+"Tactical": ExtResource("30_grb3g")
 })
 
 [node name="Background" type="PanelContainer" parent="." unique_id=471771454]
@@ -180,7 +180,7 @@ selected = 0
 item_count = 3
 popup/item_0/text = "Brute"
 popup/item_0/id = 0
-popup/item_1/text = "Challenger"
+popup/item_1/text = "Tactical"
 popup/item_1/id = 1
 popup/item_2/text = "Merciful"
 popup/item_2/id = 2
@@ -236,7 +236,7 @@ popup/item_0/text = "Greedy"
 popup/item_0/id = 0
 popup/item_1/text = "Laidback"
 popup/item_1/id = 1
-popup/item_2/text = "Tactical"
+popup/item_2/text = "Crafty"
 popup/item_2/id = 2
 
 [node name="Weight" type="SpinBox" parent="Background/MarginContainer/CharacterInfo/VBox2/StrategicTrait" unique_id=1879513240]

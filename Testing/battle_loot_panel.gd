@@ -74,14 +74,14 @@ func _on_collect_item_button_up() -> void:
 
 
 func _on_shared_card_draw_selected_card(card_data: CardData) -> void:
-	trait_card_draw.visible = false
-	shared_card_draw.visible = true
+	shared_card_draw.visible = false
 	selected_card.emit(card_data)
 	pass # Replace with function body.
 
 
 func _on_trait_card_draw_selected_card(card_data: CardData) -> void:
 	trait_card_draw.visible = false
+	shared_card_draw.visible = true
 	selected_card.emit(card_data)
 	pass # Replace with function body.
 

@@ -31,7 +31,7 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 
 
 func _move_direction_bias(battle_instance:BattleManager):
-	var dir:int = battle_instance.character_personality.strategic_trait.get_direction(battle_instance.battle_field)
+	var dir:int = battle_instance.player_personality.strategic_trait.get_direction(battle_instance.battle_field)
 	if dir == 1:
 		battle_instance.battle_field.move_entity_right()
 	else:

@@ -16,9 +16,12 @@ func _on_label_gui_input(event: InputEvent) -> void:
 func _on_win_button_up() -> void:
 	if not battle_manager:
 		return
-	
-	for enemy in battle_manager.living_enemies:
-		enemy.kill()
+	var _size = battle_manager.enemies.size()
+	for i in range(0, _size):
+		if i > 0:
+			battle_manager.enemies[i - 1].kill()
+		else:
+			battle_manager.enemies[i].kill()
 	pass # Replace with function body.
 
 
@@ -35,7 +38,7 @@ func _on_damage_enemy_button_up() -> void:
 	if not battle_manager:
 		return
 	
-	battle_manager.living_enemies.pick_random().take_damage(20)
+	battle_manager.enemies.pick_random().take_damage(20)
 	pass # Replace with function body.
 
 

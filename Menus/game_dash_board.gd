@@ -7,7 +7,8 @@ class_name GameSessionDisplay
 
 @onready var traits_display: TraitDisplay = $Container/LeftElements/Traits/TraitsDisplay
 @onready var deck_viewer: CardDeckViewerUI = $DeckViewer
-@onready var item_interface: ItemInterface = $Container/RightElements/Items/ItemInterface
+@onready var player_items: PlayerItems = $Container/RightElements/PlayerItems
+
 @onready var deck_button: TextureButton = $Container/RightElements/Deck/DeckButton
 
 
@@ -28,31 +29,23 @@ func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:Ca
 			)
 	
 	traits_display.initialize(
-		battle_instance.character_personality
+		battle_instance.player_personality
 	)
 	
 	deck_viewer._initialize(
 		starting_card_deck
 	)
 	
-	item_interface.initialize(
-		battle_instance.held_items
-	)
+	player_items.connect_to_battle(battle_instance)
 	
 	battle_instance.player_entity._health.health_changed.connect(
 		_on_health_changed
 	)
-	
-	battle_instance.item_used.connect(_on_item_used)
 
 
 func _on_health_changed(current:int, max:int):
 	current_health.text = str(current) + "/" + str(max)
 	pass
-
-
-func _on_item_used(item:ItemData, remaining:Array[ItemData]):
-	item_interface.update_ui(remaining)
 
 
 func disable_deck_viewer(disable:bool):
