@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ProtectedStatusEffect" format=3 uid="uid://be5d5xjhidpxh"]
+
+[ext_resource type="Script" uid="uid://do2ilxi6n20dy" path="res://Entities/StatusEffects/Protected/protected_status_effect_script.gd" id="1_311k1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8bj5n"]
+load_path = "res://.godot/imported/Icons_RPG.png-bc1210ad7785d8cb15373579d10eb88b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lxgh"]
+atlas = SubResource("CompressedTexture2D_8bj5n")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_311k1")
+id = "protected"
+display_name = "Protected"
+icon = SubResource("AtlasTexture_6lxgh")
+is_stackable = true
+metadata/_custom_type_script = "uid://do2ilxi6n20dy"

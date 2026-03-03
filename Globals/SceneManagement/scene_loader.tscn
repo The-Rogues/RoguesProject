@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://Entities/Data/Enemies/Slime/slime_texture.tres" id="3_bt074"]
 [ext_resource type="Texture2D" uid="uid://dtxuoyn4lxhb1" path="res://Entities/Data/Enemies/Funguy/funguy_texture.tres" id="4_mhdjm"]
 [ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="5_xfxiq"]
-[ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://Items/Data/Rat/rat_texture.tres" id="6_n2qip"]
+[ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://Testing/rat_texture.tres" id="6_n2qip"]
 [ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_a652t"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="8_iwggg"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
+[ext_resource type="PackedScene" uid="uid://c7lb2ji3nvodm" path="res://General/UI/ScreenFader/screen_fade.tscn" id="10_qepw2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_balau"]
 bg_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
@@ -120,5 +121,7 @@ flip_h = true
 
 [node name="CharacterAnimator" type="AnimationPlayer" parent="LoadingScreenLayer/Control/Character" unique_id=933173198]
 libraries/ = SubResource("AnimationLibrary_6up84")
+
+[node name="ScreenFade" parent="." unique_id=1254281250 instance=ExtResource("10_qepw2")]
 
 [connection signal="animation_finished" from="LoadingScreenLayer/Control/Character/CharacterAnimator" to="LoadingScreenLayer/Control/Character/CharacterAnimator" method="_on_animation_finished"]

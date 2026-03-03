@@ -1,3 +1,3 @@
-res://Cards/Core/card_pool.gd
+res://Entities/Core/object_entity_data.gd
 AtlasTexture
 CardData

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ChargeStatusEffectData" format=3 uid="uid://bqc86hkhakvp0"]
+
+[ext_resource type="Script" uid="uid://b0k5opg83sxsu" path="res://Entities/StatusEffects/Charge/charge_status_effect_data.gd" id="1_ncu5t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2h1a0"]
+load_path = "res://.godot/imported/Icons_RPG.png-7d50e73a2af8cc6f99812cd569a79283.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncu5t"]
+atlas = SubResource("CompressedTexture2D_2h1a0")
+region = Rect2(48, 160, 16, 16)
+
+[resource]
+script = ExtResource("1_ncu5t")
+id = "charge"
+display_name = "Charge"
+icon = SubResource("AtlasTexture_ncu5t")
+is_stackable = true
+metadata/_custom_type_script = "uid://b0k5opg83sxsu"

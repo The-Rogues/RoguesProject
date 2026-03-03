@@ -7,7 +7,8 @@ class_name SessionManager
 
 signal current_health_updated(new_value:int)
 signal max_health_updated(new_value:int)
-signal traits_updated()
+signal increased_item_capacity(new_capacity:int)
+signal traits_updated
 signal gold_updated(new_value:int)
 signal gold_added(added_amount:int)
 
@@ -117,9 +118,10 @@ func increase_item_capacity():
 	if run_progress == null:
 		return
 	
-	run_progress.item_capacity += 1
+	run_progress.maximum_item_capacity += 1
 	run_progress.total_items_collected += 1
 	GlobalSaveManager.save_run(run_progress)
+	increased_item_capacity.emit(run_progress.maximum_item_capacity)
 
 
 func change_offensive_trait(new_trait:PersonalityTrait, weight:int = -1):

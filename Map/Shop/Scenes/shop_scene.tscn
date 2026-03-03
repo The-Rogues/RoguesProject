@@ -2,18 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_0.tres" id="1_bt8o4"]
 [ext_resource type="Script" uid="uid://7ymmg45xhdak" path="res://Map/Shop/Scenes/shop_scene.gd" id="1_jq6m6"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Items/Core/item_data.gd" id="2_jyd0f"]
-[ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://Items/Data/Apple/apple_healing_item_data.tres" id="3_5ug6c"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_jq6m6"]
-[ext_resource type="Resource" uid="uid://dlviwum7qlyod" path="res://Items/Data/Bread/bread_healing_item_data.tres" id="4_bgko6"]
 [ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://Items/Scenes/item_slot.tscn" id="5_8bdd0"]
-[ext_resource type="Resource" uid="uid://dm6o6i3wayjsk" path="res://Items/Data/Rat/rat_item_data.tres" id="5_ycyw5"]
-[ext_resource type="Resource" uid="uid://qcc2u0ao21oo" path="res://Items/Data/CardPack/card_pack_item_data.tres" id="6_oosqx"]
-[ext_resource type="Resource" uid="uid://d22vj3yb6c7lp" path="res://Items/Data/Barricade/barricade_item_data.tres" id="7_4tva3"]
 [ext_resource type="Script" uid="uid://crame3tjbrvn4" path="res://Items/Scenes/shop_item_interface.gd" id="7_acpms"]
-[ext_resource type="Resource" uid="uid://704fo14vdxkf" path="res://Items/Data/WackBat/wack_bat_item_data.tres" id="8_3r1d8"]
 [ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="8_ff7t1"]
-[ext_resource type="Resource" uid="uid://cj7sd5horucgq" path="res://Items/Data/Cheese/cheese_healing_item_data.tres" id="9_a5r3d"]
 [ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://Items/GoldLabel/session_gold_label.tscn" id="9_acpms"]
 [ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://Map/Shop/ShopKeepers/shop_desk.tres" id="9_rdf4x"]
 [ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_1.tres" id="11_lsasn"]
@@ -69,7 +61,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jq6m6")
-override_shop_items = Array[ExtResource("2_jyd0f")]([ExtResource("3_5ug6c"), ExtResource("3_5ug6c"), ExtResource("4_bgko6"), ExtResource("5_ycyw5"), ExtResource("6_oosqx"), ExtResource("7_4tva3"), ExtResource("8_3r1d8"), ExtResource("9_a5r3d")])
 shop_keeper_varients = Array[Texture2D]([ExtResource("1_bt8o4"), ExtResource("11_lsasn"), ExtResource("12_odkx1"), ExtResource("13_qvs08")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1284427762]
@@ -382,8 +373,8 @@ texture = ExtResource("9_rdf4x")
 
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Shop" to="." method="_on_shop_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Sell" to="." method="_on_open_sell_button_up"]
-[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_back_to_menu_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_on_leave_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_back_to_menu_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Buy" to="." method="_on_buy_item"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Barter" to="." method="_on_barter_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Back" to="." method="_back_to_menu_button_up"]

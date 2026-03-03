@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-015.png" id="4_p1bjo"]
 [ext_resource type="Texture2D" uid="uid://8xsk77v3dra5" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-000.png" id="5_30mmx"]
 [ext_resource type="Texture2D" uid="uid://dt54emky1k6y1" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-008.png" id="6_re1ta"]
-[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://Items/Data/CardPack/card_pack_texture.tres" id="7_ktt6i"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://Testing/card_pack_texture.tres" id="7_ktt6i"]
 [ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://Items/Data/Apple/apple_texture.tres" id="8_fp316"]
 [ext_resource type="PackedScene" uid="uid://bfyabdwaoylaf" path="res://Battle/UI/CardLootSelector/card_loot_selector.tscn" id="9_spaav"]
 

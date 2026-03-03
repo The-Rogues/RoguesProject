@@ -12,7 +12,8 @@ class_name BattleScene
 @export var battle_display:GameSessionDisplay
 @export var battle_manager: BattleManager
 @export var end_turn_button: Button
-@export var battle_results_display: BattleResultLayer
+@export var lose_screen: LoseScreen
+
 @export var turn_banner: BannerPopup
 @export var battle_win_screen: BattleWinScreen
 @onready var battle_interface: Control = $UILayer/BattleInterface
@@ -44,8 +45,7 @@ func initialize(battle_configuration:BattleSceneConfiguration):
 	battle_manager.battle_ended.connect(_on_battle_ended)
 	battle_display.initialize_with_battle(battle_manager, battle_configuration.card_deck)
 	
-	await battle_results_display.fade_out()
-	battle_results_display.visible = false
+	lose_screen.visible = false
 	await get_tree().create_timer(0.5).timeout
 	await turn_banner.display("Battle Start")
 	battle_manager._start_player_turn()
@@ -72,12 +72,9 @@ func _on_battle_ended(player_won:bool):
 	if player_won:
 		_play_win_sequence()
 	else:
-		await get_tree().create_timer(0.5).timeout
-		battle_results_display.set_result(
-				player_won, 
-				battle_manager.player_entity, 
-				enemy_encounter
-		)
+		lose_screen.visible = true
+		await lose_screen.play_lose_sequence(battle_manager.player_entity)
+		lose_screen.display_game_results()
 
 
 func _play_win_sequence():

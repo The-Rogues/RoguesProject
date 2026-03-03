@@ -31,6 +31,8 @@ const AI_CHARACTER_GENERATOR_PATH = "res://Menus/AICharacterGenerator/ai_charact
 @onready var character_animator: AnimationPlayer = $LoadingScreenLayer/Control/Character/CharacterAnimator
 @onready var load_progress_bar: ProgressBar = $LoadingScreenLayer/Control/VBoxContainer/LoadProgressBar
 @onready var sprite_2d: Sprite2D = $LoadingScreenLayer/Control/Character/Sprite2D
+@onready var screen_fade: ScreenFade = $ScreenFade
+
 
 var loaded_scene
 var loading_scene_path:String = ""
@@ -127,7 +129,7 @@ func _on_started_loading_scene():
 	else:
 		load_texture = loading_sprite_varients.pick_random()
 	sprite_2d.texture = load_texture
-	
+	await screen_fade.fade_out()
 	loading_screen_layer.visible = true
 	character_animator.play("loading")
 
@@ -137,6 +139,7 @@ func _on_scene_loaded():
 	get_tree().change_scene_to_packed(loaded_scene)
 	loading_screen_layer.visible = false
 	character_animator.stop()
+	screen_fade.fade_in()
 
 
 func _on_load_progress_updated(progress):

@@ -22,7 +22,7 @@ class_name AICharacterGenerator
 @onready var menu_2: Control = $Menu2
 ## The last menu shown to the player, following the processing of character
 ## information.
-@onready var character_results: CharacterScreen = $CharacterScreen
+@onready var character_results: CharacterScreen = $CharacterResult
 
 
 func _ready() -> void:
@@ -177,7 +177,8 @@ func _on_create_clicked() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	var prompt:String = _build_character_prompt()
-	# TODO: Replace with actual response from NobodyWho
+	
+	# TODO: Replace with actual response from NobodyWho using prompt from above.
 	# Description field text is being used only for testing json parsing.
 	# Once the AI is used, click on description field object in the scene and change
 	# its text to be empty.

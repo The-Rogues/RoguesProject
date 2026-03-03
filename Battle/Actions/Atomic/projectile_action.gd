@@ -57,25 +57,31 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	if repeat_mode == RepeatTargetMode.LOCK_TARGETS:
 		locked_targets = _resolve_target(battle_instance, _action_user)
 	
-	for shot in shots:
+	var action:ProjectileAction = self.duplicate(true)
+	if _action_user:
+		action = _action_user.get_modified_projectile(self)
+	
+	for shot in action.shots:
 		var targets := locked_targets if repeat_mode == RepeatTargetMode.LOCK_TARGETS \
 			else _resolve_target(battle_instance, _action_user)
 	
-		_fire_projectiles(battle_instance, _action_user, targets)
+		_fire_projectiles(battle_instance, _action_user, targets, action)
 		await _fire_delay(battle_instance)
 
 
 func _fire_projectiles(
 	battle_instance:BattleManager,
 	_action_user:BattleEntity,
-	targets:Array[BattleEntity]
+	targets:Array[BattleEntity],
+	projectile_action:ProjectileAction
 ):
 	for target in targets:
 		if not target:
 			continue
 		
 		var direction := _calculate_direction(_action_user, target)
-		var damage := _calculate_damage(_action_user)
+		var damage := _calculate_damage(_action_user, projectile_action)
+		
 		
 		var projectile := _spawn_projectile(_action_user, direction, damage)
 		projectile.spawn_and_launch(_action_user.global_position, direction)
@@ -108,9 +114,9 @@ func _calculate_direction(
 	return base_direction.rotated(randf_range(min_angle, max_angle))
 
 
-func _calculate_damage(user:BattleEntity) -> int:
-	var damage := impact_damage
-	damage = user.get_attack_damage(damage)
+func _calculate_damage(user:BattleEntity, projectile_action:ProjectileAction) -> int:
+	var damage := projectile_action.impact_damage
+	#damage = user.get_attack_damage(damage)
 	return max(damage, 0)
 
 
@@ -156,6 +162,5 @@ func _fire_delay(battle_instance:BattleManager):
 
 func _on_projectile_destoyed():
 	projectile_count -= 1
-	print("destoryed ", projectile_count)
 	if projectile_count == 0:
 		finished.emit()

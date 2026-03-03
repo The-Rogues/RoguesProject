@@ -27,7 +27,7 @@ class_name CharacterChanger
 # TODO: Have the AI look at all character traits and write its own backstory
 const backstories := {
 	"Brute": "They enter the tower to prove their strength, believing only pain and broken foes can affirm who they are.",
-	"Challenger": "Drawn by rumors of powerful adversaries, they climb the tower seeking rivals worthy of their resolve.",
+	"Tactical": "Drawn by rumors of powerful adversaries, they climb the tower seeking rivals worthy of their resolve.",
 	"Merciful": "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence.",
 	"Stoic": "They know the tower will test them, yet trust their discipline to endure whatever trials await.",
 	"Naive": "Curiosity outweighs caution as they step inside, convinced that things will somehow work out.",

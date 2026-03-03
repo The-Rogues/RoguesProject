@@ -62,12 +62,12 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
-[node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_display", "battle_manager", "end_turn_button", "battle_results_display", "turn_banner", "battle_win_screen")]
+[node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_display", "battle_manager", "end_turn_button", "lose_screen", "turn_banner", "battle_win_screen")]
 script = ExtResource("1_jfmiq")
 battle_display = NodePath("UILayer/GameDashBoard")
 battle_manager = NodePath("BattleManager")
 end_turn_button = NodePath("UILayer/BattleInterface/EndTurn")
-battle_results_display = NodePath("BattleResultDisplay")
+lose_screen = NodePath("LoseScreen")
 turn_banner = NodePath("UILayer/BattleInterface/TurnBanner")
 battle_win_screen = NodePath("UILayer/BattleWinScreen")
 
@@ -218,7 +218,7 @@ visible = false
 
 [node name="GameDashBoard" parent="UILayer" unique_id=894429948 instance=ExtResource("9_prne7")]
 
-[node name="BattleResultDisplay" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
+[node name="LoseScreen" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
 visible = false
 
 [connection signal="button_up" from="UILayer/BattleInterface/EndTurn" to="." method="_on_end_turn_button_up"]

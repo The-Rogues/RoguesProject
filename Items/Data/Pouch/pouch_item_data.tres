@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeCharacterItemData" format=3 uid="uid://dqpxq37e13c06"]
+
+[ext_resource type="Texture2D" uid="uid://qih8trwgrmut" path="res://Items/Data/Pouch/pouch_texture.tres" id="1_jhoto"]
+[ext_resource type="Script" uid="uid://mlgfk3lto5e4" path="res://Items/Core/upgrade_character_item_data.gd" id="1_l4g3g"]
+
+[resource]
+script = ExtResource("1_l4g3g")
+upgrade = 2
+rarity = 2
+name = "Pouch"
+description = "Increases maximum item capacity by 1."
+display_texture = ExtResource("1_jhoto")
+usable_out_of_battle = true
+shop_price = 2000
+sell_price = 1000
+metadata/_custom_type_script = "uid://mlgfk3lto5e4"

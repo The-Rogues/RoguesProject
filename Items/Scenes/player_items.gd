@@ -21,6 +21,7 @@ func _initialize(items:Array[ItemData]):
 	held_items = items.duplicate(true)
 	item_interface.initialize(items)
 	item_interface.activate_item.connect(_on_use_item)
+	GlobalSessionManager.increased_item_capacity.connect(_on_capacity_increased)
 
 
 func _on_use_item(index:int):
@@ -29,3 +30,8 @@ func _on_use_item(index:int):
 	GlobalSessionManager._remove_held_item(item)
 	item_interface.update_ui(held_items)
 	item_used.emit(item)
+
+
+func _on_capacity_increased(new_capacity:int):
+	item_interface.minimum_item_slot_count = new_capacity
+	_initialize(held_items)
