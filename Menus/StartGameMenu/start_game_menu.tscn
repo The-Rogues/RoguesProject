@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dnqnor18jtlow"]
 
-[ext_resource type="Script" uid="uid://cdpe0m5vwdr35" path="res://Menus/start_menu.gd" id="1_n021w"]
+[ext_resource type="Script" uid="uid://cdpe0m5vwdr35" path="res://Menus/StartGameMenu/start_menu.gd" id="1_n021w"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_aj4c5"]
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Divider/divider-002.png" id="3_h5kbp"]
 [ext_resource type="PackedScene" uid="uid://c7x5caev2lo3w" path="res://Menus/character_card.tscn" id="4_n021w"]
@@ -121,7 +121,6 @@ theme_override_constants/separation = 18
 [node name="AIGenerateCharacter" parent="MarginContainer/CharacterMenu" unique_id=2053005649 instance=ExtResource("4_tvukq")]
 layout_mode = 2
 text = "AI Generate Character"
-disabled = true
 
 [node name="CreateRandom" parent="MarginContainer/CharacterMenu" unique_id=187231478 instance=ExtResource("4_tvukq")]
 layout_mode = 2

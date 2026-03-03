@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-015.png" id="1_gl6d8"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_0ylaa"]
-[ext_resource type="Script" uid="uid://bhvccd0td2feo" path="res://Menus/warning_panel.gd" id="2_vws6d"]
+[ext_resource type="Script" uid="uid://bhvccd0td2feo" path="res://General/UI/WarningPanel/warning_panel.gd" id="2_vws6d"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="3_vws6d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4idai"]

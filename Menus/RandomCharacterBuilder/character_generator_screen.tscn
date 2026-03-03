@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2ol1op1ilke1"]
 
-[ext_resource type="Script" uid="uid://d3bx1ip7splkn" path="res://Menus/character_generator_scene.gd" id="1_eisx4"]
+[ext_resource type="Script" uid="uid://d3bx1ip7splkn" path="res://Menus/RandomCharacterBuilder/character_generator_scene.gd" id="1_eisx4"]
 [ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Border/panel-border-007.png" id="2_tr8lr"]
 [ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_hhvwy"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="3_ntpg3"]
@@ -47,7 +47,7 @@ bg_color = Color(0.0002225801, 6.145411e-05, 0.00018586668, 1)
 default_font = ExtResource("4_hodoh")
 default_font_size = 16
 
-[node name="CharacterScreen" type="Control" unique_id=502271570]
+[node name="CharacterBuilderScene" type="Control" unique_id=502271570]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,6 +68,15 @@ personality_traits = Dictionary[String, ExtResource("28_y4i3p")]({
 "Stoic": ExtResource("36_kqxcu"),
 "Tactical": ExtResource("30_grb3g")
 })
+
+[node name="Background2" type="ColorRect" parent="." unique_id=104400661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Background" type="PanelContainer" parent="." unique_id=471771454]
 layout_mode = 1

@@ -19,12 +19,12 @@ var pending_shop_data:ShopData
 const FLOOR_1_SPAWN_POOL = preload("res://Battle/Config/SpawnPools/floor_1_spawn_pool.tres")
 const FLOOR_1_SHOP_DATA = preload("res://Map/Shop/ItemPools/floor_1_shop_data.tres")
 
-const MAIN_MENU_PATH = "res://Menus/main_menu_scene.tscn"
+const MAIN_MENU_PATH = "res://Menus/MainMenu/main_menu_scene.tscn"
 const MAP_SCENE_PATH = "res://Map/map_screen/MapScreen.tscn"
 const BATTLE_SCENE_PATH = "res://Battle/Scenes/battle_scene.tscn"
-const CHARACTER_GENERATOR_PATH = "res://Menus/character_generator_screen.tscn"
+const CHARACTER_GENERATOR_PATH = "res://Menus/RandomCharacterBuilder/character_generator_screen.tscn"
 const ITEM_SHOP_PATH = "res://Map/Shop/Scenes/shop_scene.tscn"
-const AI_CHARACTER_GENERATOR_PATH = "res://Testing/CharacterGenerator/ai_character_generator.tscn"
+const AI_CHARACTER_GENERATOR_PATH = "res://Menus/AICharacterGenerator/ai_character_scene.tscn"
 
 @export var loading_sprite_varients:Array[Texture2D]
 @onready var loading_screen_layer: CanvasLayer = $LoadingScreenLayer

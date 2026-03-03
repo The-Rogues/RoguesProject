@@ -1,6 +1,7 @@
-VBoxContainer
-MarginContainer
 Control
+MarginContainer
+VBoxContainer
+ColorRect
 HBoxContainer
 Panel
 ScrollContainer
@@ -10,5 +11,4 @@ Label
 LineEdit
 TextEdit
 PanelContainer
-ColorRect
 TextureRect

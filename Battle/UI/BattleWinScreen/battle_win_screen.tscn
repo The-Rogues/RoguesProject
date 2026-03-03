@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b8hfe4x15naiu"]
 
-[ext_resource type="Script" uid="uid://b1kntb7wwj67n" path="res://Testing/battle_win_screen.gd" id="1_uh5w0"]
+[ext_resource type="Script" uid="uid://b1kntb7wwj67n" path="res://Battle/UI/BattleWinScreen/battle_win_screen.gd" id="1_uh5w0"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_5m41t"]
-[ext_resource type="PackedScene" uid="uid://dqdptmvdxw6eu" path="res://Testing/loot_panel.tscn" id="3_8ehk7"]
+[ext_resource type="PackedScene" uid="uid://dqdptmvdxw6eu" path="res://Battle/UI/BattleLootPanel/loot_panel.tscn" id="3_8ehk7"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="4_hysvd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njocm"]

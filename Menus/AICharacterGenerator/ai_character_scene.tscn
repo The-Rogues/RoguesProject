@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://c0mjmj8aaln65"]
+
+[ext_resource type="Script" uid="uid://daa2sx5nkbl12" path="res://Menus/AICharacterGenerator/ai_character_scene.gd" id="1_csw5w"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="2_880nr"]
+[ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_cg7en"]
+[ext_resource type="Texture2D" uid="uid://ceevb82tjfvvo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="4_6o4tg"]
+[ext_resource type="Texture2D" uid="uid://cd4vrwm5pi613" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="5_4rsgp"]
+[ext_resource type="Texture2D" uid="uid://rpc04f3p2p63" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="6_ps4op"]
+[ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_1h1d5"]
+[ext_resource type="Texture2D" uid="uid://d3b32hvxgogfb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="8_83gj5"]
+[ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="9_gpbj5"]
+[ext_resource type="Texture2D" uid="uid://dbfpup62ss0wb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="10_egmoi"]
+[ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="11_eqxac"]
+[ext_resource type="Texture2D" uid="uid://cnkfqqc2cb6e6" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="12_ynq86"]
+[ext_resource type="Texture2D" uid="uid://cs6vlvrhdoioy" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_11.tres" id="13_7ondl"]
+[ext_resource type="Texture2D" uid="uid://6yrvs4ng2vwn" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_12.tres" id="14_kesn2"]
+[ext_resource type="Texture2D" uid="uid://3lbdjpffkydk" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_13.tres" id="15_5ctq0"]
+[ext_resource type="Texture2D" uid="uid://crd00k54chxid" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_14.tres" id="16_rsju7"]
+[ext_resource type="Texture2D" uid="uid://befkuaurhavvw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_15.tres" id="17_1r76e"]
+[ext_resource type="Texture2D" uid="uid://yprkxu4ihwoo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_16.tres" id="18_vyexk"]
+[ext_resource type="Texture2D" uid="uid://b7mfmfugncj1b" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_17.tres" id="19_gwkpo"]
+[ext_resource type="Texture2D" uid="uid://b6ajxbucu37i0" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_18.tres" id="20_to8ae"]
+[ext_resource type="Texture2D" uid="uid://ditt5s8nroyfh" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_19.tres" id="21_sjap4"]
+[ext_resource type="Texture2D" uid="uid://dshe6kfjfdqcw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_20.tres" id="22_8esra"]
+[ext_resource type="Texture2D" uid="uid://d1jhrjgp7xthr" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_21.tres" id="23_2owqg"]
+[ext_resource type="Texture2D" uid="uid://b1qql208jacff" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_22.tres" id="24_bg4l0"]
+[ext_resource type="Texture2D" uid="uid://ucdn72jkwj6a" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres" id="25_ydqfr"]
+[ext_resource type="Texture2D" uid="uid://bh5i87d23o2op" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres" id="26_htymu"]
+[ext_resource type="Texture2D" uid="uid://b4ruwl8uy6s8m" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres" id="27_go7xb"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="28_2340r"]
+[ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Divider/divider-002.png" id="29_hu230"]
+[ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-015.png" id="30_5bc22"]
+[ext_resource type="PackedScene" uid="uid://8ufepsrv45ye" path="res://General/UI/LimitedTextEdit/limited_text_edit.tscn" id="31_4sjcc"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="32_x7f43"]
+[ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://Menus/CharacterScreen/character_screen.tscn" id="33_o00og"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gq3o0"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+texture = ExtResource("30_5bc22")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[node name="AICharacterScene" type="Control" unique_id=754046786]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_csw5w")
+character_sprite_varients = Array[Texture2D]([ExtResource("2_880nr"), ExtResource("3_cg7en"), ExtResource("4_6o4tg"), ExtResource("5_4rsgp"), ExtResource("6_ps4op"), ExtResource("7_1h1d5"), ExtResource("8_83gj5"), ExtResource("9_gpbj5"), ExtResource("10_egmoi"), ExtResource("11_eqxac"), ExtResource("12_ynq86"), ExtResource("13_7ondl"), ExtResource("14_kesn2"), ExtResource("15_5ctq0"), ExtResource("16_rsju7"), ExtResource("17_1r76e"), ExtResource("18_vyexk"), ExtResource("19_gwkpo"), ExtResource("20_to8ae"), ExtResource("21_sjap4"), ExtResource("22_8esra"), ExtResource("23_2owqg"), ExtResource("24_bg4l0"), ExtResource("25_ydqfr"), ExtResource("26_htymu"), ExtResource("27_go7xb")])
+
+[node name="Background" type="ColorRect" parent="." unique_id=38701394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleMargin" type="MarginContainer" parent="." unique_id=1695456927]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -306.5
+offset_right = 306.5
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 160
+
+[node name="Elements" type="VBoxContainer" parent="TitleMargin" unique_id=2144885048]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="TitleMargin/Elements" unique_id=142618449]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_2340r")
+theme_override_font_sizes/font_size = 40
+text = "AI Character Generator"
+horizontal_alignment = 1
+
+[node name="SubTitle" type="Label" parent="TitleMargin/Elements" unique_id=1919920068]
+texture_filter = 1
+custom_minimum_size = Vector2(675, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5163938, 0.5163938, 0.5163937, 1)
+theme_override_fonts/font = ExtResource("28_2340r")
+theme_override_font_sizes/font_size = 16
+text = "This feature is experimental and subject to quirks."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Devider" type="TextureRect" parent="TitleMargin/Elements" unique_id=1533437325]
+modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(488, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("29_hu230")
+
+[node name="Menu1" type="Control" parent="." unique_id=2069200394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterInfoFields" type="VBoxContainer" parent="Menu1" unique_id=1208700986]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -54.5
+offset_right = 246.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Instruction" type="Label" parent="Menu1/CharacterInfoFields" unique_id=1614358944]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("28_2340r")
+theme_override_font_sizes/font_size = 16
+text = "Describe your character"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NameField" type="PanelContainer" parent="Menu1/CharacterInfoFields" unique_id=149051090]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gq3o0")
+
+[node name="Name" parent="Menu1/CharacterInfoFields/NameField" unique_id=3393706 instance=ExtResource("31_4sjcc")]
+custom_minimum_size = Vector2(459, 37)
+layout_mode = 2
+placeholder_text = "Name"
+character_limit = 9
+
+[node name="DescriptionField" type="PanelContainer" parent="Menu1/CharacterInfoFields" unique_id=967904739]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gq3o0")
+
+[node name="Description" parent="Menu1/CharacterInfoFields/DescriptionField" unique_id=1711187498 instance=ExtResource("31_4sjcc")]
+layout_mode = 2
+text = "{ \"backstory\": \"Unkown Backstory\", \"t1\": 1, \"t2\": 0, \"t3\": 0, \"w1\": 2, \"w2\": 10, \"w3\": 5 }"
+placeholder_text = "What are they like?"
+
+[node name="Create" parent="Menu1/CharacterInfoFields" unique_id=395129651 instance=ExtResource("32_x7f43")]
+layout_mode = 2
+text = "Generate Character"
+
+[node name="Return" parent="Menu1/CharacterInfoFields" unique_id=581680118 instance=ExtResource("32_x7f43")]
+layout_mode = 2
+text = "Return"
+
+[node name="Menu2" type="Control" parent="." unique_id=811946070]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GeneratingCharacter" type="VBoxContainer" parent="Menu2" unique_id=2032585618]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.0
+offset_top = -17.0
+offset_right = 327.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu2/GeneratingCharacter" unique_id=2037862581]
+layout_mode = 2
+
+[node name="GeneratingLabel" type="Label" parent="Menu2/GeneratingCharacter/VBoxContainer" unique_id=1687352176]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+theme_override_fonts/font = ExtResource("28_2340r")
+theme_override_font_sizes/font_size = 32
+text = "Generating character..."
+horizontal_alignment = 1
+
+[node name="GeneratingLabel2" type="Label" parent="Menu2/GeneratingCharacter/VBoxContainer" unique_id=104967271]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+theme_override_fonts/font = ExtResource("28_2340r")
+theme_override_font_sizes/font_size = 20
+text = "this may take some time."
+horizontal_alignment = 1
+
+[node name="Cancel" parent="Menu2/GeneratingCharacter" unique_id=1247058750 instance=ExtResource("32_x7f43")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Cancel"
+
+[node name="CharacterResult" parent="." unique_id=502271570 instance=ExtResource("33_o00og")]
+visible = false
+layout_mode = 1
+
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_field_changed"]
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_chaacter_description_text_changed"]
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_field_changed"]
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_chaacter_description_text_changed"]
+[connection signal="clicked" from="Menu1/CharacterInfoFields/Create" to="." method="_on_create_clicked"]
+[connection signal="clicked" from="Menu1/CharacterInfoFields/Return" to="." method="_on_return_clicked"]
+[connection signal="clicked" from="Menu2/GeneratingCharacter/Cancel" to="." method="_on_cancel_clicked"]

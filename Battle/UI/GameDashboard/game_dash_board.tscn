@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2sastodcwsbx"]
 
-[ext_resource type="Script" uid="uid://bex8s0ww7mxsv" path="res://Menus/game_dash_board.gd" id="1_2dwta"]
+[ext_resource type="Script" uid="uid://bex8s0ww7mxsv" path="res://Battle/UI/GameDashboard/game_dash_board.gd" id="1_2dwta"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_nhbhh"]
 [ext_resource type="PackedScene" uid="uid://dbt3n70fcylp3" path="res://PersonalitySystem/traits_display.tscn" id="2_oag4o"]
 [ext_resource type="Texture2D" uid="uid://dxefwuaynwrdl" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-008.png" id="2_pmlv7"]

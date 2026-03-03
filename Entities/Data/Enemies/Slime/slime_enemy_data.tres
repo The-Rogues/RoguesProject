@@ -60,6 +60,7 @@ actions = Array[ExtResource("8_0h6rk")]([SubResource("Resource_qt5w1"), SubResou
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("9_dla6b")
 move_set = Array[ExtResource("6_vo3w3")]([SubResource("Resource_tp02r"), SubResource("Resource_ucdgb"), SubResource("Resource_alf15")])
 display_texture = ExtResource("4_qx4hj")

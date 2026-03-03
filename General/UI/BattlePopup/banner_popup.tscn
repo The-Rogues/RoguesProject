@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i512y7djlnpm"]
 
-[ext_resource type="Script" uid="uid://cjdto2wfpij1p" path="res://General/UI/banner_popup.gd" id="1_4cqjw"]
+[ext_resource type="Script" uid="uid://cjdto2wfpij1p" path="res://General/UI/BattlePopup/banner_popup.gd" id="1_4cqjw"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_dtek4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5tcm"]

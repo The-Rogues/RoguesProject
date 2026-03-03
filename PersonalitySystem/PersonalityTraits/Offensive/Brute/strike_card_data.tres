@@ -18,7 +18,6 @@ metadata/_custom_type_script = "uid://3upnhldpsxbt"
 
 [sub_resource type="Resource" id="Resource_iytfm"]
 script = ExtResource("5_0cxn1")
-move_type = 1
 name = "Strike"
 description = "Deal 6 damage. Gain 1 Offensive Stat."
 actions = Array[ExtResource("1_nkjs7")]([SubResource("Resource_ml86m"), SubResource("Resource_eosxc")])

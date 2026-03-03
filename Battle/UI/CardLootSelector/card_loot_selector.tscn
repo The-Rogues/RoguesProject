@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfyabdwaoylaf"]
 
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_mb41f"]
-[ext_resource type="Script" uid="uid://dodeesjdahjxm" path="res://Testing/card_loot_selector.gd" id="1_s54wm"]
+[ext_resource type="Script" uid="uid://dodeesjdahjxm" path="res://Battle/UI/CardLootSelector/card_loot_selector.gd" id="1_s54wm"]
 [ext_resource type="PackedScene" uid="uid://b6kxom317vkry" path="res://Cards/UI/card.tscn" id="2_s54wm"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="3_fghai"]
 

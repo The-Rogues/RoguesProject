@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8ufepsrv45ye"]
 
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_x3j0x"]
-[ext_resource type="Script" uid="uid://165c52or5bth" path="res://Testing/CharacterGenerator/limited_text_edit.gd" id="2_5u1rs"]
+[ext_resource type="Script" uid="uid://165c52or5bth" path="res://General/UI/TextEditCharacterLimiter/limited_text_edit.gd" id="2_5u1rs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_637pe"]
 bg_color = Color(0, 0, 0, 1)

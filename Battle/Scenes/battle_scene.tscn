@@ -8,12 +8,12 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="5_7j1wb"]
 [ext_resource type="PackedScene" uid="uid://7doidnfxvws4" path="res://Testing/BattleTestButtons/battle_test_buttons.tscn" id="6_2203u"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://Battle/UI/energy_counter.tscn" id="7_e1j2j"]
-[ext_resource type="PackedScene" uid="uid://b2sastodcwsbx" path="res://Menus/game_dash_board.tscn" id="9_prne7"]
+[ext_resource type="PackedScene" uid="uid://b2sastodcwsbx" path="res://Battle/UI/GameDashboard/game_dash_board.tscn" id="9_prne7"]
 [ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
 [ext_resource type="PackedScene" uid="uid://5jlea1prliur" path="res://Battle/Scenes/battle_results.tscn" id="10_tmnld"]
 [ext_resource type="PackedScene" uid="uid://bdtsaiqt260fy" path="res://Cards/UI/battle_card_manager.tscn" id="12_hb1pv"]
-[ext_resource type="PackedScene" uid="uid://b8hfe4x15naiu" path="res://Testing/battle_win_screen.tscn" id="13_1eksv"]
-[ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://General/UI/banner_popup.tscn" id="14_2203u"]
+[ext_resource type="PackedScene" uid="uid://b8hfe4x15naiu" path="res://Battle/UI/BattleWinScreen/battle_win_screen.tscn" id="13_1eksv"]
+[ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://General/UI/BattlePopup/banner_popup.tscn" id="14_2203u"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
 b = Vector2(3, 452)

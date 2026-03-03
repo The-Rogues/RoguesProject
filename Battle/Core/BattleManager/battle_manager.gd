@@ -169,8 +169,10 @@ func end_player_turn() -> void:
 func _start_enemy_turn() -> void:
 	await get_tree().create_timer(0.5).timeout
 	for entity in action_intentions:
+		if entity.is_defeated:
+			continue
 		enemy_delay_timer.start()
-		resolve_enemy_intention(entity)
+		await resolve_enemy_intention(entity)
 		await enemy_delay_timer.timeout
 	
 	if !action_queue.queue.is_empty():
