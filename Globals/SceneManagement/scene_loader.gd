@@ -23,6 +23,7 @@ const MAIN_MENU_PATH = "res://Menus/MainMenu/main_menu_scene.tscn"
 const MAP_SCENE_PATH = "res://Map/map_screen/MapScreen.tscn"
 const BATTLE_SCENE_PATH = "res://Battle/Scenes/battle_scene.tscn"
 const CHARACTER_GENERATOR_PATH = "res://Menus/RandomCharacterBuilder/character_generator_screen.tscn"
+const RANDOM_CHARACTER_PATH = "res://Menus/RandomCharacterBuilder/random_character_scene.tscn"
 const ITEM_SHOP_PATH = "res://Map/Shop/Scenes/shop_scene.tscn"
 const AI_CHARACTER_GENERATOR_PATH = "res://Menus/AICharacterGenerator/ai_character_scene.tscn"
 
@@ -45,6 +46,8 @@ func _ready() -> void:
 	load_progresses_updated.connect(_on_load_progress_updated)
 	scene_loaded.connect(_on_scene_loaded)
 	started_loading_scene.connect(_on_started_loading_scene)
+	
+	screen_fade.fade_in()
 
 
 func _process(delta: float) -> void:

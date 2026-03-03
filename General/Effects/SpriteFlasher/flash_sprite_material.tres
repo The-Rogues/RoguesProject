@@ -13,6 +13,7 @@ void fragment() {
 }"
 
 [resource]
+resource_local_to_scene = true
 shader = SubResource("Shader_qs5c0")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0

@@ -1,3 +1,4 @@
+res://Menus/RandomCharacterBuilder/
 res://Items/Data/Barricade/
 res://Items/Data/Pouch/
 res://Menus/SplashScreen/
@@ -19,4 +20,3 @@ res://Cards/Core/
 res://Entities/Data/Objects/Turret/
 res://Cards/Shared/
 res://General/UI/
-res://Battle/Core/BattleField/BattlePositions/PositionEffects/Data/

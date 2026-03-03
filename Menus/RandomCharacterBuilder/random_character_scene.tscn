@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://beujvprpoyvls"]
+
+[ext_resource type="Script" uid="uid://towtss3sguju" path="res://Menus/RandomCharacterBuilder/random_character_creator.gd" id="1_4h0ux"]
+[ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://Menus/CharacterScreen/character_screen.tscn" id="2_daqla"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="2_fou63"]
+[ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_0af26"]
+[ext_resource type="Texture2D" uid="uid://ceevb82tjfvvo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="4_85au7"]
+[ext_resource type="Texture2D" uid="uid://cd4vrwm5pi613" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="5_t7j5t"]
+[ext_resource type="Texture2D" uid="uid://rpc04f3p2p63" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="6_djns8"]
+[ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_tp7td"]
+[ext_resource type="Texture2D" uid="uid://d3b32hvxgogfb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="8_lgbau"]
+[ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="9_tio18"]
+[ext_resource type="Texture2D" uid="uid://dbfpup62ss0wb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="10_fegyj"]
+[ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="11_7etcb"]
+[ext_resource type="Texture2D" uid="uid://cnkfqqc2cb6e6" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="12_u6qh7"]
+[ext_resource type="Texture2D" uid="uid://cs6vlvrhdoioy" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_11.tres" id="13_plsim"]
+[ext_resource type="Texture2D" uid="uid://6yrvs4ng2vwn" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_12.tres" id="14_m27gr"]
+[ext_resource type="Texture2D" uid="uid://3lbdjpffkydk" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_13.tres" id="15_sx5bd"]
+[ext_resource type="Texture2D" uid="uid://crd00k54chxid" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_14.tres" id="16_vigtx"]
+[ext_resource type="Texture2D" uid="uid://befkuaurhavvw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_15.tres" id="17_h6pdc"]
+[ext_resource type="Texture2D" uid="uid://yprkxu4ihwoo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_16.tres" id="18_flc66"]
+[ext_resource type="Texture2D" uid="uid://b7mfmfugncj1b" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_17.tres" id="19_rqjr1"]
+[ext_resource type="Texture2D" uid="uid://b6ajxbucu37i0" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_18.tres" id="20_nltrv"]
+[ext_resource type="Texture2D" uid="uid://ditt5s8nroyfh" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_19.tres" id="21_6d1gb"]
+[ext_resource type="Texture2D" uid="uid://dshe6kfjfdqcw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_20.tres" id="22_fo2r4"]
+[ext_resource type="Texture2D" uid="uid://d1jhrjgp7xthr" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_21.tres" id="23_ilp6f"]
+[ext_resource type="Texture2D" uid="uid://b1qql208jacff" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_22.tres" id="24_86tb8"]
+[ext_resource type="Texture2D" uid="uid://ucdn72jkwj6a" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres" id="25_5d113"]
+[ext_resource type="Texture2D" uid="uid://bh5i87d23o2op" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres" id="26_h88r0"]
+[ext_resource type="Texture2D" uid="uid://b4ruwl8uy6s8m" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres" id="27_eh8kc"]
+[ext_resource type="Script" uid="uid://clg6wfr8i5i2c" path="res://PersonalitySystem/PersonalityTraits/offensive_trait.gd" id="28_3v1rb"]
+[ext_resource type="Resource" uid="uid://1upv5oqngen2" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="29_vx88w"]
+[ext_resource type="Resource" uid="uid://bpwwjfbysqftr" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="30_ebmoc"]
+[ext_resource type="Resource" uid="uid://7epx4qjcbi0d" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_offensive_trait_data.tres" id="31_0atuf"]
+[ext_resource type="Script" uid="uid://3ognrb8kkptl" path="res://PersonalitySystem/PersonalityTraits/defensive_trait.gd" id="32_441mo"]
+[ext_resource type="Resource" uid="uid://sa8th36l0hdn" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="33_gilfc"]
+[ext_resource type="Resource" uid="uid://cv1o5v65kh868" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="34_760gy"]
+[ext_resource type="Resource" uid="uid://bg0cxhjwui5pk" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres" id="35_ysppj"]
+[ext_resource type="Script" uid="uid://bllaybhbcrgk4" path="res://PersonalitySystem/PersonalityTraits/strategic_trait.gd" id="36_vmt5d"]
+[ext_resource type="Resource" uid="uid://bpgjx5nhh8cwi" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="37_iug4m"]
+[ext_resource type="Resource" uid="uid://clcyhbp2diuiv" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="38_ta8xe"]
+
+[node name="RandomCharacterCreator" type="Control" unique_id=502271570]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4h0ux")
+character_sprite_varients = Array[Texture2D]([ExtResource("2_fou63"), ExtResource("3_0af26"), ExtResource("4_85au7"), ExtResource("5_t7j5t"), ExtResource("6_djns8"), ExtResource("7_tp7td"), ExtResource("8_lgbau"), ExtResource("9_tio18"), ExtResource("10_fegyj"), ExtResource("11_7etcb"), ExtResource("12_u6qh7"), ExtResource("13_plsim"), ExtResource("14_m27gr"), ExtResource("15_sx5bd"), ExtResource("16_vigtx"), ExtResource("17_h6pdc"), ExtResource("18_flc66"), ExtResource("19_rqjr1"), ExtResource("20_nltrv"), ExtResource("21_6d1gb"), ExtResource("22_fo2r4"), ExtResource("23_ilp6f"), ExtResource("24_86tb8"), ExtResource("25_5d113"), ExtResource("26_h88r0"), ExtResource("27_eh8kc")])
+name_varients = Array[String](["Abel", "Xavier", "Judas", "Cyrprus", "Ollie", "Erdrick", "Salome", "Abraham", "Jon", "Ash"])
+offensive_traits = Array[ExtResource("28_3v1rb")]([ExtResource("29_vx88w"), ExtResource("30_ebmoc"), ExtResource("31_0atuf")])
+defensive_traits = Array[ExtResource("32_441mo")]([ExtResource("33_gilfc"), ExtResource("34_760gy"), ExtResource("35_ysppj")])
+strategic_traits = Array[ExtResource("36_vmt5d")]([ExtResource("37_iug4m"), ExtResource("38_ta8xe")])
+
+[node name="Background2" type="ColorRect" parent="." unique_id=104400661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterResult" parent="." unique_id=620267668 instance=ExtResource("2_daqla")]
+visible = false
+layout_mode = 1

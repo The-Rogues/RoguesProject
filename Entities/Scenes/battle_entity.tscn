@@ -158,6 +158,10 @@ theme_override_font_sizes/font_size = 12
 text = "Unkown"
 horizontal_alignment = 1
 
+[node name="CanvasLayer" type="CanvasLayer" parent="UI/Display" unique_id=102102981]
+layer = 5
+visible = false
+
 [node name="StatusConditions" type="HBoxContainer" parent="UI/Display" unique_id=965637377]
 layout_mode = 2
 

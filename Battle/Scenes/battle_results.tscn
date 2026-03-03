@@ -3,9 +3,32 @@
 [ext_resource type="Script" uid="uid://cjlguvbeycdcb" path="res://Battle/Scenes/battle_results.gd" id="1_t3l0d"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_iy7ov"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="3_ewhqt"]
+[ext_resource type="Texture2D" uid="uid://dtfw56mesa6nq" path="res://General/PlaceholderArt/32rogues/animals.png" id="4_e2x4l"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e2x4l"]
 load_path = "res://.godot/imported/panel-border-007.png-e996f37cf9207709466ebb5dfef9f2da.ctex"
+
+[sub_resource type="Shader" id="Shader_q0abo"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pd8k"]
+resource_local_to_scene = true
+shader = SubResource("Shader_q0abo")
+shader_parameter/flash_color = Color(0.90186185, 0.90186185, 0.90186185, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71c6w"]
+atlas = ExtResource("4_e2x4l")
+region = Rect2(64, 288, 32, 32)
 
 [node name="LoseScreen" type="CanvasLayer" unique_id=1254281250]
 layer = 8
@@ -20,6 +43,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Results" type="Control" parent="." unique_id=579982368]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,7 +175,14 @@ horizontal_alignment = 1
 [node name="DisplayTimer" type="Timer" parent="." unique_id=866620706]
 
 [node name="DeathDelayTimer" type="Timer" parent="." unique_id=1595403890]
-wait_time = 2.0
+
+[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=1256858301]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_6pd8k")
+position = Vector2(0, -24)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_71c6w")
 
 [connection signal="clicked" from="Results/MarginContainer/EndRun" to="." method="_on_end_run_clicked"]
 [connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]

@@ -3,30 +3,40 @@ class_name SpriteFlasher
 
 #signal finished
 
-@export var sprite_2d:Sprite2D
-@export var flash_duration:float = 0.30
-const flash_material:Material = preload(
-	"res://General/Effects/SpriteFlasher/flash_sprite_material.tres"
-)
+@export var sprite: Sprite2D
+@export var flash_material: ShaderMaterial
+
+var tween: Tween
+
+func _ready():
+	sprite.material = flash_material
+	flash_material.set_shader_parameter("flash_amount", 0.0)
+	sprite.material = flash_material.duplicate()
 
 
-func _ready() -> void:
-	sprite_2d.material = flash_material.duplicate(true)
-
-
-func flash_sprite():
-	var mat := sprite_2d.material as ShaderMaterial
-	if mat == null:
-		return
-
-	# Set initial flash
-	mat.set_shader_parameter("flash_value", 0.8)
-
-	# Tween back to 0
-	var tween := create_tween()
-	tween.tween_method(
-		func(value): mat.set_shader_parameter("flash_value", value),
-		0.8,
-		0.0,
-		flash_duration
-	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+func flash(
+	color: Color,
+	strength:float = 1.0,
+	duration:float = 0.08,
+	pulses:int = 1
+):
+	if tween:
+		tween.kill()
+	
+	flash_material.set_shader_parameter("flash_color", color)
+	
+	tween = create_tween()
+	
+	for i in pulses:
+		tween.tween_property(
+			flash_material,
+			"shader_parameter/flash_amount",
+			strength,
+			duration * 0.5
+		)
+		tween.tween_property(
+			flash_material,
+			"shader_parameter/flash_amount",
+			0.0,
+			duration * 0.5
+		)

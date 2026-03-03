@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ng2lfy6mu6a8" path="res://Entities/Scenes/AttackProjectile/attack_projectile.gd" id="1_3sksh"]
 [ext_resource type="Texture2D" uid="uid://baa3y77gqbgce" path="res://Entities/Data/Enemies/Golem/boulder_projectile_texture.tres" id="2_hioxv"]
 [ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://General/Effects/SpriteFlasher/sprite_flasher.gd" id="3_jpy50"]
+[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://General/Effects/SpriteFlasher/flash_sprite_material.tres" id="4_xyvqo"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://General/Effects/Trail2D/trail_2d.tscn" id="4_ymlus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n11uh"]
@@ -45,9 +46,10 @@ texture = ExtResource("2_hioxv")
 [node name="Timer" type="Timer" parent="." unique_id=1561464318]
 wait_time = 10.0
 
-[node name="SpriteFlasher" type="Node" parent="." unique_id=1749822257 node_paths=PackedStringArray("sprite_2d")]
+[node name="SpriteFlasher" type="Node" parent="." unique_id=1749822257 node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_jpy50")
-sprite_2d = NodePath("../Sprite2D")
+sprite = NodePath("../Sprite2D")
+flash_material = ExtResource("4_xyvqo")
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_ymlus")]
 default_color = Color(1, 1, 1, 0.5764706)

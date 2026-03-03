@@ -134,7 +134,6 @@ disabled = true
 [node name="CharacterBuilder" parent="MarginContainer/CharacterMenu" unique_id=1829045561 instance=ExtResource("4_tvukq")]
 layout_mode = 2
 text = "Character Builder"
-disabled = true
 
 [node name="Return" parent="MarginContainer/CharacterMenu" unique_id=2064591969 instance=ExtResource("4_tvukq")]
 layout_mode = 2
@@ -163,4 +162,5 @@ horizontal_alignment = 1
 [connection signal="clicked" from="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Return" to="." method="_on_return_clicked"]
 [connection signal="clicked" from="MarginContainer/CharacterMenu/AIGenerateCharacter" to="." method="_on_ai_generate_character_clicked"]
 [connection signal="clicked" from="MarginContainer/CharacterMenu/CreateRandom" to="." method="_on_create_random_character_clicked"]
+[connection signal="clicked" from="MarginContainer/CharacterMenu/CharacterBuilder" to="." method="_on_character_builder_clicked"]
 [connection signal="clicked" from="MarginContainer/CharacterMenu/Return" to="." method="_on_return_from_character_menu_clicked"]

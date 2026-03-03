@@ -4,6 +4,5 @@ extends Control
 
 
 func _ready() -> void:
-	await screen_fade.fade_in()
 	await get_tree().create_timer(2).timeout
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAIN_MENU_PATH)

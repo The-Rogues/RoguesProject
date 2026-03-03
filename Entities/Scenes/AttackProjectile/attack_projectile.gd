@@ -86,7 +86,7 @@ func _on_body_entered(body):
 		return
 	
 	if collision_projectile_owner != projectile_owner:
-		if collision_projectile_owner is ObjectEntity:
+		if collision_projectile_owner is ObjectEntity and damage == DamageTarget.PLAYER:
 			if collision_projectile_owner.data.attack_filter != ObjectEntityData.AttackFilter.IGNORE:
 				collision_projectile_owner.take_damage(damage)
 				destroyed.emit()

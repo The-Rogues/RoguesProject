@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="5_1stx8"]
 [ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://General/UI/HealthBar/health_bar.tscn" id="6_uvma4"]
 [ext_resource type="Script" uid="uid://48mcoyquoyhq" path="res://General/UI/ui_visability_timer.gd" id="7_cn3s1"]
+[ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://General/Effects/SpriteFlasher/sprite_flasher.gd" id="9_360xd"]
+[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://General/Effects/SpriteFlasher/flash_sprite_material.tres" id="10_ecdu2"]
 
 [sub_resource type="Shader" id="Shader_q0abo"]
 code = "shader_type canvas_item;
@@ -119,6 +121,11 @@ layout_mode = 2
 
 [node name="UIDissapearTimer" type="Timer" parent="UI" unique_id=1941589101]
 script = ExtResource("7_cn3s1")
+
+[node name="SpriteFlasher" type="Node" parent="." unique_id=1058700315 node_paths=PackedStringArray("sprite")]
+script = ExtResource("9_360xd")
+sprite = NodePath("../SpriteRoot/Sprite2D")
+flash_material = ExtResource("10_ecdu2")
 
 [connection signal="animation_finished" from="EntityAnimator" to="EntityAnimator" method="_on_animation_finished"]
 [connection signal="body_entered" from="Collisons/Hurtbox" to="." method="_on_hurtbox_body_entered"]
