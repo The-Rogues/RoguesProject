@@ -246,7 +246,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_gq3o0")
 
 [node name="Description" parent="Menu1/CharacterInfoFields/DescriptionField" unique_id=1711187498 instance=ExtResource("31_4sjcc")]
 layout_mode = 2
-text = "{ \"backstory\": \"Unkown Backstory\", \"t1\": 1, \"t2\": 0, \"t3\": 0, \"w1\": 2, \"w2\": 10, \"w3\": 5 }"
 placeholder_text = "What are they like?"
 
 [node name="Create" parent="Menu1/CharacterInfoFields" unique_id=395129651 instance=ExtResource("32_x7f43")]
