@@ -26,6 +26,7 @@ func initialize_new_run(
 		card_deck: CardDeck
 ) -> void:
 	run_progress = RunProgress.new()
+	card_deck.add_card(load("res://ai/ai-cards/inventive_attack_data.tres"))
 	run_progress.initialize_new_run(
 		character_texture,
 		character_name,

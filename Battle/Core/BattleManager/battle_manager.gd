@@ -35,6 +35,10 @@ const BATTLE_ENTITY = preload("res://Entities/Scenes/battle_entity.tscn")
 const ENEMY_SPACING = 0.10
 const ENEMY_Y_POSITION = 0.28
 
+# Fletcher
+@onready var ai_processer_script: PackedScene = preload("res://ai/processer/AiCardProcesser.tscn")
+@onready var ai_processer: AiCardProcesser = ai_processer_script.instantiate()
+
 
 func initialize(battle_config:BattleSceneConfiguration) -> void:
 	# Spawn & initialize Player
@@ -75,6 +79,9 @@ func initialize(battle_config:BattleSceneConfiguration) -> void:
 	new_player_entity.defeated.connect(_on_entity_defeated)
 	new_turn_started.connect(new_player_entity._on_new_turn_started)
 	player_entity.damaged.connect(_on_player_damaged)
+	
+	# Fletcher
+	add_child(ai_processer)
 
 
 func _on_player_damaged(amount:int):
@@ -211,7 +218,11 @@ func _on_try_play_card(card_ui:CardUI):
 
 func process_card(card_data:CardData):
 	energy_counter.spend_energy(card_data.energy_cost)
-	_execute_battle_move(card_data.move, player_entity)
+	if card_data is AiCardData:
+		var new_card = await ai_processer.process_card(player_personality, card_data)
+		battle_card_manager.draw_card(1, new_card)
+	else:
+		_execute_battle_move(card_data.move, player_entity)
 
 
 func _on_entity_defeated(battle_entity:BattleEntity):
