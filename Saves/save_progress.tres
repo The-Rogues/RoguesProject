@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="RunProgress" format=3]
+
+[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_3dqjj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="2_gcsfp"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="3_3dqjj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/defend_card_data.tres" id="4_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/plot_amor_card_data.tres" id="5_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres" id="7_gvrsj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres" id="8_ldui5"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="9_73m4a"]
+[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="9_hxw8v"]
+[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="11_rp2d1"]
+[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="12_4g6sv"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="12_sqevk"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="13_bn7m0"]
+[ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="15_fucgn"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="16_5w8pu"]
+[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="17_fad0b"]
+
+[sub_resource type="Resource" id="Resource_gvrsj"]
+script = ExtResource("9_hxw8v")
+name = "Your Deck"
+cards = Array[ExtResource("1_3dqjj")]([ExtResource("2_gcsfp"), ExtResource("2_gcsfp"), ExtResource("2_gcsfp"), ExtResource("2_gcsfp"), ExtResource("3_3dqjj"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("5_osl4a"), ExtResource("7_gvrsj"), ExtResource("7_gvrsj"), ExtResource("7_gvrsj"), ExtResource("8_ldui5"), ExtResource("8_ldui5")])
+
+[sub_resource type="Resource" id="Resource_ldui5"]
+script = ExtResource("11_rp2d1")
+display_texture = ExtResource("9_73m4a")
+id = "player"
+name = "Xavier"
+description = "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
+max_health = 80
+
+[sub_resource type="Resource" id="Resource_hxw8v"]
+script = ExtResource("15_fucgn")
+offensive_trait = ExtResource("13_bn7m0")
+offensive_weight = 1
+defensive_trait = ExtResource("12_sqevk")
+defensive_weight = 7
+strategic_trait = ExtResource("16_5w8pu")
+strategic_weight = 10
+
+[resource]
+script = ExtResource("17_fad0b")
+personality_data = SubResource("Resource_hxw8v")
+character_entity_data = SubResource("Resource_ldui5")
+character_name = "Xavier"
+character_backstory = "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
+map_seed = 157109747
+card_deck = SubResource("Resource_gvrsj")
