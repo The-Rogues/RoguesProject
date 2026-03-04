@@ -2,10 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://qa0uh472nj2w" path="res://General/PlaceholderArt/32rogues/rogues.png" id="1_yywrr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yywrr"]
+[resource]
 atlas = ExtResource("1_yywrr")
 region = Rect2(32, 0, 32, 32)
-
-[resource]
-atlas = SubResource("AtlasTexture_yywrr")
-region = Rect2(128, 64, 32, 32)

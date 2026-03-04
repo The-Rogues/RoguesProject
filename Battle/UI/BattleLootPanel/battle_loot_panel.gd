@@ -26,7 +26,7 @@ func initialize(
 	_item:ItemData=null,
 ):
 	gold_amount.text = str(gold)
-	gold_reward.visible = true
+	#gold_reward.visible = true
 	
 	if _item:
 		item_texture.texture = _item.display_texture
