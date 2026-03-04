@@ -7,4 +7,5 @@ atlas = ExtResource("1_68i5g")
 region = Rect2(96, 768, 32, 32)
 
 [resource]
+resource_local_to_scene = true
 atlas = SubResource("AtlasTexture_32pxr")

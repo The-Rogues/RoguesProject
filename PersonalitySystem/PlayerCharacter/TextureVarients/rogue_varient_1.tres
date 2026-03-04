@@ -1,8 +1,11 @@
 [gd_resource type="AtlasTexture" format=3 uid="uid://dby4mypma4boa"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tim78"]
-load_path = "res://.godot/imported/rogues.png-b4504f09571f637cd5a57f0337809cb9.ctex"
+[ext_resource type="Texture2D" uid="uid://qa0uh472nj2w" path="res://General/PlaceholderArt/32rogues/rogues.png" id="1_yywrr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yywrr"]
+atlas = ExtResource("1_yywrr")
+region = Rect2(32, 0, 32, 32)
 
 [resource]
-atlas = SubResource("CompressedTexture2D_tim78")
-region = Rect2(32, 0, 32, 32)
+atlas = SubResource("AtlasTexture_yywrr")
+region = Rect2(128, 64, 32, 32)

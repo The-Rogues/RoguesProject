@@ -12,23 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://d3b32hvxgogfb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="8_k2qyi"]
 [ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="9_un5wy"]
 [ext_resource type="Texture2D" uid="uid://dbfpup62ss0wb" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="10_ycl7g"]
-[ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="11_bylt5"]
-[ext_resource type="Texture2D" uid="uid://cnkfqqc2cb6e6" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="12_tfpat"]
-[ext_resource type="Texture2D" uid="uid://cs6vlvrhdoioy" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_11.tres" id="13_vbrq4"]
-[ext_resource type="Texture2D" uid="uid://6yrvs4ng2vwn" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_12.tres" id="14_5hr8u"]
-[ext_resource type="Texture2D" uid="uid://3lbdjpffkydk" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_13.tres" id="15_ur1b6"]
-[ext_resource type="Texture2D" uid="uid://crd00k54chxid" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_14.tres" id="16_3151j"]
-[ext_resource type="Texture2D" uid="uid://befkuaurhavvw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_15.tres" id="17_y8k5k"]
-[ext_resource type="Texture2D" uid="uid://yprkxu4ihwoo" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_16.tres" id="18_b21tc"]
-[ext_resource type="Texture2D" uid="uid://b7mfmfugncj1b" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_17.tres" id="19_lhlbj"]
-[ext_resource type="Texture2D" uid="uid://b6ajxbucu37i0" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_18.tres" id="20_o4ruh"]
-[ext_resource type="Texture2D" uid="uid://ditt5s8nroyfh" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_19.tres" id="21_rumux"]
-[ext_resource type="Texture2D" uid="uid://dshe6kfjfdqcw" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_20.tres" id="22_p06wf"]
-[ext_resource type="Texture2D" uid="uid://d1jhrjgp7xthr" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_21.tres" id="23_gm1mi"]
-[ext_resource type="Texture2D" uid="uid://b1qql208jacff" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_22.tres" id="24_uup36"]
-[ext_resource type="Texture2D" uid="uid://ucdn72jkwj6a" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_23.tres" id="25_knji5"]
-[ext_resource type="Texture2D" uid="uid://bh5i87d23o2op" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_24.tres" id="26_jnj6x"]
-[ext_resource type="Texture2D" uid="uid://b4ruwl8uy6s8m" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_25.tres" id="27_eifsp"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://PersonalitySystem/PersonalityTraits/personality_trait.gd" id="28_y4i3p"]
 [ext_resource type="Resource" uid="uid://1upv5oqngen2" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="29_nyook"]
 [ext_resource type="Resource" uid="uid://7epx4qjcbi0d" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_offensive_trait_data.tres" id="30_grb3g"]
@@ -55,7 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eisx4")
-character_sprite_varients = Array[Texture2D]([ExtResource("3_ntpg3"), ExtResource("3_hhvwy"), ExtResource("4_wpnsw"), ExtResource("5_ntilo"), ExtResource("6_aprn4"), ExtResource("7_qtcf8"), ExtResource("8_k2qyi"), ExtResource("9_un5wy"), ExtResource("10_ycl7g"), ExtResource("11_bylt5"), ExtResource("12_tfpat"), ExtResource("13_vbrq4"), ExtResource("14_5hr8u"), ExtResource("15_ur1b6"), ExtResource("16_3151j"), ExtResource("17_y8k5k"), ExtResource("18_b21tc"), ExtResource("19_lhlbj"), ExtResource("20_o4ruh"), ExtResource("21_rumux"), ExtResource("22_p06wf"), ExtResource("23_gm1mi"), ExtResource("24_uup36"), ExtResource("25_knji5"), ExtResource("26_jnj6x"), ExtResource("27_eifsp")])
+character_sprite_varients = Array[Texture2D]([ExtResource("3_ntpg3"), ExtResource("3_hhvwy"), ExtResource("4_wpnsw"), ExtResource("5_ntilo"), ExtResource("6_aprn4"), ExtResource("7_qtcf8"), ExtResource("8_k2qyi"), ExtResource("9_un5wy"), ExtResource("10_ycl7g")])
 name_varients = Array[String](["Edan", "Joah", "Abel", "Basil", "Wisper", "Robin", "Ram", "Juse", "Kinrid", "Mousou", "Weeply", "Lars", "Ollie", "Ash", "Smithly", "Krita", "Sam", "Eris", "Finch", "Judas", "Cyrprus", "Shiphra", "Salome", "Xavier", "Erdrick", "Gilbert"])
 personality_traits = Dictionary[String, ExtResource("28_y4i3p")]({
 "Brute": ExtResource("29_nyook"),

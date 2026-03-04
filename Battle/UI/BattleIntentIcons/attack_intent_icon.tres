@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Nikoichu/Icons/Icons_RPG.png" id="1_p8dak"]
 
 [resource]
+resource_local_to_scene = true
 atlas = ExtResource("1_p8dak")
 region = Rect2(0, 16, 16, 16)

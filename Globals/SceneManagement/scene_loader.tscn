@@ -3,10 +3,7 @@
 [ext_resource type="Script" uid="uid://cl52fqbtrwchr" path="res://Globals/SceneManagement/scene_loader.gd" id="1_fm6ra"]
 [ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://General/PlaceholderArt/donkey.tres" id="2_17v8e"]
 [ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://Entities/Data/Enemies/Slime/slime_texture.tres" id="3_bt074"]
-[ext_resource type="Texture2D" uid="uid://dtxuoyn4lxhb1" path="res://Entities/Data/Enemies/Funguy/funguy_texture.tres" id="4_mhdjm"]
-[ext_resource type="Texture2D" uid="uid://cd4hibbyheh6x" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="5_xfxiq"]
 [ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://Testing/rat_texture.tres" id="6_n2qip"]
-[ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_a652t"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="8_iwggg"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
 [ext_resource type="PackedScene" uid="uid://c7lb2ji3nvodm" path="res://General/UI/ScreenFader/screen_fade.tscn" id="10_qepw2"]
@@ -57,7 +54,7 @@ _data = {
 
 [node name="SceneLoader" type="Node2D" unique_id=370581963]
 script = ExtResource("1_fm6ra")
-loading_sprite_varients = Array[Texture2D]([ExtResource("2_17v8e"), ExtResource("3_bt074"), ExtResource("4_mhdjm"), ExtResource("5_xfxiq"), ExtResource("6_n2qip"), ExtResource("7_a652t")])
+loading_sprite_varients = Array[Texture2D]([ExtResource("2_17v8e"), ExtResource("3_bt074"), ExtResource("6_n2qip")])
 
 [node name="LoadingScreenLayer" type="CanvasLayer" parent="." unique_id=252031923]
 layer = 9
