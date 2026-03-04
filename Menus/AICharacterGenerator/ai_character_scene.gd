@@ -29,7 +29,7 @@ class_name AICharacterGenerator
 
 # Fletcher - Added
 const SYSTEM_PROMPT: String = """
-You are gay.
+You are a structured content generator.
 """
 
 # Fletcher - Added

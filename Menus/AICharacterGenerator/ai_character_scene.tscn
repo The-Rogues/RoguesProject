@@ -226,10 +226,10 @@ text = "Cancel"
 visible = false
 layout_mode = 1
 
-[connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_field_changed"]
 [connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_chaacter_description_text_changed"]
-[connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_field_changed"]
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_field_changed"]
 [connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_chaacter_description_text_changed"]
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_field_changed"]
 [connection signal="clicked" from="Menu1/CharacterInfoFields/Create" to="." method="_on_create_clicked"]
 [connection signal="clicked" from="Menu1/CharacterInfoFields/Return" to="." method="_on_return_clicked"]
 [connection signal="clicked" from="Menu2/GeneratingCharacter/Cancel" to="." method="_on_cancel_clicked"]
