@@ -145,3 +145,4 @@ res://Items/Data/Pouch/pouch_item_data.tres
 res://Map/Shop/ItemPools/floor_1_shop_data.tres
 res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres
 res://Battle/UI/BattleIntentIcons/special_attack_intent_icon.tres
+res://Menus/AICharacterGenerator/ai_character_scene.gd

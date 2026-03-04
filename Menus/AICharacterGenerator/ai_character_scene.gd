@@ -44,7 +44,7 @@ tenoption ::= [1-9] | 10
 func _ready() -> void:
 	
 	# Fletcher - Added
-	model.model_path = "res://ai/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+	model.model_path = "res://AI/Models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
 	chat.model_node = model
 	chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)
 	chat.system_prompt = SYSTEM_PROMPT
@@ -158,8 +158,7 @@ func get_offensive(trait_id:int) -> OffensiveTrait:
 	if trait_id == 0:
 		return load("res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres")
 	if trait_id == 1:
-		pass # Fletcher - This branch was crashing everything.
-		#return load("res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_trait_data.tres")
+		return load("res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_offensive_trait_data.tres")
 	return load("res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres")
 
 

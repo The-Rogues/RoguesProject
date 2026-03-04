@@ -17,108 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="32_x7f43"]
 [ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://Menus/CharacterScreen/character_screen.tscn" id="33_o00og"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uudwj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u878g"]
-atlas = SubResource("CompressedTexture2D_uudwj")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e7lv3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ygdxn"]
-atlas = SubResource("CompressedTexture2D_e7lv3")
-region = Rect2(160, 64, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jv1fv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmpp6"]
-atlas = SubResource("CompressedTexture2D_jv1fv")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oo81d"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_604rl"]
-atlas = SubResource("CompressedTexture2D_oo81d")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_onulf"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tg8wn"]
-atlas = SubResource("CompressedTexture2D_onulf")
-region = Rect2(64, 96, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fbr2e"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7vbo"]
-atlas = SubResource("CompressedTexture2D_fbr2e")
-region = Rect2(96, 96, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q15mo"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_42yw6"]
-atlas = SubResource("CompressedTexture2D_q15mo")
-region = Rect2(128, 96, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sci3f"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhe5w"]
-atlas = SubResource("CompressedTexture2D_sci3f")
-region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ouco"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tl80e"]
-atlas = SubResource("CompressedTexture2D_3ouco")
-region = Rect2(96, 128, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imoir"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybxki"]
-atlas = SubResource("CompressedTexture2D_imoir")
-region = Rect2(0, 160, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5w8e5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vbqxi"]
-atlas = SubResource("CompressedTexture2D_5w8e5")
-region = Rect2(32, 160, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iqdu1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibtju"]
-atlas = SubResource("CompressedTexture2D_iqdu1")
-region = Rect2(64, 160, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hktxb"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t2dfa"]
-atlas = SubResource("CompressedTexture2D_hktxb")
-region = Rect2(96, 160, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wonkv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hdqtv"]
-atlas = SubResource("CompressedTexture2D_wonkv")
-region = Rect2(128, 160, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_47lrp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fe66e"]
-atlas = SubResource("CompressedTexture2D_47lrp")
-region = Rect2(160, 160, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0apjq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y487p"]
-atlas = SubResource("CompressedTexture2D_0apjq")
-region = Rect2(96, 192, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hrqx2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ubiby"]
-atlas = SubResource("CompressedTexture2D_hrqx2")
-region = Rect2(128, 192, 32, 32)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gq3o0"]
 content_margin_left = 16.0
 content_margin_top = 8.0
@@ -138,7 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_csw5w")
-character_sprite_varients = Array[Texture2D]([ExtResource("2_880nr"), ExtResource("3_cg7en"), ExtResource("4_6o4tg"), ExtResource("5_4rsgp"), ExtResource("6_ps4op"), ExtResource("7_1h1d5"), ExtResource("8_83gj5"), ExtResource("9_gpbj5"), ExtResource("10_egmoi"), SubResource("AtlasTexture_u878g"), SubResource("AtlasTexture_ygdxn"), SubResource("AtlasTexture_gmpp6"), SubResource("AtlasTexture_604rl"), SubResource("AtlasTexture_tg8wn"), SubResource("AtlasTexture_h7vbo"), SubResource("AtlasTexture_42yw6"), SubResource("AtlasTexture_mhe5w"), SubResource("AtlasTexture_tl80e"), SubResource("AtlasTexture_ybxki"), SubResource("AtlasTexture_vbqxi"), SubResource("AtlasTexture_ibtju"), SubResource("AtlasTexture_t2dfa"), SubResource("AtlasTexture_hdqtv"), SubResource("AtlasTexture_fe66e"), SubResource("AtlasTexture_y487p"), SubResource("AtlasTexture_ubiby")])
+character_sprite_varients = Array[Texture2D]([ExtResource("2_880nr"), ExtResource("3_cg7en"), ExtResource("4_6o4tg"), ExtResource("5_4rsgp"), ExtResource("6_ps4op"), ExtResource("7_1h1d5"), ExtResource("8_83gj5"), ExtResource("9_gpbj5"), ExtResource("10_egmoi")])
 
 [node name="Background" type="ColorRect" parent="." unique_id=38701394]
 layout_mode = 1
@@ -311,10 +209,10 @@ text = "Cancel"
 visible = false
 layout_mode = 1
 
-[connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_chaacter_description_text_changed"]
 [connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_field_changed"]
-[connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_chaacter_description_text_changed"]
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/NameField/Name" to="." method="_on_chaacter_description_text_changed"]
 [connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_field_changed"]
+[connection signal="text_changed" from="Menu1/CharacterInfoFields/DescriptionField/Description" to="." method="_on_chaacter_description_text_changed"]
 [connection signal="clicked" from="Menu1/CharacterInfoFields/Create" to="." method="_on_create_clicked"]
 [connection signal="clicked" from="Menu1/CharacterInfoFields/Return" to="." method="_on_return_clicked"]
 [connection signal="clicked" from="Menu2/GeneratingCharacter/Cancel" to="." method="_on_cancel_clicked"]
