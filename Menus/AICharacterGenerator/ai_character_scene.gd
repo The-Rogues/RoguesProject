@@ -27,10 +27,12 @@ class_name AICharacterGenerator
 @onready var chat: NobodyWhoChat = NobodyWhoChat.new()
 @onready var model: NobodyWhoModel = NobodyWhoModel.new()
 
+# Fletcher - Added
 const SYSTEM_PROMPT: String = """
 You are gay.
 """
 
+# Fletcher - Added
 const RESPONSE_GRAMMAR: String = """
 root ::= "{\"backstory:\":\"" string ",\"t1\":" threeoption ",\"t2\":" threeoption ",\"t3\":" threeoption ",\"w1\":" tenoption ",\"w2\":" tenoption ",\"w3\":" tenoption "}"
 string ::= char*
@@ -41,6 +43,7 @@ tenoption ::= [1-9] | 10
 
 func _ready() -> void:
 	
+	# Fletcher - Added
 	model.model_path = "res://ai/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
 	chat.model_node = model
 	chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)
@@ -155,7 +158,7 @@ func get_offensive(trait_id:int) -> OffensiveTrait:
 	if trait_id == 0:
 		return load("res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres")
 	if trait_id == 1:
-		pass
+		pass # Fletcher - This branch was crashing everything.
 		#return load("res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_trait_data.tres")
 	return load("res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres")
 
@@ -204,8 +207,8 @@ func _on_create_clicked() -> void:
 	# Description field text is being used only for testing json parsing.
 	# Once the AI is used, click on description field object in the scene and change
 	# its text to be empty.
-	chat.ask(prompt)
-	var ai_response:String = await chat.response_finished
+	chat.ask(prompt) # Fletcher - Added
+	var ai_response:String = await chat.response_finished # Fletcher - Moddified
 	print(ai_response)
 	var character_json:Dictionary = _validate_character_string(ai_response)
 	_initialize_character_from_json(character_json)
