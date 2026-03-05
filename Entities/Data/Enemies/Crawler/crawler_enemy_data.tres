@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="6_km68d"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="7_8fh8y"]
 [ext_resource type="Script" uid="uid://cq3s1j6odaltq" path="res://Battle/Actions/Atomic/conditional_action.gd" id="7_nwij7"]
-[ext_resource type="Resource" uid="uid://bi42scpbcsgo8" path="res://Battle/Actions/StatusEffects/Bleeding/bleeding_status_effect_data.tres" id="8_l3fm4"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="8_nc1u1"]
+[ext_resource type="Resource" uid="uid://bi42scpbcsgo8" path="res://Entities/StatusEffects/Bleeding/bleeding_status_effect_data.tres" id="8_skdrs"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="11_nwij7"]
 [ext_resource type="Texture2D" uid="uid://fxqou0ng1n4b" path="res://Entities/Data/Enemies/Crawler/fire_projectile.png" id="12_hdm68"]
 [ext_resource type="Texture2D" uid="uid://cdj50rusvnt6h" path="res://Battle/UI/BattleIntentIcons/parry_intent_icon.tres" id="12_skdrs"]
@@ -17,14 +17,13 @@
 
 [sub_resource type="Resource" id="Resource_8fh8y"]
 script = ExtResource("5_nwij7")
-base_damage = 2
 targeting = 1
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_skdrs"]
 script = ExtResource("6_km68d")
-status = ExtResource("8_l3fm4")
-stacks = 2
+status = ExtResource("8_skdrs")
+targeting = 1
 metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_qchy7"]
@@ -39,7 +38,7 @@ script = ExtResource("5_6sevn")
 is_attack = true
 action_display_icon = ExtResource("3_cmwq8")
 name = "Crunch"
-description = "Deal 2 damage. Chance to inflict Bleeding."
+description = "Deal 6 damage. Chance to inflict Bleeding."
 actions = Array[ExtResource("7_8fh8y")]([SubResource("Resource_8fh8y"), SubResource("Resource_qchy7")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
@@ -49,7 +48,7 @@ projectile_texture = ExtResource("12_hdm68")
 face_direction = true
 impact_damage = 5
 speed = 450.0
-direction_range = 0.1
+direction_range = 0.08
 targeting = 1
 metadata/_custom_type_script = "uid://c3uyo8xsai327"
 
@@ -64,13 +63,12 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_jwott"]
 script = ExtResource("13_qchy7")
-amount = 2
 metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
 [sub_resource type="Resource" id="Resource_4w1nt"]
 script = ExtResource("13_qchy7")
 effect = 1
-bonus_random = 3
+amount = 3
 metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
 [sub_resource type="Resource" id="Resource_nwij7"]
@@ -78,7 +76,7 @@ script = ExtResource("5_6sevn")
 action_display_icon = ExtResource("12_skdrs")
 move_type = 1
 name = "Spikey Shell"
-description = "Gain 2 block and 3 parry."
+description = "Gain 6 block and 3 parry."
 actions = Array[ExtResource("7_8fh8y")]([SubResource("Resource_jwott"), SubResource("Resource_4w1nt")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
@@ -87,7 +85,7 @@ script = ExtResource("8_nc1u1")
 move_set = Array[ExtResource("5_6sevn")]([SubResource("Resource_q8lj5"), SubResource("Resource_8itdy"), SubResource("Resource_nwij7")])
 display_texture = ExtResource("4_cmwq8")
 name = "Crawler"
-max_health = 35
+max_health = 46
 launch_when_defeated = true
 launch_impact_damage = 9
 metadata/_custom_type_script = "uid://sxih45j4ip5w"

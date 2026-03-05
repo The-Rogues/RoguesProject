@@ -61,7 +61,7 @@ func take_damage(amount:float, attacker:BattleEntity = null):
 		last_attacker = attacker
 	
 	if can_take_damage:
-		var damage:int = status_conditions.apply_damage_effects(amount)
+		var damage:int = status_conditions.apply_attack_effects(amount)
 		damage = defense.block_damage(damage)
 		
 		_health.take_damage(damage)
@@ -88,9 +88,19 @@ func get_attack_damage(base_damage:int) -> int:
 	return status_conditions.apply_attack_effects(base_damage)
 
 
+func get_modified_projectile(projectile_action:ProjectileAction) -> ProjectileAction:
+	return status_conditions.apply_projectile_effects(projectile_action)
+
+
+
 func heal(amount:float):
 	super(amount)
 	animation_player.play("entity/idle")
+
+
+func _launch_body():
+	if !spared:
+		super()
 
 
 func _on_new_turn_started():
@@ -119,7 +129,7 @@ func move_to(new_position:Vector2):
 
 func spare():
 	spared = true
-	move_to(Vector2(global_position.x, 100))
+	move_to(Vector2(global_position.x, -100))
 	await arrived
 	kill()
 
@@ -138,7 +148,7 @@ func drop_object():
 
 
 func _on_started_moving():
-	#animation_player.stop()
+	animation_player.stop()
 	animation_player.play("entity/march")
 
 

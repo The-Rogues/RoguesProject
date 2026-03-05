@@ -26,8 +26,9 @@ enum SampleFrom {
 	STRATEGIC_WEIGHT,
 }
 @export var sample_from:SampleFrom = SampleFrom.NONE
-@export_group("Object Repair")
+@export_group("Objects")
 @export var repair_object_id:String
+@export var object_data:ObjectEntityData
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	super(battle_instance, _action_user)
@@ -48,8 +49,8 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 				_calculate_amount(battle_instance, _action_user)
 			)
 		SkillEffect.REPAIR_OBJECT:
-			var object := battle_instance.battle_field.get_object()
-			if object and object.data.id == repair_object_id:
+			var object:ObjectEntity = battle_instance.battle_field.get_object()
+			if object:
 				object.heal(_calculate_amount(battle_instance, _action_user))
 
 
@@ -61,11 +62,11 @@ func _calculate_amount(
 	
 	match sample_from:
 		SampleFrom.OFFENSIVE_WEIGHT:
-			value += battle_instance.character_personality.offensive_weight
+			value += battle_instance.player_personality.offensive_weight
 		SampleFrom.DEFENSIVE_WEIGHT:
-			value += battle_instance.character_personality.defensive_weight
+			value += battle_instance.player_personality.defensive_weight
 		SampleFrom.STRATEGIC_WEIGHT:
-			value += battle_instance.character_personality.strategic_weight
+			value += battle_instance.player_personality.strategic_weight
 		SampleFrom.NONE:
 			return amount
 

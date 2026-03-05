@@ -21,4 +21,5 @@ id = "laidback"
 name = "Laidback"
 description = "Calm in most situations. Conserves energy until the right moment to act."
 card_pool = SubResource("Resource_ifmkl")
+default_cards = Array[ExtResource("1_ifmkl")]([ExtResource("4_alvkx"), ExtResource("4_alvkx"), ExtResource("4_alvkx"), ExtResource("4_alvkx"), ExtResource("2_ifmkl")])
 metadata/_custom_type_script = "uid://bllaybhbcrgk4"

@@ -2,45 +2,32 @@ extends Node2D
 class_name BattleManager
 
 signal battle_ended(player_won:bool)
-signal card_drawn(card_data:CardData)
-signal played_card(card_data:CardData)
 signal new_turn_started
 signal player_turn_ended
 signal enemy_turn_ended
-signal item_used(
-		item:ItemData,
-		remaining:Array[ItemData]
-)
 
 @export var battle_field: BattleField
-
 @export var energy_counter:EnergyCounter
 @export var battle_card_manager:BattleCardManager
-
-@export var battle_display:GameSessionDisplay
 
 @export var enemy_delay_timer: Timer
 @onready var action_delay_timer: Timer = $ActionDelayTimer
 
-
 @onready var entity_parent: Node2D = $Entities
-@onready var character_spawn_point: Node2D = $Entities/CharacterSpawnPoint
+@onready var player_spawn_point: Node2D = $Entities/CharacterSpawnPoint
 
 enum BattleState { PLAYER_TURN, ENEMY_TURN, ENDED }
 var battle_state:BattleState = BattleState.PLAYER_TURN
 
 var player_entity:BattleEntity
 var enemies:Array[BattleEntity]
-var living_enemies:Array[BattleEntity]
-var enemy_encounter:EnemyEncounter
 
 var action_queue:BattleActionQueue
 var action_intentions:Dictionary[BattleEntity, BattleIntentIcon]
 var battle_events:BattleEventsManager
 
 var turn_count:int = 0
-var held_items:Array[ItemData]
-var character_personality:PersonalityData
+var player_personality:PersonalityData
 
 const INTENT_ICON = preload("res://Battle/UI/battle_intent_icon.tscn")
 const BATTLE_ENTITY = preload("res://Entities/Scenes/battle_entity.tscn")
@@ -48,72 +35,61 @@ const BATTLE_ENTITY = preload("res://Entities/Scenes/battle_entity.tscn")
 const ENEMY_SPACING = 0.10
 const ENEMY_Y_POSITION = 0.28
 
+# Fletcher
+@onready var ai_processer_script: PackedScene = preload("res://ai/processer/AiCardProcesser.tscn")
+@onready var ai_processer: AiCardProcesser = ai_processer_script.instantiate()
 
-func initialize(
-			character_entity_data:EntityData,
-			new_enemy_encounter:EnemyEncounter,
-			battle_object_layout:BattleObjectLayout,
-			items:Array[ItemData],
-			personality_data:PersonalityData,
-			starting_card_deck:CardDeck,
-			energy:int,
-			current_character_health:int
-) -> void:
-	# Spawn Player
-	var new_character_entity:BattleEntity = BATTLE_ENTITY.instantiate()
-	entity_parent.add_child(new_character_entity)
-	new_character_entity.global_position = character_spawn_point.global_position
-	new_character_entity.initialize(character_entity_data, current_character_health)
-	new_character_entity.defeated.connect(_on_entity_defeated)
-	new_turn_started.connect(new_character_entity._on_new_turn_started)
+
+func initialize(battle_config:BattleSceneConfiguration) -> void:
+	# Spawn & initialize Player
+	var new_player_entity:BattleEntity = BATTLE_ENTITY.instantiate()
+	entity_parent.add_child(new_player_entity)
+	new_player_entity.global_position = player_spawn_point.global_position
+	new_player_entity.initialize(
+		battle_config.character_entity_data, 
+		battle_config.current_character_health
+	)
+	# Storing player info
+	player_entity = new_player_entity
+	player_personality = battle_config.personality_data
 	
-	# Spawn Enemies
-	for entity_data in new_enemy_encounter.enemies:
+	# Spawn & initialize Enemies
+	for entity_data in battle_config.enemy_encounter.enemies:
 		var new_enemy_entity:BattleEntity = BATTLE_ENTITY.instantiate()
 		entity_parent.add_child(new_enemy_entity)
 		enemies.append(new_enemy_entity)
-		living_enemies.append(new_enemy_entity)
 		new_enemy_entity.initialize(entity_data)
 		new_enemy_entity.defeated.connect(_on_entity_defeated)
 		new_turn_started.connect(new_enemy_entity._on_new_turn_started)
 	
-	_position_enemies(enemies)
-	
-	# Storing
-	player_entity = new_character_entity
-	character_personality = personality_data
-	enemy_encounter = new_enemy_encounter
+	_position_enemies()
 	
 	# Load Battle Objects & Battle Positions
-	battle_field.initialize(battle_object_layout, player_entity)
+	battle_field.initialize(battle_config.object_layout, player_entity)
 	action_queue = BattleActionQueue.new()
 	battle_events = BattleEventsManager.new()
 	battle_events.initialize(self)
 	
 	# Setting up Cards
-	battle_card_manager.initialize(starting_card_deck)
+	battle_card_manager.initialize(battle_config.card_deck)
 	battle_card_manager.try_play_card.connect(_on_try_play_card)
-	energy_counter.initialize(energy)
+	energy_counter.initialize(battle_config.energy)
 	
-	# Setting up items
-	held_items = items.duplicate(true)
-	
-	# Setting battle display
-	battle_display.initialize_with_battle(self, starting_card_deck)
-	battle_display.item_interface.activate_item.connect(_on_use_item)
-	
+	# Connect signals
+	new_player_entity.defeated.connect(_on_entity_defeated)
+	new_turn_started.connect(new_player_entity._on_new_turn_started)
 	player_entity.damaged.connect(_on_player_damaged)
 	
-	# Starting Battle
-	#_start_player_turn()
+	# Fletcher
+	add_child(ai_processer)
 
 
 func _on_player_damaged(amount:int):
-	character_personality.defensive_trait.process_damage(self)
+	player_personality.defensive_trait.process_damage(self)
 	pass
 
 
-func _position_enemies(enemies:Array[BattleEntity]):
+func _position_enemies():
 	if enemies.is_empty():
 		return
 	
@@ -161,9 +137,9 @@ func resolve_enemy_intention(entity:BattleEntity):
 
 
 func _start_player_turn():
-	turn_count += 1
 	if battle_state != BattleState.PLAYER_TURN:
 		return
+	turn_count += 1
 	
 	player_entity.parry.set_to_zero()
 	player_entity.defense.set_to_zero()
@@ -171,9 +147,8 @@ func _start_player_turn():
 	battle_card_manager.reshuffle_deck()
 	battle_card_manager.draw_card(5)
 	
-	for enemy in living_enemies:
+	for enemy in enemies:
 		create_action_intent(enemy)
-		enemy.status_conditions.decay_status_effects()
 	
 	battle_field.on_new_turn_started()
 	
@@ -187,9 +162,10 @@ func end_player_turn() -> void:
 	
 	player_entity.status_conditions.decay_status_effects()
 	
-	for enemy in living_enemies:
+	for enemy in enemies:
 		enemy.parry.set_to_zero()
 		enemy.defense.set_to_zero()
+		enemy.status_conditions.decay_status_effects()
 	
 	battle_card_manager.transfer_hand_to_discard()
 	
@@ -200,8 +176,10 @@ func end_player_turn() -> void:
 func _start_enemy_turn() -> void:
 	await get_tree().create_timer(0.5).timeout
 	for entity in action_intentions:
+		if entity.is_defeated:
+			continue
 		enemy_delay_timer.start()
-		resolve_enemy_intention(entity)
+		await resolve_enemy_intention(entity)
 		await enemy_delay_timer.timeout
 	
 	if !action_queue.queue.is_empty():
@@ -234,38 +212,27 @@ func _on_try_play_card(card_ui:CardUI):
 	if !energy_counter.can_play_card(card_data):
 		battle_card_manager.reject_play()
 	else:
-		#battle_card_manager.player_card_hand.confirm_play(card_ui)
 		battle_card_manager.play_card(card_ui)
 		process_card(card_data)
 
 
 func process_card(card_data:CardData):
 	energy_counter.spend_energy(card_data.energy_cost)
-	_execute_battle_move(card_data.move, player_entity)
-
-
-func _on_use_item(item_index:int):
-	held_items[item_index]._use_item(player_entity, self)
-	GlobalSessionManager._remove_held_item(held_items[item_index])
-	
-	var used_item:ItemData = held_items.pop_at(item_index)
-	#item_interface.initialize(held_items)
-	item_used.emit(used_item, held_items)
-	#if held_items.is_empty():
-	#	item_interface.clear_item_slots()
+	if card_data is AiCardData:
+		var new_card = await ai_processer.process_card(player_personality, card_data)
+		battle_card_manager.draw_card(1, new_card)
+	else:
+		_execute_battle_move(card_data.move, player_entity)
 
 
 func _on_entity_defeated(battle_entity:BattleEntity):
 	if player_entity.is_defeated:
 		battle_ended.emit(false)
-		
 		battle_card_manager.hide_hand()
-		return
+	elif battle_entity in enemies:
+		enemies.erase(battle_entity)
 	
-	if battle_entity in enemies:
-		living_enemies.erase(battle_entity)
-	
-	if living_enemies.is_empty():
+	if enemies.is_empty():
 		battle_card_manager.hide_hand()
 		battle_ended.emit(true)
 	

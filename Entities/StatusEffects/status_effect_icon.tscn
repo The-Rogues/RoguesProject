@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://briolm1vgasl0"]
+
+[ext_resource type="Script" uid="uid://dgkncjmmy6s1o" path="res://Entities/StatusEffects/status_effect_ui.gd" id="1_f1tio"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="2_lcpo5"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_dgm5w"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://General/UI/ContextPanel/context_panel.tscn" id="4_fjdlc"]
+
+[node name="StatusEffectIcon" type="Control" unique_id=1912680910]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 1
+script = ExtResource("1_f1tio")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1811394537]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1032552048]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/MarginContainer" unique_id=835158164]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 0
+texture = ExtResource("2_lcpo5")
+
+[node name="ContextPanel" parent="." unique_id=1838000936 instance=ExtResource("4_fjdlc")]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 252.0
+offset_bottom = 90.0
+mouse_filter = 2
+
+[node name="Duration" type="Label" parent="." unique_id=1766179860]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_dgm5w")
+theme_override_font_sizes/font_size = 13
+text = "1"
+horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/Icon" to="." method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/MarginContainer/Icon" to="." method="_on_icon_mouse_exited"]

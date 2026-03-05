@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://General/UI/HealthBar/health_bar.tscn" id="7_ntd4e"]
 [ext_resource type="Script" uid="uid://48mcoyquoyhq" path="res://General/UI/ui_visability_timer.gd" id="8_j534h"]
 [ext_resource type="PackedScene" uid="uid://vao34ydkwbdh" path="res://General/UI/StatIcon/stat_icon.tscn" id="9_s8nop"]
-[ext_resource type="Texture2D" uid="uid://djjgc67emtqut" path="res://Battle/Actions/StatusEffects/Protected/protected_condition_status_icon.tres" id="10_l5o3c"]
+[ext_resource type="Texture2D" uid="uid://djjgc67emtqut" path="res://Entities/StatusEffects/Protected/protected_condition_status_icon.tres" id="10_l5o3c"]
 [ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-015.png" id="11_msfa7"]
 
 [sub_resource type="Shader" id="Shader_q0abo"]
@@ -79,8 +79,9 @@ content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("11_msfa7")
 
-[node name="BattleEntity" type="Node2D" unique_id=293226690]
+[node name="BattleEntity" type="Node2D" unique_id=293226690 node_paths=PackedStringArray("name_label")]
 script = ExtResource("1_j8war")
+name_label = NodePath("UI/Display/NameLabel")
 
 [node name="DamageParticles" parent="." unique_id=232237618 instance=ExtResource("2_s8nop")]
 texture_filter = 1
@@ -157,12 +158,16 @@ theme_override_font_sizes/font_size = 12
 text = "Unkown"
 horizontal_alignment = 1
 
+[node name="CanvasLayer" type="CanvasLayer" parent="UI/Display" unique_id=102102981]
+layer = 5
+visible = false
+
 [node name="StatusConditions" type="HBoxContainer" parent="UI/Display" unique_id=965637377]
 layout_mode = 2
 
 [node name="UIDissapearTimer" type="Timer" parent="UI" unique_id=1944120485 node_paths=PackedStringArray("control")]
 script = ExtResource("8_j534h")
-control = NodePath("../Display")
+control = NodePath("..")
 
 [node name="DamageNumbers" type="Control" parent="UI" unique_id=693407505]
 layout_mode = 1

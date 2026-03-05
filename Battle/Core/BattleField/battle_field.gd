@@ -122,6 +122,5 @@ func get_current_position() -> BattlePosition:
 
 
 func on_new_turn_started():
-	print("battle field")
 	for pos in battle_positions:
 		pos.start_turn()

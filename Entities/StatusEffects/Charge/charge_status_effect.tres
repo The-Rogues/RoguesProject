@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ChargeStatusEffectData" format=3 uid="uid://bqc86hkhakvp0"]
+
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="1_ib2vv"]
+[ext_resource type="Script" uid="uid://b0k5opg83sxsu" path="res://Entities/StatusEffects/Charge/charge_status_effect_data.gd" id="1_ncu5t"]
+
+[resource]
+script = ExtResource("1_ncu5t")
+id = "charge"
+display_name = "Charge"
+icon = ExtResource("1_ib2vv")
+is_stackable = true
+metadata/_custom_type_script = "uid://b0k5opg83sxsu"

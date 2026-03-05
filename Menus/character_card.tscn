@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://c7x5caev2lo3w"]
+
+[ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Border/panel-border-007.png" id="1_7v35j"]
+[ext_resource type="Script" uid="uid://dgendl5kas6d4" path="res://Menus/character_save_card.gd" id="2_dlmqk"]
+[ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="2_pn7b0"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_dlmqk"]
+[ext_resource type="PackedScene" uid="uid://dbt3n70fcylp3" path="res://PersonalitySystem/traits_display.tscn" id="4_lo82u"]
+[ext_resource type="Texture2D" uid="uid://e6ny87os8hbc" path="res://Entities/StatusEffects/Regenerating/regenerating_status_effect_texture.tres" id="5_8pakl"]
+[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://Items/GoldLabel/gold_icon.tres" id="7_dlmqk"]
+[ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Items/GoldLabel/session_gold_label.gd" id="8_lo82u"]
+
+[node name="CharacterSaveCard" type="NinePatchRect" unique_id=1731089554]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 170)
+texture = ExtResource("1_7v35j")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+script = ExtResource("2_dlmqk")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=703816060]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Elements" type="VBoxContainer" parent="Margin" unique_id=1165811301]
+layout_mode = 2
+
+[node name="Character" type="HBoxContainer" parent="Margin/Elements" unique_id=409455337]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Elements/Character" unique_id=1640288662]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_pn7b0")
+
+[node name="About" type="VBoxContainer" parent="Margin/Elements/Character" unique_id=1469611132]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="Margin/Elements/Character/About" unique_id=1446461658]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dlmqk")
+theme_override_font_sizes/font_size = 16
+text = "Character:"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Margin/Elements/Character/About" unique_id=220184314]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("3_dlmqk")
+theme_override_font_sizes/font_size = 16
+text = "Rogue"
+horizontal_alignment = 1
+
+[node name="TraitsDisplay" parent="Margin/Elements/Character/About" unique_id=1527129464 instance=ExtResource("4_lo82u")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Health" type="HBoxContainer" parent="Margin/Elements" unique_id=597114775]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Heart" type="TextureRect" parent="Margin/Elements/Health" unique_id=1790444879]
+self_modulate = Color(0.8056271, 0.14600024, 0.28994575, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_8pakl")
+
+[node name="CurrentHealth" type="Label" parent="Margin/Elements/Health" unique_id=1556061918]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_dlmqk")
+theme_override_font_sizes/font_size = 22
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="Gold" type="HBoxContainer" parent="Margin/Elements" unique_id=2139513756]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Elements/Gold" unique_id=2044757605]
+modulate = Color(0.79607844, 0.52156866, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("7_dlmqk")
+
+[node name="PlayerGold" type="Label" parent="Margin/Elements/Gold" unique_id=1751191548]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_dlmqk")
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+script = ExtResource("8_lo82u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin" unique_id=1127353896]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBoxContainer" unique_id=898330986]
+layout_mode = 2
+
+[node name="NoSaveData" type="Label" parent="." unique_id=412005174]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -7.5
+offset_right = 71.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dlmqk")
+theme_override_font_sizes/font_size = 16
+text = "No save data."
+horizontal_alignment = 1

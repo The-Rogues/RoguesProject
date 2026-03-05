@@ -5,10 +5,10 @@ class_name ScreenFade
 
 
 func fade_in():
-	animation_player.play_backwards("fade_layer/fade_out")
+	animation_player.play("fade_in")
 	await animation_player.animation_finished
 
 
 func fade_out():
-	animation_player.play("fade_layer/fade_out")
+	animation_player.play_backwards("fade_in")
 	await animation_player.animation_finished

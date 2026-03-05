@@ -13,7 +13,10 @@ class_name HealingItemData
 @export var health:int = 5
 
 # Override
-func _use_item(entity: BattleEntity, battle:BattleManager = null) -> void:
-	print("item named: " + name + " was used")
-	entity.heal(health)
+func use_item(_battle_instance:BattleManager = null) -> void:
+	if _battle_instance:
+		_battle_instance.player_entity.heal(health)
+		GlobalSessionManager.save_character_health(
+				_battle_instance.player_entity._health.current_health
+		)
 	pass

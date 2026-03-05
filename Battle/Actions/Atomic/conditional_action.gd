@@ -15,6 +15,7 @@ enum Condition {
 	USER_HEALTH_COMPARE,
 	OBJECT_EXISTS,
 	OBJECT_AT_POSITION,
+	HAS_GOLD,
 }
 
 enum PersonalityCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
@@ -59,7 +60,11 @@ enum ComparisonType { GREATER, LESS }
 # -----------------------------
 # HEALTH COMPARES
 # -----------------------------
-@export_range(0.0, 1.0) var health_ratio_threshold:float = 0.5
+@export_range(1, 999) var health_threshold:int = 20
+# -----------------------------
+# Gold COMPARES
+# -----------------------------
+@export_range(1, 99999) var gold_amount:int = 1
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	super(battle_instance, _action_user)
@@ -76,11 +81,11 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 			result = randf() <= random_chance
 		Condition.TARGET_HEALTH_COMPARE:
 			if targets.size() == 1:
-				result = targets[0].health_ratio <= health_ratio_threshold
+				result = targets[0]._health.current_health <= health_threshold
 			else:
 				result = false
 		Condition.USER_HEALTH_COMPARE:
-			result = _action_user.health_ratio <= health_ratio_threshold
+			result = _action_user._health.current_health <= health_threshold
 		Condition.OBJECT_EXISTS:
 			var pos:BattlePosition = battle_instance.battle_field.find_object(object_id)
 			
@@ -92,15 +97,19 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 		Condition.OBJECT_AT_POSITION:
 			var object:ObjectEntity = battle_instance.battle_field.get_object()
 			result = object != null and object.data.id == object_id
-			
-			# Enqueue true branch if condition is met, otherwise enqueue false branch
-			var action:BattleAction = true_action if result else false_action
-			if action:
-				battle_instance.action_queue.enqueue(
-					action,
-					battle_instance,
-					_action_user
-				)
+		Condition.HAS_GOLD:
+			result = GlobalSessionManager.run_progress.gold >= gold_amount
+			if result:
+				GlobalSessionManager.decrease_gold(gold_amount)
+		
+		# Enqueue true branch if condition is met, otherwise enqueue false branch
+	var action:BattleAction = true_action if result else false_action
+	if action:
+		battle_instance.action_queue.enqueue(
+			action,
+			battle_instance,
+			_action_user
+	)
 
 
 func _personality_weight_compare(battle_instance:BattleManager) -> bool:

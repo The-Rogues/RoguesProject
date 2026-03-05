@@ -15,8 +15,11 @@ var texture_available_shop: CompressedTexture2D = preload("res://Map/map_module/
 var texture_available_shop_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableshophover.png")
 var texture_available_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebattle.png")
 var texture_available_battle_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebattlehover.png")
-var texture_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/battle.png")
+var texture_available_boss: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableboss.png")
+var texture_available_boss_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebosshover.png")
 var texture_shop: CompressedTexture2D = preload("res://Map/map_module/map_assets/shop.png")
+var texture_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/battle.png")
+var texture_boss: CompressedTexture2D = preload("res://Map/map_module/map_assets/boss.png")
 var texture_passed: CompressedTexture2D = preload("res://Map/map_module/map_assets/passed.png")
 
 var map_buttons: Array[TextureButton] # Array to keep track of buttons that belong to the map instance.
@@ -58,8 +61,14 @@ func init_map_instance(
 			)
 			add_child(new_button)
 			new_button.texture_filter = TextureFilter.TEXTURE_FILTER_NEAREST
-			new_button.custom_minimum_size = button_size
-			new_button.size = button_size
+			new_button.ignore_texture_size = true
+			new_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+			if curr_layer.size() == 1 && i != 0:
+				new_button.custom_minimum_size = button_size + button_size / 2
+				new_button.size = button_size + button_size / 2
+			else:
+				new_button.custom_minimum_size = button_size
+				new_button.size = button_size
 			map_buttons.append(new_button)
 	
 	# Resize the map to the the dimensions requested and set initial button states.
@@ -73,9 +82,14 @@ func init_map_instance(
 # Return: void.
 func resize_map(container_size: Vector2) -> void:
 	
+	var path_size = container_size.y - (map_buttons[0].size.y * map_structure.map_layers + map_buttons[0].size.y * 0.5 * map_structure.num_mandatory)
+	path_size /= map_structure.map_layers - 1
+	
 	var button_pos: int = 0 # Counts the number of buttons processed.
+	var y_pos: float = container_size.y
 	for i in range(0, map_structure.map_layers):
 		
+		y_pos -= map_buttons[0].size.y
 		# Iterate over the current layer.
 		var curr_layer_size: int = map_structure.get_layer(i).size()
 		for j in range(0, curr_layer_size):
@@ -87,9 +101,15 @@ func resize_map(container_size: Vector2) -> void:
 			# Adjust the position of each button according to its layer and position within the layer.
 			var left_increment: float = (container_size.x - curr_button.size.x) / (map_structure.max_layer_nodes - 1)
 			curr_button.offset_left = ((container_size.x - curr_button.size.x) / 2) + (left_increment * j) - ((left_increment * (curr_layer_size - 1)) / 2)
-			var top_increment: float = (container_size.y - curr_button.size.y) / (map_structure.map_layers - 1)
-			curr_button.offset_top =  (container_size.y - curr_button.size.y) - (top_increment * i)
+			if  curr_layer_size == 1 && i != 0:
+				#var top_increment: float = (container_size.y - curr_button.size.y) / (map_structure.map_layers - 1)
+				#curr_button.offset_top =  (container_size.y - curr_button.size.y) - (top_increment * i)
+				y_pos -= curr_button.size.y / 3
+				curr_button.offset_top = y_pos
+			else:
+				curr_button.offset_top = y_pos
 			button_pos += 1
+		y_pos -= path_size
 	
 	# Draw lines between the buttons.
 	queue_redraw()
@@ -139,21 +159,27 @@ func set_button_states() -> void:
 				# Check if a button is accessable. If it is, make it pressable.
 				if check_accessable(map_buttons[i].corr_node, accessable_buttons):
 					map_buttons[i].disabled = false
-					if map_structure.node_arr[i].node_data:
+					if map_structure.node_arr[i].node_data == 1:
 						map_buttons[i].texture_normal = texture_available_battle
 						map_buttons[i].texture_hover = texture_available_battle_hover
-					else:
+					elif map_structure.node_arr[i].node_data == 0:
 						map_buttons[i].texture_normal = texture_available_shop
 						map_buttons[i].texture_hover = texture_available_shop_hover
+					else:
+						map_buttons[i].texture_normal = texture_available_boss
+						map_buttons[i].texture_hover = texture_available_boss_hover
 				
 				# All other buttons are normal.
 				else:
-					if map_structure.node_arr[i].node_data:
+					if map_structure.node_arr[i].node_data == 1:
 						map_buttons[i].texture_normal = texture_battle
-						map_buttons[i].texture_hover = texture_shop
-					else:
+						map_buttons[i].texture_hover = texture_battle
+					elif map_structure.node_arr[i].node_data == 0:
 						map_buttons[i].texture_normal = texture_shop
 						map_buttons[i].texture_hover = texture_shop
+					else:
+						map_buttons[i].texture_normal = texture_boss
+						map_buttons[i].texture_hover = texture_boss
 		else:
 			
 			# Set textures for passed nodes.

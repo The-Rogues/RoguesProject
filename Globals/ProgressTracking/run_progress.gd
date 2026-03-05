@@ -14,6 +14,7 @@ class_name RunProgress
 @export var character_entity_data:EntityData = null
 @export var current_health:int = 80
 @export var max_energy:int = 5
+@export var character_name:String
 @export var character_backstory:String = "Has an unkown past"
 @export var character_experience_log:Array[String] = []
 
@@ -66,6 +67,7 @@ func initialize_new_run(
 	self.character_entity_data.id = "player"
 	self.character_entity_data.display_texture = character_texture
 	self.character_entity_data.name = character_name
+	self.character_name = character_name
 	self.character_entity_data.max_health = 80
 	self.current_health = 80
 	self.character_entity_data.description = character_backstory
@@ -75,6 +77,7 @@ func initialize_new_run(
 	
 	
 	self.card_deck = card_deck.duplicate(true)
+	self.card_deck.name = "Your Deck"
 	self.held_items = []
 	self.maximum_item_capacity = 3
 	self.gold = 0

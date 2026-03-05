@@ -21,4 +21,5 @@ id = "crafty"
 name = "Crafty"
 description = "Perceptive of their environment. Enjoys making opportunities."
 card_pool = SubResource("Resource_nbpp1")
+default_cards = Array[ExtResource("1_wsri2")]([ExtResource("2_wsri2"), ExtResource("2_wsri2"), ExtResource("2_wsri2"), ExtResource("3_o0odh"), ExtResource("3_o0odh")])
 metadata/_custom_type_script = "uid://bllaybhbcrgk4"

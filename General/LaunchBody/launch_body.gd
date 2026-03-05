@@ -50,7 +50,7 @@ func _physics_process(delta):
 		velocity = velocity.bounce(bounce_direction)
 		var angle_variation = randf_range(-bounce_range, bounce_range)
 		velocity = velocity.rotated(angle_variation)
-		sprite_flasher.flash_sprite()
+		sprite_flasher.flash(Color.WHITE)
 	
 	if bounces >= bounce_count:
 		velocity = Vector2.ZERO

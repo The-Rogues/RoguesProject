@@ -24,4 +24,5 @@ id = "brute"
 name = "Brute"
 description = "Head strong and short-tempered. Prefers targeting weaker enemies."
 card_pool = SubResource("Resource_0mqn5")
+default_cards = Array[ExtResource("1_jdfcn")]([ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("2_jdfcn")])
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

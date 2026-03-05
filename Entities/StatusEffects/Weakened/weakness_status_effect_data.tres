@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeakenedStatusEffect" format=3 uid="uid://b7bt32bi465gh"]
+
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Nikoichu/Icons/Icons_RPG.png" id="1_87v2a"]
+[ext_resource type="Script" uid="uid://c8hec3cwr5d65" path="res://Entities/StatusEffects/Weakened/weakened_status_effect_data_script.gd" id="2_leoen"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bwrg"]
+atlas = ExtResource("1_87v2a")
+region = Rect2(80, 96, 16, 16)
+
+[resource]
+script = ExtResource("2_leoen")
+id = "weakness"
+display_name = "Weakness"
+icon = SubResource("AtlasTexture_1bwrg")
+is_stackable = true
+metadata/_custom_type_script = "uid://c8hec3cwr5d65"

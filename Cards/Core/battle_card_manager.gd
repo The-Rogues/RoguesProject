@@ -108,5 +108,5 @@ func transfer_hand_to_discard():
 
 
 func reshuffle_deck():
-	if draw_pile.cards.is_empty():
+	if draw_pile.cards.size() < 5 and deck.cards.size() > 5:
 		discard_pile.transfer_cards_to_deck(draw_pile, true)

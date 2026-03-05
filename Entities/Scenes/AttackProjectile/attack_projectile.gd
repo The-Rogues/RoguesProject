@@ -32,17 +32,19 @@ const FLOATING_NUMBERS = preload(
 		"res://General/UI/DamageNumbers/floating_numbers.tscn"
 )
 
-func display_floating_numbers(text:String, parent):
-	var new_pop_text = FLOATING_NUMBERS.instantiate()
-	parent.add_child(new_pop_text)
-	
-	new_pop_text.initialize(text, Color.DIM_GRAY)
 
 func _physics_process(delta):
 	if !active:
 		return
 	# Move the projectile based on its velocity
 	global_position += velocity * delta
+
+# -------------------------------------------------
+# Initialization
+# -------------------------------------------------
+func initialize():
+	pass
+
 
 func configure(
 	new_owner:Node2D,
@@ -57,6 +59,12 @@ func configure(
 	damage = new_damage
 	if new_face_direction:
 		face_direction = true
+
+func display_floating_numbers(text:String, parent):
+	var new_pop_text = FLOATING_NUMBERS.instantiate()
+	parent.add_child(new_pop_text)
+	
+	new_pop_text.initialize(text, Color.DIM_GRAY)
 
 func spawn_and_launch(spawn_position:Vector2, direction: Vector2):
 	# Set the initial velocity when the projectile is created
@@ -78,7 +86,7 @@ func _on_body_entered(body):
 		return
 	
 	if collision_projectile_owner != projectile_owner:
-		if collision_projectile_owner is ObjectEntity:
+		if collision_projectile_owner is ObjectEntity and damage == DamageTarget.PLAYER:
 			if collision_projectile_owner.data.attack_filter != ObjectEntityData.AttackFilter.IGNORE:
 				collision_projectile_owner.take_damage(damage)
 				destroyed.emit()

@@ -17,8 +17,8 @@ func _on_win_button_up() -> void:
 	if not battle_manager:
 		return
 	
-	for enemy in battle_manager.living_enemies:
-		enemy.kill()
+	while battle_manager.enemies.size() > 0:
+		battle_manager.enemies[0].kill()
 	pass # Replace with function body.
 
 
@@ -35,7 +35,7 @@ func _on_damage_enemy_button_up() -> void:
 	if not battle_manager:
 		return
 	
-	battle_manager.living_enemies.pick_random().take_damage(20)
+	battle_manager.enemies.pick_random().take_damage(20)
 	pass # Replace with function body.
 
 

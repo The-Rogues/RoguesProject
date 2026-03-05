@@ -1,0 +1,11 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://qih8trwgrmut"]
+
+[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://General/PlaceholderArt/32rogues/items.png" id="1_68i5g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32pxr"]
+atlas = ExtResource("1_68i5g")
+region = Rect2(96, 768, 32, 32)
+
+[resource]
+resource_local_to_scene = true
+atlas = SubResource("AtlasTexture_32pxr")

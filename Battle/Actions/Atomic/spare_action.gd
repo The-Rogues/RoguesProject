@@ -13,7 +13,7 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 			spare_chance = min(1, spare_chance + 0.3)
 		
 		if _action_user == battle_instance.player_entity and \
-				battle_instance.character_personality.offensive_trait.id == "merciful":
+				battle_instance.player_personality.offensive_trait.id == "merciful":
 			spare_chance = min(1, spare_chance + 0.1)
 		#Todo: Check if target is pacified in emotion system
 		

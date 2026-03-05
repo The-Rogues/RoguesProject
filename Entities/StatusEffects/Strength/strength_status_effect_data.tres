@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StrengthStatusEffect" format=3 uid="uid://c55148r33pa1e"]
+
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Nikoichu/Icons/Icons_RPG.png" id="1_8731j"]
+[ext_resource type="Script" uid="uid://dl3oy670ouqfd" path="res://Entities/StatusEffects/Strength/strength_status_effect_script.gd" id="2_8r3v2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klk75"]
+atlas = ExtResource("1_8731j")
+region = Rect2(80, 80, 16, 16)
+
+[resource]
+script = ExtResource("2_8r3v2")
+id = "strength"
+display_name = "Strength"
+icon = SubResource("AtlasTexture_klk75")
+is_stackable = true
+metadata/_custom_type_script = "uid://dl3oy670ouqfd"

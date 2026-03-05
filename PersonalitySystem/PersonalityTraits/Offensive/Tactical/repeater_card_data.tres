@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bv0711a458omm"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_21c5u"]
+[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_lmy3a"]
+[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="2_ufubp"]
+[ext_resource type="Resource" uid="uid://bsp1c24kesuns" path="res://Entities/StatusEffects/Repeater/repeater_status_effect.tres" id="3_qxp86"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_dhr32"]
+
+[sub_resource type="Resource" id="Resource_47jug"]
+script = ExtResource("2_ufubp")
+status = ExtResource("3_qxp86")
+metadata/_custom_type_script = "uid://s304n8psvt04"
+
+[sub_resource type="Resource" id="Resource_0ghja"]
+script = ExtResource("4_dhr32")
+move_type = 1
+name = "Repeater"
+description = "+1 projectiles. Remove on fire."
+actions = Array[ExtResource("1_lmy3a")]([SubResource("Resource_47jug")])
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[resource]
+script = ExtResource("1_21c5u")
+move = SubResource("Resource_0ghja")
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

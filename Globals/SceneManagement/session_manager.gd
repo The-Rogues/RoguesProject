@@ -7,7 +7,8 @@ class_name SessionManager
 
 signal current_health_updated(new_value:int)
 signal max_health_updated(new_value:int)
-signal traits_updated()
+signal increased_item_capacity(new_capacity:int)
+signal traits_updated
 signal gold_updated(new_value:int)
 signal gold_added(added_amount:int)
 
@@ -25,6 +26,7 @@ func initialize_new_run(
 		card_deck: CardDeck
 ) -> void:
 	run_progress = RunProgress.new()
+	card_deck.add_card(load("res://ai/ai-cards/inventive_attack_data.tres"))
 	run_progress.initialize_new_run(
 		character_texture,
 		character_name,
@@ -59,10 +61,12 @@ func _attach_map_callbacks():
 			# save position on arrival
 			run_progress.player_node_index = run_progress.run_map.get_player_node_index()
 			# trigger scene
-			if corr_node.node_data:
+			if corr_node.node_data == 1:
 				GlobalSceneLoader.load_battle_scene()
-			else:
+			elif corr_node.node_data == 0:
 				GlobalSceneLoader.load_shop_scene()
+			elif corr_node.node_data == 2:
+				GlobalSceneLoader.load_scene("res://Map/test_screen/TestScreen.tscn")
 			run_progress.total_rooms_explored += 1
 			GlobalSaveManager.save_run(run_progress)
 	)
@@ -117,9 +121,10 @@ func increase_item_capacity():
 	if run_progress == null:
 		return
 	
-	run_progress.item_capacity += 1
+	run_progress.maximum_item_capacity += 1
 	run_progress.total_items_collected += 1
 	GlobalSaveManager.save_run(run_progress)
+	increased_item_capacity.emit(run_progress.maximum_item_capacity)
 
 
 func change_offensive_trait(new_trait:PersonalityTrait, weight:int = -1):
@@ -174,6 +179,16 @@ func increase_gold(amount:int):
 	
 	gold_updated.emit(run_progress.gold)
 	gold_added.emit(amount)
+	GlobalSaveManager.save_run(run_progress)
+
+
+func decrease_gold(amount:int):
+	if run_progress == null:
+		return
+	
+	run_progress.gold -= amount
+	
+	gold_updated.emit(run_progress.gold)
 	GlobalSaveManager.save_run(run_progress)
 
 

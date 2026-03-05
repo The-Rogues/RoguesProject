@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="OffensiveTrait" format=3 uid="uid://7epx4qjcbi0d"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_r7lgg"]
+[ext_resource type="Script" uid="uid://clg6wfr8i5i2c" path="res://PersonalitySystem/PersonalityTraits/offensive_trait.gd" id="2_m8xu6"]
+[ext_resource type="Resource" uid="uid://f1mx7ct73lxg" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/charge_card_data.tres" id="2_r7lgg"]
+[ext_resource type="Resource" uid="uid://ck7tuwf358wwj" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/shoot_card_data.tres" id="3_0yfn8"]
+[ext_resource type="Texture2D" uid="uid://bevx7538per44" path="res://General/PlaceholderArt/PIXELMEADOW_Emojis_44x48/meadow__0008_emoji9.png" id="3_fphqi"]
+[ext_resource type="Resource" uid="uid://bbcurmdi2t4fm" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/rivalry_card_data.tres" id="3_vq50o"]
+[ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="5_vq50o"]
+[ext_resource type="Resource" uid="uid://bv0711a458omm" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/repeater_card_data.tres" id="6_vq50o"]
+
+[sub_resource type="Resource" id="Resource_0yfn8"]
+script = ExtResource("5_vq50o")
+common = Array[ExtResource("1_r7lgg")]([ExtResource("2_r7lgg"), ExtResource("3_0yfn8"), ExtResource("3_vq50o")])
+metadata/_custom_type_script = "uid://coht23i0qahwq"
+
+[resource]
+script = ExtResource("2_m8xu6")
+targeting_bias = 1
+trait_icon = ExtResource("3_fphqi")
+id = "tactical"
+name = "Tactical"
+description = "Targets strong opponents first. Likes close and long-range attacks."
+card_pool = SubResource("Resource_0yfn8")
+default_cards = Array[ExtResource("1_r7lgg")]([ExtResource("3_0yfn8"), ExtResource("3_0yfn8"), ExtResource("6_vq50o"), ExtResource("2_r7lgg"), ExtResource("2_r7lgg")])
+metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

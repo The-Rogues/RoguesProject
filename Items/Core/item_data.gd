@@ -3,7 +3,8 @@
 # Description:
 #   An editable resource that stores display and behaviour script
 #   of a unique type of item.
-#   To be used as a creatable standalone asset in editor.
+#   To be used as a creatable standalone asset in editor. Currently only the
+#   player can use items.
 #
 # ==========================================================
 
@@ -33,6 +34,6 @@ enum Rarity {COMMON, UNCOMMON, RARE}
 @export var shop_price:int = 100
 @export var sell_price:int = 50
 # Override
-func _use_item(entity: BattleEntity, battle:BattleManager = null) -> void:
-	print("item named: " + name + " was used")
+func use_item(_battle_instance:BattleManager = null) -> void:
+	print(name + " was used")
 	pass

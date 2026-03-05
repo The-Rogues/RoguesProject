@@ -22,4 +22,5 @@ id = "merciful"
 name = "Merciful"
 description = "Compassionate. Avoids violence when possible. "
 card_pool = SubResource("Resource_3nqmp")
+default_cards = Array[ExtResource("1_4s1uj")]([ExtResource("1_kxe6k"), ExtResource("1_kxe6k"), ExtResource("1_kxe6k"), ExtResource("3_nljhk"), ExtResource("3_nljhk")])
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

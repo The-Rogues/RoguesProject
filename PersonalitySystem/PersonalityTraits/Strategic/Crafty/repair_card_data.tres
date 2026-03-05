@@ -7,6 +7,10 @@
 
 [sub_resource type="Resource" id="Resource_k4ws5"]
 script = ExtResource("2_xh4a0")
+effect = 5
+amount = 0
+reset_value = true
+sample_from = 3
 metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
 [sub_resource type="Resource" id="Resource_bltpm"]

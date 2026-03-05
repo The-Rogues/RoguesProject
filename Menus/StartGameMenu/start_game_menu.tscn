@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://dnqnor18jtlow"]
+
+[ext_resource type="Script" uid="uid://cdpe0m5vwdr35" path="res://Menus/StartGameMenu/start_menu.gd" id="1_n021w"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_aj4c5"]
+[ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Divider/divider-002.png" id="3_h5kbp"]
+[ext_resource type="PackedScene" uid="uid://c7x5caev2lo3w" path="res://Menus/character_card.tscn" id="4_n021w"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://General/UI/SelectButton/select_button.tscn" id="4_tvukq"]
+
+[node name="StartMenu" type="Control" unique_id=1030190134 node_paths=PackedStringArray("continue_button", "save_card", "continue_menu", "character_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n021w")
+continue_button = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Continue")
+save_card = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer/SaveCard")
+continue_menu = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu")
+character_menu = NodePath("MarginContainer/CharacterMenu")
+
+[node name="TitleMargin" type="MarginContainer" parent="." unique_id=1389330659]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 160
+
+[node name="Title" type="VBoxContainer" parent="TitleMargin" unique_id=1033446814]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="TitleMargin/Title" unique_id=280748655]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aj4c5")
+theme_override_font_sizes/font_size = 40
+text = "The Rogues"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="TitleMargin/Title" unique_id=892447424]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aj4c5")
+theme_override_font_sizes/font_size = 24
+text = "Roguelike Deckbuilder"
+horizontal_alignment = 1
+
+[node name="Devider" type="TextureRect" parent="TitleMargin/Title" unique_id=526953800]
+modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(488, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_h5kbp")
+
+[node name="MarginContainer2" type="MarginContainer" parent="TitleMargin/Title" unique_id=706762248]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 120
+
+[node name="ContinueMenu" type="VBoxContainer" parent="TitleMargin/Title/MarginContainer2" unique_id=910479794]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 18
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleMargin/Title/MarginContainer2/ContinueMenu" unique_id=2128923271]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+
+[node name="SaveCard" parent="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer" unique_id=1731089554 instance=ExtResource("4_n021w")]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="TitleMargin/Title/MarginContainer2/ContinueMenu" unique_id=2046776760]
+layout_mode = 2
+theme_override_constants/margin_left = 116
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3" unique_id=288456598]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Continue" parent="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer" unique_id=395129651 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "Continue"
+
+[node name="New Game" parent="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer" unique_id=1049902894 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "New Game"
+
+[node name="Return" parent="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer" unique_id=1195317808 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "Return"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=590704532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="CharacterMenu" type="VBoxContainer" parent="MarginContainer" unique_id=2131581085]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 18
+
+[node name="AIGenerateCharacter" parent="MarginContainer/CharacterMenu" unique_id=2053005649 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "AI Generate Character"
+
+[node name="CreateRandom" parent="MarginContainer/CharacterMenu" unique_id=187231478 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "Create Random"
+
+[node name="PersonalitySurvey" parent="MarginContainer/CharacterMenu" unique_id=739906838 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "Personality Survey"
+disabled = true
+
+[node name="CharacterBuilder" parent="MarginContainer/CharacterMenu" unique_id=1829045561 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "Character Builder"
+
+[node name="Return" parent="MarginContainer/CharacterMenu" unique_id=2064591969 instance=ExtResource("4_tvukq")]
+layout_mode = 2
+text = "Return"
+
+[node name="Developers" type="Label" parent="." unique_id=2060121469]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -489.0
+offset_top = -29.0
+offset_right = 489.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_aj4c5")
+theme_override_font_sizes/font_size = 11
+text = "Developed by: Andy Gonzalez, Fletcher Greene, Han Hyunh, Nathaniel Stirret, & Fabian Hernandez-Angel"
+horizontal_alignment = 1
+
+[connection signal="clicked" from="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Continue" to="." method="_on_continue_clicked"]
+[connection signal="clicked" from="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/New Game" to="." method="_on_start_new_clicked"]
+[connection signal="clicked" from="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Return" to="." method="_on_return_clicked"]
+[connection signal="clicked" from="MarginContainer/CharacterMenu/AIGenerateCharacter" to="." method="_on_ai_generate_character_clicked"]
+[connection signal="clicked" from="MarginContainer/CharacterMenu/CreateRandom" to="." method="_on_create_random_character_clicked"]
+[connection signal="clicked" from="MarginContainer/CharacterMenu/CharacterBuilder" to="." method="_on_character_builder_clicked"]
+[connection signal="clicked" from="MarginContainer/CharacterMenu/Return" to="." method="_on_return_from_character_menu_clicked"]

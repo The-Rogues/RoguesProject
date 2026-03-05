@@ -8,12 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_trhjf"]
 script = ExtResource("2_ik1yx")
-effect = null
-amount = null
-bonus_random = null
-reset_value = null
 sample_from = null
-targeting = null
 metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
 
 [sub_resource type="Resource" id="Resource_bsb7d"]

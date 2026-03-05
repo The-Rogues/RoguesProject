@@ -55,18 +55,18 @@ func _resolve_target(
 			# player character.
 			if action_user == battle_instance.player_entity:
 				return [
-					battle_instance.character_personality.get_target_entity(
-							battle_instance.living_enemies
+					battle_instance.player_personality.get_target_entity(
+							battle_instance.enemies
 					)
 				]
 			# Otherwise, assume enemy is targeting allies, excluding self.
-			var target_canidates:Array[BattleEntity] = battle_instance.living_enemies
+			var target_canidates:Array[BattleEntity] = battle_instance.enemies
 			if target_canidates.has(action_user):
 				target_canidates.erase(action_user)
 			return [target_canidates.pick_random()] as Array[BattleEntity]
 			
 		TargetingOption.ALL_ENEMIES:
-			return battle_instance.living_enemies
+			return battle_instance.enemies
 			
 		TargetingOption.INHERITED:
 			return inherited_targeting

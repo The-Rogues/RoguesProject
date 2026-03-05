@@ -19,17 +19,21 @@ var pending_shop_data:ShopData
 const FLOOR_1_SPAWN_POOL = preload("res://Battle/Config/SpawnPools/floor_1_spawn_pool.tres")
 const FLOOR_1_SHOP_DATA = preload("res://Map/Shop/ItemPools/floor_1_shop_data.tres")
 
-const MAIN_MENU_PATH = "res://Menus/main_menu_scene.tscn"
+const MAIN_MENU_PATH = "res://Menus/MainMenu/main_menu_scene.tscn"
 const MAP_SCENE_PATH = "res://Map/map_screen/MapScreen.tscn"
 const BATTLE_SCENE_PATH = "res://Battle/Scenes/battle_scene.tscn"
-const CHARACTER_GENERATOR_PATH = "res://Menus/character_generator_screen.tscn"
+const CHARACTER_GENERATOR_PATH = "res://Menus/RandomCharacterBuilder/character_generator_screen.tscn"
+const RANDOM_CHARACTER_PATH = "res://Menus/RandomCharacterBuilder/random_character_scene.tscn"
 const ITEM_SHOP_PATH = "res://Map/Shop/Scenes/shop_scene.tscn"
+const AI_CHARACTER_GENERATOR_PATH = "res://Menus/AICharacterGenerator/ai_character_scene.tscn"
 
 @export var loading_sprite_varients:Array[Texture2D]
 @onready var loading_screen_layer: CanvasLayer = $LoadingScreenLayer
 @onready var character_animator: AnimationPlayer = $LoadingScreenLayer/Control/Character/CharacterAnimator
 @onready var load_progress_bar: ProgressBar = $LoadingScreenLayer/Control/VBoxContainer/LoadProgressBar
 @onready var sprite_2d: Sprite2D = $LoadingScreenLayer/Control/Character/Sprite2D
+@onready var screen_fade: ScreenFade = $ScreenFade
+
 
 var loaded_scene
 var loading_scene_path:String = ""
@@ -42,6 +46,8 @@ func _ready() -> void:
 	load_progresses_updated.connect(_on_load_progress_updated)
 	scene_loaded.connect(_on_scene_loaded)
 	started_loading_scene.connect(_on_started_loading_scene)
+	
+	screen_fade.fade_in()
 
 
 func _process(delta: float) -> void:
@@ -126,7 +132,7 @@ func _on_started_loading_scene():
 	else:
 		load_texture = loading_sprite_varients.pick_random()
 	sprite_2d.texture = load_texture
-	
+	await screen_fade.fade_out()
 	loading_screen_layer.visible = true
 	character_animator.play("loading")
 
@@ -136,6 +142,7 @@ func _on_scene_loaded():
 	get_tree().change_scene_to_packed(loaded_scene)
 	loading_screen_layer.visible = false
 	character_animator.stop()
+	screen_fade.fade_in()
 
 
 func _on_load_progress_updated(progress):

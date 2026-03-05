@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_gcteg"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="2_lss7h"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="3_6j2mb"]
-[ext_resource type="Resource" uid="uid://be5d5xjhidpxh" path="res://Battle/Actions/StatusEffects/Protected/protected_status_effect_data.tres" id="3_nyw7k"]
+[ext_resource type="Resource" uid="uid://be5d5xjhidpxh" path="res://Entities/StatusEffects/Protected/protected_status_effect_data.tres" id="3_nyw7k"]
 
 [sub_resource type="Resource" id="Resource_xo1oe"]
 script = ExtResource("2_lss7h")

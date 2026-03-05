@@ -10,6 +10,7 @@ enum TransactionType {BUY, SELL}
 @onready var sell_status_label: Label = $SellStatusLabel
 @onready var price_label: Label = $VBoxContainer/PriceLabel
 @onready var item_icon: TextureButton = $VBoxContainer/ItemIcon
+@onready var contents: Control = $Debug
 
 var transaction_completed:bool = false
 var index:int

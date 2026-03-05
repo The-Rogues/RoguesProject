@@ -1,54 +1,52 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_osl4a"]
-[ext_resource type="Resource" path="res://Cards/Shared/strike_card_data.tres" id="2_73m4a"]
-[ext_resource type="Resource" path="res://Cards/Shared/defend_card_data.tres" id="3_sqevk"]
-[ext_resource type="Resource" path="res://Cards/Shared/counter_card_data.tres" id="4_bn7m0"]
-[ext_resource type="Resource" path="res://Cards/Shared/move_card_data.tres" id="5_gvrsj"]
-[ext_resource type="Resource" path="res://Cards/Shared/sling_shot_card_data.tres" id="6_ldui5"]
-[ext_resource type="Resource" path="res://Cards/Shared/swing_card_data.tres" id="7_hxw8v"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/turret_card_data.tres" id="8_gbghs"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/invest_card_data.tres" id="9_rp2d1"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/plot_amor_card_data.tres" id="10_4g6sv"]
-[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="11_jq1ju"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_17.tres" id="12_osl4a"]
-[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="13_fucgn"]
-[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="14_5w8pu"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="15_73m4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="16_73m4a"]
-[ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="17_4f4mg"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Greedy/greedy_strategic_trait.tres" id="18_sqevk"]
-[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="19_mt2ww"]
+[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/shoot_card_data.tres" id="2_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/repeater_card_data.tres" id="3_73m4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/charge_card_data.tres" id="4_sqevk"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/counter_card_data.tres" id="5_bn7m0"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/endure_card_data.tres" id="6_gvrsj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres" id="7_ldui5"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres" id="8_hxw8v"]
+[ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="9_gbghs"]
+[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="10_rp2d1"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="11_4g6sv"]
+[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="12_jq1ju"]
+[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="13_8csqo"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres" id="14_fucgn"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_offensive_trait_data.tres" id="15_5w8pu"]
+[ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="16_fad0b"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="17_p7mxt"]
+[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="18_4f4mg"]
 
-[sub_resource type="Resource" id="Resource_bn7m0"]
-resource_local_to_scene = true
-script = ExtResource("11_jq1ju")
+[sub_resource type="Resource" id="Resource_7ka2q"]
+script = ExtResource("10_rp2d1")
 name = "Your Deck"
-cards = Array[ExtResource("1_osl4a")]([ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("2_73m4a"), ExtResource("3_sqevk"), ExtResource("3_sqevk"), ExtResource("4_bn7m0"), ExtResource("4_bn7m0"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("5_gvrsj"), ExtResource("6_ldui5"), ExtResource("7_hxw8v"), ExtResource("8_gbghs"), ExtResource("9_rp2d1"), ExtResource("10_4g6sv")])
-metadata/_custom_type_script = "uid://c7c4s2eiw0kq7"
+cards = Array[ExtResource("1_8uu1w")]([ExtResource("2_osl4a"), ExtResource("2_osl4a"), ExtResource("3_73m4a"), ExtResource("4_sqevk"), ExtResource("4_sqevk"), ExtResource("5_bn7m0"), ExtResource("5_bn7m0"), ExtResource("5_bn7m0"), ExtResource("5_bn7m0"), ExtResource("6_gvrsj"), ExtResource("7_ldui5"), ExtResource("7_ldui5"), ExtResource("7_ldui5"), ExtResource("8_hxw8v"), ExtResource("8_hxw8v"), ExtResource("9_gbghs")])
 
-[sub_resource type="Resource" id="Resource_gvrsj"]
-script = ExtResource("13_fucgn")
-display_texture = ExtResource("12_osl4a")
+[sub_resource type="Resource" id="Resource_mt2ww"]
+script = ExtResource("12_jq1ju")
+display_texture = ExtResource("11_4g6sv")
 id = "player"
-name = "Mousou"
-description = "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence."
+name = "Steve"
+description = "Fleeing a past I can't escape, I run faster than death."
 max_health = 80
 
-[sub_resource type="Resource" id="Resource_ldui5"]
-script = ExtResource("17_4f4mg")
-offensive_trait = ExtResource("16_73m4a")
-offensive_weight = 4
-defensive_trait = ExtResource("15_73m4a")
-defensive_weight = 9
-strategic_trait = ExtResource("18_sqevk")
+[sub_resource type="Resource" id="Resource_5uo2u"]
+script = ExtResource("16_fad0b")
+offensive_trait = ExtResource("15_5w8pu")
+offensive_weight = 8
+defensive_trait = ExtResource("14_fucgn")
+defensive_weight = 7
+strategic_trait = ExtResource("17_p7mxt")
 strategic_weight = 9
 
 [resource]
-script = ExtResource("19_mt2ww")
-personality_data = SubResource("Resource_ldui5")
-character_entity_data = SubResource("Resource_gvrsj")
-character_backstory = "They descend not to conquer, but to understand, hoping even monsters might be spared from needless violence."
-map_seed = 3948493760
-player_node_index = 4
-card_deck = SubResource("Resource_bn7m0")
+script = ExtResource("18_4f4mg")
+personality_data = SubResource("Resource_5uo2u")
+character_entity_data = SubResource("Resource_mt2ww")
+character_name = "Steve"
+character_backstory = "Fleeing a past I can't escape, I run faster than death."
+map_seed = 1297840871
+player_node_index = 5
+card_deck = SubResource("Resource_7ka2q")
