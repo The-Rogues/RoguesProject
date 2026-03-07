@@ -1,0 +1,8 @@
+res://ai/callbacks/callback_template.gd
+res://ai/callbacks/inventive_attack_script.gd
+res://ai/processer/AiCardProcesser_scn_main.gd
+res://ai/scripts/AiCardData.gd
+res://ai/scripts/CardGenConstants.gd
+res://ai/scripts/CardGenOption.gd
+res://Battle/UI/BattleIntentIcons/parry_intent_icon.tres
+res://Entities/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres
