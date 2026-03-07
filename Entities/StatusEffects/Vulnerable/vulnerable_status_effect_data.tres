@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://gaikgthau1ai" path="res://Entities/StatusEffects/Vulnerable/vulnerable_status_effect_script.gd" id="1_wa0ed"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kixvr"]
-load_path = "res://.godot/imported/Icons_RPG.png-0f9899bba9376655add9a0d4baa9d623.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aar8d"]
 atlas = SubResource("CompressedTexture2D_kixvr")

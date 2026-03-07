@@ -1,19 +1,30 @@
+# --Inventive Attack Card Generation Script--
+# Author: Fletcher Green
+
 extends RefCounted
 
 func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
+	
+	# Define variables to assist in combining card components.
 	var total_atk: int = 6
 	var total_energy: int = 0
 	var add_def: bool = false
 	var dbl_atk: bool = false
 	var atk_all: bool = false
 	
+	# If invalid input was received, add stats for the safety card.
 	if ai_selection.size() == 0:
 		total_atk += 8
 		total_energy += 1
 	
+	# Loop over the AI's selection and merge the associated components into helper variables.
 	for i in range(0, ai_selection.size()):
+		
+		# Get the action at the specified index and add its energy cost.
 		var curr_action: CardGenConst.CardGenEnum = card_data.ai_options[ai_selection[i]].card_option
 		total_energy += card_data.ai_options[ai_selection[i]].energy_cost
+		
+		# Update helper variables based on what the action is.
 		if curr_action == CardGenConst.CardGenEnum.stdatk:
 			total_atk += 6
 		elif curr_action == CardGenConst.CardGenEnum.stddef:
@@ -25,10 +36,14 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 			atk_all = true
 			total_atk += 2
 	
+	# This is the CardData that will be returned.
 	var ret_val: CardData = CardData.new()
 	ret_val.energy_cost = total_energy
 	
+	# This is the battle move that will be used with the card data.
 	var ret_move: BattleMove = BattleMove.new()
+	
+	# Generate the name and description for the card.
 	ret_move.name = "Inventive Strike"
 	ret_move.description = "Attack "
 	if dbl_atk && atk_all:
@@ -42,8 +57,8 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	if add_def:
 		ret_move.description += "Gain 6 block."
 	
+	# Generate the attack action component of the card.
 	var atk_action: AttackAction = AttackAction.new()
-	
 	if dbl_atk:
 		atk_action.base_damage = total_atk / 2
 		atk_action.hits = 2
@@ -52,10 +67,10 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 		atk_action.base_damage = total_atk
 		atk_action.hits = 1
 		atk_action.targeting = TargetedBattleAction.TargetingOption.ENEMY
-	
 	if atk_all:
 		atk_action.targeting = TargetedBattleAction.TargetingOption.ALL_ENEMIES
 	
+	# Add a second action if the defensive option was selected.
 	ret_move.actions.append(atk_action)
 	if add_def:
 		var def_action: SkillAction = SkillAction.new()
@@ -63,5 +78,6 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 		def_action.amount = 6
 		ret_move.actions.append(def_action)
 	
+	# Add the battle move to the card data and return.
 	ret_val.move = ret_move
 	return ret_val
