@@ -27,10 +27,10 @@ var map_seed: int = 0
 func _init(map_seed_in: int) -> void:
 	map_seed = map_seed_in
 	map_structure = map_structure_script.new(
-		6,
-		[0.10, 0.10, 0.40, 0.40] as Array[float],
+		5,
+		[0.20, 0.40, 0.25, 0.15] as Array[float],
 		[0.75, 0.15, 0.10] as Array[float],
-		10,
+		6,
 		1,
 		map_seed
 	)

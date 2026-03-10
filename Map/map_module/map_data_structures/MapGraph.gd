@@ -513,6 +513,9 @@ func _init(
 	player_pos = node_arr[0]
 	
 	# Populate node event data member.
+	populate_noise(map_seed)
+	
+	# Populate node event data member.
 	populate_events()
 
 #------------------------------------------------------------------------------------
@@ -557,7 +560,35 @@ func populate_events() -> void:
 				node_arr[i].node_data = 0 # Even layered nodes are not battle nodes.
 			else:
 				node_arr[i].node_data = 1 # Odd layered nodes are battle nodes.
+
+func populate_noise(noise_seed: int) -> void:
+	
+	# Create RandomNumberGernerator and give it the seed.
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = noise_seed
+	
+	var curr_idx: int = 0
+	for i in range(0, map_layers):
+		
+		var curr_layer_size: int = get_layer(i).size()
+		for j in range(0, curr_layer_size):
 			
+			node_arr[curr_idx].y_noise_factor = rand_gen.randf()
+			if rand_gen.randf() < 0.5:
+				node_arr[i].y_noise_factor *= -1
+			
+			node_arr[curr_idx].x_noise_factor = rand_gen.randf()
+			if j == 0 && (curr_layer_size == max_layer_nodes):
+				node_arr[curr_idx].x_noise_left = false
+			elif (j == curr_layer_size - 1) && (curr_layer_size == max_layer_nodes):
+				node_arr[curr_idx].x_noise_left = true
+			else:
+				node_arr[curr_idx].x_noise_left = false
+				if rand_gen.randf() < 0.5:
+					node_arr[curr_idx].x_noise_left = true
+			
+			curr_idx += 1
+
 func get_player_node_index() -> int:
 	return node_arr.find(player_pos)
 	

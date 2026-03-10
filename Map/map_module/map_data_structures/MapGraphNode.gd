@@ -11,6 +11,10 @@ var node_edges: Array[RefCounted] # An array to hold adjacent nodes. Only holds 
 var node_layer: int # An integer to hold the vertical layer that the map is on.
 var node_data: int # A placeholder variable to represent event data that the node will eventually hold.
 
+var y_noise_factor: float
+var x_noise_factor: float
+var x_noise_left: bool
+
 #------------------------------------------------------------------------------------
 # Section: Functions
 #------------------------------------------------------------------------------------

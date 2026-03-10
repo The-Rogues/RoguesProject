@@ -101,13 +101,42 @@ func resize_map(container_size: Vector2) -> void:
 			# Adjust the position of each button according to its layer and position within the layer.
 			var left_increment: float = (container_size.x - curr_button.size.x) / (map_structure.max_layer_nodes - 1)
 			curr_button.offset_left = ((container_size.x - curr_button.size.x) / 2) + (left_increment * j) - ((left_increment * (curr_layer_size - 1)) / 2)
+			
+			var lmarg: float = container_size.x - curr_button.size.x - (left_increment * (curr_layer_size - 1))
+			if ( (j == 0) || (j == curr_layer_size - 1) ) && curr_layer_size == map_structure.max_layer_nodes:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+			elif (j == 0) && (j == curr_layer_size - 1):
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.25
+			elif j == 0:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+			elif j == curr_layer_size - 1:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.25
+			else:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+					
 			if  curr_layer_size == 1 && i != 0:
-				#var top_increment: float = (container_size.y - curr_button.size.y) / (map_structure.map_layers - 1)
-				#curr_button.offset_top =  (container_size.y - curr_button.size.y) - (top_increment * i)
 				y_pos -= curr_button.size.y / 3
+				curr_button.offset_top = y_pos
+			elif curr_layer_size == 1 && i == 0:
 				curr_button.offset_top = y_pos
 			else:
 				curr_button.offset_top = y_pos
+				curr_button.offset_top += curr_button.corr_node.y_noise_factor * 0.25 * path_size
 			button_pos += 1
 		y_pos -= path_size
 	
