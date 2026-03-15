@@ -64,9 +64,11 @@ func init_map_instance(
 			new_button.ignore_texture_size = true
 			new_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 			if curr_layer.size() == 1 && i != 0:
+				# Make boss nodes bigger.
 				new_button.custom_minimum_size = button_size + button_size / 2
 				new_button.size = button_size + button_size / 2
 			else:
+				# Any othe nodes are normal size.
 				new_button.custom_minimum_size = button_size
 				new_button.size = button_size
 			map_buttons.append(new_button)
@@ -79,9 +81,10 @@ func init_map_instance(
 # Description: Sets the position of each button so that it fits within the specified container
 #              dimensions. Calls the draw function to draw paths between each node.
 # container_size: A vector containing desired map width and height.
-# Return: void.
+# Return: Void.
 func resize_map(container_size: Vector2) -> void:
 	
+	# Gets the vertical size of a path between nodes.
 	var path_size = container_size.y - (map_buttons[0].size.y * map_structure.map_layers + map_buttons[0].size.y * 0.5 * map_structure.num_mandatory)
 	path_size /= map_structure.map_layers - 1
 	
@@ -102,42 +105,60 @@ func resize_map(container_size: Vector2) -> void:
 			var left_increment: float = (container_size.x - curr_button.size.x) / (map_structure.max_layer_nodes - 1)
 			curr_button.offset_left = ((container_size.x - curr_button.size.x) / 2) + (left_increment * j) - ((left_increment * (curr_layer_size - 1)) / 2)
 			
+			# First branch executes for outer nodes when layer size is max.
 			var lmarg: float = container_size.x - curr_button.size.x - (left_increment * (curr_layer_size - 1))
 			if ( (j == 0) || (j == curr_layer_size - 1) ) && curr_layer_size == map_structure.max_layer_nodes:
 				if curr_button.corr_node.x_noise_left:
 					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
 				else:
 					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# Second branch executes for layers with a single node.
 			elif (j == 0) && (j == curr_layer_size - 1):
 				if curr_button.corr_node.x_noise_left:
 					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.25
 				else:
 					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# Executes only for left outer nodes.
 			elif j == 0:
 				if curr_button.corr_node.x_noise_left:
 					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.25
 				else:
 					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# Executes only for right outer nodes.
 			elif j == curr_layer_size - 1:
 				if curr_button.corr_node.x_noise_left:
 					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
 				else:
 					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# Executes for all other nodes.
 			else:
 				if curr_button.corr_node.x_noise_left:
 					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
 				else:
 					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
-					
+			
+			# This barnch executes for boss nodes. Provides a small adjustment for the larger nodes.
 			if  curr_layer_size == 1 && i != 0:
 				y_pos -= curr_button.size.y / 3
 				curr_button.offset_top = y_pos
+			
+			# Executes only for the starting node.
 			elif curr_layer_size == 1 && i == 0:
 				curr_button.offset_top = y_pos
+			
+			# Executes for intermediate nodes. 
 			else:
 				curr_button.offset_top = y_pos
 				curr_button.offset_top += curr_button.corr_node.y_noise_factor * 0.25 * path_size
+			
+			# Next button in the array.
 			button_pos += 1
+		
+		# New layers have a different y position.
 		y_pos -= path_size
 	
 	# Draw lines between the buttons.

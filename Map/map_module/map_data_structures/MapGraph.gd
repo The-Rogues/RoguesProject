@@ -516,7 +516,7 @@ func _init(
 	populate_noise(map_seed)
 	
 	# Populate node event data member.
-	populate_events()
+	populate_events(map_seed)
 
 #------------------------------------------------------------------------------------
 # Section: Secondary Functions
@@ -549,17 +549,72 @@ func get_layer(in_layer: int) -> Array[RefCounted]:
 
 # --populate_events Function--
 # Description: Logic for determining the distribution of events among MapGraphNodes.
-#              To be finalised further into development.
+#              Currently evenly distributes battle and non-battle events.
+# rand_seed: An integer used as a random seed for event distribution.
 # Return: void.
-func populate_events() -> void:
+func populate_events(rand_seed: int) -> void:
+	
+	# Create RandomNumberGernerator and give it the seed.
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = rand_seed
+	
+	# Initialize all node data to a null indicator.
 	for i in range(0, node_arr.size()):
-		if (i == node_arr.size() - 1) || (get_layer(node_arr[i].node_layer).size() == 1):
-			node_arr[i].node_data = 2
-		else:
-			if node_arr[i].node_layer % 2 == 0:
-				node_arr[i].node_data = 0 # Even layered nodes are not battle nodes.
+		node_arr[i].node_data = -1
+	
+	# First layer is always battle nodes.
+	var curr_layer: Array[RefCounted] = get_layer(1)
+	for i in range(0, curr_layer.size()):
+		curr_layer[i].node_data = 1
+	
+	# Iterate over all other map layers.
+	for i in range(2, map_layers):
+		
+		# If the final layer is reached, it is set to a boss node.
+		if i == (map_layers - 1):
+			curr_layer = get_layer(i)
+			curr_layer[0].node_data = 2
+			break
+		
+		# Layers are processed in pairs, odd layers can be ignored.
+		if (i % 2) == 1:
+			continue
+		
+		# Get the current layer and iterate over it.
+		curr_layer = get_layer(i)
+		for j in range(0, curr_layer.size()):
+			
+			# Check adjacent nodes to verify if the current node needs to have a forced type.
+			var is_shop: bool = false
+			var is_battle: bool = false
+			for k in range(0, curr_layer[j].node_edges.size()):
+				if i == (map_layers - 2):
+					break
+				if curr_layer[j].node_edges[k].node_data != -1:
+					if curr_layer[j].node_edges[k].node_data != 1:
+						is_battle = true
+					else:
+						is_shop = true
+			
+			# If the current node has a forced type, set that type.
+			# Otherwise, choose a random type. Set all adjacent nodes to the opposite type.
+			if is_shop:
+				curr_layer[j].node_data = 0
+				for k in range(0, curr_layer[j].node_edges.size()):
+					curr_layer[j].node_edges[k].node_data = 1
+			elif is_battle:
+				curr_layer[j].node_data = 1
+				for k in range(0, curr_layer[j].node_edges.size()):
+					curr_layer[j].node_edges[k].node_data = 0
 			else:
-				node_arr[i].node_data = 1 # Odd layered nodes are battle nodes.
+				if rand_gen.randf() < 0.5:
+					curr_layer[j].node_data = 0
+					for k in range(0, curr_layer[j].node_edges.size()):
+						curr_layer[j].node_edges[k].node_data = 1
+				else:
+					curr_layer[j].node_data = 1
+					for k in range(0, curr_layer[j].node_edges.size()):
+						curr_layer[j].node_edges[k].node_data = 0
 
 func populate_noise(noise_seed: int) -> void:
 	
