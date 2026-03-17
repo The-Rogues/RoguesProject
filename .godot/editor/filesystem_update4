@@ -1,2 +1,2 @@
-res://Map/map_module/map_data_structures/MapGraph.gd
 res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd
+res://Map/map_screen/MapScreen_scn_main.gd

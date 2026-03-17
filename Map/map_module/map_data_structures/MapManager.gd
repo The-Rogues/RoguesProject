@@ -28,9 +28,9 @@ func _init(map_seed_in: int) -> void:
 	map_seed = map_seed_in
 	map_structure = map_structure_script.new(
 		5,
-		[0.20, 0.45, 0.25, 0.10] as Array[float],
+		[0.23, 0.45, 0.32, 0] as Array[float],
 		[0.75, 0.15, 0.10] as Array[float],
-		6,
+		10,
 		1,
 		map_seed
 	)

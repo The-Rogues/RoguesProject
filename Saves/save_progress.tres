@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
 [ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_8uu1w"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/strike_card_data.tres" id="2_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/spare_card_data.tres" id="3_8uu1w"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/defend_card_data.tres" id="4_osl4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/taunt_card_data.tres" id="5_73m4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="2_3dqjj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="3_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/defend_card_data.tres" id="4_3dqjj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/taunt_card_data.tres" id="5_8uu1w"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres" id="6_osl4a"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres" id="7_73m4a"]
 [ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="9_gbghs"]
 [ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="10_rp2d1"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="10_sqevk"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="10_sqevk"]
 [ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="12_jq1ju"]
 [ext_resource type="Script" path="res://Items/Core/item_data.gd" id="13_8csqo"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="13_bn7m0"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="14_bn7m0"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="14_hxw8v"]
 [ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="16_fad0b"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="16_gvrsj"]
 [ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="18_4f4mg"]
@@ -21,31 +21,33 @@
 [sub_resource type="Resource" id="Resource_ldui5"]
 script = ExtResource("10_rp2d1")
 name = "Your Deck"
-cards = Array[ExtResource("1_8uu1w")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("3_8uu1w"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("5_73m4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("7_73m4a"), ExtResource("7_73m4a"), ExtResource("9_gbghs")])
+cards = Array[ExtResource("1_8uu1w")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("5_8uu1w"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("7_73m4a"), ExtResource("7_73m4a"), ExtResource("9_gbghs")])
 
 [sub_resource type="Resource" id="Resource_hxw8v"]
 script = ExtResource("12_jq1ju")
 display_texture = ExtResource("10_sqevk")
 id = "player"
-name = "Salome"
-description = "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
+name = "Abraham"
+description = "They enter the tower to prove their strength, believing only pain and broken foes can affirm who they are."
 max_health = 80
 
 [sub_resource type="Resource" id="Resource_gbghs"]
 script = ExtResource("16_fad0b")
-offensive_trait = ExtResource("14_bn7m0")
-offensive_weight = 4
+offensive_trait = ExtResource("14_hxw8v")
+offensive_weight = 10
 defensive_trait = ExtResource("13_bn7m0")
-defensive_weight = 4
+defensive_weight = 7
 strategic_trait = ExtResource("16_gvrsj")
-strategic_weight = 9
+strategic_weight = 7
 
 [resource]
 script = ExtResource("18_4f4mg")
 personality_data = SubResource("Resource_gbghs")
 character_entity_data = SubResource("Resource_hxw8v")
-character_name = "Salome"
-character_backstory = "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
-map_seed = 1736879236
-player_node_index = 3
+current_health = 74
+character_name = "Abraham"
+character_backstory = "They enter the tower to prove their strength, believing only pain and broken foes can affirm who they are."
+map_seed = 2858691522
+player_node_index = 14
 card_deck = SubResource("Resource_ldui5")
+gold = 1587

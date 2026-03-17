@@ -21,9 +21,12 @@ var texture_shop: CompressedTexture2D = preload("res://Map/map_module/map_assets
 var texture_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/battle.png")
 var texture_boss: CompressedTexture2D = preload("res://Map/map_module/map_assets/boss.png")
 var texture_passed: CompressedTexture2D = preload("res://Map/map_module/map_assets/passed.png")
+var texture_test: CompressedTexture2D = preload("res://Map/map_module/map_assets/test.png")
 
 var map_buttons: Array[TextureButton] # Array to keep track of buttons that belong to the map instance.
 var map_structure: RefCounted # Map structure is received in the init function, so the script does not need to be preloaded.
+
+var std_btn_size: Vector2
 
 #------------------------------------------------------------------------------------
 # Section: Functions
@@ -48,21 +51,25 @@ func init_map_instance(
 		func(_ignore: RefCounted):
 			set_button_states()
 	)
+	std_btn_size = button_size
 	
 	# Create buttons that correspond to each MapGraphNode in the structural component.
 	for i in range(0, map_structure.map_layers):
 		var curr_layer: Array[RefCounted] = map_structure.get_layer(i)
 		for j in range(0, curr_layer.size()):
+			
 			var new_button = map_button_scn.instantiate()
 			new_button.init_button(curr_layer[j])
 			new_button.pressed.connect( # Connect every button's pressed signal to _on_map_button_pressed, emmiting the corresponding node.
 				func():
 					_on_map_button_pressed(new_button.corr_node)
 			)
+			
 			add_child(new_button)
 			new_button.texture_filter = TextureFilter.TEXTURE_FILTER_NEAREST
 			new_button.ignore_texture_size = true
 			new_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+			
 			if curr_layer.size() == 1 && i != 0:
 				# Make boss nodes bigger.
 				new_button.custom_minimum_size = button_size + button_size / 2
@@ -84,15 +91,18 @@ func init_map_instance(
 # Return: Void.
 func resize_map(container_size: Vector2) -> void:
 	
+	nav_buttons.clear()
+	
 	# Gets the vertical size of a path between nodes.
-	var path_size = container_size.y - (map_buttons[0].size.y * map_structure.map_layers + map_buttons[0].size.y * 0.5 * map_structure.num_mandatory)
+	var path_size = container_size.y - (std_btn_size.y * map_structure.map_layers + std_btn_size.y * 0.5 * map_structure.num_mandatory)
 	path_size /= map_structure.map_layers - 1
 	
 	var button_pos: int = 0 # Counts the number of buttons processed.
 	var y_pos: float = container_size.y
 	for i in range(0, map_structure.map_layers):
 		
-		y_pos -= map_buttons[0].size.y
+		y_pos -= std_btn_size.y
+		
 		# Iterate over the current layer.
 		var curr_layer_size: int = map_structure.get_layer(i).size()
 		for j in range(0, curr_layer_size):
@@ -153,10 +163,11 @@ func resize_map(container_size: Vector2) -> void:
 			# Executes for intermediate nodes. 
 			else:
 				curr_button.offset_top = y_pos
-				curr_button.offset_top += curr_button.corr_node.y_noise_factor * 0.25 * path_size
+				curr_button.offset_top += curr_button.corr_node.y_noise_factor * 0.3 * path_size
 			
 			# Next button in the array.
 			button_pos += 1
+			curr_button.resize()
 		
 		# New layers have a different y position.
 		y_pos -= path_size
@@ -189,6 +200,8 @@ func set_button_states() -> void:
 		
 		# Disable all buttons by default.
 		map_buttons[i].disabled = true
+		
+		map_buttons[i].set_sub_texture(texture_test)
 		
 		# At player's position, set a unique texture and record accessable buttons.
 		if map_buttons[i].corr_node == map_structure.player_pos:
@@ -287,3 +300,21 @@ func check_accessable(q_node: RefCounted, access_arr: Array[RefCounted]) -> bool
 # Return: void.
 func _on_map_button_pressed(corr_node: RefCounted) -> void:
 	map_structure.player_pos = corr_node
+	nav_buttons.clear()
+
+var t: float = 0
+var nav_buttons: Dictionary[TextureButton, Vector2]
+func _process(delta: float) -> void:
+	t += delta
+	var accessable_buttons: Array[RefCounted] = map_structure.player_pos.node_edges.duplicate(true)
+	for i in range(0, map_buttons.size()):
+		if check_accessable(map_buttons[i].corr_node, accessable_buttons):
+			if !nav_buttons.has(map_buttons[i]):
+				nav_buttons[map_buttons[i]] = map_buttons[i].position
+			map_buttons[i].size = std_btn_size + std_btn_size * 0.1 * abs(sin(0.5 * (t * PI)))
+			map_buttons[i].position = nav_buttons[map_buttons[i]] - ( std_btn_size * 0.1 * abs(sin(0.5 * (t * PI))) ) / 2
+
+func get_vertical_offset():
+	for i in range(0, map_buttons.size()):
+		if map_buttons[i].corr_node == map_structure.player_pos:
+			return map_buttons[i].position.y + std_btn_size.y * 1.5

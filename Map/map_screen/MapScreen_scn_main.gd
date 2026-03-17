@@ -7,8 +7,8 @@
 
 extends Control
 
-var map_container: PanelContainer # Container that will be used to resize the map instance.
-
+@onready var scroll_container: ScrollContainer = $ScrollContainer# Container that will be used to resize the map instance.
+var map_container: PanelContainer
 #------------------------------------------------------------------------------------
 # Section: Functions
 #------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ func _ready() -> void:
 	init_map_screen(
 		GlobalSessionManager.run_progress.run_map.get_new_map_instance(
 			Vector2(0.0, 0.0), # Instance size does not matter as the map will be resized to fit its container after the init function.
-			Vector2(32.0, 32.0)
+			Vector2(64.0, 64.0)
 		)
 	)
 
@@ -31,24 +31,46 @@ func _ready() -> void:
 # Return: void.
 func init_map_screen(in_instance: Control) -> void:
 	
-	# Anchor the container to the top left corner but make its height always the same as
-	# the screen height.
-	map_container = PanelContainer.new()
-	add_child(map_container) # Add the container as a child of the MapScreen.
+	scroll_container.anchor_left = 0.10
+	scroll_container.anchor_right = 0.90
+	scroll_container.anchor_top = 0.0
+	scroll_container.anchor_bottom = 1.0
 	
-	map_container.anchor_left = 0.25
-	map_container.anchor_right = 0.75
-	map_container.anchor_top = 0.0
-	map_container.anchor_bottom = 1.0
+	scroll_container.offset_left = 0.0
+	scroll_container.offset_top = 0.0
+	scroll_container.offset_right = 0.0
+	scroll_container.offset_bottom = 0.0
+	
+	
+	var child_cont: PanelContainer = PanelContainer.new()
+	scroll_container.add_child(child_cont)
+	child_cont.add_child(in_instance)
+	
+	child_cont.anchor_left = 0.5
+	child_cont.anchor_right = 0.5
+	child_cont.anchor_top = 0.5
+	child_cont.anchor_bottom = 0.5
+	
+	#await get_tree().process_frame
+	
+	child_cont.offset_left = scroll_container.size.x / 2
+	child_cont.offset_right = scroll_container.size.x / 2
+	child_cont.offset_top =  scroll_container.size.y / 2
+	child_cont.offset_bottom = scroll_container.size.y * (5.0/2.0)
+	child_cont.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
+	in_instance.resize_map(child_cont.custom_minimum_size)
+	
+	await get_tree().process_frame
+	scroll_container.scroll_vertical = in_instance.get_vertical_offset() - scroll_container.size.y
+	print(in_instance.get_vertical_offset())
+	
 	
 	get_window().size_changed.connect(
 		func():
-			in_instance.resize_map(map_container.size)
+			child_cont.offset_left = scroll_container.size.x / 2
+			child_cont.offset_right = scroll_container.size.x / 2
+			child_cont.offset_top =  scroll_container.size.y / 2
+			child_cont.offset_bottom = scroll_container.size.y * (5.0/2.0)
+			child_cont.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
+			in_instance.resize_map(child_cont.custom_minimum_size)
 	)
-	
-	map_container.add_child(in_instance) # Make the MapInstance a child of the resizable container.
-	
-	# Resize the map instance. I don't know why, but this only works when the
-	# function is called twice. -_-
-	in_instance.resize_map(map_container.size)
-	in_instance.resize_map(map_container.size)
