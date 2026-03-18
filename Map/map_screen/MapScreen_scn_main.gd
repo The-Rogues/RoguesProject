@@ -60,9 +60,13 @@ func init_map_screen(in_instance: Control) -> void:
 	child_cont.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
 	in_instance.resize_map(child_cont.custom_minimum_size)
 	
+	var black_bg: StyleBoxFlat = StyleBoxFlat.new()
+	black_bg.set("bg_color", Color(0.1, 0.1, 0.1))
+	child_cont.add_theme_stylebox_override("panel", black_bg)
+	
+	
 	await get_tree().process_frame
 	scroll_container.scroll_vertical = in_instance.get_vertical_offset() - scroll_container.size.y
-	print(in_instance.get_vertical_offset())
 	
 	
 	get_window().size_changed.connect(

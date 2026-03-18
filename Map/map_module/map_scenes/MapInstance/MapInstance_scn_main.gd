@@ -27,6 +27,7 @@ var map_buttons: Array[TextureButton] # Array to keep track of buttons that belo
 var map_structure: RefCounted # Map structure is received in the init function, so the script does not need to be preloaded.
 
 var std_btn_size: Vector2
+var special_btn_size: Vector2
 
 #------------------------------------------------------------------------------------
 # Section: Functions
@@ -52,6 +53,7 @@ func init_map_instance(
 			set_button_states()
 	)
 	std_btn_size = button_size
+	special_btn_size = std_btn_size + (std_btn_size / 2)
 	
 	# Create buttons that correspond to each MapGraphNode in the structural component.
 	for i in range(0, map_structure.map_layers):
@@ -59,7 +61,7 @@ func init_map_instance(
 		for j in range(0, curr_layer.size()):
 			
 			var new_button = map_button_scn.instantiate()
-			new_button.init_button(curr_layer[j])
+			new_button.init_button(curr_layer[j], true)
 			new_button.pressed.connect( # Connect every button's pressed signal to _on_map_button_pressed, emmiting the corresponding node.
 				func():
 					_on_map_button_pressed(new_button.corr_node)
@@ -72,12 +74,13 @@ func init_map_instance(
 			
 			if curr_layer.size() == 1 && i != 0:
 				# Make boss nodes bigger.
-				new_button.custom_minimum_size = button_size + button_size / 2
-				new_button.size = button_size + button_size / 2
+				new_button.is_std_sz = false
+				new_button.custom_minimum_size = special_btn_size
+				new_button.size = special_btn_size
 			else:
 				# Any othe nodes are normal size.
-				new_button.custom_minimum_size = button_size
-				new_button.size = button_size
+				new_button.custom_minimum_size = std_btn_size
+				new_button.size = std_btn_size
 			map_buttons.append(new_button)
 	
 	# Resize the map to the the dimensions requested and set initial button states.
@@ -94,7 +97,7 @@ func resize_map(container_size: Vector2) -> void:
 	nav_buttons.clear()
 	
 	# Gets the vertical size of a path between nodes.
-	var path_size = container_size.y - (std_btn_size.y * map_structure.map_layers + std_btn_size.y * 0.5 * map_structure.num_mandatory)
+	var path_size = container_size.y - (std_btn_size.y * map_structure.map_layers + special_btn_size.y - std_btn_size.y)
 	path_size /= map_structure.map_layers - 1
 	
 	var button_pos: int = 0 # Counts the number of buttons processed.
@@ -112,11 +115,11 @@ func resize_map(container_size: Vector2) -> void:
 			anchor_button(curr_button)
 			
 			# Adjust the position of each button according to its layer and position within the layer.
-			var left_increment: float = (container_size.x - curr_button.size.x) / (map_structure.max_layer_nodes - 1)
-			curr_button.offset_left = ((container_size.x - curr_button.size.x) / 2) + (left_increment * j) - ((left_increment * (curr_layer_size - 1)) / 2)
+			var left_increment: float = (container_size.x - std_btn_size.x) / (map_structure.max_layer_nodes - 1)
+			curr_button.offset_left = ((container_size.x - std_btn_size.x) / 2) + (left_increment * j) - ((left_increment * (curr_layer_size - 1)) / 2)
 			
 			# First branch executes for outer nodes when layer size is max.
-			var lmarg: float = container_size.x - curr_button.size.x - (left_increment * (curr_layer_size - 1))
+			var lmarg: float = container_size.x - std_btn_size.x - (left_increment * (curr_layer_size - 1))
 			if ( (j == 0) || (j == curr_layer_size - 1) ) && curr_layer_size == map_structure.max_layer_nodes:
 				if curr_button.corr_node.x_noise_left:
 					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
@@ -126,9 +129,9 @@ func resize_map(container_size: Vector2) -> void:
 			# Second branch executes for layers with a single node.
 			elif (j == 0) && (j == curr_layer_size - 1):
 				if curr_button.corr_node.x_noise_left:
-					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.25
+					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.10
 				else:
-					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.25
+					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.10
 			
 			# Executes only for left outer nodes.
 			elif j == 0:
@@ -152,8 +155,8 @@ func resize_map(container_size: Vector2) -> void:
 					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
 			
 			# This barnch executes for boss nodes. Provides a small adjustment for the larger nodes.
-			if  curr_layer_size == 1 && i != 0:
-				y_pos -= curr_button.size.y / 3
+			if  !curr_button.is_std_sz:
+				y_pos -= special_btn_size.y - std_btn_size.y
 				curr_button.offset_top = y_pos
 			
 			# Executes only for the starting node.
@@ -311,8 +314,12 @@ func _process(delta: float) -> void:
 		if check_accessable(map_buttons[i].corr_node, accessable_buttons):
 			if !nav_buttons.has(map_buttons[i]):
 				nav_buttons[map_buttons[i]] = map_buttons[i].position
-			map_buttons[i].size = std_btn_size + std_btn_size * 0.1 * abs(sin(0.5 * (t * PI)))
-			map_buttons[i].position = nav_buttons[map_buttons[i]] - ( std_btn_size * 0.1 * abs(sin(0.5 * (t * PI))) ) / 2
+			if map_buttons[i].is_std_sz:
+				map_buttons[i].size = std_btn_size + std_btn_size * 0.1 * abs(sin(0.5 * (t * PI)))
+				map_buttons[i].position = nav_buttons[map_buttons[i]] - ( std_btn_size * 0.1 * abs(sin(0.5 * (t * PI))) ) / 2
+			else:
+				map_buttons[i].size = special_btn_size + special_btn_size * 0.1 * abs(sin(0.5 * (t * PI)))
+				map_buttons[i].position = nav_buttons[map_buttons[i]] - ( special_btn_size * 0.1 * abs(sin(0.5 * (t * PI))) ) / 2
 
 func get_vertical_offset():
 	for i in range(0, map_buttons.size()):

@@ -78,7 +78,7 @@ func _init(
 	map_seed: int # An integer which can be randomised to produce unique structures.
 ) -> void:
 	
-	# Init data member.
+	# Init data members.
 	max_layer_nodes = max_layer_sz
 	num_mandatory = mandatory_node_amnt
 	
@@ -111,6 +111,10 @@ func _init(
 				return [0.33, 0.33, 0.34]
 			return out_edge_weights
 	).call()
+	
+	# Ensure mandatory nodes are the only single node layers.
+	if max_layer_sz < 5:
+		max_layer_sz = 5
 	
 	# A helper function which sums the m=numbers in an array before the index provided.
 	var sum_before: Callable = func(end_index: int, in_array: Array[float]) -> float:

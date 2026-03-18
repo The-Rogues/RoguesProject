@@ -1,7 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773734209
+::res://::1773803779
 ::res://addons/::1772396237
-::res://addons/nobodywho/::1773734205
+::res://addons/nobodywho/::1773803774
 icon.svg::CompressedTexture2D::3718670147456998890::1772396240::1772684526::1::::<><><>0<>0<>143ac4cb599be0164e2e8cdfda785376<>res://.godot/imported/icon.svg-5236919800efc60e2a9546a484c9d5e3.ctex::
 nobodywho.gdextension::GDExtension::909935352244503699::1772396237::0::1::::<><><>0<>0<><>::
 ::res://ai/::1772684495
@@ -1027,12 +1027,12 @@ MapManager.gd::GDScript::6907012787550635478::1773716316::0::1::::MapManager<>Re
 ::res://Map/map_module/map_scenes/MapButton/::1773705546
 MapButton.tscn::PackedScene::6687397664607517209::1773618465::0::1::::<><><>0<>0<><>::uid://oxegsf5nkgte::::res://Map/map_module/map_scenes/MapButton/MapButton_scn_main.gd
 MapButton_scn_main.gd::GDScript::1030379036535483842::1773705546::0::1::::<>TextureButton<><>0<>0<><>::
-::res://Map/map_module/map_scenes/MapInstance/::1773716681
+::res://Map/map_module/map_scenes/MapInstance/::1773766501
 MapInstance.tscn::PackedScene::8238349541754742702::1771565599::0::1::::<><><>0<>0<><>::uid://di16cvuaf55kx::::res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd
-MapInstance_scn_main.gd::GDScript::7776333554047023779::1773716681::0::1::::<>Control<><>0<>0<><>::
-::res://Map/map_screen/::1773716425
+MapInstance_scn_main.gd::GDScript::7776333554047023779::1773766501::0::1::::<>Control<><>0<>0<><>::
+::res://Map/map_screen/::1773766832
 MapScreen.tscn::PackedScene::1829991443011414807::1773715818::0::1::::<><><>0<>0<><>::uid://4lj0lcofjsp1::::res://Map/map_screen/MapScreen_scn_main.gd
-MapScreen_scn_main.gd::GDScript::2058776300069730360::1773716425::0::1::::<>Control<><>0<>0<><>::
+MapScreen_scn_main.gd::GDScript::2058776300069730360::1773766832::0::1::::<>Control<><>0<>0<><>::
 ::res://Map/Shop/::1771895282
 ::res://Map/Shop/Core/::1771895282
 shop_data.gd::GDScript::4378836914078177011::1771895282::0::1::::ShopData<>Resource<><>0<>0<><>::
@@ -1158,8 +1158,8 @@ rogue_varient_5.tres::AtlasTexture::3070058895556562884::1772684495::0::1::::<><
 rogue_varient_6.tres::AtlasTexture::9128362744089096755::1772684495::0::1::::<><><>0<>0<><>::uid://qa0uh472nj2w::::res://General/PlaceholderArt/32rogues/rogues.png
 rogue_varient_7.tres::AtlasTexture::578381189361927491::1772684495::0::1::::<><><>0<>0<><>::uid://qa0uh472nj2w::::res://General/PlaceholderArt/32rogues/rogues.png
 rogue_varient_8.tres::AtlasTexture::7240720091247965985::1772684495::0::1::::<><><>0<>0<><>::uid://qa0uh472nj2w::::res://General/PlaceholderArt/32rogues/rogues.png
-::res://Saves/::1773716435
-save_progress.tres::Resource/RunProgress::-1::1773716506::0::1::::<><><>0<>0<><>::res://Cards/Core/card_data.gd<>res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/strike_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/spare_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/counter_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/endure_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres<>res://ai/ai-cards/inventive_attack_data.tres<>res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres<>res://Cards/Core/card_deck.gd<>res://Entities/Core/entity_data.gd<>res://Items/Core/item_data.gd<>res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres<>res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres<>res://PersonalitySystem/personality_data.gd<>res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres<>res://Globals/ProgressTracking/run_progress.gd
+::res://Saves/::1773766840
+save_progress.tres::Resource/RunProgress::-1::1773766954::0::1::::<><><>0<>0<><>::res://Cards/Core/card_data.gd<>res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/defend_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/taunt_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres<>res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres<>res://ai/ai-cards/inventive_attack_data.tres<>res://Cards/Core/card_deck.gd<>res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_7.tres<>res://Entities/Core/entity_data.gd<>res://Items/Core/item_data.gd<>res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres<>res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres<>res://PersonalitySystem/personality_data.gd<>res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres<>res://Globals/ProgressTracking/run_progress.gd
 ::res://Testing/::1772684495
 card_pack_texture.tres::AtlasTexture::7835425694781273198::1772684495::0::1::::<><><>0<>0<><>::
 card_tester.tscn::PackedScene::3820157637797767037::1772679375::0::1::::<><><>0<>0<><>::uid://dubpebcoffte8::::res://Battle/UI/play_area.tscn<>uid://b3qr8uamsao8a::::res://Cards/Core/card_play_hand.gd<>uid://eoxthn8b82t6::::res://Cards/Core/card_data.gd<>uid://cpcm1bkfedbjv::::res://Cards/Shared/strike_card_data.tres

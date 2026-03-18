@@ -12,6 +12,8 @@ var corr_node: RefCounted
 var sub_tex: CompressedTexture2D
 @onready var sub_ev: TextureRect = $TextureRect
 
+var is_std_sz: bool
+
 #------------------------------------------------------------------------------------
 # Section: Functions
 #------------------------------------------------------------------------------------
@@ -29,8 +31,9 @@ func _ready() -> void:
 #              instantiate.
 # in_node: The node that the button corresponds to in the MapGraph structure.
 # Return: void.
-func init_button(in_node: RefCounted) -> void:
+func init_button(in_node: RefCounted, in_sz: bool) -> void:
 	corr_node = in_node
+	is_std_sz = in_sz
 
 func set_sub_texture(tex: CompressedTexture2D) -> void:
 	sub_tex = tex
