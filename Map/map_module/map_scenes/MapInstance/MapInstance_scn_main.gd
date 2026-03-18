@@ -204,7 +204,8 @@ func set_button_states() -> void:
 		# Disable all buttons by default.
 		map_buttons[i].disabled = true
 		
-		map_buttons[i].set_sub_texture(texture_test)
+		if map_buttons[i].corr_node.node_data.mini_event != null:
+			map_buttons[i].set_sub_texture(map_buttons[i].corr_node.node_data.mini_event.texture)
 		
 		# At player's position, set a unique texture and record accessable buttons.
 		if map_buttons[i].corr_node == map_structure.player_pos:
@@ -225,27 +226,13 @@ func set_button_states() -> void:
 				# Check if a button is accessable. If it is, make it pressable.
 				if check_accessable(map_buttons[i].corr_node, accessable_buttons):
 					map_buttons[i].disabled = false
-					if map_structure.node_arr[i].node_data == 1:
-						map_buttons[i].texture_normal = texture_available_battle
-						map_buttons[i].texture_hover = texture_available_battle_hover
-					elif map_structure.node_arr[i].node_data == 0:
-						map_buttons[i].texture_normal = texture_available_shop
-						map_buttons[i].texture_hover = texture_available_shop_hover
-					else:
-						map_buttons[i].texture_normal = texture_available_boss
-						map_buttons[i].texture_hover = texture_available_boss_hover
+					map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_available
+					map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_hover
 				
 				# All other buttons are normal.
 				else:
-					if map_structure.node_arr[i].node_data == 1:
-						map_buttons[i].texture_normal = texture_battle
-						map_buttons[i].texture_hover = texture_battle
-					elif map_structure.node_arr[i].node_data == 0:
-						map_buttons[i].texture_normal = texture_shop
-						map_buttons[i].texture_hover = texture_shop
-					else:
-						map_buttons[i].texture_normal = texture_boss
-						map_buttons[i].texture_hover = texture_boss
+					map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
+					map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
 		else:
 			
 			# Set textures for passed nodes.

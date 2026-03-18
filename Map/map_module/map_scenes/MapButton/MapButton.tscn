@@ -9,7 +9,6 @@ stretch_mode = 0
 script = ExtResource("3_41tou")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=600766930]
-z_index = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

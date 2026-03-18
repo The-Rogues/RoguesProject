@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MainEventData" format=3 uid="uid://bqowpvuuatxv0"]
+
+[ext_resource type="Script" uid="uid://dd4yv1layn0sy" path="res://Map/map_module/map_data_structures/event_resources/MainEventData.gd" id="1_2dq6b"]
+[ext_resource type="Script" uid="uid://bpkdtbb76lote" path="res://Map/event/event_callbacks/load_boss.gd" id="1_roacr"]
+[ext_resource type="Texture2D" uid="uid://tub71f3cn1ge" path="res://Map/map_module/map_assets/availableboss.png" id="3_i1l0h"]
+[ext_resource type="Texture2D" uid="uid://lqsh0p4hhdh" path="res://Map/map_module/map_assets/availablebosshover.png" id="4_j6uvw"]
+[ext_resource type="Texture2D" uid="uid://d1duso1q4oy4s" path="res://Map/map_module/map_assets/boss.png" id="5_q2qb6"]
+
+[resource]
+script = ExtResource("1_2dq6b")
+event_callback = ExtResource("1_roacr")
+tex_ev_unavailable = ExtResource("5_q2qb6")
+tex_ev_available = ExtResource("3_i1l0h")
+tex_ev_hover = ExtResource("4_j6uvw")
+metadata/_custom_type_script = "uid://dd4yv1layn0sy"

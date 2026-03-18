@@ -9,7 +9,7 @@ extends RefCounted
 
 var node_edges: Array[RefCounted] # An array to hold adjacent nodes. Only holds outgoing edges.
 var node_layer: int # An integer to hold the vertical layer that the map is on.
-var node_data: int # A placeholder variable to represent event data that the node will eventually hold.
+var node_data: EventData # A placeholder variable to represent event data that the node will eventually hold.
 
 var y_noise_factor: float
 var x_noise_factor: float

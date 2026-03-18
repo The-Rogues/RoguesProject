@@ -61,14 +61,15 @@ func _attach_map_callbacks():
 			# save position on arrival
 			run_progress.player_node_index = run_progress.run_map.get_player_node_index()
 			# trigger scene
-			if corr_node.node_data == 1:
-				GlobalSceneLoader.load_battle_scene()
-			elif corr_node.node_data == 0:
-				GlobalSceneLoader.load_shop_scene()
-			elif corr_node.node_data == 2:
-				GlobalSceneLoader.load_scene("res://Map/test_screen/TestScreen.tscn")
-			run_progress.total_rooms_explored += 1
-			GlobalSaveManager.save_run(run_progress)
+			
+			if corr_node.node_data.mini_event != null:
+				var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
+				var mini_instance: Control = mini_event_scene.instantiate()
+				get_tree().current_scene.add_child(mini_instance)
+				mini_instance.init_screen(corr_node.node_data)
+			else:
+				var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
+				callback.process_event()
 	)
 
 func erase_run_progress():

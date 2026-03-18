@@ -1,4 +1,3 @@
-res://Map/map_module/map_scenes/MapButton/MapButton_scn_main.gd
 res://Map/map_module/map_data_structures/MapGraph.gd
 res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd
 res://Map/map_screen/MapScreen.tscn
@@ -18,10 +17,19 @@ res://Entities/StatusEffects/Strength/strength_status_effect_data.tres
 res://Entities/Data/Enemies/LizardGuard/lizard_guard_enemy_data.tres
 res://Battle/Config/SpawnPools/floor_1_spawn_pool.tres
 res://Items/Data/Pouch/pouch_texture.tres
+res://Map/event/event_resources/battle_event_data.tres
 res://Cards/Shared/counter_card_data.tres
 res://Cards/Shared/defend_card_data.tres
 res://Cards/Shared/move_card_data.tres
 res://Cards/Shared/strike_card_data.tres
 res://Cards/Shared/sling_shot_card_data.tres
 res://Cards/Shared/swing_card_data.tres
-res://Map/map_screen/MapScreen_scn_main.gd
+res://Globals/SceneManagement/session_manager.gd
+res://Map/event/event_callbacks/load_boss.gd
+res://Map/event/event_callbacks/load_shop.gd
+res://Map/map_module/map_scenes/MapButton/MapButton.tscn
+res://Map/mini_event_screen/MiniEvent_scn_main.gd
+res://Map/mini_event_screen/MiniEventScreen.tscn
+res://Map/map_module/map_data_structures/event_resources/MiniEventData.gd
+res://Map/event/event_resources/test_mini_data.tres
+res://Map/event/event_callbacks/mini.gd
