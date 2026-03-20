@@ -1,32 +1,30 @@
 [gd_scene format=3 uid="uid://dkia1bp4typex"]
 
-[ext_resource type="Script" uid="uid://cl30w2dlqwyvu" path="res://Map/mini_event_screen/MiniEvent_scn_main.gd" id="1_n0iuq"]
+[ext_resource type="Script" uid="uid://cl30w2dlqwyvu" path="res://Map/mini_event_screen/MiniEventScreen_scn_main.gd" id="1_n0iuq"]
 
-[node name="Control" type="Control" unique_id=82831699]
+[node name="MiniEventScreen" type="Control" unique_id=82831699]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 1661.0
 script = ExtResource("1_n0iuq")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1916080780]
+[node name="ContentContainer" type="PanelContainer" parent="." unique_id=1916080780]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="." unique_id=1656435615]
+[node name="TitleLbl" type="Label" parent="." unique_id=1656435615]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 1661.0
-text = "Hello I am a Label"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="." unique_id=419495860]
+[node name="DescriptionLbl" type="Label" parent="." unique_id=419495860]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 1661.0
-text = "This is some event description text. This is a super cool event, and if you do it your coolness will increase."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -35,14 +33,27 @@ visible = false
 layout_mode = 0
 offset_right = 44.0
 offset_bottom = 24.0
+text = "Toggle Event"
+icon_alignment = 2
+expand_icon = true
 
 [node name="ConfirmButton" type="Button" parent="." unique_id=876853150]
 visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+text = "Confirm Event"
 
 [node name="NextButton" type="Button" parent="." unique_id=1864595919]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+text = "Proceed"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Image" type="TextureRect" parent="." unique_id=1104584919]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 5

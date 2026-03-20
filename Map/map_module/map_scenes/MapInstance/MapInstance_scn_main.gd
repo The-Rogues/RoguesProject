@@ -7,27 +7,23 @@
 
 extends Control
 
+# Scene describing the individual buttons on the map.
 var map_button_scn: PackedScene = preload("res://Map/map_module/map_scenes/MapButton/MapButton.tscn")
 
 # Textures to be used by MapButtons.
-var texture_player: CompressedTexture2D = preload("res://Map/map_module/map_assets/player.png")
-var texture_available_shop: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableshop.png")
-var texture_available_shop_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableshophover.png")
-var texture_available_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebattle.png")
-var texture_available_battle_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebattlehover.png")
-var texture_available_boss: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableboss.png")
-var texture_available_boss_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebosshover.png")
-var texture_shop: CompressedTexture2D = preload("res://Map/map_module/map_assets/shop.png")
-var texture_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/battle.png")
-var texture_boss: CompressedTexture2D = preload("res://Map/map_module/map_assets/boss.png")
-var texture_passed: CompressedTexture2D = preload("res://Map/map_module/map_assets/passed.png")
-var texture_test: CompressedTexture2D = preload("res://Map/map_module/map_assets/test.png")
+var texture_player: CompressedTexture2D = preload("res://Map/map_assets/player.png")
+var texture_passed: CompressedTexture2D = preload("res://Map/map_assets/passed.png")
 
 var map_buttons: Array[TextureButton] # Array to keep track of buttons that belong to the map instance.
 var map_structure: RefCounted # Map structure is received in the init function, so the script does not need to be preloaded.
 
+# The standard sizes for buttons in this instance.
 var std_btn_size: Vector2
 var special_btn_size: Vector2
+
+# Variables for modulating navigable button sizes.
+var elapsed_time: float = 0
+var available_button_positions: Dictionary[TextureButton, Vector2]
 
 #------------------------------------------------------------------------------------
 # Section: Functions
@@ -60,13 +56,13 @@ func init_map_instance(
 		var curr_layer: Array[RefCounted] = map_structure.get_layer(i)
 		for j in range(0, curr_layer.size()):
 			
+			# Set button data members.
 			var new_button = map_button_scn.instantiate()
 			new_button.init_button(curr_layer[j], true)
 			new_button.pressed.connect( # Connect every button's pressed signal to _on_map_button_pressed, emmiting the corresponding node.
 				func():
 					_on_map_button_pressed(new_button.corr_node)
 			)
-			
 			add_child(new_button)
 			new_button.texture_filter = TextureFilter.TEXTURE_FILTER_NEAREST
 			new_button.ignore_texture_size = true
@@ -94,7 +90,8 @@ func init_map_instance(
 # Return: Void.
 func resize_map(container_size: Vector2) -> void:
 	
-	nav_buttons.clear()
+	# 
+	available_button_positions.clear()
 	
 	# Gets the vertical size of a path between nodes.
 	var path_size = container_size.y - (std_btn_size.y * map_structure.map_layers + special_btn_size.y - std_btn_size.y)
@@ -204,8 +201,9 @@ func set_button_states() -> void:
 		# Disable all buttons by default.
 		map_buttons[i].disabled = true
 		
-		if map_buttons[i].corr_node.node_data.mini_event != null:
-			map_buttons[i].set_sub_texture(map_buttons[i].corr_node.node_data.mini_event.texture)
+		## Set sub event texture if a sub event exists.
+		#if map_buttons[i].corr_node.node_data.mini_event != null:
+			#map_buttons[i].set_sub_texture(map_buttons[i].corr_node.node_data.mini_event.map_texture)
 		
 		# At player's position, set a unique texture and record accessable buttons.
 		if map_buttons[i].corr_node == map_structure.player_pos:
@@ -287,28 +285,51 @@ func check_accessable(q_node: RefCounted, access_arr: Array[RefCounted]) -> bool
 # Description: When a map button is pressed it means that the player intends to move to that node.
 #              This function changes the map structure's player node to the corresponding node of the button pressed.
 # corr_node: The corresponding node of the button pressed.
-# Return: void.
+# Return: Void.
 func _on_map_button_pressed(corr_node: RefCounted) -> void:
-	map_structure.player_pos = corr_node
-	nav_buttons.clear()
+	map_structure.player_pos = corr_node # Set the player's new position.
+	available_button_positions.clear() # When the player's position is changed, new positions will be assigned to this map.
 
-var t: float = 0
-var nav_buttons: Dictionary[TextureButton, Vector2]
+# --_process Function--
+# Description: Modulates the sizes of naviagble buttons.
+# delta: The time in seconds elapsed since the last function call.
+# Return: Void.
 func _process(delta: float) -> void:
-	t += delta
+	
+	# Increment elapsed time.
+	elapsed_time += delta
+	
+	# Get map nodes that are accessable from the map.
 	var accessable_buttons: Array[RefCounted] = map_structure.player_pos.node_edges.duplicate(true)
+	
+	# Iterate over all map buttons.
 	for i in range(0, map_buttons.size()):
+		
+		# Only change button size if its corresponding node is accessable.
 		if check_accessable(map_buttons[i].corr_node, accessable_buttons):
-			if !nav_buttons.has(map_buttons[i]):
-				nav_buttons[map_buttons[i]] = map_buttons[i].position
+			
+			# If an accessable button's position has not been recorded it is recorded here.
+			if !available_button_positions.has(map_buttons[i]):
+				available_button_positions[map_buttons[i]] = map_buttons[i].position
+			
+			# Modulate button sizes using sine function.
 			if map_buttons[i].is_std_sz:
-				map_buttons[i].size = std_btn_size + std_btn_size * 0.1 * abs(sin(0.5 * (t * PI)))
-				map_buttons[i].position = nav_buttons[map_buttons[i]] - ( std_btn_size * 0.1 * abs(sin(0.5 * (t * PI))) ) / 2
+				map_buttons[i].size = std_btn_size + std_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI))
+				map_buttons[i].position = available_button_positions[map_buttons[i]] - ( std_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI)) ) / 2
 			else:
-				map_buttons[i].size = special_btn_size + special_btn_size * 0.1 * abs(sin(0.5 * (t * PI)))
-				map_buttons[i].position = nav_buttons[map_buttons[i]] - ( special_btn_size * 0.1 * abs(sin(0.5 * (t * PI))) ) / 2
+				map_buttons[i].size = special_btn_size + special_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI))
+				map_buttons[i].position = available_button_positions[map_buttons[i]] - ( special_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI)) ) / 2
 
-func get_vertical_offset():
+# --get_vertical_offset Function--
+# Description: Returns a vertical position bellow the current position button. This value will be used to set
+#              the map screen's scroll bar to the correct height when it is losded.
+# Return: A float value used to initialize the vertical position of the scroll bar on the map screen.
+func get_vertical_offset() -> float:
+	
+	# Find the player's position and return a position 1.5 standard button sizes below it.
 	for i in range(0, map_buttons.size()):
 		if map_buttons[i].corr_node == map_structure.player_pos:
 			return map_buttons[i].position.y + std_btn_size.y * 1.5
+	
+	# If the player's position is not found, retun zero.
+	return 0.0

@@ -7,8 +7,8 @@
 
 extends Control
 
-@onready var scroll_container: ScrollContainer = $ScrollContainer# Container that will be used to resize the map instance.
-var map_container: PanelContainer
+@onready var scroll_container: ScrollContainer = $ScrollContainer # Container that will be used to scroll the map instance.
+
 #------------------------------------------------------------------------------------
 # Section: Functions
 #------------------------------------------------------------------------------------
@@ -31,50 +31,53 @@ func _ready() -> void:
 # Return: void.
 func init_map_screen(in_instance: Control) -> void:
 	
+	# Anchor the scroll container to a set portion of the screen.
 	scroll_container.anchor_left = 0.10
 	scroll_container.anchor_right = 0.90
 	scroll_container.anchor_top = 0.0
 	scroll_container.anchor_bottom = 1.0
 	
+	# Set all offsets to zero.
 	scroll_container.offset_left = 0.0
 	scroll_container.offset_top = 0.0
 	scroll_container.offset_right = 0.0
 	scroll_container.offset_bottom = 0.0
 	
+	# Add a panel container as a child of the scroll container.
+	var child_container: PanelContainer = PanelContainer.new()
+	scroll_container.add_child(child_container)
+	child_container.add_child(in_instance) # This is the container that will hold the map instance.
 	
-	var child_cont: PanelContainer = PanelContainer.new()
-	scroll_container.add_child(child_cont)
-	child_cont.add_child(in_instance)
+	# Make the child container anchored to the center of the screen.
+	child_container.anchor_left = 0.5
+	child_container.anchor_right = 0.5
+	child_container.anchor_top = 0.5
+	child_container.anchor_bottom = 0.5
 	
-	child_cont.anchor_left = 0.5
-	child_cont.anchor_right = 0.5
-	child_cont.anchor_top = 0.5
-	child_cont.anchor_bottom = 0.5
+	# Adjust the offsets so that the scroll container only takes up a third of the total panel container.
+	child_container.offset_left = scroll_container.size.x / 2
+	child_container.offset_right = scroll_container.size.x / 2
+	child_container.offset_top =  scroll_container.size.y / 2
+	child_container.offset_bottom = scroll_container.size.y * (5.0/2.0)
+	child_container.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
+	in_instance.resize_map(child_container.custom_minimum_size) # Resize the map to fill the child container.
 	
-	#await get_tree().process_frame
-	
-	child_cont.offset_left = scroll_container.size.x / 2
-	child_cont.offset_right = scroll_container.size.x / 2
-	child_cont.offset_top =  scroll_container.size.y / 2
-	child_cont.offset_bottom = scroll_container.size.y * (5.0/2.0)
-	child_cont.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
-	in_instance.resize_map(child_cont.custom_minimum_size)
-	
+	# Make the panel container's background black.
 	var black_bg: StyleBoxFlat = StyleBoxFlat.new()
 	black_bg.set("bg_color", Color(0.1, 0.1, 0.1))
-	child_cont.add_theme_stylebox_override("panel", black_bg)
+	child_container.add_theme_stylebox_override("panel", black_bg)
 	
-	
+	# Wait a frame so that the screen is properly sized.
 	await get_tree().process_frame
 	scroll_container.scroll_vertical = in_instance.get_vertical_offset() - scroll_container.size.y
 	
-	
+	# Change the size of the panel container to match the new screen size.
 	get_window().size_changed.connect(
 		func():
-			child_cont.offset_left = scroll_container.size.x / 2
-			child_cont.offset_right = scroll_container.size.x / 2
-			child_cont.offset_top =  scroll_container.size.y / 2
-			child_cont.offset_bottom = scroll_container.size.y * (5.0/2.0)
-			child_cont.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
-			in_instance.resize_map(child_cont.custom_minimum_size)
+			child_container.offset_left = scroll_container.size.x / 2
+			child_container.offset_right = scroll_container.size.x / 2
+			child_container.offset_top =  scroll_container.size.y / 2
+			child_container.offset_bottom = scroll_container.size.y * (5.0/2.0)
+			child_container.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
+			child_container.resize_map(child_container.custom_minimum_size)
 	)
