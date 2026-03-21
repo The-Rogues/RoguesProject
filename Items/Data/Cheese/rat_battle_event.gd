@@ -15,6 +15,7 @@ func initialize(
 
 
 func add_rats():
+	print("RATS")
 	var ran = randi_range(1, 3)
 	for i in range(0, ran):
 		var rat:Rat = RAT.instantiate()

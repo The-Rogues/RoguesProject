@@ -22,37 +22,12 @@ func _apply_hit(
 ):
 	var damage = damage_sample.get_damage(battle_instance, action_user)
 	damage = action_user.get_attack_damage(damage)
-	var battle_object = battle_instance.battle_field.get_object()
 	
 	for target in targets:
-		# Object interception
-		if _object_intercepts(battle_object, damage, action_user):
-			battle_object.take_damage(damage, action_user)
-			await battle_instance.action_delay()
-			continue
-		
 		# Deal damage
 		target.take_damage(damage, action_user)
 		
 		await _damage_delay(battle_instance)
-
-
-func _object_intercepts(
-	battle_object:ObjectEntity,
-	damage:int,
-	action_user:BattleEntity
-) -> bool:
-	if not battle_object:
-		return false
-	
-	match battle_object.data.attack_filter:
-		ObjectEntityData.AttackFilter.BLOCK:
-			return true
-		ObjectEntityData.AttackFilter.INTERCEPT:
-			battle_object.take_damage(damage, action_user)
-			return true
-	
-	return false
 
 
 func _damage_delay(battle_instance:BattleManager):

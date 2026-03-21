@@ -1,3 +1,11 @@
+MarginContainer
+Panel
+VBoxContainer
+ScrollContainer
+PanelContainer
+Label
+TextureRect
+HBoxContainer
 CPUParticles2D
 AnimationPlayer
 Timer

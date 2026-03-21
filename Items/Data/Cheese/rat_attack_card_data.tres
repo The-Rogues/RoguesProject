@@ -7,8 +7,6 @@
 
 [sub_resource type="Resource" id="Resource_skuxy"]
 script = ExtResource("2_r7no5")
-rat_damage = 4
-targeting = 2
 metadata/_custom_type_script = "uid://7lcw8410tbdl"
 
 [sub_resource type="Resource" id="Resource_r7no5"]

@@ -161,13 +161,17 @@ func resolve_action_targeting(
 		
 	if user != player_entity and !battle_field.find_objects("dummy").is_empty():
 		var pos:Array[BattlePosition] = battle_field.find_objects("dummy")
-		print(pos[0].object.name)
 		return [pos[0].object] as Array[Entity]
 	
 	match action.targeting:
 		TargetingOption.USER:
 			return [user] as Array[Entity]
 		TargetingOption.PLAYER:
+			var battle_object = battle_field.get_object()
+			if battle_object:
+				if battle_object.intercepts():
+					return [battle_object] as Array[Entity]
+			
 			return [player_entity] as Array[Entity]
 		TargetingOption.ENEMY:
 			# Target an enemy the character is biased towards if user is the

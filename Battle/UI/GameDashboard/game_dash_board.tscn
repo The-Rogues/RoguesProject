@@ -238,6 +238,7 @@ offset_bottom = 104.0
 context_text = "Your full deck of cards."
 
 [node name="PlayerItems" parent="Container/RightElements" unique_id=1695638652 instance=ExtResource("13_pxp8h")]
+custom_minimum_size = Vector2(174, 0)
 layout_mode = 2
 
 [node name="Gold" type="VBoxContainer" parent="Container/RightElements" unique_id=681459717 node_paths=PackedStringArray("context_panel")]

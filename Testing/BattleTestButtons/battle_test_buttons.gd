@@ -4,6 +4,7 @@ class_name BattleTestButtons
 
 @export var battle_manager:BattleManager
 @onready var options: VBoxContainer = $MarginContainer/HBoxContainer/Options
+@onready var add_item_menu: PanelContainer = $MarginContainer/HBoxContainer/Options/ItemMenu/AddItemMenu
 
 
 func _on_label_gui_input(event: InputEvent) -> void:
@@ -59,4 +60,9 @@ func _on_draw_card_button_up() -> void:
 	var card = battle_manager.draw_pile.draw_card()
 	if card:
 		battle_manager.player_card_hand.draw_card(card)
+	pass # Replace with function body.
+
+
+func _on_item_menu_button_up() -> void:
+	add_item_menu.visible = !add_item_menu.visible
 	pass # Replace with function body.

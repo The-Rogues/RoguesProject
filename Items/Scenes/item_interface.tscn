@@ -8,7 +8,6 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 2
 script = ExtResource("1_tdtv1")
 minimum_item_slot_count = 0
-force_initialize = true
 
 [node name="ItemSlot" parent="." unique_id=1515963044 instance=ExtResource("2_851ht")]
 layout_mode = 2
@@ -17,4 +16,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ItemSlot3" parent="." unique_id=1147406144 instance=ExtResource("2_851ht")]
+layout_mode = 2
+
+[node name="ItemSlot4" parent="." unique_id=873437117 instance=ExtResource("2_851ht")]
 layout_mode = 2

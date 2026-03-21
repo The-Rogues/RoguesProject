@@ -32,6 +32,8 @@ enum SampleFrom {
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	#super(battle_instance, _action_user)
+	if targets[0] is ObjectEntity:
+		return
 	
 	match effect:
 		SkillEffect.BLOCK:

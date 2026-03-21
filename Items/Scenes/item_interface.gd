@@ -30,7 +30,10 @@ func populate_item_slots(items:Array[ItemData], in_battle:bool = false):
 		item_slot.discard.connect(_on_discard_item)
 		slot_count += 1
 		
-		item_slot.use_button.disabled = !in_battle
+		if !item.usable_out_of_battle and !in_battle or item is KeyItem:
+			item_slot.use_button.disabled = true
+		else:
+			item_slot.use_button.disabled = false
 	
 	while slot_count < minimum_item_slot_count:
 		var item_slot:ItemSlot = ITEM_SLOT.instantiate()

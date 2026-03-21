@@ -12,10 +12,14 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	if rat_event == null:
 		return
 	
-	var attack_action = AttackAction.new()
+	var attack_action:AttackAction = AttackAction.new()
 	attack_action.damage_sample = DamageValue.new()
 	attack_action.damage_sample.damage = rat_damage
 	attack_action.targeting = TargetedBattleAction.TargetingOption.ENEMY
+	attack_action.targets = battle_instance.resolve_action_targeting(
+		attack_action,
+		_action_user
+	)
 	
 	for rat:Rat in rat_event.rats:
 		battle_instance.action_queue.enqueue(

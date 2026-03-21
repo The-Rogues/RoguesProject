@@ -28,9 +28,6 @@ func initialize(item_data:ItemData, new_index:int):
 	item_texture_rect.visible = true
 	
 	index = new_index
-	
-	if item_data is KeyItem:
-		item_icon_button.disabled = true
 
 
 func _on_item_slot_clicked() -> void:
@@ -44,5 +41,5 @@ func _on_use_button_up() -> void:
 
 
 func _on_discard_button_up() -> void:
-	used.emit(index, self)
+	discard.emit(index, self)
 	pass # Replace with function body.

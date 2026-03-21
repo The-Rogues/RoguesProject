@@ -76,3 +76,12 @@ func _on_new_turn_started():
 			
 			projectile.spawn_and_launch(global_position, direction)
 			await projectile_delay()
+
+
+func intercepts() -> bool:
+	match data.attack_filter:
+		ObjectEntityData.AttackFilter.BLOCK:
+			return true
+		ObjectEntityData.AttackFilter.INTERCEPT:
+			return true
+	return false

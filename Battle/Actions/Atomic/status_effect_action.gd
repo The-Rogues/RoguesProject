@@ -14,10 +14,8 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	if targets[0] is ObjectEntity:
 		return
 	
-	if targets[0] == battle_instance.player_entity:
-		var battle_object = battle_instance.battle_field.get_object()
-		if _object_intercepts(battle_object):
-			return
+	if targets[0] is ObjectEntity:
+		return
 	
 	if operation == OperationType.ADD:
 		for target in targets:

@@ -13,9 +13,9 @@ func initialize(
 
 func add_event(battle_event:BattleTurnEvent, user:BattleEntity = null) -> void:
 	for instance in battle_events:
-		if battle_events.has(instance):
-			if instance.associated_entity == user:
-				instance.on_stack()
+		if instance.associated_entity == user and \
+				instance.get_script() == battle_event.get_script():
+			instance.on_stack()
 			return
 	
 	battle_event.initialize(battle_instance, user)

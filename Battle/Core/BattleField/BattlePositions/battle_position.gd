@@ -30,7 +30,7 @@ func display_floating_numbers(text:String):
 
 
 func set_object(object_data:ObjectEntityData):
-	if not object_data:
+	if not object_data or object != null:
 		return
 	
 	var object_entity:ObjectEntity = OBJECT.instantiate()	
@@ -87,8 +87,9 @@ func on_entity_exited(battle_entity:BattleEntity):
 
 
 func _on_entity_grabbed_object():
-	set_object(entity.carried_object)
-	entity.drop_object()
+	if object == null:
+		set_object(entity.carried_object)
+		entity.drop_object()
 
 
 func start_turn():

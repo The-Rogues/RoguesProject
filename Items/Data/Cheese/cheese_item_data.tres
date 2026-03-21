@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://c2fwr2d5vfqbb" path="res://Items/Data/Cheese/cheese_texture.tres" id="1_rd78d"]
 [ext_resource type="Script" uid="uid://d3v2xif14qfmf" path="res://Items/Data/Cheese/rat_battle_event.gd" id="2_jhv5j"]
 
-[sub_resource type="Resource" id="Resource_1ph1i"]
+[sub_resource type="Resource" id="Resource_rd78d"]
+resource_local_to_scene = true
 script = ExtResource("2_jhv5j")
+draw_count = 1
 metadata/_custom_type_script = "uid://d3v2xif14qfmf"
 
 [resource]
 script = ExtResource("1_4k0jw")
-effect = SubResource("Resource_1ph1i")
+effect = SubResource("Resource_rd78d")
 use_player = true
 rarity = 1
 name = "Cheese"

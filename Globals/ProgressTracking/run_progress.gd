@@ -33,7 +33,7 @@ var run_map: MapManager
 # -------------------------------------------------
 @export var card_deck:CardDeck = null
 @export var held_items:Array[ItemData] = []
-@export_range(1, 6) var maximum_item_capacity:int = 3
+@export_range(1, 6) var maximum_item_capacity:int = 1
 @export_range(0, 9999) var gold:int = 0
 
 # -------------------------------------------------
@@ -79,7 +79,7 @@ func initialize_new_run(
 	self.card_deck = card_deck.duplicate(true)
 	self.card_deck.name = "Your Deck"
 	self.held_items = []
-	self.maximum_item_capacity = 3
+	self.maximum_item_capacity = 1
 	self.gold = 0
 	
 	self.total_gold_collected = 0

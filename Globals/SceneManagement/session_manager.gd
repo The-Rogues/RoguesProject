@@ -123,6 +123,9 @@ func increase_item_capacity():
 	if run_progress == null:
 		return
 	
+	if run_progress.maximum_item_capacity == 4:
+		return
+	
 	run_progress.maximum_item_capacity += 1
 	run_progress.total_items_collected += 1
 	GlobalSaveManager.save_run(run_progress)
@@ -249,13 +252,16 @@ func sell_held_item(item: ItemData) -> bool:
 	return true
 
 
-func use_heald_item(index:int, battle:BattleManager):
+func use_heald_item(index:int, battle:BattleManager) -> bool:
 	if run_progress == null:
-		return
+		return false
 	
-	run_progress.held_items[index].use_item(battle)
-	item_used.emit(run_progress.held_items[index])
-	_remove_held_item(run_progress.held_items[index])
+	if run_progress.held_items[index].use_item(battle):
+		item_used.emit(run_progress.held_items[index])
+		_remove_held_item(run_progress.held_items[index])
+		return true
+	else:
+		return false
 
 
 func _remove_held_item(item:ItemData):
@@ -265,3 +271,15 @@ func _remove_held_item(item:ItemData):
 	if run_progress.held_items.has(item):
 		run_progress.held_items.erase(item)
 		items_updated.emit(run_progress.held_items)
+
+
+func add_held_item(item:ItemData):
+	if run_progress == null:
+		return
+	
+	if run_progress.held_items.size() == run_progress.maximum_item_capacity:
+		return
+	
+	run_progress.held_items.append(item)
+	items_updated.emit(run_progress.held_items)
+	GlobalSaveManager.save_run(run_progress)

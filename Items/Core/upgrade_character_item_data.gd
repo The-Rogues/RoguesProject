@@ -31,5 +31,8 @@ func use_item(_battle_instance:BattleManager = null) -> bool:
 		if _battle_instance:
 			_battle_instance.energy_counter.initialize(GlobalSessionManager.run_progress.max_energy)
 	elif upgrade == UpgradeType.ITEM_CAPACITY:
+		if GlobalSessionManager.run_progress.maximum_item_capacity == 4:
+			return false
+		
 		GlobalSessionManager.increase_item_capacity()
 	return true

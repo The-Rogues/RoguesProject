@@ -29,10 +29,10 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 2
-minimum_item_slot_count = 3
+minimum_item_slot_count = 1
 
 [node name="UseParticles" type="CPUParticles2D" parent="." unique_id=677641595]
-position = Vector2(30, 33)
+position = Vector2(20, 39)
 emitting = false
 amount = 5
 texture = ExtResource("4_x5vdi")

@@ -20,20 +20,26 @@ func _initialize(items:Array[ItemData]):
 
 func _on_use_item(index:int, item_slot:ItemSlot):
 	var item:ItemData = GlobalSessionManager.run_progress.held_items[index]
-	GlobalSessionManager.use_heald_item(index, battle)
-	
-	use_particles.global_position = item_slot.global_position
+	if GlobalSessionManager.use_heald_item(index, battle):
+		_spawn_item_particles(item_slot)
+		item_interface.populate_item_slots(GlobalSessionManager.run_progress.held_items, true)
+		item_used.emit(item)
+
+
+func _spawn_item_particles(item_slot:ItemSlot):
+	var particle_position = Vector2(
+		item_slot.global_position.x + 21,
+		item_slot.global_position.y + 21
+	)
+	use_particles.global_position = particle_position
 	use_particles.emitting = true
-	item_interface.populate_item_slots(GlobalSessionManager.run_progress.held_items, true)
-	item_used.emit(item)
 
 
 func _on_discard_item(index:int, item_slot:ItemSlot):
 	var item:ItemData = GlobalSessionManager.run_progress.held_items[index]
-	use_particles.global_position = item_slot.global_position
-	use_particles.emitting = true
+	_spawn_item_particles(item_slot)
 	GlobalSessionManager._remove_held_item(item)
-	item_interface.update_ui(GlobalSessionManager.run_progress.held_items)
+	item_interface.populate_item_slots(GlobalSessionManager.run_progress.held_items)
 
 
 func _on_capacity_increased(new_capacity:int):
@@ -43,4 +49,4 @@ func _on_capacity_increased(new_capacity:int):
 
 
 func _on_items_updated(items:Array[ItemData]):
-	item_interface.populate_item_slots(items)
+	item_interface.populate_item_slots(items, true)
