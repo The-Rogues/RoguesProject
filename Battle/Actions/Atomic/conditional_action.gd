@@ -67,7 +67,6 @@ enum ComparisonType { GREATER, LESS }
 @export_range(1, 99999) var gold_amount:int = 1
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
-	super(battle_instance, _action_user)
 	var result:bool = false
 	
 	match condition:

@@ -52,18 +52,18 @@ enum DamageTarget {PLAYER, ENEMY}
 var projectile_count:int = 0
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
-	var locked_targets:Array[BattleEntity] = []
+	#var locked_targets:Array[BattleEntity] = []
 	
-	if repeat_mode == RepeatTargetMode.LOCK_TARGETS:
-		locked_targets = _resolve_target(battle_instance, _action_user)
+	#if repeat_mode == RepeatTargetMode.LOCK_TARGETS:
+		#locked_targets = _resolve_target(battle_instance, _action_user)
 	
 	var action:ProjectileAction = self.duplicate(true)
 	if _action_user:
 		action = _action_user.get_modified_projectile(self)
 	
 	for shot in action.shots:
-		var targets := locked_targets if repeat_mode == RepeatTargetMode.LOCK_TARGETS \
-			else _resolve_target(battle_instance, _action_user)
+		#var targets := locked_targets if repeat_mode == RepeatTargetMode.LOCK_TARGETS \
+		#	else _resolve_target(battle_instance, _action_user)
 	
 		_fire_projectiles(battle_instance, _action_user, targets, action)
 		await _fire_delay(battle_instance)
@@ -72,7 +72,7 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 func _fire_projectiles(
 	battle_instance:BattleManager,
 	_action_user:BattleEntity,
-	targets:Array[BattleEntity],
+	targets:Array[Entity],
 	projectile_action:ProjectileAction
 ):
 	for target in targets:
@@ -92,7 +92,7 @@ func _fire_projectiles(
 
 func _calculate_direction(
 	user:BattleEntity,
-	target:BattleEntity
+	target:Entity
 ) -> Vector2:
 	var base_direction := user.global_position.direction_to(
 		target.global_position

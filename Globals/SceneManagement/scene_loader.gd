@@ -15,6 +15,7 @@ signal scene_loaded
 # Stores data on the next battle to be loaded
 var pending_battle_configuration:BattleSceneConfiguration
 var pending_shop_data:ShopData
+var show_loading:bool = true
 
 const FLOOR_1_SPAWN_POOL = preload("res://Battle/Config/SpawnPools/floor_1_spawn_pool.tres")
 const ITEM_SHOP_DATA = preload("res://Map/Shop/ItemPools/item_shop_data.tres")
@@ -67,11 +68,12 @@ func _process(delta: float) -> void:
 # -------------------------------------------------
 # Scene load requests
 # -------------------------------------------------
-func load_scene(scene_path:String):
+func load_scene(scene_path:String, show_loading:bool = true):
 	ResourceLoader.load_threaded_request(scene_path)
 	loading_scene = true
 	loading_scene_path = scene_path
 	started_loading_scene.emit()
+	self.show_loading = show_loading
 
 
 func load_battle_scene():
@@ -133,7 +135,7 @@ func _on_started_loading_scene():
 		load_texture = loading_sprite_varients.pick_random()
 	sprite_2d.texture = load_texture
 	await screen_fade.fade_out()
-	loading_screen_layer.visible = true
+	loading_screen_layer.visible = show_loading
 	character_animator.play("loading")
 
 

@@ -6,87 +6,59 @@
 [ext_resource type="Resource" uid="uid://ctt40rvl2uset" path="res://Entities/Data/Enemies/Slime/slime_enemy_data.tres" id="3_wildr"]
 [ext_resource type="Resource" uid="uid://ck3n7jfoiaaib" path="res://Entities/Data/Enemies/Crawler/crawler_enemy_data.tres" id="4_mxlgk"]
 [ext_resource type="Resource" uid="uid://b57adi08jflnj" path="res://Entities/Data/Enemies/Funguy/funguy_enemy_data.tres" id="5_otr41"]
-[ext_resource type="Resource" uid="uid://bqnmfppsnxdh5" path="res://Entities/Data/Enemies/Trooper/trooper_enemy_data.tres" id="6_jbitl"]
-[ext_resource type="Resource" uid="uid://cjpcb3oy2kqdi" path="res://Entities/Data/Enemies/Golem/golem_enemy_data.tres" id="7_782xx"]
 [ext_resource type="Resource" uid="uid://b8glv1n4pdj8h" path="res://Entities/Data/Enemies/Minotaur/minotaur_enemy_data.tres" id="8_cgdju"]
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://Battle/Config/battle_object_layout.gd" id="9_42rq6"]
 [ext_resource type="Resource" uid="uid://cg30v23ohr5mc" path="res://Entities/Data/Enemies/Sorcerer/sorcerer_enemy_data.tres" id="9_k7bso"]
-[ext_resource type="Resource" uid="uid://c5noxdeqt27qu" path="res://Entities/Data/Enemies/LizardGuard/lizard_guard_enemy_data.tres" id="10_3ftib"]
 [ext_resource type="Resource" uid="uid://u2bk5w02lfo3" path="res://Battle/Config/BattleFieldLayouts/object_layout_0.tres" id="12_r8tna"]
 [ext_resource type="Resource" uid="uid://bt836ud2ilh6t" path="res://Battle/Config/BattleFieldLayouts/object_layout_1.tres" id="13_42rq6"]
 [ext_resource type="Resource" uid="uid://dvhk1rlrywniq" path="res://Battle/Config/BattleFieldLayouts/object_layout_2.tres" id="14_4dlpx"]
 [ext_resource type="Resource" uid="uid://15t3sywenir" path="res://Battle/Config/BattleFieldLayouts/object_layout_3.tres" id="15_wildr"]
 [ext_resource type="Resource" uid="uid://dva0yrak0y0dm" path="res://Battle/Config/BattleFieldLayouts/object_layout_4.tres" id="16_42rq6"]
 
-[sub_resource type="Resource" id="Resource_8ycwj"]
+[sub_resource type="Resource" id="Resource_vhweo"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 500
-bonus_gold_amount = 50
-encounter_id = "encounter_0"
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("3_wildr"), ExtResource("3_wildr"), ExtResource("3_wildr")])
+base_gold_amount = 25
+bonus_gold_amount = 10
+encounter_id = "Two Slimes"
+enemies = Array[ExtResource("2_wv7ji")]([ExtResource("3_wildr"), ExtResource("3_wildr")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
-[sub_resource type="Resource" id="Resource_wmmnw"]
+[sub_resource type="Resource" id="Resource_qcigp"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 500
-bonus_gold_amount = 50
-encounter_id = "encounter_1"
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("9_k7bso")])
+base_gold_amount = 25
+bonus_gold_amount = 10
+encounter_id = "Three Mushrooms"
+enemies = Array[ExtResource("2_wv7ji")]([ExtResource("5_otr41"), ExtResource("5_otr41"), ExtResource("5_otr41")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
-[sub_resource type="Resource" id="Resource_mgnes"]
+[sub_resource type="Resource" id="Resource_2o550"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 500
-bonus_gold_amount = 50
-encounter_id = "encounter_3"
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("8_cgdju"), null])
-rarity = 2
+base_gold_amount = 30
+bonus_gold_amount = 10
+encounter_id = "Worshipper"
+enemies = Array[ExtResource("2_wv7ji")]([ExtResource("9_k7bso"), ExtResource("4_mxlgk")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
-[sub_resource type="Resource" id="Resource_h8wkk"]
+[sub_resource type="Resource" id="Resource_rhc11"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 500
-bonus_gold_amount = 50
-encounter_id = "encounter_2"
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("5_otr41"), ExtResource("6_jbitl"), ExtResource("5_otr41")])
+base_gold_amount = 40
+bonus_gold_amount = 10
+encounter_id = "Minotaur"
+enemies = Array[ExtResource("2_wv7ji")]([ExtResource("8_cgdju")])
 rarity = 1
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
-[sub_resource type="Resource" id="Resource_2h6xe"]
+[sub_resource type="Resource" id="Resource_gr5wq"]
 script = ExtResource("1_mdg33")
-base_gold_amount = 500
-bonus_gold_amount = 50
-encounter_id = "encounter_2"
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("4_mxlgk"), ExtResource("7_782xx"), ExtResource("4_mxlgk")])
-rarity = 1
-metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
-
-[sub_resource type="Resource" id="Resource_dhh2s"]
-script = ExtResource("1_mdg33")
-base_gold_amount = 600
-bonus_gold_amount = 50
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("9_k7bso"), ExtResource("10_3ftib")])
-rarity = 1
-metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
-
-[sub_resource type="Resource" id="Resource_n81qe"]
-script = ExtResource("1_mdg33")
-base_gold_amount = 600
-bonus_gold_amount = 50
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("10_3ftib"), ExtResource("8_cgdju")])
-rarity = 1
-metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
-
-[sub_resource type="Resource" id="Resource_v3aki"]
-script = ExtResource("1_mdg33")
-base_gold_amount = 500
-bonus_gold_amount = 50
-enemies = Array[ExtResource("2_wv7ji")]([ExtResource("10_3ftib"), ExtResource("3_wildr"), ExtResource("3_wildr")])
+base_gold_amount = 20
+bonus_gold_amount = 15
+encounter_id = "Guards"
+enemies = Array[ExtResource("2_wv7ji")]([ExtResource("4_mxlgk"), ExtResource("4_mxlgk"), ExtResource("3_wildr")])
 rarity = 1
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
 
 [resource]
 script = ExtResource("3_n3fwg")
-enemy_encounters = Array[ExtResource("1_mdg33")]([SubResource("Resource_8ycwj"), SubResource("Resource_wmmnw"), SubResource("Resource_mgnes"), SubResource("Resource_h8wkk"), SubResource("Resource_2h6xe"), SubResource("Resource_dhh2s"), SubResource("Resource_n81qe"), SubResource("Resource_v3aki")])
+enemy_encounters = Array[ExtResource("1_mdg33")]([SubResource("Resource_vhweo"), SubResource("Resource_qcigp"), SubResource("Resource_2o550"), SubResource("Resource_rhc11"), SubResource("Resource_gr5wq")])
 object_layouts = Array[ExtResource("9_42rq6")]([ExtResource("12_r8tna"), ExtResource("13_42rq6"), ExtResource("14_4dlpx"), ExtResource("15_wildr"), ExtResource("16_42rq6")])
 metadata/_custom_type_script = "uid://cspfjbd0uqj7u"

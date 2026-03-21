@@ -42,21 +42,18 @@ func on_turn_started() -> void:
 		battle_instance.new_turn_started.disconnect(on_turn_started)
 	
 	var player_attack = AttackAction.new()
-	player_attack.damage = player_damage
-	player_attack.target = TargetedBattleAction.TargetingOption.INHERITED
-	player_attack.inherited_targeting = [target_entity] as Array[BattleEntity]
-	var enemy_attack = AttackAction.new()
-	enemy_attack.damage = player_damage
-	enemy_attack.target = TargetedBattleAction.TargetingOption.PLAYER
-	
+	player_attack.damage_sample = DamageValue.new()
+	player_attack.damage_sample.damage = 6
+	player_attack.targets = [target_entity] as Array[BattleEntity]
 	battle_instance.action_queue.enqueue(
 		player_attack,
 		battle_instance,
 		battle_instance.player_entity
 	)
+	
+	player_attack.targets = [battle_instance.player_entity] as Array[BattleEntity]
 	battle_instance.action_queue.enqueue(
-		enemy_attack,
+		player_attack,
 		battle_instance,
 		target_entity
 	)
-	pass

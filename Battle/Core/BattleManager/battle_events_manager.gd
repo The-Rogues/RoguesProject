@@ -4,6 +4,7 @@ class_name BattleEventsManager
 var battle_instance:BattleManager
 var battle_events:Array[BattleTurnEvent] = []
 
+
 func initialize(
 	new_battle_instance:BattleManager
 ) -> void:

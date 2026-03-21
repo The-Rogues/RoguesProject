@@ -23,5 +23,5 @@ id = "greedy"
 name = "Greedy"
 description = "Comfortable taking risks. Motivated by treasure."
 card_pool = SubResource("Resource_hdp5n")
-default_cards = Array[ExtResource("1_fpxiw")]([ExtResource("4_hdp5n"), ExtResource("4_hdp5n"), ExtResource("4_hdp5n"), ExtResource("3_lakrd"), ExtResource("3_lakrd")])
+default_cards = Array[ExtResource("1_fpxiw")]([ExtResource("4_hdp5n"), ExtResource("4_hdp5n"), ExtResource("4_hdp5n"), ExtResource("2_bnkt2")])
 metadata/_custom_type_script = "uid://bllaybhbcrgk4"

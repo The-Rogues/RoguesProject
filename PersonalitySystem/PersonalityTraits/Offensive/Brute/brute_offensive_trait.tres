@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_jdfcn"]
 [ext_resource type="Resource" uid="uid://b7q5uhsqn0chi" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/head_butt_card_data.tres" id="1_ody8n"]
 [ext_resource type="Resource" uid="uid://7n3mqrwdvr7" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="2_jdfcn"]
-[ext_resource type="Resource" uid="uid://btty5jrbwykeo" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/pay_back_card_data.tres" id="3_fo3pb"]
 [ext_resource type="Resource" uid="uid://v3y7fyud6i1j" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="4_0mqn5"]
 [ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="6_fo3pb"]
 
 [sub_resource type="Resource" id="Resource_0mqn5"]
 script = ExtResource("6_fo3pb")
-common = Array[ExtResource("1_jdfcn")]([ExtResource("1_ody8n"), ExtResource("2_jdfcn"), ExtResource("3_fo3pb"), ExtResource("4_0mqn5")])
+common = Array[ExtResource("1_jdfcn")]([ExtResource("4_0mqn5"), ExtResource("2_jdfcn")])
+uncommonn = Array[ExtResource("1_jdfcn")]([ExtResource("1_ody8n")])
 metadata/_custom_type_script = "uid://coht23i0qahwq"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fx77m"]
@@ -24,5 +24,5 @@ id = "brute"
 name = "Brute"
 description = "Head strong and short-tempered. Prefers targeting weaker enemies."
 card_pool = SubResource("Resource_0mqn5")
-default_cards = Array[ExtResource("1_jdfcn")]([ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("2_jdfcn")])
+default_cards = Array[ExtResource("1_jdfcn")]([ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("2_jdfcn")])
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

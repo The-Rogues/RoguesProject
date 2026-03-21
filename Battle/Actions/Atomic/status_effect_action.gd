@@ -10,7 +10,14 @@ enum OperationType { ADD, REMOVE, CLEAR }
 @export_range(0.0, 1.0) var chance:float = 1.0
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
-	super(battle_instance, _action_user)
+	#super(battle_instance, _action_user)
+	if targets[0] is ObjectEntity:
+		return
+	
+	if targets[0] == battle_instance.player_entity:
+		var battle_object = battle_instance.battle_field.get_object()
+		if _object_intercepts(battle_object):
+			return
 	
 	if operation == OperationType.ADD:
 		for target in targets:
@@ -32,3 +39,18 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 	elif operation == OperationType.CLEAR:
 		for target in targets:
 			target.status_conditions.clear_status_effects()
+
+
+func _object_intercepts(
+	battle_object:ObjectEntity,
+) -> bool:
+	if not battle_object:
+		return false
+	
+	match battle_object.data.attack_filter:
+		ObjectEntityData.AttackFilter.BLOCK:
+			return true
+		ObjectEntityData.AttackFilter.INTERCEPT:
+			return true
+	
+	return false

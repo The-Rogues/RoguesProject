@@ -23,5 +23,5 @@ id = "fickle"
 name = "Fickle"
 description = "Changes their mind frequently under pressure. Scared when HP is low."
 card_pool = SubResource("Resource_egre7")
-default_cards = Array[ExtResource("1_pt4qm")]([ExtResource("2_pt4qm"), ExtResource("2_pt4qm"), ExtResource("2_pt4qm"), ExtResource("2_pt4qm"), ExtResource("3_mox7i")])
+default_cards = Array[ExtResource("1_pt4qm")]([ExtResource("2_pt4qm"), ExtResource("2_pt4qm"), ExtResource("2_pt4qm"), ExtResource("2_pt4qm")])
 metadata/_custom_type_script = "uid://3ognrb8kkptl"

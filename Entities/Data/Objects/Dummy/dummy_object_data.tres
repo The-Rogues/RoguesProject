@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ObjectEntityData" format=3 uid="uid://6rvoand05uws"]
+
+[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://General/PlaceholderArt/donkey.tres" id="1_utbo1"]
+[ext_resource type="Script" uid="uid://o5nbdchxwujp" path="res://Entities/Core/object_entity_data.gd" id="2_was7p"]
+
+[resource]
+script = ExtResource("2_was7p")
+attack_filter = 2
+id = "dummy"
+name = "Dummy"
+description = "Enemies prioritize attacking this object."
+max_health = 40
+metadata/_custom_type_script = "uid://o5nbdchxwujp"

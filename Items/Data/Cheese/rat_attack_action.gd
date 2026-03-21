@@ -13,7 +13,8 @@ func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
 		return
 	
 	var attack_action = AttackAction.new()
-	attack_action.base_damage = rat_damage
+	attack_action.damage_sample = DamageValue.new()
+	attack_action.damage_sample.damage = rat_damage
 	attack_action.targeting = TargetedBattleAction.TargetingOption.ENEMY
 	
 	for rat:Rat in rat_event.rats:

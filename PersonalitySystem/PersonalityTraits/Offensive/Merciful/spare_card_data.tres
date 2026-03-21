@@ -4,21 +4,37 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_w488i"]
 [ext_resource type="Script" uid="uid://bse7c1c5q3poy" path="res://Battle/Actions/Atomic/spare_action.gd" id="2_3y4xw"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="2_6ej5m"]
+[ext_resource type="Script" uid="uid://cq3s1j6odaltq" path="res://Battle/Actions/Atomic/conditional_action.gd" id="3_886to"]
 
-[sub_resource type="Resource" id="Resource_886to"]
+[sub_resource type="Resource" id="Resource_vjqhs"]
 script = ExtResource("2_3y4xw")
+spare_chance = 0.2
 targeting = 2
 metadata/_custom_type_script = "uid://bse7c1c5q3poy"
+
+[sub_resource type="Resource" id="Resource_fclbv"]
+script = ExtResource("2_3y4xw")
+spare_chance = 0.5
+targeting = 2
+metadata/_custom_type_script = "uid://bse7c1c5q3poy"
+
+[sub_resource type="Resource" id="Resource_eosv3"]
+script = ExtResource("3_886to")
+true_action = SubResource("Resource_fclbv")
+false_action = SubResource("Resource_vjqhs")
+condition = 3
+health_threshold = 12
+targeting = 2
+metadata/_custom_type_script = "uid://cq3s1j6odaltq"
 
 [sub_resource type="Resource" id="Resource_hqmi8"]
 script = ExtResource("2_6ej5m")
 name = "Spare"
-description = "Chance to spare the target. This chance is increased if the target’s HP is below 2/3rds."
-actions = Array[ExtResource("1_kx56i")]([SubResource("Resource_886to")])
+description = "20% Chance to Spare an Enemy. Chance doubles if Enemy below 12 HP."
+actions = Array[ExtResource("1_kx56i")]([SubResource("Resource_eosv3")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
 script = ExtResource("1_w488i")
-energy_cost = 2
 move = SubResource("Resource_hqmi8")
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

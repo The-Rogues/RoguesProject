@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cv3ytlpkggi8e" path="res://Entities/Data/Enemies/Minotaur/minotaur_texture.tres" id="3_wihyi"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="5_w4m72"]
 [ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/attack_action.gd" id="5_wl333"]
+[ext_resource type="Script" uid="uid://wbkwfs875w0h" path="res://Battle/Actions/DamageValues/damage_values.gd" id="5_yt0p1"]
 [ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="6_7gq5y"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://Battle/UI/BattleIntentIcons/attack_intent_icon.tres" id="6_b0oit"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="7_dikaf"]
@@ -13,22 +14,23 @@
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="11_wl333"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="12_i4lj6"]
 
+[sub_resource type="Resource" id="Resource_nleml"]
+script = ExtResource("5_yt0p1")
+damage = 12
+metadata/_custom_type_script = "uid://wbkwfs875w0h"
+
 [sub_resource type="Resource" id="Resource_i7u8c"]
 script = ExtResource("5_wl333")
-base_damage = 10
+damage_sample = SubResource("Resource_nleml")
 targeting = 1
-metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
-
-[sub_resource type="Resource" id="Resource_yt0p1"]
-script = ExtResource("5_wl333")
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_xsb1p"]
 script = ExtResource("5_w4m72")
 action_display_icon = ExtResource("6_b0oit")
 name = "Charge"
-description = "Attacks for 10 damage. Self harms 6 damage."
-actions = Array[ExtResource("7_dikaf")]([SubResource("Resource_i7u8c"), SubResource("Resource_yt0p1")])
+description = "This enemy intends to attack for 12 damage."
+actions = Array[ExtResource("7_dikaf")]([SubResource("Resource_i7u8c")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_rnuhu"]

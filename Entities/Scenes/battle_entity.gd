@@ -13,6 +13,7 @@ class_name BattleEntity
 
 signal started_moving
 signal arrived
+signal on_object_carried
 
 @onready var defense_stat_icon: StatIcon = $UI/HBoxContainer/DefenseStatIcon
 @onready var parry_stat_icon: StatIcon = $UI/HBoxContainer/ParryStatIcon
@@ -139,13 +140,13 @@ func carry_object(object_data:ObjectEntityData):
 	carried_object = object_data
 	object_holder.visible = true
 	object_texture.texture = object_data.display_texture
+	on_object_carried.emit()
 
 
 func drop_object():
-	if carried_object:
-		carried_object = null
-		object_holder.visible = false
-		object_texture.texture = null
+	carried_object = null
+	object_holder.visible = false
+	object_texture.texture = null
 
 
 func _on_started_moving():

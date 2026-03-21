@@ -7,8 +7,6 @@
 
 [sub_resource type="Resource" id="Resource_ax6y7"]
 script = ExtResource("2_xhitk")
-base_damage = 0
-sample_from = 2
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_kcct2"]

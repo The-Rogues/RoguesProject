@@ -19,4 +19,8 @@ func use_item(_battle_instance:BattleManager = null) -> bool:
 		GlobalSessionManager.save_character_health(
 				_battle_instance.player_entity._health.current_health
 		)
+	else:
+		GlobalSessionManager.save_character_health(
+			GlobalSessionManager.run_progress.current_health + health
+		)
 	return true

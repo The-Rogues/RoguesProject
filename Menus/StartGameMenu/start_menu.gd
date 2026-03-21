@@ -70,15 +70,15 @@ func _on_return_from_character_menu_clicked() -> void:
 
 
 func _on_create_random_character_clicked() -> void:
-	GlobalSceneLoader.load_scene(GlobalSceneLoader.RANDOM_CHARACTER_PATH)
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.RANDOM_CHARACTER_PATH, false)
 	pass # Replace with function body.
 
 
 func _on_ai_generate_character_clicked() -> void:
-	GlobalSceneLoader.load_scene(GlobalSceneLoader.AI_CHARACTER_GENERATOR_PATH)
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.AI_CHARACTER_GENERATOR_PATH, false)
 	pass # Replace with function body.
 
 
 func _on_character_builder_clicked() -> void:
-	GlobalSceneLoader.load_scene(GlobalSceneLoader.CHARACTER_GENERATOR_PATH)
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.CHARACTER_GENERATOR_PATH, false)
 	pass # Replace with function body.

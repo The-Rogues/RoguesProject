@@ -22,5 +22,5 @@ id = "naive"
 name = "Naive"
 description = "Trusts things will work out in the end. Not intimidated by monsters."
 card_pool = SubResource("Resource_3gunx")
-default_cards = Array[ExtResource("1_6o5ra")]([ExtResource("3_6hvyq"), ExtResource("3_6hvyq"), ExtResource("3_6hvyq"), ExtResource("3_6hvyq"), ExtResource("2_6o5ra")])
+default_cards = Array[ExtResource("1_6o5ra")]([ExtResource("3_6hvyq"), ExtResource("3_6hvyq"), ExtResource("3_6hvyq"), ExtResource("3_6hvyq")])
 metadata/_custom_type_script = "uid://3ognrb8kkptl"

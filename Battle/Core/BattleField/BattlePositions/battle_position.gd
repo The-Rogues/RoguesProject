@@ -72,7 +72,8 @@ func on_entity_entered(battle_entity:BattleEntity):
 		effect.data.on_entered(battle_entity)
 	
 	entity = battle_entity
-	if battle_entity.carried_object and not object:
+	battle_entity.on_object_carried.connect(_on_entity_grabbed_object)
+	if battle_entity.carried_object and object == null:
 		set_object(battle_entity.carried_object)
 		battle_entity.drop_object()
 
@@ -81,7 +82,13 @@ func on_entity_exited(battle_entity:BattleEntity):
 	if effect.data:
 		effect.data.on_exited(battle_entity)
 	
+	battle_entity.on_object_carried.disconnect(_on_entity_grabbed_object)
 	entity  = null
+
+
+func _on_entity_grabbed_object():
+	set_object(entity.carried_object)
+	entity.drop_object()
 
 
 func start_turn():

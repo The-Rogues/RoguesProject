@@ -31,7 +31,7 @@ enum SampleFrom {
 @export var object_data:ObjectEntityData
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
-	super(battle_instance, _action_user)
+	#super(battle_instance, _action_user)
 	
 	match effect:
 		SkillEffect.BLOCK:

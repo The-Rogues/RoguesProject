@@ -9,7 +9,6 @@
 
 [sub_resource type="Resource" id="Resource_mvyl0"]
 script = ExtResource("2_4tbis")
-base_damage = 8
 metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 
 [sub_resource type="Resource" id="Resource_876ip"]

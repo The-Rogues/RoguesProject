@@ -11,13 +11,36 @@ class_name GameSessionDisplay
 
 @onready var deck_button: TextureButton = $Container/RightElements/Deck/DeckButton
 @export var in_battle:bool = false
+@export var initialize_on_start:bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if GlobalSessionManager.run_progress:
-		pass
-	else:
-		pass
+	if initialize_on_start and GlobalSessionManager.run_progress:
+		initialize(GlobalSessionManager.run_progress)
+
+
+func initialize(data:RunProgress):
+	character_name.text = data.character_name
+	character_context.set_context(character_name.text + "'s current health.")
+	current_health.text = str(
+			data.current_health
+		) + "/" + str(
+				data.character_entity_data.max_health
+			)
+	
+	traits_display.initialize(
+		data.personality_data
+	)
+	
+	deck_viewer._initialize(
+		data.card_deck
+	)
+	
+	#player_items.connect_to_battle(battle_instance)
+	player_items.in_battle_scene = false
+	player_items._initialize(data.held_items)
+
 
 func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:CardDeck):
 	character_name.text = battle_instance.player_entity.data.name

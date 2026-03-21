@@ -7,6 +7,8 @@ class_name CardData
 ## to CardUI for initialization
 
 @export var id:String = "card id"
+@export var name:String = "Card name"
+@export_multiline var description:String = "Card Description"
 ## Sets the default cost it will take to play the card
 @export var energy_cost:int = 0
 @export var discard_after_play:bool = false

@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_0rnbt"]
 [ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="2_ax7fk"]
-[ext_resource type="Resource" uid="uid://dhat16iba5tlg" path="res://Cards/Shared/counter_card_data.tres" id="2_mr8ys"]
-[ext_resource type="Resource" uid="uid://cuwc8ueu7aloa" path="res://Cards/Shared/defend_card_data.tres" id="3_bhdyl"]
-[ext_resource type="Resource" uid="uid://dgt1ffuwrstbt" path="res://Cards/Shared/move_card_data.tres" id="4_hd6km"]
-[ext_resource type="Resource" uid="uid://cpcm1bkfedbjv" path="res://Cards/Shared/strike_card_data.tres" id="5_tl2ti"]
-[ext_resource type="Resource" uid="uid://bg6c4g3c1qp6p" path="res://Cards/Shared/sling_shot_card_data.tres" id="7_krkra"]
-[ext_resource type="Resource" uid="uid://bpl0tdumsdrc8" path="res://Cards/Shared/swing_card_data.tres" id="8_ut18o"]
+[ext_resource type="Resource" uid="uid://b0ngrwalmxcsq" path="res://Cards/Data/double_slash_card_data.tres" id="2_xty02"]
+[ext_resource type="Resource" uid="uid://k8xyvepfakad" path="res://Cards/Data/metal_wave_card_data.tres" id="3_nflyi"]
+[ext_resource type="Resource" uid="uid://bwgu3q4rgiktg" path="res://Cards/Data/left_step_card_data.tres" id="4_mr8ys"]
+[ext_resource type="Resource" uid="uid://dvd4uwm3j1aoq" path="res://Cards/Data/right_step_card_data.tres" id="5_bhdyl"]
+[ext_resource type="Resource" uid="uid://d3qw0rvn76c2q" path="res://Cards/Data/magic_pot_card_data.tres" id="7_nflyi"]
 
 [resource]
 script = ExtResource("2_ax7fk")
-common = Array[ExtResource("1_0rnbt")]([ExtResource("2_mr8ys"), ExtResource("3_bhdyl"), ExtResource("4_hd6km"), ExtResource("5_tl2ti")])
-uncommonn = Array[ExtResource("1_0rnbt")]([ExtResource("7_krkra"), ExtResource("8_ut18o")])
+common = Array[ExtResource("1_0rnbt")]([ExtResource("2_xty02"), ExtResource("3_nflyi"), ExtResource("4_mr8ys"), ExtResource("5_bhdyl")])
+uncommonn = Array[ExtResource("1_0rnbt")]([ExtResource("7_nflyi")])
 metadata/_custom_type_script = "uid://coht23i0qahwq"

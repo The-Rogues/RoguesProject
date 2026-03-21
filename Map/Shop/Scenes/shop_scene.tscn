@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://Items/Scenes/item_slot.tscn" id="5_8bdd0"]
 [ext_resource type="Script" uid="uid://crame3tjbrvn4" path="res://Items/Scenes/shop_item_interface.gd" id="7_acpms"]
 [ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="8_ff7t1"]
-[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://Items/GoldLabel/session_gold_label.tscn" id="9_acpms"]
 [ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://Map/Shop/ShopKeepers/shop_desk.tres" id="9_rdf4x"]
 [ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_1.tres" id="11_lsasn"]
 [ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_2.tres" id="12_odkx1"]
+[ext_resource type="PackedScene" uid="uid://b2sastodcwsbx" path="res://Battle/UI/GameDashboard/game_dash_board.tscn" id="13_56fue"]
 [ext_resource type="Texture2D" uid="uid://cgkstjg1haxst" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_3.tres" id="13_qvs08"]
 [ext_resource type="Texture2D" uid="uid://d2d4b83w6j3r" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-004.png" id="15_377eg"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://General/UI/ContextPanel/context_panel.tscn" id="15_uygeh"]
@@ -321,16 +321,8 @@ theme_override_fonts/font = ExtResource("3_jq6m6")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
-[node name="PlayerGold" parent="CanvasLayer/Control" unique_id=1751191548 instance=ExtResource("9_acpms")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -154.0
-offset_top = 26.0
-offset_right = -62.0
-offset_bottom = 53.0
-grow_horizontal = 0
+[node name="GameDashBoard" parent="CanvasLayer" unique_id=535703033 instance=ExtResource("13_56fue")]
+initialize_on_start = true
 
 [node name="ShopKeeper" type="Node2D" parent="." unique_id=1266733250]
 position = Vector2(545, 198)

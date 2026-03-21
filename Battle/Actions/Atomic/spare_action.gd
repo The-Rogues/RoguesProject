@@ -1,14 +1,12 @@
 extends TargetedBattleAction
 class_name SpareAction
 
-@export_range(0, 0.9) var added_chance:float = 0
+@export_range(0, 0.9) var spare_chance:float = 0
 
 func _execute(battle_instance:BattleManager, _action_user:BattleEntity = null):
-	super(battle_instance, _action_user)
+	#super(battle_instance, _action_user)
 	
 	for target in targets:
-		var spare_chance = 0.1
-		spare_chance = min(1, spare_chance + added_chance)
 		if target._health.current_health < 20:
 			spare_chance = min(1, spare_chance + 0.3)
 		

@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dijrwcokcngwv" path="res://Cards/UI/deck_icon_normal.tres" id="10_sqbpr"]
 [ext_resource type="Texture2D" uid="uid://bple1k07y4let" path="res://Cards/UI/deck_icon_hover.tres" id="11_m0xnm"]
 [ext_resource type="PackedScene" uid="uid://cuukmx5jhs7wn" path="res://Items/Scenes/player_items.tscn" id="13_pxp8h"]
-[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://Items/GoldLabel/gold_icon.tres" id="13_yct1t"]
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Items/GoldLabel/session_gold_label.gd" id="14_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://Cards/UI/deck_viewer.tscn" id="14_yct1t"]
 
@@ -32,6 +31,13 @@ modulate_color = Color(0, 0, 0, 1)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqbpr"]
 atlas = ExtResource("7_1o4un")
 region = Rect2(160, 512, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c0xyw"]
+load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vipf"]
+atlas = SubResource("CompressedTexture2D_c0xyw")
+region = Rect2(40, 776, 16, 16)
 
 [node name="GameDashBoard" type="Control" unique_id=535703033]
 layout_mode = 3
@@ -269,13 +275,12 @@ size_flags_vertical = 8
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Container/RightElements/Gold/PlayerGold" unique_id=2044757605]
-modulate = Color(0.79607844, 0.52156866, 0, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = ExtResource("13_yct1t")
+texture = SubResource("AtlasTexture_6vipf")
 
 [node name="PlayerGold" type="Label" parent="Container/RightElements/Gold/PlayerGold" unique_id=1751191548]
 texture_filter = 1

@@ -79,6 +79,8 @@ func find_object(object_id:String) -> BattlePosition:
 	var positions:Array[BattlePosition] = find_objects(object_id)
 	if positions.is_empty():
 		return null
+	if positions.size() == 1:
+		return positions[0]
 	
 	var closest_position_index = battle_positions.find(positions[0])
 	var closest_distance:int = abs(entity_position - closest_position_index)

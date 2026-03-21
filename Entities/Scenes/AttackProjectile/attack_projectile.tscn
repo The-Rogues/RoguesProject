@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvnuvkkxrejc3"]
 
 [ext_resource type="Script" uid="uid://ng2lfy6mu6a8" path="res://Entities/Scenes/AttackProjectile/attack_projectile.gd" id="1_3sksh"]
-[ext_resource type="Texture2D" uid="uid://baa3y77gqbgce" path="res://Entities/Data/Enemies/Golem/boulder_projectile_texture.tres" id="2_hioxv"]
+[ext_resource type="Texture2D" uid="uid://baa3y77gqbgce" path="res://Entities/Data/Enemies/Unimplemented/Golem/boulder_projectile_texture.tres" id="2_hioxv"]
 [ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://General/Effects/SpriteFlasher/sprite_flasher.gd" id="3_jpy50"]
 [ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://General/Effects/SpriteFlasher/flash_sprite_material.tres" id="4_xyvqo"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://General/Effects/Trail2D/trail_2d.tscn" id="4_ymlus"]

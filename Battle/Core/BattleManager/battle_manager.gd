@@ -6,6 +6,22 @@ signal new_turn_started
 signal player_turn_ended
 signal enemy_turn_ended
 
+enum TargetingOption {
+	## Targeting chooses the entity who is executing the action.
+	USER, 
+	## Targeting chooses the player's character.
+	PLAYER, 
+	## Targeting chooses a random enemy by default. If character personality has
+	## a bias towards specified types of entites, they are chosen instead. 
+	ENEMY, 
+	## Targeting chooses all enemies who are still alive.
+	ALL_ENEMIES, 
+	## Targeting is not defined by this instance. Available in case another
+	## action needs to override targeting of another action.
+	LAST_TARGET
+}
+# Sets what en
+
 @export var battle_field: BattleField
 @export var energy_counter:EnergyCounter
 @export var battle_card_manager:BattleCardManager
@@ -15,6 +31,8 @@ signal enemy_turn_ended
 
 @onready var entity_parent: Node2D = $Entities
 @onready var player_spawn_point: Node2D = $Entities/CharacterSpawnPoint
+
+var last_targets:Array[Entity]
 
 enum BattleState { PLAYER_TURN, ENEMY_TURN, ENDED }
 var battle_state:BattleState = BattleState.PLAYER_TURN
@@ -136,6 +154,47 @@ func resolve_enemy_intention(entity:BattleEntity):
 	_execute_battle_move(intent_icon.battle_move, entity)
 
 
+func resolve_action_targeting(
+	action:TargetedBattleAction,
+	user:BattleEntity
+	) -> Array[Entity]:
+		
+	if user != player_entity and !battle_field.find_objects("dummy").is_empty():
+		var pos:Array[BattlePosition] = battle_field.find_objects("dummy")
+		print(pos[0].object.name)
+		return [pos[0].object] as Array[Entity]
+	
+	match action.targeting:
+		TargetingOption.USER:
+			return [user] as Array[Entity]
+		TargetingOption.PLAYER:
+			return [player_entity] as Array[Entity]
+		TargetingOption.ENEMY:
+			# Target an enemy the character is biased towards if user is the
+			# player character.
+			if user == player_entity:
+				return [
+					player_personality.get_target_entity(
+							enemies
+					)
+				]
+			# Otherwise, assume enemy is targeting allies, excluding self.
+			var target_canidates:Array[BattleEntity] = enemies
+			if target_canidates.has(user):
+				target_canidates.erase(user)
+			return [target_canidates.pick_random()] as Array[Entity]
+		TargetingOption.ALL_ENEMIES:
+			return enemies as Array[Entity]
+		_:
+			printerr("Unresolvable targeting in TargetedBattleAction")
+			return [] as Array[Entity]
+		TargetingOption.LAST_TARGET:
+			if !last_targets:
+				return []
+			else:
+				return last_targets as Array[Entity]
+
+
 func _start_player_turn():
 	if battle_state != BattleState.PLAYER_TURN:
 		return
@@ -202,6 +261,10 @@ func _execute_battle_move(battle_move:BattleMove, user:BattleEntity):
 	for action in battle_move.actions:
 		if not action:
 			return
+		
+		if action is TargetedBattleAction:
+			action.targets = resolve_action_targeting(action, user)
+			last_targets = action.targets
 		
 		action_queue.enqueue(action, self, user)
 	user.animation_player.play("entity/idle")
