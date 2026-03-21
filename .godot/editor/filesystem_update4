@@ -155,3 +155,10 @@ res://Entities/Data/Objects/Dummy/dummy_object_data.tres
 res://Items/Data/Dummy/dummy_item_data.tres
 res://Battle/Core/BattleField/battle_field.gd
 res://Battle/Core/BattleField/BattlePositions/battle_position.gd
+res://Items/Data/StickyGlove/sticky_glove_event.gd
+res://Items/Data/StickyGlove/sticky_glove_item_data.tres
+res://Items/Data/StickyGlove/magic_glove_event.gd
+res://Items/Data/StickyGlove/magic_glove_item_data.tres
+res://Items/Data/FalseCoinage/false_coinage_item_data.tres
+res://Items/Data/FalseCoinage/false_coinage_event.gd
+res://Items/Data/ChestKey/chest_key_item_data.tres

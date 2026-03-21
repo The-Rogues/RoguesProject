@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BattleEventItem" format=3 uid="uid://c6kwhu2mmd787"]
+
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://General/PlaceholderArt/Nikoichu/Icons/Icons_RPG.png" id="1_w15hu"]
+[ext_resource type="Script" uid="uid://ytputthcdnbi" path="res://Items/Data/FalseCoinage/false_coinage_event.gd" id="2_7x8qr"]
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://Items/Core/battle_event_item.gd" id="2_vqwcu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x8qr"]
+atlas = ExtResource("1_w15hu")
+region = Rect2(96, 208, 16, 16)
+
+[sub_resource type="Resource" id="Resource_66ncv"]
+script = ExtResource("2_7x8qr")
+metadata/_custom_type_script = "uid://ytputthcdnbi"
+
+[resource]
+script = ExtResource("2_vqwcu")
+effect = SubResource("Resource_66ncv")
+use_player = true
+rarity = 2
+name = "False Coinage"
+description = "Every item used will be refunded until the end of the battle."
+display_texture = SubResource("AtlasTexture_7x8qr")
+shop_price = 60
+sell_price = 5
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

@@ -12,6 +12,7 @@ signal traits_updated
 signal gold_updated(new_value:int)
 signal gold_added(added_amount:int)
 signal items_updated(held_items:Array[ItemData])
+signal item_used(item:ItemData)
 
 var run_progress: RunProgress
 var started_session:bool = false
@@ -253,6 +254,7 @@ func use_heald_item(index:int, battle:BattleManager):
 		return
 	
 	run_progress.held_items[index].use_item(battle)
+	item_used.emit(run_progress.held_items[index])
 	_remove_held_item(run_progress.held_items[index])
 
 

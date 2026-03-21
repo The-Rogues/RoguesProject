@@ -12,7 +12,6 @@ metadata/_custom_type_script = "uid://bth5ewie40ek2"
 script = ExtResource("1_gj45k")
 effect = SubResource("Resource_r07lj")
 use_player = true
-rarity = 1
 name = "Repeat Potion"
 description = "After use, next card is played twice."
 display_texture = ExtResource("1_rha7s")

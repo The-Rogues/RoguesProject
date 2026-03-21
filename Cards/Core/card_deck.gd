@@ -25,8 +25,11 @@ func get_sorted_cards():
 	sorted_cards.sort()
 	return sorted_cards
 
-func add_card(card_data:CardData) -> void:
-	cards.append(card_data)
+func add_card(card_data:CardData, to_front:bool = false) -> void:
+	if to_front:
+		cards.push_front(card_data)
+	else:
+		cards.append(card_data)
 	deck_updated.emit(cards)
 
 ## Use to create new deck for initialization

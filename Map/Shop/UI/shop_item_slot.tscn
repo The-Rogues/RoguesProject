@@ -92,11 +92,6 @@ text = "Sold"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Debug" type="Control" parent="." unique_id=210475969]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="RarityParticles" type="CPUParticles2D" parent="." unique_id=263190460]
 position = Vector2(30, 33)
 emitting = false

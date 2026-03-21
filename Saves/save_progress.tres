@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="RunProgress" format=3]
+
+[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_pic50"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/shoot_card_data.tres" id="2_gcsfp"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/defend_card_data.tres" id="3_3dqjj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/move_card_data.tres" id="4_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/lean_card_data.tres" id="5_osl4a"]
+[ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="6_73m4a"]
+[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="7_sqevk"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="8_bn7m0"]
+[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="9_gvrsj"]
+[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="10_ldui5"]
+[ext_resource type="Resource" path="res://Items/Data/StickyGlove/magic_glove_item_data.tres" id="11_gcsfp"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="11_hxw8v"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_offensive_trait_data.tres" id="12_gbghs"]
+[ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="13_rp2d1"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="14_4g6sv"]
+[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="15_jq1ju"]
+
+[sub_resource type="Resource" id="Resource_8csqo"]
+script = ExtResource("7_sqevk")
+name = "Your Deck"
+cards = Array[ExtResource("1_pic50")]([ExtResource("2_gcsfp"), ExtResource("2_gcsfp"), ExtResource("2_gcsfp"), ExtResource("2_gcsfp"), ExtResource("3_3dqjj"), ExtResource("3_3dqjj"), ExtResource("3_3dqjj"), ExtResource("3_3dqjj"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("5_osl4a"), ExtResource("6_73m4a")])
+
+[sub_resource type="Resource" id="Resource_fucgn"]
+script = ExtResource("9_gvrsj")
+display_texture = ExtResource("8_bn7m0")
+id = "player"
+name = "Judas"
+description = "With little concern for danger or reward, they wander into the tower with no plan and no urgency."
+max_health = 80
+
+[sub_resource type="Resource" id="Resource_5w8pu"]
+script = ExtResource("13_rp2d1")
+offensive_trait = ExtResource("12_gbghs")
+offensive_weight = 2
+defensive_trait = ExtResource("11_hxw8v")
+defensive_weight = 3
+strategic_trait = ExtResource("14_4g6sv")
+strategic_weight = 4
+
+[resource]
+script = ExtResource("15_jq1ju")
+personality_data = SubResource("Resource_5w8pu")
+character_entity_data = SubResource("Resource_fucgn")
+character_name = "Judas"
+character_backstory = "With little concern for danger or reward, they wander into the tower with no plan and no urgency."
+map_seed = 2022384329
+player_node_index = 16
+card_deck = SubResource("Resource_8csqo")
+held_items = Array[ExtResource("10_ldui5")]([ExtResource("11_gcsfp")])
+gold = 236

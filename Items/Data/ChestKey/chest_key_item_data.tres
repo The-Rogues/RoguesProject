@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="KeyItem" format=3 uid="uid://hfsmsjtkw6ss"]
+
+[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://General/PlaceholderArt/32rogues/items.png" id="1_o7bdq"]
+[ext_resource type="Script" uid="uid://c6lrmd6uaaqx8" path="res://Items/Core/key_item_data.gd" id="1_pwbpo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvup5"]
+atlas = ExtResource("1_o7bdq")
+region = Rect2(0, 704, 32, 32)
+
+[resource]
+script = ExtResource("1_pwbpo")
+key_id = "chest"
+name = "Chest Key"
+description = "Use to open a locked Chest. Consumed after use."
+display_texture = SubResource("AtlasTexture_nvup5")
+sell_price = 40
+metadata/_custom_type_script = "uid://c6lrmd6uaaqx8"
