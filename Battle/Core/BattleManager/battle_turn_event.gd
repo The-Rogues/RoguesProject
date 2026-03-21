@@ -5,10 +5,12 @@ class_name BattleTurnEvent
 signal event_ended(battle_event:BattleTurnEvent)
 
 var battle_instance:BattleManager
+var associated_entity:BattleEntity
 
 const FLOATING_NUMBERS = preload(
 		"res://General/UI/DamageNumbers/floating_numbers.tscn"
 )
+
 
 func display_floating_numbers(text:String, parent):
 	if !battle_instance:
@@ -19,8 +21,14 @@ func display_floating_numbers(text:String, parent):
 	
 	new_pop_text.initialize(text, Color.DIM_GRAY)
 
+
 func initialize(
 		new_battle_instance:BattleManager, 
 		user:BattleEntity = null
 ) -> void:
 	battle_instance = new_battle_instance
+	associated_entity = user
+
+
+func on_stack():
+	pass

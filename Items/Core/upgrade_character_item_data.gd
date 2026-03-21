@@ -15,7 +15,7 @@ enum UpgradeType {MAX_HEALTH, MAX_ENERGY, ITEM_CAPACITY}
 @export_range(1,999) var increase:int = 1
 
 # Override
-func use_item(_battle_instance:BattleManager = null) -> void:
+func use_item(_battle_instance:BattleManager = null) -> bool:
 	if upgrade == UpgradeType.MAX_HEALTH:
 		if _battle_instance:
 			_battle_instance.player_entity.increase_max_health(increase)
@@ -32,4 +32,4 @@ func use_item(_battle_instance:BattleManager = null) -> void:
 			_battle_instance.energy_counter.initialize(GlobalSessionManager.run_progress.max_energy)
 	elif upgrade == UpgradeType.ITEM_CAPACITY:
 		GlobalSessionManager.increase_item_capacity()
-	pass
+	return true

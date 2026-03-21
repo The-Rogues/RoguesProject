@@ -11,6 +11,7 @@ signal increased_item_capacity(new_capacity:int)
 signal traits_updated
 signal gold_updated(new_value:int)
 signal gold_added(added_amount:int)
+signal items_updated(held_items:Array[ItemData])
 
 var run_progress: RunProgress
 var started_session:bool = false
@@ -221,6 +222,7 @@ func buy_item(item: ItemData) -> bool:
 	
 	gold_updated.emit(run_progress.gold)
 	run_progress.total_items_collected += 1
+	items_updated.emit(run_progress.held_items)
 	GlobalSaveManager.save_run(run_progress)
 	return true
 
@@ -246,9 +248,18 @@ func sell_held_item(item: ItemData) -> bool:
 	return true
 
 
+func use_heald_item(index:int, battle:BattleManager):
+	if run_progress == null:
+		return
+	
+	run_progress.held_items[index].use_item(battle)
+	_remove_held_item(run_progress.held_items[index])
+
+
 func _remove_held_item(item:ItemData):
 	if run_progress == null:
 		return
 	
 	if run_progress.held_items.has(item):
 		run_progress.held_items.erase(item)
+		items_updated.emit(run_progress.held_items)

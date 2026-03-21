@@ -217,6 +217,7 @@ card_hand = NodePath("../PlayerCardHand")
 visible = false
 
 [node name="GameDashBoard" parent="UILayer" unique_id=894429948 instance=ExtResource("9_prne7")]
+in_battle = true
 
 [node name="LoseScreen" parent="." unique_id=1254281250 instance=ExtResource("10_tmnld")]
 visible = false

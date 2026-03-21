@@ -17,7 +17,7 @@ var pending_battle_configuration:BattleSceneConfiguration
 var pending_shop_data:ShopData
 
 const FLOOR_1_SPAWN_POOL = preload("res://Battle/Config/SpawnPools/floor_1_spawn_pool.tres")
-const FLOOR_1_SHOP_DATA = preload("res://Map/Shop/ItemPools/floor_1_shop_data.tres")
+const ITEM_SHOP_DATA = preload("res://Map/Shop/ItemPools/item_shop_data.tres")
 
 const MAIN_MENU_PATH = "res://Menus/MainMenu/main_menu_scene.tscn"
 const MAP_SCENE_PATH = "res://Map/map_screen/MapScreen.tscn"
@@ -108,7 +108,7 @@ func load_shop_scene():
 		return
 	
 	# TODO: Change item pool depending on floor the player is on
-	pending_shop_data = FLOOR_1_SHOP_DATA
+	pending_shop_data = ITEM_SHOP_DATA
 	ResourceLoader.load_threaded_request(ITEM_SHOP_PATH)
 	loading_scene_path = ITEM_SHOP_PATH
 	loading_scene = true

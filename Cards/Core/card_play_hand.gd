@@ -1,6 +1,7 @@
 extends Node2D
 class_name CardPlayHand
 
+signal card_drawn(instance:CardInstance)
 signal play_card(card_ui: CardUI)
 signal grabbed_card
 signal released_card
@@ -46,6 +47,7 @@ func initialize(new_card_datas: Array[CardData]) -> void:
 	for data in new_card_datas:
 		print("drawn")
 		draw_card(data)
+
 
 func draw_card(new_card_data: CardData) -> void:
 	var card:CardUI = CARD_UI.instantiate() as CardUI

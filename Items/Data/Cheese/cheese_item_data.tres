@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BattleEventItem" format=3 uid="uid://bd2ynpbh5j0kj"]
+
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://Items/Core/battle_event_item.gd" id="1_4k0jw"]
+[ext_resource type="Texture2D" uid="uid://c2fwr2d5vfqbb" path="res://Items/Data/Cheese/cheese_texture.tres" id="1_rd78d"]
+[ext_resource type="Script" uid="uid://d3v2xif14qfmf" path="res://Items/Data/Cheese/rat_battle_event.gd" id="2_jhv5j"]
+
+[sub_resource type="Resource" id="Resource_1ph1i"]
+script = ExtResource("2_jhv5j")
+metadata/_custom_type_script = "uid://d3v2xif14qfmf"
+
+[resource]
+script = ExtResource("1_4k0jw")
+effect = SubResource("Resource_1ph1i")
+use_player = true
+rarity = 1
+name = "Cheese"
+description = "Summon 1-3 Rats to fight with you."
+display_texture = ExtResource("1_rd78d")
+shop_price = 200
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

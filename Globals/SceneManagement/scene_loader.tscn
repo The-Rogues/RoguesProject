@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://cl52fqbtrwchr" path="res://Globals/SceneManagement/scene_loader.gd" id="1_fm6ra"]
 [ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://General/PlaceholderArt/donkey.tres" id="2_17v8e"]
 [ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://Entities/Data/Enemies/Slime/slime_texture.tres" id="3_bt074"]
-[ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://Testing/rat_texture.tres" id="6_n2qip"]
+[ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://Items/Data/Cheese/rat_texture.tres" id="6_n2qip"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="8_iwggg"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
 [ext_resource type="PackedScene" uid="uid://c7lb2ji3nvodm" path="res://General/UI/ScreenFader/screen_fade.tscn" id="10_qepw2"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_balau"]
 bg_color = Color(0.019607844, 0.019607844, 0.019607844, 1)

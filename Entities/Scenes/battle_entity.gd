@@ -59,6 +59,7 @@ func take_damage(amount:float, attacker:BattleEntity = null):
 	
 	if attacker != null:
 		last_attacker = attacker
+		attacked.emit(self, attacker)
 	
 	if can_take_damage:
 		var damage:int = status_conditions.apply_attack_effects(amount)

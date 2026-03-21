@@ -17,6 +17,7 @@ signal healed(amount:int)
 signal damaged(amount:int)
 signal updated_entity_data
 signal entered_new_turn
+signal attacked(entity:Entity, attacker:Entity)
 
 const LUANCH_BODY = preload("res://General/LaunchBody/launch_spin_body.tscn")
 
@@ -94,6 +95,7 @@ func take_damage(amount:float, attacker:BattleEntity = null):
 	
 	if attacker != null:
 		last_attacker = attacker
+		attacked.emit(self, attacker)
 	
 	if can_take_damage:
 		_health.take_damage(amount)

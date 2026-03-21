@@ -3,8 +3,13 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_0gffy"]
 [ext_resource type="Script" uid="uid://reh5a1s00m3f" path="res://Items/Scenes/player_items.gd" id="1_bskay"]
 [ext_resource type="PackedScene" uid="uid://cecuvuvoj0tjs" path="res://Items/Scenes/item_interface.tscn" id="2_bskay"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://General/Effects/Particles/star_texture.tres" id="4_x5vdi"]
 
-[node name="Items" type="VBoxContainer" unique_id=1695638652]
+[sub_resource type="Curve" id="Curve_8nebr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5042373, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="PlayerItems" type="VBoxContainer" unique_id=1695638652]
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/separation = 0
@@ -23,5 +28,17 @@ vertical_alignment = 1
 [node name="ItemInterface" parent="." unique_id=92166697 instance=ExtResource("2_bskay")]
 layout_mode = 2
 size_flags_horizontal = 4
+alignment = 2
 minimum_item_slot_count = 3
-force_initialize = false
+
+[node name="UseParticles" type="CPUParticles2D" parent="." unique_id=677641595]
+position = Vector2(30, 33)
+emitting = false
+amount = 5
+texture = ExtResource("4_x5vdi")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 25.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_8nebr")

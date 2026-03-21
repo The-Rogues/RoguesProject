@@ -10,7 +10,7 @@ class_name GameSessionDisplay
 @onready var player_items: PlayerItems = $Container/RightElements/PlayerItems
 
 @onready var deck_button: TextureButton = $Container/RightElements/Deck/DeckButton
-
+@export var in_battle:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,11 +36,15 @@ func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:Ca
 		starting_card_deck
 	)
 	
-	player_items.connect_to_battle(battle_instance)
+	#player_items.connect_to_battle(battle_instance)
+	player_items.battle = battle_instance
+	player_items.in_battle_scene = in_battle
+	player_items._initialize(GlobalSessionManager.run_progress.held_items)
 	
 	battle_instance.player_entity._health.health_changed.connect(
 		_on_health_changed
 	)
+	in_battle = true
 
 
 func _on_health_changed(current:int, max:int):

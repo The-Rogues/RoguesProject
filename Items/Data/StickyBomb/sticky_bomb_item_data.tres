@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BattleEventItem" format=3 uid="uid://dand104dwhnbk"]
+
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://Items/Core/battle_event_item.gd" id="1_fd8yu"]
+[ext_resource type="Texture2D" uid="uid://bo10mdjjsef24" path="res://Items/Data/StickyBomb/sticky_bomb_texture.tres" id="1_ua0nt"]
+[ext_resource type="Script" uid="uid://b6knn3slqa3th" path="res://Items/Data/StickyBomb/sticky_bomb_battle_event.gd" id="2_rhp1w"]
+
+[sub_resource type="Resource" id="Resource_rm0db"]
+script = ExtResource("2_rhp1w")
+metadata/_custom_type_script = "uid://b6knn3slqa3th"
+
+[resource]
+script = ExtResource("1_fd8yu")
+effect = SubResource("Resource_rm0db")
+use_player = true
+name = "Sticky Bomb"
+description = "After use, attatch a bomb to the next enemy you attack. Bomb detonates after 3 turns and deals 40 damage."
+display_texture = ExtResource("1_ua0nt")
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

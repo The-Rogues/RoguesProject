@@ -30,10 +30,14 @@ func add_card(card_data:CardData) -> void:
 	deck_updated.emit(cards)
 
 ## Use to create new deck for initialization
-func add_cards(new_card_datas:Array[CardData]) -> void:
+func add_cards(new_card_datas:Array[CardData], to_front:bool = false) -> void:
 	for card_data in new_card_datas:
-		cards.append(card_data)
+		if to_front:
+			cards.push_front(card_data)
+		else:
+			cards.append(card_data)
 	deck_updated.emit(cards)
+
 
 func remove_card(card_data:CardData) -> void:
 	cards.erase(card_data)

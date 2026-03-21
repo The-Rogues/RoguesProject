@@ -13,10 +13,10 @@ class_name HealingItemData
 @export var health:int = 5
 
 # Override
-func use_item(_battle_instance:BattleManager = null) -> void:
+func use_item(_battle_instance:BattleManager = null) -> bool:
 	if _battle_instance:
 		_battle_instance.player_entity.heal(health)
 		GlobalSessionManager.save_character_health(
 				_battle_instance.player_entity._health.current_health
 		)
-	pass
+	return true

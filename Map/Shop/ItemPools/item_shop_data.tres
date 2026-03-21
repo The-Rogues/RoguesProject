@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShopData" format=3 uid="uid://brc7n4drna032"]
+
+[ext_resource type="Script" uid="uid://b3ne2lxaru7d4" path="res://Map/Shop/Core/shop_data.gd" id="1_kbyxm"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Items/Core/item_data.gd" id="2_ppjg5"]
+[ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://Items/Data/Apple/apple_healing_item_data.tres" id="3_p3y1c"]
+[ext_resource type="Resource" uid="uid://c1akblk4le2jm" path="res://Items/Data/RepeatPoiton/repeat_potion_item_data.tres" id="5_ppjg5"]
+[ext_resource type="Resource" uid="uid://cnlu0t2x62ws6" path="res://Items/Data/Barricade/barricade_item_data.tres" id="6_caemj"]
+[ext_resource type="Resource" uid="uid://dand104dwhnbk" path="res://Items/Data/StickyBomb/sticky_bomb_item_data.tres" id="7_2yu8j"]
+[ext_resource type="Resource" uid="uid://bd2ynpbh5j0kj" path="res://Items/Data/Cheese/cheese_item_data.tres" id="7_caemj"]
+
+[resource]
+script = ExtResource("1_kbyxm")
+shop_item_pool = Array[ExtResource("2_ppjg5")]([ExtResource("3_p3y1c"), ExtResource("5_ppjg5"), ExtResource("6_caemj"), ExtResource("7_caemj"), ExtResource("7_2yu8j")])
+metadata/_custom_type_script = "uid://b3ne2lxaru7d4"

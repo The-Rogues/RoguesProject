@@ -25,6 +25,8 @@ enum TargetingBiasType {
 
 
 func get_healthiest_target(entities:Array[BattleEntity]):
+	if entities.is_empty():
+		return null
 	var target:BattleEntity = entities[0]
 	for canidate in entities:
 		if canidate._health.current_health > target._health.current_health:
@@ -33,6 +35,8 @@ func get_healthiest_target(entities:Array[BattleEntity]):
 
 
 func get_unhealthiest_target(entities:Array[BattleEntity]):
+	if entities.is_empty():
+		return null
 	var target:BattleEntity = entities[0]
 	for canidate in entities:
 		if canidate._health.current_health < target._health.current_health:

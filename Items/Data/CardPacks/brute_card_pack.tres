@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://bg4bfkt54v2s8"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_3itpu"]
+[ext_resource type="Resource" uid="uid://b7q5uhsqn0chi" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/head_butt_card_data.tres" id="2_o40r8"]
+[ext_resource type="Resource" uid="uid://7n3mqrwdvr7" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="3_103gg"]
+[ext_resource type="Resource" uid="uid://btty5jrbwykeo" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/pay_back_card_data.tres" id="4_tpppl"]
+[ext_resource type="Resource" uid="uid://v3y7fyud6i1j" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="5_bqpgj"]
+[ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="6_7p1ok"]
+[ext_resource type="Texture2D" uid="uid://dijrwcokcngwv" path="res://Cards/UI/deck_icon_normal.tres" id="7_gt7gr"]
+[ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://Items/Core/card_pack_item_data.gd" id="8_4apt1"]
+
+[sub_resource type="Resource" id="Resource_u2pil"]
+script = ExtResource("6_7p1ok")
+common = Array[ExtResource("1_3itpu")]([ExtResource("2_o40r8"), ExtResource("3_103gg"), ExtResource("4_tpppl"), ExtResource("5_bqpgj")])
+metadata/_custom_type_script = "uid://coht23i0qahwq"
+
+[resource]
+script = ExtResource("8_4apt1")
+card_pool = SubResource("Resource_u2pil")
+draw_count = 3
+rarity = 2
+name = "Brute Card Pack"
+description = "Add 3 Brute Cards to your Deck"
+display_texture = ExtResource("7_gt7gr")
+usable_out_of_battle = true
+shop_price = 500
+sell_price = 80
+metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

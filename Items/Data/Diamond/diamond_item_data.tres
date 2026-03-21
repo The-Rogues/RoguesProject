@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cfpdbdrrumxg5"]
+
+[ext_resource type="Texture2D" uid="uid://crkgj5pwscfcn" path="res://Items/Data/Diamond/diamond_texture.tres" id="1_fq7fi"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://Items/Core/item_data.gd" id="2_ultor"]
+
+[resource]
+script = ExtResource("2_ultor")
+rarity = 2
+name = "Diamond"
+description = "Sell at shops for a high price."
+display_texture = ExtResource("1_fq7fi")
+shop_price = 9999
+sell_price = 5000
+metadata/_custom_type_script = "uid://wmqmctcre0tg"

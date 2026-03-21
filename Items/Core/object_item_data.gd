@@ -3,5 +3,9 @@ class_name ObjectItem
 
 @export var object:ObjectEntityData
 
-func use_item(_battle_instance:BattleManager = null) -> void:
+func use_item(_battle_instance:BattleManager = null) -> bool:
+	if !_battle_instance:
+		return false
+	
 	_battle_instance.player_entity.carry_object(object)
+	return true

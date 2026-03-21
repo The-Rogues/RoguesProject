@@ -1,6 +1,7 @@
 extends Control
 
-@export var override_shop_items:Array[ItemData]
+const ITEM_SHOP_DATA = preload("res://Map/Shop/ItemPools/item_shop_data.tres")
+#@export var override_shop_items:Array[ItemData]
 @export var shop_keeper_varients:Array[Texture2D]
 
 @onready var shop_items_interface: ShopItemInterface = $CanvasLayer/Control/ShopInterface/VBoxContainer/PanelContainer/HBoxContainer/ShopItems
@@ -21,16 +22,14 @@ var sellable_items:Array[ItemData]
 var selected_item:ItemData
 var selected_item_index:int = -1
 
+
 func _ready() -> void:
 	menu_options.visible = true
 	shop_options.visible = false
 	sell_options.visible = false
 	item_info.visible = false
 	
-	if GlobalSceneLoader.pending_shop_data:
-		shop_items = GlobalSceneLoader.get_shop_items()
-	else:
-		shop_items = override_shop_items
+	shop_items = ITEM_SHOP_DATA.get_shop_items()
 	
 	if GlobalSessionManager.run_progress:
 		sellable_items = GlobalSessionManager.run_progress.held_items
@@ -40,7 +39,7 @@ func _ready() -> void:
 	if sellable_items:
 		sellable_items_interface.initialize(sellable_items)
 	else:
-		sellable_items_interface.clear_item_slots()
+		sellable_items_interface.initialize([])
 	
 	shop_items_interface.initialize(shop_items)
 	shop_items_interface.selected_item.connect(_on_selected_item)

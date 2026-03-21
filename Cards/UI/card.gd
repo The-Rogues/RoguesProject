@@ -5,6 +5,8 @@ signal clicked(card: CardUI)
 signal hovered(card: CardUI, is_hovering: bool)
 
 @export var card_data: CardData
+var card_instance:CardInstance
+
 @export var force_initialization := false
 
 @onready var energy_label: Label = $PanelContainer/EnergyLabel
@@ -29,6 +31,31 @@ func set_card_data(data: CardData) -> void:
 	energy_label.text = str(data.energy_cost)
 	name_label.text = data.move.name
 	description_label.text = data.move.description
+
+
+func set_card_instance(instance:CardInstance) -> void:
+	card_instance = instance
+	
+	energy_label.text = str(instance.cost)
+	name_label.text = instance.data.move.name
+	description_label.text = instance.data.move.description
+
+
+func parse_card_description(move:BattleMove, stack:int) -> String:
+	return ""
+
+
+func get_substring_between_braces(main_string: String) -> String:
+	var start_index: int = main_string.find("{")
+	if start_index == -1:
+		return ""
+	var end_index: int = main_string.find("}", start_index + 1)
+	if end_index == -1:
+		return ""
+	var substring_start: int = start_index + 1
+	var substring_length: int = end_index - substring_start
+	return main_string.substr(substring_start, substring_length)
+
 
 
 func _gui_input(event: InputEvent) -> void:

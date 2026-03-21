@@ -11,6 +11,7 @@ func initialize(
 	new_battle_instance.new_turn_started.connect(_on_new_turn_started)
 	new_battle_instance.player_entity.ignore_projectiles = true
 
+
 func _on_new_turn_started():
 	duration -= 1
 	if duration == 0:

@@ -6,13 +6,11 @@ class_name CardData
 ## to perform. Intended to be used as a creatable asset that is passed
 ## to CardUI for initialization
 
-@export var id:int = 0
+@export var id:String = "card id"
 ## Sets the default cost it will take to play the card
 @export var energy_cost:int = 0
 @export var discard_after_play:bool = false
 ## Sets what actions will be perfomed when playing the card, seperated by 
 ## specified target
 @export var move:BattleMove
-@export var primary_action:BattleAction
-@export var secondary_action:BattleAction
 #TODO: Experiment with cards having display image 
