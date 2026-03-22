@@ -79,5 +79,5 @@ func init_map_screen(in_instance: Control) -> void:
 			child_container.offset_top =  scroll_container.size.y / 2
 			child_container.offset_bottom = scroll_container.size.y * (5.0/2.0)
 			child_container.custom_minimum_size = Vector2(scroll_container.size.x, scroll_container.size.y * 3)
-			child_container.resize_map(child_container.custom_minimum_size)
+			in_instance.resize_map(child_container.custom_minimum_size)
 	)

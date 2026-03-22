@@ -1,3 +1,4 @@
+res://Map/map_screen/MapScreen_scn_main.gd
 res://Map/mini_event_screen/MiniEventScreen.tscn
 res://General/Effects/SpriteFlasher/flash_sprite_material.tres
 res://Entities/StatusEffects/Protected/protected_condition_status_icon.tres
@@ -21,12 +22,4 @@ res://Cards/Shared/move_card_data.tres
 res://Cards/Shared/strike_card_data.tres
 res://Cards/Shared/sling_shot_card_data.tres
 res://Cards/Shared/swing_card_data.tres
-res://Map/mini_event_screen/MiniEventScreen_scn_main.gd
-res://Map/map_screen/MapScreen_scn_main.gd
-res://Map/event/event_resources/MiniEventData.gd
-res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd
-res://Map/map_screen/MapScreen.tscn
-res://Map/map_module/map_scenes/MapButton/MapButton_scn_main.gd
-res://Map/map_module/map_scenes/MapButton/MapButton.tscn
 res://Map/event/event_instances/test_mini_data.tres
-res://Map/event/event_callbacks/mini_event_callback.gd
