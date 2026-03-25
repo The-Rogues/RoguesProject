@@ -27,6 +27,9 @@ var run_map: MapManager
 @export var current_floor:int = 1
 @export var player_node_index: int = 0
 @export var battle: BattleSaveData = null
+@export var pending_node_index: int = -1
+@export var room_in_progress: bool = false
+@export var pending_room_type: int = -1
 
 # -------------------------------------------------
 # Loot progress tracking member values
