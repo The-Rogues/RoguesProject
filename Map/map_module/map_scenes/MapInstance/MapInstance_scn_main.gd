@@ -226,26 +226,12 @@ func set_button_states() -> void:
 			# This top branch executes if the loop is still on the same layer as the player.
 			if room_in_progress and i == pending_index:
 				map_buttons[i].disabled = false
-				if map_structure.node_arr[i].node_data == 1:
-					map_buttons[i].texture_normal = texture_available_battle
-					map_buttons[i].texture_hover = texture_available_battle_hover
-				elif map_structure.node_arr[i].node_data == 0:
-					map_buttons[i].texture_normal = texture_available_shop
-					map_buttons[i].texture_hover = texture_available_shop_hover
-				else:
-					map_buttons[i].texture_normal = texture_available_boss
-					map_buttons[i].texture_hover = texture_available_boss_hover
+				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_available
+				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_hover
 					
 			elif room_in_progress and map_structure.node_arr[i].node_layer == pending_layer:
-				if map_structure.node_arr[i].node_data == 1:
-					map_buttons[i].texture_normal = texture_battle
-					map_buttons[i].texture_hover = texture_battle
-				elif map_structure.node_arr[i].node_data == 0:
-					map_buttons[i].texture_normal = texture_shop
-					map_buttons[i].texture_hover = texture_shop
-				else:
-					map_buttons[i].texture_normal = texture_boss
-					map_buttons[i].texture_hover = texture_boss
+				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
+				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
 					
 			elif map_structure.node_arr[i].node_layer == player_layer:
 				map_buttons[i].texture_normal = texture_passed
@@ -320,7 +306,7 @@ func check_accessable(q_node: RefCounted, access_arr: Array[RefCounted]) -> bool
 # corr_node: The corresponding node of the button pressed.
 # Return: Void.
 func _on_map_button_pressed(corr_node: RefCounted) -> void:
-	map_structure.player_pos = corr_node # Set the player's new position.
+	GlobalSessionManager.select_map_node(corr_node)
 	available_button_positions.clear() # When the player's position is changed, new positions will be assigned to this map.
 
 # --_process Function--
@@ -366,4 +352,3 @@ func get_vertical_offset() -> float:
 	
 	# If the player's position is not found, retun zero.
 	return 0.0
-	GlobalSessionManager.select_map_node(corr_node)

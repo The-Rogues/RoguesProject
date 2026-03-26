@@ -53,26 +53,25 @@ func initialize_map() -> void:
 	# Maps always reconstructed from seed
 	run_progress.run_map = MapManager.new(run_progress.map_seed)
 	run_progress.run_map.set_player_node_index(run_progress.player_node_index)
-	_attach_map_callbacks()
+	# _attach_map_callbacks()
 
 
-func _attach_map_callbacks():
-	run_progress.run_map.add_callback(
-		func(corr_node: RefCounted):
-			# save position on arrival
-			run_progress.player_node_index = run_progress.run_map.get_player_node_index()
-			# trigger scene
-			
-			if corr_node.node_data.mini_event != null:
-				var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
-				var mini_instance: Control = mini_event_scene.instantiate()
-				get_tree().current_scene.add_child(mini_instance)
-				mini_instance.init_screen(corr_node.node_data)
-			else:
-				var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
-				callback.process_event()
-	)
-	
+#func _attach_map_callbacks():
+	#run_progress.run_map.add_callback(
+		#func(corr_node: RefCounted):
+			## save position on arrival
+			#run_progress.player_node_index = run_progress.run_map.get_player_node_index()
+			## trigger scene
+			#
+			#if corr_node.node_data.mini_event != null:
+				#var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
+				#var mini_instance: Control = mini_event_scene.instantiate()
+				#get_tree().current_scene.add_child(mini_instance)
+				#mini_instance.init_screen(corr_node.node_data)
+			#else:
+				#var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
+				#callback.process_event()
+	#)
 
 # Get the current state of the node. I used this one. Before when click the node, it will update end go to the next one before we actually finish the battle
 func select_map_node(corr_node: RefCounted) -> void:
@@ -80,16 +79,18 @@ func select_map_node(corr_node: RefCounted) -> void:
 		return
 	
 	run_progress.pending_node_index = run_progress.run_map.map_structure.get_node_index(corr_node)
-	run_progress.pending_room_type = corr_node.node_data
+	#run_progress.pending_room_type = corr_node.node_data
 	run_progress.room_in_progress = true
 	GlobalSaveManager.save_run(run_progress)
 	
-	if corr_node.node_data == 1:
-		GlobalSceneLoader.load_battle_scene()
-	elif corr_node.node_data == 0:
-		GlobalSceneLoader.load_shop_scene()
-	elif corr_node.node_data == 2:
-		GlobalSceneLoader.load_scene("res://Map/test_screen/TestScreen.tscn")
+	if corr_node.node_data.mini_event != null:
+		var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
+		var mini_instance: Control = mini_event_scene.instantiate()
+		get_tree().current_scene.add_child(mini_instance)
+		mini_instance.init_screen(corr_node.node_data)
+	else:
+		var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
+		callback.process_event()
 
 # Use this in all the event to reset after exist. This function use will condition is meet in the event. 
 func complete_current_room() -> void:
