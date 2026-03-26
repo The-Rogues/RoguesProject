@@ -1,52 +1,54 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_8uu1w"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="2_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="3_8uu1w"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/counter_card_data.tres" id="4_osl4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/endure_card_data.tres" id="5_73m4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/move_card_data.tres" id="6_osl4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/conserve_card_data.tres" id="7_73m4a"]
-[ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="9_gbghs"]
-[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="10_rp2d1"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="10_sqevk"]
-[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="12_jq1ju"]
-[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="13_8csqo"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres" id="13_bn7m0"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="14_gvrsj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="16_bn7m0"]
-[ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="16_fad0b"]
-[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="18_4f4mg"]
+[ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_3dqjj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/strike_card_data.tres" id="2_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/spare_card_data.tres" id="3_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/defend_card_data.tres" id="4_73m4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/taunt_card_data.tres" id="5_sqevk"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/move_card_data.tres" id="6_bn7m0"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/conserve_card_data.tres" id="7_gvrsj"]
+[ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="8_ldui5"]
+[ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="9_hxw8v"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="10_gbghs"]
+[ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="11_rp2d1"]
+[ext_resource type="Script" path="res://Items/Core/item_data.gd" id="12_4g6sv"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="13_jq1ju"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="14_8csqo"]
+[ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="15_fucgn"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="16_5w8pu"]
+[ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="17_fad0b"]
 
-[sub_resource type="Resource" id="Resource_ldui5"]
-script = ExtResource("10_rp2d1")
+[sub_resource type="Resource" id="Resource_p7mxt"]
+script = ExtResource("9_hxw8v")
 name = "Your Deck"
-cards = Array[ExtResource("1_8uu1w")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("5_73m4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("7_73m4a"), ExtResource("9_gbghs")])
+cards = Array[ExtResource("1_3dqjj")]([ExtResource("2_8uu1w"), ExtResource("2_8uu1w"), ExtResource("2_8uu1w"), ExtResource("3_osl4a"), ExtResource("3_osl4a"), ExtResource("4_73m4a"), ExtResource("4_73m4a"), ExtResource("4_73m4a"), ExtResource("4_73m4a"), ExtResource("5_sqevk"), ExtResource("6_bn7m0"), ExtResource("6_bn7m0"), ExtResource("6_bn7m0"), ExtResource("6_bn7m0"), ExtResource("7_gvrsj"), ExtResource("8_ldui5")])
 
-[sub_resource type="Resource" id="Resource_hxw8v"]
-script = ExtResource("12_jq1ju")
-display_texture = ExtResource("10_sqevk")
+[sub_resource type="Resource" id="Resource_4f4mg"]
+script = ExtResource("11_rp2d1")
+display_texture = ExtResource("10_gbghs")
 id = "player"
 name = "Judas"
-description = "With little concern for danger or reward, they wander into the tower with no plan and no urgency."
+description = "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape."
 max_health = 80
 
-[sub_resource type="Resource" id="Resource_gbghs"]
-script = ExtResource("16_fad0b")
-offensive_trait = ExtResource("14_gvrsj")
-offensive_weight = 2
-defensive_trait = ExtResource("13_bn7m0")
-defensive_weight = 4
-strategic_trait = ExtResource("16_bn7m0")
-strategic_weight = 7
+[sub_resource type="Resource" id="Resource_7ka2q"]
+script = ExtResource("15_fucgn")
+offensive_trait = ExtResource("14_8csqo")
+offensive_weight = 4
+defensive_trait = ExtResource("13_jq1ju")
+defensive_weight = 10
+strategic_trait = ExtResource("16_5w8pu")
+strategic_weight = 4
 
 [resource]
-script = ExtResource("18_4f4mg")
-personality_data = SubResource("Resource_gbghs")
-character_entity_data = SubResource("Resource_hxw8v")
+script = ExtResource("17_fad0b")
+personality_data = SubResource("Resource_7ka2q")
+character_entity_data = SubResource("Resource_4f4mg")
 character_name = "Judas"
-character_backstory = "With little concern for danger or reward, they wander into the tower with no plan and no urgency."
-map_seed = 3491648128
-player_node_index = 1
-card_deck = SubResource("Resource_ldui5")
-gold = 50
+character_backstory = "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape."
+map_seed = 2054651685
+player_node_index = 43
+pending_node_index = 48
+room_in_progress = true
+pending_room_type = 1
+card_deck = SubResource("Resource_p7mxt")

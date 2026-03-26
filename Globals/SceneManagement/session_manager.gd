@@ -14,6 +14,7 @@ signal gold_added(added_amount:int)
 
 var run_progress: RunProgress
 var started_session:bool = false
+var pending_node_index = -1
 
 # -------------------------------------------------
 # Initializing & deleting game session
@@ -71,6 +72,43 @@ func _attach_map_callbacks():
 				var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
 				callback.process_event()
 	)
+	
+
+# Get the current state of the node. I used this one. Before when click the node, it will update end go to the next one before we actually finish the battle
+func select_map_node(corr_node: RefCounted) -> void:
+	if run_progress == null or run_progress.run_map == null:
+		return
+	
+	run_progress.pending_node_index = run_progress.run_map.map_structure.get_node_index(corr_node)
+	run_progress.pending_room_type = corr_node.node_data
+	run_progress.room_in_progress = true
+	GlobalSaveManager.save_run(run_progress)
+	
+	if corr_node.node_data == 1:
+		GlobalSceneLoader.load_battle_scene()
+	elif corr_node.node_data == 0:
+		GlobalSceneLoader.load_shop_scene()
+	elif corr_node.node_data == 2:
+		GlobalSceneLoader.load_scene("res://Map/test_screen/TestScreen.tscn")
+
+# Use this in all the event to reset after exist. This function use will condition is meet in the event. 
+func complete_current_room() -> void:
+	if run_progress == null or run_progress.run_map == null:
+		return
+	if run_progress.pending_node_index < 0:
+		return
+	
+	run_progress.run_map.set_player_node_index(run_progress.pending_node_index)
+	run_progress.player_node_index = run_progress.pending_node_index
+	run_progress.total_rooms_explored += 1
+	
+	run_progress.pending_node_index = -1 # These will be save. I want to use this to prevent player when the back to the game, they choose other location instead. 
+	run_progress.pending_room_type = -1
+	run_progress.room_in_progress = false
+	
+	GlobalSaveManager.save_run(run_progress)
+	
+
 
 func erase_run_progress():
 	started_session = false

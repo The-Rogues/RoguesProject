@@ -94,6 +94,7 @@ func _play_win_sequence():
 	await get_tree().create_timer(4).timeout
 	battle_interface.visible = false
 	battle_win_screen.visible = true
+	GlobalSessionManager.complete_current_room()
 	
 	battle_win_screen.initialize(
 		enemy_encounter,

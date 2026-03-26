@@ -196,6 +196,14 @@ func set_button_states() -> void:
 	
 	# When the player's node is reached, the pressable buttons will be stored in this array.
 	var accessable_buttons: Array[RefCounted] = []
+	var room_in_progress :bool= GlobalSessionManager.run_progress != null and GlobalSessionManager.run_progress.room_in_progress
+	var pending_index: int = -1
+	var pending_layer: int = -1
+	if room_in_progress:
+		pending_index = GlobalSessionManager.run_progress.pending_node_index
+		if pending_index >= 0 and pending_index < map_structure.node_arr.size():
+			pending_layer = map_structure.node_arr[pending_index].node_layer
+	
 	for i in range(0, map_buttons.size()):
 		
 		# Disable all buttons by default.
@@ -216,7 +224,30 @@ func set_button_states() -> void:
 		elif player_layer >= 0:
 			
 			# This top branch executes if the loop is still on the same layer as the player.
-			if map_structure.node_arr[i].node_layer == player_layer:
+			if room_in_progress and i == pending_index:
+				map_buttons[i].disabled = false
+				if map_structure.node_arr[i].node_data == 1:
+					map_buttons[i].texture_normal = texture_available_battle
+					map_buttons[i].texture_hover = texture_available_battle_hover
+				elif map_structure.node_arr[i].node_data == 0:
+					map_buttons[i].texture_normal = texture_available_shop
+					map_buttons[i].texture_hover = texture_available_shop_hover
+				else:
+					map_buttons[i].texture_normal = texture_available_boss
+					map_buttons[i].texture_hover = texture_available_boss_hover
+					
+			elif room_in_progress and map_structure.node_arr[i].node_layer == pending_layer:
+				if map_structure.node_arr[i].node_data == 1:
+					map_buttons[i].texture_normal = texture_battle
+					map_buttons[i].texture_hover = texture_battle
+				elif map_structure.node_arr[i].node_data == 0:
+					map_buttons[i].texture_normal = texture_shop
+					map_buttons[i].texture_hover = texture_shop
+				else:
+					map_buttons[i].texture_normal = texture_boss
+					map_buttons[i].texture_hover = texture_boss
+					
+			elif map_structure.node_arr[i].node_layer == player_layer:
 				map_buttons[i].texture_normal = texture_passed
 				map_buttons[i].texture_hover = texture_passed
 			else:
@@ -236,6 +267,8 @@ func set_button_states() -> void:
 			# Set textures for passed nodes.
 			map_buttons[i].texture_normal = texture_passed
 			map_buttons[i].texture_hover = texture_passed
+			
+
 
 # --_draw Function--
 # Description: Draws lines between related nodes. We will probably want to write a new function
@@ -333,3 +366,4 @@ func get_vertical_offset() -> float:
 	
 	# If the player's position is not found, retun zero.
 	return 0.0
+	GlobalSessionManager.select_map_node(corr_node)

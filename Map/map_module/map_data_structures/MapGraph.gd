@@ -23,7 +23,7 @@ var player_pos: RefCounted: # A reference to the MapGraphNode that the player is
 		if player_pos != new_pos:
 			player_pos = new_pos # Set the new position if not already set.
 			emit_signal("player_pos_changed", player_pos) # Emit the player_pos_changed signal.
-			_autosave_progress()
+			#_autosave_progress()
 
 #------------------------------------------------------------------------------------
 # Section: _init Function
