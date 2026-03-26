@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doxve5ndf15pr"
-path="res://.godot/imported/availablebattlehover.png-6af8c73d92a8c926e34ecf902de2d58a.ctex"
+uid="uid://bytsnfwgssstf"
+path="res://.godot/imported/shop.png-93b1a2bb84a003e2d9c3667e219ae1c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/map_module/map_assets/availablebattlehover.png"
-dest_files=["res://.godot/imported/availablebattlehover.png-6af8c73d92a8c926e34ecf902de2d58a.ctex"]
+source_file="res://Map/map_assets/shop.png"
+dest_files=["res://.godot/imported/shop.png-93b1a2bb84a003e2d9c3667e219ae1c2.ctex"]
 
 [params]
 

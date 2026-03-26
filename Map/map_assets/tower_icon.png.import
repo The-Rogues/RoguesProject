@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1q0y0qdty5pc"
-path="res://.godot/imported/availablebattle.png-1e734c0c4b1293260fa96e20dfc385ab.ctex"
+uid="uid://cj3sde007t7rr"
+path="res://.godot/imported/tower_icon.png-40242090a83f229ffbb89d963098fe20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/map_module/map_assets/availablebattle.png"
-dest_files=["res://.godot/imported/availablebattle.png-1e734c0c4b1293260fa96e20dfc385ab.ctex"]
+source_file="res://Map/map_assets/tower_icon.png"
+dest_files=["res://.godot/imported/tower_icon.png-40242090a83f229ffbb89d963098fe20.ctex"]
 
 [params]
 

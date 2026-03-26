@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnirlgyfvayso"
-path="res://.godot/imported/player.png-dc21ee9459976b4fc0a6cf278223016b.ctex"
+uid="uid://tub71f3cn1ge"
+path="res://.godot/imported/availableboss.png-516caad1409a39266b7cecb4885beb7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/map_module/map_assets/player.png"
-dest_files=["res://.godot/imported/player.png-dc21ee9459976b4fc0a6cf278223016b.ctex"]
+source_file="res://Map/map_assets/availableboss.png"
+dest_files=["res://.godot/imported/availableboss.png-516caad1409a39266b7cecb4885beb7a.ctex"]
 
 [params]
 

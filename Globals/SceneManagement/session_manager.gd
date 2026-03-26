@@ -53,6 +53,25 @@ func initialize_map() -> void:
 	# Maps always reconstructed from seed
 	run_progress.run_map = MapManager.new(run_progress.map_seed)
 	run_progress.run_map.set_player_node_index(run_progress.player_node_index)
+	_attach_map_callbacks()
+
+
+func _attach_map_callbacks():
+	run_progress.run_map.add_callback(
+		func(corr_node: RefCounted):
+			# save position on arrival
+			run_progress.player_node_index = run_progress.run_map.get_player_node_index()
+			# trigger scene
+			
+			if corr_node.node_data.mini_event != null:
+				var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
+				var mini_instance: Control = mini_event_scene.instantiate()
+				get_tree().current_scene.add_child(mini_instance)
+				mini_instance.init_screen(corr_node.node_data)
+			else:
+				var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
+				callback.process_event()
+	)
 	
 
 # Get the current state of the node. I used this one. Before when click the node, it will update end go to the next one before we actually finish the battle

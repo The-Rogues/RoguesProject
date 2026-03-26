@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://djh4cmr66semj"]
+
+[ext_resource type="Script" uid="uid://c0iq1ylkmy30k" path="res://dev/TooltipComponent/Dashboard/Dashboard_scn_main.gd" id="1_fi0o4"]
+
+[node name="Dashboard" type="Control" unique_id=1301010600]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fi0o4")
+
+[node name="DashContainer" type="HBoxContainer" parent="." unique_id=403339974]
+layout_mode = 0
+
+[node name="DashBackground" type="ColorRect" parent="." unique_id=737798594]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)

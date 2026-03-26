@@ -78,7 +78,7 @@ func _init(
 	map_seed: int # An integer which can be randomised to produce unique structures.
 ) -> void:
 	
-	# Init data member.
+	# Init data members.
 	max_layer_nodes = max_layer_sz
 	num_mandatory = mandatory_node_amnt
 	
@@ -111,6 +111,10 @@ func _init(
 				return [0.33, 0.33, 0.34]
 			return out_edge_weights
 	).call()
+	
+	# Ensure mandatory nodes are the only single node layers.
+	if max_layer_sz < 5:
+		max_layer_sz = 5
 	
 	# A helper function which sums the m=numbers in an array before the index provided.
 	var sum_before: Callable = func(end_index: int, in_array: Array[float]) -> float:
@@ -513,7 +517,10 @@ func _init(
 	player_pos = node_arr[0]
 	
 	# Populate node event data member.
-	populate_events()
+	populate_noise(map_seed)
+	
+	# Populate node event data member.
+	populate_events(map_seed)
 
 #------------------------------------------------------------------------------------
 # Section: Secondary Functions
@@ -546,18 +553,114 @@ func get_layer(in_layer: int) -> Array[RefCounted]:
 
 # --populate_events Function--
 # Description: Logic for determining the distribution of events among MapGraphNodes.
-#              To be finalised further into development.
+#              Currently evenly distributes battle and non-battle events.
+# rand_seed: An integer used as a random seed for event distribution.
 # Return: void.
-func populate_events() -> void:
-	for i in range(0, node_arr.size()):
-		if (i == node_arr.size() - 1) || (get_layer(node_arr[i].node_layer).size() == 1):
-			node_arr[i].node_data = 2
-		else:
-			if node_arr[i].node_layer % 2 == 0:
-				node_arr[i].node_data = 0 # Even layered nodes are not battle nodes.
-			else:
-				node_arr[i].node_data = 1 # Odd layered nodes are battle nodes.
+func populate_events(rand_seed: int) -> void:
+	
+	# Get premade event instances.
+	var battle_data: Resource = load("res://Map/event/event_instances/battle_event_data.tres")
+	var shop_data: Resource = load("res://Map/event/event_instances/shop_event_data.tres") 
+	var boss_data: Resource = load("res://Map/event/event_instances/boss_event_data.tres")
+	var mini_data: Resource = load("res://Map/event/event_instances/test_mini_data.tres") 
+	
+	# Create RandomNumberGernerator and give it the seed.
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = rand_seed
+	
+	node_arr[0].node_data = add_main_event(battle_data)
+	
+	# First layer is always battle nodes.
+	var curr_layer: Array[RefCounted] = get_layer(1)
+	for i in range(0, curr_layer.size()):
+		curr_layer[i].node_data = add_main_event(battle_data)
+	
+	# Iterate over all other map layers.
+	for i in range(2, map_layers):
+		
+		# If the final layer is reached, it is set to a boss node.
+		if i == (map_layers - 1):
+			curr_layer = get_layer(i)
+			curr_layer[0].node_data = add_main_event(boss_data)
+			break
+		
+		# Layers are processed in pairs, odd layers can be ignored.
+		if (i % 2) == 1:
+			continue
+		
+		# Get the current layer and iterate over it.
+		curr_layer = get_layer(i)
+		for j in range(0, curr_layer.size()):
 			
+			# Check adjacent nodes to verify if the current node needs to have a forced type.
+			var is_shop: bool = false
+			var is_battle: bool = false
+			for k in range(0, curr_layer[j].node_edges.size()):
+				if i == (map_layers - 2):
+					break
+				if curr_layer[j].node_edges[k].node_data != null:
+					if curr_layer[j].node_edges[k].node_data.main_event == battle_data:
+						is_shop = true
+					else:
+						is_battle = true
+			
+			# If the current node has a forced type, set that type.
+			# Otherwise, choose a random type. Set all adjacent nodes to the opposite type.
+			if is_shop:
+				curr_layer[j].node_data = add_main_event(shop_data)
+				for k in range(0, curr_layer[j].node_edges.size()):
+					curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
+			elif is_battle:
+				curr_layer[j].node_data = add_main_event(battle_data)
+				for k in range(0, curr_layer[j].node_edges.size()):
+					curr_layer[j].node_edges[k].node_data = add_main_event(shop_data)
+			else:
+				if rand_gen.randf() < 0.5:
+					curr_layer[j].node_data = add_main_event(battle_data)
+					for k in range(0, curr_layer[j].node_edges.size()):
+						curr_layer[j].node_edges[k].node_data = add_main_event(shop_data)
+				else:
+					curr_layer[j].node_data = add_main_event(shop_data)
+					for k in range(0, curr_layer[j].node_edges.size()):
+						curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
+	
+	for i in range(1, node_arr.size()):
+		if (i % 2) == 1:
+			node_arr[i].node_data.mini_event = mini_data
+
+func add_main_event(main_data: Resource):
+	var ret_val: EventData = EventData.new()
+	ret_val.main_event = main_data
+	return ret_val
+
+func populate_noise(noise_seed: int) -> void:
+	
+	# Create RandomNumberGernerator and give it the seed.
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = noise_seed
+	
+	var curr_idx: int = 0
+	for i in range(0, map_layers):
+		
+		var curr_layer_size: int = get_layer(i).size()
+		for j in range(0, curr_layer_size):
+			
+			node_arr[curr_idx].y_noise_factor = rand_gen.randf()
+			if rand_gen.randf() < 0.5:
+				node_arr[i].y_noise_factor *= -1
+			
+			node_arr[curr_idx].x_noise_factor = rand_gen.randf()
+			if j == 0 && (curr_layer_size == max_layer_nodes):
+				node_arr[curr_idx].x_noise_left = false
+			elif (j == curr_layer_size - 1) && (curr_layer_size == max_layer_nodes):
+				node_arr[curr_idx].x_noise_left = true
+			else:
+				node_arr[curr_idx].x_noise_left = false
+				if rand_gen.randf() < 0.5:
+					node_arr[curr_idx].x_noise_left = true
+			
+			curr_idx += 1
+
 func get_player_node_index() -> int:
 	return node_arr.find(player_pos)
 	

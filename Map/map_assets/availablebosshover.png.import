@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tub71f3cn1ge"
-path="res://.godot/imported/availableboss.png-929a13ba9ceac82c9816ad9468f2d646.ctex"
+uid="uid://lqsh0p4hhdh"
+path="res://.godot/imported/availablebosshover.png-973b18d1c91673abde552e478c0a8650.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/map_module/map_assets/availableboss.png"
-dest_files=["res://.godot/imported/availableboss.png-929a13ba9ceac82c9816ad9468f2d646.ctex"]
+source_file="res://Map/map_assets/availablebosshover.png"
+dest_files=["res://.godot/imported/availablebosshover.png-973b18d1c91673abde552e478c0a8650.ctex"]
 
 [params]
 

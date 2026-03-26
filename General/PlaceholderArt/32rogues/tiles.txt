@@ -156,8 +156,3 @@
 26.b. small tree
 26.c. tree
 26.d. two tile tree
-
-
-
-
-

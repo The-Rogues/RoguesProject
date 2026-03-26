@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://dek3jl6sp15fh"]
+
+[ext_resource type="Texture2D" uid="uid://cj3sde007t7rr" path="res://Map/map_assets/tower_icon.png" id="1_m4fum"]
+[ext_resource type="Script" uid="uid://bntkfs5tnv0n2" path="res://Map/event/event_callbacks/mini_event_callback.gd" id="2_ujjcp"]
+[ext_resource type="Texture2D" uid="uid://2a4f11yv0v3o" path="res://Map/map_assets/mini_event_icon.png" id="3_m4fum"]
+[ext_resource type="Script" uid="uid://bjrmvbp25qw4j" path="res://Map/event/event_resources/MiniEventData.gd" id="4_kvdyj"]
+
+[resource]
+script = ExtResource("4_kvdyj")
+event_callback = ExtResource("2_ujjcp")
+map_texture = ExtResource("3_m4fum")
+aes_texture = ExtResource("1_m4fum")
+event_title = "The Rich Wizard"
+event_description = "Upon your travels, you encounter a rich wizard. 
+\"Here, take this money!\" He shouts.
+Do you accept 50 gold from the wizard? "
+metadata/_custom_type_script = "uid://bjrmvbp25qw4j"

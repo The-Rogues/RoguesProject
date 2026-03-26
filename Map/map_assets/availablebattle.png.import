@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mcbbi5kjdcfn"
-path="res://.godot/imported/passed.png-976e620bf5175294b22735bdeed5eee6.ctex"
+uid="uid://b1q0y0qdty5pc"
+path="res://.godot/imported/availablebattle.png-8c277655a78d1061b21b6143c0eeecfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/map_module/map_assets/passed.png"
-dest_files=["res://.godot/imported/passed.png-976e620bf5175294b22735bdeed5eee6.ctex"]
+source_file="res://Map/map_assets/availablebattle.png"
+dest_files=["res://.godot/imported/availablebattle.png-8c277655a78d1061b21b6143c0eeecfd.ctex"]
 
 [params]
 

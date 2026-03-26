@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bpy1i64rc6fy1"]
+
+[ext_resource type="Script" uid="uid://b7jxh3mtmqu7o" path="res://dev/TooltipComponent/TooltipComponent_scn_main.gd" id="1_erd5t"]
+[ext_resource type="PackedScene" uid="uid://djh4cmr66semj" path="res://dev/TooltipComponent/Dashboard/Dashboard.tscn" id="2_kkben"]
+[ext_resource type="PackedScene" uid="uid://ceis1pm6i0uhl" path="res://dev/TooltipComponent/ComponentContent/ComponentContent.tscn" id="3_box57"]
+
+[node name="TooltipComponent" type="Control" unique_id=208345016]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_erd5t")
+
+[node name="ContentContainer" type="VBoxContainer" parent="." unique_id=1934323613]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dashboard" parent="ContentContainer" unique_id=403339974 instance=ExtResource("2_kkben")]
+layout_mode = 2
+
+[node name="ComponentContent" parent="ContentContainer" unique_id=1902666956 instance=ExtResource("3_box57")]
+layout_mode = 2
