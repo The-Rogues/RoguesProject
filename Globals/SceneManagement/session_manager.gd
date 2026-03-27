@@ -145,7 +145,7 @@ func increase_max_health(amount:int):
 		return
 	
 	run_progress.character_entity_data.max_health += amount
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 	max_health_updated.emit(run_progress.character_entity_data.max_health)
 
 
@@ -154,7 +154,7 @@ func increase_max_energy(amount:int):
 		return
 	
 	run_progress.max_energy += amount
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 
 
 func increase_item_capacity():
@@ -163,7 +163,7 @@ func increase_item_capacity():
 	
 	run_progress.maximum_item_capacity += 1
 	run_progress.total_items_collected += 1
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 	increased_item_capacity.emit(run_progress.maximum_item_capacity)
 
 
@@ -174,7 +174,7 @@ func change_offensive_trait(new_trait:PersonalityTrait, weight:int = -1):
 		run_progress.personality_data.offensive_weight = weight
 	
 	run_progress.total_personality_shifts += 1
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 	traits_updated.emit()
 
 
@@ -185,7 +185,7 @@ func change_defensive_trait(new_trait:PersonalityTrait, weight:int = -1):
 		run_progress.personality_data.defensive_weight = weight
 	
 	run_progress.total_personality_shifts += 1
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 	traits_updated.emit()
 
 
@@ -196,7 +196,7 @@ func change_strategic_trait(new_trait:PersonalityTrait, weight:int = -1):
 		run_progress.personality_data.strategic_weight = weight
 	
 	run_progress.total_personality_shifts += 1
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 	traits_updated.emit()
 
 
@@ -219,7 +219,7 @@ func increase_gold(amount:int):
 	
 	gold_updated.emit(run_progress.gold)
 	gold_added.emit(amount)
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 
 
 func decrease_gold(amount:int):
@@ -229,7 +229,7 @@ func decrease_gold(amount:int):
 	run_progress.gold -= amount
 	
 	gold_updated.emit(run_progress.gold)
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 
 
 func can_buy(price:int):
@@ -261,7 +261,7 @@ func buy_item(item: ItemData) -> bool:
 	
 	gold_updated.emit(run_progress.gold)
 	run_progress.total_items_collected += 1
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 	return true
 
 
@@ -282,7 +282,7 @@ func sell_held_item(item: ItemData) -> bool:
 	_remove_held_item(item)
 	increase_gold(item.sell_price)
 	
-	GlobalSaveManager.save_run(run_progress)
+	#GlobalSaveManager.save_run(run_progress)
 	return true
 
 

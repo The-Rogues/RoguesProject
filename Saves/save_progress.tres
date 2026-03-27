@@ -1,54 +1,57 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
 [ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="2_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="3_8uu1w"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/defend_card_data.tres" id="4_osl4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/taunt_card_data.tres" id="5_73m4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres" id="6_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres" id="7_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/shoot_card_data.tres" id="2_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/repeater_card_data.tres" id="3_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/charge_card_data.tres" id="4_73m4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/defend_card_data.tres" id="5_sqevk"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/taunt_card_data.tres" id="6_bn7m0"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/move_card_data.tres" id="6_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/conserve_card_data.tres" id="7_73m4a"]
 [ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="8_ldui5"]
 [ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="9_hxw8v"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="10_sqevk"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="11_gvrsj"]
 [ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="11_rp2d1"]
 [ext_resource type="Script" path="res://Items/Core/item_data.gd" id="12_4g6sv"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="13_bn7m0"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="14_gvrsj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="14_ldui5"]
+[ext_resource type="Resource" path="res://Items/Data/Apple/apple_healing_item_data.tres" id="14_osl4a"]
 [ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="15_fucgn"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="16_73m4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Tactical/tactical_offensive_trait_data.tres" id="15_hxw8v"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="16_gvrsj"]
 [ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="17_fad0b"]
 
-[sub_resource type="Resource" id="Resource_ldui5"]
+[sub_resource type="Resource" id="Resource_gbghs"]
 script = ExtResource("9_hxw8v")
 name = "Your Deck"
-cards = Array[ExtResource("1_3dqjj")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("4_osl4a"), ExtResource("5_73m4a"), ExtResource("6_3dqjj"), ExtResource("6_3dqjj"), ExtResource("6_3dqjj"), ExtResource("7_8uu1w"), ExtResource("7_8uu1w"), ExtResource("8_ldui5")])
+cards = Array[ExtResource("1_3dqjj")]([ExtResource("2_8uu1w"), ExtResource("2_8uu1w"), ExtResource("3_osl4a"), ExtResource("4_73m4a"), ExtResource("4_73m4a"), ExtResource("5_sqevk"), ExtResource("5_sqevk"), ExtResource("5_sqevk"), ExtResource("5_sqevk"), ExtResource("6_bn7m0"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("7_73m4a"), ExtResource("8_ldui5")])
 
-[sub_resource type="Resource" id="Resource_hxw8v"]
+[sub_resource type="Resource" id="Resource_rp2d1"]
 script = ExtResource("11_rp2d1")
-display_texture = ExtResource("10_sqevk")
+display_texture = ExtResource("11_gvrsj")
 id = "player"
-name = "Xavier"
+name = "Erdrick"
 description = "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape."
 max_health = 80
 
-[sub_resource type="Resource" id="Resource_gbghs"]
+[sub_resource type="Resource" id="Resource_4g6sv"]
 script = ExtResource("15_fucgn")
-offensive_trait = ExtResource("14_gvrsj")
-offensive_weight = 2
-defensive_trait = ExtResource("13_bn7m0")
-defensive_weight = 9
-strategic_trait = ExtResource("16_73m4a")
-strategic_weight = 4
+offensive_trait = ExtResource("15_hxw8v")
+offensive_weight = 6
+defensive_trait = ExtResource("14_ldui5")
+defensive_weight = 10
+strategic_trait = ExtResource("16_gvrsj")
+strategic_weight = 8
 
 [resource]
 script = ExtResource("17_fad0b")
-personality_data = SubResource("Resource_gbghs")
-character_entity_data = SubResource("Resource_hxw8v")
-character_name = "Xavier"
+personality_data = SubResource("Resource_4g6sv")
+character_entity_data = SubResource("Resource_rp2d1")
+character_name = "Erdrick"
 character_backstory = "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape."
-map_seed = 4106258708
-player_node_index = 6
-pending_node_index = 9
+map_seed = 4291646602
+player_node_index = 5
+pending_node_index = 8
 room_in_progress = true
-card_deck = SubResource("Resource_ldui5")
-gold = 508
+card_deck = SubResource("Resource_gbghs")
+held_items = Array[ExtResource("12_4g6sv")]([ExtResource("14_osl4a")])
+gold = 988
