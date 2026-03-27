@@ -560,7 +560,7 @@ func populate_events(rand_seed: int) -> void:
 	
 	# Get premade event instances.
 	var battle_data: Resource = load("res://Map/event/event_instances/battle_event_data.tres")
-	var shop_data: Resource = load("res://Map/event/event_instances/shop_event_data.tres") 
+	var shop_data: Resource = load("res://Map/event/event_instances/shop_event_data.tres")
 	var boss_data: Resource = load("res://Map/event/event_instances/boss_event_data.tres")
 	var mini_data: Resource = load("res://Map/event/event_instances/test_mini_data.tres") 
 	

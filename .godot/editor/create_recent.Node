@@ -1,8 +1,9 @@
-TextureRect
+ReferenceRect
+Label
 Button
+TextureRect
 CheckButton
 Control
-Label
 PanelContainer
 VScrollBar
 ScrollContainer
