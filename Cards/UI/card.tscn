@@ -103,16 +103,19 @@ layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("4_eib7d")
 
-[node name="DescriptionLabel" type="Label" parent="CardUI/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1260964887]
+[node name="DescriptionLabel" type="RichTextLabel" parent="CardUI/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1997207609]
 texture_filter = 1
-custom_minimum_size = Vector2(84, 0)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_a6rhs")
-theme_override_font_sizes/font_size = 10
-text = "Brief card behaviour description"
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_a6rhs")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "Card Behaviour"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="CardCollisionArea" type="Area2D" parent="." unique_id=1434636072]
 collision_layer = 4

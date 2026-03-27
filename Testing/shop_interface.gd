@@ -1,0 +1,185 @@
+extends PanelContainer
+
+@onready var shop_entry_interface: ShopEntryInterface = $VBoxContainer/Interface/ShopEntryInterface
+@onready var your_items: ShopEntryInterface = $VBoxContainer/Interface/YourItems
+
+@onready var description: RichTextLabel = $VBoxContainer/Interface/VBoxContainer/Context/MarginContainer/Description
+@onready var buy_button: Button = $VBoxContainer/Interface/VBoxContainer/Button/Buy
+@onready var sell_button: Button = $VBoxContainer/Options/Option1/Sell
+
+@export var game_dashboard:GameSessionDisplay
+@export var shop_services:Array[ShopServiceData]
+@export var rare_item_pool:Array[ItemData]
+@export var item_pool:Array[ItemData]
+@export var personality_traits:Array[PersonalityTrait]
+
+@onready var buy_particles: CPUParticles2D = $BuyParticles
+@export var test_mode:bool = false
+
+var selected_item:ShopEntryData = null
+var sell_mode:bool = false
+var pending_service_charge:int = 0
+
+func _ready() -> void:
+	shop_entry_interface.entry_selected.connect(_on_entry_selected)
+	for entry in shop_services:
+		shop_entry_interface.add_shop_entry(entry)
+	var shop_items:Array[ItemData] = get_shop_items()
+	
+	for item in shop_items:
+		var item_entry:ShopEntryData = create_item_entry(item)
+		shop_entry_interface.add_shop_entry(item_entry)
+	
+	await get_tree().process_frame
+	if GlobalSessionManager.run_progress:
+		for item in GlobalSessionManager.run_progress.held_items:
+			var item_entry:ShopEntryData = create_item_entry(item)
+			your_items.add_shop_entry(item_entry)
+		
+		if game_dashboard:
+			game_dashboard.initialize(GlobalSessionManager.run_progress)
+			game_dashboard.deck_card_selector.selected_card.connect(
+				_on_remove_card_service
+			)
+	
+	sell_button.disabled = your_items.shop_entry_datas.is_empty()
+
+
+func _on_remove_card_service(card:CardData):
+	print("worked")
+	GlobalSessionManager.run_progress.card_deck.remove_card(card)
+	GlobalSessionManager.decrease_gold(pending_service_charge)
+	pending_service_charge = 0
+	pass
+
+
+func create_card_pack(personality_trait:PersonalityTrait) -> CardPackItemData:
+	if personality_trait == null:
+		return null
+	var pack:CardPackItemData = CardPackItemData.new()
+	pack.display_texture = load("res://Testing/card_pack_texture.tres")
+	pack.name = personality_trait.name + " Card Pack"
+	pack.description = "Add 3" + str(personality_trait.name) + " Cards to your Deck,"
+	pack.draw_count = 3
+	pack.card_pool = personality_trait.card_pool
+	return pack
+
+
+func get_shop_items() -> Array[ItemData]:
+	var shop_items:Array[ItemData] = []
+	shop_items.append(rare_item_pool.pick_random())
+	
+	var _trait = personality_traits.pick_random()
+	var card_pack:CardPackItemData = create_card_pack(_trait)
+	if card_pack:
+		shop_items.append(card_pack)
+	
+	var unique_items = item_pool.duplicate(true)
+	unique_items.shuffle()
+	for i in range(0, 4):
+		shop_items.append(unique_items[i])
+	
+	return shop_items
+
+
+func create_item_entry(data:ItemData) -> ShopEntryData:
+	var item_entry:ShopItemData = ShopItemData.new()
+	item_entry.item = data
+	item_entry.description = data.description
+	item_entry.name = data.name
+	item_entry.price = data.shop_price
+	item_entry.texture = data.display_texture
+	item_entry.special = data.rarity == ItemData.Rarity.RARE
+	return item_entry
+
+
+func _on_entry_selected(data:ShopEntryData):
+	description.text = data.name + "\n" + data.description
+	buy_button.visible = true
+	
+	selected_item = data
+	update_buy_button()
+
+
+func update_buy_button():
+	if test_mode:
+		return
+	
+	if GlobalSessionManager.run_progress and selected_item:
+		buy_button.disabled = !GlobalSessionManager.can_buy(
+			selected_item.price
+		)
+	elif selected_item == null:
+		buy_button.disabled = true
+
+
+func buy_item():
+	var entry = shop_entry_interface.get_shop_entry_by_data(selected_item)
+	buy_effect(entry)
+	
+	if selected_item.exhaustable:
+		shop_entry_interface.remove_entry_by_data(selected_item)
+		selected_item = null
+	
+	update_buy_button()
+
+
+func buy_effect(entry:ShopEntry):
+	if !entry:
+		return
+	
+	var pos = entry.texture_rect.global_position
+	pos = Vector2(pos.x + 12, pos.y + 12)
+	
+	buy_particles.global_position = pos
+	buy_particles.emitting = true
+
+
+func _on_card_selected(card:CardData, deck:CardDeck):
+	deck.remove_card(card)
+
+
+func _on_buy_button_up() -> void:
+	if test_mode:
+		buy_item()
+		return
+	
+	if GlobalSessionManager.run_progress:
+		if GlobalSessionManager.run_progress.gold >= selected_item.price:
+			if selected_item is ShopItemData:
+				GlobalSessionManager.buy_item(selected_item.item)
+			else:
+				GlobalSessionManager.decrease_gold(selected_item.price)
+				if selected_item.service_id == 0:
+					game_dashboard.open_deck_card_selector()
+					game_dashboard.deck_card_selector.selected_card.connect(_on_card_selected)
+					pending_service_charge = selected_item.price
+			
+			buy_item()
+	
+	update_buy_button()
+
+
+func _on_sell_button_up() -> void:
+	sell_mode = !sell_mode
+	
+	if sell_mode:
+		shop_entry_interface.visible = false
+		your_items.visible = true
+		sell_button.text = "Buy Items"
+		buy_button.text = "Sell"
+		buy_button.visible = false
+	else:
+		shop_entry_interface.visible = true
+		your_items.visible = false
+		sell_button.text = "Sell Items"
+		buy_button.text = "Buy"
+		buy_button.visible = false
+
+
+func _on_leave_button_up() -> void:
+	if !GlobalSessionManager.started_session:
+		print("Map scene not loaded")
+		return
+	GlobalSceneLoader.load_scene("res://Map/map_screen/MapScreen.tscn")
+	pass # Replace with function body.

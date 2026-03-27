@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cuukmx5jhs7wn" path="res://Items/Scenes/player_items.tscn" id="13_pxp8h"]
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Items/GoldLabel/session_gold_label.gd" id="14_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://Cards/UI/deck_viewer.tscn" id="14_yct1t"]
+[ext_resource type="PackedScene" uid="uid://b2lvk84h3jqwl" path="res://Cards/UI/deck_card_selector.tscn" id="15_6vipf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmlv7"]
 bg_color = Color(0.2469503, 0.2469503, 0.2469503, 1)
@@ -32,11 +33,11 @@ modulate_color = Color(0, 0, 0, 1)
 atlas = ExtResource("7_1o4un")
 region = Rect2(160, 512, 32, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c0xyw"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6vipf"]
 load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vipf"]
-atlas = SubResource("CompressedTexture2D_c0xyw")
+atlas = SubResource("CompressedTexture2D_6vipf")
 region = Rect2(40, 776, 16, 16)
 
 [node name="GameDashBoard" type="Control" unique_id=535703033]
@@ -275,6 +276,18 @@ layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
+[node name="PlayerGold" type="Label" parent="Container/RightElements/Gold/PlayerGold" unique_id=1751191548]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("14_pxp8h")
+gold = 100.0
+
 [node name="TextureRect" type="TextureRect" parent="Container/RightElements/Gold/PlayerGold" unique_id=2044757605]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
@@ -283,15 +296,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = SubResource("AtlasTexture_6vipf")
 
-[node name="PlayerGold" type="Label" parent="Container/RightElements/Gold/PlayerGold" unique_id=1751191548]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("1_nhbhh")
-theme_override_font_sizes/font_size = 24
-text = "0"
-horizontal_alignment = 1
-script = ExtResource("14_pxp8h")
-gold = 100.0
+[node name="DeckCardSelector" parent="." unique_id=200099010 instance=ExtResource("15_6vipf")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_up" from="Container/LeftElements/Options/Pause" to="Container/LeftElements/Options/Pause" method="_on_button_up"]

@@ -1,2 +1,2 @@
-res://Items/Core/key_item_data.gd
+res://Items/Core/battle_event_item.gd
 AtlasTexture

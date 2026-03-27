@@ -25,8 +25,8 @@ var screen_size:Vector2
 func _ready() -> void:
 	screen_size = get_viewport().size
 	if force_initialization:
-		print(card_datas)
 		initialize(card_datas)
+
 
 func _process(_delta: float) -> void:
 	if not holding_card or dragged_card == null:
@@ -42,10 +42,8 @@ func _process(_delta: float) -> void:
 # -------------------------------------------------
 
 func initialize(new_card_datas: Array[CardData]) -> void:
-	print(new_card_datas)
 	clear_hand()
 	for data in new_card_datas:
-		print("drawn")
 		draw_card(data)
 
 

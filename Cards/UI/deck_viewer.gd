@@ -34,6 +34,7 @@ func _initialize(card_deck:CardDeck):
 	card_deck.deck_updated.connect(_update_card_display)
 	_update_card_display(card_deck.cards)
 
+
 func _update_card_display(new_card_datas:Array[CardData]):
 	for child in card_container.get_children():
 		child.queue_free()
@@ -43,10 +44,12 @@ func _update_card_display(new_card_datas:Array[CardData]):
 	for card_data in new_card_datas:
 		var new_card_ui:CardUI = CARD_UI.instantiate()
 		card_container.add_child(new_card_ui)
+		new_card_ui.check_for_play_area = false
 		new_card_ui.set_card_data(card_data)
 		new_card_ui.check_for_play_area = false
 
 func _on_activation_button_up():
+	
 	opened.emit()
 	visible = true
 

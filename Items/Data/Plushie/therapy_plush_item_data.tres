@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BattleEventItem" format=3 uid="uid://dcwbl48h7ne65"]
+
+[ext_resource type="Texture2D" uid="uid://crmogaxvaff03" path="res://Items/Data/Plushie/therapy_plush_texture.tres" id="1_g70n0"]
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://Items/Core/battle_event_item.gd" id="2_dqpkl"]
+[ext_resource type="Script" uid="uid://b2727uup5yy10" path="res://Items/Data/Plushie/therapy_plush_event.gd" id="2_r455r"]
+
+[sub_resource type="Resource" id="Resource_gh8a1"]
+script = ExtResource("2_r455r")
+metadata/_custom_type_script = "uid://b2727uup5yy10"
+
+[resource]
+script = ExtResource("2_dqpkl")
+effect = SubResource("Resource_gh8a1")
+use_player = true
+name = "Therapy Plush"
+description = "Resets all personality changes this battle."
+display_texture = ExtResource("1_g70n0")
+shop_price = 40
+sell_price = 10
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

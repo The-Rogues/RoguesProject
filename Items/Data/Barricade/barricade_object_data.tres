@@ -10,8 +10,7 @@ attack_filter = 2
 display_texture = ExtResource("1_t0jim")
 id = "cover"
 name = "Barricade"
-description = "Wooden Barricade
-Type: Cover
-Offers temporary protection."
+description = "Barricade
+Blocks attacks"
 max_health = 40
 metadata/_custom_type_script = "uid://o5nbdchxwujp"

@@ -14,8 +14,11 @@ signal card_drawn(card:CardData)
 @onready var deck_card_selector: DeckCardSelector = $DeckCardSelector
 @onready var draw_pile_viewer: CardDeckViewerUI = $DrawPileViewer
 @onready var discard_pile_viewer: CardDeckViewerUI = $DiscardPileViewer
+@onready var draw_pile_size: Label = $DrawPileSize
+@onready var discard_pile_size: Label = $DiscardPileSize
 
-@export var card_hand: CardPlayHand
+
+@export var card_hand:CardPlayHand
 @export var card_deck:CardDeck
 
 var deck:CardDeck
@@ -23,12 +26,18 @@ var draw_pile: CardDeck
 var discard_pile: CardDeck
 var permanant_discard: CardDeck
 
-func _ready() -> void:
-	if card_deck:
-		initialize(card_deck)
+var battle:BattleManager
+var player:BattleEntity
+
+#func _ready() -> void:
+	#if card_deck:
+		#initialize(card_deck)
 
 
-func initialize(starting_card_deck:CardDeck):
+func initialize(starting_card_deck:CardDeck, player:BattleEntity, battle:BattleManager):
+	self.player = player
+	self.battle = battle
+	
 	deck = starting_card_deck.duplicate()
 	draw_pile = starting_card_deck.duplicate(true)
 	discard_pile = CardDeck.new()
@@ -48,6 +57,14 @@ func initialize(starting_card_deck:CardDeck):
 	discard_pile_viewer.opened.connect(_on_pile_viewed)
 	draw_pile_viewer.opened.connect(_on_pile_viewed)
 	card_hand.play_card.connect(_try_to_play_card)
+	
+	draw_pile.deck_updated.connect(on_pile_updated)
+	discard_pile.deck_updated.connect(on_pile_updated)
+
+
+func on_pile_updated(updated_cards:Array[CardData]):
+	draw_pile_size.text = str(draw_pile.cards.size())
+	discard_pile_size.text = str(discard_pile.cards.size())
 
 
 func _on_pile_viewed():
@@ -55,16 +72,17 @@ func _on_pile_viewed():
 	draw_pile_button.visible = false
 	opened_deck_view.emit()
 
+
 func _on_pile_closed():
 	discard_pile_button.visible = true
 	draw_pile_button.visible = true
 	closed_deck_view.emit()
 	pass
 
+
 func _on_selected_card(card_data:CardData, deck:CardDeck):
 	deck.remove_card(card_data)
 	card_hand.draw_card(card_data)
-	pass
 
 
 func _try_to_play_card(card:CardUI):

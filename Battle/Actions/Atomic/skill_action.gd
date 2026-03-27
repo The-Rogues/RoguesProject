@@ -106,3 +106,10 @@ func _apply_to_targets(
 		print("calling")
 		apply_func.call(target, value)
 		await battle_instance.action_delay()
+
+
+func get_stack_value(
+	battle_instance:BattleManager,
+	action_user:BattleEntity,
+) -> int:
+	return amount

@@ -25,3 +25,10 @@ enum TargetingOption {
 
 ## The resolved targeting set after calling _resolve_target(). Is empty otherwise.
 var targets:Array[Entity]
+
+
+func get_stack_value(
+	battle_instance:BattleManager,
+	action_user:BattleEntity,
+) -> int:
+	return -1

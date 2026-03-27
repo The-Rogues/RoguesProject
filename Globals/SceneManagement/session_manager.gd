@@ -5,7 +5,7 @@ class_name SessionManager
 ## Inteded use for safe access and manipulation of run progress as the player
 ## plays through the game
 
-signal current_health_updated(new_value:int)
+signal current_health_updated(current:int, max:int)
 signal max_health_updated(new_value:int)
 signal increased_item_capacity(new_capacity:int)
 signal traits_updated
@@ -170,7 +170,7 @@ func save_character_health(current_health:int):
 		return
 	
 	run_progress.current_health = current_health
-	current_health_updated.emit(current_health)
+	current_health_updated.emit(current_health, run_progress.character_entity_data.max_health)
 
 # -------------------------------------------------
 # Managing gold & items

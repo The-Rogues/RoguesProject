@@ -12,9 +12,11 @@
 [ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://Items/Data/EnergyPotion/energy_poiton_upgrade_item_data.tres" id="10_5psfl"]
 [ext_resource type="Resource" uid="uid://c6kwhu2mmd787" path="res://Items/Data/FalseCoinage/false_coinage_item_data.tres" id="11_53t1x"]
 [ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://Items/Data/HealthPotion/health_potion_character_upgrade_item_data.tres" id="12_86qt7"]
+[ext_resource type="Resource" uid="uid://dcwbl48h7ne65" path="res://Items/Data/Plushie/therapy_plush_item_data.tres" id="13_ugfjp"]
 [ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://Items/Data/Pouch/pouch_item_data.tres" id="13_vdf3x"]
 [ext_resource type="Resource" uid="uid://c1akblk4le2jm" path="res://Items/Data/RepeatPoiton/repeat_potion_item_data.tres" id="14_gvnpo"]
 [ext_resource type="Resource" uid="uid://dand104dwhnbk" path="res://Items/Data/StickyBomb/sticky_bomb_item_data.tres" id="15_yorqy"]
+[ext_resource type="Resource" uid="uid://4p1d4nfy0a1f" path="res://Items/Data/ForbiddenRelic/forbidden_relic_item_data.tres" id="16_h885g"]
 [ext_resource type="Resource" uid="uid://dtfacyhuucs27" path="res://Items/Data/StickyGlove/magic_glove_item_data.tres" id="16_ndspk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsypc"]
@@ -36,7 +38,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jsypc")
 script = ExtResource("1_8p0en")
-items = Array[ExtResource("2_jsypc")]([ExtResource("3_6si53"), ExtResource("4_ugfjp"), ExtResource("5_h885g"), ExtResource("6_j5dww"), ExtResource("7_f25c6"), ExtResource("8_irxfw"), ExtResource("9_hcgci"), ExtResource("10_5psfl"), ExtResource("11_53t1x"), ExtResource("12_86qt7"), ExtResource("13_vdf3x"), ExtResource("14_gvnpo"), ExtResource("15_yorqy"), ExtResource("16_ndspk")])
+items = Array[ExtResource("2_jsypc")]([ExtResource("3_6si53"), ExtResource("6_j5dww"), ExtResource("5_h885g"), ExtResource("12_86qt7"), ExtResource("10_5psfl"), ExtResource("13_vdf3x"), ExtResource("11_53t1x"), ExtResource("14_gvnpo"), ExtResource("15_yorqy"), ExtResource("16_ndspk"), ExtResource("13_ugfjp"), ExtResource("4_ugfjp"), ExtResource("9_hcgci"), ExtResource("16_h885g"), ExtResource("7_f25c6"), ExtResource("8_irxfw")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1354529598]
 layout_mode = 2

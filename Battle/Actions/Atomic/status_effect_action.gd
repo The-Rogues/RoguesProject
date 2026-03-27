@@ -52,3 +52,10 @@ func _object_intercepts(
 			return true
 	
 	return false
+
+
+func get_stack_value(
+	battle_instance:BattleManager,
+	action_user:BattleEntity,
+) -> int:
+	return duration

@@ -89,7 +89,11 @@ func initialize(battle_config:BattleSceneConfiguration) -> void:
 	battle_events.initialize(self)
 	
 	# Setting up Cards
-	battle_card_manager.initialize(battle_config.card_deck)
+	battle_card_manager.initialize(
+		battle_config.card_deck,
+		player_entity,
+		self
+	)
 	battle_card_manager.try_play_card.connect(_on_try_play_card)
 	energy_counter.initialize(battle_config.energy)
 	

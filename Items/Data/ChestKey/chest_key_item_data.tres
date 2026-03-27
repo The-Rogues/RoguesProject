@@ -13,5 +13,6 @@ key_id = "chest"
 name = "Chest Key"
 description = "Use to open a locked Chest. Consumed after use."
 display_texture = SubResource("AtlasTexture_nvup5")
-sell_price = 40
+shop_price = 70
+sell_price = 30
 metadata/_custom_type_script = "uid://c6lrmd6uaaqx8"

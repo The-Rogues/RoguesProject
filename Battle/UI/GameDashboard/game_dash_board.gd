@@ -4,6 +4,7 @@ class_name GameSessionDisplay
 @onready var character_name: Label = $Container/LeftElements/Character/Name
 @onready var current_health: Label = $Container/LeftElements/Character/Health/CurrentHealth
 @onready var character_context: ContextPanel = $Container/LeftElements/Character/Health/Heart/Context
+@onready var deck_card_selector: DeckCardSelector = $DeckCardSelector
 
 @onready var traits_display: TraitDisplay = $Container/LeftElements/Traits/TraitsDisplay
 @onready var deck_viewer: CardDeckViewerUI = $DeckViewer
@@ -37,9 +38,13 @@ func initialize(data:RunProgress):
 		data.card_deck
 	)
 	
+	deck_card_selector.queried_deck = data.card_deck
+	
 	#player_items.connect_to_battle(battle_instance)
 	player_items.in_battle_scene = false
 	player_items._initialize(data.held_items)
+	
+	GlobalSessionManager.current_health_updated.connect(_on_health_changed)
 
 
 func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:CardDeck):
@@ -59,6 +64,8 @@ func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:Ca
 		starting_card_deck
 	)
 	
+	deck_card_selector.queried_deck = starting_card_deck
+	
 	#player_items.connect_to_battle(battle_instance)
 	player_items.battle = battle_instance
 	player_items.in_battle_scene = in_battle
@@ -67,6 +74,7 @@ func initialize_with_battle(battle_instance:BattleManager, starting_card_deck:Ca
 	battle_instance.player_entity._health.health_changed.connect(
 		_on_health_changed
 	)
+	
 	in_battle = true
 
 
@@ -77,3 +85,9 @@ func _on_health_changed(current:int, max:int):
 
 func disable_deck_viewer(disable:bool):
 	deck_button.disabled = disable
+
+
+func open_deck_card_selector():
+	deck_card_selector.query_and_display(
+		deck_card_selector.queried_deck
+	)

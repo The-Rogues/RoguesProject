@@ -66,7 +66,8 @@ custom_minimum_size = Vector2(756, 450)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
-theme_override_constants/margin_left = 16
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 44
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer" unique_id=290067721]
 layout_mode = 2
@@ -77,8 +78,8 @@ scroll_hint_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/h_separation = 16
-theme_override_constants/v_separation = 16
+theme_override_constants/h_separation = 34
+theme_override_constants/v_separation = 34
 
 [node name="CardUI" parent="VBoxContainer/MarginContainer/ScrollContainer/CardConatiner" unique_id=2072196125 instance=ExtResource("2_udctt")]
 layout_mode = 2

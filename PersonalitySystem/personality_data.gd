@@ -80,7 +80,7 @@ func modify_strategy(amount:int, set_exact:bool=false):
 
 ## Chooses highest priority trait by weight. If weights are the same prioritize 
 ## in the order: strategic < defensive < offensive
-func get_priority_trait():
+func get_priority_trait() -> PersonalityTrait:
 	var priority_trait:PersonalityTrait = strategic_trait
 	if defensive_weight >= strategic_weight:
 		priority_trait = defensive_trait

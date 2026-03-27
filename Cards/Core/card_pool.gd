@@ -12,6 +12,30 @@ const COMMON_RARITY = 0.40
 const UNCOMMON_RARITY = 0.65
 const RARE_RARITY = 0.90
 
+
+func get_unique_items(item_count:int) -> Array[CardData]:
+	var all_items:Array[CardData] = []
+	
+	# Combine all rarity pools
+	all_items.append_array(common)
+	all_items.append_array(uncommonn)
+	all_items.append_array(rare)
+	all_items.append_array(super_rare)
+	
+	# Remove duplicates just in case (optional but safe)
+	all_items = all_items.duplicate()
+	all_items = all_items.filter(func(item): return item != null)
+	
+	# Shuffle for randomness
+	all_items.shuffle()
+	
+	# Clamp count to available items
+	var count = min(item_count, all_items.size())
+	
+	# Return first N items
+	return all_items.slice(0, count)
+
+
 func get_items(item_count:int) -> Array[CardData]:
 	var dictionary = _get_rarity_dictionary()
 	var items:Array[CardData]

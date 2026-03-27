@@ -11,7 +11,7 @@ var card_instance:CardInstance
 
 @onready var energy_label: Label = $PanelContainer/EnergyLabel
 @onready var name_label: Label = $CardUI/MarginContainer/VBoxContainer/Panel/NameLabel
-@onready var description_label: Label = $CardUI/MarginContainer/VBoxContainer/VBoxContainer/DescriptionLabel
+@onready var description_label:RichTextLabel = $CardUI/MarginContainer/VBoxContainer/VBoxContainer/DescriptionLabel
 @onready var card_ui: PanelContainer = $CardUI
 
 var base_scale: Vector2
@@ -30,32 +30,89 @@ func set_card_data(data: CardData) -> void:
 	card_data = data
 	energy_label.text = str(data.energy_cost)
 	name_label.text = data.move.name
+	
 	description_label.text = data.move.description
 
 
-func set_card_instance(instance:CardInstance) -> void:
+func initialize(instance:CardInstance) -> void:
 	card_instance = instance
 	
 	energy_label.text = str(instance.cost)
 	name_label.text = instance.data.move.name
-	description_label.text = instance.data.move.description
+	
+	instance.updated.connect(_on_card_instance_updated)
+	
+	if instance.get_stack_value() != -1:
+		description_label.text = parse_card_description(
+			instance.data.move.description,
+			instance.get_stack_value()
+		)
+	else:
+		description_label.text = instance.data.move.description
 
 
-func parse_card_description(move:BattleMove, stack:int) -> String:
-	return ""
+func _on_card_instance_updated():
+	energy_label.text = str(card_instance.cost)
+	
+	if card_instance.get_stack_value() != -1:
+		description_label.text = parse_card_description(
+			card_instance.data.move.description,
+			card_instance.get_stack_value()
+		)
+	else:
+		description_label.text = card_instance.data.move.description
 
 
-func get_substring_between_braces(main_string: String) -> String:
-	var start_index: int = main_string.find("{")
-	if start_index == -1:
-		return ""
-	var end_index: int = main_string.find("}", start_index + 1)
-	if end_index == -1:
-		return ""
-	var substring_start: int = start_index + 1
-	var substring_length: int = end_index - substring_start
-	return main_string.substr(substring_start, substring_length)
+func parse_card_description(base_description:String, value:int) -> String:
+	var index_a = base_description.find("{")
+	if index_a == -1:
+		return base_description
+	var index_b = base_description.find("}")
+	if index_b == -1:
+		return base_description
+	
+	var description = base_description.substr(0, index_a)
+	description = description + " " + str(value) + base_description.substr(index_b)
+	
+	return description
 
+
+func launch_towards(target_pos: Vector2) -> void:
+	# Make sure the card moves independently of layout containers
+	top_level = true
+	
+	# Optional: bring to front so it renders above everything
+	z_index = 1000
+	
+	var tween := create_tween()
+	tween.set_parallel(true)
+	
+	# Movement (slightly eased like Slay the Spire)
+	tween.tween_property(
+		self, 
+		"global_position", 
+		target_pos, 
+		0.4
+	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	
+	# Scale down to half
+	tween.tween_property(
+		self, 
+		"scale", 
+		base_scale * 0.5, 
+		0.4
+	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	
+	# Optional: slight fade-out for polish
+	tween.tween_property(
+		self,
+		"modulate:a",
+		0.0,
+		0.4
+	)
+	
+	# Cleanup when done
+	tween.finished.connect(queue_free)
 
 
 func _gui_input(event: InputEvent) -> void:

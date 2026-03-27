@@ -7,8 +7,14 @@ signal opened
 @onready var card_container: FlowContainer = $VBoxContainer/MarginContainer/ScrollContainer/CardConatiner
 @onready var empty_label: Label = $VBoxContainer/MarginContainer/EmptyLabel
 var queried_deck:CardDeck
+@onready var header: Label = $VBoxContainer/PanelContainer/Header
 
 const CARD_UI = preload("res://Cards/UI/card.tscn")
+
+
+func set_header_text(header_text:String):
+	header.text = header_text
+
 
 func query_and_display(card_deck:CardDeck):
 	queried_deck = card_deck

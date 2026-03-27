@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_7tat2")
-health = 6
+health = 10
 name = "Apple"
-description = "Restores 6 HP"
+description = "Heal 10 HP"
 display_texture = ExtResource("1_mreqm")
 usable_out_of_battle = true
 shop_price = 25

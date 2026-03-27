@@ -8,9 +8,8 @@
 script = ExtResource("1_hkrn1")
 object = ExtResource("2_hlwij")
 name = "Barricade"
-description = "Placeable Object
-Type: Cover
-HP: 40"
+description = "Carry placeable cover. Barricade has 40 HP."
 display_texture = ExtResource("1_mm0qr")
-sell_price = 25
+shop_price = 32
+sell_price = 9
 metadata/_custom_type_script = "uid://b41ywh14jt4i1"

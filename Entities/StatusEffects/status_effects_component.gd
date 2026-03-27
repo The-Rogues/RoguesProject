@@ -11,6 +11,7 @@ class_name StatusEffectsComponent
 
 signal status_condition_added
 signal status_condition_removed
+signal changed
 
 var entity_instance:BattleEntity
 var stutus_display: HBoxContainer
@@ -44,6 +45,7 @@ func add_status(effect: StatusEffectData, duration: int = 1, stacks: int = 1) ->
 	icon.initialize(instance)
 	icon.update_ui()
 	status_condition_added.emit()
+	changed.emit()
 
 
 func remove_status(instance: StatusEffect) -> bool:
@@ -54,6 +56,7 @@ func remove_status(instance: StatusEffect) -> bool:
 		if child.instance == instance:
 			child.queue_free()
 			status_condition_removed.emit()
+			changed.emit()
 			return true
 	return false
 

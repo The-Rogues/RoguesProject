@@ -9,9 +9,7 @@ class_name ShopData
 
 ## List of possible items that can appear in shops.
 @export var shop_item_pool:Array[ItemData]
-
-const MIN_SHOP_ITEM_COUNT = 7
-const MAX_SHOP_ITEM_COUNT = 8
+@export var card_packs:Array[CardPackItemData]
 
 
 ## Returns a dictionary that sorts shop items by their rarity.
@@ -52,7 +50,7 @@ func _pick_item(ranked_list:Dictionary, rarity:ItemData.Rarity) -> ItemData:
 func get_shop_items() -> Array[ItemData]:
 	var shop_items:Array[ItemData]
 	var ranked_items = _get_ranked_item_dictionary()
-	var shop_item_count:int = randi_range(MIN_SHOP_ITEM_COUNT, MAX_SHOP_ITEM_COUNT)
+	var shop_item_count:int = 5
 	
 	for i in range(0, shop_item_count):
 		var draw = randf()

@@ -2,8 +2,8 @@ extends BattleTurnEvent
 class_name RatBattleEvent
 
 @export var draw_count:int = 2
-const RAT = preload("res://General/Misc/rat.tscn")
-const RAT_CARD = preload("res://Items/Data/Cheese/rat_attack_card_data.tres")
+const RAT = preload("res://Items/Data/Cheese/Rats/rat.tscn")
+const RAT_CARD = preload("res://Items/Data/Cheese/Cards/rat_attack_card_data.tres")
 var rats:Array[Rat]
 
 func initialize(

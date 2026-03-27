@@ -15,4 +15,6 @@ use_player = true
 name = "Sticky Bomb"
 description = "After use, attatch a bomb to the next enemy you attack. Bomb detonates after 3 turns and deals 40 damage."
 display_texture = ExtResource("1_ua0nt")
+shop_price = 50
+sell_price = 25
 metadata/_custom_type_script = "uid://tsren4t2ttpd"
