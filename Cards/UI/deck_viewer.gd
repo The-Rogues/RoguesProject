@@ -48,6 +48,7 @@ func _update_card_display(new_card_datas:Array[CardData]):
 		new_card_ui.set_card_data(card_data)
 		new_card_ui.check_for_play_area = false
 
+
 func _on_activation_button_up():
 	
 	opened.emit()

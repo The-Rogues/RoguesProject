@@ -164,12 +164,3 @@ func _on_projectile_destoyed():
 	projectile_count -= 1
 	if projectile_count == 0:
 		finished.emit()
-
-
-func get_stack_value(
-	battle_instance:BattleManager,
-	action_user:BattleEntity,
-) -> int:
-	var damage := impact_damage
-	damage = action_user.get_attack_damage(damage)
-	return damage

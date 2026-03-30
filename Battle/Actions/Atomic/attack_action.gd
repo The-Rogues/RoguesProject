@@ -20,7 +20,7 @@ func _apply_hit(
 	battle_instance:BattleManager,
 	action_user:BattleEntity,
 ):
-	var damage = damage_sample.get_damage(battle_instance, action_user)
+	var damage = damage_sample.get_damage(action_user)
 	damage = action_user.get_attack_damage(damage)
 	
 	for target in targets:
@@ -37,12 +37,3 @@ func _damage_delay(battle_instance:BattleManager):
 		await battle_instance.action_delay()
 	else:
 		await battle_instance.get_tree().create_timer(0.05).timeout
-
-
-func get_stack_value(
-	battle_instance:BattleManager,
-	action_user:BattleEntity,
-) -> int:
-	var damage = damage_sample.get_damage(battle_instance, action_user)
-	damage = action_user.get_attack_damage(damage)
-	return damage

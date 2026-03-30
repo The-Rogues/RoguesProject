@@ -22,6 +22,7 @@ var holding_card:bool = false
 
 var screen_size:Vector2
 
+
 func _ready() -> void:
 	screen_size = get_viewport().size
 	if force_initialization:
@@ -50,10 +51,15 @@ func initialize(new_card_datas: Array[CardData]) -> void:
 func draw_card(new_card_data: CardData) -> void:
 	var card:CardUI = CARD_UI.instantiate() as CardUI
 	add_child(card)
-	card.set_card_data(new_card_data)
+	var instance:CardInstance = CardInstance.new(
+		new_card_data
+	)
+	card.initialize(instance)
+	#card.set_card_data(new_card_data)
 	
 	card.clicked.connect(_on_card_clicked)
 	card.hovered.connect(_on_card_hovered)
+	card_drawn.emit(instance)
 	
 	card_uis.append(card)
 	_update_card_layout()
@@ -100,7 +106,7 @@ func _on_card_clicked(card: CardUI) -> void:
 	
 	dragged_card = CARD_UI.instantiate()
 	add_child(dragged_card)
-	dragged_card.set_card_data(card.card_data)
+	dragged_card.initialize(card.card_instance)
 	
 	dragged_card.global_position = card.global_position
 	dragged_card.scale = card.scale
@@ -109,13 +115,13 @@ func _on_card_clicked(card: CardUI) -> void:
 	held_card.visible = false
 	grabbed_card.emit()
 
+
 func _release_card() -> void:
 	holding_card = false
 	
 	if not held_card or not dragged_card:
 		_cleanup_drag()
 		return
-	
 	released_card.emit()
 	if dragged_card.in_play_area:
 		play_card.emit(held_card)

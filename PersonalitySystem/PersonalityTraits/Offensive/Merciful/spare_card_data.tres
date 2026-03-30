@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://cq3s1j6odaltq"
 [sub_resource type="Resource" id="Resource_hqmi8"]
 script = ExtResource("2_6ej5m")
 name = "Spare"
-description = "20% Chance to Spare an Enemy. Chance doubles if Enemy below 12 HP."
+description = "[color=yellow]20%[\\color] Chance to Spare an Enemy. Chance doubles if Enemy below [color=red]12[\\color] HP."
 actions = Array[ExtResource("1_kx56i")]([SubResource("Resource_eosv3")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

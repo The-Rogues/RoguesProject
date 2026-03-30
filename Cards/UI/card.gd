@@ -25,7 +25,7 @@ func _ready() -> void:
 	if force_initialization and card_data:
 		set_card_data(card_data)
 
-
+## Depreciated
 func set_card_data(data: CardData) -> void:
 	card_data = data
 	energy_label.text = str(data.energy_cost)
@@ -36,6 +36,7 @@ func set_card_data(data: CardData) -> void:
 
 func initialize(instance:CardInstance) -> void:
 	card_instance = instance
+	card_data = instance.data
 	
 	energy_label.text = str(instance.cost)
 	name_label.text = instance.data.move.name
@@ -55,6 +56,7 @@ func _on_card_instance_updated():
 	energy_label.text = str(card_instance.cost)
 	
 	if card_instance.get_stack_value() != -1:
+		print("damage card")
 		description_label.text = parse_card_description(
 			card_instance.data.move.description,
 			card_instance.get_stack_value()
@@ -67,12 +69,13 @@ func parse_card_description(base_description:String, value:int) -> String:
 	var index_a = base_description.find("{")
 	if index_a == -1:
 		return base_description
-	var index_b = base_description.find("}")
+	var index_b = base_description.find("}") + 1
 	if index_b == -1:
 		return base_description
 	
+	
 	var description = base_description.substr(0, index_a)
-	description = description + " " + str(value) + base_description.substr(index_b)
+	description = description + "[color=red]" + str(value) + "[/color]" + base_description.substr(index_b)
 	
 	return description
 
@@ -128,6 +131,7 @@ func blow_up(active: bool) -> void:
 	else:
 		#top_level = false
 		scale = base_scale
+
 
 
 func show_border(show:bool):

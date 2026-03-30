@@ -20,11 +20,11 @@ func reset_energy():
 	self_modulate = active_color
 
 
-func can_play_card(card_data:CardData):
-	if !card_data:
+func can_play_card(card_instance:CardInstance):
+	if !card_instance:
 		return
 	
-	if card_data.energy_cost <= energy:
+	if card_instance.cost <= energy:
 		return true
 	return false
 

@@ -8,6 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_8kb17"]
 script = ExtResource("2_emvd8")
+damage = 24
 metadata/_custom_type_script = "uid://wbkwfs875w0h"
 
 [sub_resource type="Resource" id="Resource_emvd8"]
@@ -30,7 +31,7 @@ metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 script = ExtResource("2_xdiqx")
 move_type = 1
 name = "Headbutt"
-description = "Deal 24 damage. Lose 6 HP"
+description = "Deal {} damage. Lose [color=red]6[/color] HP"
 actions = Array[ExtResource("1_jgewy")]([SubResource("Resource_emvd8"), SubResource("Resource_cxqed")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

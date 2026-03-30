@@ -51,13 +51,13 @@ func transfer_cards_to_deck(
 		target_card_deck:CardDeck, 
 		shuffle:bool = false,
 ):
-	
-	target_card_deck.cards = cards.duplicate(true)
+	target_card_deck.add_cards(cards)
 	
 	# Remove cards from this deck
-	cards.clear()
 	if shuffle:
 		target_card_deck.cards.shuffle()
+	
+	cards.clear()
 	# signal this deck was updated and is now empty
 	deck_updated.emit(cards)
 

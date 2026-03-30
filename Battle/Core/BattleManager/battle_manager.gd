@@ -279,12 +279,12 @@ func _execute_battle_move(battle_move:BattleMove, user:BattleEntity):
 
 
 func _on_try_play_card(card_ui:CardUI):
-	var card_data:CardData = card_ui.card_data
-	if !energy_counter.can_play_card(card_data):
+	var card_instance:CardInstance = card_ui.card_instance
+	if !energy_counter.can_play_card(card_instance):
 		battle_card_manager.reject_play()
 	else:
 		battle_card_manager.play_card(card_ui)
-		process_card(card_data)
+		process_card(card_instance.data)
 
 
 func process_card(card_data:CardData):

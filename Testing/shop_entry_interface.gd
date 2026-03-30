@@ -9,7 +9,8 @@ const SHOP_ENTRY = preload("res://Testing/shop_entry.tscn")
 @onready var entry_parent: VBoxContainer = $MarginContainer/ScrollContainer/Items
 @onready var sold_out: RichTextLabel = $MarginContainer/SoldOut
 
-var shop_entry_datas:Array[ShopEntryData]
+
+func has_entries() -> bool: return !entry_parent.get_children().is_empty()
 
 
 func add_shop_entry(data:ShopEntryData):
@@ -19,11 +20,6 @@ func add_shop_entry(data:ShopEntryData):
 	
 	shop_entry.selected.connect(_on_entry_selected)
 	shop_entry.hovered.connect(_on_entry_hovered)
-
-
-func assign_indexes():
-	for i in range(0, shop_entry_datas.size()):
-		shop_entry_datas[i].index = i
 
 
 func get_shop_entry_by_data(data:ShopEntryData) -> ShopEntry:

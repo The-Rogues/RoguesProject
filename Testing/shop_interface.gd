@@ -22,6 +22,7 @@ var pending_service_charge:int = 0
 
 func _ready() -> void:
 	shop_entry_interface.entry_selected.connect(_on_entry_selected)
+	your_items.entry_selected.connect(_on_entry_selected)
 	for entry in shop_services:
 		shop_entry_interface.add_shop_entry(entry)
 	var shop_items:Array[ItemData] = get_shop_items()
@@ -42,11 +43,10 @@ func _ready() -> void:
 				_on_remove_card_service
 			)
 	
-	sell_button.disabled = your_items.shop_entry_datas.is_empty()
+	sell_button.disabled = !your_items.has_entries()
 
 
 func _on_remove_card_service(card:CardData):
-	print("worked")
 	GlobalSessionManager.run_progress.card_deck.remove_card(card)
 	GlobalSessionManager.decrease_gold(pending_service_charge)
 	pending_service_charge = 0
@@ -114,12 +114,23 @@ func update_buy_button():
 
 
 func buy_item():
-	var entry = shop_entry_interface.get_shop_entry_by_data(selected_item)
+	var entry:ShopEntry = null
+	if sell_mode:
+		entry = your_items.get_shop_entry_by_data(selected_item)
+	else:
+		entry = shop_entry_interface.get_shop_entry_by_data(selected_item)
+		
+		if entry.entry_data is ShopItemData:
+			var item_entry:ShopItemData = create_item_entry(entry.entry_data.item)
+			your_items.add_shop_entry(item_entry)
+	
 	buy_effect(entry)
 	
 	if selected_item.exhaustable:
 		shop_entry_interface.remove_entry_by_data(selected_item)
 		selected_item = null
+	
+	sell_button.disabled = !your_items.has_entries()
 	
 	update_buy_button()
 
@@ -169,6 +180,8 @@ func _on_sell_button_up() -> void:
 		sell_button.text = "Buy Items"
 		buy_button.text = "Sell"
 		buy_button.visible = false
+		
+		buy_button.disabled = !your_items.has_entries()
 	else:
 		shop_entry_interface.visible = true
 		your_items.visible = false

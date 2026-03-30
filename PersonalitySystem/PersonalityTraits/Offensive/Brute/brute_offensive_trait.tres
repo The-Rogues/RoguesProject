@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://7n3mqrwdvr7" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="2_jdfcn"]
 [ext_resource type="Resource" uid="uid://v3y7fyud6i1j" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="4_0mqn5"]
 [ext_resource type="Script" uid="uid://coht23i0qahwq" path="res://Cards/Core/card_pool.gd" id="6_fo3pb"]
+[ext_resource type="Resource" uid="uid://f6ysyce2g1hr" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strength_card_data.tres" id="6_jdfcn"]
 
 [sub_resource type="Resource" id="Resource_0mqn5"]
 script = ExtResource("6_fo3pb")
@@ -24,5 +25,5 @@ id = "brute"
 name = "Brute"
 description = "Head strong and short-tempered. Prefers targeting weaker enemies."
 card_pool = SubResource("Resource_0mqn5")
-default_cards = Array[ExtResource("1_jdfcn")]([ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("2_jdfcn")])
+default_cards = Array[ExtResource("1_jdfcn")]([ExtResource("4_0mqn5"), ExtResource("4_0mqn5"), ExtResource("6_jdfcn"), ExtResource("2_jdfcn")])
 metadata/_custom_type_script = "uid://clg6wfr8i5i2c"

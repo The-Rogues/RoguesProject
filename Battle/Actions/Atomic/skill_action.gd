@@ -103,13 +103,5 @@ func _apply_to_targets(
 	var value:int = _calculate_amount(battle_instance, action_user)
 	
 	for target in targets:
-		print("calling")
 		apply_func.call(target, value)
 		await battle_instance.action_delay()
-
-
-func get_stack_value(
-	battle_instance:BattleManager,
-	action_user:BattleEntity,
-) -> int:
-	return amount

@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
 script = ExtResource("4_kouw3")
 move_type = 1
 name = "Strike"
-description = "Deal 4 Damage."
+description = "Deal {} Damage."
 actions = Array[ExtResource("1_kmotx")]([SubResource("Resource_6laef")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
