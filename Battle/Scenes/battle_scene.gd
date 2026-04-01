@@ -100,6 +100,7 @@ func _play_win_sequence():
 		enemy_encounter,
 		battle_manager
 	)
+	
 
 
 func display_floating_numbers(text:String, position:Vector2):

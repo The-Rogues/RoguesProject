@@ -88,8 +88,8 @@ func load_battle_scene():
 func _create_battle_scene_configuration():
 	# TODO: Change spawn pool depending on floor the player is on
 	var battle_config = BattleSceneConfiguration.new(
-		FLOOR_1_SPAWN_POOL.get_enemy_encounter(),
-		FLOOR_1_SPAWN_POOL.get_object_layout(),
+		GlobalSessionManager.run_progress.battle.enemies,
+		GlobalSessionManager.run_progress.battle.objects,
 		GlobalSessionManager.run_progress.personality_data,
 		GlobalSessionManager.run_progress.character_entity_data,
 		GlobalSessionManager.run_progress.held_items,

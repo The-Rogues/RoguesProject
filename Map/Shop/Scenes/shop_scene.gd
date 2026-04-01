@@ -27,11 +27,19 @@ func _ready() -> void:
 	sell_options.visible = false
 	item_info.visible = false
 	
-	if GlobalSceneLoader.pending_shop_data:
+
+	var p: RunProgress = GlobalSessionManager.run_progress
+	if p.shopItems.size() > 0:
+		shop_items = p.shopItems
+	elif GlobalSceneLoader.pending_shop_data:
 		shop_items = GlobalSceneLoader.get_shop_items()
+		p.shopItems = shop_items
+		GlobalSaveManager.save_run(p)
 	else:
 		shop_items = override_shop_items
-	
+		p.shopItems = shop_items
+		GlobalSaveManager.save_run(p)
+
 	if GlobalSessionManager.run_progress:
 		sellable_items = GlobalSessionManager.run_progress.held_items
 	else:

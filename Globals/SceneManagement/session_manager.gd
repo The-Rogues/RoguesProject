@@ -66,6 +66,14 @@ func select_map_node(corr_node: RefCounted) -> void:
 	GlobalSaveManager.save_run(run_progress)
 	
 	if corr_node.node_data == 1:
+		if run_progress.battle == null: 
+			run_progress.battle = BattleSaveData.new() 
+			run_progress.battle.enemies = GlobalSceneLoader.FLOOR_1_SPAWN_POOL.get_enemy_encounter() 
+			run_progress.battle.objects = GlobalSceneLoader.FLOOR_1_SPAWN_POOL.get_object_layout()
+	
+	GlobalSaveManager.save_run(run_progress)
+
+	if corr_node.node_data == 1:
 		GlobalSceneLoader.load_battle_scene()
 	elif corr_node.node_data == 0:
 		GlobalSceneLoader.load_shop_scene()
@@ -86,6 +94,10 @@ func complete_current_room() -> void:
 	run_progress.pending_node_index = -1 # These will be save. I want to use this to prevent player when the back to the game, they choose other location instead. 
 	run_progress.pending_room_type = -1
 	run_progress.room_in_progress = false
+	if run_progress.battle != null:
+		run_progress.battle = null
+	if run_progress.shopItems != []:
+		run_progress.shopItems = []
 	
 	GlobalSaveManager.save_run(run_progress)
 	

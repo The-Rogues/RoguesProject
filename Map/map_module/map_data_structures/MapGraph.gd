@@ -558,6 +558,7 @@ func populate_events() -> void:
 			else:
 				node_arr[i].node_data = 1 # Odd layered nodes are battle nodes.
 			
+			
 func get_player_node_index() -> int:
 	return node_arr.find(player_pos)
 	

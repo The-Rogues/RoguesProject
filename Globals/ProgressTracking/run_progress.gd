@@ -48,6 +48,11 @@ var total_items_collected:int = 0
 var total_personality_shifts:int = 0
 var total_rooms_explored:int = 0
 
+# -------------------------------------------------
+# Shop event tracking member values 
+# -------------------------------------------------
+@export var shopItems: Array[ItemData] = []
+
 var _initialized:bool = false
 
 
