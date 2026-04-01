@@ -1,4 +1,3 @@
-res://Map/personality_shop/PersonalityShop.tscn
 res://General/Effects/SpriteFlasher/flash_sprite_material.tres
 res://Entities/StatusEffects/Protected/protected_condition_status_icon.tres
 res://Entities/StatusEffects/Weakened/weakness_status_effect_data.tres
@@ -54,11 +53,13 @@ res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/conserve_card_data.
 res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/lean_card_data.tres
 res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/move_card_data.tres
 res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres
-res://Map/event/event_instances/personality_event_data.tres
+res://Map/event/event_instances/card_shop_event_data.tres
 res://Cards/Shared/counter_card_data.tres
 res://Cards/Shared/defend_card_data.tres
 res://Cards/Shared/move_card_data.tres
 res://Cards/Shared/strike_card_data.tres
 res://Cards/Shared/sling_shot_card_data.tres
 res://Cards/Shared/swing_card_data.tres
+res://Map/card_shop/CardShop.tscn
+res://Map/event/event_callbacks/load_card_shop.gd
 res://Map/map_module/map_data_structures/MapGraph.gd

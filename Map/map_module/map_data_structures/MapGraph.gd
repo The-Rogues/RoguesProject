@@ -563,6 +563,7 @@ func populate_events(rand_seed: int) -> void:
 	var shop_data: Resource = load("res://Map/event/event_instances/shop_event_data.tres")
 	var personality_data: Resource = load("res://Map/event/event_instances/personality_event_data.tres")
 	var boss_data: Resource = load("res://Map/event/event_instances/boss_event_data.tres")
+	var card_shop_data = load("res://Map/event/event_instances/card_shop_event_data.tres")
 	var mini_data: Resource = load("res://Map/event/event_instances/test_mini_data.tres") 
 	
 	# Create RandomNumberGernerator and give it the seed.
@@ -633,14 +634,17 @@ func populate_events(rand_seed: int) -> void:
 	var count: int = 0
 	while shop_nodes.size() != 0:
 		var target_idx: int = rand_gen.randi_range(0, shop_nodes.size() - 1)
-		if (count % 2) == 0:
+		if (count % 3) == 0:
 			shop_nodes[target_idx].main_event = personality_data
+		elif (count % 3) == 1:
+			shop_nodes[target_idx].main_event = card_shop_data
 		shop_nodes.remove_at(target_idx)
 		count += 1
 	
 	for i in range(1, node_arr.size()):
 		if (i % 2) == 1:
 			node_arr[i].node_data.mini_event = mini_data
+		
 
 func add_main_event(main_data: Resource):
 	var ret_val: EventData = EventData.new()
