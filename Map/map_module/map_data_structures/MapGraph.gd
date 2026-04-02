@@ -17,11 +17,13 @@ var node_arr: Array[RefCounted] # An array which will hold the MapGraph's indivi
 var map_layers: int # An integer which will hold the number of layers in the graph for quick reference.
 var max_layer_nodes: int # An integer which will hold the largest number of nodes available to a single layer.
 var num_mandatory: int
+var visited_nodes: Array[RefCounted]
 var player_pos: RefCounted: # A reference to the MapGraphNode that the player is currently located at.
 	# This function is called whenever the player's position attempts to change.
 	set(new_pos):
 		if player_pos != new_pos:
 			player_pos = new_pos # Set the new position if not already set.
+			visited_nodes.append(new_pos)
 			emit_signal("player_pos_changed", player_pos) # Emit the player_pos_changed signal.
 			#_autosave_progress()
 

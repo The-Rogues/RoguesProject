@@ -9,6 +9,7 @@ extends TextureButton
 
 # Get preassigned children.
 @onready var sub_container: TextureRect = $TextureRect
+var sub_visible: bool = true
 
 var corr_node: RefCounted # The MapGraphNode that this button corresponds to.
 var is_std_sz: bool # Marked as true if this button is the standard size of buttons on the map.
@@ -25,6 +26,10 @@ func _ready() -> void:
 	if corr_node.node_data.mini_event != null:
 		sub_container.texture = corr_node.node_data.mini_event.map_texture
 	sub_container.size = Vector2(self.size.x / 2, self.size.y / 2)
+	if sub_visible:
+		sub_container.visible = true
+	else:
+		sub_container.visible = false
 
 # --init_button Function--
 # Description: Sets the corr_node data member. Reccomended that this is called directly after
@@ -42,6 +47,16 @@ func resize():
 	if is_node_ready():
 		sub_container.position = Vector2(self.size.x / 2, self.size.y / 2)
 		sub_container.size = Vector2(self.size.x / 2, self.size.y / 2)
+
+func hide_mini_event():
+	if is_node_ready():
+		sub_container.visible = false
+	sub_visible = false
+
+func show_mini_event():
+	if is_node_ready():
+		sub_container.visible = false
+	sub_visible = true
 
 # --_process Function--
 # Description: Modulates the opacity of the button's sub event and changes its size if necessary.
