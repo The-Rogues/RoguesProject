@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ctltjra0tmwxk"]
+
+[ext_resource type="Script" uid="uid://dlc8nkrsmjx3y" path="res://Testing/Entity/UI/creature_ui.gd" id="1_8xbxf"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_ul84b"]
+[ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://General/UI/HealthBar/health_bar.tscn" id="2_8xbxf"]
+[ext_resource type="Script" uid="uid://bkhwawbjbd08r" path="res://Entities/StatusEffects/Scenes/status_effects_container.gd" id="3_5wfex"]
+
+[sub_resource type="Animation" id="Animation_5wfex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_khexw"]
+resource_name = "dissapear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtj7w"]
+_data = {
+&"RESET": SubResource("Animation_5wfex"),
+&"dissapear": SubResource("Animation_khexw")
+}
+
+[node name="CreatureUI" type="Control" unique_id=1279460119]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8xbxf")
+
+[node name="Elements" type="VBoxContainer" parent="." unique_id=1712714255]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_right = 88.0
+offset_bottom = 67.0
+grow_horizontal = 2
+pivot_offset = Vector2(88, 0)
+
+[node name="NameLabel" type="Label" parent="Elements" unique_id=2147088674]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_ul84b")
+theme_override_font_sizes/font_size = 16
+text = "Unkown"
+horizontal_alignment = 1
+
+[node name="HealthBar" parent="Elements" unique_id=1638125087 instance=ExtResource("2_8xbxf")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="EffectsContainer" type="HBoxContainer" parent="Elements" unique_id=940684758]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_5wfex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485457402]
+libraries/ = SubResource("AnimationLibrary_jtj7w")

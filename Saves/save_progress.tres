@@ -3,52 +3,49 @@
 [ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_pic50"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="2_3dqjj"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strength_card_data.tres" id="3_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/defend_card_data.tres" id="4_8uu1w"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="4_osl4a"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/counter_card_data.tres" id="5_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/move_card_data.tres" id="6_sqevk"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/move_card_data.tres" id="6_3dqjj"]
 [ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="7_8uu1w"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/lean_card_data.tres" id="7_bn7m0"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/lean_card_data.tres" id="7_osl4a"]
 [ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="7_sqevk"]
 [ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="9_gvrsj"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="10_8uu1w"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="10_73m4a"]
 [ext_resource type="Script" path="res://Items/Core/item_data.gd" id="10_ldui5"]
-[ext_resource type="Resource" path="res://Items/Data/StickyGlove/magic_glove_item_data.tres" id="13_8uu1w"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres" id="13_osl4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Fickle/fickle_defensive_trait.tres" id="12_bn7m0"]
 [ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="13_rp2d1"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="14_hxw8v"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/brute_offensive_trait.tres" id="14_sqevk"]
 [ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="15_jq1ju"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="16_gbghs"]
-
-[sub_resource type="Resource" id="Resource_73m4a"]
-script = ExtResource("7_sqevk")
-name = "Your Deck"
-cards = Array[ExtResource("1_pic50")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("4_osl4a"), ExtResource("5_3dqjj"), ExtResource("5_3dqjj"), ExtResource("5_3dqjj"), ExtResource("5_3dqjj"), ExtResource("6_sqevk"), ExtResource("6_sqevk"), ExtResource("6_sqevk"), ExtResource("7_bn7m0"), ExtResource("7_8uu1w")])
-
-[sub_resource type="Resource" id="Resource_sqevk"]
-script = ExtResource("9_gvrsj")
-display_texture = ExtResource("10_8uu1w")
-id = "player"
-name = "Judas"
-description = "They know the tower will test them, yet trust their discipline to endure whatever trials await."
-max_health = 80
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Laidback/laidback_strategic_trait.tres" id="16_sqevk"]
 
 [sub_resource type="Resource" id="Resource_bn7m0"]
+script = ExtResource("7_sqevk")
+name = "Your Deck"
+cards = Array[ExtResource("1_pic50")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("4_osl4a"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("4_8uu1w"), ExtResource("6_3dqjj"), ExtResource("6_3dqjj"), ExtResource("6_3dqjj"), ExtResource("7_osl4a"), ExtResource("7_8uu1w")])
+
+[sub_resource type="Resource" id="Resource_gvrsj"]
+script = ExtResource("9_gvrsj")
+display_texture = ExtResource("10_73m4a")
+id = "player"
+name = "Abraham"
+description = "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape."
+max_health = 80
+
+[sub_resource type="Resource" id="Resource_ldui5"]
 script = ExtResource("13_rp2d1")
-offensive_trait = ExtResource("14_hxw8v")
-offensive_weight = 1
-defensive_trait = ExtResource("13_osl4a")
-defensive_weight = 4
-strategic_trait = ExtResource("16_gbghs")
-strategic_weight = 3
+offensive_trait = ExtResource("14_sqevk")
+offensive_weight = 5
+defensive_trait = ExtResource("12_bn7m0")
+defensive_weight = 9
+strategic_trait = ExtResource("16_sqevk")
+strategic_weight = 5
 
 [resource]
 script = ExtResource("15_jq1ju")
-personality_data = SubResource("Resource_bn7m0")
-character_entity_data = SubResource("Resource_sqevk")
-character_name = "Judas"
-character_backstory = "They know the tower will test them, yet trust their discipline to endure whatever trials await."
-map_seed = 548168116
-player_node_index = 8
-card_deck = SubResource("Resource_73m4a")
-held_items = Array[ExtResource("10_ldui5")]([ExtResource("13_8uu1w")])
-gold = 236
+personality_data = SubResource("Resource_ldui5")
+character_entity_data = SubResource("Resource_gvrsj")
+character_name = "Abraham"
+character_backstory = "Sensing danger beyond comprehension, they enter reluctantly, always watching for a place to hide or escape."
+map_seed = 3077494118
+player_node_index = 3
+card_deck = SubResource("Resource_bn7m0")

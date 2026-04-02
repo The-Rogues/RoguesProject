@@ -12,6 +12,7 @@ class_name RunProgress
 # -------------------------------------------------
 @export var personality_data:PersonalityData = null
 @export var character_entity_data:EntityData = null
+@export var player_data:PlayerData = null
 @export var current_health:int = 80
 @export var max_energy:int = 5
 @export var character_name:String

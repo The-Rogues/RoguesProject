@@ -15,7 +15,7 @@ func _ready():
 
 
 func flash(
-	color: Color,
+	color: Color = Color.WHEAT,
 	strength:float = 1.0,
 	duration:float = 0.08,
 	pulses:int = 1

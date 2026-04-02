@@ -3,27 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://djjgc67emtqut" path="res://Entities/StatusEffects/Protected/protected_condition_status_icon.tres" id="3_tpdpk"]
 [ext_resource type="Texture2D" uid="uid://dte5dnc52hrbn" path="res://Entities/Data/Enemies/Sorcerer/sorcerer_texture.tres" id="4_gqmd2"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="5_44oxg"]
-[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="5_rekp0"]
-[ext_resource type="Resource" uid="uid://be5d5xjhidpxh" path="res://Entities/StatusEffects/Protected/protected_status_effect_data.tres" id="6_u6yi4"]
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="7_alaul"]
 [ext_resource type="Script" uid="uid://sxih45j4ip5w" path="res://Entities/Core/battle_entity_data.gd" id="9_ljnds"]
 [ext_resource type="Script" uid="uid://c3uyo8xsai327" path="res://Battle/Actions/Atomic/projectile_action.gd" id="9_tpdpk"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://Battle/UI/BattleIntentIcons/projectile_attack_intent_icon.tres" id="10_ljnds"]
-[ext_resource type="Script" uid="uid://cpajvuhoxcjmg" path="res://Battle/Actions/Atomic/skill_action.gd" id="10_tpdpk"]
 [ext_resource type="Texture2D" uid="uid://4jeymnoxuans" path="res://Entities/Data/Enemies/Sorcerer/magic_slash_texture.tres" id="11_lipq7"]
-
-[sub_resource type="Resource" id="Resource_oakic"]
-script = ExtResource("5_rekp0")
-status = ExtResource("6_u6yi4")
-targeting = 3
-metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_6epgn"]
 script = ExtResource("5_44oxg")
 action_display_icon = ExtResource("3_tpdpk")
 name = "Wall Off"
 description = "All allies gain protection."
-actions = Array[ExtResource("7_alaul")]([SubResource("Resource_oakic")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_abbt1"]
@@ -45,17 +35,12 @@ description = "Fires 3 low-accuracy projectiles. Deals 6 damage on impact"
 actions = Array[ExtResource("7_alaul")]([SubResource("Resource_abbt1")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
-[sub_resource type="Resource" id="Resource_u6yi4"]
-script = ExtResource("10_tpdpk")
-metadata/_custom_type_script = "uid://cpajvuhoxcjmg"
-
 [sub_resource type="Resource" id="Resource_brals"]
 script = ExtResource("5_44oxg")
 action_display_icon = ExtResource("3_tpdpk")
 move_type = 1
 name = "Prepare"
 description = "Gain 6 block"
-actions = Array[ExtResource("7_alaul")]([SubResource("Resource_u6yi4")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

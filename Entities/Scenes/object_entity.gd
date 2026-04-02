@@ -1,5 +1,5 @@
 extends Entity
-class_name ObjectEntity
+class_name BattleObjectEntity
 
 @onready var context_panel: ContextPanel = $UI/ContextPanel
 

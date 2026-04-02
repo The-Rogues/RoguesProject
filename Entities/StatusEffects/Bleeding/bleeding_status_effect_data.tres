@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BleedingStatusEffect" format=3 uid="uid://bi42scpbcsgo8"]
 
 [ext_resource type="Script" uid="uid://bbrryb5rbwnlc" path="res://Entities/StatusEffects/Bleeding/bleeding_status_effect_data_script.gd" id="1_1tarl"]
-[ext_resource type="Texture2D" uid="uid://rtaq1fpx8yc8" path="res://Entities/StatusEffects/Bleeding/bleeding_texture.tres" id="1_sdgk6"]
+[ext_resource type="Texture2D" uid="uid://rtaq1fpx8yc8" path="res://Entities/StatusEffects/EffectIcons/wounded_effect_icon.tres" id="1_sdgk6"]
 
 [resource]
 script = ExtResource("1_1tarl")

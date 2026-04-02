@@ -1,0 +1,8 @@
+extends RefCounted
+class_name BattleContext
+
+var enemy_spawn_handler
+var card_handler
+var event_handler
+var rewards_handler
+var battle_field_handler

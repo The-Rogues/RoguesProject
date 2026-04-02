@@ -6,8 +6,9 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_dlmqk"]
 [ext_resource type="PackedScene" uid="uid://dbt3n70fcylp3" path="res://PersonalitySystem/traits_display.tscn" id="4_lo82u"]
 [ext_resource type="Texture2D" uid="uid://e6ny87os8hbc" path="res://Entities/StatusEffects/Regenerating/regenerating_status_effect_texture.tres" id="5_8pakl"]
-[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://Items/GoldLabel/gold_icon.tres" id="7_dlmqk"]
-[ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Items/GoldLabel/session_gold_label.gd" id="8_lo82u"]
+[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://Testing/gold_icon.tres" id="7_dlmqk"]
+[ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Battle/UI/GameDashboard/session_gold_label.gd" id="8_lo82u"]
+
 
 [node name="CharacterSaveCard" type="NinePatchRect" unique_id=1731089554]
 texture_filter = 1

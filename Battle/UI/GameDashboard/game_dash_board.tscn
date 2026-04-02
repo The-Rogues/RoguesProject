@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dijrwcokcngwv" path="res://Cards/UI/deck_icon_normal.tres" id="10_sqbpr"]
 [ext_resource type="Texture2D" uid="uid://bple1k07y4let" path="res://Cards/UI/deck_icon_hover.tres" id="11_m0xnm"]
 [ext_resource type="PackedScene" uid="uid://cuukmx5jhs7wn" path="res://Items/Scenes/player_items.tscn" id="13_pxp8h"]
-[ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Items/GoldLabel/session_gold_label.gd" id="14_pxp8h"]
+[ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Battle/UI/GameDashboard/session_gold_label.gd" id="14_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://Cards/UI/deck_viewer.tscn" id="14_yct1t"]
 [ext_resource type="PackedScene" uid="uid://b2lvk84h3jqwl" path="res://Cards/UI/deck_card_selector.tscn" id="15_6vipf"]
 

@@ -1,20 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d3qw0rvn76c2q"]
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_owmm4"]
-[ext_resource type="Resource" uid="uid://b4l5602gonh2p" path="res://Entities/Data/Objects/Turret/turret_object_data.tres" id="2_hn162"]
-[ext_resource type="Script" uid="uid://n3m680uld6qp" path="res://Battle/Actions/Atomic/object_action.gd" id="3_kuuch"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_437t5"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="5_oe617"]
-
-[sub_resource type="Resource" id="Resource_rxp8h"]
-script = ExtResource("3_kuuch")
-object_data = ExtResource("2_hn162")
 
 [sub_resource type="Resource" id="Resource_5uaq8"]
 script = ExtResource("4_437t5")
 name = "Magic pot"
 description = "Carry a placeable 18 HP Magic Pot. Fires a 4 damage projectile at the start of your turns. "
-actions = Array[ExtResource("1_owmm4")]([SubResource("Resource_rxp8h")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]

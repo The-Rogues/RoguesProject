@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6ggjvrmk1eoy"]
 
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_0.tres" id="1_bt8o4"]
-[ext_resource type="PackedScene" uid="uid://btxp58xkeuf0u" path="res://Testing/shop_interface.tscn" id="6_kx010"]
+[ext_resource type="PackedScene" uid="uid://btxp58xkeuf0u" path="res://Shops/ItemShop/item_shop_interface.tscn" id="6_kx010"]
 [ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://Map/Shop/ShopKeepers/shop_desk.tres" id="9_rdf4x"]
 [ext_resource type="PackedScene" uid="uid://b2sastodcwsbx" path="res://Battle/UI/GameDashboard/game_dash_board.tscn" id="13_56fue"]
 [ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://General/Effects/Particles/star_pop.tscn" id="17_rrix6"]

@@ -15,7 +15,7 @@ signal object_removed(object:ObjectEntity)
 @onready var object_slot: Node2D = $ObjectSlot
 var object:ObjectEntity
 @onready var effect: PositionEffect = $PositionEffect
-var entity:BattleEntity
+var entity:AbstractCreature
 
 const OBJECT = preload("res://Entities/Scenes/object_entity.tscn")
 const FLOATING_NUMBERS = preload(

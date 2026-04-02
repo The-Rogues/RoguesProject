@@ -6,17 +6,18 @@ class_name HealthBar
 @onready var health_label: Label = $CenterContainer/HealthLabel
 @export var display_numbers: bool = true
 
-func initialize(health_component:HealthComponent):
+
+func initialize(health:Health):
 	difference_bar = $DifferenceBar
 	health_label = $CenterContainer/HealthLabel
 	
-	max_value = health_component.max_health
-	value = health_component.current_health
+	max_value = health.max_value
+	value = health.value
 	difference_bar.max_value = max_value
 	difference_bar.value = value
 	
 	health_label.text = str(int(value)) + "/" + str(int(max_value))
-	health_component.health_changed.connect(_on_health_changed)
+	health.health_changed.connect(_on_health_changed)
 
 
 func _on_health_changed(current:int, max:int):
@@ -24,6 +25,7 @@ func _on_health_changed(current:int, max:int):
 	if health_label:
 		health_label.text = str(int(value)) + "/" + str(int(max))
 	difference_timer.start()
+
 
 func _on_timer_timeout() -> void:
 	difference_bar.value = value

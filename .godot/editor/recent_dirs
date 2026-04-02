@@ -1,5 +1,10 @@
-res://PersonalitySystem/PersonalityTraits/Offensive/Brute/
+res://Testing/Entity/UI/
+res://Testing/Entity/Monster/
+res://Testing/Entity/Object/
 res://Testing/
+res://Testing/Entity/
+res://Entities/StatusEffects/EffectIcons/
+res://PersonalitySystem/PersonalityTraits/Offensive/Brute/
 res://Items/Data/Plushie/
 res://Items/Data/ForbiddenRelic/
 res://Items/Data/Diamond/

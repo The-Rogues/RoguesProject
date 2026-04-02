@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bjyogff5ux6jl"]
+
+[ext_resource type="Script" uid="uid://bj1v36eyrnt4c" path="res://Testing/Entity/Player/object_slot.gd" id="1_6te2n"]
+[ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-015.png" id="2_8t4hv"]
+[ext_resource type="Texture2D" uid="uid://wk3j8bkwhxyl" path="res://Items/Data/Barricade/barricade_texture.tres" id="3_bo7u4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e2wrp"]
+texture = ExtResource("2_8t4hv")
+modulate_color = Color(0.27688846, 0.41736323, 0.58151037, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dumt5"]
+bg_color = Color(0.025351316, 0.08236759, 0.15425596, 1)
+
+[node name="ObjectSlot" type="Control" unique_id=231197000]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6te2n")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1103316382]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_e2wrp")
+
+[node name="Panel" type="Panel" parent="PanelContainer" unique_id=1463375158]
+show_behind_parent = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dumt5")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1704199027]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ObjectTexture" type="TextureRect" parent="PanelContainer/MarginContainer" unique_id=854646273]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_bo7u4")
+expand_mode = 1

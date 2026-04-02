@@ -2,35 +2,12 @@
 
 [ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="1_1m2cl"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://Cards/Core/card_data.gd" id="1_g1wkk"]
-[ext_resource type="Script" uid="uid://wbkwfs875w0h" path="res://Battle/Actions/DamageValues/damage_values.gd" id="2_ar1i7"]
-[ext_resource type="Script" uid="uid://b3d16lvl0jjg6" path="res://Battle/Actions/Atomic/attack_action.gd" id="3_8uf35"]
-[ext_resource type="Script" uid="uid://s304n8psvt04" path="res://Battle/Actions/Atomic/status_effect_action.gd" id="4_8uf35"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="4_w8e8h"]
-[ext_resource type="Resource" uid="uid://b0ksaxetd0aye" path="res://Entities/StatusEffects/Vulnerable/vulnerable_status_effect_data.tres" id="5_w8e8h"]
-
-[sub_resource type="Resource" id="Resource_kehxm"]
-script = ExtResource("2_ar1i7")
-metadata/_custom_type_script = "uid://wbkwfs875w0h"
-
-[sub_resource type="Resource" id="Resource_7u06w"]
-script = ExtResource("3_8uf35")
-damage_sample = SubResource("Resource_kehxm")
-targeting = 2
-metadata/_custom_type_script = "uid://b3d16lvl0jjg6"
-
-[sub_resource type="Resource" id="Resource_auiu7"]
-script = ExtResource("4_8uf35")
-status = ExtResource("5_w8e8h")
-duration = 2
-stacks = 2
-targeting = 4
-metadata/_custom_type_script = "uid://s304n8psvt04"
 
 [sub_resource type="Resource" id="Resource_n5npm"]
 script = ExtResource("4_w8e8h")
 name = "Metal Wave"
 description = "Deal 6 damage. Apply 2 vulnerability."
-actions = Array[ExtResource("1_1m2cl")]([SubResource("Resource_7u06w"), SubResource("Resource_auiu7")])
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [resource]
