@@ -9,8 +9,8 @@ extends TextureButton
 
 # Get preassigned children.
 @onready var sub_container: TextureRect = $TextureRect
-var sub_visible: bool = true
 
+var sub_visible: bool = true # Keeps track of the mini event icon's visibility.
 var corr_node: RefCounted # The MapGraphNode that this button corresponds to.
 var is_std_sz: bool # Marked as true if this button is the standard size of buttons on the map.
 var elapsed_time: float = 0 # Time since the button was created used to modulate the sine function.
@@ -48,12 +48,18 @@ func resize():
 		sub_container.position = Vector2(self.size.x / 2, self.size.y / 2)
 		sub_container.size = Vector2(self.size.x / 2, self.size.y / 2)
 
-func hide_mini_event():
+# --hide_mini_event Function--
+# Description: Makes the mini event icon invisible.
+# Return: Void.
+func hide_mini_event() -> void:
 	if is_node_ready():
 		sub_container.visible = false
 	sub_visible = false
 
-func show_mini_event():
+# --show_mini_event Function--
+# Description: Makes the mini event icon visible.
+# Return: Void
+func show_mini_event() -> void:
 	if is_node_ready():
 		sub_container.visible = false
 	sub_visible = true

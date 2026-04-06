@@ -1,3 +1,10 @@
+# --TooltipComponent Class Script--
+# Author: Fletcher Green
+
+#------------------------------------------------------------------------------------
+# Section: Declarations
+#------------------------------------------------------------------------------------
+
 extends Control
 
 @onready var slf_dash: Control = $ContentContainer/Dashboard

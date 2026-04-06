@@ -16,8 +16,8 @@ signal player_pos_changed(new_pos: RefCounted)
 var node_arr: Array[RefCounted] # An array which will hold the MapGraph's individual nodes.
 var map_layers: int # An integer which will hold the number of layers in the graph for quick reference.
 var max_layer_nodes: int # An integer which will hold the largest number of nodes available to a single layer.
-var num_mandatory: int
-var visited_nodes: Array[RefCounted]
+var num_mandatory: int # Number of mandatory nodes on the map. Does not include the final boss.
+var visited_nodes: Array[RefCounted] # The sequence of nodes that the player has visited.
 var player_pos: RefCounted: # A reference to the MapGraphNode that the player is currently located at.
 	# This function is called whenever the player's position attempts to change.
 	set(new_pos):
@@ -644,38 +644,59 @@ func populate_events(rand_seed: int) -> void:
 		if (i % 2) == 1:
 			node_arr[i].node_data.mini_event = mini_data
 
-func add_main_event(main_data: Resource):
+# --add_main_event Function--
+# Description: Creates a new EventData resource and adds the provided main event to it.
+# main_data: The main event to add to the new EventData resource.
+# Return: An EventData resource containing the given main event.
+func add_main_event(main_data: Resource) -> EventData:
 	var ret_val: EventData = EventData.new()
 	ret_val.main_event = main_data
 	return ret_val
 
+# --populate_noise Function--
+# Description: Creates a random float between zero and one which is later multiplied by standard offsets in the MapInstance
+#              class to make the map visually noisy. Outer nodes are special cases, noise must go toward a specific direction when a
+#              layer is max size.
+# noise_seed: Seed used to distribute noise across map nodes.
+# Return: Void.
 func populate_noise(noise_seed: int) -> void:
 	
 	# Create RandomNumberGernerator and give it the seed.
 	var rand_gen = RandomNumberGenerator.new()
 	rand_gen.seed = noise_seed
 	
+	# Map nodes are iterated over in layers so that outer nodes can be identified.
 	var curr_idx: int = 0
 	for i in range(0, map_layers):
 		
 		var curr_layer_size: int = get_layer(i).size()
 		for j in range(0, curr_layer_size):
 			
+			# Noise in the y-direction is always handled the same.
 			node_arr[curr_idx].y_noise_factor = rand_gen.randf()
 			if rand_gen.randf() < 0.5:
 				node_arr[i].y_noise_factor *= -1
 			
+			# In the x-direction, the direction of the noise must be recorded since margins may be different on each side of
+			# outer nodes.
 			node_arr[curr_idx].x_noise_factor = rand_gen.randf()
 			if j == 0 && (curr_layer_size == max_layer_nodes):
-				node_arr[curr_idx].x_noise_left = false
+				node_arr[curr_idx].x_noise_left = false # When a layer is max size, noise must go to the right in the left outer node.
+				
 			elif (j == curr_layer_size - 1) && (curr_layer_size == max_layer_nodes):
-				node_arr[curr_idx].x_noise_left = true
+				node_arr[curr_idx].x_noise_left = true # When a layer is max size, noise must go to the left in the right outer node.
+			
+			# Otherwise noise can be assigned to left or right randomly.
 			else:
 				node_arr[curr_idx].x_noise_left = false
 				if rand_gen.randf() < 0.5:
 					node_arr[curr_idx].x_noise_left = true
 			
 			curr_idx += 1
+
+#------------------------------------------------------------------------------------
+# Section: Save System Functions
+#------------------------------------------------------------------------------------
 
 func get_player_node_index() -> int:
 	return node_arr.find(player_pos)
