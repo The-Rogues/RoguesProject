@@ -1,19 +1,30 @@
+# --TooltipStack Class Script--
+# Author: Fletcher Green
+
+#------------------------------------------------------------------------------------
+# Section: Declarations
+#------------------------------------------------------------------------------------
+
 extends Control
 
+# TooltipComponent scene.
 @onready var component_scn: PackedScene = preload("res://tooltip-wip/TooltipComponent/TooltipComponent.tscn") 
 
+# VBoxContainer that holds TooltipComponents.
 @onready var slf_container: VBoxContainer = $VBoxContainer
 
+# Width of the tooltip and size of the margin dividing items.
 var slf_width = 0
 var slf_margin = 0
 
-var attack_index: int = 0
-var ability_index: int = 0
-var preference_index: int = 0
-
+# Variables for keeping track of groups.
 var group_names: Array[String]
 var group_indices: Array[int]
 var group_cols: Array # Pretending this is Array[Array[Color]]
+
+#------------------------------------------------------------------------------------
+# Section: Functions
+#------------------------------------------------------------------------------------
 
 func _ready():
 	init_stack(200, 4)
@@ -90,78 +101,6 @@ func process_insertion(in_name: String):
 	for i in range(group_index, group_indices.size()):
 		group_indices[i] += 1
 
-#func append_attack(
-	#in_title: String,
-	#in_description: String,
-#) -> void:
-	#var new_component = component_scn.instantiate()
-	#slf_container.add_child(new_component)
-	#slf_container.move_child(new_component, attack_index)
-	#
-	#new_component.init_component(
-		#load("res://Map/map_assets/battle.png"),
-		#in_title,
-		#in_description,
-		#slf_width,
-		#slf_margin,
-		#Color(1.0, 0.173, 0.0, 1.0),
-		#Color(1.0, 0.353, 0.216, 1.0),
-		#Color(0.729, 0.125, 0.0, 1.0)
-	#)
-	#
-	#attack_index += 1
-	#ability_index += 1
-	#preference_index += 1
-	#
-	#attach_new_callbacks(new_component, attack_index - 1)
-#
-#func append_ability(
-	#in_title: String,
-	#in_description: String,
-#) -> void:
-	#var new_component = component_scn.instantiate()
-	#slf_container.add_child(new_component)
-	#slf_container.move_child(new_component, ability_index)
-	#
-	#new_component.init_component(
-		#load("res://Map/map_assets/player.png"),
-		#in_title,
-		#in_description,
-		#slf_width,
-		#slf_margin,
-		#Color(0.639, 0.639, 0.639, 1.0),
-		#Color(0.58, 0.58, 0.58, 1.0),
-		#Color(0.369, 0.369, 0.369, 1.0)
-	#)
-	#
-	#ability_index += 1
-	#preference_index += 1
-	#
-	#attach_new_callbacks(new_component, ability_index - 1)
-#
-#func append_preference(
-	#in_title: String,
-	#in_description: String,
-#) -> void:
-	#var new_component = component_scn.instantiate()
-	#slf_container.add_child(new_component)
-	#slf_container.move_child(new_component, preference_index)
-	#
-	#new_component.init_component(
-		#load("res://Map/map_assets/availableboss.png"),
-		#in_title,
-		#in_description,
-		#slf_width,
-		#slf_margin,
-		#Color(0.11, 0.929, 0.369, 1.0),
-		#Color(0.204, 0.871, 0.416, 1.0),
-		#Color(0.086, 0.659, 0.267, 1.0)
-	#)
-	#
-	#preference_index += 1
-	#
-	#attach_new_callbacks(new_component, preference_index - 1)
-
 func attach_new_callbacks(in_component: Control, in_index: int) -> void:
 	for i in range(0, group_indices[group_indices.size() - 1]):
 		if i != in_index:
@@ -193,33 +132,3 @@ func attach_all_callbacks() -> void:
 func clear_all_callbacks() -> void:
 	for i in range(0, group_indices[group_indices.size() - 1]):
 		slf_container.get_child(i).reset_child_callbacks()
-
-#func clear_attacks() -> void:
-	#for i in range(0, attack_index):
-		#var curr_node = slf_container.get_child(0)
-		#slf_container.remove_child(curr_node)
-		#curr_node.queue_free()
-	#preference_index = preference_index - attack_index
-	#ability_index = ability_index - attack_index
-	#attack_index = 0
-	#clear_all_callbacks()
-	#attach_all_callbacks()
-#
-#func clear_abilities() -> void:
-	#for i in range(attack_index, ability_index):
-		#var curr_node = slf_container.get_child(attack_index)
-		#slf_container.remove_child(curr_node)
-		#curr_node.queue_free()
-	#preference_index = preference_index - (ability_index - attack_index)
-	#ability_index = attack_index
-	#clear_all_callbacks()
-	#attach_all_callbacks()
-#
-#func clear_preferences() -> void:
-	#for i in range(ability_index, preference_index):
-		#var curr_node = slf_container.get_child(ability_index)
-		#slf_container.remove_child(curr_node)
-		#curr_node.queue_free()
-	#preference_index = ability_index
-	#clear_all_callbacks()
-	#attach_all_callbacks()

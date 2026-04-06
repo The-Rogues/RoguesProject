@@ -1,5 +1,5 @@
-# --Callback Script Template--
-# Author: Insert name here
+# --load_personality_shop Script--
+# Author: Fletcher Green
 
 extends RefCounted
 
