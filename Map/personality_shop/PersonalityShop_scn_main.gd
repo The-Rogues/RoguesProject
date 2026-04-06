@@ -151,6 +151,21 @@ func adjust_button_states() -> void:
 	elif GlobalSessionManager.run_progress.gold < 100:
 		slf_button_1.disabled = true
 		slf_button_2.disabled = true
+	
+	if GlobalSessionManager.run_progress.personality_data.offensive_weight == 1:
+		slf_offense_rem.disabled = true
+	elif GlobalSessionManager.run_progress.personality_data.offensive_weight == 10:
+		slf_offense_add.disabled = true
+	
+	if GlobalSessionManager.run_progress.personality_data.defensive_weight == 1:
+		slf_defense_rem.disabled = true
+	elif GlobalSessionManager.run_progress.personality_data.defensive_weight == 10:
+		slf_defense_add.disabled = true
+	
+	if GlobalSessionManager.run_progress.personality_data.strategic_weight == 1:
+		slf_strategic_rem.disabled = true
+	elif GlobalSessionManager.run_progress.personality_data.strategic_weight == 10:
+		slf_strategic_add.disabled = true
 
 func _on_offense_add_pressed() -> void:
 	GlobalSessionManager.change_offensive_trait(

@@ -1,52 +1,52 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
 [ext_resource type="Script" path="res://Cards/Core/card_data.gd" id="1_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/strike_card_data.tres" id="2_3dqjj"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/spare_card_data.tres" id="3_8uu1w"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/strike_card_data.tres" id="2_3dqjj"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Brute/lash_out_card_data.tres" id="3_8uu1w"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/counter_card_data.tres" id="4_3dqjj"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/endure_card_data.tres" id="5_8uu1w"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/move_card_data.tres" id="6_osl4a"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/repair_card_data.tres" id="7_73m4a"]
 [ext_resource type="Resource" path="res://ai/ai-cards/inventive_attack_data.tres" id="8_ldui5"]
 [ext_resource type="Script" path="res://Cards/Core/card_deck.gd" id="9_hxw8v"]
-[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="10_osl4a"]
+[ext_resource type="Texture2D" path="res://PersonalitySystem/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="10_sqevk"]
 [ext_resource type="Script" path="res://Entities/Core/entity_data.gd" id="11_rp2d1"]
 [ext_resource type="Script" path="res://Items/Core/item_data.gd" id="12_4g6sv"]
-[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Stoic/stoic_defensive_trait.tres" id="13_73m4a"]
+[ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Defensive/Naive/naive_defensive_trait.tres" id="13_3dqjj"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Offensive/Merciful/merciful_offensive_trait.tres" id="14_bn7m0"]
 [ext_resource type="Script" path="res://PersonalitySystem/personality_data.gd" id="15_fucgn"]
 [ext_resource type="Resource" path="res://PersonalitySystem/PersonalityTraits/Strategic/Crafty/crafty_trait_data.tres" id="16_gvrsj"]
 [ext_resource type="Script" path="res://Globals/ProgressTracking/run_progress.gd" id="17_fad0b"]
 
-[sub_resource type="Resource" id="Resource_sqevk"]
+[sub_resource type="Resource" id="Resource_ldui5"]
 script = ExtResource("9_hxw8v")
 name = "Your Deck"
-cards = Array[ExtResource("1_3dqjj")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("3_8uu1w"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("5_8uu1w"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("7_73m4a"), ExtResource("7_73m4a"), ExtResource("8_ldui5")])
+cards = Array[ExtResource("1_3dqjj")]([ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("2_3dqjj"), ExtResource("3_8uu1w"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("4_3dqjj"), ExtResource("5_8uu1w"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("6_osl4a"), ExtResource("7_73m4a"), ExtResource("7_73m4a"), ExtResource("8_ldui5")])
 
-[sub_resource type="Resource" id="Resource_bn7m0"]
+[sub_resource type="Resource" id="Resource_hxw8v"]
 script = ExtResource("11_rp2d1")
-display_texture = ExtResource("10_osl4a")
+display_texture = ExtResource("10_sqevk")
 id = "player"
-name = "Ollie"
-description = "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
+name = "Shiphra"
+description = "They know the tower will test them, yet trust their discipline to endure whatever trials await."
 max_health = 80
 
-[sub_resource type="Resource" id="Resource_gvrsj"]
+[sub_resource type="Resource" id="Resource_gbghs"]
 script = ExtResource("15_fucgn")
 offensive_trait = ExtResource("14_bn7m0")
-offensive_weight = 4
-defensive_trait = ExtResource("13_73m4a")
-defensive_weight = 6
+offensive_weight = 9
+defensive_trait = ExtResource("13_3dqjj")
+defensive_weight = 2
 strategic_trait = ExtResource("16_gvrsj")
-strategic_weight = 10
+strategic_weight = 6
 
 [resource]
 script = ExtResource("17_fad0b")
-personality_data = SubResource("Resource_gvrsj")
-character_entity_data = SubResource("Resource_bn7m0")
-character_name = "Ollie"
-character_backstory = "They enter prepared, intent on turning the tower’s terrain, tools, and structures into weapons of survival."
-map_seed = 735661904
-player_node_index = 6
-card_deck = SubResource("Resource_sqevk")
-gold = 643
+personality_data = SubResource("Resource_gbghs")
+character_entity_data = SubResource("Resource_hxw8v")
+character_name = "Shiphra"
+character_backstory = "They know the tower will test them, yet trust their discipline to endure whatever trials await."
+map_seed = 3609260228
+player_node_index = 8
+card_deck = SubResource("Resource_ldui5")
+gold = 804
