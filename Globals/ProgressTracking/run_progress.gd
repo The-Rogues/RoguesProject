@@ -33,7 +33,7 @@ var run_map: MapManager
 
 # -------------------------------------------------
 # Loot progress tracking member values
-# -------------------------------------------------
+# ---------------------------------------"res://Globals/ProgressTracking/run_progress.gd"----------
 @export var card_deck:CardDeck = null
 @export var held_items:Array[ItemData] = []
 @export_range(1, 6) var maximum_item_capacity:int = 3

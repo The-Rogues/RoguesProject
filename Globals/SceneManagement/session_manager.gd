@@ -292,3 +292,38 @@ func _remove_held_item(item:ItemData):
 	
 	if run_progress.held_items.has(item):
 		run_progress.held_items.erase(item)
+
+# -------------------------------------------------
+# Managing buying card
+# -------------------------------------------------
+
+func buy_card(card: CardData) -> bool:
+	if run_progress == null:
+		return false
+
+	if card.shop_price > run_progress.gold:
+		return false
+
+	run_progress.gold -= card.shop_price
+	run_progress.card_deck.add_card(card)
+
+	gold_updated.emit(run_progress.gold)
+	run_progress.total_cards_collected += 1
+	GlobalSaveManager.save_run(run_progress)
+	return true
+	
+func sell_card(card: CardData) -> bool:
+	if run_progress == null:
+		return false
+		
+	if not run_progress.card_deck.cards.has(card):
+		return false
+		
+	run_progress.gold += card.shop_price
+	run_progress.card_deck.remove_card(card)
+	
+	gold_updated.emit(run_progress.gold)
+	run_progress.total_cards_collected -= 1
+	GlobalSaveManager.save_run(run_progress)
+	return true
+	

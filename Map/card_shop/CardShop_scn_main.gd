@@ -1,11 +1,100 @@
 extends Control
 
+const SHARED_CARDS = preload("res://Battle/Loot/shared_card_reward_pool.tres")
 
-# Called when the node enters the scene tree for the first time.
+@export var random_shop_card_count:int = 9
+@export var shop_keeper_varients:Array[Texture2D]
+
+@onready var shop_scroll: ScrollContainer = $PanelContainer/ScrollContainer2
+@onready var sell_scroll: ScrollContainer = $PanelContainer/ScrollContainer
+
+@onready var card_shop_interface: ShopCardInterface = $PanelContainer/ScrollContainer2/CardShop
+@onready var card_sell_interface: ShopCardInterface = $PanelContainer/ScrollContainer/CardSell
+@onready var shop_keeper_animator: AnimationPlayer = $ShopKeeper/EntityAnimator
+@onready var shop_keeper_sprite: Sprite2D = $ShopKeeper/SpriteRoot/Sprite2D
+
+var shop_cards:Array[CardData] = []
+var selected_card:CardData
+var selected_card_index:int = -1
+var sell_cards:Array[CardData] = []
+
 func _ready() -> void:
-	pass # Replace with function body.
+	shop_scroll.visible = false
+	shop_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+	sell_scroll.visible = false
+	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	var cards = SHARED_CARDS.get_items(random_shop_card_count)
+	add_cards_for_sale(cards)
+
+	card_shop_interface.initialize(shop_cards)
+	card_shop_interface.selected_card.connect(_on_selected_card)
+
+	if GlobalSessionManager.run_progress:
+		sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
+	else:
+		sell_cards = []
+
+	card_sell_interface.initialize(sell_cards)
+	card_sell_interface.selected_card.connect(_on_selected_card)
+
+	shop_keeper_animator.speed_scale = 0.5
+	shop_keeper_animator.play("entity/idle")
+
+	if not shop_keeper_varients.is_empty():
+		shop_keeper_sprite.texture = shop_keeper_varients.pick_random()
+
+func add_cards_for_sale(cards:Array[CardData]) -> void:
+	for card in cards:
+		shop_cards.append(card)
+
+	card_shop_interface.initialize(shop_cards)
+
+func _on_selected_card(index:int, transaction_type:int, transaction_completed:bool) -> void:
+	if transaction_type == 0:
+		selected_card = shop_cards[index]
+	else:
+		selected_card = sell_cards[index]
+
+	selected_card_index = index
+
+	if transaction_type == 0:
+		_on_buy_card()
+	else:
+		_on_sell_card()
+
+func _on_buy_card():
+	if GlobalSessionManager.buy_card(selected_card):
+		card_shop_interface.confirm_transaction(selected_card_index)
+
+	sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
+	card_sell_interface.initialize(sell_cards)
+
+	selected_card = null
+	selected_card_index = -1
+
+func _on_sell_card():
+	if GlobalSessionManager.sell_card(selected_card):
+		card_sell_interface.confirm_transaction(selected_card_index)
+
+	selected_card = null
+	selected_card_index = -1
+
+func _on_leave_button_up() -> void:
+	GlobalSessionManager.complete_current_room()
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)
+
+func _on_shop_button_up() -> void:
+	shop_scroll.visible = true
+	shop_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	sell_scroll.visible = false
+	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+func _on_sell_button_up() -> void:
+	shop_scroll.visible = false
+	shop_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	sell_scroll.visible = true
+	sell_scroll.mouse_filter = Control.MOUSE_FILTER_STOP

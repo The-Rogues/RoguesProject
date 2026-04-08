@@ -326,10 +326,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -154.0
+offset_left = -162.0
 offset_top = 26.0
 offset_right = -62.0
-offset_bottom = 53.0
+offset_bottom = 58.0
 grow_horizontal = 0
 
 [node name="ShopKeeper" type="Node2D" parent="." unique_id=1266733250]
@@ -373,8 +373,8 @@ texture = ExtResource("9_rdf4x")
 
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Shop" to="." method="_on_shop_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Sell" to="." method="_on_open_sell_button_up"]
-[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_on_leave_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_back_to_menu_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/MenuOptions/Leave" to="." method="_on_leave_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Buy" to="." method="_on_buy_item"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Barter" to="." method="_on_barter_button_up"]
 [connection signal="button_up" from="CanvasLayer/Control/ShopInterface/VBoxContainer/ShopOptions/Back" to="." method="_back_to_menu_button_up"]

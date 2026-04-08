@@ -15,4 +15,5 @@ class_name CardData
 @export var move:BattleMove
 @export var primary_action:BattleAction
 @export var secondary_action:BattleAction
+@export var shop_price: int = 50
 #TODO: Experiment with cards having display image 
