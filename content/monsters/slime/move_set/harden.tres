@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyBlock" format=3 uid="uid://4ec1564euyqv"]
+
+[ext_resource type="Script" uid="uid://ck1dtq2d58kvt" path="res://battle_scene/entities/monster/moves/enemy_block.gd" id="1_fqeb1"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_mvyrp"]
+
+[sub_resource type="Resource" id="Resource_62kgp"]
+script = ExtResource("2_mvyrp")
+amount = 8
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_76e42"]
+load_path = "res://.godot/imported/Icons_RPG.png-3eb453348ccb964548ad5fd628251d43.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxpup"]
+atlas = SubResource("CompressedTexture2D_76e42")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_fqeb1")
+block_action = SubResource("Resource_62kgp")
+intent_icon = SubResource("AtlasTexture_gxpup")
+name = "Harden"
+description = "This Enemy Intends to Defend with 8 Block."
+metadata/_custom_type_script = "uid://ck1dtq2d58kvt"

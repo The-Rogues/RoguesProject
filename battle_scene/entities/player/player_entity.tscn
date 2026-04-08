@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://l0xyi8rv306l"]
+
+[ext_resource type="Script" uid="uid://qls13l6n5mve" path="res://battle_scene/entities/player/player_entity.gd" id="1_i5uyf"]
+[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="2_dkpvf"]
+[ext_resource type="Texture2D" uid="uid://qa0uh472nj2w" path="res://common/art/placeholder/32_rogues/rogues.png" id="2_x21no"]
+[ext_resource type="Script" uid="uid://b3barw1bqu4tk" path="res://common/stat_components/health.gd" id="3_c7woo"]
+[ext_resource type="Script" uid="uid://cq0ofbmvfv5qo" path="res://common/hit_flash/hit_flash.gd" id="3_dkpvf"]
+[ext_resource type="Script" uid="uid://dd627e8yhr0bk" path="res://battle_scene/entities/player/player_movement_controller.gd" id="3_mkis6"]
+[ext_resource type="Script" uid="uid://6mivq3t47aoh" path="res://battle_scene/entities/projectiles/projectile_launcher.gd" id="3_wf7sx"]
+[ext_resource type="Script" uid="uid://8j8s66tfhuvg" path="res://common/stat_components/block.gd" id="4_ixqhi"]
+[ext_resource type="Script" uid="uid://b7m80cndvmobf" path="res://battle_scene/entities/status_effects/status_effect_controller.gd" id="5_x21no"]
+[ext_resource type="Script" uid="uid://bjoyeomu5qcct" path="res://common/stat_components/energy.gd" id="6_elg6u"]
+[ext_resource type="Script" uid="uid://lfe70eidg8li" path="res://battle_scene/entities/player/trait.gd" id="7_u807v"]
+[ext_resource type="Script" uid="uid://svatns4ki80t" path="res://card_system/card_handler.gd" id="9_elg6u"]
+[ext_resource type="PackedScene" uid="uid://nxd0nkvcjmf6" path="res://battle_scene/entities/ui/creature_stat_display.tscn" id="11_elg6u"]
+[ext_resource type="PackedScene" uid="uid://bjyogff5ux6jl" path="res://battle_scene/entities/player/object_slot.tscn" id="12_u807v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elg6u"]
+atlas = ExtResource("2_x21no")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="Animation" id="Animation_wf7sx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dkpvf"]
+resource_name = "flash"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_db3bv"]
+_data = {
+&"RESET": SubResource("Animation_wf7sx"),
+&"flash": SubResource("Animation_dkpvf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x21no"]
+size = Vector2(50, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elg6u"]
+size = Vector2(48, 59)
+
+[sub_resource type="Animation" id="Animation_c7woo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_ixqhi"]
+resource_name = "attack"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -24), Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_u807v"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x21no"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2.1), Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_elg6u"]
+resource_name = "attack"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -20), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_elg6u"]
+_data = {
+&"RESET": SubResource("Animation_c7woo"),
+&"attack": SubResource("Animation_ixqhi"),
+&"death": SubResource("Animation_u807v"),
+&"idle": SubResource("Animation_x21no"),
+&"walk": SubResource("Animation_elg6u")
+}
+
+[node name="PlayerEntity" type="Node2D" unique_id=1521707546 node_paths=PackedStringArray("effects", "block", "animation_player", "stat_display", "health", "projectile_launcher")]
+script = ExtResource("1_i5uyf")
+effects = NodePath("Stats/StatusEffectController")
+block = NodePath("Stats/Block")
+animation_player = NodePath("AnimationPlayer")
+stat_display = NodePath("CreatureStatDisplay")
+health = NodePath("Stats/Health")
+projectile_launcher = NodePath("ProjectileLauncher")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1880824651]
+texture_filter = 1
+material = ExtResource("2_dkpvf")
+position = Vector2(0, 19)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_elg6u")
+offset = Vector2(0, -16)
+script = ExtResource("3_dkpvf")
+
+[node name="HitFlash" type="AnimationPlayer" parent="Sprite2D" unique_id=381250294]
+libraries/ = SubResource("AnimationLibrary_db3bv")
+
+[node name="ProjectileLauncher" type="Node2D" parent="." unique_id=1765584638 node_paths=PackedStringArray("fire_delay", "fire_point")]
+script = ExtResource("3_wf7sx")
+fire_delay = NodePath("FireDelayTimer")
+fire_point = NodePath("FirePoint")
+
+[node name="FirePoint" type="Node2D" parent="ProjectileLauncher" unique_id=1744759564]
+position = Vector2(0, -47)
+
+[node name="FireDelayTimer" type="Timer" parent="ProjectileLauncher" unique_id=1131612009]
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=230165893]
+visible = false
+position = Vector2(0, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1270511977]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_x21no")
+
+[node name="CollisionBox" type="StaticBody2D" parent="." unique_id=219449472]
+visible = false
+position = Vector2(0, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox" unique_id=1595754214]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_elg6u")
+debug_color = Color(0.8117647, 0.25882354, 0.79607844, 0.41960785)
+
+[node name="Stats" type="Node" parent="." unique_id=1881044145]
+
+[node name="Health" type="Node" parent="Stats" unique_id=1859536906]
+script = ExtResource("3_c7woo")
+
+[node name="Block" type="Node" parent="Stats" unique_id=610220932]
+script = ExtResource("4_ixqhi")
+
+[node name="StatusEffectController" type="Node" parent="Stats" unique_id=1818826524]
+script = ExtResource("5_x21no")
+
+[node name="Energy" type="Node" parent="Stats" unique_id=1011106717]
+script = ExtResource("6_elg6u")
+
+[node name="Offense" type="Node" parent="Stats" unique_id=1083800543]
+script = ExtResource("7_u807v")
+
+[node name="Defense" type="Node" parent="Stats" unique_id=1454066020]
+script = ExtResource("7_u807v")
+
+[node name="Strategy" type="Node" parent="Stats" unique_id=950283640]
+script = ExtResource("7_u807v")
+
+[node name="MovementController" type="Node" parent="." unique_id=1292032099]
+script = ExtResource("3_mkis6")
+
+[node name="CardHandler" type="Node" parent="." unique_id=840265618]
+script = ExtResource("9_elg6u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=890943823]
+libraries/ = SubResource("AnimationLibrary_elg6u")
+autoplay = &"idle"
+
+[node name="CreatureStatDisplay" parent="." unique_id=1848121133 instance=ExtResource("11_elg6u")]
+offset_left = -38.0
+offset_top = 19.0
+offset_right = 50.0
+offset_bottom = 59.0
+
+[node name="ObjectSlot" parent="." unique_id=231197000 instance=ExtResource("12_u807v")]
+offset_left = -21.0
+offset_top = -89.0
+offset_right = -21.0
+offset_bottom = -89.0
+
+[node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=652373515]
+position = Vector2(0, -45)

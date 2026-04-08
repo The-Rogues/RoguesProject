@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://2bkv0dsmmkce"]
+
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_7eepe"]
+[ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="2_0ugeu"]
+[ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/slime_data.tres" id="2_6be4h"]
+
+[resource]
+script = ExtResource("2_0ugeu")
+enemies = Array[ExtResource("1_7eepe")]([ExtResource("2_6be4h"), ExtResource("2_6be4h"), ExtResource("2_6be4h"), ExtResource("2_6be4h"), ExtResource("2_6be4h")])
+metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

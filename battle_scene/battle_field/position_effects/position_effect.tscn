@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://brdj4nvdxusu6"]
+
+[ext_resource type="Script" uid="uid://ca7f8p0ojbhy" path="res://battle_scene/battle_field/position_effects/position_effect.gd" id="1_4nxnx"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="2_t86xw"]
+[ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://common/art/placeholder/32_rogues/tiles.png" id="3_0f47m"]
+
+[sub_resource type="Curve" id="Curve_dn0dt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7383177, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmi53"]
+atlas = ExtResource("3_0f47m")
+region = Rect2(96, 704, 32, 32)
+
+[node name="PositionEffect" type="Node2D" unique_id=871404214]
+script = ExtResource("1_4nxnx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=893457903]
+amount = 3
+texture = ExtResource("2_t86xw")
+lifetime = 0.5
+speed_scale = 0.4
+emission_shape = 6
+emission_ring_inner_radius = 20.0
+emission_ring_radius = 20.0
+gravity = Vector2(0, -490)
+scale_amount_curve = SubResource("Curve_dn0dt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=889504092]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_jmi53")

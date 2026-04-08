@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://tvgskh3hgret"]
+
+[ext_resource type="Texture2D" uid="uid://ql4mr7lxmc8t" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-022.png" id="1_tiutg"]
+[ext_resource type="Script" uid="uid://h0vb4u0ok4vj" path="res://battle_scene/ui/energy_ui.gd" id="2_bm7x4"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_yrjwb"]
+[ext_resource type="Script" uid="uid://c4qn30ydmtc6h" path="res://common/floating_text/floating_text_spawner.gd" id="4_tiutg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6ocu"]
+texture = ExtResource("1_tiutg")
+modulate_color = Color(0.86534595, 0.5493342, 0, 1)
+
+[node name="EnergyUI" type="Control" unique_id=644337735]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_bm7x4")
+
+[node name="Container" type="Panel" parent="." unique_id=181947122]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+theme_override_styles/panel = SubResource("StyleBoxTexture_c6ocu")
+
+[node name="EnergyLabel" type="Label" parent="Container" unique_id=259520514]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -7.5
+offset_right = 35.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.24814373, 0.026162574, 0.024746498, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_yrjwb")
+theme_override_font_sizes/font_size = 18
+text = "3/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FloatingText" type="Control" parent="." unique_id=1174515674]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_tiutg")

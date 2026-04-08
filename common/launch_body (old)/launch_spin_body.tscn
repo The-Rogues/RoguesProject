@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://ecd0ruerag5o"]
+
+[ext_resource type="Script" uid="uid://bpbs5sxcw6l2v" path="res://common/launch_body (old)/launch_body.gd" id="1_q6yra"]
+[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="2_307tv"]
+[ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://common/sprite_flasher/sprite_flasher.gd" id="3_2wfn6"]
+[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="4_8l0qs"]
+[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="4_tf8sl"]
+
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n11uh"]
+size = Vector2(40, 41.5)
+
+[sub_resource type="Shader" id="Shader_qs5c0"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xdua6"]
+shader = SubResource("Shader_qs5c0")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="Animation" id="Animation_3ch6j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yomte"]
+_data = {
+&"RESET": SubResource("Animation_3ch6j")
+}
+
+[sub_resource type="Animation" id="Animation_kia21"]
+resource_name = "LAUNCH"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqhmt"]
+_data = {
+&"spin": SubResource("Animation_kia21")
+}
+
+[node name="LaunchedBody" type="CharacterBody2D" unique_id=1775996269]
+script = ExtResource("1_q6yra")
+bounce_range = 0.75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419234390]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_n11uh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1101354385]
+texture_filter = 1
+material = SubResource("ShaderMaterial_xdua6")
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+texture = ExtResource("2_307tv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=996321447]
+libraries/ = SubResource("AnimationLibrary_yomte")
+libraries/launched_entity = SubResource("AnimationLibrary_wqhmt")
+
+[node name="Timer" type="Timer" parent="." unique_id=1561464318]
+wait_time = 10.0
+
+[node name="SpriteFlasher" type="Node" parent="." unique_id=1749822257 node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_2wfn6")
+sprite = NodePath("../Sprite2D")
+flash_material = ExtResource("4_tf8sl")
+
+[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_8l0qs")]
+default_color = Color(1, 1, 1, 0.5764706)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

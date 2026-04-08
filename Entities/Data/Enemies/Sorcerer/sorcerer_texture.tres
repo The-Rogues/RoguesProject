@@ -1,8 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://dte5dnc52hrbn"]
-
-[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://General/PlaceholderArt/32rogues/monsters.png" id="1_oi5vf"]
-
-[resource]
-resource_local_to_scene = true
-atlas = ExtResource("1_oi5vf")
-region = Rect2(0, 96, 32, 32)

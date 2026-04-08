@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://dbt3n70fcylp3"]
+
+[ext_resource type="Script" uid="uid://7f0ek6d467qa" path="res://personality_system/traits_display.gd" id="1_o10x6"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://common/tooltip_panel/hover_context_popup.gd" id="2_o10x6"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="3_a2fav"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_nuge6"]
+
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2fav"]
+
+[node name="TraitsDisplay" type="PanelContainer" unique_id=1527129464]
+offset_right = 225.0
+offset_bottom = 26.0
+size_flags_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a2fav")
+script = ExtResource("1_o10x6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1677645526]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Offensive" type="VBoxContainer" parent="HBoxContainer" unique_id=513094981]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Trait" type="Label" parent="HBoxContainer/Offensive" unique_id=2132987890 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 14
+text = "Trait"
+horizontal_alignment = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("Context")
+dynamic_positioning = false
+
+[node name="Context" parent="HBoxContainer/Offensive/Trait" unique_id=1838000936 instance=ExtResource("3_a2fav")]
+visible = false
+layout_mode = 0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
+
+[node name="Weight" type="Label" parent="HBoxContainer/Offensive" unique_id=184623648]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 12
+text = "10"
+horizontal_alignment = 1
+
+[node name="Defensive" type="VBoxContainer" parent="HBoxContainer" unique_id=1234411490]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Trait" type="Label" parent="HBoxContainer/Defensive" unique_id=2133974777 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 14
+text = "Trait"
+horizontal_alignment = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("Context")
+dynamic_positioning = false
+
+[node name="Context" parent="HBoxContainer/Defensive/Trait" unique_id=1642401931 instance=ExtResource("3_a2fav")]
+visible = false
+layout_mode = 0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
+
+[node name="Weight" type="Label" parent="HBoxContainer/Defensive" unique_id=1082016512]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 12
+text = "10"
+horizontal_alignment = 1
+
+[node name="Strategic" type="VBoxContainer" parent="HBoxContainer" unique_id=417468649]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="Trait" type="Label" parent="HBoxContainer/Strategic" unique_id=1473143626 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 14
+text = "Trait"
+horizontal_alignment = 1
+script = ExtResource("2_o10x6")
+context_panel = NodePath("Context")
+dynamic_positioning = false
+
+[node name="Context" parent="HBoxContainer/Strategic/Trait" unique_id=2130937330 instance=ExtResource("3_a2fav")]
+visible = false
+layout_mode = 0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
+
+[node name="Weight" type="Label" parent="HBoxContainer/Strategic" unique_id=482142294]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("3_nuge6")
+theme_override_font_sizes/font_size = 12
+text = "10"
+horizontal_alignment = 1

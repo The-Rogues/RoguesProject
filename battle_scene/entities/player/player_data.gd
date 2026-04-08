@@ -1,0 +1,126 @@
+extends RefCounted
+class_name PlayerData
+# Data container used to track player stat progression during a run
+
+signal health_updated(current:int, max:int)
+signal energy_updated(current:int, max:int)
+signal items_updated(items:Array[ItemData])
+signal item_capacity_updated(current:int)
+signal gold_updated(current:int)
+signal cards_updated(cards:Array[CardData])
+
+signal item_collected
+signal card_collected
+signal gold_collected(amount:int)
+
+var name:String = "Player"
+var max_health:int
+var current_health:int
+var current_energy:int
+var max_energy:int
+var item_capacity:int
+var items:Array[ItemData]
+var cards:Array[CardData]
+var gold:int
+var personality:PersonalityData
+
+const STARTING_HEALTH = 70
+const STARTING_ENERGY = 3
+const STARTING_ITEM_CAPACITY = 1
+const STARTING_GOLD = 0
+
+
+func _init(
+	_personality:PersonalityData,
+	_cards:Array[CardData]
+) -> void:
+	max_health = STARTING_HEALTH
+	current_health = STARTING_HEALTH
+	max_energy = STARTING_ENERGY
+	item_capacity = STARTING_ITEM_CAPACITY
+	items = []
+	cards = _cards.duplicate()
+	gold = STARTING_GOLD
+	personality = _personality
+
+
+func set_health(_current:int, _max:int) -> void:
+	max_health = _max
+	current_health = _current
+	health_updated.emit(current_health, max_health)
+
+
+func set_energy(_current:int, _max:int) -> void:
+	current_energy = _current
+	max_energy = _max
+	energy_updated.emit(_current, _max)
+
+
+func set_gold(amount:int) -> void:
+	if amount > gold:
+		gold_collected.emit(amount)
+	
+	gold = amount
+	gold_updated.emit(gold)
+
+
+func set_item_capacity(capacity:int):
+	item_capacity = capacity
+	item_capacity_updated.emit(item_capacity)
+
+
+func add_item(item:ItemData) -> bool:
+	if items.size() < item_capacity:
+		items.append(item)
+		items_updated.emit(items)
+		item_collected.emit()
+		return true
+	else:
+		return false
+
+
+func remove_item(item:ItemData) -> bool:
+	if items.has(item):
+		items.erase(item)
+		items_updated.emit(items)
+		return true
+	else:
+		return false
+
+
+func can_buy_shop_item(price:int) -> bool:
+	return gold <= price
+
+
+func add_card(card:CardData):
+	cards.append(card)
+	cards_updated.emit(cards)
+	card_collected.emit()
+
+
+func remove_card(card:CardData):
+	if cards.has(card):
+		cards.erase(card)
+		cards_updated.emit(cards)
+
+
+func get_cards_as_instances() -> Array[CardInstance]:
+	var card_instances:Array[CardInstance]
+	for card in cards:
+		var instance = CardInstance.new(card)
+		card_instances.append(instance)
+	
+	return card_instances
+
+
+func connect_to_player_entity(player:PlayerEntity):
+	player.health.health_changed.connect(set_health)
+	player.energy.energy_changed.connect(set_energy)
+
+
+func disconnect_from_player_entity(player: PlayerEntity):
+	if player.health.health_changed.is_connected(set_health):
+		player.health.health_changed.disconnect(set_health)
+	
+	if player.energy.energy_changed.is_connected(set_energy):
+		player.energy.energy_changed.disconnect(set_energy)

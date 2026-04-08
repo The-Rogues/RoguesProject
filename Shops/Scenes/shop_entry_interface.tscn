@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bd2jfreb1arig"]
 
 [ext_resource type="Script" uid="uid://si62gvyoyusj" path="res://Shops/Scenes/shop_entry_interface.gd" id="1_6a7m8"]
-[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-015.png" id="2_5s8yk"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="3_8asxb"]
+[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="2_5s8yk"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_8asxb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k462v"]
 bg_color = Color(0.2469503, 0.2469503, 0.2469503, 1)

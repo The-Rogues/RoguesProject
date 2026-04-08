@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://b2sastodcwsbx"]
+
+[ext_resource type="Script" uid="uid://bex8s0ww7mxsv" path="res://globals/session_interface/session_interface.gd" id="1_2dwta"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_nhbhh"]
+[ext_resource type="Texture2D" uid="uid://dxefwuaynwrdl" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-008.png" id="2_pmlv7"]
+[ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="3_rmvr3"]
+[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://battle_scene/entities/ui/exit_button.gd" id="6_1o4un"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="7_sqbpr"]
+[ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="9_0jkec"]
+[ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="10_rmvr3"]
+[ext_resource type="PackedScene" uid="uid://cuukmx5jhs7wn" path="res://item_system/scenes/player_items.tscn" id="13_pxp8h"]
+[ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="13_ssfyd"]
+[ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://globals/session_interface/session_gold_label.gd" id="14_pxp8h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmlv7"]
+bg_color = Color(0.44755095, 0.44755095, 0.44755095, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmlv7"]
+content_margin_left = 20.0
+content_margin_right = 24.0
+texture = ExtResource("2_pmlv7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmvr3"]
+load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vipf"]
+atlas = SubResource("CompressedTexture2D_rmvr3")
+region = Rect2(40, 776, 16, 16)
+
+[node name="SessionInterface" type="CanvasLayer" unique_id=279760499]
+layer = 4
+visible = false
+script = ExtResource("1_2dwta")
+
+[node name="Control" type="Control" parent="." unique_id=535703033]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DeckViewer" parent="Control" unique_id=2047647765 instance=ExtResource("13_ssfyd")]
+visible = false
+layout_mode = 1
+
+[node name="Background" type="Panel" parent="Control" unique_id=1422100182]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmlv7")
+
+[node name="Container" type="PanelContainer" parent="Control" unique_id=894429948]
+self_modulate = Color(0.06798274, 0.06798274, 0.06798273, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(1152, 74)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 74.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_pmlv7")
+
+[node name="Treasure" type="HBoxContainer" parent="Control/Container" unique_id=1676405652]
+layout_mode = 2
+alignment = 2
+
+[node name="DeckUI" parent="Control/Container/Treasure" unique_id=749258871 instance=ExtResource("3_rmvr3")]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CardPileButton" parent="Control/Container/Treasure/DeckUI" index="0" unique_id=178403029]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" parent="Control/Container/Treasure/DeckUI" index="1" unique_id=9931252]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = 8.0
+offset_right = 25.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerItems" parent="Control/Container/Treasure" unique_id=1695638652 instance=ExtResource("13_pxp8h")]
+custom_minimum_size = Vector2(174, 0)
+layout_mode = 2
+
+[node name="Gold" type="HBoxContainer" parent="Control/Container/Treasure" unique_id=1874009693]
+custom_minimum_size = Vector2(121, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="GoldLabel" type="Label" parent="Control/Container/Treasure/Gold" unique_id=1751191548]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("14_pxp8h")
+gold = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Container/Treasure/Gold" unique_id=2044757605]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_6vipf")
+
+[node name="Context" parent="Control/Container/Treasure/Gold/TextureRect" unique_id=723473313 instance=ExtResource("7_sqbpr")]
+visible = false
+layout_mode = 0
+offset_left = -143.0
+offset_top = 33.0
+offset_right = 72.0
+offset_bottom = 93.0
+context_text = "Currency that's usable in shops."
+
+[node name="Stats" type="HBoxContainer" parent="Control/Container" unique_id=1316234886]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Settings" type="Button" parent="Control/Container/Stats" unique_id=1297969603]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_nhbhh")
+text = " X "
+script = ExtResource("6_1o4un")
+
+[node name="NameLabel" type="Label" parent="Control/Container/Stats" unique_id=2014585198]
+texture_filter = 1
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Heart" type="TextureRect" parent="Control/Container/Stats" unique_id=2050722241]
+self_modulate = Color(0.8056271, 0.14600024, 0.28994575, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_0jkec")
+
+[node name="Context" parent="Control/Container/Stats/Heart" unique_id=1838000936 instance=ExtResource("7_sqbpr")]
+visible = false
+layout_mode = 1
+offset_top = 44.0
+offset_right = 212.0
+offset_bottom = 104.0
+context_text = "Current health"
+
+[node name="HealthLabel" type="Label" parent="Control/Container/Stats" unique_id=156637728]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 18
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="OffesniveTraitDisplay" parent="Control/Container/Stats" unique_id=1400420390 instance=ExtResource("10_rmvr3")]
+layout_mode = 2
+
+[node name="DefensiveTraitDisplay" parent="Control/Container/Stats" unique_id=1597361179 instance=ExtResource("10_rmvr3")]
+layout_mode = 2
+
+[node name="StrategicTraitDisplay" parent="Control/Container/Stats" unique_id=689925448 instance=ExtResource("10_rmvr3")]
+layout_mode = 2
+
+[connection signal="button_up" from="Control/Container/Treasure/DeckUI/CardPileButton" to="." method="_on_view_card_deck"]
+[connection signal="button_up" from="Control/Container/Stats/Settings" to="Control/Container/Stats/Settings" method="_on_button_up"]
+
+[editable path="Control/Container/Treasure/DeckUI"]

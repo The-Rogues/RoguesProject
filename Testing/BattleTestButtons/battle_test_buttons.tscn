@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7doidnfxvws4"]
 
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="1_kbqik"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_kbqik"]
 [ext_resource type="Script" uid="uid://cn55mymxubtt5" path="res://Testing/BattleTestButtons/battle_test_buttons.gd" id="2_jig8v"]
 [ext_resource type="PackedScene" uid="uid://peru0wapt4c8" path="res://Testing/ItemTester/AddItemMenu.tscn" id="3_1tvcq"]
 

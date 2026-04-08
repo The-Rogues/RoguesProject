@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://cy87evh5jjklh"]
+
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_17emf"]
+[ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://content/monsters/slime/slime_texture.tres" id="1_daxj1"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_tm8sn"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_daxj1"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/moves/enemy_move.gd" id="4_j758g"]
+[ext_resource type="Resource" uid="uid://btrrg1c6lf6si" path="res://content/monsters/slime/move_set/tackle.tres" id="5_jo3aq"]
+[ext_resource type="Resource" uid="uid://4ec1564euyqv" path="res://content/monsters/slime/move_set/harden.tres" id="6_oaqer"]
+[ext_resource type="Resource" uid="uid://h2w22g8wlqv" path="res://content/monsters/slime/move_set/acid.tres" id="7_jo3aq"]
+
+[sub_resource type="Resource" id="Resource_oaqer"]
+script = ExtResource("1_tm8sn")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_lx6ar"]
+script = ExtResource("1_17emf")
+moves = Array[ExtResource("4_j758g")]([ExtResource("5_jo3aq"), ExtResource("6_oaqer")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_4anhj"]
+script = ExtResource("1_17emf")
+moves = Array[ExtResource("4_j758g")]([ExtResource("5_jo3aq"), ExtResource("7_jo3aq"), ExtResource("6_oaqer")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_daxj1")
+move_sequences = Array[ExtResource("1_17emf")]([SubResource("Resource_lx6ar"), SubResource("Resource_4anhj")])
+behaviour = SubResource("Resource_oaqer")
+display_texture = ExtResource("1_daxj1")
+name = "Slime"
+health = 26
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

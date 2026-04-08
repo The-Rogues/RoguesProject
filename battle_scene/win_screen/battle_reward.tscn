@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://cqppdpc51gvje"]
+
+[ext_resource type="Script" uid="uid://cpu04rrseg2vg" path="res://battle_scene/win_screen/battle_reward.gd" id="1_qa7rv"]
+[ext_resource type="Texture2D" uid="uid://cniwmcr6i1a7b" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-005.png" id="2_ljdya"]
+[ext_resource type="Texture2D" uid="uid://d2wk2jw6xvibf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-028.png" id="3_v4xxi"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="4_k1y0t"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_bny2b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb1yi"]
+bg_color = Color(0.7676419, 0.5590647, 0.11251082, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv836"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("2_ljdya")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g7n2f"]
+load_path = "res://.godot/imported/panel-008.png-9f1522471fb57adb1486a2d410c8171f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alapa"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = SubResource("CompressedTexture2D_g7n2f")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1i23a"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("3_v4xxi")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ski7b"]
+load_path = "res://.godot/imported/panel-008.png-9f1522471fb57adb1486a2d410c8171f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yso80"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = SubResource("CompressedTexture2D_ski7b")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_4iswc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50928384, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_6toe5"]
+offsets = PackedFloat32Array(0, 0.14389534, 0.36482558)
+colors = PackedColorArray(0.49803922, 0.87058824, 0.9882353, 1, 1, 0.7490196, 0.5764706, 1, 0.49803922, 0.87058824, 0.9882353, 1)
+
+[node name="BattleReward" type="PanelContainer" unique_id=1556243692]
+texture_filter = 1
+custom_minimum_size = Vector2(333, 56)
+offset_right = 333.0
+offset_bottom = 56.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bb1yi")
+script = ExtResource("1_qa7rv")
+
+[node name="AcceptReward" type="Button" parent="." unique_id=2105953607]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_cv836")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_alapa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1i23a")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yso80")
+
+[node name="Contents" type="HBoxContainer" parent="." unique_id=9046373]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="RewardTexture" type="TextureRect" parent="Contents" unique_id=432463361]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_k1y0t")
+
+[node name="RewardName" type="RichTextLabel" parent="Contents" unique_id=1530490295]
+texture_filter = 1
+custom_minimum_size = Vector2(263, 30)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_bny2b")
+text = "Unamed Reward"
+vertical_alignment = 1
+
+[node name="Sparkles" type="CPUParticles2D" parent="." unique_id=269462532]
+position = Vector2(164, 27)
+amount = 7
+texture = ExtResource("4_k1y0t")
+speed_scale = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(150, 20)
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_4iswc")
+color_ramp = SubResource("Gradient_6toe5")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="button_up" from="AcceptReward" to="." method="_on_select_button_up"]
+[connection signal="button_up" from="AcceptReward" to="." method="_on_accept_reward_button_up"]
+[connection signal="mouse_entered" from="AcceptReward" to="." method="_on_button_mouse_entered"]

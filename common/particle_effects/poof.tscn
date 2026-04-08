@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ivfuk87f0mn3"]
+
+[ext_resource type="Texture2D" uid="uid://cnyam2dulsgh7" path="res://common/particle_effects/poof_texture.tres" id="1_rd6u1"]
+
+
+[sub_resource type="Curve" id="Curve_qgqwl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.13826367, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_olgfr"]
+offsets = PackedFloat32Array(0.10971223, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="poof" type="CPUParticles2D" unique_id=232237618]
+texture_filter = 1
+emitting = false
+amount = 1
+texture = ExtResource("1_rd6u1")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_qgqwl")
+color_ramp = SubResource("Gradient_olgfr")

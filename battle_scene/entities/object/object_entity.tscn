@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://dtyc5yi0akumu"]
+
+[ext_resource type="Script" uid="uid://ivfvafthyvrb" path="res://battle_scene/entities/object/object_entity.gd" id="1_mnebb"]
+[ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://common/art/placeholder/32_rogues/tiles.png" id="2_mnebb"]
+[ext_resource type="Script" uid="uid://b3barw1bqu4tk" path="res://common/stat_components/health.gd" id="3_i7gfg"]
+[ext_resource type="Script" uid="uid://6mivq3t47aoh" path="res://battle_scene/entities/projectiles/projectile_launcher.gd" id="3_yg38b"]
+[ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://common/sprite_flasher/sprite_flasher.gd" id="4_1jhji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiqcq"]
+atlas = ExtResource("2_mnebb")
+region = Rect2(192, 544, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vooi2"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua1eh"]
+size = Vector2(62, 62)
+
+[sub_resource type="Shader" id="Shader_qs5c0"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8p1p"]
+resource_local_to_scene = true
+shader = SubResource("Shader_qs5c0")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="Animation" id="Animation_v8p1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_wiqcq"]
+resource_name = "action"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -12), Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_mnebb"]
+resource_name = "destroyed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i7gfg"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wiqcq"]
+_data = {
+&"RESET": SubResource("Animation_v8p1p"),
+&"action": SubResource("Animation_wiqcq"),
+&"destroyed": SubResource("Animation_mnebb"),
+&"idle": SubResource("Animation_i7gfg")
+}
+
+[node name="ObjectEntity" type="Node2D" unique_id=1521707546 node_paths=PackedStringArray("health", "projectile_launcher")]
+script = ExtResource("1_mnebb")
+health = NodePath("Health")
+projectile_launcher = NodePath("ProjectileLauncher")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1880824651]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_wiqcq")
+offset = Vector2(0, -16)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=230165893]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1270511977]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_vooi2")
+
+[node name="CollisionBox" type="StaticBody2D" parent="." unique_id=219449472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox" unique_id=1595754214]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_ua1eh")
+debug_color = Color(0.81045115, 0.2590136, 0.7974284, 0.41960785)
+
+[node name="ProjectileLauncher" type="Node2D" parent="." unique_id=1864251430 node_paths=PackedStringArray("fire_delay", "fire_point")]
+script = ExtResource("3_yg38b")
+fire_delay = NodePath("FireDelayTimer")
+fire_point = NodePath("FirePoint")
+
+[node name="FirePoint" type="Node2D" parent="ProjectileLauncher" unique_id=1297851892]
+position = Vector2(0, -47)
+
+[node name="FireDelayTimer" type="Timer" parent="ProjectileLauncher" unique_id=1196960623]
+
+[node name="Health" type="Node" parent="." unique_id=1859536906]
+script = ExtResource("3_i7gfg")
+
+[node name="SpriteFlasher" type="Node" parent="." unique_id=952330511 node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_1jhji")
+sprite = NodePath("../Sprite2D")
+flash_material = SubResource("ShaderMaterial_v8p1p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=149920664]
+libraries/ = SubResource("AnimationLibrary_wiqcq")

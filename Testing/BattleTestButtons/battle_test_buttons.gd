@@ -2,7 +2,7 @@ extends PanelContainer
 class_name BattleTestButtons
 
 
-@export var battle_manager:BattleManager
+@export var battle_manager:BattleFlowManager
 @onready var options: VBoxContainer = $MarginContainer/HBoxContainer/Options
 @onready var add_item_menu: PanelContainer = $MarginContainer/HBoxContainer/Options/ItemMenu/AddItemMenu
 
@@ -19,7 +19,7 @@ func _on_win_button_up() -> void:
 		return
 	
 	while battle_manager.enemies.size() > 0:
-		battle_manager.enemies[0].kill()
+		battle_manager.enemies[0].health.kill()
 	pass # Replace with function body.
 
 
@@ -28,7 +28,7 @@ func _on_damage_player_pressed() -> void:
 	if not battle_manager:
 		return
 	
-	battle_manager.player_entity.take_damage(20)
+	battle_manager.player.take_damage(20)
 	pass # Replace with function body.
 
 
@@ -40,26 +40,18 @@ func _on_damage_enemy_button_up() -> void:
 	pass # Replace with function body.
 
 
-func _on_add_card_button_up() -> void:
-	if not battle_manager:
-		return
-	
-	var deck:CardDeck = load("res://CardSystem/Decks/starting_card_deck.tres")
-	var card_data = deck.draw_card()
-	battle_manager.player_card_hand.draw_card(card_data)
-	battle_manager.card_drawn.emit(card_data)
-	pass # Replace with function body.
-
-
 func _on_add_gold_button_up() -> void:
-	GlobalSessionManager.increase_gold(250)
+	GlobalSessionManager.run_progress.player_data.set_gold(
+		GlobalSessionManager.run_progress.player_data.gold + 10
+	)
 	pass # Replace with function body.
 
 
 func _on_draw_card_button_up() -> void:
-	var card = battle_manager.draw_pile.draw_card()
-	if card:
-		battle_manager.player_card_hand.draw_card(card)
+	if not battle_manager:
+		return
+	
+	battle_manager.player.cards.draw_cards(1)
 	pass # Replace with function body.
 
 

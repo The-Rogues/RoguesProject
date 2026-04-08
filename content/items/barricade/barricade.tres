@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://is2yfdetc6fc"]
+
+[ext_resource type="Texture2D" uid="uid://wk3j8bkwhxyl" path="res://content/items/barricade/barricade_texture.tres" id="1_1xk7s"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_o425m"]
+
+[resource]
+script = ExtResource("1_o425m")
+display_texture = ExtResource("1_1xk7s")
+name = "Barricade"
+health = 46
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

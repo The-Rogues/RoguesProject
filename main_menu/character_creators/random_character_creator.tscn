@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://beujvprpoyvls"]
+
+[ext_resource type="Script" uid="uid://towtss3sguju" path="res://main_menu/character_creators/random_character_creator.gd" id="1_4h0ux"]
+[ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://main_menu/character_result_scene.gd.tscn" id="2_daqla"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="2_fou63"]
+[ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_0af26"]
+[ext_resource type="Texture2D" uid="uid://ceevb82tjfvvo" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="4_85au7"]
+[ext_resource type="Texture2D" uid="uid://cd4vrwm5pi613" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="5_t7j5t"]
+[ext_resource type="Texture2D" uid="uid://rpc04f3p2p63" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="6_djns8"]
+[ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_tp7td"]
+[ext_resource type="Texture2D" uid="uid://d3b32hvxgogfb" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="8_lgbau"]
+[ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="9_tio18"]
+[ext_resource type="Texture2D" uid="uid://dbfpup62ss0wb" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="10_fegyj"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="11_nw8hs"]
+[ext_resource type="Resource" uid="uid://dnpmpbjeyx65" path="res://content/personality_traits/brutish.tres" id="12_cd33l"]
+[ext_resource type="Resource" uid="uid://ck1tj3cj82hbk" path="res://content/personality_traits/skittish.tres" id="13_sabue"]
+[ext_resource type="Resource" uid="uid://c6hd6w7xmy4jb" path="res://content/personality_traits/greedy.tres" id="14_q3jsc"]
+
+[node name="RandomCharacterCreator" type="Control" unique_id=502271570]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4h0ux")
+character_sprite_varients = Array[Texture2D]([ExtResource("2_fou63"), ExtResource("3_0af26"), ExtResource("4_85au7"), ExtResource("5_t7j5t"), ExtResource("6_djns8"), ExtResource("7_tp7td"), ExtResource("8_lgbau"), ExtResource("9_tio18"), ExtResource("10_fegyj")])
+name_varients = Array[String](["Abel", "Xavier", "Judas", "Cyrprus", "Ollie", "Erdrick", "Salome", "Abraham", "Jon", "Ash"])
+offensive_traits = Array[ExtResource("11_nw8hs")]([ExtResource("12_cd33l")])
+defensive_traits = Array[ExtResource("11_nw8hs")]([ExtResource("13_sabue")])
+strategic_traits = Array[ExtResource("11_nw8hs")]([ExtResource("14_q3jsc")])
+
+[node name="Background2" type="ColorRect" parent="." unique_id=104400661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterResult" parent="." unique_id=620267668 instance=ExtResource("2_daqla")]
+layout_mode = 1

@@ -1,0 +1,52 @@
+@abstract
+extends Resource
+class_name StatusEffectBehaviour
+
+
+@abstract
+func on_stack(
+	instance:ActiveStatusEffect, 
+	_other:ActiveStatusEffect = null
+) -> void
+
+
+@abstract
+func get_description(_instance:ActiveStatusEffect) -> String
+
+
+@abstract
+func get_texture() -> Texture2D
+
+
+func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
+	pass
+
+
+func on_remove(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
+	pass
+
+
+func on_turn_entered(
+	_creature:AbstractCreature = null,
+	_instance:ActiveStatusEffect = null
+) -> void:
+	pass
+
+
+func modify_attack_damage(damage:int, _instance:ActiveStatusEffect) -> int:
+	return damage
+
+
+func modify_incoming_damage(damage:int, _instance:ActiveStatusEffect) -> int:
+	return damage
+
+
+func can_execute_action(
+	_action:Action, 
+	_instance:ActiveStatusEffect = null
+) -> bool:
+	return true
+
+
+func on_card_played(_card:CardInstance, _resolver:ActionResolver):
+	pass

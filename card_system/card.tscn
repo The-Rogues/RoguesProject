@@ -1,0 +1,276 @@
+[gd_scene format=3 uid="uid://b6kxom317vkry"]
+
+[ext_resource type="Script" uid="uid://cl86l7vm1n0p0" path="res://card_system/card.gd" id="1_hl8v2"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_30h70"]
+[ext_resource type="Texture2D" uid="uid://ql4mr7lxmc8t" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-022.png" id="3_eth35"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu8sv"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.6276604, 0.62027615, 0.6221175, 1)
+border_width_left = 2
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3117664, 4.5002253e-06, 0.22212523, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pn78"]
+bg_color = Color(0.09296391, 0.14399377, 0.18599302, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd16e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.8039216)
+border_blend = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4i104"]
+texture = ExtResource("3_eth35")
+modulate_color = Color(0.86534595, 0.5493342, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8q1b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.8039216)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc8pg"]
+bg_color = Color(0.6509804, 0, 0.47843137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.09411765, 0.14509805, 0.18431373, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu8sv"]
+size = Vector2(126, 179)
+
+[node name="Card" type="Control" unique_id=2072196125]
+custom_minimum_size = Vector2(128, 178)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -89.0
+offset_right = 64.0
+offset_bottom = 89.0
+pivot_offset = Vector2(64, 89)
+size_flags_horizontal = 0
+script = ExtResource("1_hl8v2")
+
+[node name="CardContainer" type="Control" parent="." unique_id=39170440]
+layout_mode = 1
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="CardEdge" type="PanelContainer" parent="CardContainer" unique_id=429033215]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 178)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 129.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(63, 88)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vu8sv")
+
+[node name="CardBackground" type="Panel" parent="CardContainer" unique_id=362365541]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 122.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0pn78")
+
+[node name="CardNameHeader" type="Panel" parent="." unique_id=610491584]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -71.0
+offset_right = 58.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jd16e")
+
+[node name="CardNameLabel" type="Label" parent="CardNameHeader" unique_id=280635127]
+texture_filter = 1
+custom_minimum_size = Vector2(109, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -4.5
+offset_right = 54.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_30h70")
+theme_override_font_sizes/font_size = 10
+text = "Unset Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CardCostContainer" type="Panel" parent="." unique_id=1334221055]
+texture_filter = 1
+layout_mode = 0
+offset_left = -6.0
+offset_top = -3.0
+offset_right = 20.0
+offset_bottom = 23.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4i104")
+
+[node name="CardCostLabel" type="Label" parent="CardCostContainer" unique_id=1949275094]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -7.5
+offset_right = 7.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_30h70")
+theme_override_font_sizes/font_size = 15
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardDescriptionArea" type="Panel" parent="." unique_id=352638265]
+custom_minimum_size = Vector2(116, 84)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 89.0
+offset_right = 122.0
+offset_bottom = 173.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8q1b")
+
+[node name="CardDescriptionLabel" type="RichTextLabel" parent="CardDescriptionArea" unique_id=1062347470]
+texture_filter = 1
+custom_minimum_size = Vector2(116, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("2_30h70")
+theme_override_font_sizes/normal_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+theme_override_font_sizes/bold_italics_font_size = 9
+theme_override_font_sizes/italics_font_size = 9
+theme_override_font_sizes/mono_font_size = 9
+bbcode_enabled = true
+text = "This card is supposed to have a description"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardTypePlaque" type="Panel" parent="." unique_id=1067300133]
+custom_minimum_size = Vector2(60, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dc8pg")
+
+[node name="CardTypeLabel" type="Label" parent="CardTypePlaque" unique_id=1317716373]
+texture_filter = 1
+custom_minimum_size = Vector2(109, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -4.5
+offset_right = 54.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_30h70")
+theme_override_font_sizes/font_size = 8
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CardCollisionArea" type="Area2D" parent="." unique_id=1434636072]
+visible = false
+position = Vector2(1, 2)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardCollisionArea" unique_id=946080812]
+position = Vector2(63, 87.5)
+shape = SubResource("RectangleShape2D_vu8sv")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="CardCollisionArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CardCollisionArea" to="." method="_on_area_2d_area_exited"]

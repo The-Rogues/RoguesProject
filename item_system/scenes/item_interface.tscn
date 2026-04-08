@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cecuvuvoj0tjs"]
+
+[ext_resource type="Script" uid="uid://cof4jl4xvyq10" path="res://item_system/scenes/item_interface.gd" id="1_tdtv1"]
+[ext_resource type="PackedScene" uid="uid://lfhprii04oaq" path="res://item_system/scenes/item_slot.tscn" id="2_851ht"]
+
+[node name="ItemInterface" type="HBoxContainer" unique_id=92166697]
+size_flags_horizontal = 8
+theme_override_constants/separation = 2
+script = ExtResource("1_tdtv1")
+minimum_item_slot_count = 0
+
+[node name="ItemSlot" parent="." unique_id=1515963044 instance=ExtResource("2_851ht")]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="." unique_id=382371762 instance=ExtResource("2_851ht")]
+layout_mode = 2
+
+[node name="ItemSlot3" parent="." unique_id=1147406144 instance=ExtResource("2_851ht")]
+layout_mode = 2
+
+[node name="ItemSlot4" parent="." unique_id=873437117 instance=ExtResource("2_851ht")]
+layout_mode = 2

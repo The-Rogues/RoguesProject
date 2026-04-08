@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bfyabdwaoylaf"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_mb41f"]
+[ext_resource type="Script" uid="uid://dodeesjdahjxm" path="res://battle_scene/ui/CardLootSelector/card_loot_selector.gd" id="1_s54wm"]
+[ext_resource type="PackedScene" uid="uid://b6kxom317vkry" path="res://card_system/card.tscn" id="2_s54wm"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="3_fghai"]
+
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n6o7m"]
+load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da44t"]
+texture = SubResource("CompressedTexture2D_n6o7m")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+modulate_color = Color(0.6158282, 0.6158286, 0.6158285, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sihop"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CardLootSelector" type="PanelContainer" unique_id=1216392286]
+texture_filter = 1
+custom_minimum_size = Vector2(550, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_da44t")
+script = ExtResource("1_s54wm")
+
+[node name="Panel" type="Panel" parent="." unique_id=1432837174]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_sihop")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=642395488]
+layout_mode = 2
+alignment = 1
+
+[node name="HeaderMargin" type="MarginContainer" parent="VBoxContainer" unique_id=441862781]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HeaderMargin" unique_id=1192103361]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="Label" parent="VBoxContainer/HeaderMargin/VBoxContainer" unique_id=582588589]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mb41f")
+theme_override_font_sizes/font_size = 24
+text = "Draw"
+horizontal_alignment = 1
+
+[node name="Header2" type="Label" parent="VBoxContainer/HeaderMargin/VBoxContainer" unique_id=1541172538]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mb41f")
+text = "Choose a card to add to your deck"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=618156387]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="CardContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1943244101]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="CardUI" parent="VBoxContainer/MarginContainer/CardContainer" unique_id=2072196125 instance=ExtResource("2_s54wm")]
+layout_mode = 2
+
+[node name="CardUI2" parent="VBoxContainer/MarginContainer/CardContainer" unique_id=619747288 instance=ExtResource("2_s54wm")]
+layout_mode = 2
+
+[node name="CardUI3" parent="VBoxContainer/MarginContainer/CardContainer" unique_id=438681407 instance=ExtResource("2_s54wm")]
+layout_mode = 2
+
+[node name="ShipMargin" type="MarginContainer" parent="VBoxContainer" unique_id=208395362]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Skip" parent="VBoxContainer/ShipMargin" unique_id=395129651 instance=ExtResource("3_fghai")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SKIP"
+horizontal_alignment = 1
+
+[connection signal="clicked" from="VBoxContainer/ShipMargin/Skip" to="." method="_on_skip_button_selected"]

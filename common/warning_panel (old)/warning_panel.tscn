@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://brvj85av5tvd1"]
+
+[ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-015.png" id="1_gl6d8"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_0ylaa"]
+[ext_resource type="Script" uid="uid://bhvccd0td2feo" path="res://common/warning_panel (old)/warning_panel.gd" id="2_vws6d"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="3_vws6d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4idai"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("1_gl6d8")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.6158282, 0.6158286, 0.6158285, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxynr"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="WarningPanel" type="PanelContainer" unique_id=852467059]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(500, 60)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4idai")
+script = ExtResource("2_vws6d")
+
+[node name="Panel" type="Panel" parent="." unique_id=1269442796]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yxynr")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2078092503]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2081994287]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer" unique_id=332303389]
+texture_filter = 1
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_0ylaa")
+theme_override_font_sizes/font_size = 24
+text = "Warning"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Info" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1453427173]
+texture_filter = 1
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_0ylaa")
+theme_override_font_sizes/font_size = 16
+text = "Info..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Yes" parent="MarginContainer/VBoxContainer" unique_id=395129651 instance=ExtResource("3_vws6d")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Yes"
+
+[node name="No" parent="MarginContainer/VBoxContainer" unique_id=1533896600 instance=ExtResource("3_vws6d")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "No"
+
+[connection signal="clicked" from="MarginContainer/VBoxContainer/Yes" to="." method="_on_yes_clicked"]
+[connection signal="clicked" from="MarginContainer/VBoxContainer/No" to="." method="_on_no_clicked"]

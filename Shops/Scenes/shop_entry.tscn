@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cb2a68osc65yv"]
 
 [ext_resource type="Script" uid="uid://bmkx8wmabqa4r" path="res://Shops/Scenes/shop_entry.gd" id="1_4iswc"]
-[ext_resource type="Texture2D" uid="uid://cniwmcr6i1a7b" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-005.png" id="2_6toe5"]
-[ext_resource type="Texture2D" uid="uid://d2wk2jw6xvibf" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-028.png" id="3_s5bc4"]
-[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://General/Effects/Particles/star_texture.tres" id="4_s2l5a"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="5_q7c5r"]
+[ext_resource type="Texture2D" uid="uid://cniwmcr6i1a7b" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-005.png" id="2_6toe5"]
+[ext_resource type="Texture2D" uid="uid://d2wk2jw6xvibf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-028.png" id="3_s5bc4"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="4_s2l5a"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_q7c5r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dha2e"]
 bg_color = Color(0.2469503, 0.2469503, 0.2469503, 1)

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StatusEffectItem" format=3 uid="uid://c1akblk4le2jm"]
+
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://item_system/status_effect_item.gd" id="1_gj45k"]
+[ext_resource type="Texture2D" uid="uid://motragb5vre5" path="res://content/items/repeat_potion/repeat_potion_texture.tres" id="1_rha7s"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_rha7s"]
+
+[sub_resource type="Resource" id="Resource_rha7s"]
+script = ExtResource("2_rha7s")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[resource]
+script = ExtResource("1_gj45k")
+effect = SubResource("Resource_rha7s")
+name = "Repeat Potion"
+description = "After use, next card is played twice."
+display_texture = ExtResource("1_rha7s")
+shop_price = 27
+sell_price = 12
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

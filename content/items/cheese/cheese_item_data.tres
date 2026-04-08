@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatusEffectItem" format=3 uid="uid://bd2ynpbh5j0kj"]
+
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://item_system/status_effect_item.gd" id="1_4k0jw"]
+[ext_resource type="Texture2D" uid="uid://c2fwr2d5vfqbb" path="res://content/items/cheese/cheese_texture.tres" id="1_rd78d"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_rd78d"]
+
+[sub_resource type="Resource" id="Resource_jhv5j"]
+script = ExtResource("2_rd78d")
+duration = -1
+stack = 4
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[resource]
+script = ExtResource("1_4k0jw")
+effect = SubResource("Resource_jhv5j")
+name = "Cheese"
+description = "Summons 1-3 Rats and adds Rat Attack card to battle deck."
+display_texture = ExtResource("1_rd78d")
+shop_price = 32
+sell_price = 10
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

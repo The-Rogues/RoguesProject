@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyAttack" format=3 uid="uid://btrrg1c6lf6si"]
+
+[ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="1_4vw5e"]
+[ext_resource type="Script" uid="uid://dphy8mtc8047d" path="res://battle_scene/entities/monster/moves/enemy_attack.gd" id="1_ddwwr"]
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="2_fu5xx"]
+
+[sub_resource type="Resource" id="Resource_yy6ag"]
+script = ExtResource("1_4vw5e")
+max_damage = 8
+base_damage = 6
+target_option = 1
+metadata/_custom_type_script = "uid://dwljy2imh2ge8"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss4bx"]
+resource_local_to_scene = true
+atlas = ExtResource("2_fu5xx")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_ddwwr")
+attack_action = SubResource("Resource_yy6ag")
+intent_icon = SubResource("AtlasTexture_ss4bx")
+name = "Tackle"
+description = "This Enemy Intends to Attack for 6 to 8 Damage."
+metadata/_custom_type_script = "uid://dphy8mtc8047d"

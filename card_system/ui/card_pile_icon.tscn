@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dbowc7p1rjgus"]
+
+[ext_resource type="Texture2D" uid="uid://dijrwcokcngwv" path="res://card_system/ui/pile_icon.tres" id="1_3bybf"]
+[ext_resource type="Script" uid="uid://dlbthv457x1d7" path="res://card_system/ui/card_pile_icon.gd" id="1_3qgnj"]
+[ext_resource type="Texture2D" uid="uid://bple1k07y4let" path="res://card_system/ui/pile_hover_icon.tres" id="2_3qgnj"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_mivow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2v6t"]
+bg_color = Color(0.71393883, 0.267021, 0.33620936, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CardPileUI" type="Control" unique_id=749258871]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3qgnj")
+
+[node name="CardPileButton" type="TextureButton" parent="." unique_id=178403029]
+self_modulate = Color(0.73294926, 0.7911266, 0.8736922, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = -32.5
+offset_top = -48.0
+offset_right = 31.5
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_3bybf")
+texture_hover = ExtResource("2_3qgnj")
+stretch_mode = 0
+
+[node name="Container" type="Panel" parent="." unique_id=9931252]
+texture_filter = 1
+layout_mode = 1
+offset_left = 9.0
+offset_top = -5.0
+offset_right = 37.0
+offset_bottom = 23.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2v6t")
+
+[node name="PileSizeLabel" type="Label" parent="Container" unique_id=51366058]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.24814373, 0.026162574, 0.024746498, 1)
+theme_override_fonts/font = ExtResource("3_mivow")
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

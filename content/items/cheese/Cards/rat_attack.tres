@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://da1n27c1nu75v"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_fhw5q"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_4bpa3"]
+[ext_resource type="Script" uid="uid://brwjsc4vrd71t" path="res://content/items/cheese/Cards/rat_attack_action.gd" id="2_fpanx"]
+
+[sub_resource type="Resource" id="Resource_m5uqj"]
+script = ExtResource("2_fpanx")
+target_option = 2
+metadata/_custom_type_script = "uid://brwjsc4vrd71t"
+
+[resource]
+script = ExtResource("2_4bpa3")
+name = "Rat Attack"
+description = "Deal [color=red]4[/color] Damage for each Rat following you."
+play_actions = Array[ExtResource("1_fhw5q")]([SubResource("Resource_m5uqj")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

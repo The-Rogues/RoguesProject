@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cva878kvouuim"]
+
+[ext_resource type="Script" uid="uid://bu2a5x6plp3gj" path="res://card_system/ui/card_viewer.gd" id="1_cy1vw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_afera"]
+[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="4_ttikc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pg3n7"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_005b6"]
+texture = SubResource("CompressedTexture2D_pg3n7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4dh3"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv8ui"]
+texture = SubResource("CompressedTexture2D_s4dh3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3w7x8"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7g4x"]
+texture = SubResource("CompressedTexture2D_3w7x8")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_blgvk"]
+texture = ExtResource("4_ttikc")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="CardViewer" type="Control" unique_id=2047647765]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cy1vw")
+
+[node name="Background" type="ColorRect" parent="." unique_id=861343767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8117647)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=456333570]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -508.0
+offset_right = 426.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+horizontal_scroll_mode = 0
+scroll_hint_mode = 2
+tile_scroll_hint = true
+
+[node name="CardConatiner" type="FlowContainer" parent="ScrollContainer" unique_id=695158409]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+
+[node name="Close" type="Button" parent="." unique_id=528403380]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -112.0
+offset_right = 183.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("3_afera")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_005b6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yv8ui")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m7g4x")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_blgvk")
+text = "Close"
+
+[connection signal="button_up" from="Close" to="." method="_on_close_button_up"]

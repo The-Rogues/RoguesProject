@@ -7,7 +7,6 @@ extends PanelContainer
 @onready var buy_button: Button = $VBoxContainer/Interface/VBoxContainer/Button/Buy
 @onready var sell_button: Button = $VBoxContainer/Options/Option1/Sell
 
-@export var game_dashboard:GameSessionDisplay
 @export var shop_services:Array[ShopServiceData]
 @export var rare_item_pool:Array[ItemData]
 @export var item_pool:Array[ItemData]
@@ -32,16 +31,14 @@ func _ready() -> void:
 		shop_entry_interface.add_shop_entry(item_entry)
 	
 	await get_tree().process_frame
-	if GlobalSessionManager.run_progress:
-		for item in GlobalSessionManager.run_progress.held_items:
+	
+	var run = GlobalSessionManager.run_progress
+	
+	if run:
+		for item in run.player_data.items:
 			var item_entry:ShopEntryData = create_item_entry(item)
 			your_items.add_shop_entry(item_entry)
-		
-		if game_dashboard:
-			game_dashboard.initialize(GlobalSessionManager.run_progress)
-			game_dashboard.deck_card_selector.selected_card.connect(
-				_on_remove_card_service
-			)
+	
 	
 	sell_button.disabled = !your_items.has_entries()
 
@@ -148,8 +145,8 @@ func buy_effect(entry:ShopEntry):
 	buy_particles.emitting = true
 
 
-func _on_card_selected(card:CardData, deck:CardDeck):
-	deck.remove_card(card)
+#func _on_card_selected(card:CardData, deck:CardDeck):
+#	deck.remove_card(card)
 
 
 func _on_buy_button_up() -> void:
@@ -157,17 +154,19 @@ func _on_buy_button_up() -> void:
 		buy_item()
 		return
 	
-	if GlobalSessionManager.run_progress:
-		if GlobalSessionManager.run_progress.gold >= selected_item.price:
+	var run = GlobalSessionManager.run_progress
+	
+	if run:
+		if run.player_data.can_buy_shop_item(selected_item.price):
 			if selected_item is ShopItemData:
-				GlobalSessionManager.buy_item(selected_item.item)
+				run.player_data.add_item(selected_item.item)
+				run.player_data.set_gold(
+						run.player_data.gold - selected_item.price)
 			else:
-				GlobalSessionManager.decrease_gold(selected_item.price)
 				if selected_item.service_id == 0:
-					game_dashboard.open_deck_card_selector()
-					game_dashboard.deck_card_selector.selected_card.connect(_on_card_selected)
+					#game_dashboard.open_deck_card_selector()
+					#game_dashboard.deck_card_selector.selected_card.connect(_on_card_selected)
 					pending_service_charge = selected_item.price
-			
 			buy_item()
 	
 	update_buy_button()
