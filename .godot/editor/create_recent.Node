@@ -1,0 +1,14 @@
+Control
+PanelContainer
+Node2D
+Sprite2D
+AnimationPlayer
+CanvasLayer
+HBoxContainer
+Button
+TextureRect
+ColorRect
+Timer
+VBoxContainer
+MarginContainer
+Panel
