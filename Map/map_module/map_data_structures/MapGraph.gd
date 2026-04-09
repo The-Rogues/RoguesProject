@@ -627,18 +627,18 @@ func populate_events(rand_seed: int) -> void:
 					for k in range(0, curr_layer[j].node_edges.size()):
 						curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
 	
-	var shop_nodes: Array[RefCounted]
-	for i in range(0, node_arr.size()):
-		if node_arr[i].node_data.main_event == shop_data:
-			shop_nodes.append(node_arr[i].node_data)
+	#var shop_nodes: Array[RefCounted]
+	#for i in range(0, node_arr.size()):
+	#	if node_arr[i].node_data.main_event == shop_data:
+	#		shop_nodes.append(node_arr[i].node_data)
 	
-	var count: int = 0
-	while shop_nodes.size() != 0:
-		var target_idx: int = rand_gen.randi_range(0, shop_nodes.size() - 1)
-		if (count % 2) == 0:
-			shop_nodes[target_idx].main_event = personality_data
-		shop_nodes.remove_at(target_idx)
-		count += 1
+	#var count: int = 0
+	#while shop_nodes.size() != 0:
+	#	var target_idx: int = rand_gen.randi_range(0, shop_nodes.size() - 1)
+	#	if (count % 2) == 0:
+	#		shop_nodes[target_idx].main_event = personality_data
+	#	shop_nodes.remove_at(target_idx)
+	#	count += 1
 	
 	for i in range(1, node_arr.size()):
 		if (i % 2) == 1:

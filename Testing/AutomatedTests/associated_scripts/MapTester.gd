@@ -70,6 +70,10 @@ static func test_map_structure(in_structure: RefCounted):
 	var curr_layer: int = 0
 	var is_battle_layer: bool = false
 	
+	var battle_data: Resource = load("res://Map/event/event_instances/battle_event_data.tres")
+	var shop_data: Resource = load("res://Map/event/event_instances/shop_event_data.tres")
+	var boss_data: Resource = load("res://Map/event/event_instances/boss_event_data.tres")
+	
 	# Create a dictionry and initialise all pages that will be used to zero.
 	var in_edge_count_dict: Dictionary[RefCounted, int] = {}
 	for i in range(1, in_structure.node_arr.size()):
@@ -91,24 +95,39 @@ static func test_map_structure(in_structure: RefCounted):
 		# Check for a new largest number of outgoing edges.
 		if in_structure.node_arr[i].node_edges.size() > max_outgoing_edges:
 			max_outgoing_edges = in_structure.node_arr[i].node_edges.size()
-		
-		# Check that the expected event type is in the current node.
-		if is_battle_layer && !in_structure.node_arr[i].node_data:
-				is_distribution_as_expected = false
-		elif !is_battle_layer && in_structure.node_arr[i].node_data:
-				is_distribution_as_expected = false
 	
-	# Check that the final node has the expected event type.
-	is_battle_layer = !is_battle_layer
-	if is_battle_layer && !in_structure.node_arr[in_structure.node_arr.size() - 1].node_data:
-		is_distribution_as_expected = false
-	elif !is_battle_layer && in_structure.node_arr[in_structure.node_arr.size() - 1].node_data:
-		is_distribution_as_expected = false
+	var test_path: Callable = func(test_node: RefCounted, node_type: RefCounted, slf: Callable):
+		if test_node == in_structure.node_arr[in_structure.node_arr.size() - 1]:
+			return true
+		if node_type == null:
+			if test_node.node_data.main_event == battle_data:
+				for i in range(0, test_node.node_edges.size()):
+					if !slf.call(test_node.node_edges[i], shop_data, slf):
+						return false
+					return true
+			else:
+				for i in range(0, test_node.node_edges.size()):
+					if !slf.call(test_node.node_edges[i], battle_data, slf):
+						return false
+					return true
+		else:
+			if test_node.node_data.main_event != node_type:
+				return false
+			else:
+				for i in range(0, test_node.node_edges.size()):
+					if !slf.call(test_node.node_edges[i], null, slf):
+						return false
+					return true
 	
-	# Find the largest number of incoming edges.
-	for i in range(1, in_structure.node_arr.size()):
-		if in_edge_count_dict[in_structure.node_arr[i]] > max_incoming_edges:
-			max_incoming_edges = in_edge_count_dict[in_structure.node_arr[i]]
+	for i in range(0, in_structure.node_arr[0].node_edges.size()):
+		var curr_node: RefCounted = in_structure.node_arr[0].node_edges[i]
+		if curr_node.node_data.main_event != battle_data:
+			is_distribution_as_expected = false
+		for j in range(0, curr_node.node_edges.size()):
+			is_distribution_as_expected = test_path.call(curr_node.node_edges[j], null, test_path)
+			
+	if in_structure.node_arr[in_structure.node_arr.size() - 1].node_data.main_event != boss_data:
+		is_distribution_as_expected = false
 	
 	# Print an error message if map structure is not as expected.
 	if max_outgoing_edges > 3 || max_incoming_edges > 3 || !is_distribution_as_expected:
