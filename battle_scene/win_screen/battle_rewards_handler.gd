@@ -19,5 +19,6 @@ func initialize():
 
 
 func _on_continue_clicked() -> void:
+	GlobalSessionManager.complete_current_room()
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)
 	pass # Replace with function body.

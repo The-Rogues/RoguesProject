@@ -26,6 +26,9 @@ var floor_progress:int = 1
 var current_floor:int = 1
 var player_node_index: int = 0
 var battle: BattleSaveData = null
+var pending_node_index: int = -1
+var room_in_progress: bool = false
+var pending_room_type: int = -1
 
 # -------------------------------------------------
 # Statistics tracking member values

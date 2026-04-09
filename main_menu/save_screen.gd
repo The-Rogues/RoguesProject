@@ -9,7 +9,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
+	if GlobalSessionManager.run_progress == null:
+		GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
+	
 	snapshot.initialize()
 	
 	continue_button.set_disabled(
@@ -21,15 +23,16 @@ func _ready() -> void:
 
 
 func _on_continue_clicked() -> void:
-	var p: RunProgress = GlobalSaveManager.load_run()
-	
-	if p == null:
-		return
-	GlobalSessionManager.run_progress = p
+	#var p: RunProgress = GlobalSaveManager.load_run()
+	#print("continue 1")
+	#if p == null:
+	#	return
+	#print("continue 2")
+	#GlobalSessionManager.run_progress = p
 	GlobalSessionManager.initialize_map()
-	GlobalSessionManager.run_progress = p
-	GlobalSessionManager.started_session = true
-
+	#GlobalSessionManager.run_progress = p
+	#GlobalSessionManager.started_session = true
+	GlobalSessionInterface.visible = true
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)
 
 

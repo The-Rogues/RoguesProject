@@ -14,9 +14,6 @@ class_name CharacterScreen
 
 
 func initialize():
-	GlobalSessionInterface.visible = true
-	print(GlobalSessionManager.visible)
-	
 	var preview := get_character_preview()
 	var deck_cards := get_card_instances()
 	
@@ -68,5 +65,6 @@ func _on_view_deck_clicked() -> void:
 
 
 func _on_begin_run_clicked() -> void:
+	GlobalSessionInterface.visible = true
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)
 	pass # Replace with function body.

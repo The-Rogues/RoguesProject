@@ -1,14 +1,14 @@
+Control
+PanelContainer
 Node2D
 Sprite2D
 AnimationPlayer
-Control
 CanvasLayer
 HBoxContainer
 Button
 TextureRect
 ColorRect
 Timer
-PanelContainer
 VBoxContainer
 MarginContainer
 Panel

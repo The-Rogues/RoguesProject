@@ -11,9 +11,9 @@ metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
 
 [resource]
 script = ExtResource("2_ca2mp")
-type = 1
+type = 2
 energy_cost = 1
 name = "Defend"
-description = "Gain [color=blue]6[/color] Block."
+description = "Gain [color=deep_sky_blue]6[/color] Block."
 play_actions = Array[ExtResource("1_sxanh")]([SubResource("Resource_1ott2")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

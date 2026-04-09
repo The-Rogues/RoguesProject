@@ -11,7 +11,7 @@ metadata/_custom_type_script = "uid://cqhehdk6a0b7j"
 
 [resource]
 script = ExtResource("3_ort7f")
-type = 1
+type = 2
 energy_cost = 1
 name = "Move"
 description = "Moves toward desired object."
