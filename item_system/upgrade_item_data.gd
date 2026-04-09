@@ -26,7 +26,7 @@ func use_item(_player:PlayerEntity = null) -> bool:
 			if _player:
 				_player.health.set_values(
 						_player.health.value,
-						_player.health.value + amount)
+						_player.health.max_value + amount)
 			else:
 				run.player_data.set_health(
 					run.player_data.current_health,

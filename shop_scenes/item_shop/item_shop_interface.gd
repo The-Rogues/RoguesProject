@@ -56,6 +56,7 @@ func create_item_entry(data:ItemData) -> ShopEntryData:
 	item_entry.price = data.shop_price
 	item_entry.texture = data.display_texture
 	item_entry.special = data.rarity == ItemData.Rarity.RARE
+	item_entry.exhaustable = true
 	return item_entry
 
 
@@ -85,6 +86,7 @@ func update_buy_button():
 func buy_item():
 	var entry:ShopEntry = null
 	if sell_mode:
+		
 		entry = your_items.get_shop_entry_by_data(selected_item)
 	else:
 		entry = shop_entry_interface.get_shop_entry_by_data(selected_item)
@@ -96,11 +98,14 @@ func buy_item():
 	buy_effect(entry)
 	
 	if selected_item.exhaustable:
-		shop_entry_interface.remove_entry_by_data(selected_item)
+		if sell_mode:
+			your_items.remove_entry_by_data(selected_item)
+		else:
+			shop_entry_interface.remove_entry_by_data(selected_item)
 		selected_item = null
 	
 	sell_button.disabled = !your_items.has_entries()
-	
+	description.text = "Sold!"
 	update_buy_button()
 
 
@@ -126,18 +131,27 @@ func _on_buy_button_up() -> void:
 	
 	var run = GlobalSessionManager.run_progress
 	
-	if run:
-		if run.player_data.can_buy_shop_item(selected_item.price):
-			if selected_item is ShopItemData:
-				run.player_data.add_item(selected_item.item)
-				run.player_data.set_gold(
-						run.player_data.gold - selected_item.price)
-			else:
-				if selected_item.service_id == 0:
-					#game_dashboard.open_deck_card_selector()
-					#game_dashboard.deck_card_selector.selected_card.connect(_on_card_selected)
-					pending_service_charge = selected_item.price
+	if run == null:
+		update_buy_button()
+		return
+	
+	if sell_mode:
+		if selected_item is ShopItemData:
+			run.player_data.remove_item(selected_item.item)
+			run.player_data.set_gold(
+					run.player_data.gold + selected_item.item.sell_price)
 			buy_item()
+	elif run.player_data.can_buy_shop_item(selected_item.price):
+		if selected_item is ShopItemData:
+			run.player_data.add_item(selected_item.item)
+			run.player_data.set_gold(
+					run.player_data.gold - selected_item.price)
+		else:
+			if selected_item.service_id == 0:
+				#game_dashboard.open_deck_card_selector()
+				#game_dashboard.deck_card_selector.selected_card.connect(_on_card_selected)
+				pending_service_charge = selected_item.price
+		buy_item()
 	
 	update_buy_button()
 

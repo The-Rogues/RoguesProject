@@ -49,5 +49,8 @@ func can_execute_action(
 	return true
 
 
-func on_card_played(_card:CardInstance, _resolver:ActionResolver):
+func on_card_played(
+		_instance:ActiveStatusEffect, 
+		_card:CardInstance, 
+		_resolver:ActionResolver):
 	pass

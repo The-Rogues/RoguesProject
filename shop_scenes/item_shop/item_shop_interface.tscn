@@ -3,28 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cniwmcr6i1a7b" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-005.png" id="1_awr8l"]
 [ext_resource type="Script" uid="uid://bt8pag35v6eo5" path="res://shop_scenes/item_shop/item_shop_interface.gd" id="1_o08xb"]
 [ext_resource type="Texture2D" uid="uid://d2wk2jw6xvibf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-028.png" id="2_fd7br"]
-[ext_resource type="Script" uid="uid://dpqpae08lyjh3" path="res://shop_scenes/shop_entry_data/shop_service_data.gd" id="3_28hds"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_u55f5"]
-[ext_resource type="Texture2D" uid="uid://bple1k07y4let" path="res://card_system/ui/pile_hover_icon.tres" id="4_exckr"]
 [ext_resource type="PackedScene" uid="uid://bd2jfreb1arig" path="res://shop_scenes/shop_entry_interface.tscn" id="4_u55f5"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="4_v4si8"]
 [ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="5_o08xb"]
-[ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/energy_potion/energy_poiton_upgrade_item_data.tres" id="6_uqavx"]
-[ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://content/items/item_pouch/pouch_item_data.tres" id="7_ad48e"]
-[ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/health_potion/health_potion_character_upgrade_item_data.tres" id="8_v4si8"]
-[ext_resource type="Resource" uid="uid://4p1d4nfy0a1f" path="res://content/items/forbidden_relic/forbidden_relic_item_data.tres" id="8_wh2cx"]
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="15_n18mx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o08xb"]
-
-[sub_resource type="Resource" id="Resource_ski7b"]
-script = ExtResource("3_28hds")
-texture = ExtResource("4_exckr")
-name = "Card Removal"
-description = "Choose 1 Card to permanantly remove from your deck."
-price = 65
-exhaustable = false
-metadata/_custom_type_script = "uid://dpqpae08lyjh3"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bkof"]
 bg_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
@@ -155,8 +139,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_o08xb")
 script = ExtResource("1_o08xb")
-shop_services = Array[ExtResource("3_28hds")]([SubResource("Resource_ski7b")])
-rare_item_pool = Array[ExtResource("4_v4si8")]([ExtResource("8_v4si8"), ExtResource("6_uqavx"), ExtResource("7_ad48e"), ExtResource("8_wh2cx")])
 test_mode = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1621560535]

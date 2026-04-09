@@ -36,7 +36,7 @@ func place_object(data:ObjectData) -> void:
 	_object.health.died.connect(remove_object)
 	object_entity.on_placed()
 	object_state_updated.emit()
-	floating_text.create("Placed " + data.name)
+	#floating_text.create("Placed " + data.name)
 	object_state_updated.emit()
 
 

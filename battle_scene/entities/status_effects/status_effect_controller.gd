@@ -82,7 +82,7 @@ func apply_incoming_damage_effects(damage:int) -> int:
 
 func process_played_card(card:CardInstance, resolver:ActionResolver):
 	for instance in active_effects:
-		instance.effect.on_card_played(card, resolver)
+		instance.effect.on_card_played(instance, card, resolver)
 
 
 func can_use_action(action:Action) -> bool:

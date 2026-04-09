@@ -15,6 +15,8 @@ extends Control
 
 
 func _ready() -> void:
+	GlobalSessionInterface.visible = false
+	
 	title_screen.visible = true
 	options_menu.visible = false
 	credits_menu.visible = false

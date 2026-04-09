@@ -71,6 +71,7 @@ func on_destroyed():
 	sprite_2d.flash()
 	await play_death_anim()
 	defeated.emit(self)
+	sprite_2d.visible = false
 
 
 func enter_turn():
