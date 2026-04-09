@@ -10,3 +10,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qxsou")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1971422879]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="ScrollContainer" unique_id=1708964921]
+layout_mode = 2

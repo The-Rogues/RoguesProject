@@ -16,14 +16,16 @@ signal player_pos_changed(new_pos: RefCounted)
 var node_arr: Array[RefCounted] # An array which will hold the MapGraph's individual nodes.
 var map_layers: int # An integer which will hold the number of layers in the graph for quick reference.
 var max_layer_nodes: int # An integer which will hold the largest number of nodes available to a single layer.
-var num_mandatory: int
+var num_mandatory: int # Number of mandatory nodes on the map. Does not include the final boss.
+var visited_nodes: Array[RefCounted] # The sequence of nodes that the player has visited.
 var player_pos: RefCounted: # A reference to the MapGraphNode that the player is currently located at.
 	# This function is called whenever the player's position attempts to change.
 	set(new_pos):
 		if player_pos != new_pos:
 			player_pos = new_pos # Set the new position if not already set.
+			visited_nodes.append(new_pos)
 			emit_signal("player_pos_changed", player_pos) # Emit the player_pos_changed signal.
-			_autosave_progress()
+			#_autosave_progress()
 
 #------------------------------------------------------------------------------------
 # Section: _init Function
@@ -78,7 +80,7 @@ func _init(
 	map_seed: int # An integer which can be randomised to produce unique structures.
 ) -> void:
 	
-	# Init data member.
+	# Init data members.
 	max_layer_nodes = max_layer_sz
 	num_mandatory = mandatory_node_amnt
 	
@@ -111,6 +113,10 @@ func _init(
 				return [0.33, 0.33, 0.34]
 			return out_edge_weights
 	).call()
+	
+	# Ensure mandatory nodes are the only single node layers.
+	if max_layer_sz < 5:
+		max_layer_sz = 5
 	
 	# A helper function which sums the m=numbers in an array before the index provided.
 	var sum_before: Callable = func(end_index: int, in_array: Array[float]) -> float:
@@ -513,7 +519,10 @@ func _init(
 	player_pos = node_arr[0]
 	
 	# Populate node event data member.
-	populate_events()
+	populate_noise(map_seed)
+	
+	# Populate node event data member.
+	populate_events(map_seed)
 
 #------------------------------------------------------------------------------------
 # Section: Secondary Functions
@@ -546,18 +555,149 @@ func get_layer(in_layer: int) -> Array[RefCounted]:
 
 # --populate_events Function--
 # Description: Logic for determining the distribution of events among MapGraphNodes.
-#              To be finalised further into development.
+#              Currently evenly distributes battle and non-battle events.
+# rand_seed: An integer used as a random seed for event distribution.
 # Return: void.
-func populate_events() -> void:
-	for i in range(0, node_arr.size()):
-		if (i == node_arr.size() - 1) || (get_layer(node_arr[i].node_layer).size() == 1):
-			node_arr[i].node_data = 2
-		else:
-			if node_arr[i].node_layer % 2 == 0:
-				node_arr[i].node_data = 0 # Even layered nodes are not battle nodes.
-			else:
-				node_arr[i].node_data = 1 # Odd layered nodes are battle nodes.
+func populate_events(rand_seed: int) -> void:
+	
+	# Get premade event instances.
+	var battle_data: Resource = load("res://Map/event/event_instances/battle_event_data.tres")
+	var shop_data: Resource = load("res://Map/event/event_instances/shop_event_data.tres")
+	var personality_data: Resource = load("res://Map/event/event_instances/personality_event_data.tres")
+	var boss_data: Resource = load("res://Map/event/event_instances/boss_event_data.tres")
+	var mini_data: Resource = load("res://Map/event/event_instances/test_mini_data.tres") 
+	
+	# Create RandomNumberGernerator and give it the seed.
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = rand_seed
+	
+	node_arr[0].node_data = add_main_event(battle_data)
+	
+	# First layer is always battle nodes.
+	var curr_layer: Array[RefCounted] = get_layer(1)
+	for i in range(0, curr_layer.size()):
+		curr_layer[i].node_data = add_main_event(battle_data)
+	
+	# Iterate over all other map layers.
+	for i in range(2, map_layers):
+		
+		# If the final layer is reached, it is set to a boss node.
+		if i == (map_layers - 1):
+			curr_layer = get_layer(i)
+			curr_layer[0].node_data = add_main_event(boss_data)
+			break
+		
+		# Layers are processed in pairs, odd layers can be ignored.
+		if (i % 2) == 1:
+			continue
+		
+		# Get the current layer and iterate over it.
+		curr_layer = get_layer(i)
+		for j in range(0, curr_layer.size()):
 			
+			# Check adjacent nodes to verify if the current node needs to have a forced type.
+			var is_shop: bool = false
+			var is_battle: bool = false
+			for k in range(0, curr_layer[j].node_edges.size()):
+				if i == (map_layers - 2):
+					break
+				if curr_layer[j].node_edges[k].node_data != null:
+					if curr_layer[j].node_edges[k].node_data.main_event == battle_data:
+						is_shop = true
+					else:
+						is_battle = true
+			
+			# If the current node has a forced type, set that type.
+			# Otherwise, choose a random type. Set all adjacent nodes to the opposite type.
+			if is_shop:
+				curr_layer[j].node_data = add_main_event(shop_data)
+				for k in range(0, curr_layer[j].node_edges.size()):
+					curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
+			elif is_battle:
+				curr_layer[j].node_data = add_main_event(battle_data)
+				for k in range(0, curr_layer[j].node_edges.size()):
+					curr_layer[j].node_edges[k].node_data = add_main_event(shop_data)
+			else:
+				if rand_gen.randf() < 0.5:
+					curr_layer[j].node_data = add_main_event(battle_data)
+					for k in range(0, curr_layer[j].node_edges.size()):
+						curr_layer[j].node_edges[k].node_data = add_main_event(shop_data)
+				else:
+					curr_layer[j].node_data = add_main_event(shop_data)
+					for k in range(0, curr_layer[j].node_edges.size()):
+						curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
+	
+	var shop_nodes: Array[RefCounted]
+	for i in range(0, node_arr.size()):
+		if node_arr[i].node_data.main_event == shop_data:
+			shop_nodes.append(node_arr[i].node_data)
+	
+	var count: int = 0
+	while shop_nodes.size() != 0:
+		var target_idx: int = rand_gen.randi_range(0, shop_nodes.size() - 1)
+		if (count % 2) == 0:
+			shop_nodes[target_idx].main_event = personality_data
+		shop_nodes.remove_at(target_idx)
+		count += 1
+	
+	for i in range(1, node_arr.size()):
+		if (i % 2) == 1:
+			node_arr[i].node_data.mini_event = mini_data
+
+# --add_main_event Function--
+# Description: Creates a new EventData resource and adds the provided main event to it.
+# main_data: The main event to add to the new EventData resource.
+# Return: An EventData resource containing the given main event.
+func add_main_event(main_data: Resource) -> EventData:
+	var ret_val: EventData = EventData.new()
+	ret_val.main_event = main_data
+	return ret_val
+
+# --populate_noise Function--
+# Description: Creates a random float between zero and one which is later multiplied by standard offsets in the MapInstance
+#              class to make the map visually noisy. Outer nodes are special cases, noise must go toward a specific direction when a
+#              layer is max size.
+# noise_seed: Seed used to distribute noise across map nodes.
+# Return: Void.
+func populate_noise(noise_seed: int) -> void:
+	
+	# Create RandomNumberGernerator and give it the seed.
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = noise_seed
+	
+	# Map nodes are iterated over in layers so that outer nodes can be identified.
+	var curr_idx: int = 0
+	for i in range(0, map_layers):
+		
+		var curr_layer_size: int = get_layer(i).size()
+		for j in range(0, curr_layer_size):
+			
+			# Noise in the y-direction is always handled the same.
+			node_arr[curr_idx].y_noise_factor = rand_gen.randf()
+			if rand_gen.randf() < 0.5:
+				node_arr[i].y_noise_factor *= -1
+			
+			# In the x-direction, the direction of the noise must be recorded since margins may be different on each side of
+			# outer nodes.
+			node_arr[curr_idx].x_noise_factor = rand_gen.randf()
+			if j == 0 && (curr_layer_size == max_layer_nodes):
+				node_arr[curr_idx].x_noise_left = false # When a layer is max size, noise must go to the right in the left outer node.
+				
+			elif (j == curr_layer_size - 1) && (curr_layer_size == max_layer_nodes):
+				node_arr[curr_idx].x_noise_left = true # When a layer is max size, noise must go to the left in the right outer node.
+			
+			# Otherwise noise can be assigned to left or right randomly.
+			else:
+				node_arr[curr_idx].x_noise_left = false
+				if rand_gen.randf() < 0.5:
+					node_arr[curr_idx].x_noise_left = true
+			
+			curr_idx += 1
+
+#------------------------------------------------------------------------------------
+# Section: Save System Functions
+#------------------------------------------------------------------------------------
+
 func get_player_node_index() -> int:
 	return node_arr.find(player_pos)
 	

@@ -96,6 +96,7 @@ func _on_leave_button_up() -> void:
 	if !GlobalSessionManager.started_session:
 		print("Map scene not loaded")
 		return
+	GlobalSessionManager.complete_current_room()
 	GlobalSceneLoader.load_scene("res://Map/map_screen/MapScreen.tscn")
 	pass # Replace with function body.
 

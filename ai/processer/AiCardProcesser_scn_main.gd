@@ -14,8 +14,6 @@ class_name AiCardProcesser
 
 # Change the system prompt used by the model here.
 const SYSTEM_PROMPT: String = """
-### Background
-You are a structured contnent generator. You are expected to understand the provided definitions. Additional information will be provided within prompts themselves.
 ### Definitions
 - stdatk: Adds a standard ammount of attack damage to an action.
 - stddef: Adds a standard ammount of sheild, which blocks enemy damage, to an action.
@@ -34,7 +32,7 @@ const RESPONSE_GRAMMAR: String = """root ::= ([0-9]+" ")+"""
 # Description: Initilizes the chat and model children of the AiCardProcessor scene.
 # Return: Void.
 func _ready() -> void:
-	slf_model.model_path = "res://ai/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+	slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-IQ3_M.gguf"
 	slf_chat.model_node = slf_model
 	slf_chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)
 	slf_chat.system_prompt = SYSTEM_PROMPT

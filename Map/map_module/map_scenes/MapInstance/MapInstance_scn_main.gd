@@ -7,23 +7,26 @@
 
 extends Control
 
+# Scene describing the individual buttons on the map.
 var map_button_scn: PackedScene = preload("res://Map/map_module/map_scenes/MapButton/MapButton.tscn")
 
 # Textures to be used by MapButtons.
-var texture_player: CompressedTexture2D = preload("res://Map/map_module/map_assets/player.png")
-var texture_available_shop: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableshop.png")
-var texture_available_shop_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableshophover.png")
-var texture_available_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebattle.png")
-var texture_available_battle_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebattlehover.png")
-var texture_available_boss: CompressedTexture2D = preload("res://Map/map_module/map_assets/availableboss.png")
-var texture_available_boss_hover: CompressedTexture2D = preload("res://Map/map_module/map_assets/availablebosshover.png")
-var texture_shop: CompressedTexture2D = preload("res://Map/map_module/map_assets/shop.png")
-var texture_battle: CompressedTexture2D = preload("res://Map/map_module/map_assets/battle.png")
-var texture_boss: CompressedTexture2D = preload("res://Map/map_module/map_assets/boss.png")
-var texture_passed: CompressedTexture2D = preload("res://Map/map_module/map_assets/passed.png")
+var texture_player: CompressedTexture2D = preload("res://Map/map_assets/player.png")
+var texture_passed: CompressedTexture2D = preload("res://Map/map_assets/passed.png")
 
 var map_buttons: Array[TextureButton] # Array to keep track of buttons that belong to the map instance.
 var map_structure: RefCounted # Map structure is received in the init function, so the script does not need to be preloaded.
+
+# The standard sizes for buttons in this instance.
+var std_btn_size: Vector2
+var special_btn_size: Vector2
+
+# Variables for modulating navigable button sizes.
+var elapsed_time: float = 0
+var available_button_positions: Dictionary[TextureButton, Vector2]
+
+# Variables for drawing map lines.
+var vertical_dist: float = 0
 
 #------------------------------------------------------------------------------------
 # Section: Functions
@@ -48,13 +51,17 @@ func init_map_instance(
 		func(_ignore: RefCounted):
 			set_button_states()
 	)
+	std_btn_size = button_size
+	special_btn_size = std_btn_size + (std_btn_size / 2)
 	
 	# Create buttons that correspond to each MapGraphNode in the structural component.
 	for i in range(0, map_structure.map_layers):
 		var curr_layer: Array[RefCounted] = map_structure.get_layer(i)
 		for j in range(0, curr_layer.size()):
+			
+			# Set button data members.
 			var new_button = map_button_scn.instantiate()
-			new_button.init_button(curr_layer[j])
+			new_button.init_button(curr_layer[j], true)
 			new_button.pressed.connect( # Connect every button's pressed signal to _on_map_button_pressed, emmiting the corresponding node.
 				func():
 					_on_map_button_pressed(new_button.corr_node)
@@ -63,12 +70,16 @@ func init_map_instance(
 			new_button.texture_filter = TextureFilter.TEXTURE_FILTER_NEAREST
 			new_button.ignore_texture_size = true
 			new_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+			
 			if curr_layer.size() == 1 && i != 0:
-				new_button.custom_minimum_size = button_size + button_size / 2
-				new_button.size = button_size + button_size / 2
+				# Make boss nodes bigger.
+				new_button.is_std_sz = false
+				new_button.custom_minimum_size = special_btn_size
+				new_button.size = special_btn_size
 			else:
-				new_button.custom_minimum_size = button_size
-				new_button.size = button_size
+				# Any othe nodes are normal size.
+				new_button.custom_minimum_size = std_btn_size
+				new_button.size = std_btn_size
 			map_buttons.append(new_button)
 	
 	# Resize the map to the the dimensions requested and set initial button states.
@@ -79,17 +90,22 @@ func init_map_instance(
 # Description: Sets the position of each button so that it fits within the specified container
 #              dimensions. Calls the draw function to draw paths between each node.
 # container_size: A vector containing desired map width and height.
-# Return: void.
+# Return: Void.
 func resize_map(container_size: Vector2) -> void:
 	
-	var path_size = container_size.y - (map_buttons[0].size.y * map_structure.map_layers + map_buttons[0].size.y * 0.5 * map_structure.num_mandatory)
+	# 
+	available_button_positions.clear()
+	
+	# Gets the vertical size of a path between nodes.
+	var path_size = container_size.y - (std_btn_size.y * map_structure.map_layers + special_btn_size.y - std_btn_size.y)
 	path_size /= map_structure.map_layers - 1
 	
 	var button_pos: int = 0 # Counts the number of buttons processed.
 	var y_pos: float = container_size.y
 	for i in range(0, map_structure.map_layers):
 		
-		y_pos -= map_buttons[0].size.y
+		y_pos -= std_btn_size.y
+		
 		# Iterate over the current layer.
 		var curr_layer_size: int = map_structure.get_layer(i).size()
 		for j in range(0, curr_layer_size):
@@ -99,17 +115,67 @@ func resize_map(container_size: Vector2) -> void:
 			anchor_button(curr_button)
 			
 			# Adjust the position of each button according to its layer and position within the layer.
-			var left_increment: float = (container_size.x - curr_button.size.x) / (map_structure.max_layer_nodes - 1)
-			curr_button.offset_left = ((container_size.x - curr_button.size.x) / 2) + (left_increment * j) - ((left_increment * (curr_layer_size - 1)) / 2)
-			if  curr_layer_size == 1 && i != 0:
-				#var top_increment: float = (container_size.y - curr_button.size.y) / (map_structure.map_layers - 1)
-				#curr_button.offset_top =  (container_size.y - curr_button.size.y) - (top_increment * i)
-				y_pos -= curr_button.size.y / 3
+			var left_increment: float = (container_size.x - std_btn_size.x) / (map_structure.max_layer_nodes - 1)
+			curr_button.offset_left = ((container_size.x - std_btn_size.x) / 2) + (left_increment * j) - ((left_increment * (curr_layer_size - 1)) / 2)
+			
+			# First branch executes for outer nodes when layer size is max.
+			var lmarg: float = container_size.x - std_btn_size.x - (left_increment * (curr_layer_size - 1))
+			if ( (j == 0) || (j == curr_layer_size - 1) ) && curr_layer_size == map_structure.max_layer_nodes:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# Second branch executes for layers with a single node.
+			elif (j == 0) && (j == curr_layer_size - 1):
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.10
+				else:
+					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.10
+			
+			# Executes only for left outer nodes.
+			elif j == 0:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= lmarg * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# Executes only for right outer nodes.
+			elif j == curr_layer_size - 1:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += lmarg * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# Executes for all other nodes.
+			else:
+				if curr_button.corr_node.x_noise_left:
+					curr_button.offset_left -= left_increment * curr_button.corr_node.x_noise_factor * 0.25
+				else:
+					curr_button.offset_left += left_increment * curr_button.corr_node.x_noise_factor * 0.25
+			
+			# This barnch executes for boss nodes. Provides a small adjustment for the larger nodes.
+			if  !curr_button.is_std_sz:
+				y_pos -= special_btn_size.y - std_btn_size.y
 				curr_button.offset_top = y_pos
+			
+			# Executes only for the starting node.
+			elif curr_layer_size == 1 && i == 0:
+				curr_button.offset_top = y_pos
+			
+			# Executes for intermediate nodes. 
 			else:
 				curr_button.offset_top = y_pos
+				curr_button.offset_top += curr_button.corr_node.y_noise_factor * 0.3 * path_size
+			
+			# Next button in the array.
 			button_pos += 1
+			curr_button.resize()
+		
+		# New layers have a different y position.
 		y_pos -= path_size
+	
+	vertical_dist = path_size
 	
 	# Draw lines between the buttons.
 	queue_redraw()
@@ -135,10 +201,22 @@ func set_button_states() -> void:
 	
 	# When the player's node is reached, the pressable buttons will be stored in this array.
 	var accessable_buttons: Array[RefCounted] = []
+	var room_in_progress :bool= GlobalSessionManager.run_progress != null and GlobalSessionManager.run_progress.room_in_progress
+	var pending_index: int = -1
+	var pending_layer: int = -1
+	if room_in_progress:
+		pending_index = GlobalSessionManager.run_progress.pending_node_index
+		if pending_index >= 0 and pending_index < map_structure.node_arr.size():
+			pending_layer = map_structure.node_arr[pending_index].node_layer
+	
 	for i in range(0, map_buttons.size()):
 		
 		# Disable all buttons by default.
 		map_buttons[i].disabled = true
+		
+		## Set sub event texture if a sub event exists.
+		#if map_buttons[i].corr_node.node_data.mini_event != null:
+			#map_buttons[i].set_sub_texture(map_buttons[i].corr_node.node_data.mini_event.map_texture)
 		
 		# At player's position, set a unique texture and record accessable buttons.
 		if map_buttons[i].corr_node == map_structure.player_pos:
@@ -151,40 +229,38 @@ func set_button_states() -> void:
 		elif player_layer >= 0:
 			
 			# This top branch executes if the loop is still on the same layer as the player.
-			if map_structure.node_arr[i].node_layer == player_layer:
+			if room_in_progress and i == pending_index:
+				map_buttons[i].disabled = false
+				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_available
+				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_hover
+					
+			elif room_in_progress and map_structure.node_arr[i].node_layer == pending_layer:
+				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
+				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
+					
+			elif map_structure.node_arr[i].node_layer == player_layer:
 				map_buttons[i].texture_normal = texture_passed
 				map_buttons[i].texture_hover = texture_passed
+				map_buttons[i].hide_mini_event()
 			else:
 				
 				# Check if a button is accessable. If it is, make it pressable.
 				if check_accessable(map_buttons[i].corr_node, accessable_buttons):
 					map_buttons[i].disabled = false
-					if map_structure.node_arr[i].node_data == 1:
-						map_buttons[i].texture_normal = texture_available_battle
-						map_buttons[i].texture_hover = texture_available_battle_hover
-					elif map_structure.node_arr[i].node_data == 0:
-						map_buttons[i].texture_normal = texture_available_shop
-						map_buttons[i].texture_hover = texture_available_shop_hover
-					else:
-						map_buttons[i].texture_normal = texture_available_boss
-						map_buttons[i].texture_hover = texture_available_boss_hover
+					map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_available
+					map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_hover
 				
 				# All other buttons are normal.
 				else:
-					if map_structure.node_arr[i].node_data == 1:
-						map_buttons[i].texture_normal = texture_battle
-						map_buttons[i].texture_hover = texture_battle
-					elif map_structure.node_arr[i].node_data == 0:
-						map_buttons[i].texture_normal = texture_shop
-						map_buttons[i].texture_hover = texture_shop
-					else:
-						map_buttons[i].texture_normal = texture_boss
-						map_buttons[i].texture_hover = texture_boss
+					map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
+					map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
 		else:
 			
 			# Set textures for passed nodes.
 			map_buttons[i].texture_normal = texture_passed
 			map_buttons[i].texture_hover = texture_passed
+			map_buttons[i].hide_mini_event()
+
 
 # --_draw Function--
 # Description: Draws lines between related nodes. We will probably want to write a new function
@@ -192,19 +268,66 @@ func set_button_states() -> void:
 # Return: void.
 func _draw() -> void:
 	
+	var path_map: Dictionary[RefCounted, RefCounted]
+	for i in range(0, map_structure.visited_nodes.size() - 1):
+		path_map[map_structure.visited_nodes[i]] = map_structure.visited_nodes[i + 1]
+	
 	# Record the position of each button.
 	for i in range(0, map_structure.node_arr.size()):
 		var curr_pos = Vector2(map_buttons[i].offset_left, map_buttons[i].offset_top)
 		
 		# For each adjacent button, record its position and draw a line between the two points.
 		for j in range(0, map_structure.node_arr[i].node_edges.size()):
+			var col: Color = Color.DARK_GRAY
 			var adj_button = find_button_by_corr_node(map_structure.node_arr[i].node_edges[j])
 			var adj_pos = Vector2(adj_button.offset_left, adj_button.offset_top)
-			draw_line(
+			
+			# Check if a path between two nodes has been traveled.
+			if path_map.has(map_structure.node_arr[i]) && path_map[map_structure.node_arr[i]] == adj_button.corr_node:
+				col = Color.BLUE
+			
+			# Draw a dotted line between the two positions.
+			draw_dotted_line(
 				curr_pos + (map_buttons[i].size / 2), # Exact position must be adjusted relative to button size.
 				adj_pos + (adj_button.size / 2),
-				Color.WHITE
+				col
 			)
+
+# --draw_dotted_line Function--
+# Description: Draws a dotted line between two positions on the screen.
+# pos_1: The first position to draw the line between.
+# pos_2: The second position to draw the line between.
+# Return: Void.
+func draw_dotted_line(pos_1: Vector2, pos_2: Vector2, col: Color = Color.DARK_GRAY) -> void:
+	
+	# Create variables needed to make a series of evenly spaced vectors in a direction.
+	var magnitude = sqrt((pos_1.x - pos_2.x) * (pos_1.x - pos_2.x) + (pos_1.y - pos_2.y) * (pos_1.y - pos_2.y)) # The length of the entire series of vectors.
+	var direction = (pos_1 - pos_2) / magnitude # The direction of the sequence.
+	var segment_size = vertical_dist / 5 # The size of an individual vector, including its margins.
+	var num_segments = magnitude / segment_size # The number of vectors that fits into the entire magnitude.
+	var small_segment_size = fmod(num_segments, 1.0) / 2 # The fractional part of the number of segments is converted into two small segments which will not be drawn.
+	num_segments = (num_segments - (small_segment_size * 2)) + 2 # Adjust the total number of segments based on additional small segments.
+	
+	var curr_pos: Vector2 = pos_2 # Initialized to starting position.
+	for i in range(0, int(num_segments)):
+		
+		# First segment is a small segment and is not drawn.
+		if i == 0:
+			curr_pos += direction * small_segment_size 
+		
+		# Last Segment is a small segment and is not drawn.
+		elif i == (int(num_segments) - 1):
+			return
+		
+		# Draw a line with 0.25 * segment_size margin starting at current position. Increment current position.
+		else:
+			draw_line(
+				curr_pos + ((direction * segment_size) / 4), # Exact position must be adjusted relative to button size.
+				curr_pos + ( ((direction * segment_size) / 4) * 3),
+				col,
+				std_btn_size.x / 20
+			)
+			curr_pos += direction * segment_size
 
 # --find_button_by_corr_node Function--
 # Description: Finds a specific button on the map given the structural node that it corresponds to.
@@ -234,6 +357,51 @@ func check_accessable(q_node: RefCounted, access_arr: Array[RefCounted]) -> bool
 # Description: When a map button is pressed it means that the player intends to move to that node.
 #              This function changes the map structure's player node to the corresponding node of the button pressed.
 # corr_node: The corresponding node of the button pressed.
-# Return: void.
+# Return: Void.
 func _on_map_button_pressed(corr_node: RefCounted) -> void:
-	map_structure.player_pos = corr_node
+	GlobalSessionManager.select_map_node(corr_node)
+	available_button_positions.clear() # When the player's position is changed, new positions will be assigned to this map.
+
+# --_process Function--
+# Description: Modulates the sizes of naviagble buttons.
+# delta: The time in seconds elapsed since the last function call.
+# Return: Void.
+func _process(delta: float) -> void:
+	
+	# Increment elapsed time.
+	elapsed_time += delta
+	
+	# Get map nodes that are accessable from the map.
+	var accessable_buttons: Array[RefCounted] = map_structure.player_pos.node_edges.duplicate(true)
+	
+	# Iterate over all map buttons.
+	for i in range(0, map_buttons.size()):
+		
+		# Only change button size if its corresponding node is accessable.
+		if check_accessable(map_buttons[i].corr_node, accessable_buttons):
+			
+			# If an accessable button's position has not been recorded it is recorded here.
+			if !available_button_positions.has(map_buttons[i]):
+				available_button_positions[map_buttons[i]] = map_buttons[i].position
+			
+			# Modulate button sizes using sine function.
+			if map_buttons[i].is_std_sz:
+				map_buttons[i].size = std_btn_size + std_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI))
+				map_buttons[i].position = available_button_positions[map_buttons[i]] - ( std_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI)) ) / 2
+			else:
+				map_buttons[i].size = special_btn_size + special_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI))
+				map_buttons[i].position = available_button_positions[map_buttons[i]] - ( special_btn_size * 0.1 * abs(sin(0.5 * elapsed_time * PI)) ) / 2
+
+# --get_vertical_offset Function--
+# Description: Returns a vertical position bellow the current position button. This value will be used to set
+#              the map screen's scroll bar to the correct height when it is losded.
+# Return: A float value used to initialize the vertical position of the scroll bar on the map screen.
+func get_vertical_offset() -> float:
+	
+	# Find the player's position and return a position 1.5 standard button sizes below it.
+	for i in range(0, map_buttons.size()):
+		if map_buttons[i].corr_node == map_structure.player_pos:
+			return map_buttons[i].position.y + std_btn_size.y * 1.5
+	
+	# If the player's position is not found, retun zero.
+	return 0.0

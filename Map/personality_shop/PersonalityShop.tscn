@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://x4guefxr5wcg"]
+
+[ext_resource type="Script" uid="uid://bvn6xjknn1gcg" path="res://Map/personality_shop/PersonalityShop_scn_main.gd" id="1_6qcw3"]
+
+[node name="PersonalityShop" type="Control" unique_id=1429736379]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6qcw3")
+
+[node name="main_label" type="Label" parent="." unique_id=1586030996]
+layout_mode = 0
+anchor_left = 0.7222222
+anchor_top = 0.09876543
+anchor_right = 0.9444444
+anchor_bottom = 0.79012346
+metadata/_edit_use_anchors_ = true
+
+[node name="main_label_box" type="ReferenceRect" parent="." unique_id=1044592488]
+layout_mode = 0
+anchor_left = 0.7222222
+anchor_top = 0.09876543
+anchor_right = 0.9444444
+anchor_bottom = 0.79012346
+editor_only = false
+metadata/_edit_use_anchors_ = true
+
+[node name="offense_label" type="Label" parent="." unique_id=1441679307]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083333336
+anchor_top = 0.14814813
+anchor_right = 0.25
+anchor_bottom = 0.19753085
+text = "Offense (50 Gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="offense_add" type="Button" parent="." unique_id=1757821163]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11111111
+anchor_top = 0.19753087
+anchor_right = 0.22222222
+anchor_bottom = 0.24691358
+text = "Add Stat"
+metadata/_edit_use_anchors_ = true
+
+[node name="offense_remove" type="Button" parent="." unique_id=1039192912]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11111111
+anchor_top = 0.24691358
+anchor_right = 0.22222222
+anchor_bottom = 0.2962963
+text = "Remove Stat"
+metadata/_edit_use_anchors_ = true
+
+[node name="defense_label" type="Label" parent="." unique_id=1657309258]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083333336
+anchor_top = 0.34567901
+anchor_right = 0.25
+anchor_bottom = 0.39506173
+text = "Defense (50 Gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="defense_add" type="Button" parent="." unique_id=1109752518]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11111111
+anchor_top = 0.39506173
+anchor_right = 0.22222222
+anchor_bottom = 0.44444445
+text = "Add Stat"
+metadata/_edit_use_anchors_ = true
+
+[node name="defense_remove" type="Button" parent="." unique_id=2107208311]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11111111
+anchor_top = 0.44444445
+anchor_right = 0.22222222
+anchor_bottom = 0.49382716
+text = "Remove Stat"
+metadata/_edit_use_anchors_ = true
+
+[node name="strategic_label2" type="Label" parent="." unique_id=1320771199]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083333336
+anchor_top = 0.54320985
+anchor_right = 0.25
+anchor_bottom = 0.5925926
+text = "Strategic (50 Gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="strategic_add" type="Button" parent="." unique_id=420696538]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11111111
+anchor_top = 0.5925926
+anchor_right = 0.22222222
+anchor_bottom = 0.6419753
+text = "Add Stat"
+metadata/_edit_use_anchors_ = true
+
+[node name="strategic_remove" type="Button" parent="." unique_id=1253335424]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11111111
+anchor_top = 0.6419753
+anchor_right = 0.22222222
+anchor_bottom = 0.691358
+text = "Remove Stat"
+metadata/_edit_use_anchors_ = true
+
+[node name="change_lbl_1" type="Label" parent="." unique_id=1721680600]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3888889
+anchor_top = 0.18518518
+anchor_right = 0.6111111
+anchor_bottom = 0.26080248
+text = "Offensive Personality Change
+(100 Gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="change_button_1" type="Button" parent="." unique_id=1417205638]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3888889
+anchor_top = 0.27160493
+anchor_right = 0.6111111
+anchor_bottom = 0.33333334
+metadata/_edit_use_anchors_ = true
+
+[node name="change_lbl_2" type="Label" parent="." unique_id=1000994786]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3888889
+anchor_top = 0.5185185
+anchor_right = 0.6111111
+anchor_bottom = 0.5941358
+text = "Offensive Personality Change
+(100 Gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="change_button_2" type="Button" parent="." unique_id=1073359782]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3888889
+anchor_top = 0.60493827
+anchor_right = 0.6111111
+anchor_bottom = 0.6666667
+text = "Change to \"Merciful\""
+metadata/_edit_use_anchors_ = true
+
+[node name="leave_button" type="Button" parent="." unique_id=868042439]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41666666
+anchor_top = 0.8888889
+anchor_right = 0.5833333
+anchor_bottom = 0.9506173
+grow_horizontal = 2
+grow_vertical = 2
+text = "Leave Shop"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="offense_add" to="." method="_on_offense_add_pressed"]
+[connection signal="pressed" from="offense_remove" to="." method="_on_offense_remove_pressed"]
+[connection signal="pressed" from="defense_add" to="." method="_on_defense_add_pressed"]
+[connection signal="pressed" from="defense_remove" to="." method="_on_defense_remove_pressed"]
+[connection signal="pressed" from="strategic_add" to="." method="_on_strategic_add_pressed"]
+[connection signal="pressed" from="strategic_remove" to="." method="_on_strategic_remove_pressed"]
+[connection signal="pressed" from="change_button_1" to="." method="_on_first_trait_changed"]
+[connection signal="pressed" from="change_button_2" to="." method="_on_second_trait_changed"]
+[connection signal="pressed" from="leave_button" to="." method="_on_leave_button_pressed"]
