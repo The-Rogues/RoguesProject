@@ -1,5 +1,5 @@
 extends BattleRewardData
-class_name GoldReward
+class_name GoldRewardData
 
 @export var amount:int
 

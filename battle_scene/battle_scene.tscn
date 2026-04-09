@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://card_system/player_card_hand.gd" id="4_cgsmb"]
 [ext_resource type="PackedScene" uid="uid://bnfejx84ush8n" path="res://battle_scene/entities/monster/monster_entity.tscn" id="4_s4dh3"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_7j1wb"]
-[ext_resource type="PackedScene" uid="uid://7doidnfxvws4" path="res://Testing/BattleTestButtons/battle_test_buttons.tscn" id="6_2203u"]
+[ext_resource type="PackedScene" uid="uid://7doidnfxvws4" path="res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.tscn" id="6_2203u"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://battle_scene/ui/energy_ui.tscn" id="7_e1j2j"]
 [ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
 [ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="14_3w7x8"]
@@ -211,11 +211,19 @@ visible = false
 position = Vector2(546, 286)
 card_hand = NodePath("../PlayerCardHand")
 
-[node name="PlayerCardHand" type="Node2D" parent="UILayer" unique_id=1303605846]
-position = Vector2(0, 210)
+[node name="PlayerCardHand" type="Control" parent="UILayer" unique_id=1781058052]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
 script = ExtResource("4_cgsmb")
-y_position = 300.0
-fan_angle = 10.0
+fan_angle = 15.0
+fan_spacing = 100.0
 
 [node name="TurnBanner" parent="UILayer" unique_id=1379108646 instance=ExtResource("14_2203u")]
 mouse_filter = 2

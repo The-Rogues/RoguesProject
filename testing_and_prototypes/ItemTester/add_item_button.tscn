@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-015.png" id="1_a8nrk"]
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="2_ivfvq"]
-[ext_resource type="Script" uid="uid://csdigsm2fgov7" path="res://Testing/ItemTester/add_item_button.gd" id="2_ovtnd"]
+[ext_resource type="Script" uid="uid://csdigsm2fgov7" path="res://testing_and_prototypes/ItemTester/add_item_button.gd" id="2_ovtnd"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_ovtnd"]
+
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovtnd"]
 texture = ExtResource("1_a8nrk")

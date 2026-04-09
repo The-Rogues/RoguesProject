@@ -40,8 +40,11 @@ func initialize(battle_config:BattleConfig):
 	energy_ui.initialize(player.energy)
 	
 	creature_manager.initialize(player, battle_config.enemy_encounter.enemies)
-	rewards_screen.add_reward(battle_config.enemy_encounter.get_gold_reward())
 	battle_field.setup_objects(battle_config.battle_field_config)
+	
+	for reward in battle_config.enemy_encounter.get_battle_rewards():
+		rewards_screen.add_reward(reward)
+	
 	player.battle_position = battle_field.battle_positions[
 		roundi(battle_field.battle_positions.size()/2)
 	]

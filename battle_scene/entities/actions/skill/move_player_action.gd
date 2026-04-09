@@ -28,5 +28,5 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 			else:
 				player.movement_controller.move_right()
 	
-	await player.finished_moving
+	await player.movement_controller.entered_new_position
 	await _context.battle_field.get_tree().create_timer(0.15).timeout

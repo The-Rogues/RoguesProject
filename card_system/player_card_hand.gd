@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name PlayerCardHand
 
 signal card_drawn(instance:CardInstance)
@@ -7,23 +7,20 @@ signal card_play_rejected
 signal grabbed_card
 signal released_card
 
-@export var y_position: float = 700
 @export var fan_angle: float = 20.0
 @export var fan_spacing: float = 90.0
-@export var force_initialization:bool = false
-@export var card_datas: Array[CardData]
 
 const CARD = preload("res://card_system/card.tscn")
 
 var held_card:Card = null
 var dragged_card:Card = null
 var holding_card:bool = false
-var screen_size:Vector2
+#var screen_size:Vector2
 var resolver:ActionResolver
 var player:PlayerEntity
 
 func initialize(_player:PlayerEntity, _resolver:ActionResolver):
-	screen_size = get_viewport().size
+	#screen_size = get_viewport().size
 	clear_hand()
 	player = _player
 	_player.cards.drew_card.connect(_on_card_drawn)
@@ -65,9 +62,9 @@ func _update_card_layout() -> void:
 		return
 	
 	var count:float = get_child_count()
-	var center_x:float = screen_size.x * 0.45
+	var center_x: float = size.x * 0.5
 	
-	for i in count:
+	for i in range(0, count):
 		var card:Card = cards[i]
 		if card == held_card:
 			continue
@@ -75,7 +72,8 @@ func _update_card_layout() -> void:
 		var t:float = i - (count - 1) * 0.5
 		var angle:float = t * fan_angle
 		var x:float = center_x + t * fan_spacing
-		var y:float = y_position + abs(t) * 10
+		var base_y: float = size.y - 100  # 100px above bottom of hand
+		var y: float = base_y + abs(t) * 10
 		
 		_move_card(card, Vector2(x, y), angle)
 
@@ -155,6 +153,7 @@ func reject_play() -> void:
 func confirm_play(card: Card) -> void:
 	var cards := get_children()
 	if cards.has(card):
+		card.global_position = dragged_card.global_position
 		card.launch_towards(Vector2(1000, 500))
 		await get_tree().process_frame
 		_cleanup_drag()

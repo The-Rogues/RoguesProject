@@ -135,7 +135,6 @@ visible = false
 layout_mode = 1
 
 [node name="CreditsMenu" type="Control" parent="." unique_id=784894307]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,7 +185,7 @@ mouse_filter = 2
 texture = ExtResource("3_vv2lb")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CreditsMenu/VBoxContainer" unique_id=1340963984]
-custom_minimum_size = Vector2(700, 400)
+custom_minimum_size = Vector2(700, 320)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0

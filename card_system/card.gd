@@ -84,16 +84,18 @@ func parse_number(
 
 
 func launch_towards(target_pos: Vector2) -> void:
-	# Make sure the card moves independently of layout containers
-	top_level = true
+	var root := get_tree().current_scene
+	var start_pos := global_position
+
+	reparent(root)
+	global_position = start_pos
 	
-	# Optional: bring to front so it renders above everything
+	# bring to front so it renders above everything
 	z_index = 1000
 	
 	var tween := create_tween()
 	tween.set_parallel(true)
 	
-	# Movement (slightly eased like Slay the Spire)
 	tween.tween_property(
 		self, 
 		"global_position", 
@@ -109,7 +111,7 @@ func launch_towards(target_pos: Vector2) -> void:
 		0.4
 	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	
-	# Optional: slight fade-out for polish
+	# slight fade-out for polish
 	tween.tween_property(
 		self,
 		"modulate:a",

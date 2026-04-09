@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://peru0wapt4c8"]
 
-[ext_resource type="Script" uid="uid://cmexwdhvvqh5l" path="res://Testing/ItemTester/add_item_menu.gd" id="1_8p0en"]
+[ext_resource type="Script" uid="uid://cmexwdhvvqh5l" path="res://testing_and_prototypes/ItemTester/add_item_menu.gd" id="1_8p0en"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_jsypc"]
 [ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://content/items/apple/apple_healing_item_data.tres" id="3_6si53"]
 [ext_resource type="Resource" uid="uid://cnlu0t2x62ws6" path="res://content/items/barricade/barricade_item_data.tres" id="4_ugfjp"]
