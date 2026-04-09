@@ -10,11 +10,11 @@ func on_stack(
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "Decreases attack damage by half.w"
+	return "Decreases attack damage by half."
 
 
 func get_texture() -> Texture2D:
-	return load("res://Entities/StatusEffects/Weakened/weakened_status_condition_texture.tres")
+	return load("res://battle_scene/entities/status_effects/common/restrained_icon.tres")
 
 
 func modify_attack_damage(damage:int, _instance:ActiveStatusEffect) -> int:

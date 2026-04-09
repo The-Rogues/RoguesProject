@@ -3,10 +3,16 @@
 [ext_resource type="Script" uid="uid://bjhs6y8nfnokv" path="res://battle_scene/entities/monster/moves/enemy_status_effect.gd" id="1_frr73"]
 [ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_ynnsk"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_rqa8x"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="3_6ursn"]
 [ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="3_ynnsk"]
+
+[sub_resource type="Resource" id="Resource_a11al"]
+script = ExtResource("3_6ursn")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
 
 [sub_resource type="Resource" id="Resource_6ursn"]
 script = ExtResource("2_rqa8x")
+behaviour = SubResource("Resource_a11al")
 duration = 2
 stack = 3
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"

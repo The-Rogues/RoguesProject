@@ -2,37 +2,84 @@
 
 [ext_resource type="Script" uid="uid://ivfvafthyvrb" path="res://battle_scene/entities/object/object_entity.gd" id="1_mnebb"]
 [ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://common/art/placeholder/32_rogues/tiles.png" id="2_mnebb"]
+[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="2_sl286"]
 [ext_resource type="Script" uid="uid://b3barw1bqu4tk" path="res://common/stat_components/health.gd" id="3_i7gfg"]
 [ext_resource type="Script" uid="uid://6mivq3t47aoh" path="res://battle_scene/entities/projectiles/projectile_launcher.gd" id="3_yg38b"]
-[ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://common/sprite_flasher/sprite_flasher.gd" id="4_1jhji"]
+[ext_resource type="Script" uid="uid://cq0ofbmvfv5qo" path="res://common/hit_flash/hit_flash.gd" id="4_r666h"]
+[ext_resource type="Script" uid="uid://bg6brfw33g1s0" path="res://battle_scene/entities/object/object_stat_display.gd" id="7_vgro0"]
+[ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="8_ufudi"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_lc0qn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiqcq"]
 atlas = ExtResource("2_mnebb")
 region = Rect2(192, 544, 32, 32)
+
+[sub_resource type="Animation" id="Animation_wf7sx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dkpvf"]
+resource_name = "flash"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jasan"]
+_data = {
+&"RESET": SubResource("Animation_wf7sx"),
+&"flash": SubResource("Animation_dkpvf")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vooi2"]
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua1eh"]
 size = Vector2(62, 62)
-
-[sub_resource type="Shader" id="Shader_qs5c0"]
-code = "shader_type canvas_item;
-
-uniform vec4 flash_color : source_color;
-uniform float flash_value : hint_range(0.0, 1.0, 0.1);
-
-void fragment() {
-	vec4 texture_color = texture(TEXTURE, UV);
-	COLOR = mix(texture_color, flash_color, flash_value);
-	COLOR.a = texture_color.a;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8p1p"]
-resource_local_to_scene = true
-shader = SubResource("Shader_qs5c0")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = 0.0
 
 [sub_resource type="Animation" id="Animation_v8p1p"]
 length = 0.001
@@ -103,6 +150,24 @@ _data = {
 &"idle": SubResource("Animation_i7gfg")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78mw1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40yxv"]
+bg_color = Color(0.8190305, 0.389221, 0.042313047, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2txnt"]
+bg_color = Color(0.09620472, 0.09620475, 0.09620469, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27450982)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42bac"]
+bg_color = Color(0.9858559, 0.7745562, 0.79182756, 1)
+shadow_color = Color(0, 0, 0, 0.27450982)
+
 [node name="ObjectEntity" type="Node2D" unique_id=1521707546 node_paths=PackedStringArray("health", "projectile_launcher")]
 script = ExtResource("1_mnebb")
 health = NodePath("Health")
@@ -110,9 +175,14 @@ projectile_launcher = NodePath("ProjectileLauncher")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1880824651]
 texture_filter = 1
+material = ExtResource("2_sl286")
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_wiqcq")
 offset = Vector2(0, -16)
+script = ExtResource("4_r666h")
+
+[node name="HitFlash" type="AnimationPlayer" parent="Sprite2D" unique_id=331019109]
+libraries/ = SubResource("AnimationLibrary_jasan")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=230165893]
 
@@ -140,10 +210,81 @@ position = Vector2(0, -47)
 [node name="Health" type="Node" parent="." unique_id=1859536906]
 script = ExtResource("3_i7gfg")
 
-[node name="SpriteFlasher" type="Node" parent="." unique_id=952330511 node_paths=PackedStringArray("sprite")]
-script = ExtResource("4_1jhji")
-sprite = NodePath("../Sprite2D")
-flash_material = SubResource("ShaderMaterial_v8p1p")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=149920664]
 libraries/ = SubResource("AnimationLibrary_wiqcq")
+
+[node name="ObjectStatDisplay" type="Control" parent="." unique_id=1848121133]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -99.0
+offset_right = 47.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(41, 40)
+size_flags_horizontal = 4
+mouse_filter = 1
+script = ExtResource("7_vgro0")
+
+[node name="HealthBar" type="ProgressBar" parent="ObjectStatDisplay" unique_id=1638125087]
+z_index = 1
+custom_minimum_size = Vector2(120, 12)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -6.0
+offset_right = 60.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_78mw1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_40yxv")
+value = 50.0
+show_percentage = false
+script = ExtResource("8_ufudi")
+
+[node name="DifferenceBar" type="ProgressBar" parent="ObjectStatDisplay/HealthBar" unique_id=1717510308]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_2txnt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_42bac")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="ObjectStatDisplay/HealthBar" unique_id=1944135803]
+
+[node name="CenterContainer" type="CenterContainer" parent="ObjectStatDisplay/HealthBar" unique_id=1122283414]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthLabel" type="Label" parent="ObjectStatDisplay/HealthBar/CenterContainer" unique_id=551701136]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("9_lc0qn")
+theme_override_font_sizes/font_size = 13
+text = "100/100"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_timer_timeout"]

@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://item_system/status_effect_item.gd" id="1_4k0jw"]
 [ext_resource type="Texture2D" uid="uid://c2fwr2d5vfqbb" path="res://content/items/cheese/cheese_texture.tres" id="1_rd78d"]
+[ext_resource type="Script" uid="uid://buni2kji5w8c3" path="res://content/items/cheese/rat_effect_behaviour.gd" id="2_8nxsk"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_rd78d"]
+
+[sub_resource type="Resource" id="Resource_qwwub"]
+script = ExtResource("2_8nxsk")
+metadata/_custom_type_script = "uid://buni2kji5w8c3"
 
 [sub_resource type="Resource" id="Resource_jhv5j"]
 script = ExtResource("2_rd78d")
+behaviour = SubResource("Resource_qwwub")
 duration = -1
 stack = 4
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"

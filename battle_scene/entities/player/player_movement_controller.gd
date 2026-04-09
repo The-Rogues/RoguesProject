@@ -1,6 +1,9 @@
 extends Node
 class_name PlayerMovementController
 
+signal entered_new_position
+
+
 var player: PlayerEntity
 var battle_field: BattleField
 
@@ -22,6 +25,7 @@ func move_by_offset(offset: int) -> void:
 	
 	var target = positions[new_index]
 	await battle_field.move_player(player, target)
+	entered_new_position.emit()
 
 
 func move_left() -> void:
@@ -49,10 +53,10 @@ func find_nearest_object_position_by_role(
 	var closest_distance := INF
 	
 	for i in range(positions.size()):
-		var pos = positions[i]
+		var pos:BattlePosition = positions[i]
 		var obj = pos.get_object()
 		
-		if obj and obj.role == role:
+		if obj and obj.data.role == role:
 			var distance = abs(current_index - i)
 			
 			if distance < closest_distance:

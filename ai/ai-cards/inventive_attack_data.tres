@@ -42,4 +42,7 @@ script = ExtResource("2_kvbsq")
 default_option = SubResource("Resource_d3v1g")
 ai_options = Array[ExtResource("1_hatog")]([SubResource("Resource_dtr1v"), SubResource("Resource_blhjp"), SubResource("Resource_m63u2"), SubResource("Resource_uxxj8"), SubResource("Resource_5dlov")])
 gen_callback = ExtResource("2_blhjp")
+name = "Attack Idea"
+description = "Generate a Attack Card."
+exhaust_after_play = true
 metadata/_custom_type_script = "uid://cjwj13hduiyqg"

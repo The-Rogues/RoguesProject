@@ -14,15 +14,14 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 
 
 func get_texture() -> Texture2D:
-	return load("res://Entities/StatusEffects/EffectIcons/wounded_effect_icon.tres")
+	return load("res://battle_scene/entities/status_effects/common/wounded_icon.tres")
 
 
 func can_execute_action(
-	_action:BattleAction, 
+	_action:Action, 
 	_instance:ActiveStatusEffect = null
 ) -> bool:
-	if _action is SkillAction:
-		if _action.effect == SkillAction.SkillEffect.HEAL:
-			return false
+	if _action is HealAction:
+		return false
 	
 	return true

@@ -22,7 +22,7 @@ const AI_Character_Builder = "res://main_menu/character_creators/ai_character_cr
 
 const MAP_SCENE_PATH = "res://Map/map_screen/MapScreen.tscn"
 const BATTLE_SCENE_PATH = "res://battle_scene/battle_scene.tscn"
-const ITEM_SHOP_PATH = "res://Map/Shop/Scenes/shop_scene.tscn"
+const ITEM_SHOP_PATH = "res://shop_scenes/item_shop/item_shop_scene.tscn"
 
 @export var loading_sprite_varients:Array[Texture2D]
 @export var battle_builder: BattleBuilder

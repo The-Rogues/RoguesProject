@@ -50,10 +50,11 @@ func _spawn_item_particles(item_slot:ItemSlot):
 
 
 func _on_discard_item(index:int, item_slot:ItemSlot):
-	var item:ItemData = GlobalSessionManager.run_progress.held_items[index]
+	var player = GlobalSessionManager.run_progress.player_data
+	var item:ItemData = player.items[index]
 	_spawn_item_particles(item_slot)
-	GlobalSessionManager._remove_held_item(item)
-	item_interface.populate_item_slots(GlobalSessionManager.run_progress.held_items)
+	player.remove_item(item)
+	#item_interface.populate_item_slots(GlobalSessionManager.run_progress.held_items)
 
 
 func _on_item_capacity_updated(current:int):

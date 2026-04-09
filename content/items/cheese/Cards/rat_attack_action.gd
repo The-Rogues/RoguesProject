@@ -10,7 +10,8 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	var effect = _context.creature_manager.player.effects.get_effect(
 			RatStatusEffect)
 	
+	amount = RAT_DAMAGE
+	
 	if effect:
 		for i in range(0, effect.stack):
-			for target in resolved_targets:
-				target.take_damage(RAT_DAMAGE, _user)
+			super(_context, _user)

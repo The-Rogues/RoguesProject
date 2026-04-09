@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bd2jfreb1arig"]
+
+[ext_resource type="Script" uid="uid://si62gvyoyusj" path="res://shop_scenes/shop_entry_interface.gd" id="1_6a7m8"]
+[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="2_5s8yk"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_8asxb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k462v"]
+bg_color = Color(0.2469503, 0.2469503, 0.2469503, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1yf1"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("2_5s8yk")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="ShopEntryInterface" type="PanelContainer" unique_id=1536278916]
+custom_minimum_size = Vector2(430, 168)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k462v")
+script = ExtResource("1_6a7m8")
+
+[node name="Panel" type="Panel" parent="." unique_id=1587287416]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e1yf1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=985220104]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 20
+
+[node name="SoldOut" type="RichTextLabel" parent="MarginContainer" unique_id=1959612976]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(190, 30)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("3_8asxb")
+text = "Sold Out"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=737021320]
+layout_mode = 2
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1824887269]
+layout_mode = 2

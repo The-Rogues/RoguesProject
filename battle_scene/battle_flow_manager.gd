@@ -89,6 +89,8 @@ func run_enemy_turn():
 		enemy_attack_delay.start()
 		await enemy_attack_delay.timeout
 	
+	await get_tree().create_timer(1).timeout
+	
 	start_player_turn()
 
 
@@ -98,10 +100,8 @@ func _on_battle_ended():
 	await get_tree().create_timer(1).timeout
 	
 	if !player.health.is_alive:
-		print("player defeated")
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
-		print("enemy defeated")
 		rewards_screen.initialize()
 		rewards_screen.visible = true

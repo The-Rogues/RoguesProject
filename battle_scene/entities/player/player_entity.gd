@@ -43,11 +43,12 @@ func initialize(_data:PlayerData):
 	object_slot.initialize(self)
 	
 	health.died.connect(on_destroyed)
+	movement_controller.entered_new_position.connect(_on_enterned_new_position)
 
 
 func take_damage(amount:int, _attacker = null):
 	if battle_position.has_object():
-		battle_position.object.take_damage(amount, _attacker)
+		battle_position.get_object().take_damage(amount, _attacker)
 		return
 	
 	var damage:int = effects.apply_incoming_damage_effects(amount)
@@ -58,8 +59,8 @@ func take_damage(amount:int, _attacker = null):
 	health.take_damage(damage)
 
 
-func apply_status_effect(effect:StatusEffectConfig):
-	if battle_position.object:
+func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):
+	if battle_position.has_object() and !pass_object:
 		return
 	
 	effects.add_effect(effect.behaviour, effect.duration, effect.stack)
@@ -82,6 +83,8 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 		cards.move_drawn_card_into_discard_pile(card.instance)
 		play_hand.confirm_play(card)
 		resolver.process_actions(card.instance.data.play_actions, self)
+		
+		effects.process_played_card(card.instance, resolver)
 		
 		if card.instance.data.type == CardData.Type.ATTACK:
 			play_attack_anim()
@@ -106,11 +109,14 @@ func place_object() -> bool:
 	if !carried_object:
 		return false
 	
-	if battle_position.object:
+	if battle_position.has_object():
 		return false
 	
-	
-	battle_position.set_object(carried_object)
+	battle_position.place_object(carried_object)
 	carried_object = null
 	carry_object_updated.emit()
 	return true
+
+
+func _on_enterned_new_position():
+	place_object()

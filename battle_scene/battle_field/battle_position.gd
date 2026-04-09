@@ -33,16 +33,16 @@ func place_object(data:ObjectData) -> void:
 	object_entity.initialize(data)
 	_object = object_entity
 	
-	_object.defeated.connect(remove_object)
+	_object.health.died.connect(remove_object)
 	object_entity.on_placed()
 	object_state_updated.emit()
-	floating_text.create("Placed ", data.name)
+	floating_text.create("Placed " + data.name)
 	object_state_updated.emit()
 
 
 func remove_object():
 	if _object:
-		floating_text.create("Destroyed ", _object.data.name)
+		floating_text.create("Destroyed " + _object.data.name)
 		_object.queue_free()
 		_object = null
 		object_state_updated.emit()
@@ -91,7 +91,7 @@ func enter_turn():
 	decay_effect()
 	
 	if _object:
-		_object.on_turn_entered()
+		_object.enter_turn()
 
 
 func decay_effect():

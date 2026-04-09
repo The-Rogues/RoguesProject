@@ -89,7 +89,7 @@ func remove_item(item:ItemData) -> bool:
 
 
 func can_buy_shop_item(price:int) -> bool:
-	return gold <= price
+	return gold >= price
 
 
 func add_card(card:CardData):

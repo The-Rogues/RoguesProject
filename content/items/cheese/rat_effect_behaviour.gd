@@ -2,8 +2,8 @@ extends StatusEffectBehaviour
 class_name RatStatusEffect
 
 const DRAW_COUNT = 2
-const RAT = preload("res://Items/Data/Cheese/Rats/rat.tscn")
-const RAT_CARD = preload("res://Items/Data/Cheese/Cards/rat_attack_card_data.tres")
+const RAT = preload("res://content/items/cheese/Rats/rat.tscn")
+const RAT_CARD = preload("res://content/items/cheese/Cards/rat_attack.tres")
 var rats:Array[Rat]
 var owner
 
@@ -20,7 +20,7 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 
 
 func get_texture() -> Texture2D:
-	return load("res://Items/Data/Cheese/Rats/rat.tscn")
+	return load("res://content/items/cheese/Rats/rat_texture.tres")
 
 
 func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
@@ -48,4 +48,4 @@ func add_rats(_creature:AbstractCreature):
 	if _creature is PlayerEntity:
 		var card_instance = CardInstance.new(RAT_CARD)
 		for i in range(0, DRAW_COUNT):
-			_creature.cards.add_card_to_draw_pile(card_instance)
+			_creature.cards.add_card_to_draw_pile(card_instance, true)

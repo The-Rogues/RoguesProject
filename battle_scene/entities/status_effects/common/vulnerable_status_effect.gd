@@ -14,7 +14,7 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 
 
 func get_texture() -> Texture2D:
-	return load("res://Entities/StatusEffects/Vulnerable/vulnerable_status_effect_texture.tres")
+	return load("res://battle_scene/entities/status_effects/common/vulnerable_icon.tres")
 
 
 func modify_incoming_damage(damage:int, _instance:ActiveStatusEffect) -> int:

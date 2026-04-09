@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://item_system/status_effect_item.gd" id="1_gj45k"]
 [ext_resource type="Texture2D" uid="uid://motragb5vre5" path="res://content/items/repeat_potion/repeat_potion_texture.tres" id="1_rha7s"]
+[ext_resource type="Script" uid="uid://cgb55yewyllk" path="res://content/items/repeat_potion/repeat_card_status_behaviour.gd" id="2_6qx2y"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_rha7s"]
+
+[sub_resource type="Resource" id="Resource_62wuj"]
+script = ExtResource("2_6qx2y")
+metadata/_custom_type_script = "uid://cgb55yewyllk"
 
 [sub_resource type="Resource" id="Resource_rha7s"]
 script = ExtResource("2_rha7s")
+behaviour = SubResource("Resource_62wuj")
 duration = -1
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 

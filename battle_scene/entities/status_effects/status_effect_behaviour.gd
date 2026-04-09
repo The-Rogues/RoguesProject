@@ -2,6 +2,7 @@
 extends Resource
 class_name StatusEffectBehaviour
 
+signal effect_ended
 
 @abstract
 func on_stack(

@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Projectile
 
 signal hit(target)
+signal freed(projectile:Projectile)
 
 @export var speed:float = 400
 @export var damage:int = 0
@@ -32,14 +33,18 @@ func _on_hitbox_body_entered(body):
 		
 		entity.take_damage(damage, null)
 		
+		
 		hit.emit(body)
+		freed.emit(self)
 		queue_free()
 	elif body.is_in_group("walls"):
+		freed.emit(self)
 		queue_free()
-	elif body.get_parent() == source:
+	else:
 		pass
 
 
 func _on_life_span_timeout() -> void:
+	freed.emit(self)
 	queue_free()
 	pass # Replace with function body.

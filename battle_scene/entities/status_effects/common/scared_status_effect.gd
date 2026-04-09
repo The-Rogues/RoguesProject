@@ -17,7 +17,7 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 
 
 func get_texture() -> Texture2D:
-	return load("res://Entities/StatusEffects/EffectIcons/scared_effect_icon.tres")
+	return load("res://battle_scene/entities/status_effects/common/scared_icon.tres")
 
 
 func can_execute_action(

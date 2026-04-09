@@ -36,7 +36,7 @@ offset_right = 45.0
 offset_bottom = 23.0
 grow_horizontal = 2
 pivot_offset = Vector2(22, -3)
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 
 [node name="NameLabel" type="Label" parent="Display" unique_id=832501414]
 texture_filter = 1
@@ -52,6 +52,7 @@ layout_mode = 2
 
 [node name="StatusEffectContainer" type="HBoxContainer" parent="Display" unique_id=66840422]
 layout_mode = 2
+size_flags_vertical = 0
 script = ExtResource("4_bh48r")
 
 [node name="DamageNumbers" type="Control" parent="." unique_id=1777728419]

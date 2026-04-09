@@ -4,32 +4,34 @@ class_name ObjectEntity
 
 var data:ObjectData
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
-@onready var sprite_2d:Sprite2D = $Sprite2D
-@onready var sprite_flasher: SpriteFlasher = $SpriteFlasher
+@onready var sprite_2d: HitFlash = $Sprite2D
+@onready var object_stat_display: ObjectStatDisplay = $ObjectStatDisplay
 
 
 func initialize(data:ObjectData):
 	self.data = data
 	health.initialize(data.health, data.health)
 	sprite_2d.texture = data.display_texture
+	object_stat_display.initialize(self)
 
 
 func take_damage(amount:int, _attacker = null):
 	attacker = _attacker
 	health.take_damage(amount)
 	
-	sprite_flasher.flash()
-	queue_actions.emit(data.on_hit_actions)
+	sprite_2d.flash()
+	#queue_actions.emit(data.on_hit_actions)
 
 
 func on_destroyed():
-	queue_actions.emit(data.on_destroyed_actions)
-	sprite_flasher.flash()
+	#queue_actions.emit(data.on_destroyed_actions)
+	sprite_2d.flash()
 	await play_destroyed_anim()
 
 
 func enter_turn():
-	queue_actions.emit(data.on_turn_entered_actions)
+	pass
+	#queue_actions.emit(data.on_turn_entered_actions)
 
 
 func on_placed():

@@ -13,12 +13,14 @@ func add_block(amount:int) -> void:
 
 func absorb_damage(damage:int) -> int:
 	var remainder:int = damage - value
+	value -= damage
+	
 	if value < 0:
 		value = 0
 	
-	changed.emit(value)
+	changed.emit(abs(value))
 	
-	return remainder
+	return abs(remainder)
 
 
 func set_to_zero():

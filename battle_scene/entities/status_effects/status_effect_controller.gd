@@ -25,6 +25,8 @@ func add_effect(
 ) -> void:
 	# Checking if effect already applied
 	var new_instance := ActiveStatusEffect.new(effect, duration, stack)
+	new_instance.effect_ended.connect(remove_effect)
+	
 	var existing_instance:ActiveStatusEffect = get_effect(effect.get_script())
 	if existing_instance:
 		existing_instance.effect.on_stack(
@@ -76,6 +78,18 @@ func apply_incoming_damage_effects(damage:int) -> int:
 		)
 	
 	return final_damage
+
+
+func process_played_card(card:CardInstance, resolver:ActionResolver):
+	for instance in active_effects:
+		instance.effect.on_card_played(card, resolver)
+
+
+func can_use_action(action:Action) -> bool:
+	for instance in active_effects:
+		if instance.effect.can_execute_action(action) == false:
+			return false
+	return true
 
 
 func on_entered_turn() -> void:

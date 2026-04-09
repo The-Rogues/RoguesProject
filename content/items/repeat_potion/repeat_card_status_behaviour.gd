@@ -19,8 +19,9 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 
 
 func get_texture() -> Texture2D:
-	return load("res://Items/Data/RepeatPoiton/repeat_potion_texture.tres")
+	return load("res://content/items/repeat_potion/repeat_potion_texture.tres")
 
 
 func on_card_played(_card:CardInstance, _resolver:ActionResolver):
 	_resolver.process_actions(_card.data.play_actions, owner)
+	effect_ended.emit()

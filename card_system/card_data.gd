@@ -5,7 +5,7 @@ class_name CardData
 ## Includes a card's name, description, cost to play, and combat moves
 ## to perform. Intended to be used as a creatable asset that is passed
 ## to CardUI for initialization
-enum Type {ATTACK, SKILL, POWER, AI, JUNK}
+enum Type {ATTACK, PROJECTILE, SKILL, POWER, AI, JUNK}
 
 @export var type:Type
 @export var energy_cost:int = 0

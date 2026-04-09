@@ -54,6 +54,10 @@ func process_actions(actions:Array[Action], user:AbstractEntity):
 					action.target_option,
 					user)
 		
+		if user is AbstractCreature:
+			if !user.effects.can_use_action(action):
+				continue
+		
 		action_queue.enqueue(
 			action,
 			battle_context,

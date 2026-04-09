@@ -278,8 +278,9 @@ script = ExtResource("3_c7woo")
 [node name="Block" type="Node" parent="Stats" unique_id=610220932]
 script = ExtResource("4_ixqhi")
 
-[node name="StatusEffectController" type="Node" parent="Stats" unique_id=1818826524]
+[node name="StatusEffectController" type="Node" parent="Stats" unique_id=1818826524 node_paths=PackedStringArray("affected_creature")]
 script = ExtResource("5_x21no")
+affected_creature = NodePath("../..")
 
 [node name="Energy" type="Node" parent="Stats" unique_id=1011106717]
 script = ExtResource("6_elg6u")

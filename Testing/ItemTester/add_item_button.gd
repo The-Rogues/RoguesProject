@@ -18,4 +18,4 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and (event.button_index == 1 or event.button_index == 0):
 			print("DEBUG: Added item: ", data.name)
-			GlobalSessionManager.add_held_item(data)
+			GlobalSessionManager.run_progress.player_data.add_item(data)
