@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://cpd7r6siaend"]
+[gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://globals/scene_management/run_progress.gd" id="1_bm2pt"]
+[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="1_bm2pt"]
 
 [resource]
 script = ExtResource("1_bm2pt")

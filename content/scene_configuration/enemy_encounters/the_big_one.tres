@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_ybgul"]
 [ext_resource type="Resource" uid="uid://burkq1qvtpovb" path="res://content/monsters/big_slime/big_slime.tres" id="2_caff4"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_lma3v"]
+[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/monsters/fletcher/angry_shroom/angry_shroom.tres" id="3_tpwjp"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_wqluo"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_tpwjp"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="5_jiw8x"]
@@ -46,5 +47,5 @@ script = ExtResource("3_lma3v")
 encounter_name = "The big one"
 gold = SubResource("Resource_5tp13")
 item_pool = Array[ExtResource("5_jiw8x")]([SubResource("Resource_ueovd"), SubResource("Resource_u1nn5"), SubResource("Resource_x88a2")])
-enemies = Array[ExtResource("1_ybgul")]([ExtResource("2_caff4")])
+enemies = Array[ExtResource("1_ybgul")]([ExtResource("2_caff4"), ExtResource("3_tpwjp")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

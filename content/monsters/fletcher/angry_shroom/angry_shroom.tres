@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://jsdadisdd6n8"]
+
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_4ot3j"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_c4b01"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_6wf4g"]
+[ext_resource type="Texture2D" uid="uid://dtxuoyn4lxhb1" path="res://common/art/random_art/funguy_texture.tres" id="2_c4b01"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/moves/enemy_move.gd" id="3_7kaug"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="5_x01kd"]
+[ext_resource type="Script" uid="uid://cxii672t8fs4s" path="res://content/monsters/fletcher/angry_shroom/enemy_damage_scale.gd" id="6_88s5q"]
+
+[sub_resource type="Resource" id="Resource_30rgb"]
+script = ExtResource("1_c4b01")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_rxtoo"]
+script = ExtResource("6_88s5q")
+init_damage = 6
+scale_value = 1
+intent_icon = ExtResource("5_x01kd")
+name = "Growing Strike"
+description = "This enemy intends to attack for 6 damage."
+metadata/_custom_type_script = "uid://cxii672t8fs4s"
+
+[sub_resource type="Resource" id="Resource_c31ea"]
+script = ExtResource("1_4ot3j")
+moves = Array[ExtResource("3_7kaug")]([SubResource("Resource_rxtoo")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_6wf4g")
+move_sequences = Array[ExtResource("1_4ot3j")]([SubResource("Resource_c31ea")])
+behaviour = SubResource("Resource_30rgb")
+display_texture = ExtResource("2_c4b01")
+name = "Angry Shroom"
+health = 25
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"
