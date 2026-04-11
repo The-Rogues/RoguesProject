@@ -1,10 +1,10 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1775847779
+::res://::1775881911
 control.tscn::PackedScene::5804541527636446994::1775772400::0::1::::<><><>0<>0<><>::uid://dv5gofkx77peh::::res://common/fonts/dungeon-mode.ttf<>uid://bdtyt8v7c3o51::::res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png<>uid://m04fo4g25f7v::::res://common/select_button (old)/select_button.tscn
 run_snapshot.gd::GDScript::8847591731587817602::1775772400::0::1::::<>Control<><>0<>0<><>::
 run_snapshot.tscn::PackedScene::2310241278981790333::1775772400::0::1::::<><><>0<>0<><>::uid://dyb3sp50rx6p7::::res://run_snapshot.gd<>uid://djhfx32oyemy8::::res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-007.png<>uid://dv5gofkx77peh::::res://common/fonts/dungeon-mode.ttf<>uid://bqdsv0ivl8jam::::res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres<>uid://d5y50f5alt32::::res://globals/session_interface/trait_display.tscn<>uid://4r08qs0e4853::::res://common/art/random_art/heart_icon.tres
 ::res://addons/::1772396237
-::res://addons/nobodywho/::1775847775
+::res://addons/nobodywho/::1775881819
 icon.svg::CompressedTexture2D::3718670147456998890::1772396240::1774563589::1::::<><><>0<>0<>143ac4cb599be0164e2e8cdfda785376<>res://.godot/imported/icon.svg-5236919800efc60e2a9546a484c9d5e3.ctex::
 nobodywho.gdextension::GDExtension::909935352244503699::1772396237::0::1::::<><><>0<>0<><>::
 ::res://ai/::1772684495
@@ -814,13 +814,11 @@ splash_screen.gd::GDScript::4899632276477985244::1775772400::0::1::::<>Control<>
 the_rogues_logo_v1.png::CompressedTexture2D::5465510473210745878::1775772400::1775847487::1::::<><><>0<>0<>0b72f037c9cb8140691c33c5b6cfea02<>res://.godot/imported/the_rogues_logo_v1.png-bfc1f40203e093267aadddf5f0c2fb84.ctex::
 ::res://testing_and_prototypes/::1775847405
 gold_icon.tres::AtlasTexture::58230267883402245::1775847405::0::1::::<><><>0<>0<><>::uid://dbvrk1678b3o::::res://common/art/placeholder/nikoichu/Icons_RPG.png
-::res://testing_and_prototypes/automated_tests/::1775847405
+::res://testing_and_prototypes/automated_tests/::1775881911
+::res://testing_and_prototypes/automated_tests/associated_scripts/::1775847405
+::res://testing_and_prototypes/automated_tests/map_tests/::1775881911
 MapStructureAutomatedTest.tscn::PackedScene::3795200568967076123::1775847405::0::1::::<><><>0<>0<><>::uid://5jpaetsko4ti::::res://testing_and_prototypes/automated_tests/associated_scripts/MapStructureAutomatedTest_scn_main.gd
 MapTraversalAutomatedTest.tscn::PackedScene::1436692190746880658::1775847405::0::1::::<><><>0<>0<><>::uid://yaaq4cl2j2g::::res://testing_and_prototypes/automated_tests/associated_scripts/MapTraversalAutomatedTest_scn_main.gd
-::res://testing_and_prototypes/automated_tests/associated_scripts/::1775847405
-MapStructureAutomatedTest_scn_main.gd::GDScript::2125155704095476370::1775847405::0::1::::<>Node<><>0<>0<><>::
-MapTester.gd::GDScript::4179685924483472024::1775847405::0::1::::MapTester<>RefCounted<><>0<>0<><>::
-MapTraversalAutomatedTest_scn_main.gd::GDScript::49545951377008072::1775847405::0::1::::<>Node<><>0<>0<><>::
 ::res://testing_and_prototypes/BattleTestButtons/::1775847405
 battle_test_buttons.gd::GDScript::5749071886782128920::1775847405::0::1::::BattleTestButtons<>PanelContainer<><>0<>0<><>::
 battle_test_buttons.tscn::PackedScene::2253100631840457425::1775847405::0::1::::<><><>0<>0<><>::uid://dv5gofkx77peh::::res://common/fonts/dungeon-mode.ttf<>uid://cn55mymxubtt5::::res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.gd<>uid://peru0wapt4c8::::res://testing_and_prototypes/ItemTester/AddItemMenu.tscn
