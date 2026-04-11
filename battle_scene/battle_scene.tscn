@@ -65,12 +65,11 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
-[node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_field", "creature_manager", "rewards_screen", "turn_manager", "play_hand", "battle_flow_manager", "player", "defeat_screen", "energy_ui", "draw_pile_icon", "discard_pile_icon", "draw_pile_viewer", "discard_pile_viewer")]
+[node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_field", "creature_manager", "rewards_screen", "play_hand", "battle_flow_manager", "player", "defeat_screen", "energy_ui", "draw_pile_icon", "discard_pile_icon", "draw_pile_viewer", "discard_pile_viewer")]
 script = ExtResource("1_jfmiq")
 battle_field = NodePath("BattleField")
 creature_manager = NodePath("CreatureManager")
 rewards_screen = NodePath("UILayer/RewardsScreen")
-turn_manager = NodePath("BattleFlowManager")
 play_hand = NodePath("UILayer/PlayerCardHand")
 battle_flow_manager = NodePath("BattleFlowManager")
 player = NodePath("PlayerEntity")

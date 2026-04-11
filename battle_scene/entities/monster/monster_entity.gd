@@ -58,5 +58,6 @@ func choose_intent():
 func resolve_intent(resolver:ActionResolver):
 	if intent:
 		await intent_icon.resolve()
-		play_attack_anim()
+		if intent.type == EnemyMove.Type.ATTACK:
+			play_attack_anim()
 		resolver.process_actions(intent.get_actions(), self)

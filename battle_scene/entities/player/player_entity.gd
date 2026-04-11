@@ -57,6 +57,8 @@ func take_damage(amount:int, _attacker = null):
 	DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
 	sprite_2d.flash()
 	health.take_damage(damage)
+	
+	effects.on_attacked(_attacker)
 
 
 func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):

@@ -4,15 +4,14 @@
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_u4og6"]
 [ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/monsters/big_slime/split_monster_behaviour.gd" id="1_u55om"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_ab6h4"]
-[ext_resource type="Resource" uid="uid://b58t55od2cowv" path="res://content/monsters/big_slime/moves/split.tres" id="2_x2a7o"]
-[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/moves/enemy_move.gd" id="5_txb0w"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_txb0w"]
+[ext_resource type="Resource" uid="uid://wndcwsjdqqly" path="res://content/monsters/big_slime/moves/prepare.tres" id="5_akhrs"]
 [ext_resource type="Resource" uid="uid://dujouqqv4x4bh" path="res://content/monsters/big_slime/moves/stomp.tres" id="6_akhrs"]
 [ext_resource type="Resource" uid="uid://dadt4soexvrc5" path="res://content/monsters/big_slime/moves/grow.tres" id="7_stln3"]
-[ext_resource type="Resource" uid="uid://4ec1564euyqv" path="res://content/monsters/slime/move_set/harden.tres" id="8_2330b"]
+[ext_resource type="Resource" uid="uid://d03b7poc0s1f5" path="res://content/monsters/slime/move_set/harden.tres" id="8_2330b"]
 
 [sub_resource type="Resource" id="Resource_3s5ji"]
 script = ExtResource("1_u55om")
-split_move = ExtResource("2_x2a7o")
 metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_en8hf"]
@@ -21,12 +20,12 @@ region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="Resource" id="Resource_3v7w8"]
 script = ExtResource("1_u4og6")
-moves = Array[ExtResource("5_txb0w")]([ExtResource("6_akhrs"), ExtResource("6_akhrs"), ExtResource("7_stln3")])
+moves = Array[ExtResource("4_txb0w")]([ExtResource("5_akhrs"), ExtResource("6_akhrs"), ExtResource("7_stln3")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [sub_resource type="Resource" id="Resource_x21ar"]
 script = ExtResource("1_u4og6")
-moves = Array[ExtResource("5_txb0w")]([ExtResource("6_akhrs"), ExtResource("8_2330b")])
+moves = Array[ExtResource("4_txb0w")]([ExtResource("5_akhrs"), ExtResource("6_akhrs"), ExtResource("8_2330b")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [resource]

@@ -1,15 +1,15 @@
 extends MonsterBehaviour
-class_name SplitMonsterBehaviour
-
+class_name HealthThresholdMonsterBehaviour
+## Enemy chooses an action the same action when below a certain amount of health
 
 @export var health_threshold:int = 20
-@export var split_move:EnemySpawn
+@export var action:Action
 
 
 func decide_next_action(monster:MonsterEntity):
 	if monster.health.value <= health_threshold:
 		var sequence = MoveSequence.new()
-		sequence.moves.append(split_move)
+		sequence.moves.append(action)
 		monster.move_index = 0
 		monster.move_sequence = sequence
 	else:

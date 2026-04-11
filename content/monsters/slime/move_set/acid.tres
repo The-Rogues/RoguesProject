@@ -1,38 +1,32 @@
-[gd_resource type="Resource" script_class="EnemyTrap" format=3 uid="uid://h2w22g8wlqv"]
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cos2cv501g8or"]
 
+[ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="1_b8nay"]
 [ext_resource type="Script" uid="uid://dveewx3nfgc7a" path="res://content/monsters/slime/acid_effect/acid_position_effect_behaviour.gd" id="1_db5me"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_odp2y"]
 [ext_resource type="Resource" uid="uid://mhnjafoncine" path="res://content/monsters/slime/acid_effect/acid_position_effect_display.tres" id="2_b8nay"]
 [ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="2_f7ud8"]
 [ext_resource type="Script" uid="uid://ch2spgxvn4cv" path="res://battle_scene/entities/actions/skill/apply_position_effect_action.gd" id="3_oig8r"]
-[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="4_frnvo"]
-[ext_resource type="Script" uid="uid://d28i6a1nb008b" path="res://battle_scene/entities/monster/moves/enemy_trap.gd" id="5_hxqqd"]
 
 [sub_resource type="Resource" id="Resource_sf1d5"]
 script = ExtResource("1_db5me")
 metadata/_custom_type_script = "uid://dveewx3nfgc7a"
 
-[sub_resource type="Resource" id="Resource_5svom"]
+[sub_resource type="Resource" id="Resource_4kmvh"]
 script = ExtResource("2_f7ud8")
 behaviour = SubResource("Resource_sf1d5")
 display = ExtResource("2_b8nay")
-duration = 2
-stack = 6
+duration = 3
+stack = 2
 metadata/_custom_type_script = "uid://bhmmir13kwsw5"
 
-[sub_resource type="Resource" id="Resource_b7feh"]
+[sub_resource type="Resource" id="Resource_h1fpp"]
 script = ExtResource("3_oig8r")
-position_effect = SubResource("Resource_5svom")
+position_effect = SubResource("Resource_4kmvh")
 metadata/_custom_type_script = "uid://ch2spgxvn4cv"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_db5me"]
-resource_local_to_scene = true
-atlas = ExtResource("4_frnvo")
-region = Rect2(176, 80, 16, 16)
-
 [resource]
-script = ExtResource("5_hxqqd")
-effect_action = SubResource("Resource_b7feh")
-intent_icon = SubResource("AtlasTexture_db5me")
-name = "Acid"
-description = "This Enemy Intends to apply Acid to a random position. Effect will last 3 turns."
-metadata/_custom_type_script = "uid://d28i6a1nb008b"
+script = ExtResource("1_odp2y")
+intent_icon = ExtResource("1_b8nay")
+description = "This Enemy intends to place a trap."
+primary_action = SubResource("Resource_h1fpp")
+metadata/_custom_type_script = "uid://c410dannt5adg"

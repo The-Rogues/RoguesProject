@@ -42,6 +42,10 @@ func modify_incoming_damage(damage:int, _instance:ActiveStatusEffect) -> int:
 	return damage
 
 
+func on_attacked(_attacker:AbstractEntity, _instance:ActiveStatusEffect):
+	pass
+
+
 func can_execute_action(
 	_action:Action, 
 	_instance:ActiveStatusEffect = null

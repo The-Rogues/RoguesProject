@@ -1,6 +1,7 @@
 extends AbstractEntity
 class_name ObjectEntity
 
+signal interacted(object:ObjectEntity)
 
 var data:ObjectData
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
@@ -8,10 +9,10 @@ var data:ObjectData
 @onready var object_stat_display: ObjectStatDisplay = $ObjectStatDisplay
 
 
-func initialize(data:ObjectData):
-	self.data = data
-	health.initialize(data.health, data.health)
-	sprite_2d.texture = data.display_texture
+func initialize(_data:ObjectData):
+	data = _data
+	health.initialize(_data.health, data.health)
+	sprite_2d.texture = _data.display_texture
 	object_stat_display.initialize(self)
 
 
@@ -20,7 +21,11 @@ func take_damage(amount:int, _attacker = null):
 	health.take_damage(amount)
 	
 	sprite_2d.flash()
-	#queue_actions.emit(data.on_hit_actions)
+	
+	if (_attacker is PlayerEntity 
+			and health.is_alive
+			and data.interaction == ObjectData.InteractionOption.ON_HIT):
+		interacted.emit(self)
 
 
 func on_destroyed():

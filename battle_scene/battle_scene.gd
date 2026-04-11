@@ -13,7 +13,6 @@ class_name BattleScene
 @export var battle_field:BattleField
 @export var creature_manager:CreatureManager
 @export var rewards_screen: BattleRewardsHandler
-@export var turn_manager: BattleFlowManager
 @export var play_hand: PlayerCardHand
 @export var battle_flow_manager: BattleFlowManager
 @export var player:PlayerEntity
@@ -60,6 +59,8 @@ func initialize(battle_config:BattleConfig):
 	
 	battle_flow_manager.initialize(battle_context)
 	play_hand.initialize(player, battle_flow_manager.action_resolver)
+	battle_field.object_interacted.connect(
+			battle_flow_manager.action_resolver.process_actions)
 	
 	# connect signals
 	player.cards.draw_pile_updated.connect(draw_pile_icon._on_card_pile_updated)
@@ -70,7 +71,7 @@ func initialize(battle_config:BattleConfig):
 	
 	GlobalSessionInterface.connect_to_player(player)
 	
-	turn_manager.start_battle()
+	battle_flow_manager.start_battle()
 
 
 func _on_view_draw_pile_button_up() -> void:

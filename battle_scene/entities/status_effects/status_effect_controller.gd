@@ -80,6 +80,14 @@ func apply_incoming_damage_effects(damage:int) -> int:
 	return final_damage
 
 
+func on_attacked(attacker:AbstractEntity):
+	if attacker == null:
+		return
+	
+	for instance in active_effects:
+		instance.on_attacked(attacker, instance)
+
+
 func process_played_card(card:CardInstance, resolver:ActionResolver):
 	for instance in active_effects:
 		instance.effect.on_card_played(instance, card, resolver)

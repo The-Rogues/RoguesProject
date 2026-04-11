@@ -15,13 +15,14 @@ radius = 11.18034
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 14.035668
 
-[node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span", "sprite_2d")]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_3vv47")
 speed = 420.0
 damage = 6
 life_span = NodePath("LifeSpan")
+sprite_2d = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=72437752]
 texture_filter = 1

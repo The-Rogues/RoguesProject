@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bdqekfp4y42wh"]
+
+[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://content/monsters/dragon_turtle/dragon_turtle_texture.tres" id="1_0wmvo"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_xgwk6"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_0wmvo"]
+
+[resource]
+script = ExtResource("2_0wmvo")
+display_texture = ExtResource("1_0wmvo")
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

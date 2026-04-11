@@ -1,7 +1,12 @@
 extends Node2D
 class_name BattleField
+## Responsible for managing battle positions, placing objects, applying position
+## effects, and communicating object events
 
+## Battle positions the battle field manages. Set in inspector
 @export var battle_positions:Array[BattlePosition]
+signal object_interacted(interaction_actions:Array[Action])
+
 
 ## Called to place objects at the start of battle
 func setup_objects(config:BattleFieldConfig):
@@ -24,6 +29,9 @@ func setup_objects(config:BattleFieldConfig):
 			battle_positions[i].place_object(object_data)
 
 
+## Attempts to place object in a battle position. If battle_position is null,
+## will try to place object in the first open position. If no open positions exist
+## returns false
 func place_object(
 	object:ObjectData, 
 	battle_position:BattlePosition = null
@@ -45,6 +53,12 @@ func place_object(
 		return false
 	
 	target_position.set_object(object)
+	
+	object.interacted.connect(
+		func(object:ObjectEntity):
+			print("object interacted")
+			object_interacted.emit(object.data.interaction_actions))
+	
 	return true
 
 
@@ -74,6 +88,6 @@ func move_player(
 	await player.move_to(new_position.global_position)
 
 
-func enter_turn():
+func enter_turn(context:BattleContext):
 	for battle_position in battle_positions:
 		battle_position.enter_turn()

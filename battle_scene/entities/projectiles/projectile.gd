@@ -9,6 +9,8 @@ signal freed(projectile:Projectile)
 @export var ignore_walls:bool = false
 @export var life_span:Timer
 @export var target_position:Vector2
+@export var sprite_2d:Sprite2D
+@export var face_move_direction:bool = true
 
 
 var direction
@@ -22,6 +24,11 @@ func _ready() -> void:
 func _physics_process(delta):
 	velocity = direction * speed
 	move_and_slide()
+	
+	if velocity.length() > 0:
+		sprite_2d.rotation = lerp_angle(
+				sprite_2d.rotation, 
+				velocity.angle(), 0.3)
 
 
 func _on_hitbox_body_entered(body):

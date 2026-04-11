@@ -135,6 +135,7 @@ visible = false
 layout_mode = 1
 
 [node name="CreditsMenu" type="Control" parent="." unique_id=784894307]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,6 +190,7 @@ custom_minimum_size = Vector2(700, 320)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_filter = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vv2lb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ijfeh")
 
@@ -254,6 +256,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_bottom = 120
 
 [node name="Return" parent="CreditsMenu/MarginContainer2" unique_id=1046007390 instance=ExtResource("4_1yt4p")]

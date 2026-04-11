@@ -7,10 +7,10 @@ class_name AddItemButton
 var data:ItemData
 
 
-func initialize(data:ItemData):
-	self.data = data
-	texture_rect.texture = data.display_texture
-	label.text = data.name
+func initialize(_data:ItemData):
+	data = _data
+	texture_rect.texture = _data.display_texture
+	label.text = _data.name
 	pass
 
 

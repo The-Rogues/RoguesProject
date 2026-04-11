@@ -17,19 +17,21 @@ var rewards_screen:BattleRewardsHandler
 
 var action_resolver: ActionResolver
 var turn_count:int = 0
+var context:BattleContext = null
 
 
-func initialize(context:BattleContext):
+func initialize(_context:BattleContext):
 	battle_state = State.START
 	
-	action_resolver = ActionResolver.new(context)
-	player = context.creature_manager.player
-	enemies = context.creature_manager.enemies
-	battle_field = context.battle_field
-	rewards_screen = context.reward_handler
+	context = _context
+	action_resolver = ActionResolver.new(_context)
+	player = _context.creature_manager.player
+	enemies = _context.creature_manager.enemies
+	battle_field = _context.battle_field
+	rewards_screen = _context.reward_handler
 	
-	context.creature_manager.all_enemies_defeated.connect(_on_battle_ended)
-	context.creature_manager.player_defeated.connect(_on_battle_ended)
+	_context.creature_manager.all_enemies_defeated.connect(_on_battle_ended)
+	_context.creature_manager.player_defeated.connect(_on_battle_ended)
 
 
 func start_battle():
@@ -53,7 +55,7 @@ func start_player_turn():
 	for enemy in enemies:
 		enemy.choose_intent()
 	
-	battle_field.enter_turn()
+	battle_field.enter_turn(context)
 	
 	player.cards.draw_cards(5)
 	

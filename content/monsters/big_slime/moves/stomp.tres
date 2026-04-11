@@ -1,19 +1,19 @@
-[gd_resource type="Resource" script_class="EnemyAttack" format=3 uid="uid://dujouqqv4x4bh"]
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dujouqqv4x4bh"]
 
-[ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="1_jb2i5"]
-[ext_resource type="Script" uid="uid://dphy8mtc8047d" path="res://battle_scene/entities/monster/moves/enemy_attack.gd" id="1_jmh1p"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_jmh1p"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_jb2i5"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="2_o8ag7"]
 
-[sub_resource type="Resource" id="Resource_mlgrd"]
-script = ExtResource("1_jb2i5")
-base_damage = 12
+[sub_resource type="Resource" id="Resource_o8ag7"]
+script = ExtResource("2_jb2i5")
+base_damage = 25
 target_option = 1
-metadata/_custom_type_script = "uid://dwljy2imh2ge8"
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
 
 [resource]
 script = ExtResource("1_jmh1p")
-attack_action = SubResource("Resource_mlgrd")
 intent_icon = ExtResource("2_o8ag7")
 name = "Stomp"
-description = "This Enemy Intends to Attack for 9 to 12 Damage."
-metadata/_custom_type_script = "uid://dphy8mtc8047d"
+description = "This Enemy Intends to attack for 25 damage."
+primary_action = SubResource("Resource_o8ag7")
+metadata/_custom_type_script = "uid://c410dannt5adg"

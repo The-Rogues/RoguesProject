@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://xd7ju6mdujq4"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_paj04"]
+[ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="2_gp3px"]
+
+[sub_resource type="Animation" id="Animation_se33v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pointer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(49, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_6ck3p"]
+resource_name = "point"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pointer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(49, 16), Vector2(49, 20), Vector2(49, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jxvlm"]
+_data = {
+&"RESET": SubResource("Animation_se33v"),
+&"point": SubResource("Animation_6ck3p")
+}
+
+[node name="InteractIcon" type="Control" unique_id=1513335379]
+custom_minimum_size = Vector2(114, 32)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="InteractLabel" type="Label" parent="." unique_id=423011505]
+texture_filter = 1
+custom_minimum_size = Vector2(114, 18)
+layout_mode = 0
+offset_right = 114.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.8736485, 0.51683784, 0.27075392, 1)
+theme_override_fonts/font = ExtResource("1_paj04")
+text = "Interact"
+
+[node name="Pointer" type="TextureRect" parent="." unique_id=1267319128]
+modulate = Color(0.8745098, 0.5176471, 0.27058825, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_gp3px")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=456145784]
+libraries/ = SubResource("AnimationLibrary_jxvlm")
+autoplay = &"point"

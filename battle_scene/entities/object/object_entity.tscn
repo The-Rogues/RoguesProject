@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bg6brfw33g1s0" path="res://battle_scene/entities/object/object_stat_display.gd" id="7_vgro0"]
 [ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="8_ufudi"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_lc0qn"]
+[ext_resource type="PackedScene" uid="uid://xd7ju6mdujq4" path="res://battle_scene/entities/monster/interact_icon.tscn" id="10_ufudi"]
+[ext_resource type="PackedScene" uid="uid://c3gw0mtuoknpx" path="res://battle_scene/entities/monster/key_interact_icon.tscn" id="11_lc0qn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiqcq"]
 atlas = ExtResource("2_mnebb")
@@ -285,6 +287,20 @@ theme_override_fonts/font = ExtResource("9_lc0qn")
 theme_override_font_sizes/font_size = 13
 text = "100/100"
 horizontal_alignment = 1
+
+[node name="InteractIcon" parent="." unique_id=1513335379 instance=ExtResource("10_ufudi")]
+visible = false
+offset_left = -57.0
+offset_top = -123.0
+offset_right = 57.0
+offset_bottom = -91.0
+
+[node name="KeyUnlockButton" parent="." unique_id=1878098391 instance=ExtResource("11_lc0qn")]
+visible = false
+offset_left = -79.0
+offset_top = -125.0
+offset_right = -79.0
+offset_bottom = -125.0
 
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_timer_timeout"]
