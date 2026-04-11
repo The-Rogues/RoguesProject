@@ -63,12 +63,16 @@ func _on_selected_card(index:int, transaction_type:int, transaction_completed:bo
 		_on_buy_card()
 	else:
 		_on_sell_card()
+		
 
 func _on_buy_card():
 	if GlobalSessionManager.buy_card(selected_card):
 		card_shop_interface.confirm_transaction(selected_card_index)
 
-	sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
+	if GlobalSessionManager.run_progress:
+		sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
+	else:
+		sell_cards = []
 	card_sell_interface.initialize(sell_cards)
 
 	selected_card = null
@@ -78,8 +82,12 @@ func _on_sell_card():
 	if GlobalSessionManager.sell_card(selected_card):
 		card_sell_interface.confirm_transaction(selected_card_index)
 
+	sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
+	card_sell_interface.initialize(sell_cards)
+	
 	selected_card = null
 	selected_card_index = -1
+	
 
 func _on_leave_button_up() -> void:
 	GlobalSessionManager.complete_current_room()

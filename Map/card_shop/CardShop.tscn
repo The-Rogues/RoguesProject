@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dvkefripdllhr" path="res://Map/card_shop/CardShop_scn_main.gd" id="1_6rf22"]
 [ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="2_4mvj2"]
 [ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_1.tres" id="3_tqj6l"]
-[ext_resource type="Script" uid="uid://k1p2qmoush4u" path="res://Map/card_shop/UI/shop_card_interface.gd" id="3_trp1s"]
 [ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_2.tres" id="4_k0fth"]
 [ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://General/Effects/Particles/star_pop.tscn" id="4_xt6v3"]
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_0.tres" id="5_4wnoc"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d2d4b83w6j3r" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-004.png" id="8_u8vlw"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="9_fl73y"]
 [ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://Items/GoldLabel/session_gold_label.tscn" id="10_g43wp"]
+[ext_resource type="Script" uid="uid://li2p5xh3pjl3" path="res://Map/card_shop/UI/shop_card_interface.gd" id="11_rny4w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jn6m1"]
 texture = ExtResource("2_4mvj2")
@@ -122,12 +122,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_4wnoc")
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer" unique_id=846722194]
 layout_mode = 2
 
-[node name="CardSell" type="FlowContainer" parent="PanelContainer/ScrollContainer" unique_id=125529091 node_paths=PackedStringArray("shop_card_slots")]
+[node name="CardSell" type="FlowContainer" parent="PanelContainer/ScrollContainer" unique_id=125529091]
 custom_minimum_size = Vector2(984, 400)
 layout_mode = 2
 theme_override_constants/h_separation = 50
-script = ExtResource("3_trp1s")
-shop_card_slots = [null, null, null]
+script = ExtResource("11_rny4w")
 transaction_type = 1
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer" unique_id=656533942]
@@ -137,7 +136,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(984, 400)
 layout_mode = 2
 theme_override_constants/h_separation = 50
-script = ExtResource("3_trp1s")
+script = ExtResource("11_rny4w")
 
 [node name="MenuOptions" type="HBoxContainer" parent="." unique_id=1666859707]
 layout_mode = 1
