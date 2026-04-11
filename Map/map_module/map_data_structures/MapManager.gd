@@ -17,7 +17,7 @@ var map_seed: int = 0
 
 
 #------------------------------------------------------------------------------------
-# Section: Functions
+# Section: Main Functions
 #------------------------------------------------------------------------------------
 
 # --_init Function--
@@ -64,6 +64,10 @@ func add_callback(callback_func: Callable) -> void:
 		func(emmited_node: RefCounted):
 			callback_func.call(emmited_node)
 	)
+
+#------------------------------------------------------------------------------------
+# Section: Save System Functions
+#------------------------------------------------------------------------------------
 
 func set_player_node_index(index: int) -> void:
 	if map_structure == null:

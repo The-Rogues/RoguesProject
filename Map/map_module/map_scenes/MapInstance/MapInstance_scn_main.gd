@@ -25,6 +25,9 @@ var special_btn_size: Vector2
 var elapsed_time: float = 0
 var available_button_positions: Dictionary[TextureButton, Vector2]
 
+# Variables for drawing map lines.
+var vertical_dist: float = 0
+
 #------------------------------------------------------------------------------------
 # Section: Functions
 #------------------------------------------------------------------------------------
@@ -172,6 +175,8 @@ func resize_map(container_size: Vector2) -> void:
 		# New layers have a different y position.
 		y_pos -= path_size
 	
+	vertical_dist = path_size
+	
 	# Draw lines between the buttons.
 	queue_redraw()
 
@@ -236,6 +241,7 @@ func set_button_states() -> void:
 			elif map_structure.node_arr[i].node_layer == player_layer:
 				map_buttons[i].texture_normal = texture_passed
 				map_buttons[i].texture_hover = texture_passed
+				map_buttons[i].hide_mini_event()
 			else:
 				
 				# Check if a button is accessable. If it is, make it pressable.
@@ -253,7 +259,7 @@ func set_button_states() -> void:
 			# Set textures for passed nodes.
 			map_buttons[i].texture_normal = texture_passed
 			map_buttons[i].texture_hover = texture_passed
-			
+			map_buttons[i].hide_mini_event()
 
 
 # --_draw Function--
@@ -262,19 +268,66 @@ func set_button_states() -> void:
 # Return: void.
 func _draw() -> void:
 	
+	var path_map: Dictionary[RefCounted, RefCounted]
+	for i in range(0, map_structure.visited_nodes.size() - 1):
+		path_map[map_structure.visited_nodes[i]] = map_structure.visited_nodes[i + 1]
+	
 	# Record the position of each button.
 	for i in range(0, map_structure.node_arr.size()):
 		var curr_pos = Vector2(map_buttons[i].offset_left, map_buttons[i].offset_top)
 		
 		# For each adjacent button, record its position and draw a line between the two points.
 		for j in range(0, map_structure.node_arr[i].node_edges.size()):
+			var col: Color = Color.DARK_GRAY
 			var adj_button = find_button_by_corr_node(map_structure.node_arr[i].node_edges[j])
 			var adj_pos = Vector2(adj_button.offset_left, adj_button.offset_top)
-			draw_line(
+			
+			# Check if a path between two nodes has been traveled.
+			if path_map.has(map_structure.node_arr[i]) && path_map[map_structure.node_arr[i]] == adj_button.corr_node:
+				col = Color.BLUE
+			
+			# Draw a dotted line between the two positions.
+			draw_dotted_line(
 				curr_pos + (map_buttons[i].size / 2), # Exact position must be adjusted relative to button size.
 				adj_pos + (adj_button.size / 2),
-				Color.WHITE
+				col
 			)
+
+# --draw_dotted_line Function--
+# Description: Draws a dotted line between two positions on the screen.
+# pos_1: The first position to draw the line between.
+# pos_2: The second position to draw the line between.
+# Return: Void.
+func draw_dotted_line(pos_1: Vector2, pos_2: Vector2, col: Color = Color.DARK_GRAY) -> void:
+	
+	# Create variables needed to make a series of evenly spaced vectors in a direction.
+	var magnitude = sqrt((pos_1.x - pos_2.x) * (pos_1.x - pos_2.x) + (pos_1.y - pos_2.y) * (pos_1.y - pos_2.y)) # The length of the entire series of vectors.
+	var direction = (pos_1 - pos_2) / magnitude # The direction of the sequence.
+	var segment_size = vertical_dist / 5 # The size of an individual vector, including its margins.
+	var num_segments = magnitude / segment_size # The number of vectors that fits into the entire magnitude.
+	var small_segment_size = fmod(num_segments, 1.0) / 2 # The fractional part of the number of segments is converted into two small segments which will not be drawn.
+	num_segments = (num_segments - (small_segment_size * 2)) + 2 # Adjust the total number of segments based on additional small segments.
+	
+	var curr_pos: Vector2 = pos_2 # Initialized to starting position.
+	for i in range(0, int(num_segments)):
+		
+		# First segment is a small segment and is not drawn.
+		if i == 0:
+			curr_pos += direction * small_segment_size 
+		
+		# Last Segment is a small segment and is not drawn.
+		elif i == (int(num_segments) - 1):
+			return
+		
+		# Draw a line with 0.25 * segment_size margin starting at current position. Increment current position.
+		else:
+			draw_line(
+				curr_pos + ((direction * segment_size) / 4), # Exact position must be adjusted relative to button size.
+				curr_pos + ( ((direction * segment_size) / 4) * 3),
+				col,
+				std_btn_size.x / 20
+			)
+			curr_pos += direction * segment_size
 
 # --find_button_by_corr_node Function--
 # Description: Finds a specific button on the map given the structural node that it corresponds to.
