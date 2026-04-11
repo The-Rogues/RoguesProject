@@ -16,17 +16,17 @@ func initialize(effects_controller:StatusEffectController):
 
 
 func _on_effect_added(instance:ActiveStatusEffect):
-	print("added effect")
 	var icon:StackIcon = Status_Icon.instantiate()
 	add_child(icon)
-	icon.set_texture(instance.effect.get_texture())
-	icon.set_stack(instance.duration)
+	icon.initialize(instance)
+	#icon.set_texture(instance.effect.get_texture())
+	#icon.set_stack(instance.duration)
 	icons[instance] = icon
 
 
 func _on_effect_changed(instance:ActiveStatusEffect):
 	if icons.has(instance):
-		icons[instance].set_stack(instance.duration)
+		icons[instance].initialize(instance)
 
 
 func _on_effect_removed(instance:ActiveStatusEffect):

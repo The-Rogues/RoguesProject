@@ -7,8 +7,8 @@ enum TargetOption {SELF, PLAYER, ENEMY, ENEMIES}
 
 var resolved_targets:Array[AbstractEntity]
 
-const SINGLE_TARGET_DELAY = 0.5
-const MULTI_TARGET_DELAY = 0.25
+const SINGLE_TARGET_DELAY = 0.4
+const MULTI_TARGET_DELAY = 0.8
 
 @abstract
 func execute(_context:BattleContext = null, _user:AbstractEntity = null)

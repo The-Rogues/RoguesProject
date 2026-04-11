@@ -12,4 +12,4 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		amount = _user.effects.apply_attack_damage_effects(amount)
 	
 	for i in range(0, hits):
-		super(_context, _user)
+		await super(_context, _user)

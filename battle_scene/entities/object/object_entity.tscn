@@ -302,5 +302,8 @@ offset_top = -125.0
 offset_right = -79.0
 offset_bottom = -125.0
 
+[node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1688580079]
+position = Vector2(0, -45)
+
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_timer_timeout"]

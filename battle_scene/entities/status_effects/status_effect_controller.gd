@@ -85,7 +85,7 @@ func on_attacked(attacker:AbstractEntity):
 		return
 	
 	for instance in active_effects:
-		instance.on_attacked(attacker, instance)
+		instance.effect.on_attacked(attacker, instance)
 
 
 func process_played_card(card:CardInstance, resolver:ActionResolver):

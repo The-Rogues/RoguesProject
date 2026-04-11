@@ -7,6 +7,7 @@ var data:ObjectData
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var object_stat_display: ObjectStatDisplay = $ObjectStatDisplay
+@onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
 
 
 func initialize(_data:ObjectData):
@@ -19,6 +20,7 @@ func initialize(_data:ObjectData):
 func take_damage(amount:int, _attacker = null):
 	attacker = _attacker
 	health.take_damage(amount)
+	DamageNumber.display_number(amount, damage_numbers_spawn.global_position)
 	
 	sprite_2d.flash()
 	
