@@ -2,7 +2,7 @@
 extends TargetedAction
 class_name DamageAction
 
-var amount:int
+var amount:int = 0
 
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):

@@ -28,5 +28,5 @@ script = ExtResource("2_0ugeu")
 encounter_name = "Slime group"
 gold = SubResource("Resource_431ds")
 item_pool = Array[ExtResource("5_k6hba")]([SubResource("Resource_vuvoe")])
-enemies = Array[ExtResource("1_7eepe")]([ExtResource("2_6be4h"), ExtResource("2_6be4h"), ExtResource("2_6be4h"), ExtResource("2_6be4h"), ExtResource("2_6be4h")])
+enemies = Array[ExtResource("1_7eepe")]([ExtResource("2_6be4h"), ExtResource("2_6be4h")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

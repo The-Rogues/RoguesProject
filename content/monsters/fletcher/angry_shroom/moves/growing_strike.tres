@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dcd4x8hyfjppk"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_a35hk"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_x672e"]
+[ext_resource type="Script" uid="uid://6p2fud0lmq5h" path="res://content/monsters/fletcher/angry_shroom/moves/damage_scale_action.gd" id="2_xjj1r"]
+
+[sub_resource type="Resource" id="Resource_gbobv"]
+script = ExtResource("2_xjj1r")
+init_damage = 6
+scale_value = 2
+base_damage = 1
+target_option = 1
+metadata/_custom_type_script = "uid://6p2fud0lmq5h"
+
+[resource]
+script = ExtResource("1_x672e")
+intent_icon = ExtResource("1_a35hk")
+name = "Growing Strike"
+description = "This Enemy intends to attack for higher damage each turn."
+primary_action = SubResource("Resource_gbobv")
+metadata/_custom_type_script = "uid://c410dannt5adg"

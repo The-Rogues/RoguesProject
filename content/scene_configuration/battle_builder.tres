@@ -6,10 +6,11 @@
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_xcnaf"]
 [ext_resource type="Resource" uid="uid://bj2e0ww78ece8" path="res://content/scene_configuration/enemy_encounters/the_big_one.tres" id="6_ploub"]
 [ext_resource type="Resource" uid="uid://2bkv0dsmmkce" path="res://content/scene_configuration/enemy_encounters/slime_group.tres" id="7_hxs3u"]
+[ext_resource type="Resource" uid="uid://c6v6r0kxmsvcb" path="res://content/scene_configuration/enemy_encounters/angry_mushrooms.tres" id="7_n0sf2"]
 
 [resource]
 script = ExtResource("2_wh5q6")
-tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("7_hxs3u"), ExtResource("6_ploub")])
+tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("7_n0sf2"), ExtResource("7_hxs3u"), ExtResource("6_ploub")])
 tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_ploub")])
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_ploub")])
 battle_field_configs = Array[ExtResource("1_xfhqu")]([ExtResource("3_n0sf2")])

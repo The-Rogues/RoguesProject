@@ -1,3 +1,6 @@
+res://content/scene_configuration/enemy_encounters/
+res://content/monsters/fletcher/angry_shroom/moves/
+res://testing_and_prototypes/
 res://battle_scene/entities/monster/
 res://battle_scene/entities/monster/intents/
 res://content/monsters/dragon_turtle/moves/
@@ -17,6 +20,3 @@ res://content/monsters/big_slime/
 res://common/damage_number/
 res://common/hit_flash/
 res://content/items/barricade/
-res://content/items/dummy/
-res://battle_scene/entities/object/
-res://common/floating_text/

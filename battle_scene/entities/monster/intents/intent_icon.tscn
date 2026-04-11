@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://s6uv0s0r6sx5" path="res://battle_scene/entities/monster/intents/intent_icon.gd" id="1_k6fil"]
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://battle_scene/entities/monster/intents/projectile_icon.tres" id="2_bedpj"]
-[ext_resource type="Script" uid="uid://pxlprseij451" path="res://common/tooltip_panel/hover_context_popup.gd" id="3_t63nv"]
-[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="3_w1xab"]
+[ext_resource type="PackedScene" uid="uid://cmxjtwti82pht" path="res://testing_and_prototypes/intent_tooltip.tscn" id="4_0g0qc"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_tcrcb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgc4h"]
@@ -72,25 +71,13 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Icon" type="TextureRect" parent="PanelContainer/MarginContainer" unique_id=835158164 node_paths=PackedStringArray("context_panel")]
+[node name="Icon" type="TextureRect" parent="PanelContainer/MarginContainer" unique_id=835158164]
 modulate = Color(0.8745098, 0.18431373, 0.27058825, 0.9098039)
 texture_filter = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 mouse_filter = 0
 texture = ExtResource("2_bedpj")
-script = ExtResource("3_t63nv")
-context_panel = NodePath("../../../ContextPanel")
-dynamic_positioning = false
-
-[node name="ContextPanel" parent="." unique_id=1838000936 instance=ExtResource("3_w1xab")]
-visible = false
-layout_mode = 1
-offset_left = 24.0
-offset_top = 20.0
-offset_right = 236.0
-offset_bottom = 80.0
-mouse_filter = 2
 
 [node name="Amplifier" type="Label" parent="." unique_id=1766179860]
 visible = false
@@ -115,3 +102,14 @@ text = "1"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1696916730]
 libraries/ = SubResource("AnimationLibrary_mgc4h")
 autoplay = &"idle"
+
+[node name="IntentTooltip" parent="." unique_id=2004448281 instance=ExtResource("4_0g0qc")]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 32.0
+offset_right = 245.0
+offset_bottom = 84.0
+
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/Icon" to="." method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/MarginContainer/Icon" to="." method="_on_icon_mouse_exited"]

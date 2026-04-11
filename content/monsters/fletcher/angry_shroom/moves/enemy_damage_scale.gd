@@ -1,6 +1,10 @@
 extends EnemyMove
 class_name EnemyDamageScale
 
+# Fabian - EnemyMove has been generalized to just EnemyMove. Dynamic descriptions
+# now work for enemy intents the same way that they do for cards.
+# See intent_tooltip.gd, intent_icon.gd, and damage_scale_action.gd
+
 @export var init_damage: int
 @export var scale_value: int
 
