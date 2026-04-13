@@ -26,7 +26,6 @@ sprite_2d = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=72437752]
 texture_filter = 1
-rotation = 0.7853982
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3vv47")
 

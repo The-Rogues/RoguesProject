@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://u3ac5qsk7naw"]
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_tggwv"]
-[ext_resource type="Script" uid="uid://bm0h3sskvexdd" path="res://card_remover_confirmation.gd" id="2_b1yqd"]
+[ext_resource type="Script" uid="uid://bm0h3sskvexdd" path="res://card_system/ui/card_remover_confirmation.gd" id="2_b1yqd"]
 [ext_resource type="PackedScene" uid="uid://b6kxom317vkry" path="res://card_system/card.tscn" id="3_r4v4i"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_0tc85"]
 [ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="5_omrdd"]

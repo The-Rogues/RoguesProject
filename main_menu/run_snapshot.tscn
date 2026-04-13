@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://76dlo2jya52p"]
 
-[ext_resource type="Script" uid="uid://dyb3sp50rx6p7" path="res://run_snapshot.gd" id="1_fmm5i"]
+[ext_resource type="Script" uid="uid://dyb3sp50rx6p7" path="res://main_menu/run_snapshot.gd" id="1_fmm5i"]
 [ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-007.png" id="2_41ped"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_i55rq"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="4_fmm5i"]
 [ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="5_fmm5i"]
 [ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="6_fmm5i"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb5tk"]
 bg_color = Color(0, 0, 0, 1)

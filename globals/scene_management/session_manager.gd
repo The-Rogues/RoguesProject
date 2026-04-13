@@ -35,10 +35,19 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	run.initialized = true
 	
+	run.player_data.gold_collected.connect(func(amount):
+		run.total_gold_collected += amount)
+	
+	run.player_data.item_collected.connect(func():
+		run.total_items_collected += 1)
+	
+	run.player_data.card_collected.connect(func():
+		run.total_cards_collected += 1)
+	
 	# Add AI Card to starting deck
-	run.player_data.cards.append(
-		load("res://ai/ai-cards/inventive_attack_data.tres")
-	)
+	#run.player_data.cards.append(
+		#load("res://ai/ai-cards/inventive_attack_data.tres")
+	#)
 	
 	return run
 

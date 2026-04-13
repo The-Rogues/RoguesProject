@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_aj4c5"]
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_h5kbp"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_tvukq"]
-[ext_resource type="PackedScene" uid="uid://76dlo2jya52p" path="res://run_snapshot.tscn" id="4_y7ta6"]
+[ext_resource type="PackedScene" uid="uid://76dlo2jya52p" path="res://main_menu/run_snapshot.tscn" id="4_y7ta6"]
 
 [node name="SaveScreen" type="Control" unique_id=1030190134 node_paths=PackedStringArray("continue_button", "snapshot", "continue_menu", "character_menu")]
 layout_mode = 3

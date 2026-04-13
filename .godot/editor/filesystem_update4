@@ -80,3 +80,10 @@ res://battle_scene/entities/ui/creature_stat_display.tscn
 res://common/stat_components/block_icon.gd
 res://battle_scene/entities/projectiles/arrow/arrow.tscn
 res://content/monsters/big_slime/moves/prepare.tres
+res://battle_scene/entities/projectiles/projectile.gd
+res://globals/scene_management/session_manager.gd
+res://control.tscn
+res://battle_scene/battle_field/battle_position.gd
+res://battle_scene/entities/object/object_behaviour.gd
+res://battle_scene/entities/abstract_entity.gd
+res://battle_scene/lose_screen/defeated_screen.gd

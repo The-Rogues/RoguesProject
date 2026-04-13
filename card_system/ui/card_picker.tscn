@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bp3ihfbthp8yd"]
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_omlpw"]
-[ext_resource type="Script" uid="uid://cgja4omcqdq18" path="res://card_picker.gd" id="2_hk7a8"]
+[ext_resource type="Script" uid="uid://cgja4omcqdq18" path="res://card_system/ui/card_picker.gd" id="2_hk7a8"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_oymb6"]
 [ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="4_iglsr"]
 
