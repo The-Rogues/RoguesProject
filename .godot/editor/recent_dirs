@@ -1,3 +1,7 @@
+res://card_system/ui/
+res://content/scene_configuration/battle_field_layouts/
+res://content/objects/chest/
+res://content/items/chest_key/
 res://content/scene_configuration/enemy_encounters/
 res://battle_scene/entities/status_effects/common/
 res://content/monsters/fletcher/angry_shroom/moves/
@@ -8,8 +12,6 @@ res://content/monsters/dragon_turtle/moves/
 res://content/monsters/slime/move_set/
 res://content/monsters/big_slime/moves/
 res://content/monsters/dragon_turtle/
-res://content/objects/chest/
-res://content/scene_configuration/battle_field_layouts/
 res://content/objects/stone_wall/
 res://battle_scene/entities/projectiles/arrow/
 res://content/cards/traitless_cards/
@@ -18,5 +20,3 @@ res://content/items/card_packs/
 res://content/scene_configuration/
 res://content/monsters/big_slime/
 res://common/damage_number/
-res://common/hit_flash/
-res://content/items/barricade/

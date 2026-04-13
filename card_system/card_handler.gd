@@ -70,6 +70,8 @@ func move_drawn_card_into_discard_pile(instance:CardInstance):
 	if drawn_cards.has(instance):
 		discard_pile.append(instance)
 		drawn_cards.erase(instance)
+		
+		discard_pile_updated.emit(discard_pile)
 
 
 func move_draw_into_discard_pile():

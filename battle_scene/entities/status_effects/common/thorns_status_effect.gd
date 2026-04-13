@@ -11,7 +11,7 @@ func on_stack(
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "Deals" + str(_instance.stack) + " damage when attacked."
+	return "Deals " + str(_instance.stack) + " damage when attacked."
 
 
 func get_texture() -> Texture2D:

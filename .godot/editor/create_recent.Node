@@ -1,13 +1,13 @@
+Label
+PanelContainer
+Button
+RichTextLabel
 Control
 CanvasLayer
-Label
-RichTextLabel
-PanelContainer
 AnimationPlayer
 AnimationTree
 TextureRect
 Panel
-Button
 Node2D
 Sprite2D
 HBoxContainer

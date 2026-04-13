@@ -91,7 +91,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.013922674, 2.0865432e-06, 0.017923031, 1)
 
 [node name="BattleField" parent="." unique_id=314861 instance=ExtResource("2_ceml1")]
 position = Vector2(557, 436)
