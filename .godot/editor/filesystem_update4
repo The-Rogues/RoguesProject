@@ -64,3 +64,14 @@ res://content/cards/traitless_cards/arrow_shot.tres
 res://main_menu/main_menu_scene.tscn
 res://main_menu/save_screen.tscn
 res://main_menu/main_menu_scene.gd
+res://main_menu/character_result_scene.gd
+res://battle_scene/entities/status_effects/status_effect_behaviour.gd
+res://battle_scene/entities/status_effects/common/restrained_status_effect.gd
+res://battle_scene/entities/status_effects/common/strength_status_effect.gd
+res://content/items/cheese/rat_effect_behaviour.gd
+res://content/items/cheese/Cards/rat_attack.tres
+res://battle_scene/entities/status_effects/common/vulnerable_status_effect.gd
+res://battle_scene/entities/status_effects/common/wounded_status_effect.gd
+res://battle_scene/entities/status_effects/common/scared_status_effect.gd
+res://status_tool_tip.gd
+res://content/items/repeat_potion/repeat_card_status_behaviour.gd

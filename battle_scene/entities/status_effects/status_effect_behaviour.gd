@@ -12,6 +12,10 @@ func on_stack(
 
 
 @abstract
+func get_status_name() -> String
+
+
+@abstract
 func get_description(_instance:ActiveStatusEffect) -> String
 
 

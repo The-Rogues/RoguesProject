@@ -15,6 +15,10 @@ func on_stack(
 	instance.stack = rats.size()
 
 
+func get_status_name() -> String:
+	return "Rat Gang"
+
+
 func get_description(_instance:ActiveStatusEffect) -> String:
 	return "You have " + str(rats.size()) + " Rats."
 

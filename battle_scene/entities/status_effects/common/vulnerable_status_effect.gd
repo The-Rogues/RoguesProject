@@ -9,6 +9,10 @@ func on_stack(
 	instance.duration += 1
 
 
+func get_status_name() -> String:
+	return "Vulnerable"
+
+
 func get_description(_instance:ActiveStatusEffect) -> String:
 	return "Increases damage recieved from attacks by Half"
 

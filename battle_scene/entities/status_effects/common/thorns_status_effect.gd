@@ -10,6 +10,10 @@ func on_stack(
 	instance.duration += 1
 
 
+func get_status_name() -> String:
+	return "Thorns"
+
+
 func get_description(_instance:ActiveStatusEffect) -> String:
 	return "Deals " + str(_instance.stack) + " damage when attacked."
 
