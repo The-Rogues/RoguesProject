@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://ch2spgxvn4cv"
 [resource]
 script = ExtResource("1_odp2y")
 intent_icon = ExtResource("1_b8nay")
+name = "Acid"
 description = "This Enemy intends to place a trap."
 primary_action = SubResource("Resource_h1fpp")
 metadata/_custom_type_script = "uid://c410dannt5adg"

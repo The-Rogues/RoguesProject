@@ -75,3 +75,8 @@ res://battle_scene/entities/status_effects/common/wounded_status_effect.gd
 res://battle_scene/entities/status_effects/common/scared_status_effect.gd
 res://status_tool_tip.gd
 res://content/items/repeat_potion/repeat_card_status_behaviour.gd
+res://common/stat_components/block.gd
+res://battle_scene/entities/ui/creature_stat_display.tscn
+res://common/stat_components/block_icon.gd
+res://battle_scene/entities/projectiles/arrow/arrow.tscn
+res://content/monsters/big_slime/moves/prepare.tres

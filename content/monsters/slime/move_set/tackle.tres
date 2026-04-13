@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://dwljy2imh2ge8"
 [resource]
 script = ExtResource("1_yinjp")
 intent_icon = ExtResource("1_fu5xx")
+name = "Tackle"
 description = "This Enemy intends to attack for 4 to 7 damage."
 primary_action = SubResource("Resource_s3be4")
 metadata/_custom_type_script = "uid://c410dannt5adg"
