@@ -7,6 +7,10 @@ const CARD = preload("res://card_system/card.tscn")
 
 
 func initialize(cards:Array[CardData]):
+	for child in get_children():
+		child.queue_free()
+	await get_tree().process_frame
+	
 	for data in cards:
 		var card:Card = CARD.instantiate()
 		card_container.add_child(card)
