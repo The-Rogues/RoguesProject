@@ -10,7 +10,7 @@ class_name GameSessionDisplay
 @onready var player_items: PlayerItems = $Container/RightElements/PlayerItems
 
 @onready var deck_button: TextureButton = $Container/RightElements/Deck/DeckButton
-
+@onready var options_menu = OptionsMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbt3n70fcylp3" path="res://PersonalitySystem/traits_display.tscn" id="2_oag4o"]
 [ext_resource type="Texture2D" uid="uid://dxefwuaynwrdl" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Default/Panel/panel-008.png" id="2_pmlv7"]
 [ext_resource type="Script" uid="uid://pxlprseij451" path="res://General/UI/ContextPanel/hover_context_popup.gd" id="5_1o4un"]
-[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://General/UI/exit_button.gd" id="6_1o4un"]
+[ext_resource type="Script" uid="uid://b15lnbd0nruim" path="res://andy_test_scenes/button.gd" id="5_cdruc"]
 [ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://General/PlaceholderArt/32rogues/tiles.png" id="7_1o4un"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://General/UI/ContextPanel/context_panel.tscn" id="7_sqbpr"]
 [ext_resource type="Texture2D" uid="uid://e6ny87os8hbc" path="res://Entities/StatusEffects/Regenerating/regenerating_status_effect_texture.tres" id="8_glcam"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://Items/GoldLabel/gold_icon.tres" id="13_yct1t"]
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://Items/GoldLabel/session_gold_label.gd" id="14_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://bkk6s12elrkpx" path="res://Cards/UI/deck_viewer.tscn" id="14_yct1t"]
+[ext_resource type="PackedScene" uid="uid://cq0uplsomgf1v" path="res://Menus/OptionsMenu/options_menu.tscn" id="16_jcxbh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmlv7"]
 bg_color = Color(0.2469503, 0.2469503, 0.2469503, 1)
@@ -74,17 +75,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_pmlv7")
 layout_mode = 2
 theme_override_constants/separation = 34
 
-[node name="Options" type="VBoxContainer" parent="Container/LeftElements" unique_id=360401595]
-layout_mode = 2
-size_flags_horizontal = 0
-alignment = 1
-
-[node name="Pause" type="Button" parent="Container/LeftElements/Options" unique_id=1297969603]
-texture_filter = 1
+[node name="Settings" type="Button" parent="Container/LeftElements" unique_id=963282311]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_nhbhh")
-text = "Exit"
-script = ExtResource("6_1o4un")
+text = "Settings"
+script = ExtResource("5_cdruc")
 
 [node name="Character" type="VBoxContainer" parent="Container/LeftElements" unique_id=1849818296 node_paths=PackedStringArray("context_panel")]
 layout_mode = 2
@@ -288,4 +283,12 @@ horizontal_alignment = 1
 script = ExtResource("14_pxp8h")
 gold = 100.0
 
-[connection signal="button_up" from="Container/LeftElements/Options/Pause" to="Container/LeftElements/Options/Pause" method="_on_button_up"]
+[node name="OptionsMenu" parent="." unique_id=2034364420 instance=ExtResource("16_jcxbh")]
+visible = false
+layout_mode = 1
+offset_left = 1.0
+offset_top = 95.0
+offset_right = 1.0
+offset_bottom = 95.0
+
+[connection signal="pressed" from="Container/LeftElements/Settings" to="OptionsMenu" method="_on_settings_pressed"]
