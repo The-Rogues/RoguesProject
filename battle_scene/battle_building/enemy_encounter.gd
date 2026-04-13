@@ -3,6 +3,7 @@ class_name EnemyEncounter
 
 @export var encounter_name:String = "enemy encounter name"
 @export var gold:GoldRewardData
+@export var card_loot:CardRewardData
 @export var item_pool:Array[ItemRewardData]
 @export var enemies:Array[MonsterData]
 
@@ -13,5 +14,8 @@ func get_battle_rewards() -> Array[BattleRewardData]:
 	
 	if randi() <= ITEM_CHANCE and not item_pool.is_empty():
 		rewards.append(item_pool.pick_random())
+	
+	if card_loot:
+		rewards.append(card_loot)
 	
 	return rewards

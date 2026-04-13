@@ -55,3 +55,9 @@ res://content/cards/traitless_cards/strike.tres
 res://content/cards/traitless_cards/defend.tres
 res://content/cards/traitless_cards/move.tres
 res://content/scene_configuration/item_shop_data.tres
+res://card_picker.gd
+res://card_system/ui/card_picker.tscn
+res://battle_scene/win_screen/rewards_data/card_reward_data.gd
+res://battle_scene/battle_building/enemy_encounter.gd
+res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres
+res://content/cards/traitless_cards/arrow_shot.tres

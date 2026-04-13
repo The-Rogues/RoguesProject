@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bex8s0ww7mxsv" path="res://globals/session_interface/session_interface.gd" id="1_2dwta"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_nhbhh"]
 [ext_resource type="Texture2D" uid="uid://dxefwuaynwrdl" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-008.png" id="2_pmlv7"]
+[ext_resource type="PackedScene" uid="uid://bp3ihfbthp8yd" path="res://card_system/ui/card_picker.tscn" id="3_h8e6q"]
 [ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="3_rmvr3"]
 [ext_resource type="PackedScene" uid="uid://cton5ap6s24lx" path="res://card_system/ui/card_remover.tscn" id="3_yiynv"]
 [ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://battle_scene/entities/ui/exit_button.gd" id="6_1o4un"]
@@ -48,6 +49,10 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DeckViewer" parent="Control" unique_id=2047647765 instance=ExtResource("13_ssfyd")]
+visible = false
+layout_mode = 1
+
+[node name="CardPicker" parent="Control" unique_id=663818043 instance=ExtResource("3_h8e6q")]
 visible = false
 layout_mode = 1
 

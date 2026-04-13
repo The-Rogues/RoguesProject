@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://bj2e0ww78ece8"]
 
+[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_tpwjp"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_ybgul"]
 [ext_resource type="Resource" uid="uid://burkq1qvtpovb" path="res://content/monsters/big_slime/big_slime.tres" id="2_caff4"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_lma3v"]
@@ -45,6 +46,7 @@ metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 script = ExtResource("3_lma3v")
 encounter_name = "The big one"
 gold = SubResource("Resource_5tp13")
+card_loot = ExtResource("1_tpwjp")
 item_pool = Array[ExtResource("5_jiw8x")]([SubResource("Resource_ueovd"), SubResource("Resource_u1nn5"), SubResource("Resource_x88a2")])
 enemies = Array[ExtResource("1_ybgul")]([ExtResource("2_caff4")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

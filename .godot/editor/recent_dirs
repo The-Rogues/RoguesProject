@@ -1,3 +1,4 @@
+res://content/scene_configuration/battle_loot/
 res://card_system/ui/
 res://content/scene_configuration/battle_field_layouts/
 res://content/objects/chest/
@@ -19,4 +20,3 @@ res://content/items/repeat_potion/
 res://content/items/card_packs/
 res://content/scene_configuration/
 res://content/monsters/big_slime/
-res://common/damage_number/
