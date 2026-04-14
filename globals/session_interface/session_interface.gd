@@ -12,7 +12,7 @@ class_name SessionInterface
 @onready var deck_viewer: CardViewer = $Control/DeckViewer
 @onready var card_remover: CardRemover = $Control/CardRemover
 @onready var card_picker: CardPicker = $Control/CardPicker
-
+@onready var options_menu: OptionsMenu = $OptionsMenu
 
 func initialize():
 	var run:RunProgress = GlobalSessionManager.run_progress
@@ -86,3 +86,8 @@ func open_card_removal():
 func open_card_picker(cards:Array[CardData]):
 	card_picker.initialize(cards)
 	card_picker.visible = true
+
+
+func _on_settings_button_up() -> void:
+	options_menu.visible = true
+	pass # Replace with function body.

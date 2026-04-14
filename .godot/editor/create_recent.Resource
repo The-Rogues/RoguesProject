@@ -1,3 +1,3 @@
-res://battle_scene/win_screen/rewards_data/card_reward_data.gd
+res://content/scene_configuration/scripts/track_list.gd
 AtlasTexture
 Theme

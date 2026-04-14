@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjgvmw48aos73"
+path="res://.godot/imported/01 - Falling Apart (Prologue).wav-8c43096478a781a7798dac517c722f78.sample"
+
+[deps]
+
+source_file="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/wav/01 - Falling Apart (Prologue).wav"
+dest_files=["res://.godot/imported/01 - Falling Apart (Prologue).wav-8c43096478a781a7798dac517c722f78.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

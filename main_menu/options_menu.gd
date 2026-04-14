@@ -7,42 +7,21 @@
 extends Control
 class_name OptionsMenu
 
-signal close
 
-@onready var resolution_options: OptionButton = $OptionsMenuElements/MarginContainer/TabContainer/Graphics/Resolution/Options
-@onready var accessability_check_box: CheckBox = $OptionsMenuElements/MarginContainer/TabContainer/Accessability/VBoxContainer/CheckBox
-@onready var master_volume: HSlider = $OptionsMenuElements/MarginContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/MasterVolume
-@onready var configuration: LineEdit = $OptionsMenuElements/MarginContainer/TabContainer/Controls/VBoxContainer/HBoxContainer/Configuration
+@onready var settings_menu: PanelContainer = $SettingsMenu
 
 
-func _on_go_back_button_up() -> void:
-	visible = false
-	close.emit()
+func _on_settings_button_up() -> void:
+	settings_menu.visible = true
 	pass # Replace with function body.
 
-# TODO: Connect signals for each settings uption to a function that updates a
-# options resource, which will be used to configure systems
+
+func _on_main_menu_button_up() -> void:
+	visible = false
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAIN_MENU_PATH)
+	pass # Replace with function body.
 
 
-#When main menu button is pressed the scene tree changes to the main menu scene and deletes the current one. 
-func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://Menus/MainMenu/main_menu_scene.tscn")
-
-
-#As the volumne slide is changed it affects the music bus 
-func _on_music_slider_value_changed(value: float) -> void:
-	MusicManager.set_music_volume(value)
-	
-	#Change the value of the music bus 
-
-#How does this work? There is no literal signal here rn? 
-func _on_settings_pressed() -> void:
-	visible = true
-  
-
-func _on_master_volume_value_changed(value: float) -> void:
-	MusicManager.set_master_volume(value)
-
-
-func _on_music_on_off_toggled(toggled_on: bool) -> void:
-	MusicManager.set_music_enabled(toggled_on)
+func _on_close_button_up() -> void:
+	visible = false
+	pass # Replace with function body.

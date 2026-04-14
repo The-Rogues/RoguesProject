@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3odhwscbybpa"
+path="res://.godot/imported/22 - The Final of The Fantasy.ogg-8ea65f86d8006534755186c5ff366140.oggvorbisstr"
+
+[deps]
+
+source_file="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/22 - The Final of The Fantasy.ogg"
+dest_files=["res://.godot/imported/22 - The Final of The Fantasy.ogg-8ea65f86d8006534755186c5ff366140.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

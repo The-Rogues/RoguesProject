@@ -8,7 +8,8 @@ extends Control
 
 @onready var title_screen: Control = $TitleScreen
 @onready var save_screen: Control = $SaveScreen
-@onready var options_menu: OptionsMenu = $OptionsMenu
+@onready var settings_menu: PanelContainer = $SettingsMenu
+
 @onready var credits_menu: Control = $CreditsMenu
 @onready var close_menu: Control = $CloseMenu
 
@@ -18,11 +19,11 @@ func _ready() -> void:
 	GlobalSessionInterface.visible = false
 	
 	title_screen.visible = true
-	options_menu.visible = false
+	settings_menu.visible = false
 	credits_menu.visible = false
 	close_menu.visible = false
 	save_screen.visible = false
-	options_menu.close.connect(show_main_menu)
+	MusicManager.change_song(MusicManager.track_list.main_menu)
 
 
 func show_main_menu():
@@ -36,8 +37,8 @@ func _on_start_clicked() -> void:
 
 
 func _on_options_clicked() -> void:
-	options_menu.visible = true
-	title_screen.visible = false
+	settings_menu.visible = true
+	#title_screen.visible = false
 	pass # Replace with function body.
 
 
