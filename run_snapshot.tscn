@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="5_fmm5i"]
 [ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="6_fmm5i"]
 
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb5tk"]
 bg_color = Color(0, 0, 0, 1)
 

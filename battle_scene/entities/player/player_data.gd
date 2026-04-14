@@ -112,6 +112,8 @@ func get_cards_as_instances() -> Array[CardInstance]:
 	
 	return card_instances
 
+func can_buy_card(price: int):
+	return gold >= price
 
 func connect_to_player_entity(player:PlayerEntity):
 	player.health.health_changed.connect(set_health)

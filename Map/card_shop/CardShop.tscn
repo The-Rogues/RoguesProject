@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://doa28g4c3fgsn"]
+
+[ext_resource type="Script" uid="uid://dvkefripdllhr" path="res://Map/card_shop/CardShop_scn_main.gd" id="1_6rf22"]
+[ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-004.png" id="2_4mvj2"]
+[ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://shop_scenes/shop_keepers/shop_keeper_varient_1.tres" id="3_tqj6l"]
+[ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://shop_scenes/shop_keepers/shop_keeper_varient_2.tres" id="4_k0fth"]
+[ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://common/particle_effects/star_pop.tscn" id="4_xt6v3"]
+[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="5_4wnoc"]
+[ext_resource type="Texture2D" uid="uid://cgkstjg1haxst" path="res://shop_scenes/shop_keepers/shop_keeper_varient_3.tres" id="5_6lwlb"]
+[ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://shop_scenes/shop_keepers/shop_desk.tres" id="7_g43wp"]
+[ext_resource type="Texture2D" uid="uid://d2d4b83w6j3r" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-004.png" id="8_u8vlw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_fl73y"]
+[ext_resource type="Script" uid="uid://li2p5xh3pjl3" path="res://Map/card_shop/UI/shop_card_interface.gd" id="11_rny4w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jn6m1"]
+texture = ExtResource("2_4mvj2")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Shader" id="Shader_q0abo"]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	COLOR = mix(texture_color, flash_color, flash_value);
+	COLOR.a = texture_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8vlw"]
+resource_local_to_scene = true
+shader = SubResource("Shader_q0abo")
+shader_parameter/flash_color = Color(0.90186185, 0.90186185, 0.90186185, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wnoc"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("8_u8vlw")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[node name="CardShop" type="Control" unique_id=641400253]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6rf22")
+shop_keeper_varients = Array[Texture2D]([ExtResource("5_4wnoc"), ExtResource("3_tqj6l"), ExtResource("4_k0fth"), ExtResource("5_6lwlb")])
+
+[node name="Panel" type="Panel" parent="." unique_id=1473385364]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jn6m1")
+
+[node name="ShopKeeper" type="Node2D" parent="." unique_id=1554510282]
+position = Vector2(609, 326)
+scale = Vector2(2, 2)
+
+[node name="DamageParticles" parent="ShopKeeper" unique_id=232237618 instance=ExtResource("4_xt6v3")]
+texture_filter = 1
+
+[node name="SpriteRoot" type="Node2D" parent="ShopKeeper" unique_id=1258162974]
+position = Vector2(0, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="ShopKeeper/SpriteRoot" unique_id=1194974930]
+texture_filter = 1
+material = SubResource("ShaderMaterial_u8vlw")
+position = Vector2(187.5, 57)
+scale = Vector2(2, 2)
+texture = ExtResource("5_4wnoc")
+offset = Vector2(0, -16)
+
+[node name="EntityAnimator" type="AnimationPlayer" parent="ShopKeeper" unique_id=10931548]
+
+[node name="ShopDesk" type="Sprite2D" parent="." unique_id=1766384541]
+texture_filter = 1
+position = Vector2(928, 480)
+scale = Vector2(2, 2)
+texture = ExtResource("7_g43wp")
+
+[node name="ShopDesk2" type="Sprite2D" parent="." unique_id=1821723708]
+texture_filter = 1
+position = Vector2(992, 480)
+scale = Vector2(2, 2)
+texture = ExtResource("7_g43wp")
+
+[node name="ShopDesk3" type="Sprite2D" parent="." unique_id=1473548851]
+texture_filter = 1
+position = Vector2(1056, 480)
+scale = Vector2(2, 2)
+texture = ExtResource("7_g43wp")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=85772092]
+texture_filter = 1
+custom_minimum_size = Vector2(1024, 256)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 1104.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4wnoc")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer" unique_id=846722194]
+layout_mode = 2
+
+[node name="CardSell" type="FlowContainer" parent="PanelContainer/ScrollContainer" unique_id=125529091]
+custom_minimum_size = Vector2(984, 400)
+layout_mode = 2
+theme_override_constants/h_separation = 50
+script = ExtResource("11_rny4w")
+transaction_type = 1
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer" unique_id=656533942]
+layout_mode = 2
+
+[node name="CardShop" type="FlowContainer" parent="PanelContainer/ScrollContainer2" unique_id=1390047776]
+custom_minimum_size = Vector2(984, 400)
+layout_mode = 2
+theme_override_constants/h_separation = 50
+script = ExtResource("11_rny4w")
+
+[node name="MenuOptions" type="HBoxContainer" parent="." unique_id=1666859707]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.025
+offset_left = 128.0
+offset_top = 528.0
+offset_right = 1036.0
+offset_bottom = 576.8
+
+[node name="Shop" type="Button" parent="MenuOptions" unique_id=1820250584]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("9_fl73y")
+theme_override_font_sizes/font_size = 32
+text = "SHOP"
+
+[node name="Sell" type="Button" parent="MenuOptions" unique_id=1147817415]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("9_fl73y")
+theme_override_font_sizes/font_size = 32
+text = "SELL"
+
+[node name="Leave" type="Button" parent="MenuOptions" unique_id=1171272970]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("9_fl73y")
+theme_override_font_sizes/font_size = 32
+text = "Leave"
+
+[connection signal="animation_finished" from="ShopKeeper/EntityAnimator" to="ShopKeeper/EntityAnimator" method="_on_animation_finished"]
+[connection signal="button_up" from="MenuOptions/Shop" to="." method="_on_shop_button_up"]
+[connection signal="button_up" from="MenuOptions/Sell" to="." method="_on_sell_button_up"]
+[connection signal="button_up" from="MenuOptions/Leave" to="." method="_on_leave_button_up"]

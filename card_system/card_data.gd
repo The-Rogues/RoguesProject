@@ -13,6 +13,7 @@ enum Type {ATTACK, RANGED, SKILL, POWER, AI, JUNK}
 @export_multiline var description:String = "Card Description"
 @export var exhaust_after_play:bool = false
 @export var play_actions:Array[Action]
+@export var shop_price = 50
 #TODO: Experiment with cards having display image 
 
 

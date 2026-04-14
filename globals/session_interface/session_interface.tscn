@@ -28,7 +28,6 @@ texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmvr3"]
-load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vipf"]
 atlas = SubResource("CompressedTexture2D_rmvr3")
