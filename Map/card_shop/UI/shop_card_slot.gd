@@ -17,7 +17,7 @@ func _ready() -> void:
 	if card_ui:
 		card_ui.clicked.connect(_on_card_ui_clicked)
 
-func initialize(card_data: CardData, new_index: int, transaction_type: int) -> void:
+func initialize(card_data: CardInstance, new_index: int, transaction_type: int) -> void:
 	index = new_index
 	transaction_completed = false
 
@@ -25,10 +25,10 @@ func initialize(card_data: CardData, new_index: int, transaction_type: int) -> v
 		sold_label.visible = false
 
 	if card_ui:
-		card_ui.set_card_data(card_data)
+		card_ui.initialize(card_data)
 
 	if cost_label:
-		cost_label.text = str(card_data.shop_price)
+		cost_label.text = str(card_data.data.shop_price)
 
 func confirm_transaction() -> void:
 	transaction_completed = true

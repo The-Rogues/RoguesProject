@@ -1,6 +1,6 @@
 extends Control
 
-#const SHARED_CARDS = preload("res://Battle/Loot/shared_card_reward_pool.tres")
+const CARDS = preload("res://content/items/card_packs/common_card_pack.tres")
 
 @export var random_shop_card_count:int = 9
 @export var shop_keeper_varients:Array[Texture2D]
@@ -13,10 +13,10 @@ extends Control
 @onready var shop_keeper_animator: AnimationPlayer = $ShopKeeper/EntityAnimator
 @onready var shop_keeper_sprite: Sprite2D = $ShopKeeper/SpriteRoot/Sprite2D
 
-var shop_cards:Array[CardData] = []
-var selected_card:CardData
+var shop_cards:Array[CardInstance] = []
+var selected_card:CardInstance
 var selected_card_index:int = -1
-var sell_cards:Array[CardData] = []
+var sell_cards:Array[CardInstance] = []
 
 func _ready() -> void:
 	GlobalSessionInterface.visible = true
@@ -26,15 +26,16 @@ func _ready() -> void:
 	sell_scroll.visible = false
 	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	#var cards = SHARED_CARDS.get_items(random_shop_card_count)
-	var cards: Array[CardData]= []
-	add_cards_for_sale(cards)
+	var shuffled_cards = CARDS.card_pool.duplicate()
+	shuffled_cards.shuffle()
 
+	for i in range(3):
+		shop_cards.append(CardInstance.new(shuffled_cards[i]))
 	card_shop_interface.initialize(shop_cards)
 	card_shop_interface.selected_card.connect(_on_selected_card)
 
 	if GlobalSessionManager.run_progress:
-		sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
+		sell_cards = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
 	else:
 		sell_cards = []
 
@@ -47,11 +48,6 @@ func _ready() -> void:
 	if not shop_keeper_varients.is_empty():
 		shop_keeper_sprite.texture = shop_keeper_varients.pick_random()
 
-func add_cards_for_sale(cards:Array[CardData]) -> void:
-	for card in cards:
-		shop_cards.append(card)
-
-	card_shop_interface.initialize(shop_cards)
 
 func _on_selected_card(index:int, transaction_type:int, transaction_completed:bool) -> void:
 	if transaction_type == 0:
@@ -68,25 +64,26 @@ func _on_selected_card(index:int, transaction_type:int, transaction_completed:bo
 		
 
 func _on_buy_card():
-	if GlobalSessionManager.buy_card(selected_card):
-		card_shop_interface.confirm_transaction(selected_card_index)
+	if !GlobalSessionManager.run_progress.player_data.can_buy_card(selected_card.data.shop_price):
+		return
 
-	if GlobalSessionManager.run_progress:
-		sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
-	else:
-		sell_cards = []
-	card_sell_interface.initialize(sell_cards)
-
+	GlobalSessionManager.run_progress.player_data.add_card(selected_card.data)
+	GlobalSessionManager.run_progress.player_data.set_gold(
+					GlobalSessionManager.run_progress.player_data.gold - selected_card.data.shop_price)
+	card_sell_interface.confirm_transaction(selected_card_index)
+					
 	selected_card = null
 	selected_card_index = -1
 
 func _on_sell_card():
-	if GlobalSessionManager.sell_card(selected_card):
-		card_sell_interface.confirm_transaction(selected_card_index)
-
-	sell_cards = GlobalSessionManager.run_progress.card_deck.cards.duplicate()
+	sell_cards = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
 	card_sell_interface.initialize(sell_cards)
 	
+	GlobalSessionManager.run_progress.player_data.remove_card(selected_card.data)
+	GlobalSessionManager.run_progress.player_data.set_gold(
+					GlobalSessionManager.run_progress.player_data.gold + selected_card.data.shop_price)
+	card_sell_interface.confirm_transaction(selected_card_index)
+					
 	selected_card = null
 	selected_card_index = -1
 	

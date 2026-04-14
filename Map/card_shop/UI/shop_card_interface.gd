@@ -11,7 +11,7 @@ enum TransactionType { BUY, SELL }
 @export var transaction_type:TransactionType
 
 
-func initialize(cards:Array[CardData]) -> void:
+func initialize(cards:Array[CardInstance]) -> void:
 	clear_card_slots()
 
 	if cards.is_empty():
@@ -29,7 +29,7 @@ func clear_card_slots() -> void:
 	await get_tree().process_frame
 
 
-func create_shop_card_slot(card_data:CardData, index:int) -> void:
+func create_shop_card_slot(card_data:CardInstance, index:int) -> void:
 	var shop_slot:ShopCardSlot = SHOP_CARD_SLOT.instantiate()
 	add_child(shop_slot)
 	shop_slot.initialize(card_data, index, transaction_type)

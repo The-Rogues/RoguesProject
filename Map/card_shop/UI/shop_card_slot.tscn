@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dysj5viwvovgr"]
 
 [ext_resource type="Script" uid="uid://caa06x6u343k4" path="res://Map/card_shop/UI/shop_card_slot.gd" id="1_3qvyr"]
-[ext_resource type="PackedScene" uid="uid://b6kxom317vkry" path="res://Cards/UI/card.tscn" id="1_s38qa"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="2_3qvyr"]
+[ext_resource type="PackedScene" uid="uid://b6kxom317vkry" path="res://card_system/card.tscn" id="1_s38qa"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_3qvyr"]
 
 [node name="ShopCardSlot" type="Control" unique_id=1254543140]
 custom_minimum_size = Vector2(128, 200)

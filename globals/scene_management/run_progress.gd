@@ -21,7 +21,7 @@ var player_backstory:String = "Has an unkown past"
 # Map progress tracking member values
 # -------------------------------------------------
 var run_map: MapManager
-@export var map_seed: int = 0
+var map_seed: int = 0
 var floor_progress:int = 1
 var current_floor:int = 1
 var player_node_index: int = 0
