@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dadt4soexvrc5"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_frr73"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_ynnsk"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_rqa8x"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="3_6ursn"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="3_ynnsk"]
+
+[sub_resource type="Resource" id="Resource_6ursn"]
+script = ExtResource("3_6ursn")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_v6oie"]
+script = ExtResource("2_rqa8x")
+behaviour = SubResource("Resource_6ursn")
+duration = 4
+stack = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_a11al"]
+script = ExtResource("3_ynnsk")
+effect = SubResource("Resource_v6oie")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("1_frr73")
+type = 1
+intent_icon = ExtResource("1_ynnsk")
+name = "Grow"
+description = "This Enemy Intends to apply a buff"
+primary_action = SubResource("Resource_a11al")
+metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://peru0wapt4c8"]
+
+[ext_resource type="Script" uid="uid://cmexwdhvvqh5l" path="res://testing_and_prototypes/ItemTester/add_item_menu.gd" id="1_8p0en"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_jsypc"]
+[ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://content/items/apple/apple_healing_item_data.tres" id="3_6si53"]
+[ext_resource type="Resource" uid="uid://cnlu0t2x62ws6" path="res://content/items/barricade/barricade_item_data.tres" id="4_ugfjp"]
+[ext_resource type="Resource" uid="uid://bd2ynpbh5j0kj" path="res://content/items/cheese/cheese_item_data.tres" id="5_h885g"]
+[ext_resource type="Resource" uid="uid://dlviwum7qlyod" path="res://content/items/bread/bread_healing_item_data.tres" id="6_j5dww"]
+[ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="7_f25c6"]
+[ext_resource type="Resource" uid="uid://dnpnr60u7xv62" path="res://content/items/diamong/diamond_item_data.tres" id="8_irxfw"]
+[ext_resource type="Resource" uid="uid://crt46sxdbx2pm" path="res://content/items/dummy/dummy_item_data.tres" id="9_hcgci"]
+[ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/energy_potion/energy_poiton_upgrade_item_data.tres" id="12_hqtqt"]
+[ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/health_potion/health_potion_character_upgrade_item_data.tres" id="13_mdkpc"]
+[ext_resource type="Resource" uid="uid://c1akblk4le2jm" path="res://content/items/repeat_potion/repeat_potion_item_data.tres" id="14_gvnpo"]
+[ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://content/items/item_pouch/pouch_item_data.tres" id="14_jsypc"]
+[ext_resource type="Resource" uid="uid://4p1d4nfy0a1f" path="res://content/items/forbidden_relic/forbidden_relic_item_data.tres" id="16_h885g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsypc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6si53"]
+load_path = "res://.godot/imported/panel-015.png-417a7e43482b7c736af1101b76b0db59.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ugfjp"]
+texture = SubResource("CompressedTexture2D_6si53")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="AddItemMenu" type="PanelContainer" unique_id=1054821754]
+custom_minimum_size = Vector2(180, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsypc")
+script = ExtResource("1_8p0en")
+items = Array[ExtResource("2_jsypc")]([ExtResource("3_6si53"), ExtResource("4_ugfjp"), ExtResource("6_j5dww"), ExtResource("5_h885g"), ExtResource("7_f25c6"), ExtResource("8_irxfw"), ExtResource("9_hcgci"), ExtResource("16_h885g"), ExtResource("14_gvnpo"), ExtResource("12_hqtqt"), ExtResource("13_mdkpc"), ExtResource("14_jsypc")])
+
+[node name="Panel" type="Panel" parent="." unique_id=1354529598]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ugfjp")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=870097834]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=935658145]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 2
+horizontal_scroll_mode = 0
+scroll_hint_mode = 3
+tile_scroll_hint = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=270155447]
+layout_mode = 2

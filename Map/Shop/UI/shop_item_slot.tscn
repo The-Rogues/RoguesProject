@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://bhoyj47vo0mi6"]
 
 [ext_resource type="Script" uid="uid://d2s43svsd0p8j" path="res://Map/Shop/UI/shop_item_slot.gd" id="1_a70tv"]
-[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-015.png" id="2_q8lr2"]
-[ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-000.png" id="3_lgvpc"]
-[ext_resource type="Texture2D" uid="uid://3yhuy07634st" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-009.png" id="4_dlxbw"]
-[ext_resource type="Texture2D" uid="uid://k7mt5uhwsy0h" path="res://Items/Data/HealthPotion/health_potion_texture.tres" id="5_k7r5e"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="6_ixjsq"]
+[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="2_q8lr2"]
+[ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-000.png" id="3_lgvpc"]
+[ext_resource type="Texture2D" uid="uid://3yhuy07634st" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-009.png" id="4_dlxbw"]
+[ext_resource type="Texture2D" uid="uid://k7mt5uhwsy0h" path="res://content/items/health_potion/health_potion_texture.tres" id="5_k7r5e"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="6_ixjsq"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="7_qmqrq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffdei"]
 atlas = ExtResource("2_q8lr2")
+
+[sub_resource type="Curve" id="Curve_cvmmy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5042373, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="ShopItemSlot" type="Control" unique_id=1515963044]
 custom_minimum_size = Vector2(64, 64)
@@ -87,9 +92,31 @@ text = "Sold"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Debug" type="Control" parent="." unique_id=210475969]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="RarityParticles" type="CPUParticles2D" parent="." unique_id=263190460]
+position = Vector2(30, 33)
+emitting = false
+amount = 7
+texture = ExtResource("7_qmqrq")
+speed_scale = 0.3
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(16, 16)
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_cvmmy")
+color = Color(1, 0.7474888, 0.5778259, 1)
+
+[node name="BoughtParticles" type="CPUParticles2D" parent="." unique_id=1434877854]
+position = Vector2(30, 33)
+emitting = false
+amount = 5
+texture = ExtResource("7_qmqrq")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 25.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_cvmmy")
 
 [connection signal="button_up" from="VBoxContainer/ItemIcon" to="." method="_on_item_slot_clicked"]

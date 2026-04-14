@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://ck1tj3cj82hbk"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_u5jvk"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_6k3ak"]
+[ext_resource type="Resource" uid="uid://bjmif7jljymoe" path="res://content/cards/traitless_cards/defend.tres" id="2_31c1a"]
+
+[resource]
+script = ExtResource("2_6k3ak")
+name = "Skittish"
+description = "Easy to scare. Targets weakest Enemies. Uses defensive objects."
+trait_category = 1
+enemy_targeting_preference = 1
+card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_31c1a")])
+starter_cards = Array[ExtResource("1_u5jvk")]([ExtResource("2_31c1a"), ExtResource("2_31c1a"), ExtResource("2_31c1a"), ExtResource("2_31c1a")])
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

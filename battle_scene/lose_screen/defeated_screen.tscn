@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://dokqnl4uskuu7"]
+
+[ext_resource type="Script" uid="uid://diu2ohf5stfwf" path="res://battle_scene/lose_screen/defeated_screen.gd" id="1_r8yrt"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_ngur6"]
+[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="3_e0hon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ymu1"]
+bg_color = Color(0.49703765, 0.59558344, 0.60900867, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.34281257, 0.07031446, 0.41862708, 1)
+border_blend = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pg3n7"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6tjxt"]
+texture = SubResource("CompressedTexture2D_pg3n7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4dh3"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nec1o"]
+texture = SubResource("CompressedTexture2D_s4dh3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3w7x8"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucvt5"]
+texture = SubResource("CompressedTexture2D_3w7x8")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cs0yw"]
+texture = ExtResource("3_e0hon")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="DefeatedScreen" type="Control" unique_id=343540286]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r8yrt")
+
+[node name="Background" type="ColorRect" parent="." unique_id=233486673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8117647)
+
+[node name="DefeatHeader" type="Panel" parent="." unique_id=448103290]
+custom_minimum_size = Vector2(449, 41)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -201.0
+offset_right = 223.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(166, 15)
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ymu1")
+
+[node name="DefeatLabel" type="Label" parent="DefeatHeader" unique_id=1115817430]
+texture_filter = 1
+custom_minimum_size = Vector2(232, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -4.5
+offset_right = 54.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.11994325, 0.17181185, 0.28474396, 1)
+theme_override_fonts/font = ExtResource("2_ngur6")
+theme_override_font_sizes/font_size = 32
+text = "Defeated"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RunSummaryLabel" type="RichTextLabel" parent="." unique_id=976652938]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 290)
+layout_mode = 0
+offset_left = 381.0
+offset_top = 184.0
+offset_right = 781.0
+offset_bottom = 474.0
+theme_override_constants/line_separation = 8
+theme_override_fonts/normal_font = ExtResource("2_ngur6")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "Rogue: Name
+Room: 0
+Total Gold: 0
+Total Items: 0
+Total Cards: 0
+
+"
+
+[node name="EndRun" type="Button" parent="." unique_id=540064104]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 150.0
+offset_right = 98.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("2_ngur6")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_6tjxt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nec1o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ucvt5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cs0yw")
+text = "Continue"
+
+[connection signal="button_up" from="EndRun" to="." method="_on_end_run_button_up"]

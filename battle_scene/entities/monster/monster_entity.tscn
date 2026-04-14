@@ -1,0 +1,246 @@
+[gd_scene format=3 uid="uid://bnfejx84ush8n"]
+
+[ext_resource type="Script" uid="uid://cfg1ym5fyuvj6" path="res://battle_scene/entities/monster/monster_entity.gd" id="1_834fu"]
+[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="2_5dmgd"]
+[ext_resource type="Script" uid="uid://b3barw1bqu4tk" path="res://common/stat_components/health.gd" id="2_834fu"]
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_g2vwf"]
+[ext_resource type="Script" uid="uid://cq0ofbmvfv5qo" path="res://common/hit_flash/hit_flash.gd" id="3_5dmgd"]
+[ext_resource type="Script" uid="uid://8j8s66tfhuvg" path="res://common/stat_components/block.gd" id="3_g2vwf"]
+[ext_resource type="Script" uid="uid://6mivq3t47aoh" path="res://battle_scene/entities/projectiles/projectile_launcher.gd" id="3_v2pkr"]
+[ext_resource type="Script" uid="uid://b7m80cndvmobf" path="res://battle_scene/entities/status_effects/status_effect_controller.gd" id="4_8ijsm"]
+[ext_resource type="PackedScene" uid="uid://nxd0nkvcjmf6" path="res://battle_scene/entities/ui/creature_stat_display.tscn" id="7_1hoga"]
+[ext_resource type="PackedScene" uid="uid://5dltxoue1tck" path="res://battle_scene/entities/monster/intents/intent_icon.tscn" id="8_834fu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ijsm"]
+resource_local_to_scene = true
+atlas = ExtResource("2_g2vwf")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="Animation" id="Animation_wf7sx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dkpvf"]
+resource_name = "flash"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/flash_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5g0cs"]
+_data = {
+&"RESET": SubResource("Animation_wf7sx"),
+&"flash": SubResource("Animation_dkpvf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x21no"]
+size = Vector2(50, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elg6u"]
+size = Vector2(48, 59)
+
+[sub_resource type="Animation" id="Animation_h4tnt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g2vwf"]
+resource_name = "attack"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -12), Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_1hoga"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_834fu"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_8ijsm"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -20), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2vwf"]
+_data = {
+&"RESET": SubResource("Animation_h4tnt"),
+&"attack": SubResource("Animation_g2vwf"),
+&"death": SubResource("Animation_1hoga"),
+&"idle": SubResource("Animation_834fu"),
+&"walk": SubResource("Animation_8ijsm")
+}
+
+[node name="MonsterEntity" type="Node2D" unique_id=1521707546 node_paths=PackedStringArray("effects", "block", "animation_player", "stat_display", "health", "projectile_launcher")]
+script = ExtResource("1_834fu")
+effects = NodePath("Stats/StatusEffectController")
+block = NodePath("Stats/Block")
+animation_player = NodePath("AnimationPlayer")
+stat_display = NodePath("CreatureStatDisplay")
+health = NodePath("Stats/Health")
+projectile_launcher = NodePath("ProjectileLauncher")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1880824651]
+texture_filter = 1
+material = ExtResource("2_5dmgd")
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_8ijsm")
+offset = Vector2(0, -16)
+script = ExtResource("3_5dmgd")
+
+[node name="HitFlash" type="AnimationPlayer" parent="Sprite2D" unique_id=213106559]
+libraries/ = SubResource("AnimationLibrary_5g0cs")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=230165893]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1270511977]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_x21no")
+
+[node name="CollisionBox" type="StaticBody2D" parent="." unique_id=219449472]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox" unique_id=1595754214]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_elg6u")
+debug_color = Color(0.8117647, 0.25882354, 0.79607844, 0.41960785)
+
+[node name="ProjectileLauncher" type="Node2D" parent="." unique_id=548159805 node_paths=PackedStringArray("fire_delay", "fire_point")]
+script = ExtResource("3_v2pkr")
+fire_delay = NodePath("FireDelayTimer")
+fire_point = NodePath("FirePoint")
+
+[node name="FirePoint" type="Node2D" parent="ProjectileLauncher" unique_id=162586438]
+position = Vector2(0, 40)
+
+[node name="FireDelayTimer" type="Timer" parent="ProjectileLauncher" unique_id=1627663332]
+
+[node name="Stats" type="Node" parent="." unique_id=1881044145]
+
+[node name="Health" type="Node" parent="Stats" unique_id=1859536906]
+script = ExtResource("2_834fu")
+
+[node name="Block" type="Node" parent="Stats" unique_id=610220932]
+script = ExtResource("3_g2vwf")
+
+[node name="StatusEffectController" type="Node" parent="Stats" unique_id=1818826524 node_paths=PackedStringArray("affected_creature")]
+script = ExtResource("4_8ijsm")
+affected_creature = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=108275713]
+libraries/ = SubResource("AnimationLibrary_g2vwf")
+
+[node name="CreatureStatDisplay" parent="." unique_id=1848121133 instance=ExtResource("7_1hoga")]
+offset_left = -38.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="IntentIcon" parent="." unique_id=1912680910 instance=ExtResource("8_834fu")]
+offset_left = -19.0
+offset_top = -101.0
+offset_right = 21.0
+offset_bottom = -61.0
+
+[node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1596181474]
+position = Vector2(0, -45)

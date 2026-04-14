@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c8fjy4bbkpyn"]
+
+[ext_resource type="Script" uid="uid://c2ik5xwkeeay3" path="res://testing_and_prototypes/DamagePopUpTester/pop_text_button.gd" id="1_fdoex"]
+
+[node name="Control" type="Control" unique_id=1544658289]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=1387719429]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 256.0
+offset_right = 528.0
+offset_bottom = 287.0
+text = "test"
+script = ExtResource("1_fdoex")
+
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]

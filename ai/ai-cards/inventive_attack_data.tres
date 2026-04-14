@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="AiCardData" format=3 uid="uid://d1bplvxmsevih"]
 
-[ext_resource type="Script" uid="uid://bwes3ofvkbg00" path="res://ai/scripts/CardGenOption.gd" id="1_hatog"]
-[ext_resource type="Script" uid="uid://bekh8ffmsdvll" path="res://ai/callbacks/inventive_attack_script.gd" id="2_blhjp"]
-[ext_resource type="Script" uid="uid://coe73fjq2porr" path="res://Battle/Actions/battle_action.gd" id="2_dtr1v"]
-[ext_resource type="Script" uid="uid://cjwj13hduiyqg" path="res://ai/scripts/AiCardData.gd" id="2_kvbsq"]
-[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://Battle/Actions/battle_move.gd" id="3_blhjp"]
+[ext_resource type="Script" uid="uid://bwes3ofvkbg00" path="res://AI/scripts/CardGenOption.gd" id="1_hatog"]
+[ext_resource type="Script" uid="uid://bekh8ffmsdvll" path="res://AI/callbacks/inventive_attack_script.gd" id="2_blhjp"]
+[ext_resource type="Script" uid="uid://cjwj13hduiyqg" path="res://AI/scripts/AiCardData.gd" id="2_kvbsq"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="3_dg5p3"]
 
 [sub_resource type="Resource" id="Resource_dtr1v"]
 script = ExtResource("1_hatog")
@@ -38,17 +37,12 @@ metadata/_custom_type_script = "uid://bwes3ofvkbg00"
 script = ExtResource("1_hatog")
 metadata/_custom_type_script = "uid://bwes3ofvkbg00"
 
-[sub_resource type="Resource" id="Resource_5oey5"]
-script = ExtResource("3_blhjp")
-name = "Invent Attack"
-description = "Invent an attack that deals at least 6 damage."
-metadata/_custom_type_script = "uid://c410dannt5adg"
-
 [resource]
 script = ExtResource("2_kvbsq")
 default_option = SubResource("Resource_d3v1g")
 ai_options = Array[ExtResource("1_hatog")]([SubResource("Resource_dtr1v"), SubResource("Resource_blhjp"), SubResource("Resource_m63u2"), SubResource("Resource_uxxj8"), SubResource("Resource_5dlov")])
 gen_callback = ExtResource("2_blhjp")
-discard_after_play = true
-move = SubResource("Resource_5oey5")
+name = "Attack Idea"
+description = "Generate a Attack Card."
+exhaust_after_play = true
 metadata/_custom_type_script = "uid://cjwj13hduiyqg"

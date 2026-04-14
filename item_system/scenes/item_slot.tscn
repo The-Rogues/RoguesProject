@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://lfhprii04oaq"]
+
+[ext_resource type="Script" uid="uid://dy3l0kroo73vm" path="res://item_system/scenes/item_slot.gd" id="1_8dcad"]
+[ext_resource type="Texture2D" uid="uid://j6owptcpnwp5" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-001.png" id="2_cy2mh"]
+[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="2_r2rxh"]
+[ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-000.png" id="3_1ydva"]
+[ext_resource type="Texture2D" uid="uid://3yhuy07634st" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-009.png" id="4_l2vr4"]
+[ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://content/items/apple/apple_texture.tres" id="5_0c6vn"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="6_wh71w"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="7_ad4wt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c6vn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffdei"]
+atlas = ExtResource("2_cy2mh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cy2mh"]
+load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbytk"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("CompressedTexture2D_cy2mh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.6158282, 0.6158286, 0.6158285, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fdyqf"]
+load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htng3"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("CompressedTexture2D_fdyqf")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.12638998, 0.08899232, 0.2347863, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yhjb8"]
+load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbiwj"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("CompressedTexture2D_yhjb8")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.3681025, 0.36810178, 0.36810192, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dbytk"]
+load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdyqf"]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = SubResource("CompressedTexture2D_dbytk")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.22094178, 0.2209413, 0.2209414, 1)
+
+[node name="ItemSlot" type="Control" unique_id=1515963044 node_paths=PackedStringArray("item_icon_button", "item_texture_rect", "contents", "context_panel", "use_button")]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 42.0
+offset_bottom = 42.0
+mouse_filter = 2
+script = ExtResource("1_8dcad")
+item_icon_button = NodePath("Panel/ItemIcon")
+item_texture_rect = NodePath("Panel/ItemIcon/Item")
+contents = NodePath("Contents")
+context_panel = NodePath("Contents/ContextPanel")
+use_button = NodePath("Contents/Use")
+
+[node name="Panel" type="Panel" parent="." unique_id=1088401152]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0c6vn")
+
+[node name="ItemIcon" type="TextureButton" parent="Panel" unique_id=1774552831]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_ffdei")
+texture_pressed = ExtResource("3_1ydva")
+texture_hover = ExtResource("4_l2vr4")
+texture_disabled = ExtResource("2_r2rxh")
+texture_focused = ExtResource("2_r2rxh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Item" type="TextureRect" parent="Panel/ItemIcon" unique_id=1402585597]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_0c6vn")
+
+[node name="Contents" type="VBoxContainer" parent="." unique_id=1698608676]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -82.0
+offset_top = 42.0
+offset_right = 133.0
+offset_bottom = 166.0
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ContextPanel" parent="Contents" unique_id=1838000936 instance=ExtResource("7_ad4wt")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Use" type="Button" parent="Contents" unique_id=1654686290]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_wh71w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dbytk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_htng3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qbiwj")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fdyqf")
+text = "Use"
+
+[node name="Discard" type="Button" parent="Contents" unique_id=1929762955]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_wh71w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dbytk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_htng3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qbiwj")
+text = "Discard"
+
+[connection signal="button_up" from="Panel/ItemIcon" to="." method="_on_item_slot_clicked"]
+[connection signal="button_up" from="Contents/Use" to="." method="_on_use_button_up"]
+[connection signal="button_up" from="Contents/Discard" to="." method="_on_discard_button_up"]

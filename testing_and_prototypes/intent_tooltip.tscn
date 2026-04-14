@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cmxjtwti82pht"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_ec77l"]
+[ext_resource type="Script" uid="uid://bdq7arggbnn6y" path="res://testing_and_prototypes/intent_tooltip.gd" id="2_t4rqn"]
+
+[node name="IntentTooltip" type="PanelContainer" unique_id=2004448281]
+texture_filter = 1
+offset_right = 220.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme = ExtResource("1_ec77l")
+script = ExtResource("2_t4rqn")
+
+[node name="ToolTipLabel" type="RichTextLabel" parent="." unique_id=118917575]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[color=gold]Intent name[/color][img]res://battle_scene/entities/monster/intents/attack_icon.tres[/img]
+This enemy intends to attack for 6 to 9 damage."
+fit_content = true

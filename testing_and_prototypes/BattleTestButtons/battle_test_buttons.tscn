@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://7doidnfxvws4"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_kbqik"]
+[ext_resource type="Script" uid="uid://cn55mymxubtt5" path="res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.gd" id="2_jig8v"]
+[ext_resource type="PackedScene" uid="uid://peru0wapt4c8" path="res://testing_and_prototypes/ItemTester/AddItemMenu.tscn" id="3_1tvcq"]
+
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7wg1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1tvcq"]
+load_path = "res://.godot/imported/panel-015.png-417a7e43482b7c736af1101b76b0db59.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccss1"]
+texture = SubResource("CompressedTexture2D_1tvcq")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="BattleTestButtons" type="PanelContainer" unique_id=98555504]
+texture_filter = 1
+custom_minimum_size = Vector2(171, 40)
+offset_right = 125.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_i7wg1")
+script = ExtResource("2_jig8v")
+
+[node name="Panel" type="Panel" parent="." unique_id=741414569]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_ccss1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1836151258]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1536826689]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1236967739]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.8156863, 0.67058825, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 13
+text = "Debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1870704031]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Win" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1476342063]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "Win Button"
+
+[node name="DamagePlayer" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1989905889]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "Damage player"
+
+[node name="DamageEnemy" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1689253005]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "Damage Enemy"
+
+[node name="AddCard" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1472989463]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "Draw Card"
+
+[node name="AddGold" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=140334101]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "Increase Gold"
+
+[node name="ItemMenu" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1277512846]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "ItemMenu"
+
+[node name="AddItemMenu" parent="MarginContainer/HBoxContainer/Options/ItemMenu" unique_id=1054821754 instance=ExtResource("3_1tvcq")]
+visible = false
+layout_mode = 0
+offset_left = 159.0
+offset_top = -163.0
+offset_right = 339.0
+offset_bottom = 45.0
+
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/Label" to="." method="_on_label_gui_input"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/Win" to="." method="_on_win_button_up"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Options/DamagePlayer" to="." method="_on_damage_player_pressed"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/DamageEnemy" to="." method="_on_damage_enemy_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/AddCard" to="." method="_on_draw_card_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/AddGold" to="." method="_on_add_gold_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/ItemMenu" to="." method="_on_item_menu_button_up"]

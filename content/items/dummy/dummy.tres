@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://5jvatswdj8xn"]
+
+[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="1_1rkbi"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_r3dd3"]
+
+[resource]
+script = ExtResource("1_r3dd3")
+role = 3
+display_texture = ExtResource("1_1rkbi")
+name = "Dummy"
+health = 45
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

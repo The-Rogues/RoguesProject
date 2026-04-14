@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dakc5suydn7cx"]
+
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://battle_scene/entities/monster/intents/projectile_icon.tres" id="1_ffhif"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_wob1n"]
+[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="2_stsp4"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_sr6lx"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_c48h6"]
+
+[sub_resource type="Resource" id="Resource_tthh1"]
+script = ExtResource("3_sr6lx")
+projectile_scene = ExtResource("2_stsp4")
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_yt5uj"]
+script = ExtResource("4_c48h6")
+projectile_config = SubResource("Resource_tthh1")
+target_option = 1
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("1_wob1n")
+intent_icon = ExtResource("1_ffhif")
+name = "Fire Spit"
+description = "This Enemy intends to fire a projectile."
+primary_action = SubResource("Resource_yt5uj")
+metadata/_custom_type_script = "uid://c410dannt5adg"

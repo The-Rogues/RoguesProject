@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dq8se0dwv06x2"]
+
+[ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-015.png" id="1_a8nrk"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="2_ivfvq"]
+[ext_resource type="Script" uid="uid://csdigsm2fgov7" path="res://testing_and_prototypes/ItemTester/add_item_button.gd" id="2_ovtnd"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_ovtnd"]
+
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovtnd"]
+texture = ExtResource("1_a8nrk")
+texture_margin_left = 4.0
+texture_margin_top = 2.0
+texture_margin_right = 4.0
+texture_margin_bottom = 2.0
+draw_center = false
+
+[node name="AddItemButton" type="PanelContainer" unique_id=1556243692]
+texture_filter = 1
+offset_right = 162.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ovtnd")
+script = ExtResource("2_ovtnd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1976486305]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=9046373]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=432463361]
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_ivfvq")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1399887420]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ovtnd")
+theme_override_font_sizes/font_size = 14
+text = "Magic Glove"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

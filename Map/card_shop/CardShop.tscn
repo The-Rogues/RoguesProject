@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://doa28g4c3fgsn"]
 
 [ext_resource type="Script" uid="uid://dvkefripdllhr" path="res://Map/card_shop/CardShop_scn_main.gd" id="1_6rf22"]
-[ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Panel/panel-004.png" id="2_4mvj2"]
-[ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_1.tres" id="3_tqj6l"]
-[ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_2.tres" id="4_k0fth"]
-[ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://General/Effects/Particles/star_pop.tscn" id="4_xt6v3"]
-[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_0.tres" id="5_4wnoc"]
-[ext_resource type="Texture2D" uid="uid://cgkstjg1haxst" path="res://Map/Shop/ShopKeepers/shop_keeper_varient_3.tres" id="5_6lwlb"]
-[ext_resource type="AnimationLibrary" uid="uid://hk7ap1n5v04i" path="res://Entities/Animations/entity.res" id="6_fl73y"]
-[ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://Map/Shop/ShopKeepers/shop_desk.tres" id="7_g43wp"]
-[ext_resource type="Texture2D" uid="uid://d2d4b83w6j3r" path="res://General/PlaceholderArt/Kenny Art/Fantasy UI/Double/Border/panel-border-004.png" id="8_u8vlw"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://General/Fonts/dungeon-mode.ttf" id="9_fl73y"]
-[ext_resource type="PackedScene" uid="uid://bcejvg28wlyoe" path="res://Items/GoldLabel/session_gold_label.tscn" id="10_g43wp"]
+[ext_resource type="Texture2D" uid="uid://dcr13h7kkk5as" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-004.png" id="2_4mvj2"]
+[ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://shop_scenes/shop_keepers/shop_keeper_varient_1.tres" id="3_tqj6l"]
+[ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://shop_scenes/shop_keepers/shop_keeper_varient_2.tres" id="4_k0fth"]
+[ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://common/particle_effects/star_pop.tscn" id="4_xt6v3"]
+[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="5_4wnoc"]
+[ext_resource type="Texture2D" uid="uid://cgkstjg1haxst" path="res://shop_scenes/shop_keepers/shop_keeper_varient_3.tres" id="5_6lwlb"]
+[ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://shop_scenes/shop_keepers/shop_desk.tres" id="7_g43wp"]
+[ext_resource type="Texture2D" uid="uid://d2d4b83w6j3r" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-004.png" id="8_u8vlw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_fl73y"]
 [ext_resource type="Script" uid="uid://li2p5xh3pjl3" path="res://Map/card_shop/UI/shop_card_interface.gd" id="11_rny4w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jn6m1"]
@@ -89,7 +87,6 @@ texture = ExtResource("5_4wnoc")
 offset = Vector2(0, -16)
 
 [node name="EntityAnimator" type="AnimationPlayer" parent="ShopKeeper" unique_id=10931548]
-libraries/entity = ExtResource("6_fl73y")
 
 [node name="ShopDesk" type="Sprite2D" parent="." unique_id=1766384541]
 texture_filter = 1
@@ -176,13 +173,6 @@ theme_override_constants/h_separation = 0
 theme_override_fonts/font = ExtResource("9_fl73y")
 theme_override_font_sizes/font_size = 32
 text = "Leave"
-
-[node name="PlayerGold" parent="." unique_id=2139513756 instance=ExtResource("10_g43wp")]
-layout_mode = 0
-offset_left = 992.0
-offset_top = 16.0
-offset_right = 1092.0
-offset_bottom = 64.0
 
 [connection signal="animation_finished" from="ShopKeeper/EntityAnimator" to="ShopKeeper/EntityAnimator" method="_on_animation_finished"]
 [connection signal="button_up" from="MenuOptions/Shop" to="." method="_on_shop_button_up"]

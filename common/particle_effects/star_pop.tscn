@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bn5th5vqoyyf0"]
+
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="1_gvd0r"]
+
+
+[sub_resource type="Curve" id="Curve_0dnco"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.89067525, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_lc6x3"]
+offsets = PackedFloat32Array(0.5305755, 1)
+colors = PackedColorArray(1, 1, 1, 0.3372549, 1, 1, 1, 0)
+
+[node name="StarPop" type="CPUParticles2D" unique_id=232237618]
+emitting = false
+amount = 6
+texture = ExtResource("1_gvd0r")
+lifetime = 0.18000000000000002
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 260.0
+initial_velocity_max = 280.0
+angular_velocity_min = 1000.0
+angular_velocity_max = 1000.0
+scale_amount_min = 1.2
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_0dnco")
+color = Color(0.88170683, 0.6276412, 0.1663025, 1)
+color_ramp = SubResource("Gradient_lc6x3")
+hue_variation_max = 1.0

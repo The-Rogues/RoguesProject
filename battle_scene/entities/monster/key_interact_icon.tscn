@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c3gw0mtuoknpx"]
+
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_er7bw"]
+[ext_resource type="Texture2D" uid="uid://b8n31pa4vqta8" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-015.png" id="2_j88x8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhot4"]
+texture = ExtResource("2_j88x8")
+texture_margin_left = 4.0
+texture_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvbdl"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Key UnlockButton" type="Control" unique_id=1878098391]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="." unique_id=1844693322]
+texture_filter = 1
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("1_er7bw")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_xhot4")
+text = "Use key to unlock
+(Your ks: 0)"
+
+[node name="Panel" type="Panel" parent="Button" unique_id=885734028]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvbdl")

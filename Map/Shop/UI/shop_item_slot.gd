@@ -11,23 +11,33 @@ enum TransactionType {BUY, SELL}
 @onready var price_label: Label = $VBoxContainer/PriceLabel
 @onready var item_icon: TextureButton = $VBoxContainer/ItemIcon
 @onready var contents: Control = $Debug
+@onready var rarity_particles: CPUParticles2D = $RarityParticles
+@onready var bought_particles: CPUParticles2D = $BoughtParticles
+
 
 var transaction_completed:bool = false
 var index:int
 
 func _ready() -> void:
 	item_texture_rect.visible = false
+	item_icon.disabled = true
+	price_label.visible = false
+
 
 func initialize(item_data:ItemData, new_index:int, transaction_type:int):
 	item_texture_rect.texture = item_data.display_texture
 	item_texture_rect.visible = true
 	sell_status_label.visible = false
+	item_icon.disabled = false
+	price_label.visible = true
 	
 	if transaction_type == 0:
 		price_label.text = str(item_data.shop_price)
 	else:
 		price_label.text = str(item_data.sell_price)
 	
+	if item_data.rarity == ItemData.Rarity.RARE:
+		rarity_particles.emitting = true
 	index = new_index
 
 func _on_item_slot_clicked() -> void:
@@ -40,3 +50,5 @@ func confirm_transaction():
 	sell_status_label.visible = true
 	transaction_completed = true
 	item_icon.disabled = true
+	rarity_particles.emitting = false
+	bought_particles.emitting = true

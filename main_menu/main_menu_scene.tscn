@@ -1,0 +1,317 @@
+[gd_scene format=3 uid="uid://d0aidcrg5d7kd"]
+
+[ext_resource type="Script" uid="uid://bf8na5vpjce6h" path="res://main_menu/main_menu_scene.gd" id="1_k7suw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_l7n8r"]
+[ext_resource type="PackedScene" uid="uid://cq0uplsomgf1v" path="res://main_menu/options_menu.tscn" id="3_l7n8r"]
+[ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_vv2lb"]
+[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_1yt4p"]
+[ext_resource type="PackedScene" uid="uid://dnqnor18jtlow" path="res://main_menu/save_screen.tscn" id="5_3s87x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv2lb"]
+content_margin_left = 36.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijfeh"]
+content_margin_left = 36.0
+
+[node name="MainMenuScene" type="Control" unique_id=1974053826]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_k7suw")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2074132055]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleScreen" type="Control" parent="." unique_id=199966900]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="TitleScreen" unique_id=1363348183]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 222.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 160
+
+[node name="Title" type="VBoxContainer" parent="TitleScreen/TitleMargin" unique_id=464789935]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="TitleScreen/TitleMargin/Title" unique_id=472913116]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 40
+text = "The Rogues"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="TitleScreen/TitleMargin/Title" unique_id=605160905]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 24
+text = "Roguelike Deckbuilder"
+horizontal_alignment = 1
+
+[node name="Devider" type="TextureRect" parent="TitleScreen/TitleMargin/Title" unique_id=58812547]
+modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(488, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_vv2lb")
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleScreen" unique_id=1994636074]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -173.5
+offset_top = -294.0
+offset_right = 173.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 91
+theme_override_constants/margin_bottom = 120
+
+[node name="MenuElements" type="VBoxContainer" parent="TitleScreen/MarginContainer" unique_id=2113473643]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Start" parent="TitleScreen/MarginContainer/MenuElements" unique_id=395129651 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+text = "Start"
+
+[node name="Achievements" parent="TitleScreen/MarginContainer/MenuElements" unique_id=1256996498 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+text = "Achievements"
+disabled = true
+
+[node name="Options" parent="TitleScreen/MarginContainer/MenuElements" unique_id=909335963 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits" parent="TitleScreen/MarginContainer/MenuElements" unique_id=2040342503 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+text = "Credits"
+
+[node name="Close" parent="TitleScreen/MarginContainer/MenuElements" unique_id=1116633885 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+text = "Exit game"
+
+[node name="SaveScreen" parent="." unique_id=1030190134 node_paths=PackedStringArray("main_menu") instance=ExtResource("5_3s87x")]
+visible = false
+layout_mode = 1
+main_menu = NodePath("../TitleScreen")
+
+[node name="OptionsMenu" parent="." unique_id=615160279 instance=ExtResource("3_l7n8r")]
+visible = false
+layout_mode = 1
+
+[node name="CreditsMenu" type="Control" parent="." unique_id=784894307]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu" unique_id=1815456122]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleMargin" type="MarginContainer" parent="CreditsMenu/VBoxContainer" unique_id=1113944254]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+
+[node name="Title" type="VBoxContainer" parent="CreditsMenu/VBoxContainer/TitleMargin" unique_id=1857602040]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="CreditsMenu/VBoxContainer/TitleMargin/Title" unique_id=1616805751]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 40
+text = "The Rogues"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CreditsMenu/VBoxContainer/TitleMargin/Title" unique_id=1879312395]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 24
+text = "Roguelike Deckbuilder"
+horizontal_alignment = 1
+
+[node name="Devider" type="TextureRect" parent="CreditsMenu/VBoxContainer/TitleMargin/Title" unique_id=48037174]
+modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(488, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_vv2lb")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsMenu/VBoxContainer" unique_id=1340963984]
+custom_minimum_size = Vector2(700, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vv2lb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ijfeh")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CreditsMenu/VBoxContainer/ScrollContainer" unique_id=1598296720]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Title" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=877860117]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 32
+text = "Assets"
+horizontal_alignment = 1
+
+[node name="Seth" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=638712466]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Seth: 32rogues
+https://sethbb.itch.io/32rogues"
+horizontal_alignment = 1
+
+[node name="Kenny" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=1664690098]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Kenney: Fantasy UI Borders, Emotes Pack
+https://kenney.nl/assets/fantasy-ui-borders
+https://kenney.nl/assets/emotes-pack"
+horizontal_alignment = 1
+
+[node name="Nikoichu" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=1947236731]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Nikoichu: 1-bit Pixel Icons
+https://nikoichu.itch.io/pixel-icons"
+horizontal_alignment = 1
+
+[node name="Datagoblin" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=283660786]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Datagoblin: Dungeon-mode font
+https://datagoblin.itch.io/dungeonmode"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreditsMenu" unique_id=1317727752]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 120
+
+[node name="Return" parent="CreditsMenu/MarginContainer2" unique_id=1046007390 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return"
+horizontal_alignment = 1
+
+[node name="CloseMenu" type="Control" parent="." unique_id=1472450577]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CloseMenu" unique_id=264555522]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.5
+offset_top = -14.5
+offset_right = 298.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 32
+text = "Closing..."
+horizontal_alignment = 1
+
+[node name="Developers" type="Label" parent="." unique_id=1538371334]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -489.0
+offset_top = -29.0
+offset_right = 489.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 11
+text = "Developed by: Andy Gonzalez, Fletcher Greene, Han Hyunh, Nathaniel Stirret, & Fabian Hernandez-Angel"
+horizontal_alignment = 1
+
+[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Start" to="." method="_on_start_clicked"]
+[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Options" to="." method="_on_options_clicked"]
+[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Credits" to="." method="_on_credits_clicked"]
+[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Close" to="." method="_on_close_clicked"]

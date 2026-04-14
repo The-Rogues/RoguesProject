@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dwcqwam3c77kv"]
+
+[ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="1_d0u1t"]
+[ext_resource type="Texture2D" uid="uid://fxqou0ng1n4b" path="res://common/art/random_art/fire_projectile.png" id="2_uf3re"]
+[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_snjtf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
+radius = 19.924858
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
+radius = 24.33105
+
+[node name="Projectile" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span", "sprite_2d")]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_d0u1t")
+damage = 10
+ignore_walls = null
+life_span = NodePath("LifeSpan")
+target_position = null
+sprite_2d = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72437752]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_uf3re")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1085450663]
+shape = SubResource("CircleShape2D_bofno")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1046127275]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
+shape = SubResource("CircleShape2D_5ed72")
+
+[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+wait_time = 5.0
+
+[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_snjtf")]
+default_color = Color(0.81540364, 0.19489661, 0.13030902, 1)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]

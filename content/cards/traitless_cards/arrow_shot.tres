@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8cc0qb3afpjw"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_1um6x"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_2p7xn"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="2_es0j4"]
+[ext_resource type="PackedScene" uid="uid://cm0mikhelv506" path="res://battle_scene/entities/projectiles/arrow/arrow.tscn" id="2_klqx5"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="3_klqx5"]
+
+[sub_resource type="Resource" id="Resource_172xf"]
+script = ExtResource("2_es0j4")
+projectile_scene = ExtResource("2_klqx5")
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_12btk"]
+script = ExtResource("3_klqx5")
+projectile_config = SubResource("Resource_172xf")
+target_option = 2
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("2_2p7xn")
+type = 1
+energy_cost = 1
+name = "Arrow Shot"
+description = "Deal [color=red]get_atk6[/color] damage."
+exhaust_after_play = null
+play_actions = Array[ExtResource("1_1um6x")]([SubResource("Resource_12btk")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

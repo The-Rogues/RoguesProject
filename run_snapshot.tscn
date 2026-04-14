@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://76dlo2jya52p"]
+
+[ext_resource type="Script" uid="uid://dyb3sp50rx6p7" path="res://run_snapshot.gd" id="1_fmm5i"]
+[ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-007.png" id="2_41ped"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_i55rq"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="4_fmm5i"]
+[ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="5_fmm5i"]
+[ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="6_fmm5i"]
+
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb5tk"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgxit"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6vipf"]
+load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1oxh"]
+atlas = SubResource("CompressedTexture2D_6vipf")
+region = Rect2(40, 776, 16, 16)
+
+[node name="RunSnapshot" type="Control" unique_id=157342732]
+custom_minimum_size = Vector2(543, 140)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fmm5i")
+
+[node name="Background" type="Panel" parent="." unique_id=958891459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fb5tk")
+
+[node name="Border" type="NinePatchRect" parent="." unique_id=1731089554]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_41ped")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="NoSaveDataLabel" type="Label" parent="." unique_id=412005174]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -7.5
+offset_right = 92.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_i55rq")
+theme_override_font_sizes/font_size = 16
+text = "No save data."
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1306599976]
+layout_mode = 1
+offset_right = 467.0
+offset_bottom = 88.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="Contents" type="VBoxContainer" parent="MarginContainer" unique_id=1769380107]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer/Contents" unique_id=1446260672]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="CharacterImage" type="TextureRect" parent="MarginContainer/Contents/HBox" unique_id=1224281524]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_fmm5i")
+
+[node name="Elements" type="VBoxContainer" parent="MarginContainer/Contents/HBox" unique_id=452761979]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Info" type="HBoxContainer" parent="MarginContainer/Contents/HBox/Elements" unique_id=1034686454]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/Contents/HBox/Elements/Info" unique_id=807197176]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("3_i55rq")
+theme_override_font_sizes/font_size = 16
+text = "Name"
+horizontal_alignment = 1
+
+[node name="OffensiveTraitDisplay" parent="MarginContainer/Contents/HBox/Elements/Info" unique_id=1400420390 instance=ExtResource("5_fmm5i")]
+layout_mode = 2
+
+[node name="DefensiveTraitDisplay" parent="MarginContainer/Contents/HBox/Elements/Info" unique_id=1484267651 instance=ExtResource("5_fmm5i")]
+layout_mode = 2
+
+[node name="StrategicTraitDisplay" parent="MarginContainer/Contents/HBox/Elements/Info" unique_id=1666741324 instance=ExtResource("5_fmm5i")]
+layout_mode = 2
+
+[node name="Container" type="PanelContainer" parent="MarginContainer/Contents/HBox/Elements" unique_id=612351132]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pgxit")
+
+[node name="Health" type="HBoxContainer" parent="MarginContainer/Contents/HBox/Elements/Container" unique_id=546980844]
+custom_minimum_size = Vector2(136, 32)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HeartIcon" type="TextureRect" parent="MarginContainer/Contents/HBox/Elements/Container/Health" unique_id=2021960718]
+self_modulate = Color(0.8056271, 0.14600024, 0.28994575, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_fmm5i")
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/Contents/HBox/Elements/Container/Health" unique_id=1145877510]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_i55rq")
+theme_override_font_sizes/font_size = 16
+text = "70/70"
+horizontal_alignment = 1
+
+[node name="Gold" type="HBoxContainer" parent="MarginContainer/Contents/HBox/Elements/Container" unique_id=1348004227]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="GoldLabel" type="Label" parent="MarginContainer/Contents/HBox/Elements/Container/Gold" unique_id=531829574]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("3_i55rq")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+
+[node name="GoldIcon" type="TextureRect" parent="MarginContainer/Contents/HBox/Elements/Container/Gold" unique_id=1543114932]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_u1oxh")

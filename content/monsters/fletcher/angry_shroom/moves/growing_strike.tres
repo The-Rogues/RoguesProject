@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyDamageScale" format=3 uid="uid://dcd4x8hyfjppk"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_a35hk"]
+[ext_resource type="Script" uid="uid://cxii672t8fs4s" path="res://content/monsters/fletcher/angry_shroom/moves/enemy_damage_scale.gd" id="1_x672e"]
+
+[resource]
+script = ExtResource("1_x672e")
+init_damage = 6
+scale_value = 2
+intent_icon = ExtResource("1_a35hk")
+name = "Growing Strike"
+metadata/_custom_type_script = "uid://cxii672t8fs4s"

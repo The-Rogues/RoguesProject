@@ -1,0 +1,4 @@
+res://globals/save_system/save_manager.gd
+res://Saves/save_progress.tres
+res://globals/scene_management/run_progress.gd
+res://Map/map_module/map_data_structures/MapGraph.gd

@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://ixxhsopjxo2g"]
+
+[ext_resource type="Script" uid="uid://drlcp5cosbwjw" path="res://battle_scene/battle_scene.gd" id="1_jfmiq"]
+[ext_resource type="Script" uid="uid://ditm4654587uf" path="res://battle_scene/creature_manager.gd" id="2_2203u"]
+[ext_resource type="PackedScene" uid="uid://1ipkbhxl3ark" path="res://battle_scene/battle_field/battle_field.tscn" id="2_ceml1"]
+[ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://battle_scene/ui/play_area.tscn" id="3_nuuou"]
+[ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://card_system/player_card_hand.gd" id="4_cgsmb"]
+[ext_resource type="PackedScene" uid="uid://bnfejx84ush8n" path="res://battle_scene/entities/monster/monster_entity.tscn" id="4_s4dh3"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_7j1wb"]
+[ext_resource type="PackedScene" uid="uid://7doidnfxvws4" path="res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.tscn" id="6_2203u"]
+[ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://battle_scene/ui/energy_ui.tscn" id="7_e1j2j"]
+[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
+[ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="14_3w7x8"]
+[ext_resource type="PackedScene" uid="uid://defsyo3of3fv" path="res://battle_scene/win_screen/rewards_screen.tscn" id="14_4ll6p"]
+[ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://battle_scene/ui/turn_banner.tscn" id="14_2203u"]
+[ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="15_ectca"]
+[ext_resource type="PackedScene" uid="uid://l0xyi8rv306l" path="res://battle_scene/entities/player/player_entity.tscn" id="17_4ll6p"]
+[ext_resource type="PackedScene" uid="uid://dokqnl4uskuu7" path="res://battle_scene/lose_screen/defeated_screen.tscn" id="17_nn42q"]
+[ext_resource type="Script" uid="uid://dkwb3eagjx5u" path="res://battle_scene/battle_flow_manager.gd" id="19_s4dh3"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
+b = Vector2(3, 452)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o1our"]
+b = Vector2(-1151, -3)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_56mp3"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ll6p"]
+texture = SubResource("CompressedTexture2D_56mp3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ftjb3"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4dh3"]
+texture = SubResource("CompressedTexture2D_ftjb3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jt3yx"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ectca"]
+texture = SubResource("CompressedTexture2D_jt3yx")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nn42q"]
+texture = ExtResource("10_2203u")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_field", "creature_manager", "rewards_screen", "play_hand", "battle_flow_manager", "player", "defeat_screen", "energy_ui", "draw_pile_icon", "discard_pile_icon", "draw_pile_viewer", "discard_pile_viewer")]
+script = ExtResource("1_jfmiq")
+battle_field = NodePath("BattleField")
+creature_manager = NodePath("CreatureManager")
+rewards_screen = NodePath("UILayer/RewardsScreen")
+play_hand = NodePath("UILayer/PlayerCardHand")
+battle_flow_manager = NodePath("BattleFlowManager")
+player = NodePath("PlayerEntity")
+defeat_screen = NodePath("UILayer/DefeatedScreen")
+energy_ui = NodePath("UILayer/EnergyUI")
+draw_pile_icon = NodePath("UILayer/DrawPileIcon")
+discard_pile_icon = NodePath("UILayer/DiscardPileIcon")
+draw_pile_viewer = NodePath("UILayer/DrawPileViewer")
+discard_pile_viewer = NodePath("UILayer/DiscardPileViewer")
+
+[node name="Background" type="Node2D" parent="." unique_id=2063966942]
+
+[node name="BackgroundColor" type="ColorRect" parent="Background" unique_id=285933358]
+custom_minimum_size = Vector2(1152, 628)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BattleField" parent="." unique_id=314861 instance=ExtResource("2_ceml1")]
+position = Vector2(557, 436)
+
+[node name="CreatureManager" type="Node2D" parent="." unique_id=1189998363 node_paths=PackedStringArray("spawn_parent")]
+script = ExtResource("2_2203u")
+template_enemy = ExtResource("4_s4dh3")
+spawn_parent = NodePath("EnemySpawnPoint")
+
+[node name="EnemySpawnPoint" type="Node2D" parent="CreatureManager" unique_id=744801885]
+position = Vector2(557, 184)
+
+[node name="BattleFlowManager" type="Node2D" parent="." unique_id=667264025 node_paths=PackedStringArray("defeat_screen", "play_hand", "turn_banner", "end_turn_button")]
+script = ExtResource("19_s4dh3")
+defeat_screen = NodePath("../UILayer/DefeatedScreen")
+play_hand = NodePath("../UILayer/PlayerCardHand")
+turn_banner = NodePath("../UILayer/TurnBanner")
+end_turn_button = NodePath("../UILayer/EndTurn")
+
+[node name="EnemyAttackDelay" type="Timer" parent="BattleFlowManager" unique_id=241483290]
+wait_time = 0.5
+
+[node name="PlayerEntity" parent="." unique_id=1521707546 instance=ExtResource("17_4ll6p")]
+position = Vector2(557, 483)
+
+[node name="WallCollisions" type="StaticBody2D" parent="." unique_id=1386891855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollisions" unique_id=542169655]
+shape = SubResource("SegmentShape2D_lahee")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallCollisions" unique_id=48975222]
+position = Vector2(1152, 0)
+shape = SubResource("SegmentShape2D_lahee")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WallCollisions" unique_id=1221524123]
+position = Vector2(1152, 84)
+shape = SubResource("SegmentShape2D_o1our")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WallCollisions" unique_id=703516065]
+position = Vector2(1152, 448)
+shape = SubResource("SegmentShape2D_o1our")
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]
+
+[node name="BattleTestButtons" parent="UILayer" unique_id=98555504 node_paths=PackedStringArray("battle_manager") instance=ExtResource("6_2203u")]
+offset_left = 6.0
+offset_top = 88.0
+offset_right = 131.0
+offset_bottom = 140.0
+battle_manager = NodePath("../../BattleFlowManager")
+
+[node name="EnergyUI" parent="UILayer" unique_id=396974568 instance=ExtResource("7_e1j2j")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = -164.0
+offset_right = 178.0
+offset_bottom = -100.0
+grow_vertical = 0
+inactive_color = Color(0.29970786, 0.22009888, 0.57324886, 1)
+
+[node name="EndTurn" type="Button" parent="UILayer" unique_id=647045708]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -252.0
+offset_top = -164.0
+offset_right = -106.0
+offset_bottom = -116.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("5_7j1wb")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ll6p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s4dh3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ectca")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_nn42q")
+text = "End Turn"
+
+[node name="DrawPileIcon" parent="UILayer" unique_id=508931251 instance=ExtResource("14_3w7x8")]
+offset_left = 64.0
+offset_top = 587.0
+offset_right = 64.0
+offset_bottom = 587.0
+
+[node name="CardPileButton" parent="UILayer/DrawPileIcon" index="0" unique_id=178403029]
+self_modulate = Color(0.6060729, 0.20521358, 0.26968792, 1)
+
+[node name="DrawPileViewer" parent="UILayer" unique_id=666170987 instance=ExtResource("15_ectca")]
+visible = false
+
+[node name="DiscardPileIcon" parent="UILayer" unique_id=749258871 instance=ExtResource("14_3w7x8")]
+offset_left = 1086.0
+offset_top = 588.0
+offset_right = 1086.0
+offset_bottom = 588.0
+
+[node name="CardPileButton" parent="UILayer/DiscardPileIcon" index="0" unique_id=178403029]
+self_modulate = Color(0.74890167, 0.21466625, 0.65618616, 1)
+
+[node name="Container" parent="UILayer/DiscardPileIcon" index="1" unique_id=9931252]
+offset_left = -36.0
+offset_top = -7.0
+offset_right = -8.0
+offset_bottom = 21.0
+
+[node name="DiscardPileViewer" parent="UILayer" unique_id=2047647765 instance=ExtResource("15_ectca")]
+visible = false
+
+[node name="PlayArea" parent="UILayer" unique_id=574541479 node_paths=PackedStringArray("card_hand") instance=ExtResource("3_nuuou")]
+position = Vector2(546, 286)
+card_hand = NodePath("../PlayerCardHand")
+
+[node name="PlayerCardHand" type="Control" parent="UILayer" unique_id=1781058052]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("4_cgsmb")
+fan_angle = 15.0
+fan_spacing = 100.0
+
+[node name="TurnBanner" parent="UILayer" unique_id=1379108646 instance=ExtResource("14_2203u")]
+mouse_filter = 2
+
+[node name="RewardsScreen" parent="UILayer" unique_id=11968669 instance=ExtResource("14_4ll6p")]
+visible = false
+
+[node name="DefeatedScreen" parent="UILayer" unique_id=343540286 instance=ExtResource("17_nn42q")]
+visible = false
+
+[connection signal="button_up" from="UILayer/EndTurn" to="BattleFlowManager" method="end_player_turn"]
+[connection signal="button_up" from="UILayer/DrawPileIcon/CardPileButton" to="." method="_on_view_draw_pile_button_up"]
+[connection signal="button_up" from="UILayer/DiscardPileIcon/CardPileButton" to="." method="_on_view_discard_pile_button_up"]
+
+[editable path="UILayer/DrawPileIcon"]
+[editable path="UILayer/DiscardPileIcon"]

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dowuc0x647r18"]
+
+[ext_resource type="Script" uid="uid://bt1uxp1xvcqvm" path="res://battle_scene/entities/ui/stack_icon.gd" id="1_0n05q"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="1_v7pt4"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_r8ttg"]
+[ext_resource type="PackedScene" uid="uid://ltoom83ybk41" path="res://testing_and_prototypes/status_tool_tip.tscn" id="4_antup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqmu7"]
+
+[node name="StatusIcon" type="Control" unique_id=1711342435]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_0n05q")
+
+[node name="StackIcon" type="PanelContainer" parent="." unique_id=939876895]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jqmu7")
+
+[node name="MarginContainer" type="MarginContainer" parent="StackIcon" unique_id=821119895]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Icon" type="TextureRect" parent="StackIcon/MarginContainer" unique_id=739066498]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_v7pt4")
+expand_mode = 1
+
+[node name="StackLabel" type="Label" parent="StackIcon" unique_id=401188979]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_r8ttg")
+text = "1"
+
+[node name="StatusToolTip" parent="." unique_id=2004448281 instance=ExtResource("4_antup")]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 22.0
+offset_right = 239.0
+offset_bottom = 74.0
+
+[connection signal="mouse_entered" from="StackIcon/MarginContainer/Icon" to="." method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="StackIcon/MarginContainer/Icon" to="." method="_on_icon_mouse_exited"]

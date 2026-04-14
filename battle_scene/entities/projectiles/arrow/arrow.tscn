@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cm0mikhelv506"]
+
+[ext_resource type="Script" uid="uid://dgujwmqp62l7h" path="res://battle_scene/entities/projectiles/arrow/arrow.gd" id="1_3vv47"]
+[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="2_bibgj"]
+[ext_resource type="PackedScene" uid="uid://di1ej0x6tsa1v" path="res://battle_scene/entities/projectiles/arrow/stuck_arrow.tscn" id="3_mkfkv"]
+[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="4_mkfkv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vv47"]
+atlas = ExtResource("2_bibgj")
+region = Rect2(0, 736, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
+radius = 11.18034
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
+radius = 14.035668
+
+[node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span", "sprite_2d")]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_3vv47")
+speed = 420.0
+damage = 6
+life_span = NodePath("LifeSpan")
+sprite_2d = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72437752]
+texture_filter = 1
+rotation = 0.7853982
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_3vv47")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1085450663]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_bofno")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1046127275]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
+position = Vector2(0, -18)
+shape = SubResource("CircleShape2D_5ed72")
+
+[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+wait_time = 5.0
+
+[node name="StuckArrow" parent="." unique_id=1169763427 instance=ExtResource("3_mkfkv")]
+position = Vector2(0, -28)
+
+[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_mkfkv")]
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]

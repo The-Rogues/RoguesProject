@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bp63dsvlxoj6w"]
+
+[ext_resource type="Script" uid="uid://cl52fqbtrwchr" path="res://globals/scene_management/scene_loader.gd" id="1_fm6ra"]
+[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="2_17v8e"]
+[ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://content/monsters/slime/slime_texture.tres" id="3_bt074"]
+[ext_resource type="Resource" uid="uid://bsavrj1agiyt4" path="res://content/scene_configuration/battle_builder.tres" id="5_2ldrq"]
+[ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://content/items/cheese/Rats/rat_texture.tres" id="6_n2qip"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="8_iwggg"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
+[ext_resource type="PackedScene" uid="uid://c7lb2ji3nvodm" path="res://common/screen_fader/screen_fade.tscn" id="10_qepw2"]
+
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q37af"]
+bg_color = Color(0.34470457, 0.6951066, 0.29308626, 1)
+
+[sub_resource type="Animation" id="Animation_uyqi7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_41vnj"]
+resource_name = "loading"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -22), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6up84"]
+_data = {
+&"RESET": SubResource("Animation_uyqi7"),
+&"loading": SubResource("Animation_41vnj")
+}
+
+[node name="SceneLoader" type="Control" unique_id=273219364]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fm6ra")
+loading_sprite_varients = Array[Texture2D]([ExtResource("2_17v8e"), ExtResource("3_bt074"), ExtResource("6_n2qip")])
+battle_builder = ExtResource("5_2ldrq")
+
+[node name="ScreenFade" parent="." unique_id=1254281250 instance=ExtResource("10_qepw2")]
+
+[node name="LoadingScreenLayer" type="CanvasLayer" parent="." unique_id=252031923]
+layer = 9
+visible = false
+
+[node name="Control" type="Control" parent="LoadingScreenLayer" unique_id=1519203036]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="LoadingScreenLayer/Control" unique_id=2116509923]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LoadingBar" type="VBoxContainer" parent="LoadingScreenLayer/Control" unique_id=608053904]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -27.0
+offset_right = 100.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadingLabel" type="Label" parent="LoadingScreenLayer/Control/LoadingBar" unique_id=1322330678]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_iwggg")
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="LoadingProgressBar" type="ProgressBar" parent="LoadingScreenLayer/Control/LoadingBar" unique_id=1485868068]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_iwggg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q37af")
+rounded = true
+
+[node name="LoadSprite" type="Sprite2D" parent="LoadingScreenLayer/Control" unique_id=1828475580]
+texture_filter = 1
+position = Vector2(563, 265)
+scale = Vector2(2, 2)
+texture = ExtResource("9_fehxy")
+offset = Vector2(0, -16)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingScreenLayer/Control" unique_id=933173198]
+libraries/ = SubResource("AnimationLibrary_6up84")
+
+[connection signal="animation_finished" from="LoadingScreenLayer/Control/AnimationPlayer" to="LoadingScreenLayer/Control/AnimationPlayer" method="_on_animation_finished"]

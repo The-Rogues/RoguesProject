@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://mdlg8enf3vx2"]
+
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_bjhrg"]
+[ext_resource type="Texture2D" uid="uid://bu2qaotwturvd" path="res://content/objects/stone_wall/stone_wall_texture.tres" id="1_wq4rh"]
+
+[resource]
+script = ExtResource("1_bjhrg")
+display_texture = ExtResource("1_wq4rh")
+name = "Stone Wall"
+health = 20
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

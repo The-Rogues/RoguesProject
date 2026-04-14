@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bdqekfp4y42wh"]
+
+[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://content/monsters/dragon_turtle/dragon_turtle_texture.tres" id="1_0wmvo"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_4tv4x"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_xgwk6"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_0wmvo"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_juxji"]
+[ext_resource type="Resource" uid="uid://dakc5suydn7cx" path="res://content/monsters/dragon_turtle/moves/fire_spit.tres" id="5_28hpj"]
+[ext_resource type="Resource" uid="uid://s2ofhok6hn3m" path="res://content/monsters/dragon_turtle/moves/shell_withdraw.tres" id="6_juxji"]
+[ext_resource type="Resource" uid="uid://dwcy03y0mwvvj" path="res://content/monsters/dragon_turtle/moves/spin_saw.tres" id="7_wstnn"]
+
+[sub_resource type="Resource" id="Resource_41i3o"]
+script = ExtResource("1_4tv4x")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_n74vt"]
+script = ExtResource("1_xgwk6")
+moves = Array[ExtResource("4_juxji")]([ExtResource("5_28hpj"), ExtResource("5_28hpj"), ExtResource("6_juxji"), ExtResource("7_wstnn"), ExtResource("7_wstnn")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_28hpj"]
+script = ExtResource("1_xgwk6")
+moves = Array[ExtResource("4_juxji")]([ExtResource("6_juxji"), ExtResource("7_wstnn"), ExtResource("7_wstnn")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_0wmvo")
+move_sequences = Array[ExtResource("1_xgwk6")]([SubResource("Resource_n74vt"), SubResource("Resource_28hpj")])
+behaviour = SubResource("Resource_41i3o")
+display_texture = ExtResource("1_0wmvo")
+name = "Dragon Turtle"
+health = 30
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

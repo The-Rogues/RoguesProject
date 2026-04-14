@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://di1ej0x6tsa1v"]
+
+[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="1_bq6x6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvaex"]
+atlas = ExtResource("1_bq6x6")
+region = Rect2(0, 736, 32, 32)
+
+[node name="StuckArrow" type="Node2D" unique_id=1169763427]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2037505142]
+texture_filter = 1
+position = Vector2(0, 18)
+rotation = 0.7853982
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_uvaex")

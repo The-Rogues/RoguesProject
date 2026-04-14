@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://c6v6r0kxmsvcb"]
+
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_1rfcf"]
+[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/monsters/fletcher/angry_shroom/angry_shroom.tres" id="2_sl5wx"]
+[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_w7bmn"]
+[ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_6iakw"]
+[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_f032m"]
+[ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_yh275"]
+
+[sub_resource type="Resource" id="Resource_mmjos"]
+script = ExtResource("4_yh275")
+amount = 10
+display_texture = ExtResource("3_f032m")
+name = "Found Gold (10)"
+metadata/_custom_type_script = "uid://drffwoufolf1p"
+
+[resource]
+script = ExtResource("3_6iakw")
+encounter_name = "Angry mushrooms"
+gold = SubResource("Resource_mmjos")
+enemies = Array[ExtResource("1_1rfcf")]([ExtResource("2_sl5wx"), ExtResource("2_sl5wx")])
+metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bb7438h573jfl"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ek4cn"]
+[ext_resource type="Script" uid="uid://cqhehdk6a0b7j" path="res://battle_scene/entities/actions/skill/move_player_action.gd" id="2_f7qx4"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_ort7f"]
+
+[sub_resource type="Resource" id="Resource_a3fqo"]
+script = ExtResource("2_f7qx4")
+direction_choice = 2
+metadata/_custom_type_script = "uid://cqhehdk6a0b7j"
+
+[resource]
+script = ExtResource("3_ort7f")
+type = 2
+energy_cost = 1
+name = "Move"
+description = "Moves toward desired object."
+play_actions = Array[ExtResource("1_ek4cn")]([SubResource("Resource_a3fqo")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -1,6 +1,6 @@
 extends Control
 
-const SHARED_CARDS = preload("res://Battle/Loot/shared_card_reward_pool.tres")
+#const SHARED_CARDS = preload("res://Battle/Loot/shared_card_reward_pool.tres")
 
 @export var random_shop_card_count:int = 9
 @export var shop_keeper_varients:Array[Texture2D]
@@ -19,13 +19,15 @@ var selected_card_index:int = -1
 var sell_cards:Array[CardData] = []
 
 func _ready() -> void:
+	GlobalSessionInterface.visible = true
 	shop_scroll.visible = false
 	shop_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	sell_scroll.visible = false
 	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	var cards = SHARED_CARDS.get_items(random_shop_card_count)
+	#var cards = SHARED_CARDS.get_items(random_shop_card_count)
+	var cards: Array[CardData]= []
 	add_cards_for_sale(cards)
 
 	card_shop_interface.initialize(shop_cards)

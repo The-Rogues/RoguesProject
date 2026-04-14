@@ -3,7 +3,7 @@ class_name ShopCardSlot
 
 signal selected(index:int, transaction_completed:bool)
 
-@onready var card_ui: CardUI = $VBoxContainer/CardUI
+@onready var card_ui: Card = $VBoxContainer/CardUI
 @onready var cost_label: Label = $VBoxContainer/CostLabel
 @onready var sold_label: Label = $SoldLabel
 
@@ -41,5 +41,5 @@ func confirm_transaction() -> void:
 
 	modulate.a = 0.6
 
-func _on_card_ui_clicked(_card: CardUI) -> void:
+func _on_card_ui_clicked(_card: Card) -> void:
 	selected.emit(index, transaction_completed)

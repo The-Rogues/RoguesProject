@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PositionEffectDisplay" format=3 uid="uid://mhnjafoncine"]
+
+[ext_resource type="Texture2D" uid="uid://eltjy8k3mh5t" path="res://content/monsters/slime/acid_effect/acid_texture.tres" id="1_rb5hx"]
+[ext_resource type="Script" uid="uid://dd40p6dnepp41" path="res://battle_scene/battle_field/position_effects/position_effect_display.gd" id="2_o3k2b"]
+
+[resource]
+script = ExtResource("2_o3k2b")
+floor_texture = ExtResource("1_rb5hx")
+floor_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://dd40p6dnepp41"

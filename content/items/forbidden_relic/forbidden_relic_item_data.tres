@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="KeyItem" format=3 uid="uid://4p1d4nfy0a1f"]
+
+[ext_resource type="Texture2D" uid="uid://dy78f772c12jk" path="res://content/items/forbidden_relic/forbidden_relic_texture.tres" id="1_84w5u"]
+[ext_resource type="Script" uid="uid://c6lrmd6uaaqx8" path="res://item_system/key_item_data.gd" id="2_kdd3k"]
+
+[resource]
+script = ExtResource("2_kdd3k")
+key_id = "forbidden_relic"
+rarity = 2
+name = "Forbidden Relic"
+description = "Restart battle from the beginning. All changes from battle are reversed."
+display_texture = ExtResource("1_84w5u")
+shop_price = 150
+sell_price = 0
+metadata/_custom_type_script = "uid://c6lrmd6uaaqx8"
