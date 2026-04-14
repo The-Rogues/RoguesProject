@@ -59,8 +59,8 @@ func initialize(battle_config:BattleConfig):
 	
 	battle_flow_manager.initialize(battle_context)
 	play_hand.initialize(player, battle_flow_manager.action_resolver)
-	battle_field.object_interacted.connect(
-			battle_flow_manager.action_resolver.process_actions)
+	battle_field.object_interacted.connect(func(actions):
+			battle_flow_manager.action_resolver.process_actions(actions, null))
 	
 	# connect signals
 	player.cards.draw_pile_updated.connect(draw_pile_icon._on_card_pile_updated)

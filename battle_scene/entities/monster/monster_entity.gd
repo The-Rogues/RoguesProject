@@ -43,9 +43,8 @@ func on_destroyed():
 	defeated.emit(self)
 
 
-func on_turn_entered():
-	
-	pass
+func enter_turn(_turn_count:int):
+	super(_turn_count)
 
 
 func choose_intent():

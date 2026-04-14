@@ -10,6 +10,6 @@ object = ExtResource("2_hlwij")
 name = "Barricade"
 description = "Carry placeable cover. Barricade has 40 HP."
 display_texture = ExtResource("1_mm0qr")
-shop_price = 32
+shop_price = 16
 sell_price = 9
 metadata/_custom_type_script = "uid://b41ywh14jt4i1"

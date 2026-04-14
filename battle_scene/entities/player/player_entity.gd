@@ -76,8 +76,8 @@ func on_destroyed():
 	sprite_2d.visible = false
 
 
-func enter_turn():
-	super()
+func enter_turn(_turn_count:int):
+	super(_turn_count)
 	energy.refill()
 
 

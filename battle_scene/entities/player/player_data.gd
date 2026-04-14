@@ -113,6 +113,18 @@ func get_cards_as_instances() -> Array[CardInstance]:
 	return card_instances
 
 
+func get_key_item(key_id:String) -> ItemData:
+	for item in items:
+		if item is KeyItem:
+			if item.key_id == key_id:
+				return item
+	return null
+
+
+func inventory_full() -> bool:
+	return items.size() == item_capacity
+
+
 func connect_to_player_entity(player:PlayerEntity):
 	player.health.health_changed.connect(set_health)
 	player.energy.energy_changed.connect(set_energy)

@@ -1,3 +1,3 @@
-res://content/scene_configuration/scripts/track_list.gd
+res://battle_scene/entities/object/object_data.gd
 AtlasTexture
 Theme

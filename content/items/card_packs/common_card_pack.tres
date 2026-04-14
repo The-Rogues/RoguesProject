@@ -16,6 +16,6 @@ name = "Common Card Pack"
 description = "Add 3 random Cards to your Deck."
 display_texture = ExtResource("5_45btv")
 usable_out_of_battle = true
-shop_price = 10
+shop_price = 15
 sell_price = 5
 metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

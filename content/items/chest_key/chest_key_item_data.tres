@@ -9,10 +9,10 @@ region = Rect2(0, 704, 32, 32)
 
 [resource]
 script = ExtResource("1_pwbpo")
-key_id = "chest"
+key_id = "open_chest"
 name = "Chest Key"
 description = "Use to open a locked Chest. Consumed after use."
 display_texture = SubResource("AtlasTexture_hfx0q")
-shop_price = 70
-sell_price = 30
+shop_price = 32
+sell_price = 5
 metadata/_custom_type_script = "uid://c6lrmd6uaaqx8"

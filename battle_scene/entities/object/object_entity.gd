@@ -18,6 +18,7 @@ func initialize(_data:ObjectData):
 	sprite_2d.texture = _data.display_texture
 	object_stat_display.initialize(self)
 
+
 func take_damage(amount:int, _attacker = null):
 	attacker = _attacker
 	health.take_damage(amount)
@@ -37,10 +38,12 @@ func on_destroyed():
 	await play_destroyed_anim()
 
 
-func enter_turn():
+func enter_turn(_turn_count:int):
+	if data.interaction != ObjectData.InteractionOption.ON_ENTERED_TURN:
+		return
 	
-	pass
-	#queue_actions.emit(data.on_turn_entered_actions)
+	if _turn_count % data.turn_interaction_counter == 0:
+		interact()
 
 
 func on_placed():
@@ -56,7 +59,6 @@ func on_player_exited():
 
 
 func interact():
-	print("interacted")
 	await play_action_anim()
 	interacted.emit(self)
 

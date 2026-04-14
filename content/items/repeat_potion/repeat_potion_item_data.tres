@@ -21,6 +21,6 @@ effect = SubResource("Resource_rha7s")
 name = "Repeat Potion"
 description = "After use, next card is played twice."
 display_texture = ExtResource("1_rha7s")
-shop_price = 27
+shop_price = 17
 sell_price = 12
 metadata/_custom_type_script = "uid://tsren4t2ttpd"

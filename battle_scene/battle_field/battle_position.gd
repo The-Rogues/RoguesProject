@@ -91,11 +91,11 @@ func on_player_exited(player:PlayerEntity):
 		_object.on_player_exited()
 
 
-func enter_turn():
+func enter_turn(turn_count:int):
 	decay_effect()
 	
 	if _object:
-		_object.enter_turn()
+		_object.enter_turn(turn_count)
 
 
 func decay_effect():

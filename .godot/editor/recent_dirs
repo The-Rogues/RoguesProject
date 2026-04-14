@@ -1,9 +1,10 @@
+res://content/objects/treasure_pot/
+res://content/scene_configuration/battle_field_layouts/
 res://
 res://content/scene_configuration/
 res://globals/music_management/
 res://content/scene_configuration/battle_loot/
 res://card_system/ui/
-res://content/scene_configuration/battle_field_layouts/
 res://content/objects/chest/
 res://content/items/chest_key/
 res://content/scene_configuration/enemy_encounters/
@@ -19,4 +20,3 @@ res://content/monsters/dragon_turtle/
 res://content/objects/stone_wall/
 res://battle_scene/entities/projectiles/arrow/
 res://content/cards/traitless_cards/
-res://content/items/repeat_potion/

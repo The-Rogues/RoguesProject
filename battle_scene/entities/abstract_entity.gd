@@ -2,8 +2,6 @@
 extends Node2D
 class_name AbstractEntity
 
-signal queue_actions(actions)
-
 var attacker = null
 @export var health:Health
 @export var projectile_launcher:ProjectileLauncher
@@ -18,4 +16,4 @@ func on_destroyed()
 
 
 @abstract
-func enter_turn()
+func enter_turn(turn_count:int)

@@ -1,6 +1,9 @@
 extends Node2D
 class_name BattleFlowManager
+## Responsible for executing player and enemy turn logic. Also handles turn
+## transitions and ending battles.
 
+# Used to prevent some functions from execution if the battle is in a different state
 enum State {START, PLAYER_TURN, ENEMY_TURN, ENDED}
 var battle_state:State = State.START
 
@@ -50,12 +53,12 @@ func start_player_turn():
 	
 	await turn_banner.display("Player Turn\nTurn: " + str(turn_count))
 	
-	player.enter_turn()
+	player.enter_turn(turn_count)
 	
 	for enemy in enemies:
 		enemy.choose_intent()
 	
-	battle_field.enter_turn(context)
+	battle_field.enter_turn(turn_count)
 	
 	player.cards.draw_cards(5)
 	
@@ -68,7 +71,7 @@ func end_player_turn():
 		return
 	
 	for enemy in enemies:
-		enemy.enter_turn()
+		enemy.enter_turn(turn_count)
 	
 	end_turn_button.disabled = true
 	end_turn_button.text = "Enemy Turn."

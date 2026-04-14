@@ -26,7 +26,8 @@ func setup_objects(config:BattleFieldConfig):
 		var object_data:ObjectData = layout[i]
 		
 		if object_data:
-			battle_positions[i].place_object(object_data)
+			place_object(object_data , battle_positions[i])
+			#battle_positions[i].place_object(object_data)
 
 
 ## Attempts to place object in a battle position. If battle_position is null,
@@ -36,7 +37,7 @@ func place_object(
 	object:ObjectData, 
 	battle_position:BattlePosition = null
 ) -> bool:
-	var target_position = null
+	var target_position:BattlePosition = null
 	
 	# Assign if battle position is part of recognized positions
 	if battle_positions.has(battle_position):
@@ -52,12 +53,12 @@ func place_object(
 	if !target_position:
 		return false
 	
-	target_position.set_object(object)
+	target_position.place_object(object)
 	
-	object.interacted.connect(
-		func(object:ObjectEntity):
+	target_position.get_object().interacted.connect(
+		func(_object:ObjectEntity):
 			print("object interacted")
-			object_interacted.emit(object.data.interaction_actions))
+			object_interacted.emit(object.interaction_actions))
 	
 	return true
 
@@ -88,6 +89,6 @@ func move_player(
 	await player.move_to(new_position.global_position)
 
 
-func enter_turn(context:BattleContext):
+func enter_turn(turn_count:int):
 	for battle_position in battle_positions:
-		battle_position.enter_turn()
+		battle_position.enter_turn(turn_count)

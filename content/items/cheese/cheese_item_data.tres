@@ -22,6 +22,6 @@ effect = SubResource("Resource_jhv5j")
 name = "Cheese"
 description = "Summons 1-3 Rats and adds Rat Attack card to battle deck."
 display_texture = ExtResource("1_rd78d")
-shop_price = 32
+shop_price = 17
 sell_price = 10
 metadata/_custom_type_script = "uid://tsren4t2ttpd"
