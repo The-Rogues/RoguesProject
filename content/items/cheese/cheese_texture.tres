@@ -1,7 +1,6 @@
 [gd_resource type="AtlasTexture" format=3 uid="uid://c2fwr2d5vfqbb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v776s"]
-load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
 
 [resource]
 resource_local_to_scene = true

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://pxlprseij451" path="res://common/tooltip_panel/hover_context_popup.gd" id="3_m1o0a"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="4_17dya"]
 
+
 [node name="TraitDisplay" type="Control" unique_id=1400420390]
 custom_minimum_size = Vector2(100, 28)
 layout_mode = 3

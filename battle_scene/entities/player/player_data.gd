@@ -120,6 +120,8 @@ func get_cards_as_instances() -> Array[CardInstance]:
 	
 	return card_instances
 
+func can_buy_card(price: int):
+	return gold >= price
 
 func get_key_item(key_id:String) -> ItemData:
 	for item in items:

@@ -1,7 +1,7 @@
 extends Node
 class_name SaveManager
 
-const SAVE_PATH := "res://saves/save_progress.tres"
+const SAVE_PATH := "res://Saves/save_progress.tres"
 
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
