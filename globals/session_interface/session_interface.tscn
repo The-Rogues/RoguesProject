@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="7_sqbpr"]
 [ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="9_0jkec"]
 [ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="10_rmvr3"]
-[ext_resource type="PackedScene" uid="uid://ofupnvutw7wu" path="res://options_menu.tscn" id="13_h8e6q"]
+[ext_resource type="PackedScene" uid="uid://ofupnvutw7wu" path="res://options_menu/options_menu.tscn" id="13_h8e6q"]
 [ext_resource type="PackedScene" uid="uid://cuukmx5jhs7wn" path="res://item_system/scenes/player_items.tscn" id="13_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="13_ssfyd"]
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://globals/session_interface/session_gold_label.gd" id="14_pxp8h"]

@@ -1,5 +1,5 @@
 extends Action
-class_name ShiftPlayerTraitAction
+class_name ShiftTraitAction
 
 enum OperationType { SET, ADD, SUBTRACT }
 

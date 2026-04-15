@@ -17,9 +17,21 @@ func move_by_offset(offset: int) -> void:
 	
 	var index = positions.find(current)
 	if index == -1:
+		entered_new_position.emit()
 		return
 	
-	var new_index = clamp(index + offset, 0, positions.size() - 1)
+	var last_index = positions.size() - 1
+	var new_index = index + offset
+	
+	# If moving right from the rightmost, go left instead
+	if index == last_index and offset > 0:
+		new_index = index - 1
+	
+	# If moving left from the leftmost, go right instead
+	elif index == 0 and offset < 0:
+		new_index = index + 1
+	
+	
 	if new_index == index:
 		return
 	

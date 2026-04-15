@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_vv2lb"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_1yt4p"]
 [ext_resource type="PackedScene" uid="uid://dnqnor18jtlow" path="res://main_menu/save_screen.tscn" id="5_3s87x"]
-[ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://settings_menu.tscn" id="5_ph7i1"]
+[ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://options_menu/settings_menu.tscn" id="5_ph7i1"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="7_ph7i1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv2lb"]

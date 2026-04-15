@@ -3,6 +3,7 @@ class_name BattlePosition
 ## A position the Player can stand on and move towards in battles. Can have
 ## objects and position buffs and debuffs. 
 
+signal object_placed(object:ObjectEntity)
 signal object_state_updated
 signal effect_state_updated
 
@@ -38,6 +39,7 @@ func place_object(data:ObjectData) -> void:
 	object_state_updated.emit()
 	#floating_text.create("Placed " + data.name)
 	object_state_updated.emit()
+	object_placed.emit(object_entity)
 
 
 func remove_object():

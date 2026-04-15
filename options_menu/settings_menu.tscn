@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dr83xtsi28vsw"]
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_0cmel"]
-[ext_resource type="Script" uid="uid://ch77og4vicfj6" path="res://settings_menu.gd" id="2_d0eu6"]
+[ext_resource type="Script" uid="uid://ch77og4vicfj6" path="res://options_menu/settings_menu.gd" id="2_d0eu6"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_mlw3h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0eu6"]

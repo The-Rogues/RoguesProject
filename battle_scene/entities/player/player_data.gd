@@ -98,6 +98,14 @@ func add_card(card:CardData):
 	card_collected.emit()
 
 
+func add_cards(_cards:Array[CardData]):
+	for card in _cards:
+		cards.append(card)
+	
+	cards_updated.emit(cards)
+	card_collected.emit()
+
+
 func remove_card(card:CardData):
 	if cards.has(card):
 		cards.erase(card)

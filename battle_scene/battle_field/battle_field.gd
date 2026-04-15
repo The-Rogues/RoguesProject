@@ -5,7 +5,7 @@ class_name BattleField
 
 ## Battle positions the battle field manages. Set in inspector
 @export var battle_positions:Array[BattlePosition]
-signal object_interacted(interaction_actions:Array[Action])
+signal object_interacted(interaction_actions:Array[Action], object:ObjectEntity)
 
 
 ## Called to place objects at the start of battle
@@ -28,6 +28,14 @@ func setup_objects(config:BattleFieldConfig):
 		if object_data:
 			place_object(object_data , battle_positions[i])
 			#battle_positions[i].place_object(object_data)
+		
+		battle_positions[i].object_placed.connect(_on_object_placed)
+
+
+func _on_object_placed(object:ObjectEntity):
+	object.interacted.connect(func(_object:ObjectEntity):
+			object_interacted.emit(_object.data.interaction_actions, _object))
+
 
 
 ## Attempts to place object in a battle position. If battle_position is null,
@@ -54,11 +62,6 @@ func place_object(
 		return false
 	
 	target_position.place_object(object)
-	
-	target_position.get_object().interacted.connect(
-		func(_object:ObjectEntity):
-			print("object interacted")
-			object_interacted.emit(object.interaction_actions))
 	
 	return true
 

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://cdy1pdif6b5ea"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_hidoy"]
+[ext_resource type="Resource" uid="uid://ct3dokdkm4u6i" path="res://content/cards/brute_cards/brute_strike.tres" id="2_6366n"]
+[ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_li4aa"]
+[ext_resource type="Resource" uid="uid://bgdai8ivk0ewn" path="res://content/cards/brute_cards/intimidate.tres" id="3_g6fpj"]
+[ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/rage.tres" id="4_xrwuu"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_pykkq"]
+
+[resource]
+script = ExtResource("2_li4aa")
+card_pool = Array[ExtResource("1_hidoy")]([ExtResource("2_6366n"), ExtResource("3_g6fpj"), ExtResource("4_xrwuu")])
+draw_count = 3
+name = "Brute Card Pack"
+description = "Add 3 different Brute cards to your deck."
+display_texture = ExtResource("5_pykkq")
+shop_price = 15
+sell_price = 5
+metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

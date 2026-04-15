@@ -25,10 +25,10 @@ func use_item(_player:PlayerEntity = null) -> bool:
 		for i in range(0, draw_count):
 			cards.append(picked_card)
 	
+	run.player_data.add_cards(cards)
+	
 	# Apply cards
 	for card in cards:
-		run.player_data.add_card(card)
-		
 		if _player:
 			var instance = CardInstance.new(card)
 			_player.cards.add_card_to_draw_pile(

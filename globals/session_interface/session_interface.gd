@@ -49,7 +49,7 @@ func initialize():
 	
 	run.player_data.cards_updated.connect(deck_ui._on_deck_updated)
 	run.player_data.cards_updated.connect(deck_viewer.display_cards_from_data)
-	run.player_data.items_updated.connect(player_items._on_items_updated)
+	#run.player_data.items_updated.connect(player_items._on_items_updated)
 	run.player_data.health_updated.connect(_on_health_updated)
 
 

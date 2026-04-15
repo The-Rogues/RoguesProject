@@ -15,6 +15,7 @@ func fire(target_position:Vector2, data:ProjectileFireData):
 	
 	projectile_scene = data.projectile_scene
 	var projectile:Projectile = projectile_scene.instantiate()
+	projectile.source = get_parent()
 	projectile.target_position = target_position
 	projectile.global_position = fire_point.global_position
 	get_tree().current_scene.add_child(projectile)
@@ -34,10 +35,8 @@ func fire_sequence(target:Node2D, data:ProjectileFireData):
 
 
 func projectile_freed(projectile:Projectile):
-	print("removed projectile, projectiles left: ", projectiles.size())
 	projectiles.erase(projectile)
 	
 	if projectiles.is_empty():
-		print("freed")
 		projectiles_freed.emit()
 	pass

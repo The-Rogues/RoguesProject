@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ofupnvutw7wu"]
 
-[ext_resource type="Script" uid="uid://8ydj2bjd1wqa" path="res://main_menu/options_menu.gd" id="1_05uyy"]
+[ext_resource type="Script" uid="uid://8ydj2bjd1wqa" path="res://options_menu/options_menu.gd" id="1_05uyy"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_nwcfo"]
-[ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://settings_menu.tscn" id="2_nwcfo"]
+[ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://options_menu/settings_menu.tscn" id="2_nwcfo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0eu6"]
 bg_color = Color(0, 0, 0, 1)

@@ -1,3 +1,3 @@
-res://battle_scene/entities/object/object_data.gd
+res://item_system/card_pack_item_data.gd
 AtlasTexture
 Theme

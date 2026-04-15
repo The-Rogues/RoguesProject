@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_g2qpm"]
 [ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_ogtcl"]
-[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_player_trait_action.gd" id="3_yvuln"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="3_yvuln"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_pjspm"]
 
 [sub_resource type="Resource" id="Resource_5qsdc"]
@@ -20,6 +20,6 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 script = ExtResource("4_pjspm")
 energy_cost = 2
 name = "Strike"
-description = "Deal get_atk6 Damage. Gain 1 Offense."
+description = "Deal get_atk6 Damage. Gain 1 offense."
 play_actions = Array[ExtResource("1_g2qpm")]([SubResource("Resource_5qsdc"), SubResource("Resource_vmdjr")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"
