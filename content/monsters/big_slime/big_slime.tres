@@ -13,6 +13,7 @@
 
 [sub_resource type="Resource" id="Resource_3s5ji"]
 script = ExtResource("1_u55om")
+health_threshold = 42
 move = ExtResource("1_akhrs")
 metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
 

@@ -22,5 +22,5 @@ move_sequences = Array[ExtResource("1_4ot3j")]([SubResource("Resource_0ttra")])
 behaviour = SubResource("Resource_30rgb")
 display_texture = ExtResource("2_c4b01")
 name = "Angry Shroom"
-health = 25
+health = 26
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

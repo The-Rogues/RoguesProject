@@ -29,5 +29,5 @@ move_sequences = Array[ExtResource("1_xgwk6")]([SubResource("Resource_n74vt"), S
 behaviour = SubResource("Resource_41i3o")
 display_texture = ExtResource("1_0wmvo")
 name = "Dragon Turtle"
-health = 30
+health = 26
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"
