@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://b4l51gspcotr6"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_kqnx6"]
+[ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="2_ojr7o"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_1tpxt"]
+[ext_resource type="Resource" uid="uid://cu00lkobobbmb" path="res://content/monsters/fire_ant/cards/itchy.tres" id="4_1tpxt"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_discard_pile_action.gd" id="5_a5blt"]
+
+[sub_resource type="Resource" id="Resource_a5blt"]
+script = ExtResource("2_ojr7o")
+max_damage = 8
+target_option = 1
+metadata/_custom_type_script = "uid://dwljy2imh2ge8"
+
+[sub_resource type="Resource" id="Resource_jwlo1"]
+script = ExtResource("5_a5blt")
+card = ExtResource("4_1tpxt")
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[resource]
+script = ExtResource("3_1tpxt")
+intent_icon = ExtResource("1_kqnx6")
+name = "Pinch"
+description = "This Enemy intends to attack for 4-8 damage. Adds a Itchy into your discard pile."
+primary_action = SubResource("Resource_a5blt")
+secondary_action = SubResource("Resource_jwlo1")
+metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dmur0k3idqo8h"]
+
+[ext_resource type="Texture2D" uid="uid://6wf2ykstfawr" path="res://battle_scene/entities/monster/intents/sleep_icon.tres" id="1_2eh4v"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_btng2"]
+[ext_resource type="Script" uid="uid://bdpfrus5vumk" path="res://battle_scene/entities/actions/skill/heal_action.gd" id="2_v2y0f"]
+
+[sub_resource type="Resource" id="Resource_3rlca"]
+script = ExtResource("2_v2y0f")
+amount = 6
+metadata/_custom_type_script = "uid://bdpfrus5vumk"
+
+[resource]
+script = ExtResource("1_btng2")
+type = 1
+intent_icon = ExtResource("1_2eh4v")
+name = "Rest"
+description = "This Enemy intends to heal."
+primary_action = SubResource("Resource_3rlca")
+metadata/_custom_type_script = "uid://c410dannt5adg"

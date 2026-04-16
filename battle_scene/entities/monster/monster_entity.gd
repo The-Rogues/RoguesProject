@@ -13,10 +13,16 @@ var move_index:int = 0
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
 
 
+const MAX_BONUS_HEALTH = 6
+
+
 func initialize(_data:MonsterData):
 	self.data = _data
 	sprite_2d.texture = _data.display_texture
-	health.initialize(_data.health, _data.health)
+	
+	var rand_health = _data.health + randi_range(0, MAX_BONUS_HEALTH)
+	
+	health.initialize(rand_health, rand_health)
 	stat_display.initialize(self)
 	intent_icon.initialize(self)
 	health.died.connect(on_destroyed)

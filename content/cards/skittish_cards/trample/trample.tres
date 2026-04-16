@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bwhog8444u2g5"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_c7q1h"]
+[ext_resource type="Script" uid="uid://bf1o7m4dim8j2" path="res://content/cards/skittish_cards/trample/trample_action.gd" id="2_61vw1"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_hwgwp"]
+
+[sub_resource type="Resource" id="Resource_52pqr"]
+script = ExtResource("2_61vw1")
+target_option = 2
+metadata/_custom_type_script = "uid://bf1o7m4dim8j2"
+
+[resource]
+script = ExtResource("2_hwgwp")
+energy_cost = 1
+name = "Trample"
+description = "Deal damage equal to block. Removes all Block"
+play_actions = Array[ExtResource("1_c7q1h")]([SubResource("Resource_52pqr")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

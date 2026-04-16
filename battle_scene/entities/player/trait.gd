@@ -22,5 +22,5 @@ func set_trait(personality_trait:PersonalityTrait):
 
 
 func set_weight(weight:int):
-	weight_value = clampi(weight, 1, 10)
-	updated_trait_weight.emit(weight)
+	weight_value = clampi(weight_value + weight, 1, 10)
+	updated_trait_weight.emit(weight_value)

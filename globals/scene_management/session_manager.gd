@@ -9,6 +9,9 @@ var started_session:bool = false
 
 func _ready() -> void:
 	GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
+	
+	if GlobalSessionManager.run_progress:
+		connect_run_signals()
 
 
 # -------------------------------------------------
@@ -43,6 +46,18 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	run.initialized = true
 	
+	
+	# Add AI Card to starting deck
+	#run.player_data.cards.append(
+		#load("res://ai/ai-cards/inventive_attack_data.tres")
+	#)
+	
+	return run
+
+
+func connect_run_signals():
+	var run = GlobalSessionManager.run_progress
+	
 	run.player_data.gold_collected.connect(func(amount):
 		run.total_gold_collected += amount)
 	
@@ -51,13 +66,6 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	run.player_data.card_collected.connect(func():
 		run.total_cards_collected += 1)
-	
-	# Add AI Card to starting deck
-	#run.player_data.cards.append(
-		#load("res://ai/ai-cards/inventive_attack_data.tres")
-	#)
-	
-	return run
 
 
 # Fletcher - Make a unique map for the game session. Add callback to load the battle scene when a node is clicked.

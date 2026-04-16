@@ -19,3 +19,8 @@ func _on_music_slider_value_changed(value: float) -> void:
 func _on_back_button_up() -> void:
 	visible = false
 	pass # Replace with function body.
+
+
+func _on_ai_mode_toggled(toggled_on: bool) -> void:
+	if GlobalSessionManager.run_progress:
+		GlobalSessionManager.run_progress.ai_mode = toggled_on

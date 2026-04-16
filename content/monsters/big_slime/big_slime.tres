@@ -13,7 +13,7 @@
 
 [sub_resource type="Resource" id="Resource_3s5ji"]
 script = ExtResource("1_u55om")
-health_threshold = 42
+health_threshold = 10
 move = ExtResource("1_akhrs")
 metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
 
@@ -37,5 +37,5 @@ move_sequences = Array[ExtResource("1_u4og6")]([SubResource("Resource_3v7w8"), S
 behaviour = SubResource("Resource_3s5ji")
 display_texture = SubResource("AtlasTexture_en8hf")
 name = "Big Slime"
-health = 60
+health = 42
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

@@ -73,3 +73,5 @@ func _on_creature_defeated(creature:AbstractCreature):
 		
 		if enemies.is_empty():
 			all_enemies_defeated.emit()
+		
+		creature.queue_free()

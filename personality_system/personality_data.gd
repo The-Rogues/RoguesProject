@@ -49,13 +49,13 @@ func initialize(
 	
 	if trait_category == "OFFENSIVE":
 		priority_trait = offensive_trait
-		offensive_weight = 4
+		offensive_weight = 2
 	elif trait_category == "DEFENSIVE":
 		priority_trait = defensive_trait
-		defensive_weight = 4
+		defensive_weight = 2
 	elif trait_category == "STRATEGIC":
 		priority_trait = strategic_trait
-		strategic_weight = 4
+		strategic_weight = 2
 
 
 func has_trait(_trait:String) -> bool:

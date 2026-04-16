@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("4_pjspm")
-energy_cost = 2
+energy_cost = 1
 name = "Strike"
 description = "Deal get_atk6 Damage. Gain 1 offense."
 play_actions = Array[ExtResource("1_g2qpm")]([SubResource("Resource_5qsdc"), SubResource("Resource_vmdjr")])

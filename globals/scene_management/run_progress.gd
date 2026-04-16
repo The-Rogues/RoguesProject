@@ -40,3 +40,4 @@ var run_map: MapManager
 @export var total_rooms_explored:int = 0
 
 @export var initialized:bool = false
+@export var ai_mode:bool = false
