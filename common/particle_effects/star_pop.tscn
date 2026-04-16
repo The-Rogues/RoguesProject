@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="1_gvd0r"]
 
-
 [sub_resource type="Curve" id="Curve_0dnco"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.89067525, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3

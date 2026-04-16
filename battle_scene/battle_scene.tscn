@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7doidnfxvws4" path="res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.tscn" id="6_2203u"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://battle_scene/ui/energy_ui.tscn" id="7_e1j2j"]
 [ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
+[ext_resource type="Texture2D" uid="uid://cniwmcr6i1a7b" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-005.png" id="10_t27p2"]
 [ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="14_3w7x8"]
 [ext_resource type="PackedScene" uid="uid://defsyo3of3fv" path="res://battle_scene/win_screen/rewards_screen.tscn" id="14_4ll6p"]
 [ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://battle_scene/ui/turn_banner.tscn" id="14_2203u"]
@@ -24,33 +25,30 @@ b = Vector2(3, 452)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o1our"]
 b = Vector2(-1151, -3)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_56mp3"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ll6p"]
-texture = SubResource("CompressedTexture2D_56mp3")
+texture = ExtResource("10_t27p2")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ftjb3"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t27p2"]
+load_path = "res://.godot/imported/panel-005.png-1cfa95f207b12c423065f5b4cfa2b1ad.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4dh3"]
-texture = SubResource("CompressedTexture2D_ftjb3")
+texture = SubResource("CompressedTexture2D_t27p2")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jt3yx"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7gnpu"]
+load_path = "res://.godot/imported/panel-005.png-1cfa95f207b12c423065f5b4cfa2b1ad.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ectca"]
-texture = SubResource("CompressedTexture2D_jt3yx")
+texture = SubResource("CompressedTexture2D_7gnpu")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0

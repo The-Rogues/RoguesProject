@@ -9,9 +9,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if GlobalSessionManager.run_progress == null:
-		GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
-	
 	snapshot.initialize()
 	
 	continue_button.set_disabled(

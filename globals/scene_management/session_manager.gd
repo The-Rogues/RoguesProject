@@ -6,9 +6,15 @@ class_name SessionManager
 var run_progress: RunProgress = null
 var started_session:bool = false
 
+
+func _ready() -> void:
+	GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
+
+
 # -------------------------------------------------
 # Initializing & deleting game session
 # -------------------------------------------------
+
 func initialize(data:PlayerInitializationData) -> void:
 	run_progress = create_run(data)
 	initialize_map()
@@ -21,7 +27,9 @@ func initialize(data:PlayerInitializationData) -> void:
 func create_run(data:PlayerInitializationData) -> RunProgress:
 	var run:RunProgress = RunProgress.new()
 	
-	run.player_data = PlayerData.new(data.personality, data.starting_deck)
+	var player_data = PlayerData.new()
+	player_data.initialize(data.personality, data.personality.get_starting_deck())
+	run.player_data = player_data
 	run.player_data.name = data.name
 	run.player_name = data.name
 	run.player_texture = data.display_texure

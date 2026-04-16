@@ -1,4 +1,4 @@
-extends RefCounted
+extends Resource
 class_name PersonalityData
 ## Resource that stores personality traits and functions for resolving targets
 ## and movement direction.
@@ -13,24 +13,25 @@ signal updated_priority_trait(_trait:PersonalityTrait)
 signal updated(personality:PersonalityData)
 
 ## Influences capacity and attitude towards violence.
-var offensive_trait:PersonalityTrait
+@export var offensive_trait:PersonalityTrait
 ## Controls how much the offensive trait is priotized over other traits.
-var offensive_weight:int
+@export var offensive_weight:int
 ## Influences capacity and attitude towards self-preservation.
-var defensive_trait:PersonalityTrait
+@export var defensive_trait:PersonalityTrait
 ## Controls how much the defensive trait is priotized over other traits.
-var defensive_weight:int
+@export var defensive_weight:int
 ## Supplimentary motivation for other natures.
-var strategic_trait:PersonalityTrait
+@export var strategic_trait:PersonalityTrait
 ## Controls how much the strategic trait is priotized over other traits.
-var strategic_weight:int
+@export var strategic_weight:int
 
 var priority_trait:PersonalityTrait = null
 
 const MINIMUM_WEIGHT = 1
 const  MAXIMUM_WEIGHT = 10
 
-func _init(
+
+func initialize(
 		_offensive_trait:PersonalityTrait,
 		_defensive_trait:PersonalityTrait,
 		_strategic_trait:PersonalityTrait,

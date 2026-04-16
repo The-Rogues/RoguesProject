@@ -6,19 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="4_fmm5i"]
 [ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="5_fmm5i"]
 [ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="6_fmm5i"]
-
+[ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="7_jetiv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fb5tk"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgxit"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6vipf"]
-load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1oxh"]
-atlas = SubResource("CompressedTexture2D_6vipf")
-region = Rect2(40, 776, 16, 16)
 
 [node name="RunSnapshot" type="Control" unique_id=157342732]
 custom_minimum_size = Vector2(543, 140)
@@ -161,4 +154,4 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_u1oxh")
+texture = ExtResource("7_jetiv")

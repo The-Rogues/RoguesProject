@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="TrackList" format=3 uid="uid://qsej4un57lem"]
 
 [ext_resource type="Script" uid="uid://iu7443of4tq5" path="res://content/scene_configuration/scripts/track_list.gd" id="1_6rdra"]
-[ext_resource type="AudioStream" uid="uid://buckwc6wxhnk" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/mp3/11 - The Mighty Kingdom.mp3" id="1_p4j1v"]
-[ext_resource type="AudioStream" uid="uid://dq3nwm7i34f3q" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/mp3/02 - Title Theme.mp3" id="2_pdxy6"]
-[ext_resource type="AudioStream" uid="uid://csoiuuag1jlm6" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/mp3/20 - The Journey.mp3" id="3_rya5x"]
+[ext_resource type="AudioStream" uid="uid://dkt46ip4i00w2" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/11 - The Mighty Kingdom.ogg" id="1_p4j1v"]
+[ext_resource type="AudioStream" uid="uid://c3384jv0u4hy8" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/02 - Title Theme.ogg" id="2_p4j1v"]
+[ext_resource type="AudioStream" uid="uid://ceammcyo8urm2" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/20 - The Journey.ogg" id="3_rya5x"]
 
 [resource]
 script = ExtResource("1_6rdra")
 main_menu = ExtResource("1_p4j1v")
 save_screen = ExtResource("3_rya5x")
-map_scene = ExtResource("2_pdxy6")
+map_scene = ExtResource("2_p4j1v")
 metadata/_custom_type_script = "uid://iu7443of4tq5"

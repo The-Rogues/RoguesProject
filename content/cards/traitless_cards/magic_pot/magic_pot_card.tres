@@ -15,6 +15,6 @@ script = ExtResource("2_5d7rq")
 type = 2
 energy_cost = 1
 name = "Magic Pot"
-description = "Place a Magic Pot on empty space. Fires a 4 damage projectile each turn."
+description = "Place a Magic Pot that fires a projectile at the start of each turn."
 play_actions = Array[ExtResource("1_j5e1a")]([SubResource("Resource_gb33l")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

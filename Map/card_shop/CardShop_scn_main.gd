@@ -1,6 +1,6 @@
 extends Control
 
-const CARDS = preload("res://content/items/card_packs/common_card_pack.tres")
+const CARDS = preload("res://content/items/card_packs/traitless_card_pack.tres")
 
 @export var random_shop_card_count:int = 9
 @export var shop_keeper_varients:Array[Texture2D]

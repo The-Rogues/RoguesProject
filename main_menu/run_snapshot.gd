@@ -12,13 +12,14 @@ extends Control
 
 
 func initialize() -> void:
-	var run := GlobalSessionManager.run_progress
+	var run = GlobalSessionManager.run_progress
 	
 	if run == null:
 		margin_container.visible = false
 		no_save_data_label.visible = true
 		return
 	
+	name_label.text = run.player_data.name
 	character_image.texture = run.player_texture
 	health_label.text = get_player_health_as_string(run.player_data)
 	offensive_trait_display._on_trait_data_updated(

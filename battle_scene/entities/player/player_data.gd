@@ -1,4 +1,4 @@
-extends RefCounted
+extends Resource
 class_name PlayerData
 # Data container used to track player stat progression during a run
 
@@ -13,16 +13,16 @@ signal item_collected
 signal card_collected
 signal gold_collected(amount:int)
 
-var name:String = "Player"
-var max_health:int
-var current_health:int
-var current_energy:int
-var max_energy:int
-var item_capacity:int
-var items:Array[ItemData]
-var cards:Array[CardData]
-var gold:int
-var personality:PersonalityData
+@export var name:String = "Player"
+@export var max_health:int
+@export var current_health:int
+@export var current_energy:int
+@export var max_energy:int
+@export var item_capacity:int
+@export var items:Array[ItemData]
+@export var cards:Array[CardData]
+@export var gold:int
+@export var personality:PersonalityData
 
 const STARTING_HEALTH = 70
 const STARTING_ENERGY = 3
@@ -30,7 +30,7 @@ const STARTING_ITEM_CAPACITY = 1
 const STARTING_GOLD = 0
 
 
-func _init(
+func initialize(
 	_personality:PersonalityData,
 	_cards:Array[CardData]
 ) -> void:
