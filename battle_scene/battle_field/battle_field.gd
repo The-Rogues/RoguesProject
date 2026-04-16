@@ -85,11 +85,12 @@ func move_player(
 	# Update state FIRST (important)
 	player.battle_position = new_position
 	
-	# Enter new position
-	new_position.on_player_entered(player)
 	
 	# Animate movement
 	await player.move_to(new_position.global_position)
+	
+	# Enter new position
+	new_position.on_player_entered(player)
 
 
 func enter_turn(turn_count:int):

@@ -31,7 +31,6 @@ metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 [sub_resource type="Resource" id="Resource_1nsr7"]
 script = ExtResource("3_vcqse")
 category = 1
-threshold = 1
 lower = true
 success_action = SubResource("Resource_iremj")
 metadata/_custom_type_script = "uid://dvbo2nw5tsuc"

@@ -58,6 +58,8 @@ func initialize(battle_config:BattleConfig):
 	)
 	
 	battle_flow_manager.initialize(battle_context)
+	battle_context.resolve_targeting = battle_flow_manager.action_resolver.resolve_targeting
+	
 	play_hand.initialize(player, battle_flow_manager.action_resolver)
 	battle_field.object_interacted.connect(
 			battle_flow_manager.action_resolver.process_actions)

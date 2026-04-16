@@ -73,6 +73,7 @@ func end_player_turn():
 	for enemy in enemies:
 		enemy.enter_turn(turn_count)
 	
+	player.effects.decay_status_effects()
 	end_turn_button.disabled = true
 	end_turn_button.text = "Enemy Turn."
 	player.cards.move_draw_into_discard_pile()

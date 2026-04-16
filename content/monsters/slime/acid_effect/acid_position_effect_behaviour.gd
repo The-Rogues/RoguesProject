@@ -10,5 +10,5 @@ func get_description(_instance:PositionEffect) -> String:
 
 
 func on_entered(player:PlayerEntity, _instance:PositionEffect) -> void:
-	print("acid entered")
 	player.take_damage(_instance.stack)
+	_instance.end_effect()

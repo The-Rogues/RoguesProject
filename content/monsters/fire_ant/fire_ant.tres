@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="2_wakdm"]
 [ext_resource type="Resource" uid="uid://cbqkdrl4jlp58" path="res://content/monsters/fire_ant/moves/defense_pose.tres" id="3_2gsaf"]
 [ext_resource type="Resource" uid="uid://b4l51gspcotr6" path="res://content/monsters/fire_ant/moves/pinch.tres" id="4_votpd"]
+[ext_resource type="Resource" uid="uid://blkdabye0r2cl" path="res://content/monsters/fire_ant/moves/crunch.tres" id="7_2b86n"]
 
 [sub_resource type="Resource" id="Resource_riv3w"]
 script = ExtResource("1_votpd")
@@ -18,7 +19,7 @@ region = Rect2(224, 192, 32, 32)
 
 [sub_resource type="Resource" id="Resource_2b86n"]
 script = ExtResource("1_runr3")
-moves = Array[ExtResource("2_wakdm")]([ExtResource("3_2gsaf"), ExtResource("4_votpd")])
+moves = Array[ExtResource("2_wakdm")]([ExtResource("3_2gsaf"), ExtResource("4_votpd"), ExtResource("7_2b86n")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [sub_resource type="Resource" id="Resource_hac1v"]
@@ -26,11 +27,16 @@ script = ExtResource("1_runr3")
 moves = Array[ExtResource("2_wakdm")]([ExtResource("3_2gsaf"), ExtResource("4_votpd"), ExtResource("4_votpd")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
+[sub_resource type="Resource" id="Resource_sxnes"]
+script = ExtResource("1_runr3")
+moves = Array[ExtResource("2_wakdm")]([ExtResource("4_votpd"), ExtResource("7_2b86n")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
 [resource]
 script = ExtResource("2_viqjf")
-move_sequences = Array[ExtResource("1_runr3")]([SubResource("Resource_2b86n"), SubResource("Resource_hac1v")])
+move_sequences = Array[ExtResource("1_runr3")]([SubResource("Resource_2b86n"), SubResource("Resource_hac1v"), SubResource("Resource_sxnes")])
 behaviour = SubResource("Resource_riv3w")
 display_texture = SubResource("AtlasTexture_sxnes")
 name = "Fire Ant"
-health = 12
+health = 16
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

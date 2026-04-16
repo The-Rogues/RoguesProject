@@ -1,5 +1,5 @@
 extends StatusEffectBehaviour
-class_name VulnerableEffect
+class_name ArmoredEffect
 
 
 func on_stack(
@@ -10,7 +10,7 @@ func on_stack(
 
 
 func get_status_name() -> String:
-	return "Vulnerable"
+	return "Armored"
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
@@ -18,8 +18,8 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 
 
 func get_texture() -> Texture2D:
-	return load("res://battle_scene/entities/status_effects/common/vulnerable_icon.tres")
+	return load("res://battle_scene/entities/status_effects/common/armored_icon.tres")
 
 
 func modify_incoming_damage(damage:int, _instance:ActiveStatusEffect) -> int:
-	return roundi(damage * 1.5)
+	return roundi(damage * 0.5)

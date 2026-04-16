@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [sub_resource type="Resource" id="Resource_i4eld"]
 script = ExtResource("3_g886v")
-moves = Array[ExtResource("4_6rrga")]([ExtResource("6_h4jsr"), ExtResource("5_ki73l"), ExtResource("6_h4jsr")])
+moves = Array[ExtResource("4_6rrga")]([ExtResource("6_h4jsr"), ExtResource("6_h4jsr"), ExtResource("5_ki73l")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [resource]

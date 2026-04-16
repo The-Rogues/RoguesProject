@@ -22,4 +22,4 @@ func get_texture() -> Texture2D:
 
 
 func modify_attack_damage(damage:int, _instance:ActiveStatusEffect) -> int:
-	return roundi(damage * 1.5)
+	return roundi(damage * 0.5)

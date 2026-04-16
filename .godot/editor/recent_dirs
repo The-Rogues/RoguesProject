@@ -1,10 +1,12 @@
+res://content/cards/skittish_cards/
+res://content/monsters/crawler/moves/
+res://battle_scene/entities/status_effects/common/
+res://content/monsters/fire_ant/moves/
 res://content/scene_configuration/enemy_encounters/
 res://content/scene_configuration/battle_field_layouts/
-res://content/monsters/fire_ant/moves/
 res://content/monsters/fire_ant/cards/
 res://content/monsters/fire_ant/
 res://content/monsters/dreamer/moves/
 res://common/art/random_art/
 res://content/items/card_packs/
-res://content/cards/skittish_cards/
 res://

@@ -77,7 +77,9 @@ func on_destroyed():
 
 
 func enter_turn(_turn_count:int):
-	super(_turn_count)
+	block.set_to_zero()
+	effects.on_entered_turn()
+	#effects.decay_status_effects()
 	energy.refill()
 
 

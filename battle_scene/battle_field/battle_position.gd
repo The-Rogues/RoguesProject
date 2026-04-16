@@ -82,6 +82,8 @@ func remove_position_effect() -> void:
 func on_player_entered(player:PlayerEntity):
 	if _effect:
 		_effect.on_player_entered(player)
+		effect_state_updated.connect(
+				player.movement_controller.position_state_updated)
 	if _object:
 		_object.on_player_entered()
 
@@ -89,6 +91,8 @@ func on_player_entered(player:PlayerEntity):
 func on_player_exited(player:PlayerEntity):
 	if _effect:
 		_effect.on_player_exited(player)
+		effect_state_updated.connect(
+				player.movement_controller.position_state_updated)
 	if _object:
 		_object.on_player_exited()
 

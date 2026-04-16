@@ -110,3 +110,8 @@ func move_toward_desired_object() -> void:
 		return
 	
 	pass
+
+
+func position_state_updated():
+	if player.battle_position.has_effect():
+		player.battle_position.get_effect().on_player_entered(player)
