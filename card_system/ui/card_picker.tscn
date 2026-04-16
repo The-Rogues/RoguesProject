@@ -3,48 +3,6 @@
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_omlpw"]
 [ext_resource type="Script" uid="uid://cgja4omcqdq18" path="res://card_system/ui/card_picker.gd" id="2_hk7a8"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_oymb6"]
-[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="4_iglsr"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0v77y"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_005b6"]
-texture = SubResource("CompressedTexture2D_0v77y")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_11b3r"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv8ui"]
-texture = SubResource("CompressedTexture2D_11b3r")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qfx2c"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7g4x"]
-texture = SubResource("CompressedTexture2D_qfx2c")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_blgvk"]
-texture = ExtResource("4_iglsr")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0, 0, 0, 1)
 
 [node name="CardPicker" type="Control" unique_id=2047647765]
 layout_mode = 3
@@ -79,10 +37,6 @@ grow_vertical = 0
 theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("3_oymb6")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxTexture_005b6")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_yv8ui")
-theme_override_styles/hover = SubResource("StyleBoxTexture_m7g4x")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_blgvk")
 text = "Cancel"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1376271826]

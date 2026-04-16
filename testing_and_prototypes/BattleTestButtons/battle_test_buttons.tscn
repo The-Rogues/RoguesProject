@@ -8,8 +8,8 @@
 texture_filter = 1
 custom_minimum_size = Vector2(170, 40)
 offset_top = 1.0
-offset_right = 171.0
-offset_bottom = 195.0
+offset_right = 170.0
+offset_bottom = 41.0
 mouse_filter = 1
 script = ExtResource("2_jig8v")
 
@@ -35,6 +35,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1870704031]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 
