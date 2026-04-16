@@ -69,3 +69,4 @@ res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.tscn
 res://content/items/cheese/cheese_item_data.tres
 res://content/items/chest_key/chest_key_item_data.tres
 res://content/items/diamong/diamond_item_data.tres
+res://Map/map_module/map_data_structures/MapGraph.gd
