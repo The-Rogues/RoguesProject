@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cdh3lw5ynlspp"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_41na2"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://battle_scene/entities/monster/intents/projectile_icon.tres" id="1_cimvs"]
+[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="2_xgnt4"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_gs2st"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_haxi0"]
+
+[sub_resource type="Resource" id="Resource_4b4gi"]
+script = ExtResource("3_gs2st")
+projectile_scene = ExtResource("2_xgnt4")
+projectile_count = 10
+fire_delay = 0.1
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_83g5x"]
+script = ExtResource("4_haxi0")
+projectile_config = SubResource("Resource_4b4gi")
+target_option = 1
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("1_41na2")
+intent_icon = ExtResource("1_cimvs")
+name = "Gatling Fire"
+description = "This Enemy intends to fire many projectiles."
+primary_action = SubResource("Resource_83g5x")
+metadata/_custom_type_script = "uid://c410dannt5adg"

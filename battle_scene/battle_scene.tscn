@@ -183,9 +183,6 @@ offset_bottom = 587.0
 [node name="CardPileButton" parent="UILayer/DrawPileIcon" index="0" unique_id=178403029]
 self_modulate = Color(0.6060729, 0.20521358, 0.26968792, 1)
 
-[node name="DrawPileViewer" parent="UILayer" unique_id=666170987 instance=ExtResource("15_ectca")]
-visible = false
-
 [node name="DiscardPileIcon" parent="UILayer" unique_id=749258871 instance=ExtResource("14_3w7x8")]
 offset_left = 1086.0
 offset_top = 588.0
@@ -200,9 +197,6 @@ offset_left = -36.0
 offset_top = -7.0
 offset_right = -8.0
 offset_bottom = 21.0
-
-[node name="DiscardPileViewer" parent="UILayer" unique_id=2047647765 instance=ExtResource("15_ectca")]
-visible = false
 
 [node name="PlayArea" parent="UILayer" unique_id=574541479 node_paths=PackedStringArray("card_hand") instance=ExtResource("3_nuuou")]
 position = Vector2(546, 286)
@@ -221,6 +215,12 @@ mouse_filter = 2
 script = ExtResource("4_cgsmb")
 fan_angle = 15.0
 fan_spacing = 100.0
+
+[node name="DrawPileViewer" parent="UILayer" unique_id=666170987 instance=ExtResource("15_ectca")]
+visible = false
+
+[node name="DiscardPileViewer" parent="UILayer" unique_id=2047647765 instance=ExtResource("15_ectca")]
+visible = false
 
 [node name="TurnBanner" parent="UILayer" unique_id=1379108646 instance=ExtResource("14_2203u")]
 mouse_filter = 2

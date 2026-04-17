@@ -102,7 +102,7 @@ func can_use_action(action:Action) -> bool:
 
 func on_entered_turn() -> void:
 	for instance in active_effects:
-		instance.effect.on_turn_entered(affected_creature)
+		instance.effect.on_turn_entered(affected_creature, instance)
 
 
 func decay_status_effects():

@@ -26,8 +26,8 @@ func take_damage(amount:int, _attacker = null):
 	
 	sprite_2d.flash()
 	
+	
 	if (_attacker is PlayerEntity 
-			and health.is_alive
 			and data.interaction == ObjectData.InteractionOption.ON_HIT):
 		interact()
 

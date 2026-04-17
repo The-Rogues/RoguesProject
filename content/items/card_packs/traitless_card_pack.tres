@@ -8,11 +8,12 @@
 [ext_resource type="Resource" uid="uid://fa2pctlxbe8m" path="res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres" id="6_peaux"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="7_q3xb6"]
 [ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/traitless_cards/adrenaline.tres" id="7_x81jl"]
+[ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/traitless_cards/inferno.tres" id="8_1vp3d"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="8_an1ps"]
 
 [resource]
 script = ExtResource("8_an1ps")
-card_pool = Array[ExtResource("1_7n5f6")]([ExtResource("2_x81jl"), ExtResource("3_1vp3d"), ExtResource("4_2312w"), ExtResource("5_3sdt6"), ExtResource("6_peaux"), ExtResource("7_x81jl")])
+card_pool = Array[ExtResource("1_7n5f6")]([ExtResource("2_x81jl"), ExtResource("3_1vp3d"), ExtResource("4_2312w"), ExtResource("5_3sdt6"), ExtResource("6_peaux"), ExtResource("7_x81jl"), ExtResource("8_1vp3d")])
 draw_count = 3
 unique = false
 name = "Traitless Card Pack"

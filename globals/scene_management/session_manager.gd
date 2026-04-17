@@ -12,6 +12,8 @@ func _ready() -> void:
 	
 	if GlobalSessionManager.run_progress:
 		connect_run_signals()
+		await get_tree().process_frame
+		GlobalSessionInterface.initialize()
 
 
 # -------------------------------------------------

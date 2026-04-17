@@ -25,7 +25,7 @@ signal updated(personality:PersonalityData)
 ## Controls how much the strategic trait is priotized over other traits.
 @export var strategic_weight:int
 
-var priority_trait:PersonalityTrait = null
+@export var priority_trait:PersonalityTrait = null
 
 const MINIMUM_WEIGHT = 1
 const  MAXIMUM_WEIGHT = 10
@@ -56,6 +56,12 @@ func initialize(
 	elif trait_category == "STRATEGIC":
 		priority_trait = strategic_trait
 		strategic_weight = 2
+
+
+##TODO: Fletcher, this is the function called to decide which enemy is targeted
+## Choosest the highest priority target given the biases of personality traits.
+func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
+	return enemies.pick_random()
 
 
 func has_trait(_trait:String) -> bool:

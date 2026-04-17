@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://b6ro5tcr0wfnx"]
+
+[ext_resource type="Texture2D" uid="uid://camo27fp55dcl" path="res://common/art/placeholder/32_rogues/animated-tiles.png" id="1_lohyr"]
+
+[resource]
+atlas = ExtResource("1_lohyr")
+region = Rect2(8, 264, 16, 16)

@@ -15,11 +15,6 @@ enum EnemyPreference { STRONGEST, WEAKEST }
 @export var card_loot_pool:Array[CardData]
 @export var starter_cards:Array[CardData]
 
-##TODO: Fletcher, this is the function called to decide which enemy is targeted
-## Choosest the highest priority target given the biases of personality traits.
-func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
-	return enemies.pick_random()
-
 
 func get_strongest_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
 	if enemies.is_empty():

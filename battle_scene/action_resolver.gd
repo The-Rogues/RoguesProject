@@ -36,7 +36,7 @@ func resolve_targeting(target_option:int, user:AbstractEntity):
 				if player.battle_position.has_object():
 					target = player.battle_position.get_object()
 				else:
-					target = player.data.personality.priority_trait.choose_enemy_target(
+					target = player.data.personality.choose_enemy_target(
 							battle_context.creature_manager.enemies
 					)
 				
