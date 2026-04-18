@@ -61,8 +61,107 @@ func initialize(
 ##TODO: Fletcher, this is the function called to decide which enemy is targeted
 ## Choosest the highest priority target given the biases of personality traits.
 func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
+	
+	var priority_order: Array[int] = create_trait_order()
+	
+	for i in range(0, priority_order.size()):
+		var targeting_option: PersonalityTrait.EnemyPreference
+		match priority_order[i]:
+			0:
+				targeting_option = offensive_trait.enemy_targeting_preference
+			1:
+				targeting_option = defensive_trait.enemy_targeting_preference
+			2:
+				targeting_option = strategic_trait.enemy_targeting_preference
+		match targeting_option:
+			PersonalityTrait.EnemyPreference.HEALTHIEST:
+				return filter_healthiest(enemies).pick_random()
+			PersonalityTrait.EnemyPreference.WEAKEST:
+				return filter_weakest(enemies).pick_random()
+			PersonalityTrait.EnemyPreference.DANGEROUS:
+				var filtered_enemies: Array[MonsterEntity] = filter_dangerous(enemies)
+				if filtered_enemies.size() > 0:
+					return filtered_enemies.pick_random()
+			PersonalityTrait.EnemyPreference.INTELEGENT:
+				var filtered_enemies: Array[MonsterEntity] = filter_intelegent(enemies)
+				if filtered_enemies.size() > 0:
+					return filtered_enemies.pick_random()
 	return enemies.pick_random()
 
+func filter_healthiest(in_enemies: Array[MonsterEntity]) -> Array[MonsterEntity]:
+	var ret_val: Array[MonsterEntity] = []
+	var highest_health: int = 0
+	for i in range(0, in_enemies.size()):
+		if in_enemies[i].health.value > highest_health:
+			highest_health = in_enemies[i].health.value
+	for i in range(0, in_enemies.size()):
+		if in_enemies[i].health.value == highest_health:
+			ret_val.append(in_enemies[i])
+	return ret_val
+
+func filter_weakest(in_enemies: Array[MonsterEntity]) -> Array[MonsterEntity]:
+	if in_enemies.size() == 0:
+		return []
+	var ret_val: Array[MonsterEntity] = []
+	var lowest_health: int = in_enemies[0].health.value
+	for i in range(1, in_enemies.size()):
+		if in_enemies[i].health.value < lowest_health:
+			lowest_health = in_enemies[i].health.value
+	for i in range(0, in_enemies.size()):
+		if in_enemies[i].health.value == lowest_health:
+			ret_val.append(in_enemies[i])
+	return ret_val
+
+func filter_dangerous(in_enemies: Array[MonsterEntity]) -> Array[MonsterEntity]:
+	var ret_val: Array[MonsterEntity] = []
+	for i in range(0, in_enemies.size()):
+		if in_enemies[i].move_sequence.moves[in_enemies[i].move_index].primary_action is DamageAction:
+			ret_val.append(in_enemies[i])
+	return ret_val
+
+func filter_intelegent(in_enemies: Array[MonsterEntity]) -> Array[MonsterEntity]:
+	var ret_val: Array[MonsterEntity] = []
+	for i in range(0, in_enemies.size()):
+		if in_enemies[i].move_sequence.moves[in_enemies[i].move_index].primary_action is not DamageAction:
+			ret_val.append(in_enemies[i])
+	return ret_val
+
+# offense -> 0
+# defense -> 1
+# strategic -> 2
+func create_trait_order() -> Array[int]:
+	var ret_val: Array[int]
+	var i: int = 0
+	while ret_val.size() < 3:
+		ret_val = ret_val + get_highest_offset(i)
+	return ret_val
+
+func get_highest_offset(highest_offset: int) -> Array[int]:
+	
+	var prev_highest: int = 11
+	var curr_highest: int = 0
+	var ret_val: Array[int]
+	
+	for i in range(0, highest_offset + 1):
+		if offensive_weight > curr_highest && offensive_weight < prev_highest:
+			curr_highest = offensive_weight 
+		if defensive_weight > curr_highest && defensive_weight < prev_highest:
+			curr_highest = offensive_weight
+		if strategic_weight > curr_highest && strategic_weight < prev_highest:
+			curr_highest = offensive_weight
+		
+		prev_highest = curr_highest
+		curr_highest = 0
+		
+		if i == highest_offset:
+			if offensive_weight == prev_highest:
+				ret_val.append(0)
+			if defensive_weight == prev_highest:
+				ret_val.append(1)
+			if strategic_weight == prev_highest:
+				ret_val.append(2)
+	
+	return ret_val
 
 func has_trait(_trait:String) -> bool:
 	var trait_name:String = _trait.to_upper()

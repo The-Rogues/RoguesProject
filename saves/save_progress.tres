@@ -6,12 +6,13 @@
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="4_r5eiv"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="5_fcpjs"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="6_f04e1"]
+[ext_resource type="Resource" path="res://content/fletcher/cards/pacify/pacify.tres" id="6_upqny"]
 [ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="7_i06bj"]
 [ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_sds6a"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_jfmdv"]
 [ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="10_uahfr"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_ce22o"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="12_wh6of"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="12_wh6of"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="13_7xv35"]
 
 [sub_resource type="Resource" id="Resource_upqny"]
@@ -26,21 +27,25 @@ priority_trait = ExtResource("8_sds6a")
 
 [sub_resource type="Resource" id="Resource_br818"]
 script = ExtResource("11_ce22o")
-name = "Cyrprus"
+name = "Salome"
 max_health = 70
 current_health = 70
+current_energy = 3
 max_energy = 3
 item_capacity = 1
-cards = Array[ExtResource("1_wh6of")]([ExtResource("2_upqny"), ExtResource("2_upqny"), ExtResource("2_upqny"), ExtResource("2_upqny"), ExtResource("3_br818"), ExtResource("3_br818"), ExtResource("3_br818"), ExtResource("3_br818"), ExtResource("4_r5eiv"), ExtResource("4_r5eiv"), ExtResource("4_r5eiv"), ExtResource("5_fcpjs")])
+cards = Array[ExtResource("1_wh6of")]([ExtResource("2_upqny"), ExtResource("2_upqny"), ExtResource("2_upqny"), ExtResource("2_upqny"), ExtResource("3_br818"), ExtResource("3_br818"), ExtResource("3_br818"), ExtResource("3_br818"), ExtResource("4_r5eiv"), ExtResource("4_r5eiv"), ExtResource("4_r5eiv"), ExtResource("5_fcpjs"), ExtResource("6_upqny")])
+gold = 22
 personality = SubResource("Resource_upqny")
 
 [resource]
 script = ExtResource("13_7xv35")
 player_data = SubResource("Resource_br818")
 player_texture = ExtResource("12_wh6of")
-player_name = "Cyrprus"
-player_backstory = "Promises of wealth lure them inward, certain that gold is worth any risk the tower demands."
-map_seed = 77638417
-pending_node_index = 2
+player_name = "Salome"
+player_backstory = "They enter to prove their strength, believing only pain and broken foes can affirm who they are."
+map_seed = 2062383708
+player_node_index = 4
+pending_node_index = 7
 room_in_progress = true
+total_rooms_explored = 2
 initialized = true

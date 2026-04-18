@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://jsdadisdd6n8"]
+
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_4ot3j"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_c4b01"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_6wf4g"]
+[ext_resource type="Texture2D" uid="uid://gwqfbimby6mq" path="res://common/art/random_art/trooper_texture.tres" id="2_d54dq"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_7kaug"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="4_h212w"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="5_d54dq"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="6_iooee"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="7_2n250"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="8_tb4ij"]
+
+[sub_resource type="Resource" id="Resource_30rgb"]
+script = ExtResource("1_c4b01")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iooee"]
+load_path = "res://.godot/imported/Icons_RPG.png-b59b7ecc48f4838d17052a96cf776a5a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n250"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_iooee")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_tb4ij"]
+script = ExtResource("5_d54dq")
+base_damage = 5
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_di4n3"]
+script = ExtResource("6_iooee")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_ys8k1"]
+script = ExtResource("7_2n250")
+behaviour = SubResource("Resource_di4n3")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_kd86i"]
+script = ExtResource("8_tb4ij")
+effect = SubResource("Resource_ys8k1")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_ad5k6"]
+script = ExtResource("3_7kaug")
+intent_icon = SubResource("AtlasTexture_2n250")
+name = "Propagate"
+description = "This enemy intends to attack for [color=red]get_atk5[/color] damage. Gains 1 strength."
+primary_action = SubResource("Resource_tb4ij")
+secondary_action = SubResource("Resource_kd86i")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_xmaup"]
+script = ExtResource("5_d54dq")
+base_damage = 5
+hits = 2
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_or4sf"]
+script = ExtResource("3_7kaug")
+intent_icon = ExtResource("4_h212w")
+name = "Unleash"
+description = "This Enemy intends to attack for [color=red]get_atk5[/color] damage, twice."
+primary_action = SubResource("Resource_xmaup")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_c31ea"]
+script = ExtResource("1_4ot3j")
+moves = Array[ExtResource("3_7kaug")]([SubResource("Resource_ad5k6"), SubResource("Resource_ad5k6"), SubResource("Resource_or4sf")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_6wf4g")
+move_sequences = Array[ExtResource("1_4ot3j")]([SubResource("Resource_c31ea")])
+behaviour = SubResource("Resource_30rgb")
+display_texture = ExtResource("2_d54dq")
+name = "Angry Shroom"
+health = 25
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

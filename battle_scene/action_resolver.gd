@@ -10,7 +10,8 @@ func _init(context:BattleContext) -> void:
 	action_queue = ActionQueue.new()
 
 
-func resolve_targeting(target_option:int, user:AbstractEntity):
+func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
+	var target_option: int = in_action.target_option
 	var resolved_targeting:Array[AbstractEntity]
 	
 	match target_option:
@@ -33,11 +34,18 @@ func resolve_targeting(target_option:int, user:AbstractEntity):
 			if user is PlayerEntity:
 				var player := battle_context.creature_manager.player
 				var target:AbstractEntity = null
-				if player.battle_position.has_object():
+				if player.battle_position.has_object() && !in_action.ignore_foreground:
 					target = player.battle_position.get_object()
 				else:
+					
+					var filtered_enemies: Array[MonsterEntity]
+					if in_action is FilteredTargetedAction:
+						filtered_enemies = filter_enemies(in_action)
+					else:
+						filtered_enemies = battle_context.creature_manager.enemies
+					
 					target = player.data.personality.choose_enemy_target(
-							battle_context.creature_manager.enemies
+						filtered_enemies
 					)
 				
 				resolved_targeting.append(target)
@@ -45,17 +53,40 @@ func resolve_targeting(target_option:int, user:AbstractEntity):
 				resolved_targeting.append(
 						battle_context.creature_manager.enemies.pick_random())
 		3:
+			var filtered_enemies: Array[MonsterEntity]
+			if in_action is FilteredTargetedAction:
+				filtered_enemies = filter_enemies(in_action)
+			else:
+				filtered_enemies = battle_context.creature_manager.enemies
+					
+					
 			resolved_targeting.append_array(
-					battle_context.creature_manager.enemies)
+					filtered_enemies)
 	
 	return resolved_targeting
 
+func filter_enemies(in_action: FilteredTargetedAction) -> Array[MonsterEntity]:
+	var filtered_enemies: Array[MonsterEntity] = battle_context.creature_manager.enemies.duplicate()
+	if in_action.filter_type == FilteredTargetedAction.FilterType.HP_PCT:
+		for i in range(filtered_enemies.size() - 1, -1, -1):
+			var enemy_pct: float = (filtered_enemies[i].health.value * 1.0) / (filtered_enemies[i].health.max_value * 1.0)
+			if in_action.filter_value < enemy_pct:
+				filtered_enemies.remove_at(i)
+	elif in_action.filter_type == FilteredTargetedAction.FilterType.HP_THRESHOLD:
+		for i in range(filtered_enemies.size() - 1, -1, -1):
+			if int(in_action.filter_value) < filtered_enemies[i].health.value:
+				filtered_enemies.remove_at(i)
+	elif in_action.filter_type == FilteredTargetedAction.FilterType.MAX_HP_THRESHOLD:
+		for i in range(filtered_enemies.size() - 1, -1, -1):
+			if int(in_action.filter_value) < filtered_enemies[i].health.max_value:
+				filtered_enemies.remove_at(i)
+	return filtered_enemies
 
 func process_actions(actions:Array[Action], user:AbstractEntity):
 	for action in actions:
 		if action is TargetedAction:
 			action.resolved_targets = resolve_targeting(
-					action.target_option,
+					action,
 					user)
 		
 		if user is AbstractCreature:

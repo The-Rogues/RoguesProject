@@ -4,12 +4,13 @@
 [ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_8vm6i"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="2_0ugeu"]
 [ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/small_slime_data.tres" id="3_8vm6i"]
-[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/monsters/fletcher/angry_shroom/angry_shroom.tres" id="3_k6hba"]
+[ext_resource type="Resource" path="res://content/monsters/fletcher/angry_shroom/angry_shroom.tres" id="3_k6hba"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_wf8nn"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_8vm6i"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="5_k6hba"]
 [ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://content/items/apple/apple_texture.tres" id="6_cpupb"]
 [ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://content/items/apple/apple_healing_item_data.tres" id="7_u6mqc"]
+
 
 [sub_resource type="Resource" id="Resource_431ds"]
 script = ExtResource("4_8vm6i")

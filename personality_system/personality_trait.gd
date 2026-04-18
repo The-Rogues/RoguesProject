@@ -3,7 +3,7 @@ class_name PersonalityTrait
 ## Defines Personality Traits
 
 enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
-enum EnemyPreference { STRONGEST, WEAKEST }
+enum EnemyPreference { HEALTHIEST, WEAKEST, DANGEROUS, INTELEGENT }
 
 @export var name:String
 @export_multiline var description:String
