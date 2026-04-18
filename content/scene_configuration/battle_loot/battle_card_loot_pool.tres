@@ -1,20 +1,16 @@
 [gd_resource type="Resource" script_class="CardRewardData" format=3 uid="uid://fobtti7la7n7"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_3bp5i"]
-[ext_resource type="Resource" uid="uid://8cc0qb3afpjw" path="res://content/cards/traitless_cards/arrow_shot.tres" id="2_72y2r"]
+[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/fletcher/cards/shrink/shrink.tres" id="2_2ubyt"]
 [ext_resource type="Script" uid="uid://g0vmtd44ta3m" path="res://battle_scene/win_screen/rewards_data/card_reward_data.gd" id="2_yjk4l"]
-[ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="3_k1w10"]
-[ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="4_s8dpm"]
-[ext_resource type="Resource" uid="uid://bjmif7jljymoe" path="res://content/cards/traitless_cards/defend.tres" id="5_55wrh"]
-[ext_resource type="Resource" uid="uid://fa2pctlxbe8m" path="res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres" id="6_s8dpm"]
+[ext_resource type="Resource" uid="uid://jocbe8p5e2es" path="res://content/fletcher/cards/forgive/forgive.tres" id="3_72y2r"]
+[ext_resource type="Resource" uid="uid://d0w221my7a46d" path="res://content/fletcher/cards/merciful_strike/merciful_strike.tres" id="4_k1w10"]
+[ext_resource type="Resource" uid="uid://c37iffvwm80vl" path="res://content/fletcher/cards/pacify/pacify.tres" id="5_s8dpm"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="6_tk03v"]
-[ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/traitless_cards/duel_strike.tres" id="7_55wrh"]
-[ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/traitless_cards/adrenaline.tres" id="8_55wrh"]
-[ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/traitless_cards/inferno.tres" id="9_tk03v"]
 
 [resource]
 script = ExtResource("2_yjk4l")
-card_pool = Array[ExtResource("1_3bp5i")]([ExtResource("2_72y2r"), ExtResource("3_k1w10"), ExtResource("4_s8dpm"), ExtResource("5_55wrh"), ExtResource("6_s8dpm"), ExtResource("7_55wrh"), ExtResource("8_55wrh"), ExtResource("9_tk03v")])
+card_pool = Array[ExtResource("1_3bp5i")]([ExtResource("2_2ubyt"), ExtResource("3_72y2r"), ExtResource("4_k1w10"), ExtResource("5_s8dpm")])
 display_texture = ExtResource("6_tk03v")
 name = "Choose 1 Card"
 metadata/_custom_type_script = "uid://g0vmtd44ta3m"

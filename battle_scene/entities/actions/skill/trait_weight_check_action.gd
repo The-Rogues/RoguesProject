@@ -15,7 +15,7 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	if threshold_met(_trait):
 		if success_action is TargetedAction:
 			success_action.resolved_targets = _context.resolve_targeting.call(
-					success_action.target_option, _user)
+					success_action, _user)
 		
 		success_action.execute(_context, _user)
 
