@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://dcg6lha6wurrf"]
 
-[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/fletcher/monsters/ice_wizard/scripts/init_move_monster_behaviour.gd" id="1_axlat"]
+[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/monsters/big_slime/split_monster_behaviour.gd" id="1_axlat"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_o1fos"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_jjb0m"]
 [ext_resource type="Texture2D" uid="uid://dte5dnc52hrbn" path="res://common/art/random_art/sorcerer_texture.tres" id="2_nyigi"]

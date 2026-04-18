@@ -11,14 +11,15 @@
 [ext_resource type="Resource" uid="uid://bj2e0ww78ece8" path="res://content/scene_configuration/enemy_encounters/the_big_one.tres" id="6_ploub"]
 [ext_resource type="Resource" uid="uid://cm5184nfihs1g" path="res://content/scene_configuration/enemy_encounters/ice_wizard.tres" id="8_banfs"]
 [ext_resource type="Resource" uid="uid://nj4x1yrcpw4r" path="res://content/scene_configuration/enemy_encounters/gatling_worm_attack.tres" id="8_ea1em"]
-[ext_resource type="Resource" uid="uid://i5noc2011u2u" path="res://content/scene_configuration/enemy_encounters/angry_mushrooms.tres" id="9_k6qpd"]
+[ext_resource type="Resource" uid="uid://io3apka2eoix" path="res://content/scene_configuration/enemy_encounters/angry_shroom.tres" id="8_jve6n"]
+[ext_resource type="Resource" uid="uid://cqdcbcfoce4k0" path="res://content/scene_configuration/enemy_encounters/slime_and_ant.tres" id="10_mviad"]
 [ext_resource type="Resource" uid="uid://d165vww2jsclm" path="res://content/scene_configuration/enemy_encounters/forest_gang.tres" id="11_3dw00"]
 [ext_resource type="Resource" uid="uid://3nslcpk1pfrw" path="res://content/scene_configuration/enemy_encounters/large_ant.tres" id="13_banfs"]
 
 [resource]
 script = ExtResource("2_wh5q6")
-tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("8_banfs"), ExtResource("9_k6qpd")])
-tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_ploub"), ExtResource("5_yej3a"), ExtResource("11_3dw00"), ExtResource("8_ea1em")])
+tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("8_jve6n"), ExtResource("6_ploub"), ExtResource("10_mviad")])
+tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("5_yej3a"), ExtResource("11_3dw00"), ExtResource("8_ea1em"), ExtResource("8_banfs")])
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("11_3dw00"), ExtResource("13_banfs")])
 battle_field_configs = Array[ExtResource("1_xfhqu")]([ExtResource("2_ploub"), ExtResource("3_hxs3u"), ExtResource("4_kghvj"), ExtResource("5_ea1em")])
 metadata/_custom_type_script = "uid://blh0k76h8lwis"
