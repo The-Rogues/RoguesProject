@@ -3,12 +3,12 @@ class_name PersonalityTrait
 ## Defines Personality Traits
 
 enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
-enum EnemyPreference { HEALTHIEST, WEAKEST, DANGEROUS, INTELEGENT }
+#enum EnemyPreference { HEALTHIEST, WEAKEST, DANGEROUS, INTELEGENT }
 
 @export var name:String
 @export_multiline var description:String
 @export var trait_category:TraitCategory
-@export var enemy_targeting_preference:EnemyPreference
+@export var enemy_targeting_preference:MonsterData.AttackTargetingCategory
 @export var enemy_targeting_bias:Array[String]
 @export var object_preference:ObjectData.Role
 

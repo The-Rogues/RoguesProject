@@ -87,6 +87,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 script = ExtResource("2_jjb0m")
 move_sequences = Array[ExtResource("1_o1fos")]([SubResource("Resource_us4m8"), SubResource("Resource_chugk")])
 behaviour = SubResource("Resource_axlat")
+init_targeting = Array[int]([0])
 display_texture = ExtResource("2_nyigi")
 name = "Ice Wizard"
 health = 30

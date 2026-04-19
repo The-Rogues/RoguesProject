@@ -75,3 +75,72 @@ func _on_creature_defeated(creature:AbstractCreature):
 			all_enemies_defeated.emit()
 		
 		creature.queue_free()
+
+func update_attack_targeting() -> void:
+	reset_attack_targeting()
+	apply_healthiest()
+	apply_weakest()
+	apply_dangerous()
+	apply_intelegent()
+	apply_imbued()
+
+func apply_healthiest() -> void:
+	var highest_health: int = enemies[0].health.value
+	for i in range(0, enemies.size()):
+		if enemies[i].health.value > highest_health:
+			highest_health = enemies[i].health.value
+	for i in range(0, enemies.size()):
+		if enemies[i].health.value == highest_health:
+			enemies[i].updated_targeting.append(
+				MonsterData.AttackTargetingCategory.HEALTHIEST
+			)
+
+func apply_weakest() -> void:
+	var lowest_health: int = enemies[0].health.value
+	for i in range(1, enemies.size()):
+		if enemies[i].health.value < lowest_health:
+			lowest_health = enemies[i].health.value
+	for i in range(0, enemies.size()):
+		if enemies[i].health.value == lowest_health:
+			enemies[i].updated_targeting.append(
+				MonsterData.AttackTargetingCategory.WEAKEST
+			)
+
+func apply_dangerous() -> void:
+	for i in range(0, enemies.size()):
+		if enemies[i].move_sequence == null:
+			continue
+		if enemies[i].move_sequence.moves[enemies[i].move_index].primary_action is DamageAction:
+			enemies[i].updated_targeting.append(
+				MonsterData.AttackTargetingCategory.DANGEROUS
+			)
+
+func apply_intelegent() -> void:
+	for i in range(0, enemies.size()):
+		if enemies[i].move_sequence == null:
+			continue
+		if enemies[i].move_sequence.moves[enemies[i].move_index].primary_action is not DamageAction:
+			enemies[i].updated_targeting.append(
+				MonsterData.AttackTargetingCategory.INTELEGENT
+			)
+
+func apply_imbued() -> void:
+	for i in range(0, enemies.size()):
+		if enemies[i].effects.active_effects.size() > 0:
+			enemies[i].updated_targeting.append(
+				MonsterData.AttackTargetingCategory.IMBUED
+			)
+
+func reset_attack_targeting() -> void:
+	for i in range(0, enemies.size()):
+		for j in range(enemies[i].updated_targeting.size() - 1, -1, -1):
+			if enemies[i].updated_targeting[j] == MonsterData.AttackTargetingCategory.HEALTHIEST:
+				enemies[i].updated_targeting.remove_at(j)
+			elif enemies[i].updated_targeting[j] == MonsterData.AttackTargetingCategory.WEAKEST:
+				enemies[i].updated_targeting.remove_at(j)
+			elif enemies[i].updated_targeting[j] == MonsterData.AttackTargetingCategory.DANGEROUS:
+				enemies[i].updated_targeting.remove_at(j)
+			elif enemies[i].updated_targeting[j] == MonsterData.AttackTargetingCategory.INTELEGENT:
+				enemies[i].updated_targeting.remove_at(j)
+			elif enemies[i].updated_targeting[j] == MonsterData.AttackTargetingCategory.IMBUED:
+				enemies[i].updated_targeting.remove_at(j)

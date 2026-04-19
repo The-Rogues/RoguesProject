@@ -83,18 +83,24 @@ func filter_enemies(in_action: FilteredTargetedAction) -> Array[MonsterEntity]:
 	return filtered_enemies
 
 func process_actions(actions:Array[Action], user:AbstractEntity):
-	for action in actions:
-		if action is TargetedAction:
-			action.resolved_targets = resolve_targeting(
-					action,
+	for i in range(0, actions.size()):
+		if actions[i] is TargetedAction:
+			actions[i].resolved_targets = resolve_targeting(
+					actions[i],
 					user)
 		
 		if user is AbstractCreature:
-			if !user.effects.can_use_action(action):
+			if !user.effects.can_use_action(actions[i]):
 				continue
 		
+		var recalculate_targeting: bool = true
+		if i < (actions.size() - 1):
+			recalculate_targeting = false
+		
 		action_queue.enqueue(
-			action,
+			actions[i],
 			battle_context,
-			user
+			user,
+			recalculate_targeting
 		)
+		
