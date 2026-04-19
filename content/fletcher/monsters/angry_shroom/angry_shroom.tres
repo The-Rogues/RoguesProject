@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_4ot3j"]
 [ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_c4b01"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_6wf4g"]
-[ext_resource type="Texture2D" uid="uid://gwqfbimby6mq" path="res://common/art/random_art/trooper_texture.tres" id="2_d54dq"]
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_pmq0w"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_7kaug"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="4_h212w"]
 [ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="5_d54dq"]
@@ -14,6 +14,11 @@
 [sub_resource type="Resource" id="Resource_30rgb"]
 script = ExtResource("1_c4b01")
 metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br3xu"]
+resource_local_to_scene = true
+atlas = ExtResource("2_pmq0w")
+region = Rect2(0, 320, 32, 32)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iooee"]
 load_path = "res://.godot/imported/Icons_RPG.png-b59b7ecc48f4838d17052a96cf776a5a.ctex"
@@ -77,7 +82,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 script = ExtResource("2_6wf4g")
 move_sequences = Array[ExtResource("1_4ot3j")]([SubResource("Resource_c31ea")])
 behaviour = SubResource("Resource_30rgb")
-display_texture = ExtResource("2_d54dq")
+display_texture = SubResource("AtlasTexture_br3xu")
 name = "Angry Shroom"
 health = 25
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

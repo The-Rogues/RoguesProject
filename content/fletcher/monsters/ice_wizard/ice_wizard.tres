@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/monsters/big_slime/split_monster_behaviour.gd" id="1_axlat"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_o1fos"]
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_axlat"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_jjb0m"]
-[ext_resource type="Texture2D" uid="uid://dte5dnc52hrbn" path="res://common/art/random_art/sorcerer_texture.tres" id="2_nyigi"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_hslb3"]
 [ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="5_5ibeg"]
 [ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="5_61rjb"]
@@ -19,6 +19,11 @@
 [sub_resource type="Resource" id="Resource_axlat"]
 script = ExtResource("1_axlat")
 metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a28a"]
+resource_local_to_scene = true
+atlas = ExtResource("2_axlat")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="Resource" id="Resource_nyigi"]
 script = ExtResource("5_5ibeg")
@@ -88,7 +93,7 @@ script = ExtResource("2_jjb0m")
 move_sequences = Array[ExtResource("1_o1fos")]([SubResource("Resource_us4m8"), SubResource("Resource_chugk")])
 behaviour = SubResource("Resource_axlat")
 init_targeting = Array[int]([0])
-display_texture = ExtResource("2_nyigi")
+display_texture = SubResource("AtlasTexture_8a28a")
 name = "Ice Wizard"
 health = 30
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

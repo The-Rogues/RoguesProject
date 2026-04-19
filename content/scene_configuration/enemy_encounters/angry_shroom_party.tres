@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_1rfcf"]
 [ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_f032m"]
-[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/monsters/fletcher/angry_shroom/angry_shroom.tres" id="2_sl5wx"]
+[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/fletcher/monsters/angry_shroom/angry_shroom.tres" id="2_sl5wx"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_w7bmn"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_6iakw"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_f032m"]

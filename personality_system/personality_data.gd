@@ -28,7 +28,7 @@ signal updated(personality:PersonalityData)
 @export var priority_trait:PersonalityTrait = null
 
 const MINIMUM_WEIGHT = 1
-const  MAXIMUM_WEIGHT = 10
+const MAXIMUM_WEIGHT = 10
 
 
 func initialize(
@@ -58,7 +58,6 @@ func initialize(
 		strategic_weight = 2
 
 
-##TODO: Fletcher, this is the function called to decide which enemy is targeted
 ## Choosest the highest priority target given the biases of personality traits.
 func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
 	
@@ -92,6 +91,7 @@ func create_trait_order() -> Array[int]:
 		i = i + 1
 	return ret_val
 
+
 func get_highest_offset(highest_offset: int) -> Array[int]:
 	
 	var prev_highest: int = 11
@@ -118,6 +118,7 @@ func get_highest_offset(highest_offset: int) -> Array[int]:
 				ret_val.append(2)
 	
 	return ret_val
+
 
 func has_trait(_trait:String) -> bool:
 	var trait_name:String = _trait.to_upper()
@@ -196,7 +197,7 @@ func update_priority_trait() -> void:
 		updated_priority_trait.emit(priority_trait)
 
 
-# TODO: Move to dedicated DeckBuilder class
+# TODO: Consider moving to dedicated DeckBuilder class
 func get_starting_deck() -> Array[CardData]:
 	var deck:Array[CardData] = []
 	deck.append_array(offensive_trait.starter_cards)
