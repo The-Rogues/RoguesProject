@@ -9,6 +9,7 @@ script = ExtResource("2_u7tgh")
 name = "Greedy"
 description = "Excitable and short sighted. Targets strongest enemies. Moves towards treasures."
 trait_category = 2
+enemy_targeting_preference = 5
 object_preference = 2
 card_loot_pool = Array[ExtResource("1_pwvpf")]([ExtResource("2_h1rhs")])
 starter_cards = Array[ExtResource("1_pwvpf")]([ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("2_h1rhs")])

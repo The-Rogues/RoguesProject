@@ -9,7 +9,6 @@ script = ExtResource("2_6k3ak")
 name = "Skittish"
 description = "Easy to scare. Targets weakest Enemies. Uses defensive objects."
 trait_category = 1
-enemy_targeting_preference = 1
 card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_31c1a")])
 starter_cards = Array[ExtResource("1_u5jvk")]([ExtResource("2_31c1a"), ExtResource("2_31c1a"), ExtResource("2_31c1a"), ExtResource("2_31c1a")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

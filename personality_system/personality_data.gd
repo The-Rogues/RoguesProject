@@ -61,8 +61,63 @@ func initialize(
 ##TODO: Fletcher, this is the function called to decide which enemy is targeted
 ## Choosest the highest priority target given the biases of personality traits.
 func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
+	
+	var priority_order: Array[int] = create_trait_order()
+	
+	for i in range(0, priority_order.size()):
+		var targeting_option: MonsterData.AttackTargetingCategory
+		match priority_order[i]:
+			0:
+				targeting_option = offensive_trait.enemy_targeting_preference
+			1:
+				targeting_option = defensive_trait.enemy_targeting_preference
+			2:
+				targeting_option = strategic_trait.enemy_targeting_preference
+		var filtered_enemies: Array[MonsterEntity]
+		for j in range(0, enemies.size()):
+			if enemies[j].updated_targeting.has(targeting_option):
+				filtered_enemies.append(enemies[j])
+		if filtered_enemies.size() > 0:
+			return filtered_enemies.pick_random()
 	return enemies.pick_random()
 
+# offense -> 0
+# defense -> 1
+# strategic -> 2
+func create_trait_order() -> Array[int]:
+	var ret_val: Array[int] = []
+	var i: int = 0
+	while ret_val.size() < 3:
+		ret_val = ret_val + get_highest_offset(i)
+		i = i + 1
+	return ret_val
+
+func get_highest_offset(highest_offset: int) -> Array[int]:
+	
+	var prev_highest: int = 11
+	var curr_highest: int = 0
+	var ret_val: Array[int]
+	
+	for i in range(0, highest_offset + 1):
+		if offensive_weight > curr_highest && offensive_weight < prev_highest:
+			curr_highest = offensive_weight 
+		if defensive_weight > curr_highest && defensive_weight < prev_highest:
+			curr_highest = defensive_weight
+		if strategic_weight > curr_highest && strategic_weight < prev_highest:
+			curr_highest = strategic_weight
+		
+		prev_highest = curr_highest
+		curr_highest = 0
+		
+		if i == highest_offset:
+			if offensive_weight == prev_highest:
+				ret_val.append(0)
+			if defensive_weight == prev_highest:
+				ret_val.append(1)
+			if strategic_weight == prev_highest:
+				ret_val.append(2)
+	
+	return ret_val
 
 func has_trait(_trait:String) -> bool:
 	var trait_name:String = _trait.to_upper()

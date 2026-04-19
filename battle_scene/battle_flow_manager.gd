@@ -63,6 +63,9 @@ func start_player_turn():
 	for enemy in enemies:
 		enemy.choose_intent()
 	
+	# Fletcher - Updates calculated targeting after enemies have chosen new moves.
+	context.creature_manager.update_attack_targeting()
+	
 	battle_field.enter_turn(turn_count)
 	
 	battle_powers.enter_turn(context)
