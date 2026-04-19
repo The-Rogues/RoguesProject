@@ -21,6 +21,7 @@ var rewards_screen:BattleRewardsHandler
 var action_resolver: ActionResolver
 var turn_count:int = 0
 var context:BattleContext = null
+var battle_powers:BattlePowersManager
 
 
 func initialize(_context:BattleContext):
@@ -28,10 +29,14 @@ func initialize(_context:BattleContext):
 	
 	context = _context
 	action_resolver = ActionResolver.new(_context)
+	battle_powers = BattlePowersManager.new()
 	player = _context.creature_manager.player
 	enemies = _context.creature_manager.enemies
 	battle_field = _context.battle_field
 	rewards_screen = _context.reward_handler
+	
+	_context.resolve_targeting = action_resolver.resolve_targeting
+	_context.add_power = battle_powers.add_power
 	
 	_context.creature_manager.all_enemies_defeated.connect(_on_battle_ended)
 	_context.creature_manager.player_defeated.connect(_on_battle_ended)
@@ -59,6 +64,8 @@ func start_player_turn():
 		enemy.choose_intent()
 	
 	battle_field.enter_turn(turn_count)
+	
+	battle_powers.enter_turn(context)
 	
 	player.cards.draw_cards(5)
 	
@@ -103,11 +110,14 @@ func run_enemy_turn():
 func _on_battle_ended():
 	battle_state = State.ENDED
 	
-	await get_tree().create_timer(1).timeout
+	MusicManager.stop()
+	await get_tree().create_timer(2).timeout
 	
 	if !player.health.is_alive:
+		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
 		rewards_screen.initialize()
+		MusicManager.change_song(MusicManager.track_list.defeated_theme)
 		rewards_screen.visible = true

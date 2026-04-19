@@ -19,10 +19,10 @@ func initialize(_player:PlayerEntity, _enemies:Array[MonsterData]):
 	player.defeated.connect(_on_creature_defeated)
 	
 	for data in _enemies:
-		spawn_enemy(data)
+		spawn_enemy(data, -1, false)
 
 
-func spawn_enemy(data:MonsterData, starting_health:int = -1):
+func spawn_enemy(data:MonsterData, starting_health:int = -1, choose_intent:bool = false):
 	var monster:MonsterEntity = template_enemy.instantiate()
 	spawn_parent.add_child(monster)
 	monster.global_position = spawn_parent.global_position
@@ -40,6 +40,9 @@ func spawn_enemy(data:MonsterData, starting_health:int = -1):
 	monster.defeated.connect(_on_creature_defeated)
 	
 	_position_enemies()
+	
+	if choose_intent:
+		monster.choose_intent()
 
 
 func _position_enemies():

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_pwvpf"]
 [ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="2_h1rhs"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_u7tgh"]
-[ext_resource type="Resource" uid="uid://8cc0qb3afpjw" path="res://content/cards/traitless_cards/arrow_shot.tres" id="4_h1rhs"]
 
 [resource]
 script = ExtResource("2_u7tgh")
@@ -12,5 +11,5 @@ description = "Excitable and short sighted. Targets strongest enemies. Moves tow
 trait_category = 2
 object_preference = 2
 card_loot_pool = Array[ExtResource("1_pwvpf")]([ExtResource("2_h1rhs")])
-starter_cards = Array[ExtResource("1_pwvpf")]([ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("4_h1rhs")])
+starter_cards = Array[ExtResource("1_pwvpf")]([ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("2_h1rhs")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

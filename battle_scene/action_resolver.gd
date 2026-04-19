@@ -26,7 +26,10 @@ func resolve_targeting(target_option:int, user:AbstractEntity):
 				if battle_pos:
 					resolved_targeting.append(battle_pos.get_object())
 				else:
-					resolved_targeting.append(player)
+					if player.battle_position.has_object():
+						resolved_targeting.append(player.battle_position.get_object())
+					else:
+						resolved_targeting.append(player)
 			else:
 				resolved_targeting.append(player)
 		2: # Enemy

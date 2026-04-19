@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c0wk7p5ghqc13"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_3ambo"]
+[ext_resource type="Resource" uid="uid://dasprgtht8wdb" path="res://content/cards/tactical_cards/charge_shot/charged_shot.tres" id="2_ffk8r"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_tl4xl"]
+[ext_resource type="Script" uid="uid://fj8b6ewqfqfj" path="res://battle_scene/battle_powers/powers/add_card_after_play_power.gd" id="2_wlvj2"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_ffk8r"]
+
+[sub_resource type="Resource" id="Resource_w7crc"]
+script = ExtResource("2_wlvj2")
+card = ExtResource("2_ffk8r")
+play_threshold = 2
+metadata/_custom_type_script = "uid://fj8b6ewqfqfj"
+
+[sub_resource type="Resource" id="Resource_qr6ty"]
+script = ExtResource("3_ffk8r")
+power = SubResource("Resource_w7crc")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[resource]
+script = ExtResource("2_tl4xl")
+type = 1
+energy_cost = 1
+name = "Charge Shot"
+description = "Play card 2 times to recieve 0 cost Charged Shot."
+play_actions = Array[ExtResource("1_3ambo")]([SubResource("Resource_qr6ty")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

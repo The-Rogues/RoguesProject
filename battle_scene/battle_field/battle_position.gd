@@ -86,6 +86,7 @@ func on_player_entered(player:PlayerEntity):
 				player.movement_controller.position_state_updated)
 	if _object:
 		_object.on_player_entered()
+		_object.health.died.connect(player.place_object)
 
 
 func on_player_exited(player:PlayerEntity):
@@ -95,6 +96,7 @@ func on_player_exited(player:PlayerEntity):
 				player.movement_controller.position_state_updated)
 	if _object:
 		_object.on_player_exited()
+		_object.health.died.disconnect(player.place_object)
 
 
 func enter_turn(turn_count:int):

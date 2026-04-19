@@ -30,6 +30,7 @@ modulate_color = Color(0, 0, 0, 1)
 
 [node name="SessionInterface" type="CanvasLayer" unique_id=279760499]
 layer = 4
+visible = false
 script = ExtResource("1_2dwta")
 
 [node name="Control" type="Control" parent="." unique_id=535703033]

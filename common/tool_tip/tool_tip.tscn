@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1trx2jx6j0pl"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_p0m11"]
+[ext_resource type="Script" uid="uid://b2ov1o6yprptd" path="res://common/tool_tip/tool_tip.gd" id="2_o6fbf"]
+
+[node name="ToolTip" type="PanelContainer" unique_id=2004448281]
+texture_filter = 1
+offset_right = 220.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme = ExtResource("1_p0m11")
+script = ExtResource("2_o6fbf")
+
+[node name="ToolTipLabel" type="RichTextLabel" parent="." unique_id=118917575]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[color=gold]Title[/color][img]res://battle_scene/entities/monster/intents/attack_icon.tres[/img]
+If you can read this, this tooltip is unset."
+fit_content = true

@@ -1,2 +1,3 @@
-res://battle_scene/entities/monster/intents/enemy_move.gd
+res://card_system/card_data.gd
+Curve
 AtlasTexture

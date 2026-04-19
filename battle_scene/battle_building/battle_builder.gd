@@ -7,7 +7,7 @@ class_name BattleBuilder
 @export var battle_field_configs:Array[BattleFieldConfig]
 
 const TIER_1_THRESHOLD = 3
-const TIER_2_THRESHOLD = 6
+const TIER_2_THRESHOLD = 8
 
 
 func create_battle_config() -> BattleConfig:

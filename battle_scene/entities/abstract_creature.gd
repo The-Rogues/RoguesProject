@@ -53,3 +53,7 @@ func enter_turn(_turn_count:int):
 	block.set_to_zero()
 	effects.on_entered_turn()
 	effects.decay_status_effects()
+
+
+func _on_projectile_fired(projectile:Projectile):
+	effects.process_projectile(projectile)

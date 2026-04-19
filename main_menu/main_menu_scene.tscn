@@ -265,7 +265,7 @@ text = "Datagoblin: Dungeon-mode font
 https://datagoblin.itch.io/dungeonmode"
 horizontal_alignment = 1
 
-[node name="Datagoblin2" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=2147374293]
+[node name="MarlionSilva" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=2147374293]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
@@ -273,6 +273,15 @@ theme_override_fonts/font = ExtResource("2_l7n8r")
 theme_override_font_sizes/font_size = 16
 text = "Marllon Silva (xDeviruchi)
 https://xdeviruchi.itch.io/16-bit-fantasy-adventure-music-pack"
+horizontal_alignment = 1
+
+[node name="Stealthix" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=465442769]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Stealthix (https://stealthix.itch.io/animated-fires)"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="CreditsMenu" unique_id=1584628513]

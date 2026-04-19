@@ -11,10 +11,13 @@
 [ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/traitless_cards/duel_strike.tres" id="7_55wrh"]
 [ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/traitless_cards/adrenaline.tres" id="8_55wrh"]
 [ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/traitless_cards/inferno.tres" id="9_tk03v"]
+[ext_resource type="Resource" uid="uid://doj675nih2jy4" path="res://content/cards/traitless_cards/exercise.tres" id="10_5kwwq"]
+[ext_resource type="Resource" uid="uid://cre6wnbqrbfvd" path="res://content/cards/traitless_cards/guard.tres" id="11_w2xed"]
+[ext_resource type="Resource" uid="uid://dl3si50nm35f1" path="res://content/cards/traitless_cards/strategize.tres" id="12_ndb3g"]
 
 [resource]
 script = ExtResource("2_yjk4l")
-card_pool = Array[ExtResource("1_3bp5i")]([ExtResource("2_72y2r"), ExtResource("3_k1w10"), ExtResource("4_s8dpm"), ExtResource("5_55wrh"), ExtResource("6_s8dpm"), ExtResource("7_55wrh"), ExtResource("8_55wrh"), ExtResource("9_tk03v")])
+card_pool = Array[ExtResource("1_3bp5i")]([ExtResource("2_72y2r"), ExtResource("3_k1w10"), ExtResource("4_s8dpm"), ExtResource("5_55wrh"), ExtResource("6_s8dpm"), ExtResource("7_55wrh"), ExtResource("8_55wrh"), ExtResource("9_tk03v"), ExtResource("10_5kwwq"), ExtResource("11_w2xed"), ExtResource("12_ndb3g")])
 display_texture = ExtResource("6_tk03v")
 name = "Choose 1 Card"
 metadata/_custom_type_script = "uid://g0vmtd44ta3m"

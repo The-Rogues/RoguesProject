@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" format=3 uid="uid://dy78f772c12jk"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ykkjn"]
+[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="1_cc3uh"]
 
 [resource]
-atlas = SubResource("CompressedTexture2D_ykkjn")
+atlas = ExtResource("1_cc3uh")
 region = Rect2(96, 512, 32, 32)

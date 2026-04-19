@@ -88,8 +88,26 @@ func remove_item(item:ItemData) -> bool:
 		return false
 
 
-func can_buy_shop_item(price:int) -> bool:
-	return gold >= price and items.size() < item_capacity
+func buy_item(item:ItemData) -> bool:
+	if can_pay_price(item.shop_price) and items.size() < item_capacity:
+		set_gold(gold - item.shop_price)
+		add_item(item)
+		return true
+	
+	return false
+
+
+func sell_item(item:ItemData) -> bool:
+	if items.has(item):
+		set_gold(gold + item.sell_price)
+		remove_item(item)
+		return true
+	
+	return false
+
+
+func can_pay_price(price:int):
+	return gold >= price
 
 
 func add_card(card:CardData):
@@ -120,8 +138,10 @@ func get_cards_as_instances() -> Array[CardInstance]:
 	
 	return card_instances
 
+
 func can_buy_card(price: int):
 	return gold >= price
+
 
 func get_key_item(key_id:String) -> ItemData:
 	for item in items:

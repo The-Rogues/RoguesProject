@@ -1,8 +1,7 @@
 # ==========================================================
 # Authors: Fabian, Han
 # Description:
-#   Mediator between card input and battle manager
-#   Executes visual turn transitions and calls results screen
+#   Initializes battle scene given configuration settings
 #
 # ==========================================================
 
@@ -58,7 +57,6 @@ func initialize(battle_config:BattleConfig):
 	)
 	
 	battle_flow_manager.initialize(battle_context)
-	battle_context.resolve_targeting = battle_flow_manager.action_resolver.resolve_targeting
 	
 	play_hand.initialize(player, battle_flow_manager.action_resolver)
 	battle_field.object_interacted.connect(
@@ -74,6 +72,8 @@ func initialize(battle_config:BattleConfig):
 	GlobalSessionInterface.connect_to_player(player)
 	
 	battle_flow_manager.start_battle()
+	
+	MusicManager.change_song(MusicManager.track_list.choose_battle_theme())
 
 
 func _on_view_draw_pile_button_up() -> void:

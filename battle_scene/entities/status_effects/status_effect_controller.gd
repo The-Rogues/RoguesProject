@@ -113,3 +113,12 @@ func decay_status_effects():
 			remove_effect(instance.effect.get_script())
 		
 		effect_changed.emit(instance)
+
+
+func process_projectile(projectile:Projectile):
+	for instance in active_effects:
+		instance.effect.on_projectile_fired(
+			projectile,
+			affected_creature,
+			instance
+		)

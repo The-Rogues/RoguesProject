@@ -9,7 +9,7 @@ signal freed(projectile:Projectile)
 @export var ignore_walls:bool = false
 @export var life_span:Timer
 @export var target_position:Vector2
-@export var sprite_2d:Sprite2D
+@onready var sprite_pivot: Node2D = $SpritePivot
 @export var face_move_direction:bool = true
 
 
@@ -26,8 +26,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if velocity.length() > 0:
-		sprite_2d.rotation = lerp_angle(
-				sprite_2d.rotation, 
+		sprite_pivot.rotation = lerp_angle(
+				sprite_pivot.rotation, 
 				velocity.angle(), 0.3)
 
 

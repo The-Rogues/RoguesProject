@@ -20,5 +20,5 @@ script = ExtResource("3_6iakw")
 encounter_name = "Angry mushrooms"
 gold = SubResource("Resource_mmjos")
 card_loot = ExtResource("1_f032m")
-enemies = Array[ExtResource("1_1rfcf")]([ExtResource("2_sl5wx"), ExtResource("2_sl5wx")])
+enemies = Array[ExtResource("1_1rfcf")]([ExtResource("2_sl5wx")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

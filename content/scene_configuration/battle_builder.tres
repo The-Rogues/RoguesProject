@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="BattleBuilder" format=3 uid="uid://bsavrj1agiyt4"]
 
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_xfhqu"]
-[ext_resource type="Resource" uid="uid://cgik54q2af7e8" path="res://content/scene_configuration/battle_field_layouts/single_chest.tres" id="2_ploub"]
 [ext_resource type="Script" uid="uid://blh0k76h8lwis" path="res://battle_scene/battle_building/battle_builder.gd" id="2_wh5q6"]
+[ext_resource type="Resource" uid="uid://cxkdbcy3paaib" path="res://content/scene_configuration/battle_field_layouts/two_walls.tres" id="3_banfs"]
 [ext_resource type="Resource" uid="uid://c1m2pj6y4ucur" path="res://content/scene_configuration/battle_field_layouts/chest_and_walls.tres" id="3_hxs3u"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_xcnaf"]
-[ext_resource type="Resource" uid="uid://cxkdbcy3paaib" path="res://content/scene_configuration/battle_field_layouts/one_wall.tres" id="4_kghvj"]
 [ext_resource type="Resource" uid="uid://c0mtay5bpskby" path="res://content/scene_configuration/battle_field_layouts/split_walls.tres" id="5_ea1em"]
 [ext_resource type="Resource" uid="uid://ccyf1xvrcexq4" path="res://content/scene_configuration/enemy_encounters/turtle_guards.tres" id="5_yej3a"]
 [ext_resource type="Resource" uid="uid://bj2e0ww78ece8" path="res://content/scene_configuration/enemy_encounters/the_big_one.tres" id="6_ploub"]
@@ -18,7 +17,7 @@
 [resource]
 script = ExtResource("2_wh5q6")
 tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_ea1em"), ExtResource("6_ploub"), ExtResource("10_banfs")])
-tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_ploub"), ExtResource("5_yej3a"), ExtResource("11_3dw00"), ExtResource("8_ea1em")])
-tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("11_3dw00"), ExtResource("13_banfs")])
-battle_field_configs = Array[ExtResource("1_xfhqu")]([ExtResource("2_ploub"), ExtResource("3_hxs3u"), ExtResource("4_kghvj"), ExtResource("5_ea1em")])
+tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("5_yej3a"), ExtResource("11_3dw00"), ExtResource("8_ea1em")])
+tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("11_3dw00"), ExtResource("13_banfs"), ExtResource("8_ea1em")])
+battle_field_configs = Array[ExtResource("1_xfhqu")]([ExtResource("3_hxs3u"), ExtResource("3_banfs"), ExtResource("5_ea1em")])
 metadata/_custom_type_script = "uid://blh0k76h8lwis"

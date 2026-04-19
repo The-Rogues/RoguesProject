@@ -26,6 +26,7 @@ func initialize(_data:MonsterData):
 	stat_display.initialize(self)
 	intent_icon.initialize(self)
 	health.died.connect(on_destroyed)
+	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 
 
 

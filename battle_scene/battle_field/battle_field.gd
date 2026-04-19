@@ -23,18 +23,20 @@ func setup_objects(config:BattleFieldConfig):
 	# If data is null in an index, there is no object
 	# If data is not null, the indexed position has an object to place
 	for i in range(0, battle_positions.size()):
+		battle_positions[i].object_placed.connect(_on_object_placed)
+		
 		var object_data:ObjectData = layout[i]
 		
 		if object_data:
 			place_object(object_data , battle_positions[i])
 			#battle_positions[i].place_object(object_data)
-		
-		battle_positions[i].object_placed.connect(_on_object_placed)
 
 
 func _on_object_placed(object:ObjectEntity):
-	object.interacted.connect(func(_object:ObjectEntity):
-			object_interacted.emit(_object.data.interaction_actions, _object))
+	object.interacted.connect(
+			func(_object:ObjectEntity):
+					object_interacted.emit(_object.data.interaction_actions, 
+							_object))
 
 
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_np1t5"]
 [ext_resource type="Resource" uid="uid://c3c0eiqiul3lq" path="res://content/monsters/large_fire_ant/large_fire_ant.tres" id="3_a0msg"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="4_hi5e7"]
+[ext_resource type="Resource" uid="uid://504d265c8kwa" path="res://content/monsters/fire_ant/fire_ant.tres" id="4_np1t5"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="5_116pa"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="6_a44g5"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="7_260kq"]
@@ -20,5 +21,5 @@ script = ExtResource("7_260kq")
 encounter_name = "Large Ant"
 gold = SubResource("Resource_nrxny")
 card_loot = ExtResource("1_a0msg")
-enemies = Array[ExtResource("2_np1t5")]([ExtResource("3_a0msg")])
+enemies = Array[ExtResource("2_np1t5")]([ExtResource("3_a0msg"), ExtResource("4_np1t5")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

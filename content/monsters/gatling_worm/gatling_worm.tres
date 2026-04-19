@@ -34,5 +34,5 @@ move_sequences = Array[ExtResource("1_7bgxk")]([SubResource("Resource_iv3cg"), S
 behaviour = SubResource("Resource_misar")
 display_texture = SubResource("AtlasTexture_u2lkq")
 name = "Gatling Worm"
-health = 45
+health = 60
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

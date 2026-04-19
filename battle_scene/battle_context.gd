@@ -6,6 +6,7 @@ var creature_manager:CreatureManager
 var battle_field:BattleField
 var reward_handler:BattleRewardsHandler
 var resolve_targeting:Callable
+var add_power:Callable
 
 func _init(
 	_creature_manager:CreatureManager,

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://c8fo37rgcoabx"]
+
+[ext_resource type="Texture2D" uid="uid://dwkcncjqjv4g5" path="res://content/objects/gravestone/gravestone_texture.tres" id="1_ml54k"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_m4747"]
+[ext_resource type="Resource" uid="uid://qbob7g6qo7nr" path="res://content/monsters/skeleton_archer/skeleton_archer.tres" id="3_om4cs"]
+[ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="4_ujixn"]
+[ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="5_8swqu"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="6_78xol"]
+
+[sub_resource type="Resource" id="Resource_5hjjo"]
+script = ExtResource("4_ujixn")
+monster_data = ExtResource("3_om4cs")
+metadata/_custom_type_script = "uid://crxnbj8rigrkp"
+
+[sub_resource type="Resource" id="Resource_gqypy"]
+script = ExtResource("5_8swqu")
+metadata/_custom_type_script = "uid://cv01a4ey63px6"
+
+[resource]
+script = ExtResource("6_78xol")
+role = 1
+interaction = 4
+interaction_actions = Array[ExtResource("2_m4747")]([SubResource("Resource_5hjjo"), SubResource("Resource_gqypy")])
+turn_interaction_counter = 3
+display_texture = ExtResource("1_ml54k")
+name = "Gravestone"
+health = 1
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

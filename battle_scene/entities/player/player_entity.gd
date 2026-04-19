@@ -1,6 +1,7 @@
 extends AbstractCreature
 class_name PlayerEntity
 
+signal played_card(card:CardInstance)
 signal carry_object_updated
 
 var carried_object:ObjectData = null
@@ -44,13 +45,10 @@ func initialize(_data:PlayerData):
 	
 	health.died.connect(on_destroyed)
 	movement_controller.entered_new_position.connect(_on_enterned_new_position)
+	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 
 
 func take_damage(amount:int, _attacker = null):
-	if battle_position.has_object():
-		battle_position.get_object().take_damage(amount, _attacker)
-		return
-	
 	var damage:int = effects.apply_incoming_damage_effects(amount)
 	damage = block.absorb_damage(damage)
 	
@@ -81,6 +79,7 @@ func enter_turn(_turn_count:int):
 	effects.on_entered_turn()
 	#effects.decay_status_effects()
 	energy.refill()
+	
 
 
 func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
@@ -91,6 +90,7 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 		
 		effects.process_played_card(card.instance, resolver)
 		
+		played_card.emit(card.instance)
 		if card.instance.data.type == CardData.Type.ATTACK:
 			play_attack_anim()
 	else:

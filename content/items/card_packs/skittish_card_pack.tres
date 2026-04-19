@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_rhxws"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_6futq"]
-[ext_resource type="Resource" uid="uid://c4cex25p8arux" path="res://content/cards/skittish_cards/skittish_move.tres" id="2_7sgoj"]
+[ext_resource type="Resource" uid="uid://c4cex25p8arux" path="res://content/cards/skittish_cards/skittish_block.tres" id="2_7sgoj"]
 [ext_resource type="Resource" uid="uid://ca40y4htu81rg" path="res://content/cards/skittish_cards/plea.tres" id="3_xu7ju"]
 [ext_resource type="Resource" uid="uid://bwhog8444u2g5" path="res://content/cards/skittish_cards/trample/trample.tres" id="4_n2p7s"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_s67li"]

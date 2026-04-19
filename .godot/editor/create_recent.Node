@@ -1,2 +1,15 @@
-Button
+AnimationPlayer
+Label
+Timer
+Control
+MarginContainer
+Panel
+RichTextLabel
 VBoxContainer
+Node2D
+CanvasLayer
+ColorRect
+AnimatedSprite2D
+Button
+FlowContainer
+Sprite2D

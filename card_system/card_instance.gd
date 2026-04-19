@@ -1,7 +1,7 @@
 extends RefCounted
 class_name CardInstance
 
-signal updated(card:Card)
+signal updated
 
 var energy_cost:int
 var data:CardData
@@ -18,5 +18,6 @@ func change_cost(amount:int):
 	energy_cost += amount
 	updated.emit()
 
-func update_instance():
-	updated.emit(self)
+
+func update_instance(_effect:ActiveStatusEffect):
+	updated.emit()

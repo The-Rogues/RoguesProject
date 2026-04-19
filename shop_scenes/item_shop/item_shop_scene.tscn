@@ -1,13 +1,86 @@
 [gd_scene format=3 uid="uid://c6ggjvrmk1eoy"]
 
-[ext_resource type="PackedScene" uid="uid://btxp58xkeuf0u" path="res://shop_scenes/item_shop/item_shop_interface.tscn" id="1_thcjk"]
-[ext_resource type="PackedScene" uid="uid://bn5th5vqoyyf0" path="res://common/particle_effects/star_pop.tscn" id="2_pm8cd"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_5o8oa"]
+[ext_resource type="Script" uid="uid://4up4jdub524p" path="res://shop_scenes/item_shop/item_shop_scene.gd" id="1_yja7x"]
 [ext_resource type="Resource" uid="uid://cleehjci2nw3o" path="res://content/scene_configuration/item_shop_data.tres" id="2_yja7x"]
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="3_yja7x"]
+[ext_resource type="Texture2D" uid="uid://diap58galr533" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-030.png" id="4_6eu2m"]
 [ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://shop_scenes/shop_keepers/shop_desk.tres" id="4_rao7n"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="6_5o8oa"]
+[ext_resource type="Script" uid="uid://coo62h7a2b16" path="res://shop_scenes/item_shop/shop_entry_interface.gd" id="6_e0ris"]
+[ext_resource type="Script" uid="uid://ru5rndxm87cd" path="res://shop_scenes/item_shop/dialogue_text.gd" id="8_x7kgi"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="9_i30tm"]
+[ext_resource type="Texture2D" uid="uid://b5u5dai20ccpg" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-004.png" id="13_vdjib"]
+[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="14_ccect"]
+[ext_resource type="Texture2D" uid="uid://c8wyv8ydr7oo0" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-005.png" id="16_eaklt"]
+[ext_resource type="Texture2D" uid="uid://dbs6ilahrbi3v" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-008.png" id="17_6eu2m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gytum"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fq01n"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("13_vdjib")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i30tm"]
+texture = ExtResource("4_6eu2m")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vdjib"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("16_eaklt")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fq01n"]
+load_path = "res://.godot/imported/panel-border-005.png-46519a9b7279e4150fbcf51bb20752dd.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaflh"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = SubResource("CompressedTexture2D_fq01n")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4yknk"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("17_6eu2m")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6lx0g"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bx46l"]
+load_path = "res://.godot/imported/panel-border-005.png-46519a9b7279e4150fbcf51bb20752dd.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uh56"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = SubResource("CompressedTexture2D_bx46l")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_w1emu"]
 
 [sub_resource type="Shader" id="Shader_q0abo"]
 code = "shader_type canvas_item;
@@ -27,42 +100,17 @@ shader = SubResource("Shader_q0abo")
 shader_parameter/flash_color = Color(0.90186185, 0.90186185, 0.90186185, 1)
 shader_parameter/flash_value = 0.0
 
-[sub_resource type="Animation" id="Animation_pm8cd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteRoot/Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
+[sub_resource type="Curve" id="Curve_ccect"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50928384, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="Animation" id="Animation_yja7x"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteRoot/Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(2, 2.05), Vector2(2, 2)]
-}
+[sub_resource type="Gradient" id="Gradient_5lu6d"]
+offsets = PackedFloat32Array(0, 0.14389534, 0.36482558)
+colors = PackedColorArray(0.49803922, 0.87058824, 0.9882353, 1, 1, 0.7490196, 0.5764706, 1, 0.49803922, 0.87058824, 0.9882353, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rao7n"]
-_data = {
-&"RESET": SubResource("Animation_pm8cd"),
-&"idle": SubResource("Animation_yja7x")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lu6d"]
+atlas = ExtResource("14_ccect")
+region = Rect2(8, 776, 16, 16)
 
 [node name="ItemShopScene" type="Control" unique_id=1932341387]
 layout_mode = 3
@@ -71,71 +119,237 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5o8oa")
+script = ExtResource("1_yja7x")
+shop_data = ExtResource("2_yja7x")
 
-[node name="Panel" type="Panel" parent="." unique_id=1284427762]
+[node name="Background" type="ColorRect" parent="." unique_id=1476146130]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gytum")
+color = Color(0, 0, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1852655927]
+[node name="YouHaveNoItemsLabel" type="Label" parent="." unique_id=554124292]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = 84.0
+offset_top = 195.0
+offset_right = 1068.0
+offset_bottom = 210.0
+size_flags_vertical = 0
+text = "-You have no items to sell-"
 
-[node name="ItemShopInterface" parent="CanvasLayer" unique_id=407126334 instance=ExtResource("1_thcjk")]
+[node name="ShopContainer" type="PanelContainer" parent="." unique_id=102376546]
+self_modulate = Color(0.24705882, 0.24705882, 0.24705882, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.0
+offset_top = -248.0
+offset_right = 524.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fq01n")
+
+[node name="Elements" type="VBoxContainer" parent="ShopContainer" unique_id=1150250166]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ShopHeader" type="PanelContainer" parent="ShopContainer/Elements" unique_id=1556243692]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i30tm")
+
+[node name="Label" type="Label" parent="ShopContainer/Elements/ShopHeader" unique_id=1029667500]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_5o8oa")
+theme_override_font_sizes/font_size = 16
+text = "-Item Shop-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopEntryInterface" type="Control" parent="ShopContainer/Elements" unique_id=86697006]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("6_e0ris")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ShopContainer/Elements/ShopEntryInterface" unique_id=1989925874]
+custom_minimum_size = Vector2(490, 300)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 150.0
+grow_vertical = 2
+size_flags_horizontal = 0
+horizontal_scroll_mode = 0
+scroll_hint_mode = 1
+
+[node name="EntryContainer" type="VBoxContainer" parent="ShopContainer/Elements/ShopEntryInterface/ScrollContainer" unique_id=758414605]
+layout_mode = 2
+
+[node name="Options" type="HBoxContainer" parent="." unique_id=1337181683]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -433.0
-offset_top = -367.0
-offset_right = 433.0
-offset_bottom = -44.0
+offset_left = -323.0
+offset_top = -100.0
+offset_right = 324.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-shop_items = ExtResource("2_yja7x")
-test_mode = false
+theme_override_constants/separation = 14
 
-[node name="ShopKeeper" type="Node2D" parent="." unique_id=1266733250]
-position = Vector2(545, 198)
-scale = Vector2(2, 2)
-
-[node name="DamageParticles" parent="ShopKeeper" unique_id=232237618 instance=ExtResource("2_pm8cd")]
+[node name="Buy Items" type="Button" parent="Options" unique_id=1817664397]
 texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Leave")
+focus_neighbor_right = NodePath("../Sell Items")
+theme_override_fonts/font = ExtResource("6_5o8oa")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_vdjib")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vaflh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4yknk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6lx0g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0uh56")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_w1emu")
+text = "Buy items"
 
-[node name="SpriteRoot" type="Node2D" parent="ShopKeeper" unique_id=1204279553]
-position = Vector2(0, 24)
+[node name="Sell Items" type="Button" parent="Options" unique_id=338229165]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Buy Items")
+theme_override_fonts/font = ExtResource("6_5o8oa")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_vdjib")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vaflh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4yknk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6lx0g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0uh56")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_w1emu")
+text = "Sell Items"
 
-[node name="Sprite2D" type="Sprite2D" parent="ShopKeeper/SpriteRoot" unique_id=1501627755]
+[node name="Leave" type="Button" parent="Options" unique_id=1813217093]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Sell Items")
+focus_neighbor_right = NodePath("../Buy Items")
+theme_override_fonts/font = ExtResource("6_5o8oa")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_vdjib")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vaflh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4yknk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6lx0g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0uh56")
+toggle_mode = true
+text = "Leave"
+
+[node name="ShopKeeperDialogue" type="RichTextLabel" parent="." unique_id=1150893398 node_paths=PackedStringArray("dialogue_text_timer")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 769.0
+offset_top = 327.0
+offset_right = 1069.0
+offset_bottom = 357.0
+text = "If you can read this, there is a bug."
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("8_x7kgi")
+dialogue_text_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="ShopKeeperDialogue" unique_id=1356993450]
+wait_time = 0.05
+
+[node name="ShopKeeper" type="Sprite2D" parent="." unique_id=1501627755]
+unique_name_in_owner = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_uygeh")
-position = Vector2(0, 8)
-scale = Vector2(2, 2)
+position = Vector2(914, 512)
+scale = Vector2(4, 4)
 texture = ExtResource("3_yja7x")
 offset = Vector2(0, -16)
 
-[node name="EntityAnimator" type="AnimationPlayer" parent="ShopKeeper" unique_id=506054819]
-libraries/ = SubResource("AnimationLibrary_rao7n")
-autoplay = &"idle"
-
 [node name="ShopDesk" type="Sprite2D" parent="." unique_id=1251366015]
 texture_filter = 1
-position = Vector2(491, 249)
+position = Vector2(852, 499)
 scale = Vector2(2, 2)
 texture = ExtResource("4_rao7n")
 
 [node name="ShopDesk2" type="Sprite2D" parent="." unique_id=2117574105]
 texture_filter = 1
-position = Vector2(557, 249)
+position = Vector2(918, 499)
 scale = Vector2(2, 2)
 texture = ExtResource("4_rao7n")
 
 [node name="ShopDesk3" type="Sprite2D" parent="." unique_id=2105749024]
 texture_filter = 1
-position = Vector2(621, 249)
+position = Vector2(982, 499)
 scale = Vector2(2, 2)
 texture = ExtResource("4_rao7n")
 
-[connection signal="animation_finished" from="ShopKeeper/EntityAnimator" to="ShopKeeper/EntityAnimator" method="_on_animation_finished"]
+[node name="BoughtEntryParticles" type="CPUParticles2D" parent="." unique_id=91045468]
+unique_name_in_owner = true
+position = Vector2(30, 33)
+emitting = false
+amount = 10
+texture = ExtResource("9_i30tm")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(200, 20)
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ccect")
+color_ramp = SubResource("Gradient_5lu6d")
+
+[node name="BoughtEntryParticles2" type="CPUParticles2D" parent="." unique_id=431000486]
+unique_name_in_owner = true
+position = Vector2(30, 33)
+emitting = false
+amount = 15
+texture = SubResource("AtlasTexture_5lu6d")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+use_fixed_seed = true
+seed = 1409172127
+emission_shape = 3
+emission_rect_extents = Vector2(200, 20)
+direction = Vector2(100, 10)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ccect")
+
+[connection signal="toggled" from="Options/Buy Items" to="." method="_on_buy_items_toggled"]
+[connection signal="toggled" from="Options/Sell Items" to="." method="_on_sell_items_toggled"]
+[connection signal="button_up" from="Options/Leave" to="." method="_on_leave_button_up"]

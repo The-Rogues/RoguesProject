@@ -6,5 +6,7 @@ class_name ProjectileAttackAction
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	for target in resolved_targets:
-		_user.projectile_launcher.fire_sequence(target, projectile_config)
+		if !target:
+			continue
+		_user.projectile_launcher.fire_sequence(target.global_position, projectile_config)
 	await _user.projectile_launcher.projectiles_freed

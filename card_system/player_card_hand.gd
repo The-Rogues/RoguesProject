@@ -1,9 +1,6 @@
 extends Control
 class_name PlayerCardHand
 
-signal card_drawn(instance:CardInstance)
-signal play_card(card:CardData)
-signal card_play_rejected
 signal grabbed_card
 signal released_card
 
