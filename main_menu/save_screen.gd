@@ -36,11 +36,11 @@ func _on_continue_clicked() -> void:
 func _on_start_new_clicked() -> void:
 	GlobalSaveManager.reset()
 	GlobalSessionManager.run_progress = null
-	get_viewport().gui_disable_input = false
-	continue_menu.visible = false
-	character_menu.visible = true
-	continue_button.set_disabled(true)
-	
+	#get_viewport().gui_disable_input = false
+	#continue_menu.visible = false
+	#character_menu.visible = true
+	#continue_button.set_disabled(true)
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.New_Game_Scene)
 	#GlobalSceneLoader.load_scene(GlobalSceneLoader.CHARACTER_GENERATOR_PATH)
 	pass # Replace with function body.
 

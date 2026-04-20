@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dnqnor18jtlow"]
 
 [ext_resource type="Script" uid="uid://cdpe0m5vwdr35" path="res://main_menu/save_screen.gd" id="1_n021w"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_sksre"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_aj4c5"]
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_h5kbp"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_tvukq"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_sksre")
 script = ExtResource("1_n021w")
 continue_button = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Continue")
 snapshot = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer/RunSnapshot")

@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://mdymi56364et"]
+
+[ext_resource type="Script" uid="uid://cslwusvifkfb3" path="res://character_creator/character_creator.gd" id="1_braph"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_5i41c"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="2_wh7xx"]
+[ext_resource type="Resource" uid="uid://dnpmpbjeyx65" path="res://content/personality_traits/brutish.tres" id="3_ctoup"]
+[ext_resource type="Texture2D" uid="uid://cocbavryx3osk" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-015.png" id="3_ono6g"]
+[ext_resource type="Texture2D" uid="uid://b7w45y1e258yp" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-002.png" id="4_cp3bx"]
+[ext_resource type="Resource" uid="uid://ck1tj3cj82hbk" path="res://content/personality_traits/skittish.tres" id="4_g1oom"]
+[ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="5_5i41c"]
+[ext_resource type="Resource" uid="uid://c6hd6w7xmy4jb" path="res://content/personality_traits/greedy.tres" id="5_epxpy"]
+[ext_resource type="Texture2D" uid="uid://cq26k5tc4mmtj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-002.png" id="6_ctoup"]
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="7_g1oom"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="8_epxpy"]
+[ext_resource type="Texture2D" uid="uid://cituqdafbrum" path="res://common/art/placeholder/nikoichu/Icons_Boardgames.png" id="9_qangh"]
+[ext_resource type="PackedScene" uid="uid://ccj3477wj0s5j" path="res://character_creator/survey_interface.tscn" id="10_g1dsd"]
+[ext_resource type="PackedScene" uid="uid://bfn570nel15tp" path="res://character_creator/character_texture_selector.tscn" id="11_ock7s"]
+[ext_resource type="PackedScene" uid="uid://bdwc1bwqyvlcr" path="res://character_creator/name_editor.tscn" id="12_tjwqa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aw8bx"]
+load_path = "res://.godot/imported/panel-transparent-center-001.png-771c00a3fa782f53c7b268e48b626392.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxf65"]
+texture = SubResource("CompressedTexture2D_aw8bx")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_14ves"]
+texture = ExtResource("3_ono6g")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khqir"]
+texture = ExtResource("4_cp3bx")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cckob"]
+load_path = "res://.godot/imported/panel-border-015.png-7e2698cc400873402765099cfa426eff.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bx7ta"]
+texture = SubResource("CompressedTexture2D_cckob")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bx7ta"]
+load_path = "res://.godot/imported/panel-border-015.png-7e2698cc400873402765099cfa426eff.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xgrrw"]
+texture = SubResource("CompressedTexture2D_bx7ta")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_512jr"]
+load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5y224"]
+texture = SubResource("CompressedTexture2D_512jr")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nhgbo"]
+load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3a31"]
+texture = SubResource("CompressedTexture2D_nhgbo")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h67jw"]
+texture = ExtResource("6_ctoup")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h67jw"]
+resource_local_to_scene = true
+atlas = ExtResource("7_g1oom")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgbo"]
+atlas = ExtResource("9_qangh")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5i41c"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ctoup"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_g1oom"]
+
+[node name="CharacterCreator" type="Control" unique_id=120215782]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wh7xx")
+script = ExtResource("1_braph")
+offensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("3_ctoup"), ExtResource("3_ctoup"), ExtResource("3_ctoup"), ExtResource("3_ctoup")])
+defensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("4_g1oom"), ExtResource("4_g1oom"), ExtResource("4_g1oom"), ExtResource("4_g1oom")])
+strategic_traits = Array[ExtResource("2_5i41c")]([ExtResource("5_epxpy"), ExtResource("5_epxpy"), ExtResource("5_epxpy"), ExtResource("5_epxpy")])
+
+[node name="Background" type="ColorRect" parent="." unique_id=919930622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Elements" type="VBoxContainer" parent="." unique_id=2133499037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -235.5
+offset_right = 235.0
+offset_bottom = 235.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="HeaderLabel" type="Label" parent="Elements" unique_id=436641017]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "New Character"
+horizontal_alignment = 1
+
+[node name="DisplayInfo" type="HBoxContainer" parent="Elements" unique_id=420966927]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="CharacterTextureSlot" type="Button" parent="Elements/DisplayInfo" unique_id=1320877058]
+texture_filter = 1
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_wh7xx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kxf65")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_14ves")
+theme_override_styles/hover = SubResource("StyleBoxTexture_khqir")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_bx7ta")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xgrrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Elements/DisplayInfo/CharacterTextureSlot" unique_id=1517634332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterSprite" type="TextureRect" parent="Elements/DisplayInfo/CharacterTextureSlot/MarginContainer" unique_id=27307526]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_5i41c")
+
+[node name="NameEditorButton" type="Button" parent="Elements/DisplayInfo" unique_id=558257534]
+custom_minimum_size = Vector2(232, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_5y224")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d3a31")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h67jw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Elements/DisplayInfo/NameEditorButton" unique_id=1338865389]
+custom_minimum_size = Vector2(201, 30)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 198.0
+offset_bottom = 24.0
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="Elements/DisplayInfo/NameEditorButton/HBoxContainer" unique_id=598776554]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_h67jw")
+expand_mode = 3
+
+[node name="CharacterNameLabel" type="Label" parent="Elements/DisplayInfo/NameEditorButton/HBoxContainer" unique_id=844649035]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.4692968, 0.4692964, 0.46929651, 1)
+theme_override_fonts/font = ExtResource("8_epxpy")
+text = "Enter Name"
+
+[node name="Randomize" type="Button" parent="Elements/DisplayInfo" unique_id=1032394033]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_nhgbo")
+icon_alignment = 1
+
+[node name="PersonalitySurveys" type="VBoxContainer" parent="Elements" unique_id=2103904522]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="AggressionSurvey" parent="Elements/PersonalitySurveys" unique_id=1022197764 instance=ExtResource("10_g1dsd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeaderLabel" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1011964024) index="0" unique_id=269853903]
+text = "Aggression"
+
+[node name="Lower" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="1" unique_id=585799121]
+button_group = SubResource("ButtonGroup_5i41c")
+
+[node name="Low" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="2" unique_id=617546917]
+button_group = SubResource("ButtonGroup_5i41c")
+
+[node name="High" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="3" unique_id=1278709487]
+button_group = SubResource("ButtonGroup_5i41c")
+
+[node name="Higher" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="4" unique_id=2017976477]
+button_group = SubResource("ButtonGroup_5i41c")
+
+[node name="ResolveSurvey" parent="Elements/PersonalitySurveys" unique_id=325705533 instance=ExtResource("10_g1dsd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeaderLabel" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer" parent_id_path=PackedInt32Array(325705533, 1011964024) index="0" unique_id=269853903]
+text = "Resolve"
+
+[node name="Lower" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="1" unique_id=585799121]
+button_group = SubResource("ButtonGroup_ctoup")
+
+[node name="Low" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="2" unique_id=617546917]
+button_group = SubResource("ButtonGroup_ctoup")
+
+[node name="High" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="3" unique_id=1278709487]
+button_group = SubResource("ButtonGroup_ctoup")
+
+[node name="Higher" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="4" unique_id=2017976477]
+button_group = SubResource("ButtonGroup_ctoup")
+
+[node name="HighLabel" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="5" unique_id=573113404]
+text = "high"
+
+[node name="QuirkinessSurvey" parent="Elements/PersonalitySurveys" unique_id=1168133177 instance=ExtResource("10_g1dsd")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeaderLabel" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1011964024) index="0" unique_id=269853903]
+text = "Quirkiness"
+
+[node name="Lower" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="1" unique_id=585799121]
+button_group = SubResource("ButtonGroup_g1oom")
+
+[node name="Low" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="2" unique_id=617546917]
+button_group = SubResource("ButtonGroup_g1oom")
+
+[node name="High" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="3" unique_id=1278709487]
+button_group = SubResource("ButtonGroup_g1oom")
+
+[node name="Higher" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="4" unique_id=2017976477]
+button_group = SubResource("ButtonGroup_g1oom")
+
+[node name="Options" type="HBoxContainer" parent="Elements" unique_id=1837197351]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Elements/Options" unique_id=1536727673]
+custom_minimum_size = Vector2(203, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Back"
+
+[node name="Save" type="Button" parent="Elements/Options" unique_id=2006843593]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(203, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Save"
+
+[node name="CharacterTextureSelector" parent="." unique_id=1083419816 instance=ExtResource("11_ock7s")]
+visible = false
+layout_mode = 1
+
+[node name="NameEditor" parent="." unique_id=1042457098 instance=ExtResource("12_tjwqa")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="Elements/DisplayInfo/CharacterTextureSlot" to="." method="_on_character_texture_slot_button_down"]
+[connection signal="button_down" from="Elements/DisplayInfo/NameEditorButton" to="." method="_on_name_editor_button_down"]
+[connection signal="button_up" from="Elements/DisplayInfo/Randomize" to="." method="_on_randomize_button_up"]
+[connection signal="option_selected" from="Elements/PersonalitySurveys/AggressionSurvey" to="." method="_on_aggression_survey_option_selected"]
+[connection signal="option_selected" from="Elements/PersonalitySurveys/ResolveSurvey" to="." method="_on_resolve_survey_option_selected"]
+[connection signal="option_selected" from="Elements/PersonalitySurveys/QuirkinessSurvey" to="." method="_on_quirkiness_survey_option_selected"]
+[connection signal="button_up" from="Elements/Options/Cancel" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="Elements/Options/Save" to="." method="_on_save_button_up"]
+
+[editable path="Elements/PersonalitySurveys/AggressionSurvey"]
+[editable path="Elements/PersonalitySurveys/ResolveSurvey"]
+[editable path="Elements/PersonalitySurveys/QuirkinessSurvey"]

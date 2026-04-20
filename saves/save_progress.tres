@@ -5,13 +5,12 @@
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="3_upqny"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="4_br818"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="5_r5eiv"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/guard.tres" id="5_wh6of"]
 [ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="6_fcpjs"]
 [ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="7_f04e1"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="8_i06bj"]
 [ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="9_sds6a"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="10_jfmdv"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="11_k7d58"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="11_k7d58"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="12_ce22o"]
 
 [sub_resource type="Resource" id="Resource_wh6of"]
@@ -26,25 +25,19 @@ priority_trait = ExtResource("7_f04e1")
 
 [sub_resource type="Resource" id="Resource_upqny"]
 script = ExtResource("10_jfmdv")
-name = "Salome"
+name = "Maria"
 max_health = 70
 current_health = 70
-current_energy = 2
 max_energy = 3
 item_capacity = 1
-cards = Array[ExtResource("1_k7d58")]([ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("5_wh6of")])
-gold = 61
+cards = Array[ExtResource("1_k7d58")]([ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818")])
 personality = SubResource("Resource_wh6of")
 
 [resource]
 script = ExtResource("12_ce22o")
 player_data = SubResource("Resource_upqny")
 player_texture = ExtResource("11_k7d58")
-player_name = "Salome"
-player_backstory = "Reluctant explorer."
-map_seed = 3837386281
-player_node_index = 5
-pending_node_index = 8
-room_in_progress = true
-total_rooms_explored = 2
+player_name = "Maria"
+player_backstory = ""
+map_seed = 3992477595
 initialized = true
