@@ -20,6 +20,7 @@ metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 script = ExtResource("4_vo3p6")
 effect = SubResource("Resource_6xpcr")
 target_option = 3
+ignore_foreground = true
 metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 
 [resource]

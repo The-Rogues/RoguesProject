@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_bjhrg"]
 [ext_resource type="Texture2D" uid="uid://bu2qaotwturvd" path="res://content/objects/stone_wall/stone_wall_texture.tres" id="1_wq4rh"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_awq8o"]
 
 [resource]
 script = ExtResource("1_bjhrg")
+targeting_categories = Array[int]([0])
 display_texture = ExtResource("1_wq4rh")
 name = "Stone Wall"
 health = 20

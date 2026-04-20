@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://cv01a4ey63px6"
 
 [resource]
 script = ExtResource("2_lqkhd")
-role = 2
+targeting_categories = Array[int]([0, 2])
 interaction = 1
 interaction_actions = Array[ExtResource("1_1fwaj")]([SubResource("Resource_sqvwb"), SubResource("Resource_5cgrj")])
 display_texture = SubResource("AtlasTexture_5cgrj")

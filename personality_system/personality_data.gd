@@ -57,6 +57,83 @@ func initialize(
 		priority_trait = strategic_trait
 		strategic_weight = 2
 
+func choose_move_direction(left_idx: int, right_idx: int, positions: Array[BattlePosition]) -> bool:
+	var priority_order: Array[int] = create_trait_order()
+	
+	for i in range(0, priority_order.size()):
+		var targeting_option: ObjectData.MoveTargetingCategory
+		match priority_order[i]:
+			0:
+				targeting_option = offensive_trait.object_targeting_preference
+			1:
+				targeting_option = defensive_trait.object_targeting_preference
+			2:
+				targeting_option = strategic_trait.object_targeting_preference
+		var object_exists: bool = false
+		for j in range(0, positions.size()):
+			var curr_obj: ObjectEntity = positions[j].get_object()
+			if curr_obj == null:
+				continue
+			elif curr_obj.data.targeting_categories.has(targeting_option):
+				object_exists = true
+				break
+		if !object_exists:
+			continue
+		var dist_left: int = dist_from_preferred(left_idx, targeting_option, positions)
+		var dist_right: int = dist_from_preferred(right_idx, targeting_option, positions)
+		if dist_left == dist_right:
+			if randf() < 0.5:
+				return false
+			return true
+		elif dist_left < dist_right:
+			return false
+		else:
+			return true
+	if randf() < 0.5:
+		return false
+	return true
+
+func dist_from_preferred(
+	in_idx: int, 
+	in_targeting: ObjectData.MoveTargetingCategory, 
+	in_positions: Array[BattlePosition]
+) -> int:
+	var ret_val: int = 10
+	for i in range(in_idx, in_positions.size()):
+		if in_positions[i].get_object() != null:
+			if in_positions[i].get_object().data.targeting_categories.has(in_targeting):
+				if ret_val > (i - in_idx):
+					ret_val = i - in_idx
+					break
+	for i in range(in_idx - 1, -1, -1):
+		if in_positions[i].get_object() != null:
+			if in_positions[i].get_object().data.targeting_categories.has(in_targeting):
+				if ret_val > (in_idx - i):
+					ret_val = in_idx - i
+				elif (in_idx - i) >= ret_val:
+					break
+	return ret_val
+
+func choose_object_target(objects: Array[ObjectEntity]) -> ObjectEntity:
+	
+	var priority_order: Array[int] = create_trait_order()
+	
+	for i in range(0, priority_order.size()):
+		var targeting_option: ObjectData.MoveTargetingCategory
+		match priority_order[i]:
+			0:
+				targeting_option = offensive_trait.object_targeting_preference
+			1:
+				targeting_option = defensive_trait.object_targeting_preference
+			2:
+				targeting_option = strategic_trait.object_targeting_preference
+		var filtered_objects: Array[ObjectEntity]
+		for j in range(0, objects.size()):
+			if objects[j].data.targeting_categories.has(targeting_option):
+				filtered_objects.append(objects[j])
+		if filtered_objects.size() > 0:
+			return filtered_objects.pick_random()
+	return objects.pick_random()
 
 ## Choosest the highest priority target given the biases of personality traits.
 func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
