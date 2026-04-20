@@ -88,6 +88,8 @@ func update_attack_targeting() -> void:
 	apply_imbued()
 
 func apply_healthiest() -> void:
+	if enemies.size() == 0:
+		return
 	var highest_health: int = enemies[0].health.value
 	for i in range(0, enemies.size()):
 		if enemies[i].health.value > highest_health:
@@ -99,6 +101,8 @@ func apply_healthiest() -> void:
 			)
 
 func apply_weakest() -> void:
+	if enemies.size() == 0:
+		return
 	var lowest_health: int = enemies[0].health.value
 	for i in range(1, enemies.size()):
 		if enemies[i].health.value < lowest_health:

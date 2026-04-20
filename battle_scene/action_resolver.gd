@@ -21,13 +21,11 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 			var player := battle_context.creature_manager.player
 			
 			if user is MonsterEntity:
-				var battle_pos := player.movement_controller.find_nearest_object_position_by_role(
-					ObjectData.Role.DECOY
-				)
+				var battle_pos := player.movement_controller.find_decoy_position()
 				if battle_pos:
 					resolved_targeting.append(battle_pos.get_object())
 				else:
-					if player.battle_position.has_object():
+					if player.battle_position.has_object() && !in_action.ignore_foreground:
 						resolved_targeting.append(player.battle_position.get_object())
 					else:
 						resolved_targeting.append(player)
@@ -56,15 +54,22 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 				resolved_targeting.append(
 						battle_context.creature_manager.enemies.pick_random())
 		3:
-			var filtered_enemies: Array[MonsterEntity]
-			if in_action is FilteredTargetedAction:
-				filtered_enemies = filter_enemies(in_action)
+			var filtered_enemies: Array[AbstractEntity] = []
+			var player := battle_context.creature_manager.player
+			if player.battle_position.has_object() && !in_action.ignore_foreground:
+				filtered_enemies.append(player.battle_position.get_object())
+			elif in_action is FilteredTargetedAction:
+				filtered_enemies.append_array(
+					filter_enemies(in_action)
+				)
 			else:
-				filtered_enemies = battle_context.creature_manager.enemies
-					
-					
+				filtered_enemies.append_array(
+					battle_context.creature_manager.enemies
+				)
+			
 			resolved_targeting.append_array(
-					filtered_enemies)
+				filtered_enemies
+			)
 	
 	return resolved_targeting
 

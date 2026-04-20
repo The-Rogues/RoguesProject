@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://iaax8253pot6"
 
 [resource]
 script = ExtResource("2_ytog5")
-role = 2
+targeting_categories = Array[int]([0, 2])
 interaction = 3
 interaction_actions = Array[ExtResource("1_gt58y")]([SubResource("Resource_j5o26")])
 display_texture = ExtResource("1_ytog5")

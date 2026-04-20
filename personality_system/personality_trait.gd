@@ -10,7 +10,7 @@ enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
 @export var trait_category:TraitCategory
 @export var enemy_targeting_preference:MonsterData.AttackTargetingCategory
 @export var enemy_targeting_bias:Array[String]
-@export var object_preference:ObjectData.Role
+@export var object_targeting_preference:ObjectData.MoveTargetingCategory
 
 @export var card_loot_pool:Array[CardData]
 @export var starter_cards:Array[CardData]

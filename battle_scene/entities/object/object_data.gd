@@ -1,10 +1,16 @@
 extends AbstractEntityData
 class_name ObjectData
 
-enum Role {DEFENSIVE, OFFENSIVE, REWARD, DECOY}
+enum MoveTargetingCategory {
+	COVER,
+	WEAPON,
+	TREASURE, 
+	THREAT,
+	DECOY
+}
 enum InteractionOption {NONE, ON_HIT, BUTTON, BUTTON_WITH_KEY, ON_ENTERED_TURN}
 
-@export var role:Role = Role.DEFENSIVE
+@export var targeting_categories: Array[MoveTargetingCategory]
 @export var interaction:InteractionOption
 @export var interaction_actions:Array[Action]
 @export_range(-1, 10) var turn_interaction_counter:int = -1

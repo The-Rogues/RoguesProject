@@ -24,7 +24,6 @@ metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
 
 [resource]
 script = ExtResource("6_6c7hg")
-role = 1
 interaction = 4
 interaction_actions = Array[ExtResource("2_04g3j")]([SubResource("Resource_vgdkc")])
 turn_interaction_counter = 1
