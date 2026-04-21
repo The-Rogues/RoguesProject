@@ -14,6 +14,10 @@ func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
 	owner = _creature
 
 
+func get_status_name() -> String:
+	return "Repeat Card"
+
+
 func get_description(_instance:ActiveStatusEffect) -> String:
 	return "Next Card is played twice"
 

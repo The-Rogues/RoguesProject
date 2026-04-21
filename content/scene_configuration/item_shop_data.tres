@@ -22,7 +22,8 @@ script = ExtResource("4_hhvmi")
 texture = ExtResource("5_k0en6")
 name = "Card Removal Service"
 description = "Remove a Card from your Deck."
-price = 30
+price = 15
+exhaustable = false
 metadata/_custom_type_script = "uid://dpqpae08lyjh3"
 
 [resource]

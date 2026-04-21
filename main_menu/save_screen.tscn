@@ -121,6 +121,7 @@ theme_override_constants/separation = 18
 [node name="AIGenerateCharacter" parent="MarginContainer/CharacterMenu" unique_id=2053005649 instance=ExtResource("4_tvukq")]
 layout_mode = 2
 text = "AI Generate Character"
+disabled = true
 
 [node name="CreateRandom" parent="MarginContainer/CharacterMenu" unique_id=187231478 instance=ExtResource("4_tvukq")]
 layout_mode = 2
@@ -134,6 +135,7 @@ disabled = true
 [node name="CharacterBuilder" parent="MarginContainer/CharacterMenu" unique_id=1829045561 instance=ExtResource("4_tvukq")]
 layout_mode = 2
 text = "Character Builder"
+disabled = true
 
 [node name="Return" parent="MarginContainer/CharacterMenu" unique_id=2064591969 instance=ExtResource("4_tvukq")]
 layout_mode = 2

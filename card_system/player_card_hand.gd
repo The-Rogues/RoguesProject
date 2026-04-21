@@ -34,7 +34,8 @@ func _on_card_drawn(instance:CardInstance):
 	card.global_position = Vector2(0, 500)
 	
 	card.clicked.connect(_on_card_clicked)
-	card.hovered.connect(_on_card_hovered)
+	card.interaction_mode = true
+	#card.hovered.connect(_on_card_hovered)
 	_update_card_layout()
 
 
@@ -163,11 +164,11 @@ func confirm_play(card: Card) -> void:
 # Hover
 # -------------------------------------------------
 
-func _on_card_hovered(card: Card, hovering: bool) -> void:
-	if holding_card:
-		return
+#func _on_card_hovered(card: Card, hovering: bool) -> void:
+	#if holding_card:
+		#return
 	
-	card.blow_up(hovering)
+	#card.blow_up(hovering)
 
 # -------------------------------------------------
 # Utility

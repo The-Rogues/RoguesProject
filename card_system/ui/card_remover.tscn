@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://cton5ap6s24lx"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_8tmx8"]
+[ext_resource type="Script" uid="uid://bimi1nrv03eka" path="res://card_system/ui/card_remover.gd" id="2_8tmx8"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_0v77y"]
+[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="4_11b3r"]
+[ext_resource type="PackedScene" uid="uid://u3ac5qsk7naw" path="res://card_system/ui/card_remover_confirmation.tscn" id="5_4f1o5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0v77y"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_005b6"]
+texture = SubResource("CompressedTexture2D_0v77y")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_11b3r"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv8ui"]
+texture = SubResource("CompressedTexture2D_11b3r")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qfx2c"]
+load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7g4x"]
+texture = SubResource("CompressedTexture2D_qfx2c")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_blgvk"]
+texture = ExtResource("4_11b3r")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="CardRemover" type="Control" unique_id=2047647765]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8tmx8")
+script = ExtResource("2_8tmx8")
+
+[node name="Background" type="ColorRect" parent="." unique_id=861343767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8117647)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=456333570]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -508.0
+offset_right = 426.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+horizontal_scroll_mode = 0
+scroll_hint_mode = 2
+tile_scroll_hint = true
+
+[node name="CardConatiner" type="FlowContainer" parent="ScrollContainer" unique_id=695158409]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+
+[node name="Cancel" type="Button" parent="." unique_id=528403380]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -112.0
+offset_right = 183.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("3_0v77y")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_005b6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yv8ui")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m7g4x")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_blgvk")
+text = "Cancel"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1376271826]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -144.0
+offset_right = 104.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=215829902]
+layout_mode = 2
+text = "Select a Card to Remove"
+
+[node name="CardRemoverConfirmation" parent="." unique_id=1513941998 instance=ExtResource("5_4f1o5")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_up" from="Cancel" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="Cancel" to="." method="_on_close_button_up"]

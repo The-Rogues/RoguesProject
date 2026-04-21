@@ -9,6 +9,10 @@ func on_stack(
 	instance.duration += 1
 
 
+func get_status_name() -> String:
+	return "Wounded"
+
+
 func get_description(_instance:ActiveStatusEffect) -> String:
 	return "Prevents Healing this turn."
 

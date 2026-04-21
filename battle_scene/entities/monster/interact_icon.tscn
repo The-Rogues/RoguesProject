@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://xd7ju6mdujq4"]
 
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_gp3px"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_paj04"]
 [ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="2_gp3px"]
 
@@ -45,6 +46,7 @@ _data = {
 custom_minimum_size = Vector2(114, 32)
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_gp3px")
 
 [node name="InteractLabel" type="Label" parent="." unique_id=423011505]
 texture_filter = 1
@@ -52,12 +54,12 @@ custom_minimum_size = Vector2(114, 18)
 layout_mode = 0
 offset_right = 114.0
 offset_bottom = 18.0
-theme_override_colors/font_color = Color(0.8736485, 0.51683784, 0.27075392, 1)
 theme_override_fonts/font = ExtResource("1_paj04")
-text = "Interact"
+theme_override_font_sizes/font_size = 12
+text = "Hit to fire"
+horizontal_alignment = 1
 
 [node name="Pointer" type="TextureRect" parent="." unique_id=1267319128]
-modulate = Color(0.8745098, 0.5176471, 0.27058825, 1)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 7

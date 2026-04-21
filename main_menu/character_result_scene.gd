@@ -26,7 +26,7 @@ func initialize():
 				preview.personality.offensive_trait,
 				preview.personality.offensive_weight)
 		defensive_trait._on_trait_data_updated(
-				preview.personality.strategic_trait,
+				preview.personality.defensive_trait,
 				preview.personality.defensive_weight)
 		strategic_trait._on_trait_data_updated(
 				preview.personality.strategic_trait,

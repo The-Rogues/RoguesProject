@@ -12,6 +12,10 @@ func on_stack(
 	instance.duration += 1
 
 
+func get_status_name() -> String:
+	return "Scared"
+
+
 func get_description(_instance:ActiveStatusEffect) -> String:
 	return "When attacking, has a % chance to become Scared Stiff and fail."
 

@@ -2,7 +2,7 @@ extends Control
 class_name Card
 
 signal clicked(card: Card)
-signal hovered(card: Card, is_hovering: bool)
+#signal hovered(card: Card, is_hovering: bool)
 
 var instance:CardInstance
 
@@ -17,7 +17,7 @@ var hover_scale := 0.08
 var in_play_area := false
 var check_for_play_area:bool = true
 var draggable:bool = false
-
+var interaction_mode:bool = false
 
 func initialize(_instance:CardInstance):
 	instance = _instance
@@ -124,6 +124,9 @@ func launch_towards(target_pos: Vector2) -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
+	if interaction_mode == false:
+		return
+	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			clicked.emit(self)
@@ -139,17 +142,24 @@ func blow_up(active: bool) -> void:
 
 
 func _on_mouse_entered() -> void:
-	hovered.emit(self, true)
+	if interaction_mode:
+		blow_up(true)
+	#hovered.emit(self, true)
 
 
 func _on_mouse_exited() -> void:
-	hovered.emit(self, false)
+	if interaction_mode:
+		blow_up(false)
+	#hovered.emit(self, false)
 
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
+	#print(interaction_mode)
+	#if interaction_mode:
 	in_play_area = true
 
 
 func _on_area_2d_area_exited(_area: Area2D) -> void:
+	#if interaction_mode and check_for_play_area:
 	if check_for_play_area:
 		in_play_area = false

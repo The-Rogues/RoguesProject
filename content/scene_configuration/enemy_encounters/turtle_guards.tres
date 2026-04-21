@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://ccyf1xvrcexq4"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_3l1ye"]
+[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_wl1lw"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_7knmu"]
 [ext_resource type="Resource" uid="uid://bdqekfp4y42wh" path="res://content/monsters/dragon_turtle/dragon_turtle.tres" id="2_gk1r0"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_vqxss"]
@@ -18,5 +19,6 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("3_vqxss")
 encounter_name = "Turtle guards"
 gold = SubResource("Resource_nrxny")
+card_loot = ExtResource("1_wl1lw")
 enemies = Array[ExtResource("1_3l1ye")]([ExtResource("2_gk1r0"), ExtResource("2_gk1r0")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

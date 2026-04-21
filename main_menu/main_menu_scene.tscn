@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_vv2lb"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_1yt4p"]
 [ext_resource type="PackedScene" uid="uid://dnqnor18jtlow" path="res://main_menu/save_screen.tscn" id="5_3s87x"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="7_ph7i1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv2lb"]
 content_margin_left = 36.0
@@ -142,6 +143,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ph7i1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu" unique_id=1815456122]
 layout_mode = 1
@@ -150,6 +152,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 
 [node name="TitleMargin" type="MarginContainer" parent="CreditsMenu/VBoxContainer" unique_id=1113944254]
@@ -249,21 +252,20 @@ text = "Datagoblin: Dungeon-mode font
 https://datagoblin.itch.io/dungeonmode"
 horizontal_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="CreditsMenu" unique_id=1317727752]
+[node name="Return" type="Button" parent="CreditsMenu" unique_id=1584628513]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -117.0
+offset_right = 61.0
+offset_bottom = -70.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_bottom = 120
-
-[node name="Return" parent="CreditsMenu/MarginContainer2" unique_id=1046007390 instance=ExtResource("4_1yt4p")]
-layout_mode = 2
-size_flags_vertical = 8
+grow_vertical = 0
 text = "Return"
-horizontal_alignment = 1
 
 [node name="CloseMenu" type="Control" parent="." unique_id=1472450577]
 visible = false
@@ -315,3 +317,4 @@ horizontal_alignment = 1
 [connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Options" to="." method="_on_options_clicked"]
 [connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Credits" to="." method="_on_credits_clicked"]
 [connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Close" to="." method="_on_close_clicked"]
+[connection signal="button_up" from="CreditsMenu/Return" to="." method="_on_close_credits_button_up"]

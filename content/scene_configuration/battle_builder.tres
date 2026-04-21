@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_xfhqu"]
 [ext_resource type="Script" uid="uid://blh0k76h8lwis" path="res://battle_scene/battle_building/battle_builder.gd" id="2_wh5q6"]
+[ext_resource type="Resource" uid="uid://c1m2pj6y4ucur" path="res://content/scene_configuration/battle_field_layouts/chest_and_walls.tres" id="3_hxs3u"]
 [ext_resource type="Resource" uid="uid://cxkdbcy3paaib" path="res://content/scene_configuration/battle_field_layouts/one_wall.tres" id="3_n0sf2"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_xcnaf"]
 [ext_resource type="Resource" uid="uid://bj2e0ww78ece8" path="res://content/scene_configuration/enemy_encounters/the_big_one.tres" id="6_ploub"]
@@ -12,5 +13,5 @@ script = ExtResource("2_wh5q6")
 tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_kghvj")])
 tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_ploub")])
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_ploub")])
-battle_field_configs = Array[ExtResource("1_xfhqu")]([ExtResource("3_n0sf2")])
+battle_field_configs = Array[ExtResource("1_xfhqu")]([ExtResource("3_n0sf2"), ExtResource("3_hxs3u")])
 metadata/_custom_type_script = "uid://blh0k76h8lwis"

@@ -47,9 +47,17 @@ func _on_credits_clicked() -> void:
 	pass # Replace with function body.
 
 
+
+
 func _on_close_clicked() -> void:
 	close_menu.visible = true
 	title_screen.visible = false
 	await get_tree().create_timer(3).timeout
 	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_close_credits_button_up() -> void:
+	credits_menu.visible = false
+	title_screen.visible = true
 	pass # Replace with function body.

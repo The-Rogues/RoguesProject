@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://c6v6r0kxmsvcb"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_1rfcf"]
+[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_f032m"]
 [ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/monsters/fletcher/angry_shroom/angry_shroom.tres" id="2_sl5wx"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_w7bmn"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_6iakw"]
@@ -18,5 +19,6 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("3_6iakw")
 encounter_name = "Angry mushrooms"
 gold = SubResource("Resource_mmjos")
+card_loot = ExtResource("1_f032m")
 enemies = Array[ExtResource("1_1rfcf")]([ExtResource("2_sl5wx"), ExtResource("2_sl5wx")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

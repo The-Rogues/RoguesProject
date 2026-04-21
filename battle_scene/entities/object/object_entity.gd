@@ -15,6 +15,8 @@ func initialize(_data:ObjectData):
 	health.initialize(_data.health, data.health)
 	sprite_2d.texture = _data.display_texture
 	object_stat_display.initialize(self)
+	
+	
 
 
 func take_damage(amount:int, _attacker = null):
@@ -27,7 +29,7 @@ func take_damage(amount:int, _attacker = null):
 	if (_attacker is PlayerEntity 
 			and health.is_alive
 			and data.interaction == ObjectData.InteractionOption.ON_HIT):
-		interacted.emit(self)
+		interact()
 
 
 func on_destroyed():
@@ -43,6 +45,12 @@ func enter_turn():
 
 func on_placed():
 	pass
+
+
+func interact():
+	print("interacted")
+	await play_action_anim()
+	interacted.emit(self)
 
 
 func play_idle_anim():

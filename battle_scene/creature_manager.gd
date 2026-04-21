@@ -11,7 +11,7 @@ signal enemy_spawned(monster:MonsterEntity)
 var enemies:Array[MonsterEntity]
 var player:PlayerEntity
 
-const ENEMY_SPACING = 0.10
+const ENEMY_SPACING = 0.15
 #const ENEMY_Y_POSITION = 0.5
 
 func initialize(_player:PlayerEntity, _enemies:Array[MonsterData]):

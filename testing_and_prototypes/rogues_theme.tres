@@ -2,6 +2,55 @@
 
 [ext_resource type="Texture2D" uid="uid://boa8n0ndmytmi" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-001.png" id="1_4uug6"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_ifibi"]
+[ext_resource type="Texture2D" uid="uid://bbio1dfmgy3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-031.png" id="2_yttrd"]
+[ext_resource type="Texture2D" uid="uid://cq6bf7ouy5rg2" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-010.png" id="3_awpbx"]
+[ext_resource type="Texture2D" uid="uid://diq1otqisnxbh" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-000.png" id="4_oeuor"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2iabr"]
+load_path = "res://.godot/imported/panel-transparent-center-010.png-e5cb3176995a19f55713d8538eddd002.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hdtx"]
+texture = SubResource("CompressedTexture2D_2iabr")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 0.5372549)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jcwe8"]
+load_path = "res://.godot/imported/panel-transparent-center-031.png-df6d5a1c0275c933e04c26513341cde9.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alws7"]
+texture = SubResource("CompressedTexture2D_jcwe8")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00y6l"]
+texture = ExtResource("2_yttrd")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jxdoo"]
+texture = ExtResource("3_awpbx")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgmad"]
+texture = ExtResource("4_oeuor")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifibi"]
 texture = ExtResource("1_4uug6")
@@ -12,5 +61,12 @@ texture_margin_bottom = 10.0
 modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [resource]
+Button/fonts/font = ExtResource("2_ifibi")
+Button/styles/disabled = SubResource("StyleBoxTexture_5hdtx")
+Button/styles/focus = SubResource("StyleBoxTexture_alws7")
+Button/styles/hover = SubResource("StyleBoxTexture_00y6l")
+Button/styles/normal = SubResource("StyleBoxTexture_jxdoo")
+Button/styles/pressed = SubResource("StyleBoxTexture_mgmad")
+Label/fonts/font = ExtResource("2_ifibi")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ifibi")
 RichTextLabel/fonts/normal_font = ExtResource("2_ifibi")

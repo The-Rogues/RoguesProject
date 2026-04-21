@@ -6,8 +6,12 @@ func on_stack(
 	instance:ActiveStatusEffect, 
 	_other:ActiveStatusEffect = null
 ) -> void:
-	instance.duration += 1
+	instance.duration += 1 
 	instance.stack += _other.stack
+
+
+func get_status_name() -> String:
+	return "Strength"
 
 
 func get_description(instance:ActiveStatusEffect) -> String:

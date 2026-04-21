@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://dwtier3o3culw"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_gt58y"]
+[ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="1_ytog5"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_ytog5"]
+
+[resource]
+script = ExtResource("2_ytog5")
+role = 2
+interaction = 3
+display_texture = ExtResource("1_ytog5")
+name = "Chest"
+health = 20
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

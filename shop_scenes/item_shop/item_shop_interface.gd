@@ -41,13 +41,6 @@ func _ready() -> void:
 	sell_button.disabled = !your_items.has_entries()
 
 
-func _on_remove_card_service(card:CardData):
-	GlobalSessionManager.run_progress.card_deck.remove_card(card)
-	GlobalSessionManager.decrease_gold(pending_service_charge)
-	pending_service_charge = 0
-	pass
-
-
 func create_item_entry(data:ItemData) -> ShopEntryData:
 	var item_entry:ShopItemData = ShopItemData.new()
 	item_entry.item = data
@@ -148,12 +141,23 @@ func _on_buy_button_up() -> void:
 					run.player_data.gold - selected_item.price)
 		else:
 			if selected_item.service_id == 0:
-				#game_dashboard.open_deck_card_selector()
-				#game_dashboard.deck_card_selector.selected_card.connect(_on_card_selected)
+				GlobalSessionInterface.open_card_removal()
+				GlobalSessionInterface.card_remover.closed.connect(
+						_on_closed_card_remover)
 				pending_service_charge = selected_item.price
 		buy_item()
 	
 	update_buy_button()
+
+
+func _on_closed_card_remover(removed_card:bool):
+	var run = GlobalSessionManager.run_progress
+	
+	if removed_card and run:
+		run.player_data.set_gold(
+				run.player_data.gold - pending_service_charge)
+	
+	pending_service_charge = 0
 
 
 func _on_sell_button_up() -> void:
