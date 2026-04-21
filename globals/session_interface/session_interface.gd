@@ -12,7 +12,7 @@ class_name SessionInterface
 @onready var deck_viewer: CardViewer = $Control/DeckViewer
 @onready var card_remover: CardRemover = $Control/CardRemover
 @onready var card_picker: CardPicker = $Control/CardPicker
-
+@onready var options_menu: OptionsMenu = $OptionsMenu
 
 func initialize():
 	var run:RunProgress = GlobalSessionManager.run_progress
@@ -49,7 +49,7 @@ func initialize():
 	
 	run.player_data.cards_updated.connect(deck_ui._on_deck_updated)
 	run.player_data.cards_updated.connect(deck_viewer.display_cards_from_data)
-	run.player_data.items_updated.connect(player_items._on_items_updated)
+	#run.player_data.items_updated.connect(player_items._on_items_updated)
 	run.player_data.health_updated.connect(_on_health_updated)
 
 
@@ -86,3 +86,8 @@ func open_card_removal():
 func open_card_picker(cards:Array[CardData]):
 	card_picker.initialize(cards)
 	card_picker.visible = true
+
+
+func _on_settings_button_up() -> void:
+	options_menu.visible = true
+	pass # Replace with function body.

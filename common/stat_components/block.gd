@@ -2,6 +2,7 @@ extends Node
 class_name Block
 
 signal changed(current:int)
+signal updated(current:int)
 
 @export var value:int = 0
 
@@ -9,6 +10,7 @@ signal changed(current:int)
 func add_block(amount:int) -> void:
 	value += amount
 	changed.emit(value)
+	updated.emit(value)
 
 
 func absorb_damage(damage:int) -> int:
@@ -19,7 +21,7 @@ func absorb_damage(damage:int) -> int:
 	
 	
 	changed.emit(value)
-	
+	updated.emit(value)
 	return remainder
 
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cu00lkobobbmb"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_rm7r0"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_eedqd"]
+
+[resource]
+script = ExtResource("2_eedqd")
+type = 5
+energy_cost = 1
+name = "Itchy"
+description = "Remove this card from your deck."
+exhaust_after_play = true
+shop_price = 0
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

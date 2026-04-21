@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cbqkdrl4jlp58"]
+
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="1_8y6yg"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_fq6ya"]
+[ext_resource type="Texture2D" uid="uid://cg8j7bhiea5pf" path="res://battle_scene/entities/monster/intents/defend_icon.tres" id="1_vcqse"]
+[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="3_vcqse"]
+[ext_resource type="Script" uid="uid://cmtvhdvaoqfdy" path="res://battle_scene/entities/status_effects/common/scared_status_effect.gd" id="4_plxo7"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_axjic"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_kjd3g"]
+
+[sub_resource type="Resource" id="Resource_kl8wv"]
+script = ExtResource("1_8y6yg")
+amount = 3
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_g83vi"]
+script = ExtResource("4_plxo7")
+metadata/_custom_type_script = "uid://cmtvhdvaoqfdy"
+
+[sub_resource type="Resource" id="Resource_mhoji"]
+script = ExtResource("5_axjic")
+behaviour = SubResource("Resource_g83vi")
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_iremj"]
+script = ExtResource("6_kjd3g")
+effect = SubResource("Resource_mhoji")
+target_option = 1
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_1nsr7"]
+script = ExtResource("3_vcqse")
+category = 1
+lower = true
+success_action = SubResource("Resource_iremj")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[resource]
+script = ExtResource("1_fq6ya")
+intent_icon = ExtResource("1_vcqse")
+name = "Defense Pose"
+description = "This Enemy intends to block and attempt to scare."
+primary_action = SubResource("Resource_kl8wv")
+secondary_action = SubResource("Resource_1nsr7")
+metadata/_custom_type_script = "uid://c410dannt5adg"

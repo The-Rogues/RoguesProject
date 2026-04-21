@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://cox07lin8gn5c"]
 
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_qtu10"]
-[ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="2_ee4bf"]
-[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="3_kbped"]
-
-[node name="Control" type="Control" unique_id=2097737749]
+[node name="Control" type="Control" unique_id=608390720]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,98 +8,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleScreen" type="Control" parent="." unique_id=1022497312]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1267465551]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="TitleMargin" type="MarginContainer" parent="TitleScreen" unique_id=929565346]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -320.0
-offset_right = 320.0
-offset_bottom = 222.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 160
-
-[node name="Title" type="VBoxContainer" parent="TitleScreen/TitleMargin" unique_id=1247923764]
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1535425327 node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
-size_flags_vertical = 4
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../Button2")
+shortcut_context = NodePath("..")
+toggle_mode = true
+text = "a"
 
-[node name="Title" type="Label" parent="TitleScreen/TitleMargin/Title" unique_id=1159367897]
-texture_filter = 1
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=676293387]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_qtu10")
-theme_override_font_sizes/font_size = 40
-text = "The Rogues"
-horizontal_alignment = 1
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button3")
+toggle_mode = true
+text = "b"
 
-[node name="Subtitle" type="Label" parent="TitleScreen/TitleMargin/Title" unique_id=1690697329]
-texture_filter = 1
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1161800710]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_qtu10")
-theme_override_font_sizes/font_size = 24
-text = "Roguelike Deckbuilder"
-horizontal_alignment = 1
-
-[node name="Devider" type="TextureRect" parent="TitleScreen/TitleMargin/Title" unique_id=1330361171]
-modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
-texture_filter = 1
-custom_minimum_size = Vector2(488, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-mouse_filter = 2
-texture = ExtResource("2_ee4bf")
-
-[node name="MarginContainer" type="MarginContainer" parent="TitleScreen" unique_id=2066157682]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -173.5
-offset_top = -294.0
-offset_right = 173.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 91
-theme_override_constants/margin_bottom = 120
-
-[node name="MenuElements" type="VBoxContainer" parent="TitleScreen/MarginContainer" unique_id=1814264946]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="Start" parent="TitleScreen/MarginContainer/MenuElements" unique_id=395129651 instance=ExtResource("3_kbped")]
-layout_mode = 2
-text = "Start"
-
-[node name="Achievements" parent="TitleScreen/MarginContainer/MenuElements" unique_id=1916831296 instance=ExtResource("3_kbped")]
-layout_mode = 2
-text = "Achievements"
-disabled = true
-
-[node name="Options" parent="TitleScreen/MarginContainer/MenuElements" unique_id=1267060791 instance=ExtResource("3_kbped")]
-layout_mode = 2
-text = "Options"
-
-[node name="Credits" parent="TitleScreen/MarginContainer/MenuElements" unique_id=387474723 instance=ExtResource("3_kbped")]
-layout_mode = 2
-text = "Credits"
-
-[node name="Close" parent="TitleScreen/MarginContainer/MenuElements" unique_id=1098230978 instance=ExtResource("3_kbped")]
-layout_mode = 2
-text = "Exit game"
-
-[node name="Button" type="Button" parent="TitleScreen/MarginContainer/MenuElements" unique_id=222960466]
-layout_mode = 2
-text = "test"
+toggle_mode = true
+text = "c"

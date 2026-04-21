@@ -68,10 +68,18 @@ func discard_card(card: CardInstance):
 
 func move_drawn_card_into_discard_pile(instance:CardInstance):
 	if drawn_cards.has(instance):
-		discard_pile.append(instance)
+		if not instance.data.exhaust_after_play:
+			discard_pile.append(instance)
+			#TODO: Add to discard pile
 		drawn_cards.erase(instance)
 		
 		discard_pile_updated.emit(discard_pile)
+
+
+func shuffle_card_into_discard_pile(instance:CardInstance):
+	var random_index = randi() % (discard_pile.size() + 1)
+	discard_pile.insert(random_index, instance)
+	discard_pile_updated.emit(discard_pile)
 
 
 func move_draw_into_discard_pile():

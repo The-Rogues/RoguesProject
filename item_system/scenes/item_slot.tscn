@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lfhprii04oaq"]
 
 [ext_resource type="Script" uid="uid://dy3l0kroo73vm" path="res://item_system/scenes/item_slot.gd" id="1_8dcad"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_m7r1j"]
 [ext_resource type="Texture2D" uid="uid://j6owptcpnwp5" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-001.png" id="2_cy2mh"]
 [ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="2_r2rxh"]
 [ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-000.png" id="3_1ydva"]
@@ -14,58 +15,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffdei"]
 atlas = ExtResource("2_cy2mh")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cy2mh"]
-load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbytk"]
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-texture = SubResource("CompressedTexture2D_cy2mh")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-modulate_color = Color(0.6158282, 0.6158286, 0.6158285, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fdyqf"]
-load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htng3"]
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-texture = SubResource("CompressedTexture2D_fdyqf")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-modulate_color = Color(0.12638998, 0.08899232, 0.2347863, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yhjb8"]
-load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbiwj"]
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-texture = SubResource("CompressedTexture2D_yhjb8")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-modulate_color = Color(0.3681025, 0.36810178, 0.36810192, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dbytk"]
-load_path = "res://.godot/imported/panel-border-015.png-6e0c62da209167df4b15a88322d3ff24.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdyqf"]
-content_margin_top = 2.0
-content_margin_bottom = 2.0
-texture = SubResource("CompressedTexture2D_dbytk")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-modulate_color = Color(0.22094178, 0.2209413, 0.2209414, 1)
-
 [node name="ItemSlot" type="Control" unique_id=1515963044 node_paths=PackedStringArray("item_icon_button", "item_texture_rect", "contents", "context_panel", "use_button")]
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 3
@@ -73,6 +22,7 @@ anchors_preset = 0
 offset_right = 42.0
 offset_bottom = 42.0
 mouse_filter = 2
+theme = ExtResource("1_m7r1j")
 script = ExtResource("1_8dcad")
 item_icon_button = NodePath("Panel/ItemIcon")
 item_texture_rect = NodePath("Panel/ItemIcon/Item")
@@ -134,10 +84,6 @@ texture_filter = 1
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_wh71w")
-theme_override_styles/normal = SubResource("StyleBoxTexture_dbytk")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_htng3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_qbiwj")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_fdyqf")
 text = "Use"
 
 [node name="Discard" type="Button" parent="Contents" unique_id=1929762955]
@@ -145,9 +91,6 @@ texture_filter = 1
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_wh71w")
-theme_override_styles/normal = SubResource("StyleBoxTexture_dbytk")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_htng3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_qbiwj")
 text = "Discard"
 
 [connection signal="button_up" from="Panel/ItemIcon" to="." method="_on_item_slot_clicked"]

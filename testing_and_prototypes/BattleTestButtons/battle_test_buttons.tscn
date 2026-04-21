@@ -4,33 +4,14 @@
 [ext_resource type="Script" uid="uid://cn55mymxubtt5" path="res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.gd" id="2_jig8v"]
 [ext_resource type="PackedScene" uid="uid://peru0wapt4c8" path="res://testing_and_prototypes/ItemTester/AddItemMenu.tscn" id="3_1tvcq"]
 
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7wg1"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1tvcq"]
-load_path = "res://.godot/imported/panel-015.png-417a7e43482b7c736af1101b76b0db59.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccss1"]
-texture = SubResource("CompressedTexture2D_1tvcq")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
-modulate_color = Color(0, 0, 0, 1)
-
 [node name="BattleTestButtons" type="PanelContainer" unique_id=98555504]
 texture_filter = 1
-custom_minimum_size = Vector2(171, 40)
-offset_right = 125.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(170, 40)
+offset_top = 1.0
+offset_right = 170.0
+offset_bottom = 41.0
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_i7wg1")
 script = ExtResource("2_jig8v")
-
-[node name="Panel" type="Panel" parent="." unique_id=741414569]
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxTexture_ccss1")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1836151258]
 layout_mode = 2

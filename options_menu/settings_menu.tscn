@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dr83xtsi28vsw"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_0cmel"]
+[ext_resource type="Script" uid="uid://ch77og4vicfj6" path="res://options_menu/settings_menu.gd" id="2_d0eu6"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_mlw3h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0eu6"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="SettingsMenu" type="PanelContainer" unique_id=1072438755]
+offset_right = 500.0
+offset_bottom = 486.0
+theme = ExtResource("1_0cmel")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0eu6")
+script = ExtResource("2_d0eu6")
+
+[node name="Cover" type="PanelContainer" parent="." unique_id=825815496]
+custom_minimum_size = Vector2(394, 373)
+layout_mode = 2
+theme = ExtResource("1_0cmel")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2062608721]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1737813769]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SettingsHeader" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1101352954]
+layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="MarginContainer/VBoxContainer/SettingsHeader" unique_id=215944344]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="AudioHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2052389132]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Audio:"
+
+[node name="AudioSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1492289986]
+layout_mode = 2
+
+[node name="Master" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AudioSettings" unique_id=860955545]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AudioSettings/Master" unique_id=801185377]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Master sound:"
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/Master" unique_id=314626406]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Music" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AudioSettings" unique_id=1191640025]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AudioSettings/Music" unique_id=272371453]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Music sound: "
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/Music" unique_id=1016941298]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicToggle" type="CheckButton" parent="MarginContainer/VBoxContainer/AudioSettings" unique_id=225626969]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_mlw3h")
+button_pressed = true
+text = "Music ON/OFF"
+
+[node name="ExperimentalHeader" type="Label" parent="MarginContainer/VBoxContainer" unique_id=208596932]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Experimental:"
+
+[node name="ResolutionHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=648387271]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Resolution:"
+
+[node name="ResolutionOptions" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=1127385655]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+selected = 0
+item_count = 2
+popup/item_0/text = "1080"
+popup/item_0/id = 0
+popup/item_1/text = "4k"
+popup/item_1/id = 1
+
+[node name="AccessabilityHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=811243044]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Accessabilty:"
+
+[node name="Accessability" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=1877195421]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Accessable"
+alignment = 1
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1242346398]
+layout_mode = 2
+text = "Back"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Master/VolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Music/VolumeSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/AudioSettings/MusicToggle" to="." method="_on_music_toggled"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_button_up"]

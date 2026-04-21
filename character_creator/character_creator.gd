@@ -1,0 +1,135 @@
+extends Control
+
+signal character_created(data:PlayerInitializationData)
+
+
+@export var offensive_traits:Array[PersonalityTrait]
+@export var defensive_traits:Array[PersonalityTrait]
+@export var strategic_traits:Array[PersonalityTrait]
+
+@onready var character_texture_selector: Control = $CharacterTextureSelector
+@onready var character_sprite: TextureRect = %CharacterSprite
+@onready var character_name_label: Label = %CharacterNameLabel
+@onready var aggression_survey: PanelContainer = %AggressionSurvey
+@onready var resolve_survey: PanelContainer = %ResolveSurvey
+@onready var quirkiness_survey: PanelContainer = %QuirkinessSurvey
+@onready var save_button: Button = %Save
+@onready var name_editor: Control = %NameEditor
+
+var offensive_trait:PersonalityTrait = null
+var defensive_trait:PersonalityTrait = null
+var strategic_trait:PersonalityTrait = null
+
+
+const name_presets:Array[String] = [
+	"Noah",
+	"Elijah",
+	"Jacob",
+	"Asher",
+	"Sarah",
+	"Ruth",
+	"Boaz",
+	"Moses",
+	"Maria",
+	"John",
+	"Robin",
+]
+
+
+func _ready() -> void:
+	character_name_label.text = name_presets.pick_random()
+	name_editor.text_edit.text = character_name_label.text
+	character_texture_selector.initialize()
+	character_sprite.texture = character_texture_selector.selected_texture
+	character_texture_selector.saved_texture.connect(_on_texture_saved)
+	name_editor.name_saved.connect(_on_name_set)
+	update_save_button()
+
+
+func randomize_input():
+	character_name_label.text = name_presets.pick_random()
+	name_editor.text_edit.text = character_name_label.text
+	character_texture_selector.select_random()
+	aggression_survey.select_random()
+	resolve_survey.select_random()
+	quirkiness_survey.select_random()
+	update_save_button()
+
+
+func update_save_button():
+	if (!character_name_label.text.is_empty() and
+		offensive_trait and
+		defensive_trait and
+		strategic_trait):
+		save_button.disabled = false
+	else:
+		save_button.disabled = true
+
+
+func _on_texture_saved(_texture:Texture2D):
+	character_sprite.texture = _texture
+
+
+func _on_name_set(_name:String):
+	character_name_label.text = _name
+	name_editor.text_edit.text = _name
+
+
+func _on_character_texture_slot_button_down() -> void:
+	character_texture_selector.visible = true
+
+
+func _on_randomize_button_up() -> void:
+	randomize_input()
+	pass # Replace with function body.
+
+
+func _on_name_editor_button_down() -> void:
+	name_editor.visible = true
+	pass # Replace with function body.
+
+
+func _on_cancel_button_up() -> void:
+	visible = false
+	pass # Replace with function body.
+
+
+func _on_save_button_up() -> void:
+	var personality = PersonalityData.new()
+	personality.initialize(
+		offensive_trait,
+		defensive_trait,
+		strategic_trait,
+		"OFFENSIVE"
+	)
+	
+	var player_data = PlayerInitializationData.new(
+		character_name_label.text,
+		"",
+		character_sprite.texture,
+		personality,
+		personality.get_starting_deck()
+	)
+	
+	character_created.emit(player_data)
+	
+	visible = false
+	pass # Replace with function body.
+
+
+func _on_aggression_survey_option_selected(option: int) -> void:
+	offensive_trait = offensive_traits[option]
+	update_save_button()
+	pass # Replace with function body.
+
+
+func _on_resolve_survey_option_selected(option: int) -> void:
+	defensive_trait = defensive_traits[option]
+	update_save_button()
+	pass # Replace with function body.
+
+
+func _on_quirkiness_survey_option_selected(option: int) -> void:
+	strategic_trait = strategic_traits[option]
+	update_save_button()
+	pass # Replace with function body.

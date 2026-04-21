@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://ofupnvutw7wu"]
+
+[ext_resource type="Script" uid="uid://8ydj2bjd1wqa" path="res://options_menu/options_menu.gd" id="1_05uyy"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_nwcfo"]
+[ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://options_menu/settings_menu.tscn" id="2_nwcfo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0eu6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05uyy"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="OptionsMenu" type="Control" unique_id=852568960]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05uyy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1590509803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.81960785)
+
+[node name="Container" type="PanelContainer" parent="." unique_id=1072438755]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -220.5
+offset_right = 250.0
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nwcfo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0eu6")
+
+[node name="Cover" type="PanelContainer" parent="Container" unique_id=825815496]
+custom_minimum_size = Vector2(394, 373)
+layout_mode = 2
+theme = ExtResource("1_nwcfo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Container" unique_id=2062608721]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer" unique_id=1737813769]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PauseHeader" type="PanelContainer" parent="Container/MarginContainer/VBoxContainer" unique_id=1101352954]
+layout_mode = 2
+
+[node name="PauseLabel" type="Label" parent="Container/MarginContainer/VBoxContainer/PauseHeader" unique_id=215944344]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer/VBoxContainer" unique_id=1492336279]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Settings" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1242346398]
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenu" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer" unique_id=711704978]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Close" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1891064938]
+layout_mode = 2
+text = "Close"
+
+[node name="SettingsMenu" parent="." unique_id=1002381988 instance=ExtResource("2_nwcfo")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -216.0
+offset_right = 245.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_05uyy")
+
+[connection signal="button_up" from="Container/MarginContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="Container/MarginContainer/VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Container/MarginContainer/VBoxContainer/VBoxContainer/Close" to="." method="_on_close_button_up"]

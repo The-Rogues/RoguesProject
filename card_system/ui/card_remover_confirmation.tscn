@@ -1,51 +1,9 @@
 [gd_scene format=3 uid="uid://u3ac5qsk7naw"]
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_tggwv"]
-[ext_resource type="Script" uid="uid://bm0h3sskvexdd" path="res://card_remover_confirmation.gd" id="2_b1yqd"]
+[ext_resource type="Script" uid="uid://bm0h3sskvexdd" path="res://card_system/ui/card_remover_confirmation.gd" id="2_b1yqd"]
 [ext_resource type="PackedScene" uid="uid://b6kxom317vkry" path="res://card_system/card.tscn" id="3_r4v4i"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_0tc85"]
-[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="5_omrdd"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pg3n7"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aa6gg"]
-texture = SubResource("CompressedTexture2D_pg3n7")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4dh3"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bcisj"]
-texture = SubResource("CompressedTexture2D_s4dh3")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3w7x8"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yh1wb"]
-texture = SubResource("CompressedTexture2D_3w7x8")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_use7v"]
-texture = ExtResource("5_omrdd")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0, 0, 0, 1)
 
 [node name="CardRemoverConfirmation" type="Control" unique_id=1513941998]
 texture_filter = 1
@@ -111,10 +69,6 @@ grow_vertical = 0
 theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("4_0tc85")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxTexture_aa6gg")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_bcisj")
-theme_override_styles/hover = SubResource("StyleBoxTexture_yh1wb")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_use7v")
 text = "No"
 
 [node name="Yes" type="Button" parent="." unique_id=285356058]
@@ -134,10 +88,6 @@ grow_vertical = 0
 theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("4_0tc85")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxTexture_aa6gg")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_bcisj")
-theme_override_styles/hover = SubResource("StyleBoxTexture_yh1wb")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_use7v")
 text = "Yes"
 
 [connection signal="button_up" from="No" to="." method="_on_no_button_up"]

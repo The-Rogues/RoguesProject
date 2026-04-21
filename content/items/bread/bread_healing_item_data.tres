@@ -5,12 +5,11 @@
 
 [resource]
 script = ExtResource("1_hsybo")
-health = 20
 rarity = 1
 name = "Bread"
 description = "Heal 20 HP"
 display_texture = ExtResource("1_arrh3")
 usable_out_of_battle = true
-shop_price = 30
+shop_price = 16
 sell_price = 8
 metadata/_custom_type_script = "uid://r866baqwt8v4"

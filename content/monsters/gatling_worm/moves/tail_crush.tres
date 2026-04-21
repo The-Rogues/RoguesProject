@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bcjt6hj2om4uo"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_j2hbi"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_rqgdi"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_h32uv"]
+[ext_resource type="Script" uid="uid://dxbrvj4isxnht" path="res://battle_scene/battle_field/position_effects/common/status_position_effect.gd" id="4_seln4"]
+[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="5_52goq"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="6_y0s7n"]
+[ext_resource type="Resource" uid="uid://cqeh60hfqjf6s" path="res://battle_scene/battle_field/position_effects/common/burning_effect_display.tres" id="7_p88hj"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="9_6i8bs"]
+[ext_resource type="Script" uid="uid://ch2spgxvn4cv" path="res://battle_scene/entities/actions/skill/apply_position_effect_action.gd" id="10_0o8qr"]
+
+[sub_resource type="Resource" id="Resource_n03h3"]
+script = ExtResource("2_h32uv")
+base_damage = 12
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_bgxom"]
+script = ExtResource("5_52goq")
+metadata/_custom_type_script = "uid://di1j13j6xybid"
+
+[sub_resource type="Resource" id="Resource_1hbgo"]
+script = ExtResource("6_y0s7n")
+behaviour = SubResource("Resource_bgxom")
+duration = 3
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_wflsq"]
+script = ExtResource("4_seln4")
+status = SubResource("Resource_1hbgo")
+metadata/_custom_type_script = "uid://dxbrvj4isxnht"
+
+[sub_resource type="Resource" id="Resource_qwdcw"]
+script = ExtResource("9_6i8bs")
+behaviour = SubResource("Resource_wflsq")
+display = ExtResource("7_p88hj")
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_rhoey"]
+script = ExtResource("10_0o8qr")
+position_effect = SubResource("Resource_qwdcw")
+metadata/_custom_type_script = "uid://ch2spgxvn4cv"
+
+[resource]
+script = ExtResource("1_j2hbi")
+intent_icon = ExtResource("1_rqgdi")
+name = "Tail Crush"
+description = "This Enemy intends to attack for 12 damage and place a trap."
+primary_action = SubResource("Resource_n03h3")
+secondary_action = SubResource("Resource_rhoey")
+metadata/_custom_type_script = "uid://c410dannt5adg"

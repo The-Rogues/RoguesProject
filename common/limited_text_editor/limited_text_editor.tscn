@@ -3,18 +3,16 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_x3j0x"]
 [ext_resource type="Script" uid="uid://165c52or5bth" path="res://common/limited_text_editor/limited_text_editor.gd" id="2_5u1rs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_637pe"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0p4vh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxnpu"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7pdyw"]
 
 [node name="LimitedTextEdit" type="TextEdit" unique_id=3393706]
 texture_filter = 1
 custom_minimum_size = Vector2(459, 74)
 theme_override_fonts/font = ExtResource("1_x3j0x")
-theme_override_styles/normal = SubResource("StyleBoxFlat_637pe")
-theme_override_styles/focus = SubResource("StyleBoxFlat_rxnpu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0p4vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7pdyw")
 placeholder_text = "Describe your character."
 context_menu_enabled = false
 emoji_menu_enabled = false

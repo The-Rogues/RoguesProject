@@ -42,7 +42,8 @@ func randomize_character() -> void:
 	var backstory = backstories[max_trait.name]
 	var character_texture:Texture2D = character_sprite_varients.pick_random()
 	
-	var personality_data: PersonalityData = PersonalityData.new(
+	var personality_data: PersonalityData = PersonalityData.new()
+	personality_data.initialize(
 		offensive_trait,
 		defensive_trait,
 		strategic_trait,

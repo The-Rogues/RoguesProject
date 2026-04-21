@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dokqnl4uskuu7"]
 
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_77gcd"]
 [ext_resource type="Script" uid="uid://diu2ohf5stfwf" path="res://battle_scene/lose_screen/defeated_screen.gd" id="1_r8yrt"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_ngur6"]
-[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="3_e0hon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ymu1"]
 bg_color = Color(0.49703765, 0.59558344, 0.60900867, 1)
@@ -13,47 +13,6 @@ border_width_bottom = 8
 border_color = Color(0.34281257, 0.07031446, 0.41862708, 1)
 border_blend = true
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pg3n7"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6tjxt"]
-texture = SubResource("CompressedTexture2D_pg3n7")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.12606001, 0.38421184, 0.5339728, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4dh3"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nec1o"]
-texture = SubResource("CompressedTexture2D_s4dh3")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3w7x8"]
-load_path = "res://.godot/imported/panel-030.png-09a32b80d904c9c37d4083e8f14d797e.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucvt5"]
-texture = SubResource("CompressedTexture2D_3w7x8")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.23668078, 0.19348422, 0.5265619, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cs0yw"]
-texture = ExtResource("3_e0hon")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0, 0, 0, 1)
-
 [node name="DefeatedScreen" type="Control" unique_id=343540286]
 layout_mode = 3
 anchors_preset = 15
@@ -61,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_77gcd")
 script = ExtResource("1_r8yrt")
 
 [node name="Background" type="ColorRect" parent="." unique_id=233486673]
@@ -155,10 +115,6 @@ grow_vertical = 2
 theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("2_ngur6")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxTexture_6tjxt")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_nec1o")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ucvt5")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_cs0yw")
 text = "Continue"
 
 [connection signal="button_up" from="EndRun" to="." method="_on_end_run_button_up"]

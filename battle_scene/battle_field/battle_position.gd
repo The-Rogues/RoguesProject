@@ -3,6 +3,7 @@ class_name BattlePosition
 ## A position the Player can stand on and move towards in battles. Can have
 ## objects and position buffs and debuffs. 
 
+signal object_placed(object:ObjectEntity)
 signal object_state_updated
 signal effect_state_updated
 
@@ -38,6 +39,7 @@ func place_object(data:ObjectData) -> void:
 	object_state_updated.emit()
 	#floating_text.create("Placed " + data.name)
 	object_state_updated.emit()
+	object_placed.emit(object_entity)
 
 
 func remove_object():
@@ -80,18 +82,28 @@ func remove_position_effect() -> void:
 func on_player_entered(player:PlayerEntity):
 	if _effect:
 		_effect.on_player_entered(player)
+		effect_state_updated.connect(
+				player.movement_controller.position_state_updated)
+	if _object:
+		_object.on_player_entered()
+		_object.health.died.connect(player.place_object)
 
 
 func on_player_exited(player:PlayerEntity):
 	if _effect:
 		_effect.on_player_exited(player)
+		effect_state_updated.connect(
+				player.movement_controller.position_state_updated)
+	if _object:
+		_object.on_player_exited()
+		_object.health.died.disconnect(player.place_object)
 
 
-func enter_turn():
+func enter_turn(turn_count:int):
 	decay_effect()
 	
 	if _object:
-		_object.enter_turn()
+		_object.enter_turn(turn_count)
 
 
 func decay_effect():

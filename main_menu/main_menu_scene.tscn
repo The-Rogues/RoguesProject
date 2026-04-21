@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bf8na5vpjce6h" path="res://main_menu/main_menu_scene.gd" id="1_k7suw"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_l7n8r"]
-[ext_resource type="PackedScene" uid="uid://cq0uplsomgf1v" path="res://main_menu/options_menu.tscn" id="3_l7n8r"]
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_vv2lb"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_1yt4p"]
 [ext_resource type="PackedScene" uid="uid://dnqnor18jtlow" path="res://main_menu/save_screen.tscn" id="5_3s87x"]
+[ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://options_menu/settings_menu.tscn" id="5_ph7i1"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="7_ph7i1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv2lb"]
@@ -126,14 +126,25 @@ text = "Credits"
 layout_mode = 2
 text = "Exit game"
 
+[node name="SettingsMenu" parent="." unique_id=1072438755 instance=ExtResource("5_ph7i1")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -243.0
+offset_right = 250.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="SaveScreen" parent="." unique_id=1030190134 node_paths=PackedStringArray("main_menu") instance=ExtResource("5_3s87x")]
 visible = false
 layout_mode = 1
 main_menu = NodePath("../TitleScreen")
-
-[node name="OptionsMenu" parent="." unique_id=615160279 instance=ExtResource("3_l7n8r")]
-visible = false
-layout_mode = 1
 
 [node name="CreditsMenu" type="Control" parent="." unique_id=784894307]
 visible = false
@@ -196,12 +207,14 @@ size_flags_vertical = 0
 mouse_filter = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vv2lb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ijfeh")
+horizontal_scroll_mode = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CreditsMenu/VBoxContainer/ScrollContainer" unique_id=1598296720]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 32
+alignment = 2
 
 [node name="Title" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=877860117]
 texture_filter = 1
@@ -250,6 +263,25 @@ theme_override_fonts/font = ExtResource("2_l7n8r")
 theme_override_font_sizes/font_size = 16
 text = "Datagoblin: Dungeon-mode font
 https://datagoblin.itch.io/dungeonmode"
+horizontal_alignment = 1
+
+[node name="MarlionSilva" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=2147374293]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Marllon Silva (xDeviruchi)
+https://xdeviruchi.itch.io/16-bit-fantasy-adventure-music-pack"
+horizontal_alignment = 1
+
+[node name="Stealthix" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=465442769]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Stealthix (https://stealthix.itch.io/animated-fires)"
 horizontal_alignment = 1
 
 [node name="Return" type="Button" parent="CreditsMenu" unique_id=1584628513]

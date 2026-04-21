@@ -102,7 +102,7 @@ func can_use_action(action:Action) -> bool:
 
 func on_entered_turn() -> void:
 	for instance in active_effects:
-		instance.effect.on_turn_entered(affected_creature)
+		instance.effect.on_turn_entered(affected_creature, instance)
 
 
 func decay_status_effects():
@@ -113,3 +113,12 @@ func decay_status_effects():
 			remove_effect(instance.effect.get_script())
 		
 		effect_changed.emit(instance)
+
+
+func process_projectile(projectile:Projectile):
+	for instance in active_effects:
+		instance.effect.on_projectile_fired(
+			projectile,
+			affected_creature,
+			instance
+		)

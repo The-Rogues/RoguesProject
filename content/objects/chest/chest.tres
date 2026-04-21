@@ -3,11 +3,22 @@
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_gt58y"]
 [ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="1_ytog5"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_ytog5"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="3_lu7n2"]
+[ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/health_potion/health_potion_character_upgrade_item_data.tres" id="4_u3s0x"]
+[ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/energy_potion/energy_potion_upgrade_item_data.tres" id="5_876s6"]
+[ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://content/items/item_pouch/item_pouch_item_data.tres" id="6_43y1v"]
+[ext_resource type="Script" uid="uid://iaax8253pot6" path="res://battle_scene/entities/actions/skill/give_player_item_action.gd" id="7_2ogyd"]
+
+[sub_resource type="Resource" id="Resource_j5o26"]
+script = ExtResource("7_2ogyd")
+item_pool = Array[ExtResource("3_lu7n2")]([ExtResource("4_u3s0x"), ExtResource("5_876s6"), ExtResource("6_43y1v")])
+metadata/_custom_type_script = "uid://iaax8253pot6"
 
 [resource]
 script = ExtResource("2_ytog5")
-role = 2
+targeting_categories = Array[int]([0, 2])
 interaction = 3
+interaction_actions = Array[ExtResource("1_gt58y")]([SubResource("Resource_j5o26")])
 display_texture = ExtResource("1_ytog5")
 name = "Chest"
 health = 20

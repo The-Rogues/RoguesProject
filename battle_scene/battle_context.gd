@@ -5,12 +5,13 @@ class_name BattleContext
 var creature_manager:CreatureManager
 var battle_field:BattleField
 var reward_handler:BattleRewardsHandler
-
+var resolve_targeting:Callable
+var add_power:Callable
 
 func _init(
 	_creature_manager:CreatureManager,
 	_battle_field_handler:BattleField,
-	_reward_handler:BattleRewardsHandler
+	_reward_handler:BattleRewardsHandler,
 ) -> void:
 	
 	creature_manager = _creature_manager

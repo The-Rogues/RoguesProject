@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dsqpvcub2xyes"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_j68aw"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_220ki"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_uhp24"]
+
+[sub_resource type="Resource" id="Resource_pw367"]
+script = ExtResource("2_220ki")
+base_damage = 5
+hits = 2
+target_option = 2
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("2_uhp24")
+energy_cost = 2
+name = "Duel Strike"
+description = "Deal [color=red]get_atk6[/color] damage twice."
+play_actions = Array[ExtResource("1_j68aw")]([SubResource("Resource_pw367")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

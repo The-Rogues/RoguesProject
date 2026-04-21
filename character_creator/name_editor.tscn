@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bdwc1bwqyvlcr"]
+
+[ext_resource type="Texture2D" uid="uid://caxenolf0qp18" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-022.png" id="1_6413j"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_bo7iw"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="2_b64j8"]
+[ext_resource type="Script" uid="uid://q3ky8700xpql" path="res://character_creator/name_editor.gd" id="2_bo7iw"]
+[ext_resource type="PackedScene" uid="uid://8ufepsrv45ye" path="res://common/limited_text_editor/limited_text_editor.tscn" id="2_tif4q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b64j8"]
+texture = ExtResource("1_6413j")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[node name="NameEditor" type="Control" unique_id=1042457098]
+texture_filter = 1
+custom_minimum_size = Vector2(282, 48)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bo7iw")
+script = ExtResource("2_bo7iw")
+
+[node name="Background" type="ColorRect" parent="." unique_id=815782002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1611969381]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -97.0
+offset_right = 105.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Cancel" type="Button" parent="HBoxContainer" unique_id=56158980]
+custom_minimum_size = Vector2(203, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cancel"
+
+[node name="Save" type="Button" parent="HBoxContainer" unique_id=1943830763]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(203, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Save"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1520753194]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.5
+offset_top = -40.5
+offset_right = 184.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderLabel" type="Label" parent="VBoxContainer" unique_id=715654062]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Enter Name"
+horizontal_alignment = 1
+
+[node name="Container" type="PanelContainer" parent="VBoxContainer" unique_id=1775184160]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_b64j8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Container" unique_id=1710995823]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Container/HBoxContainer" unique_id=1848898452]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("2_b64j8")
+expand_mode = 3
+
+[node name="LimitedTextEdit" parent="VBoxContainer/Container/HBoxContainer" unique_id=3393706 instance=ExtResource("2_tif4q")]
+unique_name_in_owner = true
+show_behind_parent = true
+custom_minimum_size = Vector2(207, 32)
+layout_mode = 2
+placeholder_text = "Enter Name"
+wrap_mode = 0
+virtual_keyboard_enabled = false
+character_limit = 9
+
+[connection signal="button_up" from="HBoxContainer/Cancel" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="HBoxContainer/Save" to="." method="_on_save_button_up"]
+[connection signal="text_changed" from="VBoxContainer/Container/HBoxContainer/LimitedTextEdit" to="." method="_on_name_text_updated"]

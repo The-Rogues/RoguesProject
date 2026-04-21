@@ -15,37 +15,41 @@ radius = 11.18034
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 14.035668
 
-[node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span", "sprite_2d")]
+[node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_3vv47")
 speed = 420.0
 damage = 6
 life_span = NodePath("LifeSpan")
-sprite_2d = NodePath("Sprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72437752]
+[node name="SpritePivot" type="Node2D" parent="." unique_id=1685385418]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpritePivot" unique_id=72437752]
 texture_filter = 1
-rotation = 0.7853982
+position = Vector2(-17, 0)
+rotation = 2.3823745
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3vv47")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1085450663]
-position = Vector2(0, -17)
+[node name="StuckArrow" parent="SpritePivot/Sprite2D" unique_id=1169763427 instance=ExtResource("3_mkfkv")]
+visible = false
+position = Vector2(-6.165683, -5.851013)
+rotation = -0.78365296
+scale = Vector2(0.5, 0.5)
+
+[node name="WallCollider" type="CollisionShape2D" parent="." unique_id=1085450663]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_bofno")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1046127275]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
-position = Vector2(0, -18)
+[node name="EntityCollider" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5ed72")
 
 [node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
 wait_time = 5.0
-
-[node name="StuckArrow" parent="." unique_id=1169763427 instance=ExtResource("3_mkfkv")]
-visible = false
-position = Vector2(0, -28)
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_mkfkv")]
 

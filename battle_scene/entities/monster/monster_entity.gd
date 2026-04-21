@@ -8,18 +8,32 @@ var intent:EnemyMove = null
 var move_sequence:MoveSequence = null
 var move_index:int = 0
 
+
+# Fletcher - This is the targeting that is updated for each individual enemy.
+var updated_targeting: Array[MonsterData.AttackTargetingCategory] 
+
+
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var intent_icon: IntentIcon = $IntentIcon
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
 
 
+const MAX_BONUS_HEALTH = 6
+
+
 func initialize(_data:MonsterData):
 	self.data = _data
 	sprite_2d.texture = _data.display_texture
-	health.initialize(_data.health, _data.health)
+	
+	var rand_health = _data.health + randi_range(0, MAX_BONUS_HEALTH)
+	
+	health.initialize(rand_health, rand_health)
 	stat_display.initialize(self)
 	intent_icon.initialize(self)
 	health.died.connect(on_destroyed)
+	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
+	
+	updated_targeting = data.init_targeting.duplicate()
 
 
 
@@ -43,17 +57,14 @@ func on_destroyed():
 	defeated.emit(self)
 
 
-func on_turn_entered():
-	
-	pass
+func enter_turn(_turn_count:int):
+	super(_turn_count)
 
 
 func choose_intent():
-	if !data:
-		return
-	
-	data.behaviour.decide_next_action(self)
-	intent_chosen.emit(intent)
+	if data:
+		data.behaviour.decide_next_action(self)
+		intent_chosen.emit(intent)
 
 
 func resolve_intent(resolver:ActionResolver):

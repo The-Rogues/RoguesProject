@@ -1,4 +1,4 @@
-extends RefCounted
+extends Resource
 class_name PlayerData
 # Data container used to track player stat progression during a run
 
@@ -13,16 +13,16 @@ signal item_collected
 signal card_collected
 signal gold_collected(amount:int)
 
-var name:String = "Player"
-var max_health:int
-var current_health:int
-var current_energy:int
-var max_energy:int
-var item_capacity:int
-var items:Array[ItemData]
-var cards:Array[CardData]
-var gold:int
-var personality:PersonalityData
+@export var name:String = "Player"
+@export var max_health:int
+@export var current_health:int
+@export var current_energy:int
+@export var max_energy:int
+@export var item_capacity:int
+@export var items:Array[ItemData]
+@export var cards:Array[CardData]
+@export var gold:int
+@export var personality:PersonalityData
 
 const STARTING_HEALTH = 70
 const STARTING_ENERGY = 3
@@ -30,7 +30,7 @@ const STARTING_ITEM_CAPACITY = 1
 const STARTING_GOLD = 0
 
 
-func _init(
+func initialize(
 	_personality:PersonalityData,
 	_cards:Array[CardData]
 ) -> void:
@@ -88,12 +88,38 @@ func remove_item(item:ItemData) -> bool:
 		return false
 
 
-func can_buy_shop_item(price:int) -> bool:
-	return gold >= price and items.size() < item_capacity
+func buy_item(item:ItemData) -> bool:
+	if can_pay_price(item.shop_price) and items.size() < item_capacity:
+		set_gold(gold - item.shop_price)
+		add_item(item)
+		return true
+	
+	return false
+
+
+func sell_item(item:ItemData) -> bool:
+	if items.has(item):
+		set_gold(gold + item.sell_price)
+		remove_item(item)
+		return true
+	
+	return false
+
+
+func can_pay_price(price:int):
+	return gold >= price
 
 
 func add_card(card:CardData):
 	cards.append(card)
+	cards_updated.emit(cards)
+	card_collected.emit()
+
+
+func add_cards(_cards:Array[CardData]):
+	for card in _cards:
+		cards.append(card)
+	
 	cards_updated.emit(cards)
 	card_collected.emit()
 
@@ -112,8 +138,22 @@ func get_cards_as_instances() -> Array[CardInstance]:
 	
 	return card_instances
 
+
 func can_buy_card(price: int):
 	return gold >= price
+
+
+func get_key_item(key_id:String) -> ItemData:
+	for item in items:
+		if item is KeyItem:
+			if item.key_id == key_id:
+				return item
+	return null
+
+
+func inventory_full() -> bool:
+	return items.size() == item_capacity
+
 
 func connect_to_player_entity(player:PlayerEntity):
 	player.health.health_changed.connect(set_health)

@@ -10,13 +10,16 @@ func initialize():
 	
 	if run:
 		var name_text := "Rogue: [color=gold]" + str(run.player_data.name) + "[/color].\n"
-		var rooms := "Room: [color=gold]" + str(run.floor_progress) + "[/color].\n"
+		var rooms := "Room: [color=gold]" + str(run.total_rooms_explored) + "[/color].\n"
 		var gold := "Total Gold: [color=gold]" + str(run.total_gold_collected) + "[/color].\n"
 		var cards := "Total Cards: [color=gold]" + str(run.total_cards_collected) + "[/color].\n"
 		var items := "Total Items: [color=gold]" + str(run.total_items_collected) + "[/color].\n"
 		
 		run_summary_label.text = name_text + rooms + gold + cards + items
 		end_run.disabled = false
+	
+	GlobalSaveManager.reset()
+	GlobalSessionManager.erase_run_progress()
 
 
 

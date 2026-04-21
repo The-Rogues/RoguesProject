@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bp3ihfbthp8yd" path="res://card_system/ui/card_picker.tscn" id="3_h8e6q"]
 [ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="3_rmvr3"]
 [ext_resource type="PackedScene" uid="uid://cton5ap6s24lx" path="res://card_system/ui/card_remover.tscn" id="3_yiynv"]
-[ext_resource type="Script" uid="uid://cygvmb0gx15la" path="res://battle_scene/entities/ui/exit_button.gd" id="6_1o4un"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="7_sqbpr"]
 [ext_resource type="Texture2D" uid="uid://4r08qs0e4853" path="res://common/art/random_art/heart_icon.tres" id="9_0jkec"]
+[ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="10_2euii"]
 [ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="10_rmvr3"]
+[ext_resource type="PackedScene" uid="uid://ofupnvutw7wu" path="res://options_menu/options_menu.tscn" id="13_h8e6q"]
 [ext_resource type="PackedScene" uid="uid://cuukmx5jhs7wn" path="res://item_system/scenes/player_items.tscn" id="13_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="13_ssfyd"]
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://globals/session_interface/session_gold_label.gd" id="14_pxp8h"]
@@ -26,12 +27,6 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmvr3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6vipf"]
-atlas = SubResource("CompressedTexture2D_rmvr3")
-region = Rect2(40, 776, 16, 16)
 
 [node name="SessionInterface" type="CanvasLayer" unique_id=279760499]
 layer = 4
@@ -145,7 +140,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_6vipf")
+texture = ExtResource("10_2euii")
 
 [node name="Context" parent="Control/Container/Treasure/Gold/TextureRect" unique_id=723473313 instance=ExtResource("7_sqbpr")]
 visible = false
@@ -169,8 +164,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_nhbhh")
-text = " X "
-script = ExtResource("6_1o4un")
+text = "Menu"
 
 [node name="NameLabel" type="Label" parent="Control/Container/Stats" unique_id=2014585198]
 texture_filter = 1
@@ -216,7 +210,10 @@ layout_mode = 2
 [node name="StrategicTraitDisplay" parent="Control/Container/Stats" unique_id=689925448 instance=ExtResource("10_rmvr3")]
 layout_mode = 2
 
+[node name="OptionsMenu" parent="." unique_id=852568960 instance=ExtResource("13_h8e6q")]
+visible = false
+
 [connection signal="button_up" from="Control/Container/Treasure/DeckUI/CardPileButton" to="." method="_on_view_card_deck"]
-[connection signal="button_up" from="Control/Container/Stats/Settings" to="Control/Container/Stats/Settings" method="_on_button_up"]
+[connection signal="button_up" from="Control/Container/Stats/Settings" to="." method="_on_settings_button_up"]
 
 [editable path="Control/Container/Treasure/DeckUI"]

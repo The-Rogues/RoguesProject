@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="6_hd0fe"]
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="7_yvjms"]
 
-
 [node name="CharacterScreen" type="Control" unique_id=502271570]
 layout_mode = 3
 anchors_preset = 15

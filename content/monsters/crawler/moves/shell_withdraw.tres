@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://s2ofhok6hn3m"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_2kxbf"]
+[ext_resource type="Texture2D" uid="uid://clw1hi1xdpxuf" path="res://battle_scene/entities/status_effects/common/thorns_icon.tres" id="1_lt02u"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_k456m"]
+[ext_resource type="Script" uid="uid://c2vnumlq5latn" path="res://battle_scene/entities/status_effects/common/thorns_status_effect.gd" id="4_pkw8s"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_6ucqt"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_f7ops"]
+
+[sub_resource type="Resource" id="Resource_tbyee"]
+script = ExtResource("2_k456m")
+amount = 6
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_hbmjo"]
+script = ExtResource("4_pkw8s")
+metadata/_custom_type_script = "uid://c2vnumlq5latn"
+
+[sub_resource type="Resource" id="Resource_3gcjv"]
+script = ExtResource("5_6ucqt")
+behaviour = SubResource("Resource_hbmjo")
+duration = 2
+stack = 4
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_7crrb"]
+script = ExtResource("6_f7ops")
+effect = SubResource("Resource_3gcjv")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("1_2kxbf")
+intent_icon = ExtResource("1_lt02u")
+name = "Shell Withdraw"
+description = "This Enemy intents to block and apply a buff."
+primary_action = SubResource("Resource_tbyee")
+secondary_action = SubResource("Resource_7crrb")
+metadata/_custom_type_script = "uid://c410dannt5adg"

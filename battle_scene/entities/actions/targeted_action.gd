@@ -5,6 +5,10 @@ class_name TargetedAction
 enum TargetOption {SELF, PLAYER, ENEMY, ENEMIES}
 @export var target_option:TargetOption
 
+# Fletcher - This ignores objects in front of the player for
+#            targeted skills like shrink.
+@export var ignore_foreground: bool = false
+
 var resolved_targets:Array[AbstractEntity]
 
 const SINGLE_TARGET_DELAY = 0.4

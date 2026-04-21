@@ -3,7 +3,7 @@ class_name ItemShopData
 ## Data container used to initialize item shops.
 ## Shops can have services, 1-rare item, 1-card pack, and 4 other items
 
-
+@export var shop_keeper_textures:Array[Texture2D]
 @export var shop_services:Array[ShopServiceData]
 @export var rare_item_pool:Array[ItemData]
 @export var item_pool:Array[ItemData]

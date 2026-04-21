@@ -9,8 +9,8 @@
 script = ExtResource("2_ymgae")
 name = "Brutish"
 description = "Willingly Violent. Targets weakest Enemies. Uses offensive Objects."
-enemy_targeting_preference = 1
-object_preference = 1
+enemy_targeting_preference = 4
+object_targeting_preference = 3
 card_loot_pool = Array[ExtResource("1_gqrcd")]([ExtResource("2_8mqyr")])
 starter_cards = Array[ExtResource("1_gqrcd")]([ExtResource("4_8mqyr"), ExtResource("4_8mqyr"), ExtResource("4_8mqyr"), ExtResource("4_8mqyr")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

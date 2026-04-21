@@ -19,11 +19,12 @@ var processing_action:bool = false
 func enqueue(
 		action: Action, 
 		context: BattleContext,
-		user: AbstractEntity
+		user: AbstractEntity,
+		recalculate: bool = false
 		):
 	# Queues new action to be executed
 	
-	queue.append(QueuedAction.new(action, context, user))
+	queue.append(QueuedAction.new(action, context, user, recalculate))
 	_check_action_queue()
 
 
@@ -56,6 +57,11 @@ func _execute_queued_action():
 		# Waits action finishes executing
 		await queued_action.execute()
 		action_processed.emit(queued_action.action)
+	
+	# Fletcher - Recalculate attack targeting if the action is the last in a
+	#            user's sequence.
+	if queued_action.recalculate_targeting:
+		queued_action.context.creature_manager.update_attack_targeting()
 	
 	processing_action = false
 	_check_action_queue()

@@ -7,3 +7,7 @@ class_name BattleRewardData
 
 @abstract
 func get_reward() -> void
+
+
+func get_reward_name() -> String:
+	return name

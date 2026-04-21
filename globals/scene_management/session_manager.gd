@@ -6,9 +6,20 @@ class_name SessionManager
 var run_progress: RunProgress = null
 var started_session:bool = false
 
+
+func _ready() -> void:
+	GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
+	
+	if GlobalSessionManager.run_progress:
+		connect_run_signals()
+		await get_tree().process_frame
+		GlobalSessionInterface.initialize()
+
+
 # -------------------------------------------------
 # Initializing & deleting game session
 # -------------------------------------------------
+
 func initialize(data:PlayerInitializationData) -> void:
 	run_progress = create_run(data)
 	initialize_map()
@@ -21,7 +32,9 @@ func initialize(data:PlayerInitializationData) -> void:
 func create_run(data:PlayerInitializationData) -> RunProgress:
 	var run:RunProgress = RunProgress.new()
 	
-	run.player_data = PlayerData.new(data.personality, data.starting_deck)
+	var player_data = PlayerData.new()
+	player_data.initialize(data.personality, data.personality.get_starting_deck())
+	run.player_data = player_data
 	run.player_data.name = data.name
 	run.player_name = data.name
 	run.player_texture = data.display_texure
@@ -35,12 +48,26 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	run.initialized = true
 	
+	
 	# Add AI Card to starting deck
-	run.player_data.cards.append(
-		load("res://ai/ai-cards/inventive_attack_data.tres")
-	)
+	#run.player_data.cards.append(
+		#load("res://ai/ai-cards/inventive_attack_data.tres")
+	#)
 	
 	return run
+
+
+func connect_run_signals():
+	var run = GlobalSessionManager.run_progress
+	
+	run.player_data.gold_collected.connect(func(amount):
+		run.total_gold_collected += amount)
+	
+	run.player_data.item_collected.connect(func():
+		run.total_items_collected += 1)
+	
+	run.player_data.card_collected.connect(func():
+		run.total_cards_collected += 1)
 
 
 # Fletcher - Make a unique map for the game session. Add callback to load the battle scene when a node is clicked.

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://fa2pctlxbe8m"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_j5e1a"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_5d7rq"]
+[ext_resource type="Resource" uid="uid://b2fvbf3bdy0va" path="res://content/cards/traitless_cards/magic_pot/object/magic_pot_object.tres" id="2_ceuwq"]
+[ext_resource type="Script" uid="uid://xd1qifaw36td" path="res://battle_scene/entities/actions/skill/player_carry_object_action.gd" id="3_vrgdj"]
+
+[sub_resource type="Resource" id="Resource_gb33l"]
+script = ExtResource("3_vrgdj")
+object = ExtResource("2_ceuwq")
+metadata/_custom_type_script = "uid://xd1qifaw36td"
+
+[resource]
+script = ExtResource("2_5d7rq")
+type = 2
+energy_cost = 1
+name = "Magic Pot"
+description = "Place a Magic Pot that fires a projectile at the start of each turn."
+play_actions = Array[ExtResource("1_j5e1a")]([SubResource("Resource_gb33l")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

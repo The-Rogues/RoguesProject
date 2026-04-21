@@ -10,6 +10,6 @@ object = ExtResource("2_afef8")
 name = "Dummy"
 description = "Can be placed in battle. Enemies prioritize attacking this object."
 display_texture = ExtResource("1_t2i7u")
-shop_price = 40
+shop_price = 17
 sell_price = 10
 metadata/_custom_type_script = "uid://b41ywh14jt4i1"

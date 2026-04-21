@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://d2wk2jw6xvibf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-028.png" id="3_s5bc4"]
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="4_s2l5a"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_q7c5r"]
+[ext_resource type="PackedScene" uid="uid://b1trx2jx6j0pl" path="res://common/tool_tip/tool_tip.tscn" id="6_smq7i"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dha2e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smq7i"]
 bg_color = Color(0.2469503, 0.2469503, 0.2469503, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv836"]
@@ -19,13 +20,13 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g7n2f"]
-load_path = "res://.godot/imported/panel-008.png-9f1522471fb57adb1486a2d410c8171f.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_smq7i"]
+load_path = "res://.godot/imported/panel-005.png-1cfa95f207b12c423065f5b4cfa2b1ad.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alapa"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1t5x"]
 content_margin_left = 32.0
 content_margin_right = 32.0
-texture = SubResource("CompressedTexture2D_g7n2f")
+texture = SubResource("CompressedTexture2D_smq7i")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
@@ -43,7 +44,6 @@ texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ski7b"]
-load_path = "res://.godot/imported/panel-008.png-9f1522471fb57adb1486a2d410c8171f.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yso80"]
 content_margin_left = 32.0
@@ -56,7 +56,6 @@ texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c0xyw"]
-load_path = "res://.godot/imported/items.png-3974ced14df70a5739a8b594b2f86993.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17tm2"]
 atlas = SubResource("CompressedTexture2D_c0xyw")
@@ -70,23 +69,93 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.14389534, 0.36482558)
 colors = PackedColorArray(0.49803922, 0.87058824, 0.9882353, 1, 1, 0.7490196, 0.5764706, 1, 0.49803922, 0.87058824, 0.9882353, 1)
 
-[node name="ShopItem" type="PanelContainer" unique_id=1556243692]
-texture_filter = 1
-custom_minimum_size = Vector2(380, 0)
+[sub_resource type="Animation" id="Animation_smq7i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.2469503, 0.2469503, 0.2469503, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a1t5x"]
+resource_name = "reject"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 6), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7725175, 0.15981728, 0.10677076, 1), Color(0.2469503, 0.2469503, 0.2469503, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t5yxw"]
+_data = {
+&"RESET": SubResource("Animation_smq7i"),
+&"reject": SubResource("Animation_a1t5x")
+}
+
+[node name="ShopEntry" type="Control" unique_id=341766392]
+custom_minimum_size = Vector2(464, 56)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 380.0
 offset_bottom = 56.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dha2e")
+mouse_filter = 1
 script = ExtResource("1_4iswc")
 
-[node name="Button" type="Button" parent="." unique_id=2105953607]
+[node name="Container" type="PanelContainer" parent="." unique_id=1556243692]
+texture_filter = 1
+custom_minimum_size = Vector2(464, 0)
+layout_mode = 0
+offset_right = 464.0
+offset_bottom = 56.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smq7i")
+
+[node name="Button" type="Button" parent="Container" unique_id=2105953607]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_cv836")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_alapa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a1t5x")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1i23a")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_yso80")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1976486305]
+[node name="MarginContainer" type="MarginContainer" parent="Container" unique_id=1976486305]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 16
@@ -94,11 +163,11 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 8
 
-[node name="Item" type="HBoxContainer" parent="MarginContainer" unique_id=9046373]
+[node name="Item" type="HBoxContainer" parent="Container/MarginContainer" unique_id=9046373]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Texture" type="TextureRect" parent="MarginContainer/Item" unique_id=432463361]
+[node name="Texture" type="TextureRect" parent="Container/MarginContainer/Item" unique_id=432463361]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -106,7 +175,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("4_s2l5a")
 
-[node name="Name" type="RichTextLabel" parent="MarginContainer/Item" unique_id=1530490295]
+[node name="Name" type="RichTextLabel" parent="Container/MarginContainer/Item" unique_id=1530490295]
 texture_filter = 1
 custom_minimum_size = Vector2(190, 30)
 layout_mode = 2
@@ -116,14 +185,14 @@ theme_override_fonts/normal_font = ExtResource("5_q7c5r")
 text = "Item Name"
 vertical_alignment = 1
 
-[node name="Cost" type="HBoxContainer" parent="MarginContainer" unique_id=1901254740]
+[node name="Cost" type="HBoxContainer" parent="Container/MarginContainer" unique_id=1901254740]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 2
 alignment = 1
 
-[node name="Amount" type="Label" parent="MarginContainer/Cost" unique_id=1018588299]
+[node name="Amount" type="Label" parent="Container/MarginContainer/Cost" unique_id=1018588299]
 texture_filter = 1
 custom_minimum_size = Vector2(57, 0)
 layout_mode = 2
@@ -134,7 +203,7 @@ theme_override_font_sizes/font_size = 16
 text = "0"
 horizontal_alignment = 2
 
-[node name="Coinage" type="TextureRect" parent="MarginContainer/Cost" unique_id=1056250893]
+[node name="Coinage" type="TextureRect" parent="Container/MarginContainer/Cost" unique_id=1056250893]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -143,7 +212,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 texture = SubResource("AtlasTexture_17tm2")
 
-[node name="RarityParticles" type="CPUParticles2D" parent="." unique_id=269462532]
+[node name="RarityParticles" type="CPUParticles2D" parent="Container" unique_id=269462532]
 position = Vector2(30, 27)
 emitting = false
 amount = 7
@@ -158,6 +227,19 @@ gravity = Vector2(0, 0)
 scale_amount_curve = SubResource("Curve_4iswc")
 color_ramp = SubResource("Gradient_6toe5")
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="button_up" from="Button" to="." method="_on_select_button_up"]
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[node name="ToolTip" parent="." unique_id=2004448281 instance=ExtResource("6_smq7i")]
+visible = false
+layout_mode = 0
+offset_left = 463.0
+offset_top = 41.0
+offset_right = 683.0
+offset_bottom = 93.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=997793554]
+libraries/ = SubResource("AnimationLibrary_t5yxw")
+
+[connection signal="button_up" from="Container/Button" to="." method="_on_select_button_up"]
+[connection signal="button_up" from="Container/Button" to="Container" method="_on_select_button_up"]
+[connection signal="mouse_entered" from="Container/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="Container/Button" to="Container" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Container/Button" to="." method="_on_button_mouse_exited"]

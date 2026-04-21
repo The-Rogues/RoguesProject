@@ -24,6 +24,8 @@ func _ready() -> void:
 			Vector2(64.0, 64.0)
 		)
 	)
+	
+	MusicManager.change_song(MusicManager.track_list.choose_map_theme())
 
 # --init_map_screen Function--
 # Description: Displays a MapInstance centered on the screen and sets up screen resizing.

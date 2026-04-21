@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="RunProgress" format=3]
+
+[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_k7d58"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_wh6of"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="3_upqny"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="4_br818"]
+[ext_resource type="Script" path="res://item_system/item_data.gd" id="5_r5eiv"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres" id="5_wh6of"]
+[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="6_fcpjs"]
+[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="7_f04e1"]
+[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="8_i06bj"]
+[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="9_sds6a"]
+[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="10_jfmdv"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="11_k7d58"]
+[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="12_ce22o"]
+
+[sub_resource type="Resource" id="Resource_wh6of"]
+script = ExtResource("8_i06bj")
+offensive_trait = ExtResource("7_f04e1")
+offensive_weight = 2
+defensive_trait = ExtResource("6_fcpjs")
+defensive_weight = 1
+strategic_trait = ExtResource("9_sds6a")
+strategic_weight = 1
+priority_trait = ExtResource("7_f04e1")
+
+[sub_resource type="Resource" id="Resource_upqny"]
+script = ExtResource("10_jfmdv")
+name = "Cyrprus"
+max_health = 70
+current_health = 70
+current_energy = 2
+max_energy = 3
+item_capacity = 1
+cards = Array[ExtResource("1_k7d58")]([ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("5_wh6of")])
+gold = 86
+personality = SubResource("Resource_wh6of")
+
+[resource]
+script = ExtResource("12_ce22o")
+player_data = SubResource("Resource_upqny")
+player_texture = ExtResource("11_k7d58")
+player_name = "Cyrprus"
+player_backstory = "They enter to prove their strength, believing only pain and broken foes can affirm who they are."
+map_seed = 1171238397
+player_node_index = 8
+pending_node_index = 10
+room_in_progress = true
+total_rooms_explored = 3
+initialized = true

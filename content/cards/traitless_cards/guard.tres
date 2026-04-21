@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cre6wnbqrbfvd"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_pqxsd"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_11k6e"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="2_qvlos"]
+
+[sub_resource type="Resource" id="Resource_id6bv"]
+script = ExtResource("2_qvlos")
+trait_category = 1
+weight = 2
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[resource]
+script = ExtResource("2_11k6e")
+type = 2
+energy_cost = 1
+name = "Guard"
+description = "Gain 2 defense."
+play_actions = Array[ExtResource("1_pqxsd")]([SubResource("Resource_id6bv")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

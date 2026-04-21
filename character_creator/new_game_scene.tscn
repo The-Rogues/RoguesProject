@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://bukm88ya060pk"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_ud5u8"]
+[ext_resource type="Script" uid="uid://bp442a8lebqi1" path="res://character_creator/new_game_scene.gd" id="2_2h578"]
+[ext_resource type="Texture2D" uid="uid://vkpxy4xn7do2" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-017.png" id="3_ria2j"]
+[ext_resource type="PackedScene" uid="uid://mdymi56364et" path="res://character_creator/character_creator.tscn" id="4_bkb27"]
+[ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://main_menu/character_result_scene.gd.tscn" id="5_2h578"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iscmg"]
+texture = ExtResource("3_ria2j")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.2817059, 0.26561037, 0.41611183, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uydqw"]
+texture = ExtResource("3_ria2j")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.21614096, 0.3244952, 0.1522823, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qqee8"]
+load_path = "res://.godot/imported/panel-transparent-center-010.png-e5cb3176995a19f55713d8538eddd002.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lr2hx"]
+texture = SubResource("CompressedTexture2D_qqee8")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.19215687, 0.19215687, 0.19215687, 0.6862745)
+
+[node name="NewGameScene" type="Control" unique_id=1083419816]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ud5u8")
+script = ExtResource("2_2h578")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1177626471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameModeSelector" type="Control" parent="." unique_id=1969044806]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameModeSelector" unique_id=921079348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HeaderLabel" type="Label" parent="GameModeSelector" unique_id=95650016]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -236.0
+offset_right = 256.5
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Select a Game Mode"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameModeSelector" unique_id=166717833]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -200.0
+offset_right = 202.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="NormalMode" type="Button" parent="GameModeSelector/HBoxContainer" unique_id=1890806922]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_iscmg")
+text = "Normal
+Mode"
+
+[node name="AIMode" type="Button" parent="GameModeSelector/HBoxContainer" unique_id=181042849]
+custom_minimum_size = Vector2(235, 350)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_uydqw")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lr2hx")
+disabled = true
+text = "AI
+Mode"
+
+[node name="MainMenuButton" type="Button" parent="GameModeSelector" unique_id=1108150144]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -111.0
+offset_right = 80.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Main Menu"
+
+[node name="CharacterCreator" parent="." unique_id=120215782 instance=ExtResource("4_bkb27")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="CharacterResult" parent="." unique_id=502271570 instance=ExtResource("5_2h578")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="StartingRunLabel" type="Label" parent="." unique_id=226561583]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -14.5
+offset_right = 256.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Starting Run..."
+horizontal_alignment = 1
+
+[connection signal="button_up" from="GameModeSelector/HBoxContainer/NormalMode" to="." method="_on_normal_mode_button_up"]
+[connection signal="button_up" from="GameModeSelector/HBoxContainer/AIMode" to="." method="_on_ai_mode_button_up"]
+[connection signal="button_up" from="GameModeSelector/MainMenuButton" to="." method="_on_main_menu_button_up"]

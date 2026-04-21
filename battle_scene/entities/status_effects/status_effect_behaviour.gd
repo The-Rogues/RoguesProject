@@ -62,3 +62,11 @@ func on_card_played(
 		_card:CardInstance, 
 		_resolver:ActionResolver):
 	pass
+
+
+func on_projectile_fired(
+		_projectile:Projectile,
+		_source:AbstractCreature,
+		_instance:ActiveStatusEffect = null,
+):
+	pass
