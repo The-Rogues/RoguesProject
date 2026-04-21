@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://qsy01yss02ek"]
+
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="1_txii5"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_un6qs"]
+[ext_resource type="Texture2D" uid="uid://cg8j7bhiea5pf" path="res://battle_scene/entities/monster/intents/defend_icon.tres" id="1_x8pyr"]
+
+[sub_resource type="Resource" id="Resource_x8pyr"]
+script = ExtResource("1_txii5")
+amount = 3
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[resource]
+script = ExtResource("1_un6qs")
+type = 1
+intent_icon = ExtResource("1_x8pyr")
+name = "Block"
+description = "This enemy intends to gain 3 block."
+primary_action = SubResource("Resource_x8pyr")
+metadata/_custom_type_script = "uid://c410dannt5adg"
