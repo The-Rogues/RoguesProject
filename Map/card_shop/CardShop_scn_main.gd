@@ -70,7 +70,7 @@ func _on_buy_card():
 	GlobalSessionManager.run_progress.player_data.add_card(selected_card.data)
 	GlobalSessionManager.run_progress.player_data.set_gold(
 					GlobalSessionManager.run_progress.player_data.gold - selected_card.data.shop_price)
-	card_sell_interface.confirm_transaction(selected_card_index)
+	card_shop_interface.confirm_transaction(selected_card_index)
 					
 	selected_card = null
 	selected_card_index = -1

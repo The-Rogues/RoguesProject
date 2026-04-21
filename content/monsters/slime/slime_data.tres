@@ -13,7 +13,7 @@
 script = ExtResource("1_tm8sn")
 metadata/_custom_type_script = "uid://bn6t0778mctv4"
 
-[sub_resource type="Resource" id="Resource_lx6ar"]
+[sub_resource type="Resource" id="Resource_3v1gs"]
 script = ExtResource("1_17emf")
 moves = Array[ExtResource("4_1jkod")]([ExtResource("5_jo3aq"), ExtResource("5_jo3aq"), ExtResource("6_oaqer")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [resource]
 script = ExtResource("2_daxj1")
-move_sequences = Array[ExtResource("1_17emf")]([SubResource("Resource_lx6ar"), SubResource("Resource_4anhj")])
+move_sequences = Array[ExtResource("1_17emf")]([SubResource("Resource_3v1gs"), SubResource("Resource_4anhj")])
 behaviour = SubResource("Resource_oaqer")
 display_texture = ExtResource("1_daxj1")
 name = "Slime"

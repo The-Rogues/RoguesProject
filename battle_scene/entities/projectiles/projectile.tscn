@@ -15,9 +15,7 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_d0u1t")
 damage = 10
-ignore_walls = null
 life_span = NodePath("LifeSpan")
-target_position = null
 sprite_2d = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=72437752]

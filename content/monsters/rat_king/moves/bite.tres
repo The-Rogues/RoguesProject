@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://c5k3n40ct56l7"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_54ens"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_c2ct6"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_etwih"]
+
+[sub_resource type="Resource" id="Resource_8jqil"]
+script = ExtResource("2_c2ct6")
+base_damage = 3
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("3_etwih")
+intent_icon = ExtResource("1_54ens")
+name = "Bite"
+description = "This enemy intends to attack for 3 damage."
+primary_action = SubResource("Resource_8jqil")
+metadata/_custom_type_script = "uid://c410dannt5adg"
