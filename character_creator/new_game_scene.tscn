@@ -14,6 +14,14 @@ texture_margin_right = 32.0
 texture_margin_bottom = 32.0
 modulate_color = Color(0.2817059, 0.26561037, 0.41611183, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2h578"]
+texture = ExtResource("3_ria2j")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.2627451, 0.3137255, 0.105882354, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uydqw"]
 texture = ExtResource("3_ria2j")
 texture_margin_left = 32.0
@@ -104,13 +112,22 @@ grow_vertical = 2
 theme_override_constants/separation = 64
 
 [node name="NormalMode" type="Button" parent="GameModeSelector/HBoxContainer" unique_id=1890806922]
-custom_minimum_size = Vector2(200, 350)
+custom_minimum_size = Vector2(235, 350)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_iscmg")
 text = "Normal
 Mode"
+
+[node name="QuickStartMode" type="Button" parent="GameModeSelector/HBoxContainer" unique_id=1044567317]
+custom_minimum_size = Vector2(235, 350)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_2h578")
+text = "Quick
+Start"
 
 [node name="AIMode" type="Button" parent="GameModeSelector/HBoxContainer" unique_id=181042849]
 custom_minimum_size = Vector2(235, 350)
@@ -169,5 +186,6 @@ text = "Starting Run..."
 horizontal_alignment = 1
 
 [connection signal="button_up" from="GameModeSelector/HBoxContainer/NormalMode" to="." method="_on_normal_mode_button_up"]
+[connection signal="button_up" from="GameModeSelector/HBoxContainer/QuickStartMode" to="." method="_on_quick_start_mode_button_up"]
 [connection signal="button_up" from="GameModeSelector/HBoxContainer/AIMode" to="." method="_on_ai_mode_button_up"]
 [connection signal="button_up" from="GameModeSelector/MainMenuButton" to="." method="_on_main_menu_button_up"]

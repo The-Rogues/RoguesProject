@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_s3be4"]
 script = ExtResource("1_4vw5e")
-max_damage = 7
+max_damage = 10
 target_option = 1
 metadata/_custom_type_script = "uid://dwljy2imh2ge8"
 
@@ -14,6 +14,6 @@ metadata/_custom_type_script = "uid://dwljy2imh2ge8"
 script = ExtResource("1_yinjp")
 intent_icon = ExtResource("1_fu5xx")
 name = "Tackle"
-description = "This Enemy intends to attack for 4 to 7 damage."
+description = "This Enemy intends to attack for 4 to 10 damage."
 primary_action = SubResource("Resource_s3be4")
 metadata/_custom_type_script = "uid://c410dannt5adg"

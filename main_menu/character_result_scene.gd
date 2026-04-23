@@ -13,10 +13,6 @@ class_name CharacterScreen
 @onready var deck_viewer: CardViewer = $DeckViewer
 
 
-func _ready() -> void:
-	initialize()
-
-
 func initialize():
 	var preview := get_character_preview()
 	var deck_cards := get_card_instances()
@@ -49,6 +45,8 @@ func get_character_preview() -> PlayerInitializationData:
 			run_progress.player_name,
 			run_progress.player_backstory,
 			run_progress.player_texture,
+			run_progress.player_melee_weapon_texture,
+			run_progress.player_ranged_weapon_texture,
 			run_progress.player_data.personality,
 			run_progress.player_data.cards
 	)

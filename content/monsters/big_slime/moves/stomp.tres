@@ -1,40 +1,31 @@
 [gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dujouqqv4x4bh"]
 
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_jmh1p"]
-[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_jb2i5"]
+[ext_resource type="Script" uid="uid://hopwhp65chew" path="res://battle_scene/entities/actions/attack/status_attack_action.gd" id="2_mlgrd"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="2_o8ag7"]
 [ext_resource type="Script" uid="uid://b5flb156kdsgi" path="res://battle_scene/entities/status_effects/common/restrained_status_effect.gd" id="4_xf0x2"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_wdtni"]
-[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_kj25u"]
 
-[sub_resource type="Resource" id="Resource_o8ag7"]
-script = ExtResource("2_jb2i5")
-base_damage = 25
-target_option = 1
-metadata/_custom_type_script = "uid://c4hroa2x01w40"
-
-[sub_resource type="Resource" id="Resource_y5viw"]
+[sub_resource type="Resource" id="Resource_xf0x2"]
 script = ExtResource("4_xf0x2")
 metadata/_custom_type_script = "uid://b5flb156kdsgi"
 
-[sub_resource type="Resource" id="Resource_yfy8q"]
+[sub_resource type="Resource" id="Resource_wdtni"]
 script = ExtResource("5_wdtni")
-behaviour = SubResource("Resource_y5viw")
-duration = 2
-stack = 2
+behaviour = SubResource("Resource_xf0x2")
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
-[sub_resource type="Resource" id="Resource_ab63n"]
-script = ExtResource("6_kj25u")
-effect = SubResource("Resource_yfy8q")
+[sub_resource type="Resource" id="Resource_kj25u"]
+script = ExtResource("2_mlgrd")
+status_effect = SubResource("Resource_wdtni")
+base_damage = 25
 target_option = 1
-metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+metadata/_custom_type_script = "uid://hopwhp65chew"
 
 [resource]
 script = ExtResource("1_jmh1p")
 intent_icon = ExtResource("2_o8ag7")
 name = "Stomp"
 description = "This Enemy Intends to attack for 25 damage and apply a debuff."
-primary_action = SubResource("Resource_o8ag7")
-secondary_action = SubResource("Resource_ab63n")
+primary_action = SubResource("Resource_kj25u")
 metadata/_custom_type_script = "uid://c410dannt5adg"

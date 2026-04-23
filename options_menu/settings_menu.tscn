@@ -88,12 +88,6 @@ theme_override_fonts/font = ExtResource("2_mlw3h")
 button_pressed = true
 text = "Music ON/OFF"
 
-[node name="ExperimentalHeader" type="Label" parent="MarginContainer/VBoxContainer" unique_id=208596932]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_mlw3h")
-text = "Experimental:"
-
 [node name="ResolutionHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=648387271]
 visible = false
 texture_filter = 1

@@ -39,6 +39,8 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	run.player_name = data.name
 	run.player_texture = data.display_texure
 	run.player_backstory = data.backstory
+	run.player_melee_weapon_texture = data.melee_weapon_texture
+	run.player_ranged_weapon_texture = data.ranged_weapon_texture
 	
 	run.total_gold_collected = 0
 	run.total_cards_collected = 0

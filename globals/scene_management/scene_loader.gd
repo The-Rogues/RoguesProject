@@ -20,7 +20,7 @@ const Character_Builder = "res://main_menu/character_creators/character_builder.
 const Random_Character_Builder = "res://main_menu/character_creators/random_character_creator.tscn"
 const AI_Character_Builder = "res://main_menu/character_creators/ai_character_creator.tscn"
 const New_Game_Scene = "res://character_creator/new_game_scene.tscn"
-
+const Saved_Character_Scene = "res://character_creator/saved_character_screen.tscn"
 
 const MAP_SCENE_PATH = "res://Map/map_screen/MapScreen.tscn"
 const BATTLE_SCENE_PATH = "res://battle_scene/battle_scene.tscn"

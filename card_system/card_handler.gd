@@ -4,7 +4,7 @@ class_name CardHandler
 signal drew_card(card:CardInstance)
 signal discard_pile_updated(cards:CardInstance)
 signal draw_pile_updated(cards:CardInstance)
-
+signal forced_card_to_discard(card:CardInstance)
 
 var draw_pile:Array[CardInstance]
 var discard_pile:Array[CardInstance]
@@ -21,6 +21,14 @@ func initialize(deck:Array[CardData], player:PlayerEntity):
 		player.effects.effect_changed.connect(instance.update_instance)
 	
 	draw_pile.shuffle()
+
+
+func get_cards_by_name(_name:String) -> Array[CardInstance]:
+	var result:Array[CardInstance] = []
+	for card in drawn_cards:
+		if card.data.name == _name:
+			result.append(card)
+	return result
 
 
 func draw_cards(amount: int):
@@ -69,11 +77,24 @@ func discard_card(card: CardInstance):
 func move_drawn_card_into_discard_pile(instance:CardInstance):
 	if drawn_cards.has(instance):
 		if not instance.data.exhaust_after_play:
+			instance.energy_cost = instance.data.energy_cost
 			discard_pile.append(instance)
-			#TODO: Add to discard pile
+			#TODO: Add to exhaust pile
 		drawn_cards.erase(instance)
 		
 		discard_pile_updated.emit(discard_pile)
+
+
+func remove_hand_cards_by_name(_name:String):
+	var to_remove:Array[CardInstance] = []
+	
+	for card in drawn_cards:
+		if card.data.name == _name:
+			to_remove.append(card)
+	
+	for card in to_remove:
+		move_drawn_card_into_discard_pile(card)
+		forced_card_to_discard.emit(card)
 
 
 func shuffle_card_into_discard_pile(instance:CardInstance):

@@ -21,6 +21,7 @@ func initialize(_player:PlayerEntity, _resolver:ActionResolver):
 	clear_hand()
 	player = _player
 	_player.cards.drew_card.connect(_on_card_drawn)
+	_player.cards.forced_card_to_discard.connect(_on_forced_card_to_discard)
 	resolver = _resolver
 
 
@@ -151,7 +152,9 @@ func reject_play() -> void:
 func confirm_play(card: Card) -> void:
 	var cards := get_children()
 	if cards.has(card):
-		card.global_position = dragged_card.global_position
+		if dragged_card:
+			card.global_position = dragged_card.global_position
+			print("forced remove")
 		card.launch_towards(Vector2(1000, 500))
 		await get_tree().process_frame
 		_cleanup_drag()
@@ -176,3 +179,10 @@ func clear_hand() -> void:
 		var card:Card = child
 		card.launch_towards(Vector2(1000, 500))
 		#child.queue_free()
+
+
+func _on_forced_card_to_discard(instance:CardInstance):
+	for child in get_children():
+		var card:Card = child
+		if card.instance == instance:
+			confirm_play(card)

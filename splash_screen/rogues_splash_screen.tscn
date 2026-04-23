@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://uelarvradxi5"]
 
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_3jo7x"]
 [ext_resource type="Script" uid="uid://cb2oh0jolhg4c" path="res://splash_screen/splash_screen.gd" id="1_5fg7f"]
 [ext_resource type="Texture2D" uid="uid://cj4sfn1i7mlw5" path="res://splash_screen/the_rogues_logo_v1.png" id="2_6mmke"]
 [ext_resource type="PackedScene" uid="uid://c7lb2ji3nvodm" path="res://common/screen_fader/screen_fade.tscn" id="3_5fg7f"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3jo7x")
 script = ExtResource("1_5fg7f")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=493241247]

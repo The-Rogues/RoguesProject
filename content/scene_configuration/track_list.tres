@@ -35,7 +35,7 @@ loop = true
 [resource]
 script = ExtResource("1_6rdra")
 main_menu = ExtResource("1_p4j1v")
-save_screen = ExtResource("3_rya5x")
+new_game_scene = ExtResource("3_rya5x")
 map_scene = ExtResource("2_p4j1v")
 early_map_theme = SubResource("AudioStreamOggVorbis_7jkjq")
 mid_game_map_theme = ExtResource("8_xdvgi")
