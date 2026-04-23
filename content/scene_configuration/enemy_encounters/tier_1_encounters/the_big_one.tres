@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://bj2e0ww78ece8"]
+
+[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_c4i0e"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_n5jdf"]
+[ext_resource type="Resource" uid="uid://burkq1qvtpovb" path="res://content/monsters/big_slime/big_slime.tres" id="3_vagu7"]
+[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="4_ffvel"]
+[ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="5_cjobh"]
+[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="6_0l4ih"]
+[ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://content/items/apple/apple_texture.tres" id="7_sjss0"]
+[ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://content/items/apple/apple_healing_item_data.tres" id="8_iw4fb"]
+[ext_resource type="Texture2D" uid="uid://c3lrt5j41yy7c" path="res://content/items/bread/bread_texture.tres" id="9_amehn"]
+[ext_resource type="Resource" uid="uid://dlviwum7qlyod" path="res://content/items/bread/bread_healing_item_data.tres" id="10_pdeo7"]
+[ext_resource type="Texture2D" uid="uid://motragb5vre5" path="res://content/items/repeat_potion/repeat_potion_texture.tres" id="11_w3ubu"]
+[ext_resource type="Resource" uid="uid://c1akblk4le2jm" path="res://content/items/repeat_potion/repeat_potion_item_data.tres" id="12_4ssan"]
+[ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="13_dpubt"]
+
+[sub_resource type="Resource" id="Resource_5tp13"]
+script = ExtResource("5_cjobh")
+amount = 15
+display_texture = ExtResource("4_ffvel")
+name = "Found Gold (15)"
+metadata/_custom_type_script = "uid://drffwoufolf1p"
+
+[sub_resource type="Resource" id="Resource_ueovd"]
+script = ExtResource("6_0l4ih")
+item = ExtResource("8_iw4fb")
+display_texture = ExtResource("7_sjss0")
+name = "Found Apple"
+metadata/_custom_type_script = "uid://bo1e5acw4diuu"
+
+[sub_resource type="Resource" id="Resource_u1nn5"]
+script = ExtResource("6_0l4ih")
+item = ExtResource("10_pdeo7")
+display_texture = ExtResource("9_amehn")
+name = "Found Bread"
+metadata/_custom_type_script = "uid://bo1e5acw4diuu"
+
+[sub_resource type="Resource" id="Resource_x88a2"]
+script = ExtResource("6_0l4ih")
+item = ExtResource("12_4ssan")
+display_texture = ExtResource("11_w3ubu")
+name = "Found Repeat Potion"
+metadata/_custom_type_script = "uid://bo1e5acw4diuu"
+
+[resource]
+script = ExtResource("13_dpubt")
+weight = 5
+encounter_name = "The big one"
+gold = SubResource("Resource_5tp13")
+card_loot = ExtResource("1_c4i0e")
+item_pool = Array[ExtResource("6_0l4ih")]([SubResource("Resource_ueovd"), SubResource("Resource_u1nn5"), SubResource("Resource_x88a2")])
+enemies = Array[ExtResource("2_n5jdf")]([ExtResource("3_vagu7")])
+metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

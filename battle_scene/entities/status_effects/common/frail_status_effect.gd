@@ -14,11 +14,11 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "Increases damage recieved from attacks by Half"
+	return "Increases damage recieved from attacks by 1.5x"
 
 
 func get_texture() -> Texture2D:
-	return load("res://battle_scene/entities/status_effects/common/vulnerable_icon.tres")
+	return load("res://battle_scene/entities/status_effects/common/frail_icon.tres")
 
 
 func modify_incoming_damage(damage:int, _instance:ActiveStatusEffect) -> int:

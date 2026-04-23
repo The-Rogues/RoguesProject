@@ -1,3 +1,7 @@
+res://content/scene_configuration/enemy_encounters/tier_3_encounters/
+res://content/monsters/reaper/moves/
+res://content/monsters/reaper/
+res://battle_scene/entities/status_effects/common/
 res://content/items/card_packs/
 res://content/cards/tactical_cards/
 res://content/personality_traits/
@@ -16,7 +20,3 @@ res://content/cards/greedy_cards/
 res://content/monsters/skeleton_archer/
 res://content/monsters/skeleton_archer/moves/
 res://battle_scene/entities/projectiles/arrow/
-res://battle_scene/battle_field/position_effects/common/
-res://content/monsters/gatling_worm/moves/
-res://content/scene_configuration/enemy_encounters/
-res://content/monsters/gatling_worm/

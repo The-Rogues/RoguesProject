@@ -154,7 +154,6 @@ func confirm_play(card: Card) -> void:
 	if cards.has(card):
 		if dragged_card:
 			card.global_position = dragged_card.global_position
-			print("forced remove")
 		card.launch_towards(Vector2(1000, 500))
 		await get_tree().process_frame
 		_cleanup_drag()

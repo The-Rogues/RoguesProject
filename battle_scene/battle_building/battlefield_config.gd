@@ -1,6 +1,7 @@
 extends Resource
 class_name BattleFieldConfig
 
+@export_range(1, 100) var weight:int = 0
 ## Drag in objects to spawn in that position
 ## WARNING: DO NOT CHANGE THE SIZE OF THIS DICTIONARY
 @export var layout:Dictionary[int, ObjectData] = {

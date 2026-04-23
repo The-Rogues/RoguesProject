@@ -33,7 +33,9 @@ func initialize(_data:MonsterData):
 	health.died.connect(on_destroyed)
 	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 	
+	health.died.connect(on_destroyed)
 	updated_targeting = data.init_targeting.duplicate()
+	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 
 
 

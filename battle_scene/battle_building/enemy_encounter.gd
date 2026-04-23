@@ -1,11 +1,13 @@
 extends Resource
 class_name EnemyEncounter
 
+@export_range(1, 100) var weight:int = 1
 @export var encounter_name:String = "enemy encounter name"
 @export var gold:GoldRewardData
 @export var card_loot:CardRewardData
 @export var item_pool:Array[ItemRewardData]
 @export var enemies:Array[MonsterData]
+@export var battlefield_layout:BattleFieldConfig = null
 
 const ITEM_CHANCE = 0.4
 

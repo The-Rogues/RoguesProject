@@ -1,3 +1,3 @@
-res://item_system/card_pack_item_data.gd
+res://battle_scene/battle_building/enemy_encounter.gd
 AtlasTexture
 Curve

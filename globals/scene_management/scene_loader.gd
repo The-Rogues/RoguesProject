@@ -16,8 +16,6 @@ signal scene_loaded
 var show_loading:bool = true
 
 const MAIN_MENU_PATH = "res://main_menu/main_menu_scene.tscn"
-const Character_Builder = "res://main_menu/character_creators/character_builder.tscn"
-const Random_Character_Builder = "res://main_menu/character_creators/random_character_creator.tscn"
 const AI_Character_Builder = "res://main_menu/character_creators/ai_character_creator.tscn"
 const New_Game_Scene = "res://character_creator/new_game_scene.tscn"
 const Saved_Character_Scene = "res://character_creator/saved_character_screen.tscn"

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cq0emic7f3m3g"]
+
+[ext_resource type="Texture2D" uid="uid://cg8j7bhiea5pf" path="res://battle_scene/entities/monster/intents/defend_icon.tres" id="1_epquh"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_k0apf"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_m34e8"]
+[ext_resource type="Script" uid="uid://hopwhp65chew" path="res://battle_scene/entities/actions/attack/status_attack_action.gd" id="4_i7sax"]
+[ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="5_javcp"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="6_c27m4"]
+
+[sub_resource type="Resource" id="Resource_8r3s4"]
+script = ExtResource("2_m34e8")
+amount = 20
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_mb3up"]
+script = ExtResource("5_javcp")
+metadata/_custom_type_script = "uid://pmvfxl88wt1h"
+
+[sub_resource type="Resource" id="Resource_h6l2t"]
+script = ExtResource("6_c27m4")
+behaviour = SubResource("Resource_mb3up")
+duration = 3
+stack = 4
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_dwsyb"]
+script = ExtResource("4_i7sax")
+status_effect = SubResource("Resource_h6l2t")
+target_option = 1
+metadata/_custom_type_script = "uid://hopwhp65chew"
+
+[resource]
+script = ExtResource("1_k0apf")
+intent_icon = ExtResource("1_epquh")
+name = "Thief of joy"
+description = "This Enemy intends to block and apply a debuff."
+primary_action = SubResource("Resource_8r3s4")
+secondary_action = SubResource("Resource_dwsyb")
+metadata/_custom_type_script = "uid://c410dannt5adg"

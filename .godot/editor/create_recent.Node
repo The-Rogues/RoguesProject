@@ -1,6 +1,6 @@
-HBoxContainer
 AnimationPlayer
 Sprite2D
+HBoxContainer
 Node2D
 MarginContainer
 ColorRect
