@@ -14,6 +14,6 @@ metadata/_custom_type_script = "uid://du4sdwhsehpt6"
 script = ExtResource("3_0cykg")
 energy_cost = 2
 name = "Gaurded Assault"
-description = "Deal [color=red]10[/color] damage to an enemy. Gain [color=orange]block[/color] equal to damage delt. "
+description = "Deal [color=red]10[/color] damage. Gain [color=orange]block[/color] equal to damage delt. "
 play_actions = Array[ExtResource("1_0g7vl")]([SubResource("Resource_exdip")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

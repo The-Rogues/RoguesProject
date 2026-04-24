@@ -2,10 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="1_1rkbi"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_r3dd3"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_0pscc"]
 
 [resource]
 script = ExtResource("1_r3dd3")
-role = 3
+targeting_categories = Array[int]([4])
 display_texture = ExtResource("1_1rkbi")
 name = "Dummy"
 health = 45
