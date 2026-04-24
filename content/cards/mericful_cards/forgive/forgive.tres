@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://jocbe8p5e2es"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_65wsc"]
-[ext_resource type="Script" uid="uid://bmqot3cbmj7dp" path="res://content/fletcher/cards/forgive/spare.gd" id="2_kqtw2"]
+[ext_resource type="Script" uid="uid://bmqot3cbmj7dp" path="res://content/cards/mericful_cards/forgive/spare.gd" id="2_kqtw2"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_8qxcl"]
 
 [sub_resource type="Resource" id="Resource_q0sj4"]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://m7ighmtyec2a"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_0g7vl"]
+[ext_resource type="Script" uid="uid://du4sdwhsehpt6" path="res://content/cards/stoic_cards/gaurded_assault/AttackBlockAction.gd" id="2_21ij6"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_0cykg"]
+
+[sub_resource type="Resource" id="Resource_exdip"]
+script = ExtResource("2_21ij6")
+base_damage = 10
+target_option = 2
+metadata/_custom_type_script = "uid://du4sdwhsehpt6"
+
+[resource]
+script = ExtResource("3_0cykg")
+energy_cost = 2
+name = "Gaurded Assault"
+description = "Deal [color=red]10[/color] damage to an enemy. Gain [color=orange]block[/color] equal to damage delt. "
+play_actions = Array[ExtResource("1_0g7vl")]([SubResource("Resource_exdip")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
