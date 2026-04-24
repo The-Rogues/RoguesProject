@@ -15,15 +15,15 @@
 [ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="11_k7d58"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="12_ce22o"]
 
-[sub_resource type="Resource" id="Resource_wh6of"]
-script = ExtResource("8_i06bj")
-offensive_trait = ExtResource("7_f04e1")
+[sub_resource type="Resource" id="Resource_f04e1"]
+script = ExtResource("9_ce22o")
+offensive_trait = ExtResource("8_r5eiv")
 offensive_weight = 2
-defensive_trait = ExtResource("6_fcpjs")
+defensive_trait = ExtResource("7_jfmdv")
 defensive_weight = 1
-strategic_trait = ExtResource("9_sds6a")
+strategic_trait = ExtResource("10_3l5uq")
 strategic_weight = 1
-priority_trait = ExtResource("7_f04e1")
+priority_trait = ExtResource("8_r5eiv")
 
 [sub_resource type="Resource" id="Resource_upqny"]
 script = ExtResource("10_jfmdv")
@@ -47,5 +47,5 @@ map_seed = 3314152936
 player_node_index = 8
 pending_node_index = 13
 room_in_progress = true
-total_rooms_explored = 3
+total_rooms_explored = 7
 initialized = true

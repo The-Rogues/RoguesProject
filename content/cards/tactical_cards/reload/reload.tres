@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bhuolqbqej2fy"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_yt43j"]
+[ext_resource type="Resource" uid="uid://k383if7u7t46" path="res://content/cards/tactical_cards/reload/shot.tres" id="2_l5c3e"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_x5wjp"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="3_wikjn"]
+
+[sub_resource type="Resource" id="Resource_0t41o"]
+script = ExtResource("3_wikjn")
+card = ExtResource("2_l5c3e")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_g4qe6"]
+script = ExtResource("3_wikjn")
+card = ExtResource("2_l5c3e")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[resource]
+script = ExtResource("2_x5wjp")
+type = 2
+energy_cost = 2
+name = "Reload"
+description = "Shuffle 2 Shot cards into your draw pile."
+play_actions = Array[ExtResource("1_yt43j")]([SubResource("Resource_0t41o"), SubResource("Resource_g4qe6")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

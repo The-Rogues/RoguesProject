@@ -49,6 +49,8 @@ func initialize(battle_config:BattleConfig):
 	player.movement_controller.battle_field = battle_field
 	if GlobalSessionManager.run_progress:
 		player.sprite_2d.texture = GlobalSessionManager.run_progress.player_texture
+		player.melee_weapon_sprite.texture = GlobalSessionManager.run_progress.player_melee_weapon_texture
+		player.ranged_weapon_sprite.texture = GlobalSessionManager.run_progress.player_ranged_weapon_texture
 	
 	var battle_context := BattleContext.new(
 		creature_manager,

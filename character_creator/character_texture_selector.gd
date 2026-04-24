@@ -9,7 +9,7 @@ var texture_group := ButtonGroup.new()
 var selected_texture:Texture2D = null
 
 const Texture_Slot = preload(
-		"res://character_creator/character_texture_slot.tscn")
+		"res://character_creator/texture_select_slot.tscn")
 
 
 func initialize():

@@ -1,7 +1,7 @@
 extends DamageAction
 class_name AttackAction
 
-@export_range(0, 99) var base_damage:int
+@export_range(0, 99) var base_damage:int = 0
 @export_range(1, 99) var hits:int = 1
 
 

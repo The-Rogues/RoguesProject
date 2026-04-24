@@ -26,5 +26,5 @@ interaction = 1
 interaction_actions = Array[ExtResource("1_1fwaj")]([SubResource("Resource_sqvwb"), SubResource("Resource_5cgrj")])
 display_texture = SubResource("AtlasTexture_5cgrj")
 name = "Treasure Pot"
-health = 16
+health = 1
 metadata/_custom_type_script = "uid://dns34mcsxn8f6"

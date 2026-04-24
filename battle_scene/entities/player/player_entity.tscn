@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://dd627e8yhr0bk" path="res://battle_scene/entities/player/player_movement_controller.gd" id="3_mkis6"]
 [ext_resource type="Script" uid="uid://6mivq3t47aoh" path="res://battle_scene/entities/projectiles/projectile_launcher.gd" id="3_wf7sx"]
 [ext_resource type="Script" uid="uid://8j8s66tfhuvg" path="res://common/stat_components/block.gd" id="4_ixqhi"]
+[ext_resource type="Texture2D" uid="uid://domn773wxth76" path="res://battle_scene/entities/player/melee_weapon/long_sword.tres" id="5_db3bv"]
 [ext_resource type="Script" uid="uid://b7m80cndvmobf" path="res://battle_scene/entities/status_effects/status_effect_controller.gd" id="5_x21no"]
+[ext_resource type="Texture2D" uid="uid://dwxtsifsf8ejr" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="6_22bmj"]
 [ext_resource type="Script" uid="uid://bjoyeomu5qcct" path="res://common/stat_components/energy.gd" id="6_elg6u"]
 [ext_resource type="Script" uid="uid://lfe70eidg8li" path="res://battle_scene/entities/player/trait.gd" id="7_u807v"]
 [ext_resource type="Script" uid="uid://svatns4ki80t" path="res://card_system/card_handler.gd" id="9_elg6u"]
@@ -78,6 +80,104 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_wf7sx"),
 &"flash": SubResource("Animation_dkpvf")
+}
+
+[sub_resource type="Animation" id="Animation_22bmj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wn1w7"]
+resource_name = "swing"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.5307274]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6cvbu"]
+_data = {
+&"RESET": SubResource("Animation_22bmj"),
+&"swing": SubResource("Animation_wn1w7")
+}
+
+[sub_resource type="Animation" id="Animation_6cvbu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3ocsx"]
+resource_name = "fire"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jfak"]
+_data = {
+&"RESET": SubResource("Animation_6cvbu"),
+&"fire": SubResource("Animation_3ocsx")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x21no"]
@@ -242,6 +342,37 @@ script = ExtResource("3_dkpvf")
 
 [node name="HitFlash" type="AnimationPlayer" parent="Sprite2D" unique_id=381250294]
 libraries/ = SubResource("AnimationLibrary_db3bv")
+
+[node name="MeleeWeapon" type="Node2D" parent="." unique_id=1529394494]
+position = Vector2(0, -13)
+
+[node name="Sprite2D" type="Sprite2D" parent="MeleeWeapon" unique_id=1587895845]
+visible = false
+texture_filter = 1
+position = Vector2(-54.000004, 1.9073486e-06)
+rotation = -0.7853982
+scale = Vector2(2, 2)
+texture = ExtResource("5_db3bv")
+
+[node name="MeleeWeaponAnimator" type="AnimationPlayer" parent="MeleeWeapon" unique_id=1574375054]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_6cvbu")
+
+[node name="RangedWeapon" type="Node2D" parent="." unique_id=1428491448]
+unique_name_in_owner = true
+position = Vector2(0, -13)
+
+[node name="Sprite2D" type="Sprite2D" parent="RangedWeapon" unique_id=841562048]
+visible = false
+texture_filter = 1
+position = Vector2(-54.000004, 1.9073486e-06)
+rotation = -0.7853982
+scale = Vector2(2, 2)
+texture = ExtResource("6_22bmj")
+
+[node name="RangedWeaponAnimator" type="AnimationPlayer" parent="RangedWeapon" unique_id=2098689601]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_7jfak")
 
 [node name="ProjectileLauncher" type="Node2D" parent="." unique_id=1765584638 node_paths=PackedStringArray("fire_delay", "fire_point")]
 script = ExtResource("3_wf7sx")

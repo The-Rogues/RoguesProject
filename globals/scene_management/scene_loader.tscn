@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
 [ext_resource type="PackedScene" uid="uid://c7lb2ji3nvodm" path="res://common/screen_fader/screen_fade.tscn" id="10_qepw2"]
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q37af"]
 bg_color = Color(0.34470457, 0.6951066, 0.29308626, 1)
 

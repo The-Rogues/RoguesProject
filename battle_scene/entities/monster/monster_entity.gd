@@ -33,7 +33,9 @@ func initialize(_data:MonsterData):
 	health.died.connect(on_destroyed)
 	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 	
+	health.died.connect(on_destroyed)
 	updated_targeting = data.init_targeting.duplicate()
+	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 
 
 
@@ -45,7 +47,7 @@ func take_damage(amount:int, _attacker = null):
 	
 	sprite_2d.flash()
 	DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
-	health.take_damage(amount)
+	health.take_damage(damage)
 	effects.on_attacked(_attacker)
 
 

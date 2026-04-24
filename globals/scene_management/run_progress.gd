@@ -14,6 +14,8 @@ class_name RunProgress
 
 # Immutable
 @export var player_texture:Texture2D = null
+@export var player_melee_weapon_texture:Texture2D = null
+@export var player_ranged_weapon_texture:Texture2D = null
 @export var player_name:String
 @export var player_backstory:String = "Has an unkown past"
 

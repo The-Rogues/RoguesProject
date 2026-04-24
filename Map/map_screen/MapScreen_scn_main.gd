@@ -7,7 +7,7 @@
 
 extends Control
 
-@onready var scroll_container: ScrollContainer = $ScrollContainer # Container that will be used to scroll the map instance.
+@onready var scroll_container: ScrollContainer = %ScrollContainer # Container that will be used to scroll the map instance.
 
 #------------------------------------------------------------------------------------
 # Section: Functions

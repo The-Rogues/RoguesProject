@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://dxuy20coirc1l"]
+
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_2wun8"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_gncbs"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_iauag"]
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_8dob4"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_sm3lq"]
+[ext_resource type="Texture2D" uid="uid://crwcp5kcqw1o7" path="res://content/monsters/zombie/zombie_texture.tres" id="3_2wun8"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_h6alm"]
+[ext_resource type="Script" uid="uid://dnqjw0cy8cna7" path="res://content/monsters/zombie/regrow_behavior.gd" id="4_iauag"]
+[ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="6_8vp1x"]
+[ext_resource type="Resource" uid="uid://cidn510ow7gs1" path="res://content/monsters/zombie/moves/zombie_lurch.tres" id="6_52vld"]
+[ext_resource type="Resource" uid="uid://eqtjid1mht7t" path="res://content/monsters/zombie/moves/zombie_recover.tres" id="7_y66hc"]
+[ext_resource type="Resource" uid="uid://7txq7qtw2f0s" path="res://content/monsters/zombie/moves/zombie_gnaw.tres" id="8_4i2d4"]
+[ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="8_gbxmw"]
+[ext_resource type="Resource" uid="uid://c13nasqk0c1he" path="res://content/monsters/zombie/moves/human_attack.tres" id="12_gbxmw"]
+[ext_resource type="Resource" uid="uid://qsy01yss02ek" path="res://content/monsters/zombie/moves/human_block.tres" id="13_ffg1x"]
+
+[sub_resource type="Resource" id="Resource_gbxmw"]
+script = ExtResource("1_iauag")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffg1x"]
+atlas = ExtResource("2_8dob4")
+region = Rect2(163.0112, 123.6086, 31.56604, 45.09442)
+
+[sub_resource type="Resource" id="Resource_cb5yc"]
+script = ExtResource("1_gncbs")
+moves = Array[ExtResource("3_h6alm")]([ExtResource("6_52vld"), ExtResource("6_52vld"), ExtResource("7_y66hc")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_ny268"]
+script = ExtResource("1_gncbs")
+moves = Array[ExtResource("3_h6alm")]([ExtResource("6_52vld"), ExtResource("8_4i2d4"), ExtResource("6_52vld")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_52vld"]
+script = ExtResource("2_sm3lq")
+move_sequences = Array[ExtResource("1_gncbs")]([SubResource("Resource_cb5yc"), SubResource("Resource_ny268")])
+behaviour = SubResource("Resource_gbxmw")
+display_texture = SubResource("AtlasTexture_ffg1x")
+name = "Zombie"
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"
+
+[sub_resource type="Resource" id="Resource_h6alm"]
+script = ExtResource("6_8vp1x")
+monster_data = SubResource("Resource_52vld")
+starting_health = 40
+metadata/_custom_type_script = "uid://crxnbj8rigrkp"
+
+[sub_resource type="Resource" id="Resource_iauag"]
+script = ExtResource("8_gbxmw")
+metadata/_custom_type_script = "uid://cv01a4ey63px6"
+
+[sub_resource type="Resource" id="Resource_8dob4"]
+script = ExtResource("3_h6alm")
+intent_icon = ExtResource("1_2wun8")
+name = "Reborn"
+description = "This enemy intends to transform into a zombie."
+primary_action = SubResource("Resource_h6alm")
+secondary_action = SubResource("Resource_iauag")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_8vp1x"]
+script = ExtResource("4_iauag")
+health_threshold = 10
+low_health_move = SubResource("Resource_8dob4")
+metadata/_custom_type_script = "uid://dnqjw0cy8cna7"
+
+[sub_resource type="Resource" id="Resource_b25l1"]
+script = ExtResource("1_gncbs")
+moves = Array[ExtResource("3_h6alm")]([ExtResource("12_gbxmw"), ExtResource("12_gbxmw"), ExtResource("13_ffg1x")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_y66hc"]
+script = ExtResource("1_gncbs")
+moves = Array[ExtResource("3_h6alm")]([ExtResource("12_gbxmw"), ExtResource("13_ffg1x"), ExtResource("12_gbxmw")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_sm3lq")
+move_sequences = Array[ExtResource("1_gncbs")]([SubResource("Resource_b25l1"), SubResource("Resource_y66hc")])
+behaviour = SubResource("Resource_8vp1x")
+display_texture = ExtResource("3_2wun8")
+name = "Cursed Human"
+health = 25
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

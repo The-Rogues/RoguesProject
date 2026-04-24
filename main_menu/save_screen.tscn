@@ -19,7 +19,7 @@ script = ExtResource("1_n021w")
 continue_button = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Continue")
 snapshot = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer/RunSnapshot")
 continue_menu = NodePath("TitleMargin/Title/MarginContainer2/ContinueMenu")
-character_menu = NodePath("MarginContainer/CharacterMenu")
+character_menu = NodePath("")
 
 [node name="TitleMargin" type="MarginContainer" parent="." unique_id=1389330659]
 layout_mode = 1
@@ -74,6 +74,7 @@ size_flags_vertical = 8
 theme_override_constants/separation = 18
 
 [node name="MarginContainer" type="MarginContainer" parent="TitleMargin/Title/MarginContainer2/ContinueMenu" unique_id=2128923271]
+visible = false
 custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 
@@ -83,6 +84,7 @@ layout_mode = 2
 [node name="MarginContainer3" type="MarginContainer" parent="TitleMargin/Title/MarginContainer2/ContinueMenu" unique_id=2046776760]
 layout_mode = 2
 theme_override_constants/margin_left = 116
+theme_override_constants/margin_top = 19
 theme_override_constants/margin_bottom = 120
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3" unique_id=288456598]
@@ -98,48 +100,6 @@ layout_mode = 2
 text = "New Game"
 
 [node name="Return" parent="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer" unique_id=1195317808 instance=ExtResource("4_tvukq")]
-layout_mode = 2
-text = "Return"
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=590704532]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 120
-theme_override_constants/margin_bottom = 120
-
-[node name="CharacterMenu" type="VBoxContainer" parent="MarginContainer" unique_id=2131581085]
-visible = false
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 18
-
-[node name="AIGenerateCharacter" parent="MarginContainer/CharacterMenu" unique_id=2053005649 instance=ExtResource("4_tvukq")]
-layout_mode = 2
-text = "AI Generate Character"
-disabled = true
-
-[node name="CreateRandom" parent="MarginContainer/CharacterMenu" unique_id=187231478 instance=ExtResource("4_tvukq")]
-layout_mode = 2
-text = "Create Random"
-
-[node name="PersonalitySurvey" parent="MarginContainer/CharacterMenu" unique_id=739906838 instance=ExtResource("4_tvukq")]
-layout_mode = 2
-text = "Personality Survey"
-disabled = true
-
-[node name="CharacterBuilder" parent="MarginContainer/CharacterMenu" unique_id=1829045561 instance=ExtResource("4_tvukq")]
-layout_mode = 2
-text = "Character Builder"
-disabled = true
-
-[node name="Return" parent="MarginContainer/CharacterMenu" unique_id=2064591969 instance=ExtResource("4_tvukq")]
 layout_mode = 2
 text = "Return"
 
@@ -164,7 +124,3 @@ horizontal_alignment = 1
 [connection signal="clicked" from="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Continue" to="." method="_on_continue_clicked"]
 [connection signal="clicked" from="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/New Game" to="." method="_on_start_new_clicked"]
 [connection signal="clicked" from="TitleMargin/Title/MarginContainer2/ContinueMenu/MarginContainer3/VBoxContainer/Return" to="." method="_on_return_clicked"]
-[connection signal="clicked" from="MarginContainer/CharacterMenu/AIGenerateCharacter" to="." method="_on_ai_generate_character_clicked"]
-[connection signal="clicked" from="MarginContainer/CharacterMenu/CreateRandom" to="." method="_on_create_random_character_clicked"]
-[connection signal="clicked" from="MarginContainer/CharacterMenu/CharacterBuilder" to="." method="_on_character_builder_clicked"]
-[connection signal="clicked" from="MarginContainer/CharacterMenu/Return" to="." method="_on_return_from_character_menu_clicked"]

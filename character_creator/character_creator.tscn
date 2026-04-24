@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b7w45y1e258yp" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-002.png" id="4_cp3bx"]
 [ext_resource type="Resource" uid="uid://ck1tj3cj82hbk" path="res://content/personality_traits/skittish.tres" id="4_g1oom"]
 [ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="5_5i41c"]
+[ext_resource type="Resource" uid="uid://cg0538d2e33j2" path="res://content/personality_traits/tactical.tres" id="5_40a81"]
 [ext_resource type="Resource" uid="uid://c6hd6w7xmy4jb" path="res://content/personality_traits/greedy.tres" id="5_epxpy"]
 [ext_resource type="Texture2D" uid="uid://cq26k5tc4mmtj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-002.png" id="6_ctoup"]
 [ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="7_g1oom"]
@@ -16,6 +17,57 @@
 [ext_resource type="PackedScene" uid="uid://ccj3477wj0s5j" path="res://character_creator/survey_interface.tscn" id="10_g1dsd"]
 [ext_resource type="PackedScene" uid="uid://bfn570nel15tp" path="res://character_creator/character_texture_selector.tscn" id="11_ock7s"]
 [ext_resource type="PackedScene" uid="uid://bdwc1bwqyvlcr" path="res://character_creator/name_editor.tscn" id="12_tjwqa"]
+[ext_resource type="Texture2D" uid="uid://cudcljbp6s7i2" path="res://battle_scene/entities/player/melee_weapon/short_sword.tres" id="16_v040o"]
+[ext_resource type="Texture2D" uid="uid://domn773wxth76" path="res://battle_scene/entities/player/melee_weapon/long_sword.tres" id="17_40a81"]
+[ext_resource type="Texture2D" uid="uid://dxt2iuh6d67b2" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="18_ojf1h"]
+[ext_resource type="Texture2D" uid="uid://ero20xpbkdnc" path="res://battle_scene/entities/player/melee_weapon/gauntlet.tres" id="19_morx5"]
+[ext_resource type="Texture2D" uid="uid://n1r1l3lmk3ei" path="res://battle_scene/entities/player/melee_weapon/cane.tres" id="20_kxkvj"]
+[ext_resource type="Texture2D" uid="uid://cwoyj50k2qy55" path="res://battle_scene/entities/player/melee_weapon/spear.tres" id="21_b67tb"]
+[ext_resource type="Texture2D" uid="uid://bxen4dfn76trb" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="22_3ctbe"]
+[ext_resource type="Texture2D" uid="uid://d0jdfiuiyxfpt" path="res://battle_scene/entities/player/melee_weapon/wooden_stick.tres" id="23_ubd7s"]
+[ext_resource type="Texture2D" uid="uid://dk42g2ed1b47w" path="res://battle_scene/entities/player/ranged_weapon/book.tres" id="24_y7uqb"]
+[ext_resource type="Texture2D" uid="uid://do366ftl7nk6m" path="res://battle_scene/entities/player/ranged_weapon/trident.tres" id="25_76q8r"]
+[ext_resource type="Texture2D" uid="uid://c6f27p1fjqd2q" path="res://battle_scene/entities/player/ranged_weapon/crossbow.tres" id="26_elfty"]
+[ext_resource type="Texture2D" uid="uid://bucfv1v4lm42w" path="res://battle_scene/entities/player/ranged_weapon/bow.tres" id="27_h1idq"]
+[ext_resource type="Texture2D" uid="uid://m6dfi7vs2uw2" path="res://battle_scene/entities/player/ranged_weapon/gem_staff.tres" id="28_xo5uh"]
+[ext_resource type="Texture2D" uid="uid://dwxtsifsf8ejr" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="29_yb5ok"]
+[ext_resource type="Texture2D" uid="uid://clbvqu4n3ea8h" path="res://battle_scene/entities/player/melee_weapon/axe.tres" id="30_5s1si"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_512jr"]
+load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5y224"]
+texture = SubResource("CompressedTexture2D_512jr")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nhgbo"]
+load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3a31"]
+texture = SubResource("CompressedTexture2D_nhgbo")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h67jw"]
+texture = ExtResource("6_ctoup")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h67jw"]
+resource_local_to_scene = true
+atlas = ExtResource("7_g1oom")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgbo"]
+atlas = ExtResource("9_qangh")
+region = Rect2(64, 32, 16, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aw8bx"]
 load_path = "res://.godot/imported/panel-transparent-center-001.png-771c00a3fa782f53c7b268e48b626392.ctex"
@@ -64,47 +116,11 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_512jr"]
-load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
+[sub_resource type="ButtonGroup" id="ButtonGroup_40a81"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5y224"]
-texture = SubResource("CompressedTexture2D_512jr")
-texture_margin_left = 16.0
-texture_margin_top = 8.0
-texture_margin_right = 16.0
-texture_margin_bottom = 8.0
+[sub_resource type="ButtonGroup" id="ButtonGroup_ojf1h"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nhgbo"]
-load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3a31"]
-texture = SubResource("CompressedTexture2D_nhgbo")
-texture_margin_left = 16.0
-texture_margin_top = 8.0
-texture_margin_right = 16.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h67jw"]
-texture = ExtResource("6_ctoup")
-texture_margin_left = 16.0
-texture_margin_top = 8.0
-texture_margin_right = 16.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h67jw"]
-resource_local_to_scene = true
-atlas = ExtResource("7_g1oom")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhgbo"]
-atlas = ExtResource("9_qangh")
-region = Rect2(64, 32, 16, 16)
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_5i41c"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_ctoup"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_g1oom"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_morx5"]
 
 [node name="CharacterCreator" type="Control" unique_id=120215782]
 layout_mode = 3
@@ -115,7 +131,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wh7xx")
 script = ExtResource("1_braph")
-offensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("3_ctoup"), ExtResource("3_ctoup"), ExtResource("3_ctoup"), ExtResource("3_ctoup")])
+offensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("3_ctoup"), ExtResource("3_ctoup"), ExtResource("5_40a81"), ExtResource("3_ctoup")])
 defensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("4_g1oom"), ExtResource("4_g1oom"), ExtResource("4_g1oom"), ExtResource("4_g1oom")])
 strategic_traits = Array[ExtResource("2_5i41c")]([ExtResource("5_epxpy"), ExtResource("5_epxpy"), ExtResource("5_epxpy"), ExtResource("5_epxpy")])
 
@@ -149,6 +165,52 @@ theme_override_font_sizes/font_size = 32
 text = "New Character"
 horizontal_alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Elements" unique_id=1335093202]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="NameEditorButton" type="Button" parent="Elements/HBoxContainer" unique_id=558257534]
+custom_minimum_size = Vector2(232, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_5y224")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d3a31")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h67jw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Elements/HBoxContainer/NameEditorButton" unique_id=1338865389]
+custom_minimum_size = Vector2(201, 30)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 198.0
+offset_bottom = 24.0
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="Elements/HBoxContainer/NameEditorButton/HBoxContainer" unique_id=598776554]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_h67jw")
+expand_mode = 3
+
+[node name="CharacterNameLabel" type="Label" parent="Elements/HBoxContainer/NameEditorButton/HBoxContainer" unique_id=844649035]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.4692968, 0.4692964, 0.46929651, 1)
+theme_override_fonts/font = ExtResource("8_epxpy")
+text = "Enter Name"
+
+[node name="Randomize" type="Button" parent="Elements/HBoxContainer" unique_id=1032394033]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_nhgbo")
+icon_alignment = 1
+
 [node name="DisplayInfo" type="HBoxContainer" parent="Elements" unique_id=420966927]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -181,46 +243,61 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("5_5i41c")
 
-[node name="NameEditorButton" type="Button" parent="Elements/DisplayInfo" unique_id=558257534]
-custom_minimum_size = Vector2(232, 48)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_5y224")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_d3a31")
-theme_override_styles/hover = SubResource("StyleBoxTexture_h67jw")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Elements/DisplayInfo/NameEditorButton" unique_id=1338865389]
-custom_minimum_size = Vector2(201, 30)
-layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 198.0
-offset_bottom = 24.0
-theme_override_constants/separation = 8
-
-[node name="TextureRect" type="TextureRect" parent="Elements/DisplayInfo/NameEditorButton/HBoxContainer" unique_id=598776554]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = SubResource("AtlasTexture_h67jw")
-expand_mode = 3
-
-[node name="CharacterNameLabel" type="Label" parent="Elements/DisplayInfo/NameEditorButton/HBoxContainer" unique_id=844649035]
-unique_name_in_owner = true
+[node name="MeleeWeaponTextureSlot" type="Button" parent="Elements/DisplayInfo" unique_id=1448487501]
 texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.4692968, 0.4692964, 0.46929651, 1)
-theme_override_fonts/font = ExtResource("8_epxpy")
-text = "Enter Name"
-
-[node name="Randomize" type="Button" parent="Elements/DisplayInfo" unique_id=1032394033]
-custom_minimum_size = Vector2(52, 52)
-layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-icon = SubResource("AtlasTexture_nhgbo")
-icon_alignment = 1
+theme = ExtResource("2_wh7xx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kxf65")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_14ves")
+theme_override_styles/hover = SubResource("StyleBoxTexture_khqir")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_bx7ta")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xgrrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Elements/DisplayInfo/MeleeWeaponTextureSlot" unique_id=1220830634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MeleeWeaponSprite" type="TextureRect" parent="Elements/DisplayInfo/MeleeWeaponTextureSlot/MarginContainer" unique_id=1681511409]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("16_v040o")
+
+[node name="RangedWeaponTextureSlot" type="Button" parent="Elements/DisplayInfo" unique_id=1614307471]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_wh7xx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kxf65")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_14ves")
+theme_override_styles/hover = SubResource("StyleBoxTexture_khqir")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_bx7ta")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xgrrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Elements/DisplayInfo/RangedWeaponTextureSlot" unique_id=78713931]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RangedWeaponSprite" type="TextureRect" parent="Elements/DisplayInfo/RangedWeaponTextureSlot/MarginContainer" unique_id=1673052525]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("26_elfty")
 
 [node name="PersonalitySurveys" type="VBoxContainer" parent="Elements" unique_id=2103904522]
 layout_mode = 2
@@ -235,16 +312,16 @@ layout_mode = 2
 text = "Aggression"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_5i41c")
+button_group = SubResource("ButtonGroup_40a81")
 
 [node name="Low" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_5i41c")
+button_group = SubResource("ButtonGroup_40a81")
 
 [node name="High" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_5i41c")
+button_group = SubResource("ButtonGroup_40a81")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_5i41c")
+button_group = SubResource("ButtonGroup_40a81")
 
 [node name="ResolveSurvey" parent="Elements/PersonalitySurveys" unique_id=325705533 instance=ExtResource("10_g1dsd")]
 unique_name_in_owner = true
@@ -254,16 +331,16 @@ layout_mode = 2
 text = "Resolve"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_ctoup")
+button_group = SubResource("ButtonGroup_ojf1h")
 
 [node name="Low" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_ctoup")
+button_group = SubResource("ButtonGroup_ojf1h")
 
 [node name="High" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_ctoup")
+button_group = SubResource("ButtonGroup_ojf1h")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_ctoup")
+button_group = SubResource("ButtonGroup_ojf1h")
 
 [node name="HighLabel" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="5" unique_id=573113404]
 text = "high"
@@ -276,16 +353,16 @@ layout_mode = 2
 text = "Quirkiness"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_g1oom")
+button_group = SubResource("ButtonGroup_morx5")
 
 [node name="Low" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_g1oom")
+button_group = SubResource("ButtonGroup_morx5")
 
 [node name="High" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_g1oom")
+button_group = SubResource("ButtonGroup_morx5")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_g1oom")
+button_group = SubResource("ButtonGroup_morx5")
 
 [node name="Options" type="HBoxContainer" parent="Elements" unique_id=1837197351]
 layout_mode = 2
@@ -306,17 +383,38 @@ theme_override_font_sizes/font_size = 16
 text = "Save"
 
 [node name="CharacterTextureSelector" parent="." unique_id=1083419816 instance=ExtResource("11_ock7s")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
+
+[node name="MeleeWeaponTextureSelector" parent="." unique_id=321794499 instance=ExtResource("11_ock7s")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+textures = Array[Texture2D]([ExtResource("16_v040o"), ExtResource("17_40a81"), ExtResource("18_ojf1h"), ExtResource("19_morx5"), ExtResource("20_kxkvj"), ExtResource("21_b67tb"), ExtResource("22_3ctbe"), ExtResource("23_ubd7s"), ExtResource("24_y7uqb"), ExtResource("25_76q8r")])
+
+[node name="HeaderLabel" parent="MeleeWeaponTextureSelector" index="1" unique_id=24380699]
+text = "Select a melee weapon"
+
+[node name="RangedWeaponTextureSelector" parent="." unique_id=100189891 instance=ExtResource("11_ock7s")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+textures = Array[Texture2D]([ExtResource("26_elfty"), ExtResource("27_h1idq"), ExtResource("24_y7uqb"), ExtResource("28_xo5uh"), ExtResource("29_yb5ok"), ExtResource("25_76q8r"), ExtResource("21_b67tb"), ExtResource("19_morx5"), ExtResource("23_ubd7s"), ExtResource("30_5s1si")])
+
+[node name="HeaderLabel" parent="RangedWeaponTextureSelector" index="1" unique_id=24380699]
+text = "Select a ranged weapon"
 
 [node name="NameEditor" parent="." unique_id=1042457098 instance=ExtResource("12_tjwqa")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
+[connection signal="button_down" from="Elements/HBoxContainer/NameEditorButton" to="." method="_on_name_editor_button_down"]
+[connection signal="button_up" from="Elements/HBoxContainer/Randomize" to="." method="_on_randomize_button_up"]
 [connection signal="button_down" from="Elements/DisplayInfo/CharacterTextureSlot" to="." method="_on_character_texture_slot_button_down"]
-[connection signal="button_down" from="Elements/DisplayInfo/NameEditorButton" to="." method="_on_name_editor_button_down"]
-[connection signal="button_up" from="Elements/DisplayInfo/Randomize" to="." method="_on_randomize_button_up"]
+[connection signal="button_down" from="Elements/DisplayInfo/MeleeWeaponTextureSlot" to="." method="_on_melee_weapon_texture_slot_button_down"]
+[connection signal="button_down" from="Elements/DisplayInfo/RangedWeaponTextureSlot" to="." method="_on_ranged_weapon_texture_slot_button_down"]
 [connection signal="option_selected" from="Elements/PersonalitySurveys/AggressionSurvey" to="." method="_on_aggression_survey_option_selected"]
 [connection signal="option_selected" from="Elements/PersonalitySurveys/ResolveSurvey" to="." method="_on_resolve_survey_option_selected"]
 [connection signal="option_selected" from="Elements/PersonalitySurveys/QuirkinessSurvey" to="." method="_on_quirkiness_survey_option_selected"]
@@ -326,3 +424,5 @@ layout_mode = 1
 [editable path="Elements/PersonalitySurveys/AggressionSurvey"]
 [editable path="Elements/PersonalitySurveys/ResolveSurvey"]
 [editable path="Elements/PersonalitySurveys/QuirkinessSurvey"]
+[editable path="MeleeWeaponTextureSelector"]
+[editable path="RangedWeaponTextureSelector"]

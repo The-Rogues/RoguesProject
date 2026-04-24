@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://c13nasqk0c1he"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_ygfwi"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_xxw0x"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_drq1f"]
+
+[sub_resource type="Resource" id="Resource_fyrf3"]
+script = ExtResource("2_xxw0x")
+base_damage = 3
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("3_drq1f")
+intent_icon = ExtResource("1_ygfwi")
+name = "Attack"
+description = "This enemy intends to attack for 3 damage."
+primary_action = SubResource("Resource_fyrf3")
+metadata/_custom_type_script = "uid://c410dannt5adg"

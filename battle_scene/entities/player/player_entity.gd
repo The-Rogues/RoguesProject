@@ -18,6 +18,13 @@ var data:PlayerData = null
 @onready var object_slot: ObjectSlot = $ObjectSlot
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
 
+@onready var melee_weapon_animator: AnimationPlayer = %MeleeWeaponAnimator
+@onready var ranged_weapon_animator: AnimationPlayer = %RangedWeaponAnimator
+@onready var ranged_weapon: Node2D = %RangedWeapon
+@onready var ranged_weapon_sprite: Sprite2D = $RangedWeapon/Sprite2D
+@onready var melee_weapon_sprite: Sprite2D = $MeleeWeapon/Sprite2D
+
+
 
 func initialize(_data:PlayerData):
 	health.initialize(_data.current_health, _data.max_health)
@@ -93,6 +100,9 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 		played_card.emit(card.instance)
 		if card.instance.data.type == CardData.Type.ATTACK:
 			play_attack_anim()
+			melee_weapon_animator.play("swing")
+		elif card.instance.data.type == CardData.Type.RANGED:
+			ranged_weapon_animator.play("fire")
 	else:
 		play_hand.reject_play()
 

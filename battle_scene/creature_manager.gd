@@ -22,7 +22,11 @@ func initialize(_player:PlayerEntity, _enemies:Array[MonsterData]):
 		spawn_enemy(data, -1, false)
 
 
-func spawn_enemy(data:MonsterData, starting_health:int = -1, choose_intent:bool = false):
+func spawn_enemy(
+		data:MonsterData, 
+		starting_health:int = -1, 
+		choose_intent:bool = false,
+		status_effect:StatusEffectConfig = null):
 	var monster:MonsterEntity = template_enemy.instantiate()
 	spawn_parent.add_child(monster)
 	monster.global_position = spawn_parent.global_position
@@ -43,6 +47,9 @@ func spawn_enemy(data:MonsterData, starting_health:int = -1, choose_intent:bool 
 	
 	if choose_intent:
 		monster.choose_intent()
+	
+	if status_effect:
+		monster.apply_status_effect(status_effect)
 
 
 func _position_enemies():

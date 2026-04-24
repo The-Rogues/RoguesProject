@@ -4,7 +4,6 @@ class_name ActionResolver
 var action_queue:ActionQueue
 var battle_context:BattleContext
 
-
 func _init(context:BattleContext) -> void:
 	battle_context = context
 	action_queue = ActionQueue.new()

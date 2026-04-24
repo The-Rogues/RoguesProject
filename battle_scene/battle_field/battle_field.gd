@@ -55,7 +55,7 @@ func place_object(
 	else:
 		# Find next random position
 		for pos in battle_positions:
-			if !pos.object:
+			if !pos.get_object():
 				target_position = pos
 				break
 	

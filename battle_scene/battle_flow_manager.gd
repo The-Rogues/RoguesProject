@@ -105,6 +105,8 @@ func run_enemy_turn():
 		enemy_attack_delay.start()
 		await enemy_attack_delay.timeout
 	
+	if !action_resolver.action_queue.queue.is_empty():
+		await action_resolver.action_queue.processed_all_actions
 	await get_tree().create_timer(1).timeout
 	
 	start_player_turn()

@@ -52,6 +52,23 @@ theme_override_font_sizes/font_size = 32
 text = "Select an avatar"
 horizontal_alignment = 1
 
+[node name="SubHeaderLabel" type="Label" parent="." unique_id=935518625]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -197.0
+offset_right = 228.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "Purely Cosmetic"
+horizontal_alignment = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1326343051]
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 1

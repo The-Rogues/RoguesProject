@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dxhjptge3ujkj"]
+
+[ext_resource type="Script" uid="uid://61s5t8tbsy15" path="res://content/monsters/reaper/moves/deathsicle/sythe.gd" id="1_it386"]
+[ext_resource type="Texture2D" uid="uid://bxen4dfn76trb" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="2_8orrk"]
+[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_luq16"]
+
+[sub_resource type="Animation" id="Animation_it386"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8orrk"]
+resource_name = "spin"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luq16"]
+_data = {
+&"RESET": SubResource("Animation_it386"),
+&"spin": SubResource("Animation_8orrk")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2pr53"]
+radius = 25.0
+
+[node name="Sytche" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_it386")
+speed = 500.0
+damage = 24
+life_span = NodePath("LifeSpan")
+
+[node name="SpritePivot" type="Node2D" parent="." unique_id=2001239539]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpritePivot" unique_id=71067802]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_8orrk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SpritePivot/Sprite2D" unique_id=912675375]
+texture_filter = 1
+texture = ExtResource("2_8orrk")
+flip_h = true
+flip_v = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpritePivot" unique_id=1445238370]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_luq16")
+autoplay = &"spin"
+
+[node name="WallCollider" type="CollisionShape2D" parent="." unique_id=1085450663]
+shape = SubResource("CircleShape2D_bofno")
+debug_color = Color(0.56550735, 0.03961729, 0.56616616, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1046127275]
+
+[node name="EntityCollider" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
+shape = SubResource("CircleShape2D_2pr53")
+debug_color = Color(0.9933968, 0, 0.24498847, 0.41960785)
+
+[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+wait_time = 5.0
+
+[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_luq16")]
+default_color = Color(0.81540364, 0.19489661, 0.13030902, 1)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
