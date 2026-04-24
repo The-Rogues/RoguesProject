@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dvygudtxrjhfg"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_0oin5"]
+[ext_resource type="Script" uid="uid://qx2qfyjcwdb8" path="res://content/cards/crafty_cards/barrier/craft_action.gd" id="2_rnxoe"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_xymge"]
+
+[sub_resource type="Resource" id="Resource_wsi8r"]
+script = ExtResource("2_rnxoe")
+metadata/_custom_type_script = "uid://qx2qfyjcwdb8"
+
+[resource]
+script = ExtResource("3_xymge")
+type = 2
+energy_cost = 2
+name = "Barrier"
+description = "Craft a wall with [color=#43A047]4[/color] x [color=orange]defense[/color] HP. Lose all [color=orange]defense[/color]."
+play_actions = Array[ExtResource("1_0oin5")]([SubResource("Resource_wsi8r")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

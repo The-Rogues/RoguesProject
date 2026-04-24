@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bgimycq4ousci"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_y2qq1"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_2at4h"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="2_wxook"]
+
+[sub_resource type="Resource" id="Resource_m3ary"]
+script = ExtResource("2_wxook")
+operation = 1
+trait_category = 1
+weight = 4
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[resource]
+script = ExtResource("2_2at4h")
+type = 2
+energy_cost = 2
+name = "Forage"
+description = "Gain [color=#43A047]5[/color] [color=orange]defense[/color]."
+play_actions = Array[ExtResource("1_y2qq1")]([SubResource("Resource_m3ary")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

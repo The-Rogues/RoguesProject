@@ -111,6 +111,23 @@ var battle_field: BattleField
 	#
 	#pass
 
+func move_out_of_cover() -> void:
+	
+	var empty_positions: Array[BattlePosition]
+	for i in range(0, battle_field.battle_positions.size()):
+		if battle_field.battle_positions[i].get_object() == null:
+			if battle_field.battle_positions[i] != player.battle_position:
+				empty_positions.append(battle_field.battle_positions[i])
+	
+	if empty_positions.size() == 0:
+		return
+	
+	await battle_field.move_player(
+		player, 
+		empty_positions.pick_random()
+	)
+	entered_new_position.emit()
+
 func position_state_updated():
 	if player.battle_position.has_effect():
 		player.battle_position.get_effect().on_player_entered(player)

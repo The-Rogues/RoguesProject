@@ -16,7 +16,7 @@ func load_run() -> RunProgress:
 		return null
 	
 	var r = ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE) as RunProgress
-	if r.initialized:
+	if r != null && r.initialized:
 		return r
 	
 	return null

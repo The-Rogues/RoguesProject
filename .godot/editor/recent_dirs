@@ -1,3 +1,9 @@
+res://content/cards/crafty_cards/repurpose/
+res://content/cards/crafty_cards/maintain/
+res://content/cards/crafty_cards/forage/
+res://content/cards/crafty_cards/build_wall/
+res://content/cards/stoic_cards/smash/
+res://content/cards/stoic_cards/challenge/
 res://character_creator/
 res://common/art/random_art/
 res://personality_system/PlayerCharacter/TextureVarients/
@@ -14,9 +20,3 @@ res://content/monsters/skeleton_archer/moves/
 res://battle_scene/entities/projectiles/arrow/
 res://battle_scene/battle_field/position_effects/common/
 res://content/monsters/gatling_worm/moves/
-res://content/scene_configuration/enemy_encounters/
-res://content/monsters/gatling_worm/
-res://content/monsters/large_fire_ant/
-res://content/monsters/large_fire_ant/moves/
-res://battle_scene/entities/status_effects/common/
-res://content/cards/skittish_cards/
