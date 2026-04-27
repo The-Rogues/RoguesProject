@@ -1,8 +1,7 @@
+res://content/cards/Valorous/Final Push/
+res://content/cards/Valorous/RecklessRush/
 res://content/cards/crafty_cards/repurpose/
-res://content/cards/crafty_cards/maintain/
 res://content/cards/crafty_cards/forage/
-res://content/cards/crafty_cards/build_wall/
-res://content/cards/stoic_cards/smash/
 res://content/cards/stoic_cards/challenge/
 res://character_creator/
 res://common/art/random_art/
@@ -13,7 +12,6 @@ res://common/art/placeholder/stealthix/Fires-Black/
 res://content/cards/traitless_cards/
 res://
 res://content/cards/tactical_cards/charge_shot/
-res://content/cards/tactical_cards/power_up/
 res://content/cards/greedy_cards/
 res://content/monsters/skeleton_archer/
 res://content/monsters/skeleton_archer/moves/
