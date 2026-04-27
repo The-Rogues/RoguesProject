@@ -32,10 +32,11 @@ const RESPONSE_GRAMMAR: String = """root ::= ([0-9]+" ")+"""
 # Description: Initilizes the chat and model children of the AiCardProcessor scene.
 # Return: Void.
 func _ready() -> void:
+	print("here")
 	slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-IQ3_M.gguf"
 	slf_chat.model_node = slf_model
 	slf_chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)
-	slf_chat.system_prompt = SYSTEM_PROMPT
+	#slf_chat.system_prompt = SYSTEM_PROMPT
 	slf_chat.start_worker() # This may be unnecessary. Do further research.
 
 # --process_card Function--
@@ -44,6 +45,8 @@ func _ready() -> void:
 # card_data: CardData resource extended with a list of card options.
 # Return: CardData resource that the AI card resolves to.
 func process_card(personality: PersonalityData, card_data: AiCardData) -> CardData:
+	# Replace system prompt with defs of card components.
+	slf_chat.system_prompt = generate_sys_prompt(card_data)
 	
 	# Generate the prompt to send to the AI.
 	var prompt_str: String = generate_prompt(personality, card_data)
@@ -82,18 +85,30 @@ func generate_prompt(personality: PersonalityData, card_data: AiCardData) -> Str
 	ret_val += "- Strategic Personality Weight: " + str(personality.strategic_weight) + "\n"
 	ret_val += "### Base Option\n"
 	ret_val += "{\"energy\":" + str(card_data.default_option.energy_cost) + ","
-	ret_val += "\"component\":\"" + str(CardGenConst.CardGenMap[card_data.default_option.card_option]) + "\"}\n"
+	ret_val += "\"component\":\"" + str(CardGenConst.CardGenNames[card_data.default_option.card_option]) + "\"}\n"
 	ret_val += "### Choice Options\n"
 	
 	# For each card option, list its index, energy cost, and identifier.
 	for i in range(0, card_data.ai_options.size()):
 		ret_val += "- Option " + str(i) + ": "
 		ret_val += "{\"energy\":" + str(card_data.ai_options[i].energy_cost) + ","
-		ret_val += "\"component\":\"" + str(CardGenConst.CardGenMap[card_data.ai_options[i].card_option]) + "\"}\n"
+		ret_val += "\"component\":\"" + str(CardGenConst.CardGenNames[card_data.ai_options[i].card_option]) + "\"}\n"
 	
 	# Confirm response format at prompt end.
 	ret_val += "### Response Format\n"
 	ret_val += "Return only a series of numbers separated by spaces. These numbers should corespond to the choice options. There should be no repeated numbers. Return one, two, or three numbers."
+	return ret_val
+
+func generate_sys_prompt(card_data: AiCardData) -> String:
+	var ret_val: String = "### Definitions\n"
+	var option_types: Array[CardGenConst.CardGenEnum] = []
+	option_types.append(card_data.default_option.card_option)
+	for i in range(0, card_data.ai_options.size()):
+		if !option_types.has(card_data.ai_options[i].card_option):
+			option_types.append(card_data.ai_options[i].card_option)
+	for i in range(0, option_types.size()):
+		ret_val += "- " + str(CardGenConst.CardGenNames[option_types[i]]) + ": "
+		ret_val += str(CardGenConst.CardGenDefs[option_types[i]]) + "\n"
 	return ret_val
 
 # --parse_response Function--
