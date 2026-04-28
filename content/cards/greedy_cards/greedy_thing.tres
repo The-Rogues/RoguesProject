@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bqib0ht4r3wbf"]
-
-[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_tg1jm"]
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_cctiv"]
-
-[resource]
-script = ExtResource("2_cctiv")
-description = ""
-metadata/_custom_type_script = "uid://eoxthn8b82t6"

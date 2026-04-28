@@ -1,4 +1,9 @@
+res://content/cards/greedy_cards/greedy_explosion/
 res://content/cards/greedy_cards/
+res://content/cards/greedy_cards/greed_move/
+res://content/objects/treasure_hoard/
+res://content/cards/greedy_cards/treasure_hoard/
+res://content/cards/greedy_cards/magnifying_glass/
 res://content/cards/crafty_cards/repurpose/
 res://content/cards/crafty_cards/forage/
 res://content/cards/stoic_cards/challenge/
@@ -15,4 +20,3 @@ res://content/monsters/skeleton_archer/
 res://content/monsters/skeleton_archer/moves/
 res://battle_scene/entities/projectiles/arrow/
 res://battle_scene/battle_field/position_effects/common/
-res://content/monsters/gatling_worm/moves/

@@ -461,10 +461,10 @@ radius = 14.035668
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_qcblo")
-status = SubResource("Resource_mlfnm")
 speed = 420.0
 damage = 6
 life_span = NodePath("LifeSpan")
+status = SubResource("Resource_mlfnm")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=753249800]
 

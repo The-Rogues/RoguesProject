@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatusEffectConfig" format=3 uid="uid://dwn7p73ipb6dn"]
+
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="1_5p1tv"]
+[ext_resource type="Resource" uid="uid://7lw2pqf7mdmq" path="res://content/cards/greedy_cards/gem_behavior/gem_behavior.tres" id="1_6g64t"]
+
+[resource]
+script = ExtResource("1_5p1tv")
+behaviour = ExtResource("1_6g64t")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"

@@ -1,3 +1,3 @@
-res://card_system/card_data.gd
+res://content/cards/greedy_cards/gem_behavior.gd
 AtlasTexture
 Curve

@@ -26,9 +26,11 @@ func take_damage(amount:int, _attacker = null):
 	
 	sprite_2d.flash()
 	
-	
 	if (_attacker is PlayerEntity 
 			and data.interaction == ObjectData.InteractionOption.ON_HIT):
+		interact()
+	elif ((_attacker is PlayerEntity || _attacker is MonsterEntity)
+			and data.interaction == ObjectData.InteractionOption.ON_HIT_BOTH):
 		interact()
 
 

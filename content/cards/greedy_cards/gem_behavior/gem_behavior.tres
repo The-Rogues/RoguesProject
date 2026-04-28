@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GemEffect" format=3 uid="uid://7lw2pqf7mdmq"]
+
+[ext_resource type="Script" uid="uid://bj6lhugnigdcn" path="res://content/cards/greedy_cards/gem_behavior/gem_behavior.gd" id="1_hffw5"]
+
+[resource]
+script = ExtResource("1_hffw5")
+metadata/_custom_type_script = "uid://bj6lhugnigdcn"

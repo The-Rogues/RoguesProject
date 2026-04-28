@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://df8onaglb031c"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_8fawf"]
+[ext_resource type="Resource" uid="uid://c75rv4a5xwpc8" path="res://content/objects/treasure_pile/treasure_pile.tres" id="2_c065d"]
+[ext_resource type="Script" uid="uid://b3fvjsgb155cu" path="res://content/cards/greedy_cards/life_savings/random_place_action.gd" id="3_anwup"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_lm2bu"]
+
+[sub_resource type="Resource" id="Resource_cuocj"]
+script = ExtResource("3_anwup")
+object = ExtResource("2_c065d")
+metadata/_custom_type_script = "uid://b3fvjsgb155cu"
+
+[resource]
+script = ExtResource("4_lm2bu")
+type = 2
+energy_cost = 1
+name = "Life Savings"
+description = "Place a [color=#43A047]15[/color] HP treasure pile at a random available [color=orange]position[/color]."
+play_actions = Array[ExtResource("1_8fawf")]([SubResource("Resource_cuocj")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
