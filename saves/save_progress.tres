@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="RunProgress" format=3]
+
+[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_f04e1"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_i06bj"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_fcpjs"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_jfmdv"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="6_ce22o"]
+[ext_resource type="Script" path="res://item_system/item_data.gd" id="7_3l5uq"]
+[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="8_7xv35"]
+[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_f04e1"]
+[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="10_iofhu"]
+[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="11_5nlej"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="12_i06bj"]
+[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="12_k3uip"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/spear.tres" id="13_sds6a"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="14_jfmdv"]
+[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="16_ff1hj"]
+[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="17_rjjt7"]
+[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="18_ugj3v"]
+
+[sub_resource type="Resource" id="Resource_uahfr"]
+script = ExtResource("10_iofhu")
+offensive_trait = ExtResource("8_f04e1")
+offensive_weight = 2
+defensive_trait = ExtResource("8_7xv35")
+defensive_weight = 1
+strategic_trait = ExtResource("11_5nlej")
+strategic_weight = 2
+priority_trait = ExtResource("11_5nlej")
+
+[sub_resource type="Resource" id="Resource_ce22o"]
+script = ExtResource("12_k3uip")
+name = "Moses"
+max_health = 70
+current_health = 70
+current_energy = 3
+max_energy = 3
+item_capacity = 1
+cards = Array[ExtResource("1_f04e1")]([ExtResource("2_i06bj"), ExtResource("2_i06bj"), ExtResource("2_i06bj"), ExtResource("3_fcpjs"), ExtResource("4_jfmdv"), ExtResource("4_jfmdv"), ExtResource("4_jfmdv"), ExtResource("4_jfmdv"), ExtResource("6_ce22o"), ExtResource("6_ce22o"), ExtResource("6_ce22o"), ExtResource("6_ce22o")])
+gold = 23
+personality = SubResource("Resource_uahfr")
+
+[resource]
+script = ExtResource("16_ff1hj")
+player_data = SubResource("Resource_ce22o")
+player_texture = ExtResource("14_jfmdv")
+player_melee_weapon_texture = ExtResource("12_i06bj")
+player_ranged_weapon_texture = ExtResource("13_sds6a")
+player_name = "Moses"
+player_backstory = ""
+map_seed = 1347393787
+player_node_index = 5
+single_time_mini_events = Array[ExtResource("17_rjjt7")]([ExtResource("18_ugj3v")])
+total_rooms_explored = 2
+initialized = true

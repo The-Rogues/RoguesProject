@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cudcljbp6s7i2" path="res://battle_scene/entities/player/melee_weapon/short_sword.tres" id="16_v040o"]
 [ext_resource type="Texture2D" uid="uid://domn773wxth76" path="res://battle_scene/entities/player/melee_weapon/long_sword.tres" id="17_40a81"]
 [ext_resource type="Texture2D" uid="uid://dxt2iuh6d67b2" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="18_ojf1h"]
-[ext_resource type="Texture2D" uid="uid://ero20xpbkdnc" path="res://battle_scene/entities/player/melee_weapon/gauntlet.tres" id="19_morx5"]
 [ext_resource type="Texture2D" uid="uid://n1r1l3lmk3ei" path="res://battle_scene/entities/player/melee_weapon/cane.tres" id="20_kxkvj"]
 [ext_resource type="Texture2D" uid="uid://cwoyj50k2qy55" path="res://battle_scene/entities/player/melee_weapon/spear.tres" id="21_b67tb"]
 [ext_resource type="Texture2D" uid="uid://bxen4dfn76trb" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="22_3ctbe"]
@@ -121,11 +120,11 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ojf1h"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_b67tb"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_morx5"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_3ctbe"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_kxkvj"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_ubd7s"]
 
 [node name="CharacterCreator" type="Control" unique_id=120215782]
 layout_mode = 3
@@ -317,16 +316,16 @@ layout_mode = 2
 text = "Aggression"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_ojf1h")
+button_group = SubResource("ButtonGroup_b67tb")
 
 [node name="Low" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_ojf1h")
+button_group = SubResource("ButtonGroup_b67tb")
 
 [node name="High" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_ojf1h")
+button_group = SubResource("ButtonGroup_b67tb")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_ojf1h")
+button_group = SubResource("ButtonGroup_b67tb")
 
 [node name="ResolveSurvey" parent="Elements/PersonalitySurveys" unique_id=325705533 instance=ExtResource("10_g1dsd")]
 unique_name_in_owner = true
@@ -336,16 +335,16 @@ layout_mode = 2
 text = "Resolve"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_morx5")
+button_group = SubResource("ButtonGroup_3ctbe")
 
 [node name="Low" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_morx5")
+button_group = SubResource("ButtonGroup_3ctbe")
 
 [node name="High" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_morx5")
+button_group = SubResource("ButtonGroup_3ctbe")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_morx5")
+button_group = SubResource("ButtonGroup_3ctbe")
 
 [node name="HighLabel" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="5" unique_id=573113404]
 text = "high"
@@ -358,16 +357,16 @@ layout_mode = 2
 text = "Quirkiness"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_ubd7s")
 
 [node name="Low" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_ubd7s")
 
 [node name="High" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_ubd7s")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_ubd7s")
 
 [node name="Options" type="HBoxContainer" parent="Elements" unique_id=1837197351]
 layout_mode = 2
@@ -396,7 +395,7 @@ layout_mode = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-textures = Array[Texture2D]([ExtResource("16_v040o"), ExtResource("17_40a81"), ExtResource("18_ojf1h"), ExtResource("19_morx5"), ExtResource("20_kxkvj"), ExtResource("21_b67tb"), ExtResource("22_3ctbe"), ExtResource("23_ubd7s"), ExtResource("24_y7uqb"), ExtResource("25_76q8r"), ExtResource("29_b67tb"), ExtResource("30_3ctbe"), ExtResource("31_ubd7s")])
+textures = Array[Texture2D]([ExtResource("16_v040o"), ExtResource("17_40a81"), ExtResource("18_ojf1h"), ExtResource("20_kxkvj"), ExtResource("21_b67tb"), ExtResource("22_3ctbe"), ExtResource("23_ubd7s"), ExtResource("24_y7uqb"), ExtResource("25_76q8r"), ExtResource("29_b67tb"), ExtResource("30_3ctbe"), ExtResource("31_ubd7s")])
 
 [node name="HeaderLabel" parent="MeleeWeaponTextureSelector" index="1" unique_id=24380699]
 text = "Select a melee weapon"
@@ -405,7 +404,7 @@ text = "Select a melee weapon"
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-textures = Array[Texture2D]([ExtResource("26_elfty"), ExtResource("27_h1idq"), ExtResource("24_y7uqb"), ExtResource("28_xo5uh"), ExtResource("29_yb5ok"), ExtResource("25_76q8r"), ExtResource("21_b67tb"), ExtResource("19_morx5"), ExtResource("23_ubd7s"), ExtResource("30_5s1si"), ExtResource("31_ubd7s"), ExtResource("36_3ctbe")])
+textures = Array[Texture2D]([ExtResource("26_elfty"), ExtResource("27_h1idq"), ExtResource("24_y7uqb"), ExtResource("28_xo5uh"), ExtResource("29_yb5ok"), ExtResource("25_76q8r"), ExtResource("21_b67tb"), ExtResource("23_ubd7s"), ExtResource("30_5s1si"), ExtResource("31_ubd7s"), ExtResource("36_3ctbe")])
 
 [node name="HeaderLabel" parent="RangedWeaponTextureSelector" index="1" unique_id=24380699]
 text = "Select a ranged weapon"
