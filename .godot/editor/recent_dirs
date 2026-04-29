@@ -1,3 +1,4 @@
+res://battle_scene/entities/
 res://content/scene_configuration/
 res://battle_scene/entities/player/ranged_weapon/
 res://battle_scene/entities/player/melee_weapon/
@@ -19,4 +20,3 @@ res://content/scene_configuration/enemy_encounters/tier_3_encounters/
 res://content/monsters/reaper/moves/
 res://content/monsters/reaper/
 res://content/items/card_packs/
-res://content/cards/tactical_cards/

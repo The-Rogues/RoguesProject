@@ -105,3 +105,11 @@ res://personality_system/personality_data.gd
 res://globals/player_initialization_data.gd
 res://character_creator/character_creator.gd
 res://main_menu/character_result_scene.gd
+res://battle_scene/entities/player/player_entity.tscn
+res://common/sprite_flasher/hit_flash.tres
+res://battle_scene/entities/entity_sound_manager.gd
+res://battle_scene/entities/monster/monster_entity.tscn
+res://options_menu/settings_menu.gd
+res://options_menu/settings_menu.tscn
+res://globals/music_management/music_manager.gd
+res://default_bus_layout.tres
