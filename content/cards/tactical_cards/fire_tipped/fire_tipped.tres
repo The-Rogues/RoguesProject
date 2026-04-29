@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="5_l7h8s"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_ed1e1"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yep3s"]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
+
 [sub_resource type="Resource" id="Resource_kja1y"]
 script = ExtResource("3_luube")
 metadata/_custom_type_script = "uid://di1j13j6xybid"
@@ -30,8 +37,10 @@ metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
 [resource]
 script = ExtResource("6_ed1e1")
 type = 2
+category = 1
 energy_cost = 3
 name = "Fire Tipped"
+display_texture = SubResource("AtlasTexture_yep3s")
 description = "Apply 2 Burn to projectiles until the end of battle."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_yep3s")]([SubResource("Resource_p11oh")])

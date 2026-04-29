@@ -69,7 +69,7 @@ func initialize(battle_config:BattleConfig):
 	player.cards.draw_pile_updated.connect(draw_pile_viewer.on_cards_updated)
 	player.cards.discard_pile_updated.connect(discard_pile_icon._on_card_pile_updated)
 	player.cards.discard_pile_updated.connect(discard_pile_viewer.on_cards_updated)
-	#player.cards.drew_card.connect(play_hand._on_card_drawn)
+	battle_field.object_placed.connect(creature_manager.add_object_enemy)
 	
 	GlobalSessionInterface.connect_to_player(player)
 	

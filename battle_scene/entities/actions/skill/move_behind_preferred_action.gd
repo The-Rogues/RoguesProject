@@ -1,4 +1,4 @@
-extends Action
+extends MovePlayerAction
 class_name MoveBehindPreferredAction
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):

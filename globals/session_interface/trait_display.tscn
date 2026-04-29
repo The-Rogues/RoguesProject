@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://pxlprseij451" path="res://common/tooltip_panel/hover_context_popup.gd" id="3_m1o0a"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="4_17dya"]
 
-
 [node name="TraitDisplay" type="Control" unique_id=1400420390]
 custom_minimum_size = Vector2(100, 28)
 layout_mode = 3
@@ -56,3 +55,17 @@ theme_override_fonts/font = ExtResource("2_agxqj")
 theme_override_font_sizes/font_size = 12
 text = "10"
 horizontal_alignment = 1
+
+[node name="OperationLabel" type="Label" parent="Offensive" unique_id=1821945218]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("2_agxqj")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="OperationTimer" type="Timer" parent="." unique_id=1633406092]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="OperationTimer" to="." method="_on_operation_timer_timeout"]

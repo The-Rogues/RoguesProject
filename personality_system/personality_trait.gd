@@ -5,6 +5,7 @@ class_name PersonalityTrait
 enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
 #enum EnemyPreference { HEALTHIEST, WEAKEST, DANGEROUS, INTELEGENT }
 
+@export var display_texture:Texture2D
 @export var name:String
 @export_multiline var description:String
 @export var trait_category:TraitCategory

@@ -34,7 +34,7 @@ func place_object(data:ObjectData) -> void:
 	object_entity.initialize(data)
 	_object = object_entity
 	
-	_object.health.died.connect(remove_object)
+	_object.destroyed.connect(remove_object)
 	object_entity.on_placed()
 	object_state_updated.emit()
 	#floating_text.create("Placed " + data.name)
@@ -42,9 +42,8 @@ func place_object(data:ObjectData) -> void:
 	object_placed.emit(object_entity)
 
 
-func remove_object():
+func remove_object(__object:ObjectEntity):
 	if _object:
-		floating_text.create("Destroyed " + _object.data.name)
 		_object.queue_free()
 		_object = null
 		object_state_updated.emit()
@@ -96,7 +95,8 @@ func on_player_exited(player:PlayerEntity):
 				player.movement_controller.position_state_updated)
 	if _object:
 		_object.on_player_exited()
-		_object.health.died.disconnect(player.place_object)
+		if _object.health.died.is_connected(player.place_object):
+			_object.health.died.disconnect(player.place_object)
 
 
 func enter_turn(turn_count:int):

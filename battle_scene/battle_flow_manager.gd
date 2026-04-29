@@ -115,14 +115,17 @@ func run_enemy_turn():
 func _on_battle_ended():
 	battle_state = State.ENDED
 	
+	GlobalSessionInterface.disconnect_from_player(player)
+	GlobalSessionInterface.reset_stats_to_base_display()
+	
 	MusicManager.stop()
 	await get_tree().create_timer(2).timeout
 	
 	if !player.health.is_alive:
-		MusicManager.change_song(MusicManager.track_list.victory_theme)
+		MusicManager.change_song(MusicManager.track_list.defeated_theme)
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
 		rewards_screen.initialize()
-		MusicManager.change_song(MusicManager.track_list.defeated_theme)
+		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true

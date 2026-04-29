@@ -64,6 +64,9 @@ func take_damage(amount:int, _attacker = null):
 	health.take_damage(damage)
 	
 	effects.on_attacked(_attacker)
+	
+	if _attacker is AbstractEntity:
+		_attacker.set_last_attacked_entity(self)
 
 
 func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):
@@ -86,7 +89,7 @@ func enter_turn(_turn_count:int):
 	effects.on_entered_turn()
 	#effects.decay_status_effects()
 	energy.refill()
-	
+	turn_entered.emit()
 
 
 func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):

@@ -6,7 +6,7 @@ signal entered_new_position
 
 var player: PlayerEntity
 var battle_field: BattleField
-
+var can_move:bool = true
 
 #func move_by_offset(offset: int) -> void:
 	#if !battle_field or !player:
@@ -115,6 +115,7 @@ func position_state_updated():
 	if player.battle_position.has_effect():
 		player.battle_position.get_effect().on_player_entered(player)
 
+
 func find_decoy_position() -> BattlePosition:
 	for i in range(0, battle_field.battle_positions.size()):
 		if battle_field.battle_positions[i].get_object() != null:
@@ -124,7 +125,9 @@ func find_decoy_position() -> BattlePosition:
 				return battle_field.battle_positions[i]
 	return null
 
+
 func move_behind_perferred_object() -> void:
+	if can_move == false: return
 	
 	var curr_objects: Array[ObjectEntity] = get_battle_field_objects()
 	if curr_objects.size() < 1:
@@ -142,7 +145,9 @@ func move_behind_perferred_object() -> void:
 	)
 	entered_new_position.emit()
 
+
 func move_behind_object_type(in_type: ObjectData.MoveTargetingCategory) -> void:
+	if can_move == false: return
 	
 	var eligible_objects: Array[ObjectEntity]
 	var all_objects: Array[ObjectEntity] = get_battle_field_objects()
@@ -162,7 +167,9 @@ func move_behind_object_type(in_type: ObjectData.MoveTargetingCategory) -> void:
 	)
 	entered_new_position.emit()
 
+
 func move_toward_perfered_object(num_spaces: int) -> void:
+	if can_move == false: return
 	num_spaces = clamp(num_spaces, 1, 4)
 	
 	var player_index = battle_field.battle_positions.find(
@@ -187,7 +194,9 @@ func move_toward_perfered_object(num_spaces: int) -> void:
 		return
 	move_player_left(num_spaces)
 
+
 func move_player_left(num_spaces: int) -> void:
+	if can_move == false: return
 	var player_index = battle_field.battle_positions.find(
 		player.battle_position
 	)
@@ -203,7 +212,9 @@ func move_player_left(num_spaces: int) -> void:
 	)
 	entered_new_position.emit()
 
+
 func move_player_right(num_spaces: int) -> void:
+	if can_move == false: return
 	var player_index = battle_field.battle_positions.find(
 		player.battle_position
 	)
@@ -219,11 +230,13 @@ func move_player_right(num_spaces: int) -> void:
 	)
 	entered_new_position.emit()
 
+
 func get_battle_position_by_object(in_object: ObjectEntity) -> BattlePosition:
 	for i in range(0, battle_field.battle_positions.size()):
 		if in_object == battle_field.battle_positions[i].get_object():
 			return battle_field.battle_positions[i]
 	return null
+
 
 func get_battle_field_objects() -> Array[ObjectEntity]:
 	var ret_val: Array[ObjectEntity]

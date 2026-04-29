@@ -43,6 +43,7 @@ metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
 [resource]
 script = ExtResource("2_ithr1")
 type = 2
+category = 1
 energy_cost = 1
 name = "Intimidate"
 description = "If offense is higher than 5, spend it to apply 2 Scared. "

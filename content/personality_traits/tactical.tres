@@ -8,8 +8,16 @@
 [ext_resource type="Resource" uid="uid://bgutrc02omy4f" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="5_yo5tu"]
 [ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="7_qjbdy"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjbdy"]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
+
 [resource]
 script = ExtResource("2_jobh0")
+display_texture = SubResource("AtlasTexture_qjbdy")
 name = "Tactical"
 description = "Silent. Targets most dangerous enemies. Prefers seeking cover."
 enemy_targeting_preference = 2

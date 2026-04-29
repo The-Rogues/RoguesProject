@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PersonalityCardRewardData" format=3 uid="uid://cdn604odwcjse"]
+
+[ext_resource type="Texture2D" uid="uid://cituqdafbrum" path="res://common/art/placeholder/nikoichu/Icons_Boardgames.png" id="1_hmptf"]
+[ext_resource type="Script" uid="uid://cabnmxb17rq6i" path="res://battle_scene/win_screen/rewards_data/personality_card_reward_data.gd" id="1_louc8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p55ak"]
+atlas = ExtResource("1_hmptf")
+region = Rect2(176, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_louc8")
+display_texture = SubResource("AtlasTexture_p55ak")
+name = "Choose 1 card."
+metadata/_custom_type_script = "uid://cabnmxb17rq6i"

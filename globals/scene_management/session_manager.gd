@@ -14,6 +14,7 @@ func _ready() -> void:
 		connect_run_signals()
 		await get_tree().process_frame
 		GlobalSessionInterface.initialize()
+		
 
 
 # -------------------------------------------------
@@ -114,10 +115,14 @@ func select_map_node(corr_node: RefCounted) -> void:
 	GlobalSaveManager.save_run(run_progress)
 	
 	if corr_node.node_data.mini_event != null:
-		var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
-		var mini_instance: Control = mini_event_scene.instantiate()
-		get_tree().current_scene.add_child(mini_instance)
-		mini_instance.init_screen(corr_node.node_data)
+		#var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
+		#var mini_instance: Control = mini_event_scene.instantiate()
+		#get_tree().current_scene.add_child(mini_instance)
+		#mini_instance.init_screen(corr_node.node_data)
+		var mini_event:PackedScene = load("res://mini_event_system/mini_event_interface.tscn")
+		var instance = mini_event.instantiate()
+		get_tree().current_scene.add_child(instance)
+		instance.initialize(corr_node.node_data)
 	else:
 		var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
 		callback.process_event()

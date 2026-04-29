@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://dg3cgivf8g00h"]
+
+[ext_resource type="Texture2D" uid="uid://xjxarck7mbne" path="res://content/objects/treasure_pot/treasure_pot_texture.tres" id="1_fqd70"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_pic4o"]
+[ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="2_gufj7"]
+[ext_resource type="Script" uid="uid://dlyrsdehcqr1v" path="res://mini_event_system/results/give_gold_event_result.gd" id="3_gc7t5"]
+[ext_resource type="Script" uid="uid://b76synm5erqo8" path="res://mini_event_system/results/change_health_event_result.gd" id="4_ubp76"]
+[ext_resource type="Script" uid="uid://brd5m732vyy5t" path="res://mini_event_system/results/random_event_result.gd" id="5_6ln2m"]
+
+[sub_resource type="Resource" id="Resource_r2c6q"]
+script = ExtResource("3_gc7t5")
+gold = 7
+metadata/_custom_type_script = "uid://dlyrsdehcqr1v"
+
+[sub_resource type="Resource" id="Resource_groy3"]
+script = ExtResource("4_ubp76")
+change_reason = "A snake jumps out and bites you.\\n"
+amount = -4
+metadata/_custom_type_script = "uid://b76synm5erqo8"
+
+[sub_resource type="Resource" id="Resource_qy707"]
+script = ExtResource("5_6ln2m")
+results = Array[ExtResource("2_gufj7")]([SubResource("Resource_r2c6q"), SubResource("Resource_groy3")])
+weights = Array[float]([4.0, 6.0])
+metadata/_custom_type_script = "uid://brd5m732vyy5t"
+
+[resource]
+script = ExtResource("1_pic4o")
+repeatable = true
+display_image = ExtResource("1_fqd70")
+scenario_text = "You find a pot. Something tells you there's something valuable inside. Do you open it?"
+option_1_text = "Yes, open it"
+option_2_text = "No, leave it"
+option_1_branch = Array[String](["You open the pot."])
+option_2_branch = Array[String](["You leave it alone and move on."])
+option_1_result = SubResource("Resource_qy707")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

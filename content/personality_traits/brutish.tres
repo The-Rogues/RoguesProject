@@ -6,8 +6,16 @@
 [ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="4_8mqyr"]
 [ext_resource type="Resource" uid="uid://8cc0qb3afpjw" path="res://content/cards/traitless_cards/arrow_shot.tres" id="4_83g7p"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kpd3a"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83g7p"]
+atlas = SubResource("CompressedTexture2D_kpd3a")
+region = Rect2(200, 480, 40, 40)
+
 [resource]
 script = ExtResource("2_ymgae")
+display_texture = SubResource("AtlasTexture_83g7p")
 name = "Brutish"
 description = "Willingly Violent. Targets weakest Enemies. Uses offensive Objects."
 enemy_targeting_preference = 4

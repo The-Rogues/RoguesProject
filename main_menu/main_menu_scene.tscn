@@ -263,6 +263,15 @@ theme_override_font_sizes/font_size = 16
 text = "Stealthix (https://stealthix.itch.io/animated-fires)"
 horizontal_alignment = 1
 
+[node name="JOI3" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=1847147211]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "JOI3 (https://joi3.itch.io/joi3s-free-pixel-art-emoji-icon)"
+horizontal_alignment = 1
+
 [node name="Return" type="Button" parent="CreditsMenu" unique_id=1584628513]
 layout_mode = 2
 size_flags_horizontal = 4

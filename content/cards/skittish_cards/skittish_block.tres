@@ -5,6 +5,13 @@
 [ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="3_lat5e"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_tr5xm"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qgpnc"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ycv8"]
+atlas = SubResource("CompressedTexture2D_qgpnc")
+region = Rect2(440, 440, 40, 40)
+
 [sub_resource type="Resource" id="Resource_uv3kd"]
 script = ExtResource("2_ycng4")
 amount = 6
@@ -14,14 +21,16 @@ metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
 script = ExtResource("3_lat5e")
 operation = 1
 trait_category = 1
-weight = 2
 metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("4_tr5xm")
 type = 2
+category = 2
 energy_cost = 1
 name = "Defend"
-description = "Moves toward desired object. Gain 2 defense."
+display_texture = SubResource("AtlasTexture_1ycv8")
+description = "Moves toward desired object. Gain 1
+ defense."
 play_actions = Array[ExtResource("1_1ycv8")]([SubResource("Resource_uv3kd"), SubResource("Resource_2niso")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

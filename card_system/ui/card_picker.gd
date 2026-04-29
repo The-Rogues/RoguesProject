@@ -27,8 +27,3 @@ func _on_card_chosen(card:Card):
 		run.player_data.add_card(card.instance.data)
 	
 	visible = false
-
-
-func _on_cancel_button_up() -> void:
-	visible = false
-	pass # Replace with function body.

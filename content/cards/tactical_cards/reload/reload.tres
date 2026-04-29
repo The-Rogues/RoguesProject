@@ -5,6 +5,13 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_x5wjp"]
 [ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="3_wikjn"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5c3e"]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
+
 [sub_resource type="Resource" id="Resource_0t41o"]
 script = ExtResource("3_wikjn")
 card = ExtResource("2_l5c3e")
@@ -20,8 +27,10 @@ metadata/_custom_type_script = "uid://d3geijhd5bvo"
 [resource]
 script = ExtResource("2_x5wjp")
 type = 2
+category = 1
 energy_cost = 2
 name = "Reload"
+display_texture = SubResource("AtlasTexture_l5c3e")
 description = "Shuffle 2 Shot cards into your draw pile."
 play_actions = Array[ExtResource("1_yt43j")]([SubResource("Resource_0t41o"), SubResource("Resource_g4qe6")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

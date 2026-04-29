@@ -33,9 +33,9 @@ func initialize(_data:MonsterData):
 	health.died.connect(on_destroyed)
 	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 	
-	health.died.connect(on_destroyed)
+	#health.died.connect(on_destroyed)
 	updated_targeting = data.init_targeting.duplicate()
-	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
+	#projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 
 
 
@@ -49,6 +49,9 @@ func take_damage(amount:int, _attacker = null):
 	DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
 	health.take_damage(damage)
 	effects.on_attacked(_attacker)
+	
+	if _attacker is AbstractEntity:
+		_attacker.set_last_attacked_entity(self)
 
 
 func on_destroyed():
@@ -61,6 +64,7 @@ func on_destroyed():
 
 func enter_turn(_turn_count:int):
 	super(_turn_count)
+	turn_entered.emit()
 
 
 func choose_intent():
