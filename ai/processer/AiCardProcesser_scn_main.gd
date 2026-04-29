@@ -32,7 +32,7 @@ const RESPONSE_GRAMMAR: String = """root ::= ([0-9]+" ")+"""
 # Description: Initilizes the chat and model children of the AiCardProcessor scene.
 # Return: Void.
 func _ready() -> void:
-	print("here")
+	#print("here")
 	slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-IQ3_M.gguf"
 	slf_chat.model_node = slf_model
 	slf_chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)

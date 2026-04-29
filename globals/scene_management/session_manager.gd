@@ -7,6 +7,9 @@ var run_progress: RunProgress = null
 var started_session:bool = false
 
 
+const DEFAULT_STARTING_DECK = preload("res://content/scene_configuration/default_starting_card_deck.tres")
+
+
 func _ready() -> void:
 	GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
 	
@@ -34,7 +37,7 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	var run:RunProgress = RunProgress.new()
 	
 	var player_data = PlayerData.new()
-	player_data.initialize(data.personality, data.personality.get_starting_deck())
+	player_data.initialize(data.personality, DEFAULT_STARTING_DECK.cards.duplicate(true))
 	run.player_data = player_data
 	run.player_data.name = data.name
 	run.player_name = data.name

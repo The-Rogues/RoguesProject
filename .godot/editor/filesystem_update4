@@ -100,3 +100,8 @@ res://content/scene_configuration/scripts/card_deck.gd
 res://globals/scene_management/session_manager.gd
 res://content/scene_configuration/default_starting_card_deck.tres
 res://AI/processer/AiCardProcesser_scn_main.gd
+res://personality_system/personality_trait.gd
+res://personality_system/personality_data.gd
+res://globals/player_initialization_data.gd
+res://character_creator/character_creator.gd
+res://main_menu/character_result_scene.gd

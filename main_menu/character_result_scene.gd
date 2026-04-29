@@ -47,8 +47,7 @@ func get_character_preview() -> PlayerInitializationData:
 			run_progress.player_texture,
 			run_progress.player_melee_weapon_texture,
 			run_progress.player_ranged_weapon_texture,
-			run_progress.player_data.personality,
-			run_progress.player_data.cards
+			run_progress.player_data.personality
 	)
 
 

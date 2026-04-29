@@ -14,7 +14,7 @@ enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
 @export var object_targeting_preference:ObjectData.MoveTargetingCategory
 
 @export var card_loot_pool:Array[CardData]
-@export var starter_cards:Array[CardData]
+#@export var starter_cards:Array[CardData]
 
 
 func get_strongest_target(enemies:Array[MonsterEntity]) -> MonsterEntity:

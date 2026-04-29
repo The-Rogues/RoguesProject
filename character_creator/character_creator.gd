@@ -139,8 +139,7 @@ func _on_save_button_up() -> void:
 		character_sprite.texture,
 		melee_weapon_sprite.texture,
 		ranged_weapon_sprite.texture,
-		personality,
-		personality.get_starting_deck()
+		personality
 	)
 	
 	character_created.emit(player_data)
