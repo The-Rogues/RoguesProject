@@ -8,7 +8,7 @@ enum MoveTargetingCategory {
 	THREAT,
 	DECOY
 }
-enum InteractionOption {NONE, ON_HIT, BUTTON, BUTTON_WITH_KEY, ON_ENTERED_TURN}
+enum InteractionOption {NONE, ON_HIT, ON_HIT_BOTH, BUTTON, BUTTON_WITH_KEY, ON_ENTERED_TURN}
 
 @export var targeting_categories: Array[MoveTargetingCategory]
 @export var interaction:InteractionOption
