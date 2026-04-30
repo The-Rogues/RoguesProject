@@ -1,4 +1,0 @@
-PersonalityTrait
-CardData
-AtlasTexture
-Curve
