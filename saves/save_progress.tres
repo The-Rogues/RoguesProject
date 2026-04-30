@@ -5,53 +5,52 @@
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_i06bj"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_sds6a"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_jfmdv"]
-[ext_resource type="Resource" path="res://content/cards/skittish_cards/escape_plan/escape_plan.tres" id="6_f04e1"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="6_uahfr"]
 [ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="7_ce22o"]
-[ext_resource type="Resource" path="res://content/personality_traits/tactical.tres" id="8_fcpjs"]
+[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_3l5uq"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_7xv35"]
-[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="10_8qiin"]
+[ext_resource type="Resource" path="res://content/personality_traits/friendly.tres" id="10_8qiin"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_iofhu"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/fire_saber.tres" id="12_f04e1"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/axe.tres" id="13_i06bj"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="14_sds6a"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/scepter.tres" id="12_5nlej"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="13_k3uip"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="14_t60l6"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="15_7v8y8"]
 [ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_5lbfv"]
 [ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="17_ff1hj"]
 
-[sub_resource type="Resource" id="Resource_jfmdv"]
+[sub_resource type="Resource" id="Resource_rjjt7"]
 script = ExtResource("9_7xv35")
-offensive_trait = ExtResource("8_fcpjs")
+offensive_trait = ExtResource("8_3l5uq")
 offensive_weight = 2
 defensive_trait = ExtResource("7_ce22o")
 defensive_weight = 1
 strategic_trait = ExtResource("10_8qiin")
 strategic_weight = 1
-priority_trait = ExtResource("8_fcpjs")
+priority_trait = ExtResource("8_3l5uq")
 
-[sub_resource type="Resource" id="Resource_uahfr"]
+[sub_resource type="Resource" id="Resource_ugj3v"]
 script = ExtResource("11_iofhu")
-name = "Moses"
+name = "Robin"
 max_health = 70
 current_health = 70
 current_energy = 3
 max_energy = 3
 item_capacity = 1
-cards = Array[ExtResource("1_fcpjs")]([ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("3_i06bj"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("6_f04e1")])
-personality = SubResource("Resource_jfmdv")
+cards = Array[ExtResource("1_fcpjs")]([ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("3_i06bj"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv")])
+personality = SubResource("Resource_rjjt7")
 
 [resource]
 script = ExtResource("15_7v8y8")
-player_data = SubResource("Resource_uahfr")
-player_texture = ExtResource("14_sds6a")
-player_melee_weapon_texture = ExtResource("12_f04e1")
-player_ranged_weapon_texture = ExtResource("13_i06bj")
-player_name = "Moses"
+player_data = SubResource("Resource_ugj3v")
+player_texture = ExtResource("14_t60l6")
+player_melee_weapon_texture = ExtResource("12_5nlej")
+player_ranged_weapon_texture = ExtResource("13_k3uip")
+player_name = "Robin"
 player_backstory = ""
-map_seed = 3428513981
-player_node_index = 2
-pending_node_index = 5
+map_seed = 1908691056
+player_node_index = 24
+pending_node_index = 27
 room_in_progress = true
 single_time_mini_events = Array[ExtResource("16_5lbfv")]([ExtResource("17_ff1hj")])
-total_rooms_explored = 1
+total_rooms_explored = 8
 initialized = true

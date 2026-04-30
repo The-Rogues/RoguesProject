@@ -13,7 +13,7 @@ func _on_card_drawn(card:CardInstance):
 
 func _is_movement_card(data:CardData):
 	for action in data.play_actions:
-		if action is MovePlayerAction:
+		if action.get_script() is MovePlayerAction:
 			return true
 	
 	return false

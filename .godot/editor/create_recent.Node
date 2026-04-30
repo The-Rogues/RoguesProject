@@ -1,5 +1,5 @@
-AudioStreamPlayer
 Node
+AudioStreamPlayer
 Control
 TextureRect
 VBoxContainer
@@ -12,4 +12,3 @@ ColorRect
 RichTextLabel
 MarginContainer
 Node2D
-Sprite2D

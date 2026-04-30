@@ -1,3 +1,6 @@
+res://options_menu/
+res://common/particle_effects/
+res://content/items/card_packs/
 res://battle_scene/entities/
 res://content/scene_configuration/
 res://battle_scene/entities/player/ranged_weapon/
@@ -17,6 +20,3 @@ res://content/monsters/savage/
 res://content/monsters/savage/moves/
 res://battle_scene/entities/status_effects/common/
 res://content/scene_configuration/enemy_encounters/tier_3_encounters/
-res://content/monsters/reaper/moves/
-res://content/monsters/reaper/
-res://content/items/card_packs/

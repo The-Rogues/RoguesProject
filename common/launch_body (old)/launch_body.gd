@@ -12,10 +12,11 @@ var bounces:int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var timer: Timer = $Timer
 @onready var sprite_flasher: SpriteFlasher = $SpriteFlasher
+@onready var launch_sound: AudioStreamPlayer = $LaunchSound
+@onready var wall_hit_sound: AudioStreamPlayer = $WallHitSound
 
-const POP_PARTICLES = preload(
-	"res://General/Effects/Particles/star_pop.tscn"
-)
+
+const POP_PARTICLES = preload("res://common/particle_effects/star_pop.tscn")
 var is_active:bool = false
 
 
@@ -35,6 +36,7 @@ func launch(direction:Vector2):
 	spawn_particles(global_position)
 	visible = true
 	sprite_2d.visible = true
+	launch_sound.play()
 
 
 func _physics_process(delta):
@@ -50,11 +52,13 @@ func _physics_process(delta):
 		velocity = velocity.bounce(bounce_direction)
 		var angle_variation = randf_range(-bounce_range, bounce_range)
 		velocity = velocity.rotated(angle_variation)
-		sprite_flasher.flash(Color.WHITE)
+		sprite_flasher.flash()
+		wall_hit_sound.play()
 	
 	if bounces >= bounce_count:
 		velocity = Vector2.ZERO
 		is_active = false
+		wall_hit_sound.play()
 		spawn_particles(global_position)
 		animation_player.stop(true)
 		queue_free()
