@@ -1,0 +1,15 @@
+AudioStreamPlayer
+Node
+Control
+TextureRect
+VBoxContainer
+HBoxContainer
+Timer
+Button
+Label
+Panel
+ColorRect
+RichTextLabel
+MarginContainer
+Node2D
+Sprite2D
