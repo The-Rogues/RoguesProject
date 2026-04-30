@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://svatns4ki80t" path="res://card_system/card_handler.gd" id="9_elg6u"]
 [ext_resource type="PackedScene" uid="uid://nxd0nkvcjmf6" path="res://battle_scene/entities/ui/creature_stat_display.tscn" id="11_elg6u"]
 [ext_resource type="PackedScene" uid="uid://bjyogff5ux6jl" path="res://battle_scene/entities/player/object_slot.tscn" id="12_u807v"]
+[ext_resource type="Script" uid="uid://laanchd48n58" path="res://battle_scene/entities/entity_sound_manager.gd" id="17_6cvbu"]
+[ext_resource type="AudioStream" uid="uid://ksetwk3weihh" path="res://common/sound_effects/helton_yans_pixel_combat/DSGNImpt_MELEE-Hollow Punch_HY_PC-005.wav" id="18_3ocsx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_elg6u"]
 atlas = ExtResource("2_x21no")
@@ -449,3 +451,16 @@ offset_bottom = -89.0
 
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=652373515]
 position = Vector2(0, -45)
+
+[node name="EntitySoundManager" type="Node" parent="." unique_id=1838917864 node_paths=PackedStringArray("entity")]
+script = ExtResource("17_6cvbu")
+entity = NodePath("..")
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="EntitySoundManager" unique_id=391799057]
+unique_name_in_owner = true
+stream = ExtResource("18_3ocsx")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="EntitySoundManager" unique_id=791266095]
+unique_name_in_owner = true
+bus = &"SFX"

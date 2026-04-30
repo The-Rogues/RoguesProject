@@ -8,6 +8,8 @@ signal enemy_spawned(monster:MonsterEntity)
 
 @export var template_enemy:PackedScene
 @export var spawn_parent:Node2D
+
+var enemy_objects:Array[ObjectEntity] = []
 var enemies:Array[MonsterEntity]
 var player:PlayerEntity
 
@@ -74,6 +76,15 @@ func _position_enemies():
 		enemies[i].global_position = Vector2(start_x + i * spacing, y_pos)
 
 
+func add_object_enemy(object:ObjectEntity):
+	if object.data.is_enemy:
+		enemy_objects.append(object)
+		object.destroyed.connect(
+			func(_object):
+				enemy_objects.erase(_object)
+				check_enemy_defeat_condition())
+
+
 func _on_creature_defeated(creature:AbstractCreature):
 	if creature is PlayerEntity:
 		player_defeated.emit()
@@ -81,10 +92,15 @@ func _on_creature_defeated(creature:AbstractCreature):
 		enemy_defeated.emit(creature)
 		enemies.erase(creature)
 		
-		if enemies.is_empty():
-			all_enemies_defeated.emit()
+		check_enemy_defeat_condition()
 		
 		creature.queue_free()
+
+
+func check_enemy_defeat_condition():
+	if enemies.is_empty() and enemy_objects.is_empty():
+			all_enemies_defeated.emit()
+
 
 func update_attack_targeting() -> void:
 	reset_attack_targeting()

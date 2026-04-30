@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://b5mjabrfcjlfm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x6xvc"]
+load_path = "res://.godot/imported/items-palette-swaps.png-28a055cca0f096418334a5538b995c4e.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_x6xvc")
+region = Rect2(128, 1280, 32, 32)

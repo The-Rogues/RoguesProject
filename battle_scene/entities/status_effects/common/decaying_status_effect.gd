@@ -14,7 +14,7 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "Will die in " + str(_instance.duration) + "turns."
+	return "Will die in " + str(_instance.duration) + " turns."
 
 
 func get_texture() -> Texture2D:

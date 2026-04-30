@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://i53d2eal7e8r"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_tsxkl"]
+[ext_resource type="Script" uid="uid://cdt7n4yhqcxp8" path="res://content/cards/greedy_cards/unearth/gem_position/gem_position_effect_behavior.gd" id="2_iuol3"]
+[ext_resource type="Resource" uid="uid://co6yteexgbuvt" path="res://content/cards/greedy_cards/unearth/gem_position/gem_position_effect_display.tres" id="3_kavr8"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="4_lhyk0"]
+[ext_resource type="Script" uid="uid://bud06kwphwcgv" path="res://content/cards/greedy_cards/unearth/fill_opportunity_action.gd" id="5_eqkih"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_2rlxx"]
+
+[sub_resource type="Resource" id="Resource_l1i6o"]
+script = ExtResource("2_iuol3")
+metadata/_custom_type_script = "uid://cdt7n4yhqcxp8"
+
+[sub_resource type="Resource" id="Resource_s1a45"]
+script = ExtResource("4_lhyk0")
+behaviour = SubResource("Resource_l1i6o")
+display = ExtResource("3_kavr8")
+duration = -1
+stack = 1
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_3n4gp"]
+script = ExtResource("5_eqkih")
+new_space = SubResource("Resource_s1a45")
+metadata/_custom_type_script = "uid://bud06kwphwcgv"
+
+[resource]
+script = ExtResource("6_2rlxx")
+type = 2
+energy_cost = 1
+name = "Unearth"
+description = "Replace all [color=orange]positions[/color] with [color=orange]gem positions[/color]. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_tsxkl")]([SubResource("Resource_3n4gp")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

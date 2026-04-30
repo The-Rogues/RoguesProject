@@ -6,10 +6,12 @@ signal clicked(card: Card)
 
 var instance:CardInstance
 
-@onready var card_name_label: Label = $CardNameHeader/CardNameLabel
+@onready var card_name_label: Label = %CardNameLabel
 @onready var card_cost_label: Label = $CardCostContainer/CardCostLabel
 @onready var card_description_label: RichTextLabel = $CardDescriptionArea/CardDescriptionLabel
 @onready var card_type_label: Label = $CardTypePlaque/CardTypeLabel
+@onready var display_texture_rect: TextureRect = %DisplayTextureRect
+@onready var card_edge: PanelContainer = %CardEdge
 
 
 var base_scale: Vector2
@@ -22,13 +24,24 @@ var interaction_mode:bool = false
 func initialize(_instance:CardInstance):
 	instance = _instance
 	
+	if _instance.data.display_texture:
+		display_texture_rect.texture = _instance.data.display_texture
 	card_name_label.text = _instance.data.name
 	card_description_label.text = parse_card_desciption(_instance.data.description)
 	card_type_label.text = _instance.data.get_type_to_string()
 	card_cost_label.text = str(_instance.energy_cost)
 	base_scale = scale
 	_instance.updated.connect(update_ui)
-
+	
+	match _instance.data.category:
+		CardData.Category.TRAITLESS:
+			card_edge.self_modulate = Color("ffffffff")
+		CardData.Category.OFFENSIVE:
+			card_edge.self_modulate = Color("f53c40")
+		CardData.Category.DEFENSIVE:
+			card_edge.self_modulate = Color("3dccff")
+		CardData.Category.STRATEGIC:
+			card_edge.self_modulate = Color("aef300")
 
 func update_ui():
 	parse_card_desciption(instance.data.description)

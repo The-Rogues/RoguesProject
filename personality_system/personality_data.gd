@@ -239,26 +239,25 @@ func set_trait_weight(trait_category:String, _weight:int) -> void:
 			offensive_weight = clampi(
 					offensive_weight, 
 					MINIMUM_WEIGHT, 
-					MINIMUM_WEIGHT)
+					MAXIMUM_WEIGHT)
 			updated_offensive_trait.emit(offensive_trait, offensive_weight)
 			updated.emit(self)
 		"DEFENSIVE":
 			defensive_weight = _weight
 			defensive_weight = clampi(defensive_weight, 
 					MINIMUM_WEIGHT, 
-					MINIMUM_WEIGHT)
+					MAXIMUM_WEIGHT)
 			updated_defensive_trait.emit(defensive_trait, defensive_weight)
 			updated.emit(self)
 		"STRATEGIC":
 			strategic_weight = _weight
 			strategic_weight = clampi(strategic_weight, 
 					MINIMUM_WEIGHT, 
-					MINIMUM_WEIGHT)
+					MAXIMUM_WEIGHT)
 			updated_strategic_trait.emit(strategic_trait, strategic_weight)
 			updated.emit(self)
 		_:
 			pass
-	
 	update_priority_trait()
 
 
@@ -272,13 +271,3 @@ func update_priority_trait() -> void:
 	if priority_trait != _priority_trait:
 		priority_trait = _priority_trait
 		updated_priority_trait.emit(priority_trait)
-
-
-# TODO: Consider moving to dedicated DeckBuilder class
-func get_starting_deck() -> Array[CardData]:
-	var deck:Array[CardData] = []
-	deck.append_array(offensive_trait.starter_cards)
-	deck.append_array(defensive_trait.starter_cards)
-	deck.append_array(strategic_trait.starter_cards)
-	
-	return deck

@@ -3,6 +3,7 @@ extends AudioStreamPlayer
 
 @export var track_list:TrackList
 @onready var masterBus : int = AudioServer.get_bus_index("Master")
+@onready var sound_effects : int = AudioServer.get_bus_index("SFX")
 var backgroundMusicIsOn = true
 var musicBus = AudioServer.get_bus_index("Music")
 
@@ -45,3 +46,7 @@ func set_music_volume(value: float):
 
 func set_master_volume(value: float): 
 	AudioServer.set_bus_volume_linear(masterBus, value)
+
+
+func set_sfx_volume(value: float):
+	AudioServer.set_bus_volume_linear(sound_effects, value)

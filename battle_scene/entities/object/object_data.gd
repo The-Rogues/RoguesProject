@@ -8,12 +8,13 @@ enum MoveTargetingCategory {
 	THREAT,
 	DECOY
 }
-enum InteractionOption {NONE, ON_HIT, BUTTON, BUTTON_WITH_KEY, ON_ENTERED_TURN}
+enum InteractionOption {NONE, ON_HIT, ON_HIT_BOTH, BUTTON, BUTTON_WITH_KEY, ON_ENTERED_TURN}
 
 @export var targeting_categories: Array[MoveTargetingCategory]
 @export var interaction:InteractionOption
 @export var interaction_actions:Array[Action]
 @export_range(-1, 10) var turn_interaction_counter:int = -1
+@export var is_enemy:bool = false
 # Behaviour scripts
 
 

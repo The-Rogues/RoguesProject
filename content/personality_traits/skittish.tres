@@ -3,12 +3,18 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_u5jvk"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_6k3ak"]
 [ext_resource type="Resource" uid="uid://bjmif7jljymoe" path="res://content/cards/traitless_cards/defend.tres" id="2_31c1a"]
+[ext_resource type="Resource" uid="uid://dt07iyph77k70" path="res://content/cards/skittish_cards/escape_plan/escape_plan.tres" id="2_u0mrf"]
+[ext_resource type="Resource" uid="uid://c4cex25p8arux" path="res://content/cards/skittish_cards/skittish_block.tres" id="3_lded7"]
+[ext_resource type="Resource" uid="uid://ca40y4htu81rg" path="res://content/cards/skittish_cards/plea.tres" id="4_hb3rg"]
+[ext_resource type="Resource" uid="uid://bwhog8444u2g5" path="res://content/cards/skittish_cards/trample/trample.tres" id="5_oerxl"]
+[ext_resource type="Texture2D" uid="uid://d3n5jucckygdh" path="res://common/art/placeholder/joi3/skittish_icon.tres" id="6_lded7"]
 
 [resource]
 script = ExtResource("2_6k3ak")
+display_texture = ExtResource("6_lded7")
 name = "Skittish"
 description = "Easy to scare. Targets weakest Enemies. Uses defensive objects."
 trait_category = 1
-card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_31c1a")])
+card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_u0mrf"), ExtResource("3_lded7"), ExtResource("4_hb3rg"), ExtResource("5_oerxl")])
 starter_cards = Array[ExtResource("1_u5jvk")]([ExtResource("2_31c1a"), ExtResource("2_31c1a"), ExtResource("2_31c1a"), ExtResource("2_31c1a")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

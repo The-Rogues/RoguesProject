@@ -4,8 +4,16 @@
 [ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="2_h1rhs"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_u7tgh"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pjfy1"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1rhs"]
+atlas = SubResource("CompressedTexture2D_pjfy1")
+region = Rect2(80, 680, 40, 40)
+
 [resource]
 script = ExtResource("2_u7tgh")
+display_texture = SubResource("AtlasTexture_h1rhs")
 name = "Greedy"
 description = "Excitable and short sighted. Targets strongest enemies. Moves towards treasures."
 trait_category = 2

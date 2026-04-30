@@ -1,4 +1,4 @@
-extends Action
+extends MovePlayerAction
 class_name MoveBehindTypeAction
 
 @export var target_type: ObjectData.MoveTargetingCategory

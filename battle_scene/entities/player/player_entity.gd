@@ -24,7 +24,8 @@ var data:PlayerData = null
 @onready var ranged_weapon_sprite: Sprite2D = $RangedWeapon/Sprite2D
 @onready var melee_weapon_sprite: Sprite2D = $MeleeWeapon/Sprite2D
 
-
+var ai_processer_scn: PackedScene = preload("res://ai/processer/AiCardProcesser.tscn")
+var ai_processer: AiCardProcesser = ai_processer_scn.instantiate()
 
 func initialize(_data:PlayerData):
 	health.initialize(_data.current_health, _data.max_health)
@@ -53,6 +54,8 @@ func initialize(_data:PlayerData):
 	health.died.connect(on_destroyed)
 	movement_controller.entered_new_position.connect(_on_enterned_new_position)
 	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
+	
+	add_child(ai_processer)
 
 
 func take_damage(amount:int, _attacker = null):
@@ -64,6 +67,9 @@ func take_damage(amount:int, _attacker = null):
 	health.take_damage(damage)
 	
 	effects.on_attacked(_attacker)
+	
+	if _attacker is AbstractEntity:
+		_attacker.set_last_attacked_entity(self)
 
 
 func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):
@@ -86,23 +92,36 @@ func enter_turn(_turn_count:int):
 	effects.on_entered_turn()
 	#effects.decay_status_effects()
 	energy.refill()
-	
+	turn_entered.emit()
 
 
 func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 	if energy.spend(card.instance.energy_cost):
 		cards.move_drawn_card_into_discard_pile(card.instance)
 		play_hand.confirm_play(card)
-		resolver.process_actions(card.instance.data.play_actions, self)
 		
-		effects.process_played_card(card.instance, resolver)
+		if card.instance.data is AiCardData:
+			var processed_card: CardData = await ai_processer.process_card(
+				data.personality,
+				card.instance.data
+			)
+			var processed_card_instance: CardInstance = CardInstance.new(processed_card)
+			cards.add_card_to_draw_pile(
+				processed_card_instance, 
+				true
+			)
+			cards.draw_cards(1)
+		else:
+			resolver.process_actions(card.instance.data.play_actions, self)
 		
-		played_card.emit(card.instance)
-		if card.instance.data.type == CardData.Type.ATTACK:
-			play_attack_anim()
-			melee_weapon_animator.play("swing")
-		elif card.instance.data.type == CardData.Type.RANGED:
-			ranged_weapon_animator.play("fire")
+			effects.process_played_card(card.instance, resolver)
+		
+			played_card.emit(card.instance)
+			if card.instance.data.type == CardData.Type.ATTACK:
+				play_attack_anim()
+				melee_weapon_animator.play("swing")
+			elif card.instance.data.type == CardData.Type.RANGED:
+				ranged_weapon_animator.play("fire")
 	else:
 		play_hand.reject_play()
 

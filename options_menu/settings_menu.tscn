@@ -80,6 +80,22 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="SoundEffects" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AudioSettings" unique_id=1363000836]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AudioSettings/SoundEffects" unique_id=306387186]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Sound effects: "
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/SoundEffects" unique_id=1508571515]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
 [node name="MusicToggle" type="CheckButton" parent="MarginContainer/VBoxContainer/AudioSettings" unique_id=225626969]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -128,5 +144,6 @@ text = "Back"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Master/VolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Music/VolumeSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/SoundEffects/VolumeSlider" to="." method="_on_sound_effects_volume_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/AudioSettings/MusicToggle" to="." method="_on_music_toggled"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_button_up"]

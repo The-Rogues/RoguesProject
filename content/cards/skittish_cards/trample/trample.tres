@@ -1,18 +1,34 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bwhog8444u2g5"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_c7q1h"]
-[ext_resource type="Script" uid="uid://bf1o7m4dim8j2" path="res://content/cards/skittish_cards/trample/trample_action.gd" id="2_61vw1"]
+[ext_resource type="Script" uid="uid://cwglkcf4r2jjb" path="res://content/cards/skittish_cards/trample/stat_attack_action.gd" id="2_61vw1"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_hwgwp"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="3_52pqr"]
 
-[sub_resource type="Resource" id="Resource_52pqr"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qgpnc"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61vw1"]
+atlas = SubResource("CompressedTexture2D_qgpnc")
+region = Rect2(440, 440, 40, 40)
+
+[sub_resource type="Resource" id="Resource_k7ss0"]
 script = ExtResource("2_61vw1")
+trait_category = 1
 target_option = 2
-metadata/_custom_type_script = "uid://bf1o7m4dim8j2"
+metadata/_custom_type_script = "uid://cwglkcf4r2jjb"
+
+[sub_resource type="Resource" id="Resource_ruuum"]
+script = ExtResource("3_52pqr")
+trait_category = 1
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("2_hwgwp")
+category = 2
 energy_cost = 1
 name = "Trample"
-description = "Deal damage equal to block. Removes all Block"
-play_actions = Array[ExtResource("1_c7q1h")]([SubResource("Resource_52pqr")])
+display_texture = SubResource("AtlasTexture_61vw1")
+description = "Deal damage equal to defense. Removes all defense"
+play_actions = Array[ExtResource("1_c7q1h")]([SubResource("Resource_k7ss0"), SubResource("Resource_ruuum")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

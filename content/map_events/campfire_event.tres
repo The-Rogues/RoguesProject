@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://26qia8ybyk7k"]
+
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_8dhlu"]
+[ext_resource type="Texture2D" uid="uid://drhqkmagdm6mh" path="res://content/map_events/campfire_texture.tres" id="1_k1cpi"]
+[ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="2_b7hjy"]
+[ext_resource type="Script" uid="uid://b76synm5erqo8" path="res://mini_event_system/results/change_health_event_result.gd" id="3_3v53q"]
+[ext_resource type="Script" uid="uid://brd5m732vyy5t" path="res://mini_event_system/results/random_event_result.gd" id="4_kmkvf"]
+[ext_resource type="Script" uid="uid://bcoukvila8mo6" path="res://mini_event_system/results/change_stat_point_event.gd" id="5_ilx4j"]
+
+[sub_resource type="Resource" id="Resource_bjh4w"]
+script = ExtResource("3_3v53q")
+amount = 5
+metadata/_custom_type_script = "uid://b76synm5erqo8"
+
+[sub_resource type="Resource" id="Resource_de4m1"]
+script = ExtResource("3_3v53q")
+amount = 7
+metadata/_custom_type_script = "uid://b76synm5erqo8"
+
+[sub_resource type="Resource" id="Resource_2sgoy"]
+script = ExtResource("4_kmkvf")
+results = Array[ExtResource("2_b7hjy")]([SubResource("Resource_bjh4w"), SubResource("Resource_de4m1")])
+weights = Array[float]([1.0, 1.0])
+metadata/_custom_type_script = "uid://brd5m732vyy5t"
+
+[sub_resource type="Resource" id="Resource_sjtb1"]
+script = ExtResource("5_ilx4j")
+metadata/_custom_type_script = "uid://bcoukvila8mo6"
+
+[sub_resource type="Resource" id="Resource_wq6r8"]
+script = ExtResource("5_ilx4j")
+category = 1
+metadata/_custom_type_script = "uid://bcoukvila8mo6"
+
+[sub_resource type="Resource" id="Resource_g28n0"]
+script = ExtResource("5_ilx4j")
+category = 2
+metadata/_custom_type_script = "uid://bcoukvila8mo6"
+
+[sub_resource type="Resource" id="Resource_okfgg"]
+script = ExtResource("4_kmkvf")
+results = Array[ExtResource("2_b7hjy")]([SubResource("Resource_sjtb1"), SubResource("Resource_wq6r8"), SubResource("Resource_g28n0")])
+weights = Array[float]([1.0, 1.0, 1.0])
+metadata/_custom_type_script = "uid://brd5m732vyy5t"
+
+[resource]
+script = ExtResource("1_8dhlu")
+repeatable = true
+display_image = ExtResource("1_k1cpi")
+scenario_text = "You come across a campfire. What do you want to do?"
+option_1_text = "Rest (Restore HP)"
+option_2_text = "Meditate (Change stat)"
+option_1_branch = Array[String](["You decide to rest."])
+option_2_branch = Array[String](["You meditate on your journey."])
+option_1_result = SubResource("Resource_2sgoy")
+option_2_result = SubResource("Resource_okfgg")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

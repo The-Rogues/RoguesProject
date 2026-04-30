@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://b02fngkd1dorj"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_iaoiu"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_umpgk"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_vvhkg"]
+
+[sub_resource type="Resource" id="Resource_1gjrb"]
+script = ExtResource("2_vvhkg")
+base_damage = 6
+hits = 3
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("1_iaoiu")
+intent_icon = ExtResource("1_umpgk")
+name = "Feral Strikes"
+description = "This Enemy intends to Attack for get_atk6 x 3 damage."
+primary_action = SubResource("Resource_1gjrb")
+metadata/_custom_type_script = "uid://c410dannt5adg"

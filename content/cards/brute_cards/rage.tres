@@ -18,6 +18,7 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("2_w1h63")
+category = 1
 name = "Rage"
 description = "Deal damage equal to offense. Reduce Offense by 2."
 play_actions = Array[ExtResource("1_380yo")]([SubResource("Resource_gqnyy"), SubResource("Resource_jo4rm")])

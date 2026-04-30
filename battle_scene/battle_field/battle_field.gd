@@ -3,6 +3,8 @@ class_name BattleField
 ## Responsible for managing battle positions, placing objects, applying position
 ## effects, and communicating object events
 
+signal object_placed(object:ObjectEntity)
+
 ## Battle positions the battle field manages. Set in inspector
 @export var battle_positions:Array[BattlePosition]
 signal object_interacted(interaction_actions:Array[Action], object:ObjectEntity)
@@ -33,11 +35,12 @@ func setup_objects(config:BattleFieldConfig):
 
 
 func _on_object_placed(object:ObjectEntity):
+	object_placed.emit(object)
+	
 	object.interacted.connect(
 			func(_object:ObjectEntity):
 					object_interacted.emit(_object.data.interaction_actions, 
 							_object))
-
 
 
 ## Attempts to place object in a battle position. If battle_position is null,

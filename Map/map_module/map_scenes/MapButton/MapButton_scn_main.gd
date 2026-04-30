@@ -24,7 +24,8 @@ var elapsed_time: float = 0 # Time since the button was created used to modulate
 # Return: Void.
 func _ready() -> void:
 	if corr_node.node_data.mini_event != null:
-		sub_container.texture = corr_node.node_data.mini_event.map_texture
+		#sub_container.texture = corr_node.node_data.mini_event.map_texture
+		sub_container.texture = load("res://Map/map_assets/mini_event_icon.png")
 	sub_container.size = Vector2(self.size.x / 2, self.size.y / 2)
 	if sub_visible:
 		sub_container.visible = true

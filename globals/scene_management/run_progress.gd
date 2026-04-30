@@ -31,6 +31,7 @@ var run_map: MapManager
 @export var pending_node_index: int = -1
 @export var room_in_progress: bool = false
 @export var pending_room_type: int = -1
+@export var single_time_mini_events:Array[MiniEventData]
 
 # -------------------------------------------------
 # Statistics tracking member values

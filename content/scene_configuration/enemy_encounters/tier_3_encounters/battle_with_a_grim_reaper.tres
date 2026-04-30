@@ -17,7 +17,6 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 
 [resource]
 script = ExtResource("3_sijos")
-weight = 100
 encounter_name = "Battle with a Grim Reaper"
 gold = SubResource("Resource_xek1p")
 card_loot = ExtResource("1_dvsy1")

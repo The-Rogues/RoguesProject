@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://hs8k3uwcadn5" path="res://battle_scene/entities/actions/skill/remove_cards_by_name_action.gd" id="5_sd4eo"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_717bn"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7crc"]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
+
 [sub_resource type="Resource" id="Resource_6aulh"]
 script = ExtResource("3_eqks2")
 projectile_scene = ExtResource("2_qr6ty")
@@ -27,8 +34,10 @@ metadata/_custom_type_script = "uid://hs8k3uwcadn5"
 [resource]
 script = ExtResource("6_717bn")
 type = 1
+category = 1
 energy_cost = 3
 name = "Charge Shot"
+display_texture = SubResource("AtlasTexture_w7crc")
 description = "Deal 12 damage. +3 damage for every Shot card in your hand."
 play_actions = Array[ExtResource("1_w7crc")]([SubResource("Resource_epijx"), SubResource("Resource_52b50")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -18,6 +18,7 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("4_pjspm")
+category = 1
 energy_cost = 1
 name = "Strike"
 description = "Deal get_atk6 Damage. Gain 1 offense."

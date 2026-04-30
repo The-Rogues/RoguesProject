@@ -20,9 +20,9 @@
 script = ExtResource("9_uahfr")
 offensive_trait = ExtResource("8_r5eiv")
 offensive_weight = 2
-defensive_trait = ExtResource("7_sds6a")
+defensive_trait = ExtResource("7_ce22o")
 defensive_weight = 1
-strategic_trait = ExtResource("10_ce22o")
+strategic_trait = ExtResource("10_8qiin")
 strategic_weight = 1
 priority_trait = ExtResource("8_r5eiv")
 

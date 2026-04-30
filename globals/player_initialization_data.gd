@@ -7,7 +7,6 @@ var display_texure:Texture2D
 var melee_weapon_texture:Texture2D = null
 var ranged_weapon_texture:Texture2D = null
 var personality:PersonalityData
-var starting_deck:Array[CardData]
 
 
 func _init(
@@ -17,7 +16,6 @@ func _init(
 	_melee_weapon_texture:Texture2D,
 	_ranged_weapon_texture:Texture2D,
 	_personality:PersonalityData,
-	_starting_deck:Array[CardData]
 ) -> void:
 	name = _name
 	backstory = _backstory
@@ -25,4 +23,3 @@ func _init(
 	melee_weapon_texture = _melee_weapon_texture
 	ranged_weapon_texture = _ranged_weapon_texture
 	personality = _personality
-	starting_deck = _starting_deck

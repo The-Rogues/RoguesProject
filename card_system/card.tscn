@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://cl86l7vm1n0p0" path="res://card_system/card.gd" id="1_hl8v2"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_30h70"]
 [ext_resource type="Texture2D" uid="uid://ql4mr7lxmc8t" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-022.png" id="3_eth35"]
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="3_ps0ye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu8sv"]
 content_margin_left = 6.0
 content_margin_top = 6.0
 content_margin_right = 6.0
 content_margin_bottom = 6.0
-bg_color = Color(0.6276604, 0.62027615, 0.6221175, 1)
+bg_color = Color(0.627451, 0.61960787, 0.62352943, 1)
 border_width_left = 2
 border_width_top = 4
 border_width_right = 2
@@ -79,6 +80,7 @@ anchors_preset = 0
 mouse_filter = 2
 
 [node name="CardEdge" type="PanelContainer" parent="CardContainer" unique_id=429033215]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(130, 178)
 layout_mode = 1
@@ -113,25 +115,23 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0pn78")
 
-[node name="CardNameHeader" type="Panel" parent="." unique_id=610491584]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1485798210]
+custom_minimum_size = Vector2(116, 16)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 20.0
+offset_right = 123.0
+offset_bottom = 36.0
+
+[node name="CardNameHeader" type="Panel" parent="VBoxContainer" unique_id=610491584]
 custom_minimum_size = Vector2(0, 16)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -71.0
-offset_right = 58.0
-offset_bottom = -51.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jd16e")
 
-[node name="CardNameLabel" type="Label" parent="CardNameHeader" unique_id=280635127]
+[node name="CardNameLabel" type="Label" parent="VBoxContainer/CardNameHeader" unique_id=280635127]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(109, 0)
 layout_mode = 1
@@ -153,6 +153,14 @@ text = "Unset Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="DisplayTextureRect" type="TextureRect" parent="VBoxContainer" unique_id=2064633963]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_ps0ye")
 
 [node name="CardCostContainer" type="Panel" parent="." unique_id=1334221055]
 texture_filter = 1

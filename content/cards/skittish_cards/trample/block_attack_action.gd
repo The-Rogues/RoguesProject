@@ -1,5 +1,5 @@
 extends AttackAction
-class_name TrampleAction
+class_name BlockAttackAction
 
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):

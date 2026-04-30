@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://c75rv4a5xwpc8"]
+
+[ext_resource type="Texture2D" uid="uid://noke5lscmt8r" path="res://content/cards/greedy_cards/assets/treasure_hoard.png" id="1_un54h"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_3ajq4"]
+[ext_resource type="Resource" uid="uid://7lw2pqf7mdmq" path="res://content/cards/greedy_cards/gem_behavior/gem_behavior.tres" id="3_g4t70"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_rkxko"]
+[ext_resource type="Script" uid="uid://bclbxggs8m73j" path="res://content/cards/greedy_cards/life_savings/on_hit_player_status_action.gd" id="5_0kxh3"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="6_cb7cs"]
+
+[sub_resource type="Resource" id="Resource_77jbs"]
+script = ExtResource("4_rkxko")
+behaviour = ExtResource("3_g4t70")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_p10fw"]
+script = ExtResource("5_0kxh3")
+effect = SubResource("Resource_77jbs")
+metadata/_custom_type_script = "uid://bclbxggs8m73j"
+
+[resource]
+script = ExtResource("6_cb7cs")
+targeting_categories = Array[int]([0, 2])
+interaction = 2
+interaction_actions = Array[ExtResource("2_3ajq4")]([SubResource("Resource_p10fw")])
+display_texture = ExtResource("1_un54h")
+name = "Treasure pile"
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

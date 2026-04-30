@@ -1,9 +1,10 @@
-extends Action
+extends MovePlayerAction
 class_name DirectionalMoveAction
 
 enum Direction { LEFT, RIGHT }
 @export var direction: Direction
 @export var num_spaces: int
+
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	var player = _context.creature_manager.player

@@ -6,10 +6,13 @@ class_name CardData
 ## to perform. Intended to be used as a creatable asset that is passed
 ## to CardUI for initialization
 enum Type {ATTACK, RANGED, SKILL, POWER, AI, JUNK}
+enum Category {TRAITLESS, OFFENSIVE, DEFENSIVE, STRATEGIC}
 
 @export var type:Type
+@export var category:Category
 @export var energy_cost:int = 0
 @export var name:String = "Card name"
+@export var display_texture:Texture2D
 @export_multiline var description:String = "Card Description"
 @export var exhaust_after_play:bool = false
 @export var play_actions:Array[Action]
