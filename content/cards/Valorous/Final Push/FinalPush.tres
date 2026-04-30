@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b0e3y8sjlb5ki"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_3q5ki"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_nhfi8"]
+
+[resource]
+script = ExtResource("2_nhfi8")
+energy_cost = 3
+name = "Final Push"
+description = "Deal get_atk18 Damage."
+exhaust_after_play = true
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

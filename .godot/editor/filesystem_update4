@@ -1,4 +1,5 @@
-res://main_menu/main_menu_scene.tscn
+res://battle_scene/entities/player/player_entity.tscn
+res://common/sprite_flasher/hit_flash.tres
 res://testing_and_prototypes/rogues_theme.tres
 res://common/art/placeholder/joi3/brutish_icon.tres
 res://content/scene_configuration/battle_loot/battle_card_draw.tres
@@ -44,6 +45,7 @@ res://content/cards/tactical_cards/charge_shot/charge_shot.tres
 res://content/cards/tactical_cards/quick_draw/quick_draw.tres
 res://content/cards/tactical_cards/reload/shot.tres
 res://content/cards/tactical_cards/reload/reload.tres
+res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres
 res://content/monsters/slime/move_set/tackle.tres
 res://content/monsters/slime/move_set/acid.tres
 res://content/monsters/slime/small_slime_data.tres
@@ -90,22 +92,14 @@ res://content/monsters/large_fire_ant/moves/fire_dance.tres
 res://content/monsters/large_fire_ant/large_fire_ant.tres
 res://content/scene_configuration/enemy_encounters/tier_2_encounters/large_ant.tres
 res://content/scene_configuration/track_list.tres
+res://content/cards/traitless_cards/duel_strike.tres
+res://content/cards/traitless_cards/magic_pot/object/magic_pot_object.tres
+res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres
+res://content/cards/traitless_cards/adrenaline.tres
+res://content/cards/traitless_cards/inferno.tres
+res://content/cards/traitless_cards/exercise.tres
+res://content/cards/traitless_cards/guard.tres
+res://content/cards/traitless_cards/strategize.tres
 res://battle_scene/entities/player/melee_weapon/long_sword.tres
 res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres
-res://main_menu/main_menu_sound_manager.gd
-res://shop_scenes/shop_entry.tscn
-res://battle_scene/win_screen/battle_reward.tscn
-res://options_menu/settings_menu.tscn
-res://common/launch_body (old)/launch_body.gd
-res://options_menu/settings_menu.gd
-res://options_menu/settings_menu_sound_manager.gd
-res://common/launch_body (old)/launch_body.tscn
-res://battle_scene/entities/monster/monster_entity.tscn
-res://common/sprite_flasher/hit_flash.tres
-res://battle_scene/entities/monster/monster_body_launcher.gd
-res://battle_scene/entities/player/player_entity.tscn
-res://battle_scene/entities/entity_sound_manager.gd
-res://battle_scene/entities/object/object_entity.tscn
-res://battle_scene/entities/object/object_sound_manager.gd
-res://battle_scene/entities/monster/monster_entity.gd
-res://default_bus_layout.tres
+res://content/cards/Valorous/RecklessRush/RecklessRush.tres
