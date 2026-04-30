@@ -80,18 +80,11 @@ res://content/monsters/large_fire_ant/moves/fire_dance.tres
 res://content/monsters/large_fire_ant/large_fire_ant.tres
 res://content/scene_configuration/enemy_encounters/tier_2_encounters/large_ant.tres
 res://content/scene_configuration/track_list.tres
-res://content/cards/traitless_cards/strike.tres
-res://content/cards/traitless_cards/defend.tres
-res://content/cards/traitless_cards/move.tres
-res://content/cards/traitless_cards/duel_strike.tres
-res://content/cards/traitless_cards/magic_pot/object/magic_pot_object.tres
-res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres
-res://content/cards/traitless_cards/adrenaline.tres
-res://content/cards/traitless_cards/inferno.tres
-res://content/cards/traitless_cards/exercise.tres
-res://content/cards/traitless_cards/guard.tres
-res://content/cards/traitless_cards/strategize.tres
 res://battle_scene/entities/player/melee_weapon/long_sword.tres
 res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres
-res://content/cards/Valorous/RecklessRush/RecklessRush.tres
-res://content/cards/Valorous/Final Push/FinalPush.tres
+res://content/cards/traitless_cards/defend.tres
+res://content/personality_traits/valorous.tres
+res://content/cards/traitless_cards/strike.tres
+res://content/personality_traits/tactical.tres
+res://content/cards/traitless_cards/move.tres
+res://content/cards/traitless_cards/arrow_shot.tres

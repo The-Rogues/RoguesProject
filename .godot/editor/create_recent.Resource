@@ -1,3 +1,4 @@
+PersonalityTrait
 CardData
 AtlasTexture
 Curve
