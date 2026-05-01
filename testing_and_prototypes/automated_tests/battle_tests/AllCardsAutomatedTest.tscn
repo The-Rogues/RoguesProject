@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7t6edb8dbdly"]
+
+[ext_resource type="Script" uid="uid://bknd6870x7qoq" path="res://testing_and_prototypes/automated_tests/battle_tests/associated_scripts/AllCardsAutomatedTest_scn_main.gd" id="1_v2j4v"]
+
+[node name="AllCardsAutomatedTest" type="Node" unique_id=1124373746]
+script = ExtResource("1_v2j4v")

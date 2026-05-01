@@ -12,6 +12,7 @@ func _on_entity_attacked(_entity:AbstractEntity):
 		await instance.wait_random_time()
 		await instance.play_attack()
 	
-		instance.projectile_launcher.fire_sequence(
-			_entity.global_position, 
-			projectile_data)
+		if is_instance_valid(_entity):
+			instance.projectile_launcher.fire_sequence(
+				_entity.global_position, 
+				projectile_data)

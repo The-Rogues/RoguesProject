@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://noke5lscmt8r"
-path="res://.godot/imported/treasure_hoard.png-c99a506a86be7e4cde00001969620a73.ctex"
+uid="uid://btyvtopywgmpw"
+path="res://.godot/imported/strategy_shrine.png-e36a6b95caf5d6e3efa7863e9a4f2686.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/cards/greedy_cards/assets/treasure_hoard.png"
-dest_files=["res://.godot/imported/treasure_hoard.png-c99a506a86be7e4cde00001969620a73.ctex"]
+source_file="res://content/objects/stat_shrines/strategy_shrine.png"
+dest_files=["res://.godot/imported/strategy_shrine.png-e36a6b95caf5d6e3efa7863e9a4f2686.ctex"]
 
 [params]
 
