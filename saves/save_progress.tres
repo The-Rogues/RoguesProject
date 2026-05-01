@@ -5,55 +5,49 @@
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="3_r5eiv"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_fcpjs"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_f04e1"]
-[ext_resource type="Resource" path="res://content/cards/skittish_cards/trample/trample.tres" id="6_f04e1"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="6_i06bj"]
-[ext_resource type="Resource" path="res://content/cards/skittish_cards/skittish_block.tres" id="7_jfmdv"]
 [ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="7_sds6a"]
-[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_r5eiv"]
-[ext_resource type="Resource" path="res://content/cards/skittish_cards/plea.tres" id="8_uahfr"]
-[ext_resource type="Resource" path="res://content/cards/brute_cards/brute_strike.tres" id="9_jfmdv"]
+[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_fcpjs"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_uahfr"]
 [ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="10_ce22o"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_3l5uq"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="12_fcpjs"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/gem_staff.tres" id="13_f04e1"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="14_i06bj"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/long_sword.tres" id="12_fcpjs"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/bow.tres" id="13_fcpjs"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="14_f04e1"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="14_iofhu"]
 [ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_sds6a"]
 [ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="17_jfmdv"]
 
-[sub_resource type="Resource" id="Resource_uahfr"]
+[sub_resource type="Resource" id="Resource_i06bj"]
 script = ExtResource("9_uahfr")
-offensive_trait = ExtResource("8_r5eiv")
+offensive_trait = ExtResource("8_fcpjs")
 offensive_weight = 2
 defensive_trait = ExtResource("7_sds6a")
 defensive_weight = 1
 strategic_trait = ExtResource("10_ce22o")
-strategic_weight = 3
-priority_trait = ExtResource("10_ce22o")
+strategic_weight = 1
+priority_trait = ExtResource("8_fcpjs")
 
-[sub_resource type="Resource" id="Resource_ce22o"]
+[sub_resource type="Resource" id="Resource_sds6a"]
 script = ExtResource("11_3l5uq")
-name = "Noah"
+name = "Sarah"
 max_health = 70
-current_health = 62
-current_energy = 3
+current_health = 70
 max_energy = 3
 item_capacity = 1
-cards = Array[ExtResource("1_upqny")]([ExtResource("3_r5eiv"), ExtResource("3_r5eiv"), ExtResource("3_r5eiv"), ExtResource("2_br818"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("5_f04e1"), ExtResource("5_f04e1"), ExtResource("5_f04e1"), ExtResource("5_f04e1"), ExtResource("6_f04e1"), ExtResource("7_jfmdv"), ExtResource("8_uahfr"), ExtResource("6_f04e1"), ExtResource("7_jfmdv"), ExtResource("8_uahfr"), ExtResource("6_f04e1"), ExtResource("9_jfmdv")])
-gold = 57
-personality = SubResource("Resource_uahfr")
+cards = Array[ExtResource("1_upqny")]([ExtResource("3_r5eiv"), ExtResource("3_r5eiv"), ExtResource("3_r5eiv"), ExtResource("2_br818"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("5_f04e1"), ExtResource("5_f04e1"), ExtResource("5_f04e1"), ExtResource("5_f04e1")])
+personality = SubResource("Resource_i06bj")
 
 [resource]
 script = ExtResource("14_iofhu")
-player_data = SubResource("Resource_ce22o")
-player_texture = ExtResource("14_i06bj")
+player_data = SubResource("Resource_sds6a")
+player_texture = ExtResource("14_f04e1")
 player_melee_weapon_texture = ExtResource("12_fcpjs")
-player_ranged_weapon_texture = ExtResource("13_f04e1")
-player_name = "Noah"
+player_ranged_weapon_texture = ExtResource("13_fcpjs")
+player_name = "Sarah"
 player_backstory = ""
-map_seed = 3917890107
-player_node_index = 25
+map_seed = 3894469291
+pending_node_index = 2
+room_in_progress = true
 single_time_mini_events = Array[ExtResource("16_sds6a")]([ExtResource("17_jfmdv")])
-total_rooms_explored = 7
 initialized = true

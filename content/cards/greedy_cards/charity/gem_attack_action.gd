@@ -5,7 +5,6 @@ class_name GemAttackAction
 var gem_behavior: Resource = preload("res://content/cards/greedy_cards/gem_behavior/gem_behavior.tres")
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):
-	
 	if _user is not PlayerEntity:
 		return
 		
@@ -13,7 +12,6 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	var num_gems = get_num_gems(player)
 	
 	for i in range(0, num_gems):
-		
 		if _context.creature_manager.enemies.size() == 0:
 			return
 			
@@ -25,8 +23,11 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		
 		_user.projectile_launcher.fire_sequence(target.global_position, projectile_config)
 		
-		await player.get_tree().create_timer(0.2).timeout
-	await _user.projectile_launcher.projectiles_freed
+		if i != (num_gems - 1):
+			await player.get_tree().create_timer(0.2).timeout
+	
+	if num_gems > 0:
+		await _user.projectile_launcher.projectiles_freed
 
 func get_num_gems(player: PlayerEntity) -> int:
 	for i in range(0, player.effects.active_effects.size()):

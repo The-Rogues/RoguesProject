@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cslydk2dhl5kp"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_05fxo"]
+[ext_resource type="Resource" uid="uid://ct3dokdkm4u6i" path="res://content/cards/brute_cards/brute_strike.tres" id="2_p83cn"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
+[ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
+[ext_resource type="Resource" uid="uid://bgdai8ivk0ewn" path="res://content/cards/brute_cards/intimidate.tres" id="3_pe6xi"]
+[ext_resource type="Resource" uid="uid://d2kjt0sd3fi1o" path="res://testing_and_prototypes/automated_tests/battle_tests/new_resource2.tres" id="3_rhmp2"]
+[ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/rage.tres" id="4_lb55e"]
+[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="5_q15mh"]
+[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="6_r1o0q"]
+[ext_resource type="Resource" uid="uid://dcdxa26imgs4t" path="res://content/cards/crafty_cards/repair/repair.tres" id="7_x1i6i"]
+[ext_resource type="Resource" uid="uid://c8b3tr01yois" path="res://content/cards/crafty_cards/repurpose/repurpose.tres" id="8_bft4y"]
+[ext_resource type="Resource" uid="uid://biytyhg5hx4cd" path="res://content/cards/friendly_cards/carrot_treat.tres" id="9_5g83d"]
+[ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/fish_treat.tres" id="10_gmgn1"]
+[ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/worm_treat.tres" id="11_xm5vh"]
+[ext_resource type="Resource" uid="uid://3eathy5ylmpr" path="res://content/cards/greedy_cards/gold_rush/gold_rush.tres" id="12_k0esi"]
+[ext_resource type="Resource" uid="uid://df8onaglb031c" path="res://content/cards/greedy_cards/life_savings/life_savings.tres" id="13_ech2f"]
+[ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="14_dmryw"]
+[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/charity/charity.tres" id="15_pmla5"]
+[ext_resource type="Resource" uid="uid://jocbe8p5e2es" path="res://content/cards/mericful_cards/forgive/forgive.tres" id="16_hc0pw"]
+[ext_resource type="Resource" uid="uid://d0w221my7a46d" path="res://content/cards/mericful_cards/merciful_strike/merciful_strike.tres" id="17_nx2te"]
+[ext_resource type="Resource" uid="uid://c37iffvwm80vl" path="res://content/cards/mericful_cards/pacify/pacify.tres" id="18_0clu7"]
+[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/shrink/shrink.tres" id="19_byofs"]
+[ext_resource type="Resource" uid="uid://dlvts2ye4x82h" path="res://content/cards/skittish_cards/over_prepared.tres" id="20_m8c7r"]
+[ext_resource type="Resource" uid="uid://ca40y4htu81rg" path="res://content/cards/skittish_cards/plea.tres" id="21_6drum"]
+[ext_resource type="Resource" uid="uid://c4cex25p8arux" path="res://content/cards/skittish_cards/skittish_block.tres" id="22_7rlmw"]
+[ext_resource type="Resource" uid="uid://bwhog8444u2g5" path="res://content/cards/skittish_cards/trample/trample.tres" id="23_ujf2w"]
+[ext_resource type="Resource" uid="uid://dt07iyph77k70" path="res://content/cards/skittish_cards/escape_plan/escape_plan.tres" id="24_jodbo"]
+[ext_resource type="Resource" uid="uid://cb0st71k4otu3" path="res://content/cards/stoic_cards/brave_recovery/brave_recovery.tres" id="25_1y6h7"]
+[ext_resource type="Resource" uid="uid://da2h4oxxjao8w" path="res://content/cards/stoic_cards/challenge/challenge.tres" id="26_x5b34"]
+[ext_resource type="Resource" uid="uid://bhtywhphbire1" path="res://content/cards/stoic_cards/fearsome_armor/fearsome_armor.tres" id="27_t1ots"]
+[ext_resource type="Resource" uid="uid://m7ighmtyec2a" path="res://content/cards/stoic_cards/gaurded_assault/gaurded_assault.tres" id="28_aft4k"]
+[ext_resource type="Resource" uid="uid://d0oxyst1aiy7l" path="res://content/cards/tactical_cards/charge_shot/charge_shot.tres" id="29_jivhk"]
+[ext_resource type="Resource" uid="uid://bgutrc02omy4f" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="30_g7ju7"]
+[ext_resource type="Resource" uid="uid://dy206drb1nafs" path="res://content/cards/tactical_cards/quick_draw/quick_draw.tres" id="31_bs28y"]
+[ext_resource type="Resource" uid="uid://bhuolqbqej2fy" path="res://content/cards/tactical_cards/reload/reload.tres" id="32_g5djq"]
+[ext_resource type="Resource" uid="uid://k383if7u7t46" path="res://content/cards/tactical_cards/reload/shot.tres" id="33_6410v"]
+[ext_resource type="Resource" uid="uid://fa2pctlxbe8m" path="res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres" id="34_dew27"]
+[ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/traitless_cards/adrenaline.tres" id="35_bsfpg"]
+[ext_resource type="Resource" uid="uid://8cc0qb3afpjw" path="res://content/cards/traitless_cards/arrow_shot.tres" id="36_pva10"]
+[ext_resource type="Resource" uid="uid://bjmif7jljymoe" path="res://content/cards/traitless_cards/defend.tres" id="37_owkva"]
+[ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/traitless_cards/duel_strike.tres" id="38_lwest"]
+[ext_resource type="Resource" uid="uid://doj675nih2jy4" path="res://content/cards/traitless_cards/exercise.tres" id="39_72uby"]
+[ext_resource type="Resource" uid="uid://cre6wnbqrbfvd" path="res://content/cards/traitless_cards/guard.tres" id="40_666g2"]
+[ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/traitless_cards/inferno.tres" id="41_4fbio"]
+[ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="42_q04f6"]
+[ext_resource type="Resource" uid="uid://dl3si50nm35f1" path="res://content/cards/traitless_cards/strategize.tres" id="43_rn2xg"]
+[ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="44_e4udy"]
+
+[resource]
+script = ExtResource("3_p83cn")
+name = "All Cards Player"
+max_health = 1000
+current_health = 1000
+current_energy = 1000
+max_energy = 1000
+item_capacity = 1
+cards = Array[ExtResource("1_05fxo")]([ExtResource("2_p83cn"), ExtResource("3_pe6xi"), ExtResource("4_lb55e"), ExtResource("5_q15mh"), ExtResource("6_r1o0q"), ExtResource("7_x1i6i"), ExtResource("8_bft4y"), ExtResource("9_5g83d"), ExtResource("10_gmgn1"), ExtResource("11_xm5vh"), ExtResource("12_k0esi"), ExtResource("13_ech2f"), ExtResource("14_dmryw"), ExtResource("15_pmla5"), ExtResource("16_hc0pw"), ExtResource("17_nx2te"), ExtResource("18_0clu7"), ExtResource("19_byofs"), ExtResource("20_m8c7r"), ExtResource("21_6drum"), ExtResource("22_7rlmw"), ExtResource("23_ujf2w"), ExtResource("24_jodbo"), ExtResource("25_1y6h7"), ExtResource("26_x5b34"), ExtResource("27_t1ots"), ExtResource("28_aft4k"), ExtResource("29_jivhk"), ExtResource("30_g7ju7"), ExtResource("31_bs28y"), ExtResource("32_g5djq"), ExtResource("33_6410v"), ExtResource("34_dew27"), ExtResource("35_bsfpg"), ExtResource("36_pva10"), ExtResource("37_owkva"), ExtResource("38_lwest"), ExtResource("39_72uby"), ExtResource("40_666g2"), ExtResource("41_4fbio"), ExtResource("42_q04f6"), ExtResource("43_rn2xg"), ExtResource("44_e4udy")])
+personality = ExtResource("3_rhmp2")
+metadata/_custom_type_script = "uid://p6tkdhpfg377"

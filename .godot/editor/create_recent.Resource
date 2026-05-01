@@ -1,3 +1,3 @@
-res://content/scene_configuration/scripts/card_deck.gd
+res://personality_system/personality_data.gd
 AtlasTexture
 Curve
