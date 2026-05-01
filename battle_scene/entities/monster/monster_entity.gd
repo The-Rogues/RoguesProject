@@ -48,7 +48,9 @@ func take_damage(amount:int, _attacker = null):
 	sprite_2d.flash()
 	DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
 	health.take_damage(damage)
-	effects.on_attacked(_attacker)
+	
+	if !_attacker is Projectile:
+		effects.on_attacked(_attacker)
 	
 	if _attacker is AbstractEntity:
 		_attacker.set_last_attacked_entity(self)

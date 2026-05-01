@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://dkwb3eagjx5u" path="res://battle_scene/battle_flow_manager.gd" id="19_s4dh3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
-b = Vector2(3, 452)
+b = Vector2(0, 639)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o1our"]
 b = Vector2(-1151, -3)
@@ -125,11 +125,11 @@ position = Vector2(1152, 0)
 shape = SubResource("SegmentShape2D_lahee")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WallCollisions" unique_id=1221524123]
-position = Vector2(1152, 84)
+position = Vector2(1152, 39)
 shape = SubResource("SegmentShape2D_o1our")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WallCollisions" unique_id=703516065]
-position = Vector2(1152, 448)
+position = Vector2(1152, 626)
 shape = SubResource("SegmentShape2D_o1our")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]

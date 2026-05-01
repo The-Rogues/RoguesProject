@@ -39,7 +39,7 @@ func _on_hitbox_body_entered(body):
 		if entity == source:
 			return
 		
-		entity.take_damage(damage, null)
+		entity.take_damage(damage, self)
 		
 		if entity is AbstractCreature and status:
 			entity.apply_status_effect(status)

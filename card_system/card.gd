@@ -44,6 +44,7 @@ func initialize(_instance:CardInstance):
 			card_edge.self_modulate = Color("aef300")
 
 func update_ui():
+	card_cost_label.text = str(instance.energy_cost)
 	parse_card_desciption(instance.data.description)
 
 

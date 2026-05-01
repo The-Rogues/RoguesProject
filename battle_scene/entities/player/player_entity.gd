@@ -27,6 +27,7 @@ var data:PlayerData = null
 var ai_processer_scn: PackedScene = preload("res://ai/processer/AiCardProcesser.tscn")
 var ai_processer: AiCardProcesser = ai_processer_scn.instantiate()
 
+
 func initialize(_data:PlayerData):
 	health.initialize(_data.current_health, _data.max_health)
 	energy.initialize(_data.max_energy, _data.max_energy)
@@ -60,16 +61,19 @@ func initialize(_data:PlayerData):
 
 func take_damage(amount:int, _attacker = null):
 	var damage:int = effects.apply_incoming_damage_effects(amount)
-	damage = block.absorb_damage(damage)
 	
-	DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
-	sprite_2d.flash()
-	health.take_damage(damage)
-	
-	effects.on_attacked(_attacker)
-	
-	if _attacker is AbstractEntity:
-		_attacker.set_last_attacked_entity(self)
+	if !_object_intercept_attack(damage, _attacker):
+		attacker = _attacker
+		damage = block.absorb_damage(damage)
+		DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
+		sprite_2d.flash()
+		health.take_damage(damage)
+		
+		if !_attacker is Projectile:
+			effects.on_attacked(_attacker)
+		
+		if _attacker is AbstractEntity:
+			_attacker.set_last_attacked_entity(self)
 
 
 func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):
@@ -154,3 +158,16 @@ func place_object() -> bool:
 
 func _on_enterned_new_position():
 	place_object()
+
+
+func _object_intercept_attack(damage:int, _attacker) -> bool:
+	if !_attacker is MonsterEntity:
+		return false
+	if _attacker is Projectile:
+		return false
+	
+	if battle_position.has_object():
+		battle_position.get_object().take_damage(damage, _attacker)
+		return true
+	else:
+		return false

@@ -15,7 +15,7 @@ func _on_hitbox_body_entered(body):
 		stuck_arrow.visible = true
 		await get_tree().process_frame
 		
-		entity.take_damage(damage, null)
+		entity.take_damage(damage, self)
 		
 		if entity is AbstractCreature and status:
 			entity.apply_status_effect(status)

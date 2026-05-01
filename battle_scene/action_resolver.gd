@@ -24,10 +24,7 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 				if battle_pos:
 					resolved_targeting.append(battle_pos.get_object())
 				else:
-					if player.battle_position.has_object() && !in_action.ignore_foreground:
-						resolved_targeting.append(player.battle_position.get_object())
-					else:
-						resolved_targeting.append(player)
+					resolved_targeting.append(player)
 			else:
 				resolved_targeting.append(player)
 		2: # Enemy

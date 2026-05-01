@@ -13,6 +13,6 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		_context.creature_manager.spawn_enemy(
 				monster_data, 
 				starting_health, 
-				true,
+				false,
 				status)
 	await _context.creature_manager.get_tree().create_timer(0.15).timeout
