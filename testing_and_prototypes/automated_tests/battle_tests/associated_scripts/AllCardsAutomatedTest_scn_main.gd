@@ -5,7 +5,13 @@ extends Node
 @onready var progress: RunProgress = preload("res://testing_and_prototypes/automated_tests/battle_tests/new_resource.tres")
 @onready var field: BattleFieldConfig = preload("res://testing_and_prototypes/automated_tests/battle_tests/all_cards_battle_field.tres")
 
+var test_enabled: bool = false
+
 func _ready():
+	
+	if !test_enabled:
+		return
+	
 	GlobalSessionManager.run_progress = progress
 	GlobalSceneLoader.load_battle_scene()
 	GlobalSceneLoader.battle_config = BattleConfig.new(
