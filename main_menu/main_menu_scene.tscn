@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="9_pqu83"]
 [ext_resource type="AudioStream" uid="uid://bu5ow7dk4bxeh" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_0.wav" id="10_it65c"]
 [ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="10_pqu83"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="12_k0vs0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv2lb"]
 content_margin_left = 36.0
@@ -435,6 +436,10 @@ bus = &"SFX"
 [node name="StartSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=307234472]
 stream = ExtResource("10_it65c")
 volume_db = -10.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=547394518]
+stream = ExtResource("12_k0vs0")
 bus = &"SFX"
 
 [connection signal="clicked" from="MainMenu/Start" to="." method="_on_start_clicked"]

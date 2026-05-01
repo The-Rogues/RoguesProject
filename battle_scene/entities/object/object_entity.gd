@@ -12,7 +12,6 @@ var data:ObjectData
 @onready var object_stat_display: ObjectStatDisplay = $ObjectStatDisplay
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
 
-
 func initialize(_data:ObjectData):
 	data = _data
 	health.initialize(_data.health, data.health)
@@ -28,10 +27,7 @@ func take_damage(amount:int, _attacker = null):
 	
 	sprite_2d.flash()
 	
-	
-	if (_attacker is PlayerEntity 
-			and data.interaction == ObjectData.InteractionOption.ON_HIT):
-		interact()
+	resolve_hit_interaction()
 	
 	if _attacker is AbstractEntity:
 		_attacker.set_last_attacked_entity(self)
@@ -39,6 +35,12 @@ func take_damage(amount:int, _attacker = null):
 
 func on_destroyed():
 	#queue_actions.emit(data.on_destroyed_actions)
+	if data.interaction == ObjectData.InteractionOption.ON_DESTROYED:
+		await interact()
+	if (data.interaction == ObjectData.InteractionOption.ON_PLAYER_DESTROYED and
+		attacker is PlayerEntity):
+		await interact()
+	
 	await sprite_2d.flash()
 	await play_destroyed_anim()
 	destroyed.emit(self)
@@ -82,3 +84,17 @@ func play_destroyed_anim():
 func play_action_anim():
 	animation_player.play("action")
 	await animation_player.animation_finished
+
+
+func resolve_hit_interaction():
+	match data.interaction:
+		ObjectData.InteractionOption.ON_HIT:
+			await interact()
+		ObjectData.InteractionOption.ON_PLAYER_HIT:
+			if attacker is PlayerEntity:
+				await interact()
+		ObjectData.InteractionOption.ON_ENEMY_HIT:
+			if attacker is MonsterEntity:
+				await interact()
+		_:
+			return

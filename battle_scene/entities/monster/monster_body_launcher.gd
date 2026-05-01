@@ -11,10 +11,6 @@ func _ready() -> void:
 		body.global_position = monster.global_position
 		body.global_position.y -= 16
 		body.initialize(400, 4, 0, monster.data.display_texture)
-		body.launch(Vector2(randf_range(-1, 1), 1))
+		body.launch(Vector2(randf_range(-0.15, 0.15), -1))
 		)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		

@@ -1,5 +1,4 @@
-res://battle_scene/entities/player/player_entity.tscn
-res://common/sprite_flasher/hit_flash.tres
+res://battle_scene/entities/player/player_entity.gd
 res://testing_and_prototypes/rogues_theme.tres
 res://common/art/placeholder/joi3/brutish_icon.tres
 res://content/scene_configuration/battle_loot/battle_card_draw.tres
@@ -45,7 +44,6 @@ res://content/cards/tactical_cards/charge_shot/charge_shot.tres
 res://content/cards/tactical_cards/quick_draw/quick_draw.tres
 res://content/cards/tactical_cards/reload/shot.tres
 res://content/cards/tactical_cards/reload/reload.tres
-res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres
 res://content/monsters/slime/move_set/tackle.tres
 res://content/monsters/slime/move_set/acid.tres
 res://content/monsters/slime/small_slime_data.tres
@@ -76,6 +74,10 @@ res://content/monsters/crawler/moves/spin_attack.tres
 res://content/monsters/crawler/moves/snap.tres
 res://content/monsters/crawler/crawler.tres
 res://content/scene_configuration/enemy_encounters/tier_2_encounters/turtle_guards.tres
+res://content/monsters/rat_king/moves/bite.tres
+res://content/monsters/rat_king/moves/call_the_boys.tres
+res://content/monsters/rat_king/rat_king.tres
+res://content/scene_configuration/enemy_encounters/tier_1_encounters/rat_king.tres
 res://content/monsters/dreamer/moves/soothe.tres
 res://content/monsters/dreamer/moves/ram.tres
 res://content/monsters/dreamer/moves/rest.tres
@@ -92,14 +94,7 @@ res://content/monsters/large_fire_ant/moves/fire_dance.tres
 res://content/monsters/large_fire_ant/large_fire_ant.tres
 res://content/scene_configuration/enemy_encounters/tier_2_encounters/large_ant.tres
 res://content/scene_configuration/track_list.tres
-res://content/cards/traitless_cards/duel_strike.tres
-res://content/cards/traitless_cards/magic_pot/object/magic_pot_object.tres
-res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres
-res://content/cards/traitless_cards/adrenaline.tres
-res://content/cards/traitless_cards/inferno.tres
-res://content/cards/traitless_cards/exercise.tres
-res://content/cards/traitless_cards/guard.tres
-res://content/cards/traitless_cards/strategize.tres
-res://battle_scene/entities/player/melee_weapon/long_sword.tres
-res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres
-res://content/cards/Valorous/RecklessRush/RecklessRush.tres
+res://battle_scene/entities/object/object_entity.gd
+res://battle_scene/entities/object/object_data.gd
+res://battle_scene/entities/object/object_stat_display.gd
+res://content/map_events/treasure_pot_event.tres

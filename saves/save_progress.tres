@@ -1,56 +1,63 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_fcpjs"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_f04e1"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_i06bj"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_sds6a"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_jfmdv"]
-[ext_resource type="Script" path="res://item_system/item_data.gd" id="6_uahfr"]
-[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="7_ce22o"]
-[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_3l5uq"]
-[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_7xv35"]
-[ext_resource type="Resource" path="res://content/personality_traits/friendly.tres" id="10_8qiin"]
-[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_iofhu"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/scepter.tres" id="12_5nlej"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="13_k3uip"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="14_t60l6"]
-[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="15_7v8y8"]
-[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_5lbfv"]
-[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="17_ff1hj"]
+[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_r5eiv"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_fcpjs"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_f04e1"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_i06bj"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_sds6a"]
+[ext_resource type="Resource" path="res://content/cards/brute_cards/brute_strike.tres" id="6_f04e1"]
+[ext_resource type="Script" path="res://item_system/item_data.gd" id="6_jfmdv"]
+[ext_resource type="Resource" path="res://content/cards/skittish_cards/skittish_block.tres" id="7_f04e1"]
+[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="7_uahfr"]
+[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_ce22o"]
+[ext_resource type="Resource" path="res://content/items/chest_key/chest_key_item_data.tres" id="8_i06bj"]
+[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_3l5uq"]
+[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="10_7xv35"]
+[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_8qiin"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/scepter.tres" id="12_iofhu"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="13_5nlej"]
+[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="14_k3uip"]
+[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="15_t60l6"]
+[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="16_7v8y8"]
 
-[sub_resource type="Resource" id="Resource_rjjt7"]
-script = ExtResource("9_7xv35")
-offensive_trait = ExtResource("8_3l5uq")
-offensive_weight = 2
-defensive_trait = ExtResource("7_ce22o")
+[sub_resource type="Resource" id="Resource_5lbfv"]
+script = ExtResource("9_3l5uq")
+offensive_trait = ExtResource("8_ce22o")
+offensive_weight = 4
+defensive_trait = ExtResource("7_uahfr")
 defensive_weight = 1
-strategic_trait = ExtResource("10_8qiin")
+strategic_trait = ExtResource("10_7xv35")
 strategic_weight = 1
-priority_trait = ExtResource("8_3l5uq")
+priority_trait = ExtResource("10_7xv35")
 
-[sub_resource type="Resource" id="Resource_ugj3v"]
-script = ExtResource("11_iofhu")
-name = "Robin"
-max_health = 70
-current_health = 70
-current_energy = 3
-max_energy = 3
+[sub_resource type="Resource" id="Resource_ff1hj"]
+script = ExtResource("11_8qiin")
+name = "Ruth"
+max_health = 82
+current_health = 46
+current_energy = 1
+max_energy = 4
 item_capacity = 1
-cards = Array[ExtResource("1_fcpjs")]([ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("3_i06bj"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv")])
-personality = SubResource("Resource_rjjt7")
+items = Array[ExtResource("6_jfmdv")]([ExtResource("8_i06bj")])
+cards = Array[ExtResource("1_r5eiv")]([ExtResource("2_fcpjs"), ExtResource("2_fcpjs"), ExtResource("2_fcpjs"), ExtResource("3_f04e1"), ExtResource("4_i06bj"), ExtResource("4_i06bj"), ExtResource("4_i06bj"), ExtResource("4_i06bj"), ExtResource("5_sds6a"), ExtResource("5_sds6a"), ExtResource("5_sds6a"), ExtResource("5_sds6a"), ExtResource("6_f04e1"), ExtResource("6_f04e1"), ExtResource("7_f04e1")])
+gold = 6
+personality = SubResource("Resource_5lbfv")
 
 [resource]
-script = ExtResource("15_7v8y8")
-player_data = SubResource("Resource_ugj3v")
-player_texture = ExtResource("14_t60l6")
-player_melee_weapon_texture = ExtResource("12_5nlej")
-player_ranged_weapon_texture = ExtResource("13_k3uip")
-player_name = "Robin"
+script = ExtResource("14_k3uip")
+player_data = SubResource("Resource_ff1hj")
+player_texture = ExtResource("13_5nlej")
+player_melee_weapon_texture = ExtResource("12_iofhu")
+player_ranged_weapon_texture = ExtResource("12_iofhu")
+player_name = "Ruth"
 player_backstory = ""
-map_seed = 1908691056
-player_node_index = 24
-pending_node_index = 27
+map_seed = 591579788
+player_node_index = 26
+pending_node_index = 29
 room_in_progress = true
-single_time_mini_events = Array[ExtResource("16_5lbfv")]([ExtResource("17_ff1hj")])
+single_time_mini_events = Array[ExtResource("15_t60l6")]([ExtResource("16_7v8y8")])
+total_gold_collected = 124
+total_cards_collected = 3
+total_items_collected = 6
 total_rooms_explored = 8
 initialized = true

@@ -58,9 +58,14 @@ func _physics_process(delta):
 	if bounces >= bounce_count:
 		velocity = Vector2.ZERO
 		is_active = false
-		wall_hit_sound.play()
 		spawn_particles(global_position)
 		animation_player.stop(true)
+
+		# Let last sound survive queue_free
+		wall_hit_sound.reparent(get_tree().current_scene)
+		wall_hit_sound.play()
+		wall_hit_sound.finished.connect(wall_hit_sound.queue_free)
+
 		queue_free()
 
 

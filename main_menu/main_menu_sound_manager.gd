@@ -5,6 +5,8 @@ extends Node
 @onready var hover_sound: AudioStreamPlayer = $HoverSound
 @onready var start_sound: AudioStreamPlayer = $StartSound
 @onready var select_sound: AudioStreamPlayer = $SelectSound
+@onready var credits_return: Button = $"../CreditsMenu/Return"
+@onready var close_sound: AudioStreamPlayer = $CloseSound
 
 
 func _ready() -> void:
@@ -21,3 +23,5 @@ func _ready() -> void:
 		button.clicked.connect(
 			func():
 				start_sound.play())
+	
+	credits_return.button_up.connect(func(): close_sound.play())
