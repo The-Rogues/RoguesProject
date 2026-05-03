@@ -9,6 +9,7 @@ signal object_placed(object:ObjectEntity)
 @export var battle_positions:Array[BattlePosition]
 signal object_interacted(interaction_actions:Array[Action], object:ObjectEntity)
 
+var show_preferences: bool = false
 
 ## Called to place objects at the start of battle
 func setup_objects(config:BattleFieldConfig):
@@ -98,6 +99,38 @@ func move_player(
 	new_position.on_player_entered(player)
 
 
-func enter_turn(turn_count:int):
+func enter_turn(turn_count:int, player:PlayerEntity):
 	for battle_position in battle_positions:
-		battle_position.enter_turn(turn_count)
+		battle_position.enter_turn(turn_count, player)
+
+func toggle_preferences():
+	for i in range(0, battle_positions.size()):
+		var curr_object: ObjectEntity = battle_positions[i].get_object()
+		if curr_object != null:
+			var change = !curr_object.object_stat_display.preference_container.visible
+			curr_object.object_stat_display.preference_container.visible = change
+
+func update_preferences(in_player: PlayerEntity):
+	var display_order: Array[int] = in_player.data.personality.create_trait_order(
+		in_player.offensive_trait.weight_value,
+		in_player.defensive_trait.weight_value,
+		in_player.strategic_trait.weight_value
+	)
+	for i in range(0, battle_positions.size()):
+		var curr_object = battle_positions[i].get_object()
+		if curr_object != null:
+			curr_object.object_stat_display.preference_container.visible = show_preferences
+			curr_object.object_stat_display.preference_container.clear_icons()
+			for j in range(0, display_order.size()):
+				var curr_trait: Trait
+				match display_order[j]:
+					0:
+						curr_trait = in_player.offensive_trait
+					1:
+						curr_trait = in_player.defensive_trait
+					2:
+						curr_trait = in_player.strategic_trait
+				if curr_object.data.targeting_categories.has(curr_trait.data.object_targeting_preference):
+					curr_object.object_stat_display.preference_container.add_icon(
+						curr_trait.data.display_texture
+					)

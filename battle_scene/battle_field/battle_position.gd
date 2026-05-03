@@ -99,9 +99,14 @@ func on_player_exited(player:PlayerEntity):
 			_object.health.died.disconnect(player.place_object)
 
 
-func enter_turn(turn_count:int):
+func enter_turn(
+	turn_count: int,
+	player: PlayerEntity
+):
 	decay_effect()
-	
+	if _effect:
+		if player.battle_position == self:
+			_effect.on_turn_entered(player)
 	if _object:
 		_object.enter_turn(turn_count)
 

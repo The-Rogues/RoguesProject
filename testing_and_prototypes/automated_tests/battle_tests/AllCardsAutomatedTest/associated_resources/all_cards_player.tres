@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
 [ext_resource type="Resource" uid="uid://bgdai8ivk0ewn" path="res://content/cards/brute_cards/intimidate.tres" id="3_pe6xi"]
-[ext_resource type="Resource" uid="uid://d2kjt0sd3fi1o" path="res://testing_and_prototypes/automated_tests/battle_tests/new_resource2.tres" id="3_rhmp2"]
+[ext_resource type="Resource" uid="uid://d2kjt0sd3fi1o" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
 [ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/rage.tres" id="4_lb55e"]
 [ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="5_q15mh"]
 [ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="6_r1o0q"]

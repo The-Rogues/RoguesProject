@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://dy206drb1nafs" path="res://content/cards/tactical_cards/quick_draw/quick_draw.tres" id="3_qjbdy"]
 [ext_resource type="Resource" uid="uid://d0oxyst1aiy7l" path="res://content/cards/tactical_cards/charge_shot/charge_shot.tres" id="4_y6v5y"]
 [ext_resource type="Resource" uid="uid://bgutrc02omy4f" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="5_yo5tu"]
-[ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="7_qjbdy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
@@ -22,5 +21,4 @@ name = "Tactical"
 description = "Silent. Targets most dangerous enemies. Prefers seeking cover."
 enemy_targeting_preference = 2
 card_loot_pool = Array[ExtResource("1_lejvd")]([ExtResource("2_cuxgu"), ExtResource("3_qjbdy"), ExtResource("4_y6v5y"), ExtResource("5_yo5tu")])
-starter_cards = Array[ExtResource("1_lejvd")]([ExtResource("7_qjbdy"), ExtResource("7_qjbdy"), ExtResource("2_cuxgu"), ExtResource("2_cuxgu")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

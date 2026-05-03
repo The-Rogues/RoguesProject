@@ -1,9 +1,9 @@
 extends Node
 
-@onready var encounter: EnemyEncounter = preload("res://testing_and_prototypes/automated_tests/battle_tests/all_cards_encounter.tres")
-@onready var player: PlayerData = preload("res://testing_and_prototypes/automated_tests/battle_tests/all_cards_player.tres")
-@onready var progress: RunProgress = preload("res://testing_and_prototypes/automated_tests/battle_tests/new_resource.tres")
-@onready var field: BattleFieldConfig = preload("res://testing_and_prototypes/automated_tests/battle_tests/all_cards_battle_field.tres")
+@onready var encounter_res: EnemyEncounter = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_encounter.tres")
+@onready var player_res: PlayerData = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_player.tres")
+@onready var progress_res: RunProgress = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_progress.tres")
+@onready var field_res: BattleFieldConfig = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_battle_field.tres")
 
 var test_enabled: bool = false
 
@@ -12,12 +12,12 @@ func _ready():
 	if !test_enabled:
 		return
 	
-	GlobalSessionManager.run_progress = progress
+	GlobalSessionManager.run_progress = progress_res
 	GlobalSceneLoader.load_battle_scene()
 	GlobalSceneLoader.battle_config = BattleConfig.new(
-		encounter,
-		field,
-		player
+		encounter_res,
+		field_res,
+		player_res
 	)
 	await get_tree().create_timer(5.0).timeout
 	var battle_scene := get_tree().current_scene as BattleScene

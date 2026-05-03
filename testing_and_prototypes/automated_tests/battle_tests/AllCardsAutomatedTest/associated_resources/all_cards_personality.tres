@@ -1,23 +1,23 @@
 [gd_resource type="Resource" script_class="PersonalityData" format=3 uid="uid://d2kjt0sd3fi1o"]
 
-[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://personality_system/personality_data.gd" id="1_7cxhx"]
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_wc18q"]
-[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_w0sty"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_hjyhc"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_3cjc7"]
+[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://personality_system/personality_data.gd" id="3_v11o7"]
 
 [sub_resource type="Resource" id="Resource_q4js6"]
-script = ExtResource("2_w0sty")
+script = ExtResource("2_3cjc7")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_on564"]
-script = ExtResource("2_w0sty")
+script = ExtResource("2_3cjc7")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_d5fqq"]
-script = ExtResource("2_w0sty")
+script = ExtResource("2_3cjc7")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [resource]
-script = ExtResource("1_7cxhx")
+script = ExtResource("3_v11o7")
 offensive_trait = SubResource("Resource_on564")
 offensive_weight = 2
 defensive_trait = SubResource("Resource_q4js6")

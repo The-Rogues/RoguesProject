@@ -151,7 +151,10 @@ func move_behind_perferred_object() -> void:
 		return
 	
 	var target_object: ObjectEntity = player.data.personality.choose_object_target(
-		curr_objects
+		curr_objects,
+		player.offensive_trait.weight_value,
+		player.defensive_trait.weight_value,
+		player.strategic_trait.weight_value
 	)
 	
 	await battle_field.move_player(
@@ -203,7 +206,10 @@ func move_toward_perfered_object(num_spaces: int) -> void:
 	var is_right: bool = player.data.personality.choose_move_direction(
 		clamp(player_index - num_spaces, 0, 4),
 		clamp(player_index + num_spaces, 0, 4),
-		battle_field.battle_positions
+		battle_field.battle_positions,
+		player.offensive_trait.weight_value,
+		player.defensive_trait.weight_value,
+		player.strategic_trait.weight_value
 	)
 	
 	if is_right:
