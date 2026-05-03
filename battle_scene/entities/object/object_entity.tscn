@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bg6brfw33g1s0" path="res://battle_scene/entities/object/object_stat_display.gd" id="7_vgro0"]
 [ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="8_ufudi"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_lc0qn"]
+[ext_resource type="Script" uid="uid://iiyj3mh6swyn" path="res://battle_scene/entities/ui/preference_container.gd" id="11_lc0qn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiqcq"]
 atlas = ExtResource("2_mnebb")
@@ -319,6 +320,16 @@ offset_bottom = 10.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 10
 text = "Interaction"
+
+[node name="PreferenceContainer" type="HBoxContainer" parent="ObjectStatDisplay" unique_id=1784178439]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10227273
+anchor_top = 2.475
+anchor_right = 0.82954544
+anchor_bottom = 3.075
+script = ExtResource("11_lc0qn")
+metadata/_edit_use_anchors_ = true
 
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1688580079]
 position = Vector2(0, -45)

@@ -4,6 +4,7 @@ class_name ObjectStatDisplay
 @onready var health_bar: HealthBar = $HealthBar
 #@onready var interaction_label: Label = $InteractionLabel
 @onready var interaction_button: Button = $InteractionButton
+@onready var preference_container: PreferenceContainer = $PreferenceContainer
 var can_interact:bool = true
 
 func initialize(object:ObjectEntity):

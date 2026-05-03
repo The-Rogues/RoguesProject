@@ -20,5 +20,4 @@ trait_category = 2
 enemy_targeting_preference = 5
 object_targeting_preference = 2
 card_loot_pool = Array[ExtResource("1_pwvpf")]([ExtResource("2_h1rhs")])
-starter_cards = Array[ExtResource("1_pwvpf")]([ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("2_h1rhs"), ExtResource("2_h1rhs")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

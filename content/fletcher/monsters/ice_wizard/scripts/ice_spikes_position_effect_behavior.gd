@@ -16,3 +16,6 @@ func on_entered(player:PlayerEntity, _instance:PositionEffect) -> void:
 
 func on_exited(player:PlayerEntity, _instance:PositionEffect) -> void:
 	player.take_damage(_instance.stack)
+
+func on_turn_entered(_player:PlayerEntity, _instance:PositionEffect) -> void:
+	print("Ice wizzah")

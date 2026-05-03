@@ -16,6 +16,8 @@ var player:PlayerEntity
 const ENEMY_SPACING = 0.15
 #const ENEMY_Y_POSITION = 0.5
 
+var show_preferences: bool = false
+
 func initialize(_player:PlayerEntity, _enemies:Array[MonsterData]):
 	player = _player
 	player.defeated.connect(_on_creature_defeated)
@@ -101,6 +103,9 @@ func check_enemy_defeat_condition():
 	if enemies.is_empty() and enemy_objects.is_empty():
 			all_enemies_defeated.emit()
 
+func toggle_preferences():
+	for i in range(0, enemies.size()):
+		enemies[i].stat_display.toggle_preferences()
 
 func update_attack_targeting() -> void:
 	reset_attack_targeting()
@@ -109,6 +114,31 @@ func update_attack_targeting() -> void:
 	apply_dangerous()
 	apply_intelegent()
 	apply_imbued()
+	update_preference_displays()
+
+func update_preference_displays():
+	var display_order: Array[int] = player.data.personality.create_trait_order(
+		player.offensive_trait.weight_value,
+		player.defensive_trait.weight_value,
+		player.strategic_trait.weight_value
+	)
+	for i in range(0, enemies.size()):
+		enemies[i].stat_display.preference_container.clear_icons()
+		enemies[i].stat_display.preference_container.visible = show_preferences
+		enemies[i].stat_display.status_effect_container.visible = !show_preferences
+		for j in range(0, display_order.size()):
+			var curr_trait: Trait
+			match display_order[j]:
+				0:
+					curr_trait = player.offensive_trait
+				1:
+					curr_trait = player.defensive_trait
+				2:
+					curr_trait = player.strategic_trait
+			if enemies[i].updated_targeting.has(curr_trait.data.enemy_targeting_preference):
+				enemies[i].stat_display.preference_container.add_icon(
+					curr_trait.data.display_texture
+				)
 
 func apply_healthiest() -> void:
 	if enemies.size() == 0:
