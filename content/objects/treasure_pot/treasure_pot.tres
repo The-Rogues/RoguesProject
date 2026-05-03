@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://common/art/placeholder/32_rogues/tiles.png" id="1_8r3bl"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_lqkhd"]
 [ext_resource type="Script" uid="uid://detyrii8oc61l" path="res://battle_scene/entities/actions/skill/give_player_gold_action.gd" id="3_w3i14"]
-[ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="4_w3i14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5cgrj"]
 atlas = ExtResource("1_8r3bl")
@@ -15,15 +14,11 @@ script = ExtResource("3_w3i14")
 amount = 15
 metadata/_custom_type_script = "uid://detyrii8oc61l"
 
-[sub_resource type="Resource" id="Resource_5cgrj"]
-script = ExtResource("4_w3i14")
-metadata/_custom_type_script = "uid://cv01a4ey63px6"
-
 [resource]
 script = ExtResource("2_lqkhd")
 targeting_categories = Array[int]([0, 2])
-interaction = 1
-interaction_actions = Array[ExtResource("1_1fwaj")]([SubResource("Resource_sqvwb"), SubResource("Resource_5cgrj")])
+interaction = 7
+interaction_actions = Array[ExtResource("1_1fwaj")]([SubResource("Resource_sqvwb")])
 display_texture = SubResource("AtlasTexture_5cgrj")
 name = "Treasure Pot"
 health = 1

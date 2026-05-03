@@ -10,8 +10,8 @@ script = ExtResource("2_ad5am")
 layout = Dictionary[int, ExtResource("1_squmn")]({
 0: ExtResource("2_yhe57"),
 1: ExtResource("3_0xoe6"),
-2: ExtResource("2_yhe57"),
-3: null,
+2: null,
+3: ExtResource("2_yhe57"),
 4: null
 })
 metadata/_custom_type_script = "uid://cjvnpxflphnr5"

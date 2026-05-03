@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cm5184nfihs1g" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/ice_wizard.tres" id="6_banfs"]
 [ext_resource type="Resource" uid="uid://1620uft0qeh3" path="res://content/scene_configuration/enemy_encounters/tier_3_encounters/battle_with_a_grim_reaper.tres" id="7_k6qpd"]
 [ext_resource type="Resource" uid="uid://ccyf1xvrcexq4" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/turtle_guards.tres" id="8_jve6n"]
+[ext_resource type="Resource" uid="uid://dk6xh7nusp3ss" path="res://content/scene_configuration/enemy_encounters/tier_1_encounters/rat_king.tres" id="9_3llie"]
 [ext_resource type="Resource" uid="uid://d165vww2jsclm" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/forest_gang.tres" id="9_mviad"]
 [ext_resource type="Resource" uid="uid://nj4x1yrcpw4r" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/gatling_worm_attack.tres" id="10_3llie"]
 [ext_resource type="Resource" uid="uid://3nslcpk1pfrw" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/large_ant.tres" id="11_4bcd8"]
@@ -16,7 +17,7 @@
 
 [resource]
 script = ExtResource("2_wh5q6")
-tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_banfs")])
+tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("4_3dw00"), ExtResource("9_3llie"), ExtResource("7_jve6n"), ExtResource("6_banfs")])
 tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("8_jve6n"), ExtResource("9_mviad"), ExtResource("10_3llie")])
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("9_mviad"), ExtResource("11_4bcd8"), ExtResource("10_3llie"), ExtResource("7_k6qpd")])
 tier_1_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("3_banfs"), ExtResource("5_ea1em")])

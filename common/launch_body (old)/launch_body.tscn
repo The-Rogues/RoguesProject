@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://ecd0ruerag5o"]
 
-[ext_resource type="Script" uid="uid://bpbs5sxcw6l2v" path="res://common/launch_body (old)/launch_body.gd" id="1_q6yra"]
-[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="2_307tv"]
-[ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://common/sprite_flasher/sprite_flasher.gd" id="3_2wfn6"]
-[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="4_8l0qs"]
-[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="4_tf8sl"]
-
+[ext_resource type="Script" uid="uid://bpbs5sxcw6l2v" path="res://common/launch_body (old)/launch_body.gd" id="1_251fg"]
+[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="2_gsdep"]
+[ext_resource type="Script" uid="uid://cd1ym0qvt7efq" path="res://common/sprite_flasher/sprite_flasher.gd" id="3_tm1cr"]
+[ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="4_5u5k7"]
+[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="5_gaeah"]
+[ext_resource type="AudioStream" uid="uid://dn1f5rmsnos7v" path="res://common/sound_effects/helton_yans_pixel_combat/launch_body.wav" id="6_e3tji"]
+[ext_resource type="AudioStream" uid="uid://4o8q6fuof520" path="res://common/sound_effects/helton_yans_pixel_combat/creature_hit_0.wav" id="7_l2l7k"]
+[ext_resource type="AudioStream" uid="uid://b2ttr1nrc26q2" path="res://common/sound_effects/helton_yans_pixel_combat/creature_hit_1.wav" id="8_oebbs"]
+[ext_resource type="AudioStream" uid="uid://mwlpnpo0y0hv" path="res://common/sound_effects/helton_yans_pixel_combat/creature_hit_2.wav" id="9_dnrgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n11uh"]
 size = Vector2(40, 41.5)
@@ -69,8 +72,14 @@ _data = {
 &"spin": SubResource("Animation_kia21")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lgh13"]
+streams_count = 3
+stream_0/stream = ExtResource("7_l2l7k")
+stream_1/stream = ExtResource("8_oebbs")
+stream_2/stream = ExtResource("9_dnrgo")
+
 [node name="LaunchedBody" type="CharacterBody2D" unique_id=1775996269]
-script = ExtResource("1_q6yra")
+script = ExtResource("1_251fg")
 bounce_range = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419234390]
@@ -82,7 +91,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_xdua6")
 position = Vector2(0, -8)
 scale = Vector2(2, 2)
-texture = ExtResource("2_307tv")
+texture = ExtResource("2_gsdep")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=996321447]
 libraries/ = SubResource("AnimationLibrary_yomte")
@@ -92,11 +101,19 @@ libraries/launched_entity = SubResource("AnimationLibrary_wqhmt")
 wait_time = 10.0
 
 [node name="SpriteFlasher" type="Node" parent="." unique_id=1749822257 node_paths=PackedStringArray("sprite")]
-script = ExtResource("3_2wfn6")
+script = ExtResource("3_tm1cr")
 sprite = NodePath("../Sprite2D")
-flash_material = ExtResource("4_tf8sl")
+flash_material = ExtResource("4_5u5k7")
 
-[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_8l0qs")]
+[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("5_gaeah")]
 default_color = Color(1, 1, 1, 0.5764706)
+
+[node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=1118373339]
+stream = ExtResource("6_e3tji")
+bus = &"SFX"
+
+[node name="WallHitSound" type="AudioStreamPlayer" parent="." unique_id=1773859226]
+stream = SubResource("AudioStreamRandomizer_lgh13")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

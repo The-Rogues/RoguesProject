@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_5qsdc"]
 script = ExtResource("2_ogtcl")
-base_damage = 6
+base_damage = 7
 target_option = 2
 metadata/_custom_type_script = "uid://c4hroa2x01w40"
 
@@ -21,6 +21,6 @@ script = ExtResource("4_pjspm")
 category = 1
 energy_cost = 1
 name = "Strike"
-description = "Deal get_atk6 Damage. Gain 1 offense."
+description = "Deal get_atk7 Damage. Gain 1 offense."
 play_actions = Array[ExtResource("1_g2qpm")]([SubResource("Resource_5qsdc"), SubResource("Resource_vmdjr")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

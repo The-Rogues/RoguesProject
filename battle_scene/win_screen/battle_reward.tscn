@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d2wk2jw6xvibf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-028.png" id="3_v4xxi"]
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="4_k1y0t"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_bny2b"]
+[ext_resource type="PackedScene" uid="uid://bc0a6udl8uter" path="res://common/particle_effects/sparkles.tscn" id="6_eqe3h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb1yi"]
 bg_color = Color(0.7676419, 0.5590647, 0.11251082, 1)
@@ -20,7 +21,6 @@ texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g7n2f"]
-load_path = "res://.godot/imported/panel-008.png-9f1522471fb57adb1486a2d410c8171f.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alapa"]
 content_margin_left = 32.0
@@ -43,7 +43,6 @@ texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ski7b"]
-load_path = "res://.godot/imported/panel-008.png-9f1522471fb57adb1486a2d410c8171f.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yso80"]
 content_margin_left = 32.0
@@ -54,14 +53,6 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Curve" id="Curve_4iswc"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50928384, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_6toe5"]
-offsets = PackedFloat32Array(0, 0.14389534, 0.36482558)
-colors = PackedColorArray(0.49803922, 0.87058824, 0.9882353, 1, 1, 0.7490196, 0.5764706, 1, 0.49803922, 0.87058824, 0.9882353, 1)
 
 [node name="BattleReward" type="PanelContainer" unique_id=1556243692]
 texture_filter = 1
@@ -103,18 +94,8 @@ theme_override_fonts/normal_font = ExtResource("5_bny2b")
 text = "Unamed Reward"
 vertical_alignment = 1
 
-[node name="Sparkles" type="CPUParticles2D" parent="." unique_id=269462532]
+[node name="Sparkles" parent="." unique_id=1253612788 instance=ExtResource("6_eqe3h")]
 position = Vector2(164, 27)
-amount = 7
-texture = ExtResource("4_k1y0t")
-speed_scale = 0.3
-emission_shape = 3
-emission_rect_extents = Vector2(150, 20)
-direction = Vector2(0, 0)
-spread = 0.0
-gravity = Vector2(0, 0)
-scale_amount_curve = SubResource("Curve_4iswc")
-color_ramp = SubResource("Gradient_6toe5")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="button_up" from="AcceptReward" to="." method="_on_select_button_up"]

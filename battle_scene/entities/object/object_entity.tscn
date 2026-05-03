@@ -11,6 +11,11 @@
 [ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="8_ufudi"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_lc0qn"]
 [ext_resource type="Script" uid="uid://iiyj3mh6swyn" path="res://battle_scene/entities/ui/preference_container.gd" id="11_lc0qn"]
+[ext_resource type="Script" uid="uid://d8ft0of5kv3e" path="res://battle_scene/entities/object/object_sound_manager.gd" id="11_lc0qn"]
+[ext_resource type="AudioStream" uid="uid://bah4tuxd3vivs" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (1).wav" id="12_rxman"]
+[ext_resource type="AudioStream" uid="uid://qcl0n2yii78d" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (2).wav" id="13_n2vx5"]
+[ext_resource type="AudioStream" uid="uid://dbak7xwfehp36" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (3).wav" id="14_vq31a"]
+[ext_resource type="AudioStream" uid="uid://e20ql0judybs" path="res://common/sound_effects/helton_yans_pixel_combat/rubble_explosion.wav" id="15_f1i1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiqcq"]
 atlas = ExtResource("2_mnebb")
@@ -169,6 +174,12 @@ shadow_color = Color(0, 0, 0, 0.27450982)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42bac"]
 bg_color = Color(0.9858559, 0.7745562, 0.79182756, 1)
 shadow_color = Color(0, 0, 0, 0.27450982)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fvgdg"]
+streams_count = 3
+stream_0/stream = ExtResource("12_rxman")
+stream_1/stream = ExtResource("13_n2vx5")
+stream_2/stream = ExtResource("14_vq31a")
 
 [node name="ObjectEntity" type="Node2D" unique_id=1521707546 node_paths=PackedStringArray("health", "projectile_launcher")]
 script = ExtResource("1_mnebb")
@@ -333,6 +344,20 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1688580079]
 position = Vector2(0, -45)
+
+[node name="SoundManager" type="Node" parent="." unique_id=1074507864 node_paths=PackedStringArray("entity")]
+script = ExtResource("11_lc0qn")
+entity = NodePath("..")
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1232128601]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_fvgdg")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=57633498]
+unique_name_in_owner = true
+stream = ExtResource("15_f1i1o")
+bus = &"SFX"
 
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_timer_timeout"]

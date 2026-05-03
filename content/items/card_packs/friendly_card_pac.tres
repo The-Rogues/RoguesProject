@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://soed6wogo5r5"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_qohcx"]
+[ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_csq07"]
+[ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/fish_treat.tres" id="2_xx3h3"]
+[ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/worm_treat.tres" id="3_p1cao"]
+[ext_resource type="Resource" uid="uid://biytyhg5hx4cd" path="res://content/cards/friendly_cards/carrot_treat.tres" id="4_3ghcv"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_fh233"]
+
+[resource]
+script = ExtResource("2_csq07")
+card_pool = Array[ExtResource("1_qohcx")]([ExtResource("2_xx3h3"), ExtResource("3_p1cao"), ExtResource("4_3ghcv")])
+draw_count = 3
+name = "Friendly Card Pack"
+description = "Choose 1 Friendly card to add to your deck."
+display_texture = ExtResource("5_fh233")
+usable_out_of_battle = true
+shop_price = 15
+sell_price = 5
+metadata/_custom_type_script = "uid://dlv5cg3gsif3q"
