@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://bg6brfw33g1s0" path="res://battle_scene/entities/object/object_stat_display.gd" id="7_vgro0"]
 [ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="8_ufudi"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_lc0qn"]
-[ext_resource type="Script" uid="uid://iiyj3mh6swyn" path="res://battle_scene/entities/ui/preference_container.gd" id="11_lc0qn"]
 [ext_resource type="Script" uid="uid://d8ft0of5kv3e" path="res://battle_scene/entities/object/object_sound_manager.gd" id="11_lc0qn"]
+[ext_resource type="Script" uid="uid://iiyj3mh6swyn" path="res://battle_scene/entities/ui/preference_container.gd" id="11_n2vx5"]
 [ext_resource type="AudioStream" uid="uid://bah4tuxd3vivs" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (1).wav" id="12_rxman"]
 [ext_resource type="AudioStream" uid="uid://qcl0n2yii78d" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (2).wav" id="13_n2vx5"]
 [ext_resource type="AudioStream" uid="uid://dbak7xwfehp36" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (3).wav" id="14_vq31a"]
@@ -339,7 +339,7 @@ anchor_left = 0.10227273
 anchor_top = 2.475
 anchor_right = 0.82954544
 anchor_bottom = 3.075
-script = ExtResource("11_lc0qn")
+script = ExtResource("11_n2vx5")
 metadata/_edit_use_anchors_ = true
 
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1688580079]
