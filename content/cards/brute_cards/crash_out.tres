@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bobl10hpsgoli"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_l2efl"]
+[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_hx8t1"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="3_8w2mh"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="4_74dcj"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_1hxr8"]
+
+[sub_resource type="Resource" id="Resource_7y3qv"]
+script = ExtResource("3_8w2mh")
+base_damage = 40
+target_option = 3
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_5f474"]
+script = ExtResource("2_hx8t1")
+threshold = 8
+success_action = SubResource("Resource_7y3qv")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_4nwkt"]
+script = ExtResource("4_74dcj")
+operation = 2
+weight = 3
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[sub_resource type="Resource" id="Resource_g8vyx"]
+script = ExtResource("2_hx8t1")
+threshold = 8
+success_action = SubResource("Resource_4nwkt")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[resource]
+script = ExtResource("5_1hxr8")
+category = 1
+energy_cost = 2
+name = "Crash Out"
+description = "If [color=orange]offense[/color] is [color=#43A047]8[/color] or more, [color=red]get_atk40[/color] damage to all enemies. Reduce [color=orange]offense[/color] by [color=#43A047]3[/color]."
+play_actions = Array[ExtResource("1_l2efl")]([SubResource("Resource_5f474"), SubResource("Resource_g8vyx")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

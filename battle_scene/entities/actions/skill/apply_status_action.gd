@@ -13,5 +13,5 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 				target.apply_status_effect(effect)
 				await action_resolve_delay()
 			else:
-				target.apply_status_effect(effect)
+				target.apply_status_effect(effect, true)
 				await action_resolve_delay()

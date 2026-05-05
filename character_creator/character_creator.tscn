@@ -7,17 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://cocbavryx3osk" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-015.png" id="3_ono6g"]
 [ext_resource type="Texture2D" uid="uid://b7w45y1e258yp" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-002.png" id="4_cp3bx"]
 [ext_resource type="Resource" uid="uid://ck1tj3cj82hbk" path="res://content/personality_traits/skittish.tres" id="4_g1oom"]
+[ext_resource type="Resource" uid="uid://5txjkiagx73e" path="res://content/personality_traits/merciful.tres" id="4_xo5uh"]
 [ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="5_5i41c"]
 [ext_resource type="Resource" uid="uid://cg0538d2e33j2" path="res://content/personality_traits/tactical.tres" id="5_40a81"]
 [ext_resource type="Resource" uid="uid://c6hd6w7xmy4jb" path="res://content/personality_traits/greedy.tres" id="5_epxpy"]
 [ext_resource type="Texture2D" uid="uid://cq26k5tc4mmtj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-002.png" id="6_ctoup"]
+[ext_resource type="Resource" uid="uid://cfnfd0npf4gfs" path="res://content/personality_traits/vengeful.tres" id="6_yb5ok"]
 [ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="7_g1oom"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="8_epxpy"]
 [ext_resource type="Resource" uid="uid://c31mo2yg1u86r" path="res://content/personality_traits/friendly.tres" id="8_ojf1h"]
+[ext_resource type="Resource" uid="uid://c5087rypp26h6" path="res://content/personality_traits/naive.tres" id="9_5s1si"]
 [ext_resource type="Texture2D" uid="uid://cituqdafbrum" path="res://common/art/placeholder/nikoichu/Icons_Boardgames.png" id="9_qangh"]
 [ext_resource type="PackedScene" uid="uid://ccj3477wj0s5j" path="res://character_creator/survey_interface.tscn" id="10_g1dsd"]
+[ext_resource type="Resource" uid="uid://8yofaogmqdc3" path="res://content/personality_traits/crafty.tres" id="10_m0xjj"]
+[ext_resource type="Resource" uid="uid://bs4orhjt5mdde" path="res://content/personality_traits/stoic.tres" id="11_mcabn"]
 [ext_resource type="PackedScene" uid="uid://bfn570nel15tp" path="res://character_creator/character_texture_selector.tscn" id="11_ock7s"]
+[ext_resource type="Resource" uid="uid://hm5qntnly846" path="res://content/personality_traits/laidback.tres" id="12_42o4x"]
 [ext_resource type="PackedScene" uid="uid://bdwc1bwqyvlcr" path="res://character_creator/name_editor.tscn" id="12_tjwqa"]
+[ext_resource type="Resource" uid="uid://bsusaqh4w4gk1" path="res://content/personality_traits/valorous.tres" id="15_khvre"]
 [ext_resource type="Texture2D" uid="uid://cudcljbp6s7i2" path="res://battle_scene/entities/player/melee_weapon/short_sword.tres" id="16_v040o"]
 [ext_resource type="Texture2D" uid="uid://domn773wxth76" path="res://battle_scene/entities/player/melee_weapon/long_sword.tres" id="17_40a81"]
 [ext_resource type="Texture2D" uid="uid://dxt2iuh6d67b2" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="18_ojf1h"]
@@ -120,11 +127,11 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_b67tb"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_qx44d"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_3ctbe"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_e5rpv"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ubd7s"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_y6kk7"]
 
 [node name="CharacterCreator" type="Control" unique_id=120215782]
 layout_mode = 3
@@ -135,9 +142,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wh7xx")
 script = ExtResource("1_braph")
-offensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("3_ctoup"), ExtResource("3_ctoup"), ExtResource("5_40a81"), ExtResource("3_ctoup")])
-defensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("4_g1oom"), ExtResource("4_g1oom"), ExtResource("4_g1oom"), ExtResource("4_g1oom")])
-strategic_traits = Array[ExtResource("2_5i41c")]([ExtResource("5_epxpy"), ExtResource("5_epxpy"), ExtResource("8_ojf1h"), ExtResource("5_epxpy")])
+offensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("4_xo5uh"), ExtResource("5_40a81"), ExtResource("6_yb5ok"), ExtResource("3_ctoup")])
+defensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("4_g1oom"), ExtResource("9_5s1si"), ExtResource("10_m0xjj"), ExtResource("11_mcabn")])
+strategic_traits = Array[ExtResource("2_5i41c")]([ExtResource("12_42o4x"), ExtResource("8_ojf1h"), ExtResource("5_epxpy"), ExtResource("15_khvre")])
 
 [node name="Background" type="ColorRect" parent="." unique_id=919930622]
 layout_mode = 1
@@ -316,16 +323,16 @@ layout_mode = 2
 text = "Aggression"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="Low" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="High" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="ResolveSurvey" parent="Elements/PersonalitySurveys" unique_id=325705533 instance=ExtResource("10_g1dsd")]
 unique_name_in_owner = true
@@ -335,16 +342,16 @@ layout_mode = 2
 text = "Resolve"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_e5rpv")
 
 [node name="Low" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_e5rpv")
 
 [node name="High" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_e5rpv")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_e5rpv")
 
 [node name="HighLabel" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="5" unique_id=573113404]
 text = "high"
@@ -357,16 +364,16 @@ layout_mode = 2
 text = "Quirkiness"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_ubd7s")
+button_group = SubResource("ButtonGroup_y6kk7")
 
 [node name="Low" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_ubd7s")
+button_group = SubResource("ButtonGroup_y6kk7")
 
 [node name="High" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_ubd7s")
+button_group = SubResource("ButtonGroup_y6kk7")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_ubd7s")
+button_group = SubResource("ButtonGroup_y6kk7")
 
 [node name="Options" type="HBoxContainer" parent="Elements" unique_id=1837197351]
 layout_mode = 2

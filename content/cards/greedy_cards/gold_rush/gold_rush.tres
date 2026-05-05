@@ -22,12 +22,14 @@ metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 [sub_resource type="Resource" id="Resource_xt02j"]
 script = ExtResource("5_ylgg1")
 effect = SubResource("Resource_pfi3o")
+target_option = 1
 ignore_foreground = true
 metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 
 [resource]
 script = ExtResource("6_wexxc")
 type = 2
+category = 3
 energy_cost = 1
 name = "Gold Rush"
 description = "Move behind [color=orange]treasure[/color]. Gain [color=#43A047]3[/color] [color=orange]gems[/color]."

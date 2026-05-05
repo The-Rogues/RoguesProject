@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b0w7q3nduf8j2"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qw06e"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_fnpa4"]
+[ext_resource type="Script" uid="uid://bjk11jtqm0bpy" path="res://content/cards/greedy_cards/cash_in/spend_gem_action.gd" id="2_o05fs"]
+[ext_resource type="Script" uid="uid://d1kuqw84jswgt" path="res://content/cards/greedy_cards/cash_in/draw_card_action.gd" id="2_v1cs6"]
+
+[sub_resource type="Resource" id="Resource_an5ej"]
+script = ExtResource("2_v1cs6")
+amount = 3
+metadata/_custom_type_script = "uid://d1kuqw84jswgt"
+
+[sub_resource type="Resource" id="Resource_v1cs6"]
+script = ExtResource("2_o05fs")
+spend_amount = 5
+conditional_action = SubResource("Resource_an5ej")
+metadata/_custom_type_script = "uid://bjk11jtqm0bpy"
+
+[resource]
+script = ExtResource("2_fnpa4")
+type = 2
+category = 3
+name = "Cash In"
+description = "Spend [color=#43A047]5[/color] [color=orange]gems[/color]. Draw [color=#43A047]3 cards[/color]."
+play_actions = Array[ExtResource("1_qw06e")]([SubResource("Resource_v1cs6")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

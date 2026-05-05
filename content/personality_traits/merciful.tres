@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://5txjkiagx73e"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_yj64v"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_3ygr1"]
+[ext_resource type="Resource" uid="uid://jocbe8p5e2es" path="res://content/cards/mericful_cards/forgive/forgive.tres" id="2_h5hgd"]
+[ext_resource type="Texture2D" uid="uid://hi7wmsmd5iab" path="res://common/art/placeholder/joi3/merciful_icon.tres" id="2_nc2fb"]
+[ext_resource type="Resource" uid="uid://d0w221my7a46d" path="res://content/cards/mericful_cards/merciful_strike/merciful_strike.tres" id="3_thykk"]
+[ext_resource type="Resource" uid="uid://c37iffvwm80vl" path="res://content/cards/mericful_cards/pacify/pacify.tres" id="4_473ut"]
+[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/shrink/shrink.tres" id="5_pcmff"]
+
+[resource]
+script = ExtResource("2_3ygr1")
+display_texture = ExtResource("2_nc2fb")
+name = "Merciful"
+description = "Dislikes combat, spares enemies instead. Targets healthiest enemies. Moves toward cover."
+card_loot_pool = Array[ExtResource("1_yj64v")]([ExtResource("2_h5hgd"), ExtResource("3_thykk"), ExtResource("4_473ut"), ExtResource("5_pcmff")])
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

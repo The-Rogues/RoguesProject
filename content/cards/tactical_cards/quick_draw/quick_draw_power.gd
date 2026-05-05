@@ -1,18 +1,18 @@
 extends BattlePower
-class_name QuickDrawPower
+class_name QuickDrawPowerNew
 
-const EFFECT_COUNT = 2
-var effect_counter:int = 0
+@export var draw_amnt: int
+var normal_draw_count: int = 0
+var player: PlayerEntity = null
 
 func on_apply(_context:BattleContext):
-	_context.get_player().cards.drew_card.connect(_on_card_drawn)
-
+	player = _context.get_player()
+	player.cards.drew_card.connect(_on_card_drawn)
+	for i in range(0, draw_amnt):
+		await player.cards.draw_cards(1)
+	player.cards.drew_card.disconnect(_on_card_drawn)
+	end_power()
 
 func _on_card_drawn(card:CardInstance):
-	if card.data.name == "Reload":
-		card.energy_cost = 0
-		card.update_instance(null)
-		effect_counter += 1
-	
-	if effect_counter == EFFECT_COUNT:
-		end_power()
+	if card.data.name == "Agile Shot" || card.data.name == "Charge Shot" || card.data.name == "Arrow Shot":
+			player.cards.draw_cards(1)

@@ -1,10 +1,18 @@
 [gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cslydk2dhl5kp"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_05fxo"]
-[ext_resource type="Resource" uid="uid://ct3dokdkm4u6i" path="res://content/cards/brute_cards/brute_strike.tres" id="2_p83cn"]
+[ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="2_fiell"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
+[ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/brute_cards/dual_strike.tres" id="3_biq4x"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
 [ext_resource type="Resource" uid="uid://d2kjt0sd3fi1o" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
+[ext_resource type="Resource" uid="uid://doj675nih2jy4" path="res://content/cards/brute_cards/intensity.tres" id="4_mv3uk"]
+[ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/rage.tres" id="5_kcscn"]
+[ext_resource type="Resource" uid="uid://7nthsvdksfy3" path="res://content/cards/brute_cards/sharpen.tres" id="6_ps3ye"]
+[ext_resource type="Resource" uid="uid://de5b8p156d76s" path="res://content/cards/tactical_cards/charge_shot/charge_shot.tres" id="7_h10xn"]
+[ext_resource type="Resource" uid="uid://bgutrc02omy4f" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="8_5ubvd"]
+[ext_resource type="Resource" uid="uid://bt0y1yjcdst8s" path="res://content/cards/tactical_cards/flow_state/flow_state.tres" id="9_045gi"]
+[ext_resource type="Resource" uid="uid://u6speansnd8p" path="res://content/cards/tactical_cards/quick_draw/quick_draw.tres" id="10_i0ptq"]
 
 [resource]
 script = ExtResource("3_p83cn")
@@ -14,6 +22,6 @@ current_health = 1000
 current_energy = 1000
 max_energy = 1000
 item_capacity = 1
-cards = Array[ExtResource("1_05fxo")]([ExtResource("2_p83cn")])
+cards = Array[ExtResource("1_05fxo")]([ExtResource("2_fiell"), ExtResource("3_biq4x"), ExtResource("4_mv3uk"), ExtResource("5_kcscn"), ExtResource("6_ps3ye"), ExtResource("7_h10xn"), ExtResource("8_5ubvd"), ExtResource("9_045gi"), ExtResource("10_i0ptq")])
 personality = ExtResource("3_rhmp2")
 metadata/_custom_type_script = "uid://p6tkdhpfg377"

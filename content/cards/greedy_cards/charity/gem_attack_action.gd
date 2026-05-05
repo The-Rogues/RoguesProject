@@ -7,15 +7,18 @@ var gem_behavior: Resource = preload("res://content/cards/greedy_cards/gem_behav
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	if _user is not PlayerEntity:
 		return
-		
+	
 	var player = _context.get_player()
 	var num_gems = get_num_gems(player)
 	
 	for i in range(0, num_gems):
 		if _context.creature_manager.enemies.size() == 0:
 			return
-			
-		var target: MonsterEntity = _context.creature_manager.enemies.pick_random()
+		var target: AbstractEntity
+		if player.battle_position.get_object() != null && player.battle_position.get_object().health.value != 0:
+			target = player.battle_position.get_object()
+		else:
+			target = _context.creature_manager.enemies.pick_random()
 		
 		var direction = (
 				_user.global_position - target.global_position).normalized()

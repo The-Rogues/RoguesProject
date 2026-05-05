@@ -5,7 +5,7 @@ extends Node
 @onready var progress_res: RunProgress = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_progress.tres")
 @onready var field_res: BattleFieldConfig = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_battle_field.tres")
 
-var test_enabled: bool = false
+var test_enabled: bool = true
 
 func _ready():
 	
@@ -38,7 +38,7 @@ func _ready():
 			hand_has_cards = false
 		
 		battle_scene.battle_flow_manager.play_hand.confirm_play(cards[0])
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1.5).timeout
 		
 		if battle_scene.battle_flow_manager.player.cards.draw_pile.size() > 0:
 			battle_scene.battle_flow_manager.player.cards.draw_cards(1)

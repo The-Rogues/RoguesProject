@@ -38,10 +38,10 @@ metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
 script = ExtResource("6_ed1e1")
 type = 2
 category = 1
-energy_cost = 3
+energy_cost = 2
 name = "Fire Tipped"
 display_texture = SubResource("AtlasTexture_yep3s")
-description = "Apply 2 Burn to projectiles until the end of battle."
+description = "Apply [color=#43A047]2[/color] [color=orange]Burn[/color] to projectiles until the end of battle."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_yep3s")]([SubResource("Resource_p11oh")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

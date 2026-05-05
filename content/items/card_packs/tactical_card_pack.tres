@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://chsal8kslnb1o"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_uqnye"]
-[ext_resource type="Resource" uid="uid://bhuolqbqej2fy" path="res://content/cards/tactical_cards/reload/reload.tres" id="2_1rsab"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_i0jws"]
-[ext_resource type="Resource" uid="uid://d0oxyst1aiy7l" path="res://content/cards/tactical_cards/charge_shot/charge_shot.tres" id="3_bxmps"]
+[ext_resource type="Resource" uid="uid://de5b8p156d76s" path="res://content/cards/tactical_cards/charge_shot/charge_shot.tres" id="2_n3otu"]
 [ext_resource type="Resource" uid="uid://bgutrc02omy4f" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="4_n3otu"]
+[ext_resource type="Resource" uid="uid://bt0y1yjcdst8s" path="res://content/cards/tactical_cards/flow_state/flow_state.tres" id="4_rkc11"]
+[ext_resource type="Resource" uid="uid://u6speansnd8p" path="res://content/cards/tactical_cards/quick_draw/quick_draw.tres" id="5_r6se4"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_rkc11"]
+[ext_resource type="Resource" uid="uid://bhnmqjrvedryq" path="res://content/cards/tactical_cards/reload/reload.tres" id="6_maobt"]
 
 [resource]
 script = ExtResource("2_i0jws")
-card_pool = Array[ExtResource("1_uqnye")]([ExtResource("2_1rsab"), ExtResource("3_bxmps"), ExtResource("4_n3otu")])
+card_pool = Array[ExtResource("1_uqnye")]([ExtResource("2_n3otu"), ExtResource("4_n3otu"), ExtResource("4_rkc11"), ExtResource("5_r6se4"), ExtResource("6_maobt")])
 draw_count = 3
 rarity = 1
 name = "Tactical Card Pack"

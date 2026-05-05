@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://bsusaqh4w4gk1"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_s4esk"]
-[ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/Valorous/RecklessRush/RecklessRush.tres" id="2_4yvaj"]
-[ext_resource type="Resource" uid="uid://b0e3y8sjlb5ki" path="res://content/cards/Valorous/Final Push/FinalPush.tres" id="3_i554m"]
+[ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/valorous_cards/RecklessRush/RecklessRush.tres" id="2_s4esk"]
+[ext_resource type="Texture2D" uid="uid://duwn2qipdjoo" path="res://common/art/placeholder/joi3/valorous_icon.tres" id="3_4yvaj"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="4_tuj4a"]
 
 [resource]
 script = ExtResource("4_tuj4a")
-description = "Seeks danger and heroics. will target more dangours foes. "
+display_texture = ExtResource("3_4yvaj")
+name = "Valorous"
+description = "Journeys to become stronger. Targets dangerous enemies. Moves toward upgrades."
+trait_category = 2
 enemy_targeting_preference = 2
 object_targeting_preference = 1
-card_loot_pool = Array[ExtResource("1_s4esk")]([ExtResource("2_4yvaj"), ExtResource("3_i554m")])
-starter_cards = Array[ExtResource("1_s4esk")]([ExtResource("3_i554m"), ExtResource("2_4yvaj")])
+card_loot_pool = Array[ExtResource("1_s4esk")]([ExtResource("2_s4esk"), ExtResource("2_s4esk"), ExtResource("2_s4esk"), ExtResource("2_s4esk")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

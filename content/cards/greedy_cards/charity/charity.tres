@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://bxi71i17bsbx8"
 [resource]
 script = ExtResource("4_oqqbd")
 type = 1
+category = 3
 energy_cost = 2
 name = "Charity"
 description = "Deal [color=#43A047]2[/color] damage to a random enemy for each [color=orange]gem[/color] you have."
