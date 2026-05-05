@@ -46,7 +46,6 @@ func initialize(
 	strategic_weight = 1
 	
 	var trait_category = _priority_trait.to_upper()
-	trait_category = "NONE"
 	if trait_category == "OFFENSIVE":
 		priority_trait = offensive_trait
 		offensive_weight = 2
