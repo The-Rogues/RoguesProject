@@ -1,53 +1,57 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_upqny"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="2_br818"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="3_r5eiv"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_fcpjs"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_f04e1"]
-[ext_resource type="Script" path="res://item_system/item_data.gd" id="6_i06bj"]
-[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="7_sds6a"]
+[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_fcpjs"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_f04e1"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_i06bj"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_sds6a"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_jfmdv"]
+[ext_resource type="Resource" path="res://content/cards/brute_cards/dual_strike.tres" id="6_f04e1"]
+[ext_resource type="Script" path="res://item_system/item_data.gd" id="6_uahfr"]
+[ext_resource type="Resource" path="res://content/personality_traits/stoic.tres" id="7_ce22o"]
 [ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_fcpjs"]
-[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_uahfr"]
-[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="10_f04e1"]
-[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_3l5uq"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="12_i06bj"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/book.tres" id="13_sds6a"]
-[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="14_iofhu"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="14_jfmdv"]
-[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_sds6a"]
-[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="17_jfmdv"]
+[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_7xv35"]
+[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="10_8qiin"]
+[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_iofhu"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="12_f04e1"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/trident.tres" id="12_fcpjs"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="14_i06bj"]
+[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="15_7v8y8"]
+[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_5lbfv"]
+[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="17_ff1hj"]
 
-[sub_resource type="Resource" id="Resource_uahfr"]
-script = ExtResource("9_uahfr")
+[sub_resource type="Resource" id="Resource_sds6a"]
+script = ExtResource("9_7xv35")
 offensive_trait = ExtResource("8_fcpjs")
-offensive_weight = 2
-defensive_trait = ExtResource("7_sds6a")
+offensive_weight = 1
+defensive_trait = ExtResource("7_ce22o")
 defensive_weight = 1
-strategic_trait = ExtResource("10_f04e1")
+strategic_trait = ExtResource("10_8qiin")
 strategic_weight = 1
-priority_trait = ExtResource("8_fcpjs")
 
-[sub_resource type="Resource" id="Resource_ce22o"]
-script = ExtResource("11_3l5uq")
-name = "Maria"
+[sub_resource type="Resource" id="Resource_jfmdv"]
+script = ExtResource("11_iofhu")
+name = "Boaz"
 max_health = 70
 current_health = 70
+current_energy = 3
 max_energy = 3
 item_capacity = 1
-cards = Array[ExtResource("1_upqny")]([ExtResource("3_r5eiv"), ExtResource("3_r5eiv"), ExtResource("3_r5eiv"), ExtResource("2_br818"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("4_fcpjs"), ExtResource("5_f04e1"), ExtResource("5_f04e1"), ExtResource("5_f04e1"), ExtResource("5_f04e1")])
-personality = SubResource("Resource_uahfr")
+cards = Array[ExtResource("1_fcpjs")]([ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("2_f04e1"), ExtResource("3_i06bj"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("4_sds6a"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("5_jfmdv"), ExtResource("6_f04e1")])
+gold = 17
+personality = SubResource("Resource_sds6a")
 
 [resource]
-script = ExtResource("14_iofhu")
-player_data = SubResource("Resource_ce22o")
-player_texture = ExtResource("14_jfmdv")
-player_melee_weapon_texture = ExtResource("12_i06bj")
-player_ranged_weapon_texture = ExtResource("13_sds6a")
-player_name = "Maria"
+script = ExtResource("15_7v8y8")
+player_data = SubResource("Resource_jfmdv")
+player_texture = ExtResource("14_i06bj")
+player_melee_weapon_texture = ExtResource("12_f04e1")
+player_ranged_weapon_texture = ExtResource("12_fcpjs")
+player_name = "Boaz"
 player_backstory = ""
-map_seed = 1166114627
-pending_node_index = 2
+map_seed = 1282146103
+player_node_index = 6
+pending_node_index = 10
 room_in_progress = true
-single_time_mini_events = Array[ExtResource("16_sds6a")]([ExtResource("17_jfmdv")])
+single_time_mini_events = Array[ExtResource("16_5lbfv")]([ExtResource("17_ff1hj")])
+total_rooms_explored = 2
 initialized = true

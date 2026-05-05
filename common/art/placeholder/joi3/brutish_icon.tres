@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" format=3 uid="uid://chgbajvwmv1op"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kpd3a"]
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_nxv1e"]
 
 [resource]
-atlas = SubResource("CompressedTexture2D_kpd3a")
+atlas = ExtResource("1_nxv1e")
 region = Rect2(200, 480, 40, 40)

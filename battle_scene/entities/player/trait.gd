@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 class_name Trait
 
 signal updated_trait_weight(current:int)
@@ -19,7 +19,6 @@ func initialize(personality_trait:PersonalityTrait, starting_weight:int):
 func set_trait(personality_trait:PersonalityTrait):
 	data = personality_trait
 	updated_trait.emit(personality_trait)
-
 
 func set_weight(weight:int):
 	weight_value = clampi(weight, 1, 10)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://bs4orhjt5mdde"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_ilpv2"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_khskm"]
+[ext_resource type="Texture2D" uid="uid://omffyiuy3df" path="res://common/art/placeholder/joi3/stoic_icon.tres" id="2_wanmy"]
+[ext_resource type="Resource" uid="uid://cb0st71k4otu3" path="res://content/cards/stoic_cards/brave_recovery/brave_recovery.tres" id="2_x76i0"]
+[ext_resource type="Resource" uid="uid://da2h4oxxjao8w" path="res://content/cards/stoic_cards/challenge/challenge.tres" id="3_5xwfy"]
+[ext_resource type="Resource" uid="uid://bhtywhphbire1" path="res://content/cards/stoic_cards/fearsome_armor/fearsome_armor.tres" id="4_4gmrv"]
+[ext_resource type="Resource" uid="uid://m7ighmtyec2a" path="res://content/cards/stoic_cards/gaurded_assault/gaurded_assault.tres" id="5_rqv7j"]
+
+[resource]
+script = ExtResource("2_khskm")
+display_texture = ExtResource("2_wanmy")
+name = "Stoic"
+description = "Defends to strike back. Targets healthiest enemies. Moves toward threats."
+trait_category = 1
+card_loot_pool = Array[ExtResource("1_ilpv2")]([ExtResource("2_x76i0"), ExtResource("3_5xwfy"), ExtResource("4_4gmrv"), ExtResource("5_rqv7j")])
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

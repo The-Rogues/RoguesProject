@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://k383if7u7t46"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_hdg5g"]
+[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="2_8s2ok"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_nc7ma"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_mv8u8"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_l5k47"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn8cu"]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
+
+[sub_resource type="Resource" id="Resource_aqyew"]
+script = ExtResource("3_nc7ma")
+projectile_scene = ExtResource("2_8s2ok")
+damage = 4
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_o5j8n"]
+script = ExtResource("4_mv8u8")
+projectile_config = SubResource("Resource_aqyew")
+target_option = 2
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("5_l5k47")
+type = 1
+category = 1
+name = "Shot"
+display_texture = SubResource("AtlasTexture_mn8cu")
+description = "Fires a projectile. Deal 4 damage on impact. Exhaust."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_hdg5g")]([SubResource("Resource_o5j8n")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

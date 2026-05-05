@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://dnpmpbjeyx65"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_gqrcd"]
-[ext_resource type="Resource" uid="uid://ct3dokdkm4u6i" path="res://content/cards/brute_cards/brute_strike.tres" id="2_8mqyr"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_ymgae"]
+[ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/rage.tres" id="4_7fpcx"]
+[ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="4_ifsot"]
+[ext_resource type="Resource" uid="uid://doj675nih2jy4" path="res://content/cards/brute_cards/intensity.tres" id="4_mvhml"]
+[ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/brute_cards/dual_strike.tres" id="5_u12tt"]
+[ext_resource type="Resource" uid="uid://7nthsvdksfy3" path="res://content/cards/brute_cards/sharpen.tres" id="6_acph4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kpd3a"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
@@ -15,8 +19,8 @@ region = Rect2(200, 480, 40, 40)
 script = ExtResource("2_ymgae")
 display_texture = SubResource("AtlasTexture_83g7p")
 name = "Brutish"
-description = "Willingly Violent. Targets weakest Enemies. Uses offensive Objects."
+description = "Violent in battle. Targets weakest enemies. Moves to neutralize threats."
 enemy_targeting_preference = 1
 object_targeting_preference = 3
-card_loot_pool = Array[ExtResource("1_gqrcd")]([ExtResource("2_8mqyr")])
+card_loot_pool = Array[ExtResource("1_gqrcd")]([ExtResource("4_mvhml"), ExtResource("4_7fpcx"), ExtResource("4_ifsot"), ExtResource("5_u12tt"), ExtResource("6_acph4")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

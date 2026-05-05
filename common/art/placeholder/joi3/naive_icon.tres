@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dg55ijoqt8cxc"]
+
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_m7cwq"]
+
+[resource]
+atlas = ExtResource("1_m7cwq")
+region = Rect2(560, 120, 40, 40)
