@@ -220,22 +220,22 @@ func get_highest_offset(
 	var ret_val: Array[int]
 	
 	for i in range(0, highest_offset + 1):
-		if offensive_weight > curr_highest && in_offensive < prev_highest:
+		if in_offensive > curr_highest && in_offensive < prev_highest:
 			curr_highest = in_offensive
-		if defensive_weight > curr_highest && in_defensive < prev_highest:
+		if in_defensive > curr_highest && in_defensive < prev_highest:
 			curr_highest = in_defensive
-		if strategic_weight > curr_highest && in_strategic < prev_highest:
+		if in_strategic > curr_highest && in_strategic < prev_highest:
 			curr_highest = in_strategic
 		
 		prev_highest = curr_highest
 		curr_highest = 0
 		
 		if i == highest_offset:
-			if offensive_weight == prev_highest:
+			if in_offensive == prev_highest:
 				ret_val.append(0)
-			if defensive_weight == prev_highest:
+			if in_defensive == prev_highest:
 				ret_val.append(1)
-			if strategic_weight == prev_highest:
+			if in_strategic == prev_highest:
 				ret_val.append(2)
 	
 	return ret_val
