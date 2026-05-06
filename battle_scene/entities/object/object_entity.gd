@@ -13,7 +13,7 @@ var data:ObjectData
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
 @onready var collision_box: StaticBody2D = %CollisionBox
 @onready var hurt_box: Area2D = %HurtBox
-@onready var object_tooltip: PanelContainer = $ObjectTooltip
+@onready var object_tooltip: PanelContainer = %ObjectTooltip
 
 
 func initialize(_data:ObjectData):

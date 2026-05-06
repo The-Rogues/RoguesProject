@@ -15,6 +15,9 @@ func _on_hitbox_body_entered(body):
 		if entity is MonsterEntity:
 			return
 		
+		if entity is ObjectEntity:
+			return
+		
 		entity.take_damage(damage, self)
 		
 		if entity is AbstractCreature and status:

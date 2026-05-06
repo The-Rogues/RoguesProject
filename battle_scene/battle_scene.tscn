@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://defsyo3of3fv" path="res://battle_scene/win_screen/rewards_screen.tscn" id="14_4ll6p"]
 [ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://battle_scene/ui/turn_banner.tscn" id="14_2203u"]
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="15_ectca"]
-[ext_resource type="PackedScene" uid="uid://l0xyi8rv306l" path="res://battle_scene/entities/player/player_entity.tscn" id="17_4ll6p"]
+[ext_resource type="PackedScene" uid="uid://bxmgnvpw0yyd0" path="res://battle_scene/entities/player/player_entity.tscn" id="17_4ll6p"]
 [ext_resource type="PackedScene" uid="uid://dokqnl4uskuu7" path="res://battle_scene/lose_screen/defeated_screen.tscn" id="17_nn42q"]
 [ext_resource type="Script" uid="uid://dkwb3eagjx5u" path="res://battle_scene/battle_flow_manager.gd" id="19_s4dh3"]
 
@@ -62,6 +62,27 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ugwfd"]
+load_path = "res://.godot/imported/eye_icon_spritesheet.png-6a24be42d4bdfee8fb2e2d7948efcc27.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkoud"]
+atlas = SubResource("CompressedTexture2D_ugwfd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imhk8"]
+load_path = "res://.godot/imported/eye_icon_spritesheet.png-6a24be42d4bdfee8fb2e2d7948efcc27.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imdlq"]
+atlas = SubResource("CompressedTexture2D_imhk8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wkoud"]
+load_path = "res://.godot/imported/eye_icon_spritesheet.png-6a24be42d4bdfee8fb2e2d7948efcc27.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2blut"]
+atlas = SubResource("CompressedTexture2D_wkoud")
+region = Rect2(32, 0, 32, 32)
 
 [node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_field", "creature_manager", "rewards_screen", "play_hand", "battle_flow_manager", "player", "defeat_screen", "energy_ui", "draw_pile_icon", "discard_pile_icon", "draw_pile_viewer", "discard_pile_viewer", "preference_button")]
 script = ExtResource("1_jfmiq")
@@ -173,6 +194,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_4ll6p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s4dh3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ectca")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_nn42q")
+disabled = true
 text = "End Turn"
 
 [node name="DrawPileIcon" parent="UILayer" unique_id=508931251 instance=ExtResource("14_3w7x8")]
@@ -232,16 +254,36 @@ visible = false
 visible = false
 
 [node name="Button" type="Button" parent="UILayer" unique_id=1551022311]
+visible = false
 offset_left = 1064.0
 offset_top = 485.0
 offset_right = 1118.0
 offset_bottom = 534.0
 text = "Pref"
 
+[node name="PanelContainer" type="PanelContainer" parent="UILayer" unique_id=442485058]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 1072.0
+offset_top = 489.0
+offset_right = 1112.0
+offset_bottom = 529.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="TextureButton" type="TextureButton" parent="UILayer/PanelContainer" unique_id=1569523920]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_wkoud")
+texture_pressed = SubResource("AtlasTexture_imdlq")
+texture_hover = SubResource("AtlasTexture_2blut")
+
 [connection signal="button_up" from="UILayer/EndTurn" to="BattleFlowManager" method="end_player_turn"]
 [connection signal="button_up" from="UILayer/DrawPileIcon/CardPileButton" to="." method="_on_view_draw_pile_button_up"]
 [connection signal="button_up" from="UILayer/DiscardPileIcon/CardPileButton" to="." method="_on_view_discard_pile_button_up"]
 [connection signal="pressed" from="UILayer/Button" to="." method="_on_preference_button_pressed"]
+[connection signal="pressed" from="UILayer/PanelContainer/TextureButton" to="." method="_on_preference_button_pressed"]
 
 [editable path="UILayer/DrawPileIcon"]
 [editable path="UILayer/DiscardPileIcon"]

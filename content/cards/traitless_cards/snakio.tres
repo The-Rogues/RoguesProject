@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://yx660xg08js8"]
+
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="1_wq8ur"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_li2kd"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_7q4cr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjgg1"]
+atlas = ExtResource("1_wq8ur")
+region = Rect2(96, 256, 32, 32)
+
+[resource]
+script = ExtResource("3_7q4cr")
+type = 5
+name = "Snakio"
+display_texture = SubResource("AtlasTexture_yjgg1")
+description = "It's a Monstermon card! Cool but incompatible with this game."
+shop_price = 0
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

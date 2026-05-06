@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://br1liejdw3sis"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_uu3t3"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_rv47i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5tp1k"]
+load_path = "res://.godot/imported/monsters.png-fe10ed33cb585e7c5c08428bae30e0a2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njux4"]
+atlas = SubResource("CompressedTexture2D_5tp1k")
+region = Rect2(192, 192, 32, 32)
+
+[resource]
+script = ExtResource("2_rv47i")
+type = 5
+name = "Mr Bat"
+display_texture = SubResource("AtlasTexture_njux4")
+description = "It's a Monstermon card! Cool but incompatible with this game."
+shop_price = 0
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
