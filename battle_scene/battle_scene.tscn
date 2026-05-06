@@ -63,7 +63,7 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
-[node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_field", "creature_manager", "rewards_screen", "play_hand", "battle_flow_manager", "player", "defeat_screen", "energy_ui", "draw_pile_icon", "discard_pile_icon", "draw_pile_viewer", "discard_pile_viewer")]
+[node name="BattleScene" type="Node2D" unique_id=1502548985 node_paths=PackedStringArray("battle_field", "creature_manager", "rewards_screen", "play_hand", "battle_flow_manager", "player", "defeat_screen", "energy_ui", "draw_pile_icon", "discard_pile_icon", "draw_pile_viewer", "discard_pile_viewer", "preference_button")]
 script = ExtResource("1_jfmiq")
 battle_field = NodePath("BattleField")
 creature_manager = NodePath("CreatureManager")
@@ -77,6 +77,7 @@ draw_pile_icon = NodePath("UILayer/DrawPileIcon")
 discard_pile_icon = NodePath("UILayer/DiscardPileIcon")
 draw_pile_viewer = NodePath("UILayer/DrawPileViewer")
 discard_pile_viewer = NodePath("UILayer/DiscardPileViewer")
+preference_button = NodePath("UILayer/Button")
 
 [node name="Background" type="Node2D" parent="." unique_id=2063966942]
 
@@ -230,9 +231,17 @@ visible = false
 [node name="DefeatedScreen" parent="UILayer" unique_id=343540286 instance=ExtResource("17_nn42q")]
 visible = false
 
+[node name="Button" type="Button" parent="UILayer" unique_id=1551022311]
+offset_left = 1064.0
+offset_top = 485.0
+offset_right = 1118.0
+offset_bottom = 534.0
+text = "Pref"
+
 [connection signal="button_up" from="UILayer/EndTurn" to="BattleFlowManager" method="end_player_turn"]
 [connection signal="button_up" from="UILayer/DrawPileIcon/CardPileButton" to="." method="_on_view_draw_pile_button_up"]
 [connection signal="button_up" from="UILayer/DiscardPileIcon/CardPileButton" to="." method="_on_view_discard_pile_button_up"]
+[connection signal="pressed" from="UILayer/Button" to="." method="_on_preference_button_pressed"]
 
 [editable path="UILayer/DrawPileIcon"]
 [editable path="UILayer/DiscardPileIcon"]

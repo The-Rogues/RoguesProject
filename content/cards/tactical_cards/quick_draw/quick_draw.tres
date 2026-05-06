@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dy206drb1nafs"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://u6speansnd8p"]
 
-[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_8ug53"]
-[ext_resource type="Script" uid="uid://cx0fywlx00xp2" path="res://content/cards/tactical_cards/quick_draw/quick_draw_power.gd" id="2_av3pd"]
-[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_5xpue"]
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_2n8kq"]
-[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="4_av3pd"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_w5335"]
+[ext_resource type="Script" uid="uid://ck4mtjtygmw3s" path="res://content/cards/tactical_cards/quick_draw/quick_draw_power.gd" id="2_jnd44"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_sv0a4"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_78iqn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
@@ -13,32 +12,24 @@ load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8
 atlas = SubResource("CompressedTexture2D_gnf83")
 region = Rect2(200, 560, 40, 40)
 
-[sub_resource type="Resource" id="Resource_h3vxd"]
-script = ExtResource("2_av3pd")
-metadata/_custom_type_script = "uid://cx0fywlx00xp2"
+[sub_resource type="Resource" id="Resource_8ug53"]
+script = ExtResource("2_jnd44")
+draw_amnt = 2
+metadata/_custom_type_script = "uid://ck4mtjtygmw3s"
 
-[sub_resource type="Resource" id="Resource_ccos5"]
-script = ExtResource("3_5xpue")
-power = SubResource("Resource_h3vxd")
+[sub_resource type="Resource" id="Resource_av3pd"]
+script = ExtResource("3_sv0a4")
+power = SubResource("Resource_8ug53")
 metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
 
-[sub_resource type="Resource" id="Resource_5xpue"]
-script = ExtResource("4_av3pd")
-pile = 1
-metadata/_custom_type_script = "uid://d3geijhd5bvo"
-
-[sub_resource type="Resource" id="Resource_2n8kq"]
-script = ExtResource("4_av3pd")
-pile = 1
-metadata/_custom_type_script = "uid://d3geijhd5bvo"
-
 [resource]
-script = ExtResource("4_2n8kq")
+script = ExtResource("5_78iqn")
 type = 2
 category = 1
-energy_cost = 2
+energy_cost = 1
 name = "Quick Draw"
 display_texture = SubResource("AtlasTexture_av3pd")
-description = "Draw 2 cards. If a Reload is drawn, it costs zero energy this turn."
-play_actions = Array[ExtResource("1_8ug53")]([SubResource("Resource_ccos5"), SubResource("Resource_5xpue"), SubResource("Resource_2n8kq")])
+description = "Draw [color=#43A047]2[/color] cards. Draw an additional card for each [color=orange]Shot[/color] drawn."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_w5335")]([SubResource("Resource_av3pd")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

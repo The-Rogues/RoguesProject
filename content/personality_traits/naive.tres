@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://c5087rypp26h6"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_tnlvu"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_bf4gf"]
+[ext_resource type="Texture2D" uid="uid://dg55ijoqt8cxc" path="res://common/art/placeholder/joi3/naive_icon.tres" id="2_dsqjr"]
+[ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/naive_cards/adrenaline.tres" id="2_pc6il"]
+[ext_resource type="Resource" uid="uid://bgdai8ivk0ewn" path="res://content/cards/naive_cards/intimidate.tres" id="3_pc6il"]
+
+[resource]
+script = ExtResource("2_bf4gf")
+display_texture = ExtResource("2_dsqjr")
+name = "Naive"
+description = "Ignorant of the dangers of battle. Targets dangerous enemies. Moves toward treasure."
+trait_category = 1
+enemy_targeting_preference = 2
+object_targeting_preference = 2
+card_loot_pool = Array[ExtResource("1_tnlvu")]([ExtResource("2_pc6il"), ExtResource("2_pc6il"), ExtResource("3_pc6il"), ExtResource("3_pc6il")])
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

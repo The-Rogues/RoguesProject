@@ -24,6 +24,7 @@ class_name BattleScene
 @export var discard_pile_icon: Control
 @export var draw_pile_viewer: CardViewer
 @export var discard_pile_viewer: CardViewer
+@export var preference_button: Button
 
 
 func _ready() -> void:
@@ -86,3 +87,10 @@ func _on_view_draw_pile_button_up() -> void:
 func _on_view_discard_pile_button_up() -> void:
 	discard_pile_viewer.visible = true
 	pass # Replace with function body.
+
+
+func _on_preference_button_pressed() -> void:
+	creature_manager.toggle_preferences()
+	creature_manager.show_preferences = !creature_manager.show_preferences
+	battle_field.toggle_preferences()
+	battle_field.show_preferences = !battle_field.show_preferences

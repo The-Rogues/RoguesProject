@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://l0xyi8rv306l"]
+[gd_scene format=4 uid="uid://bxmgnvpw0yyd0"]
 
 [ext_resource type="Script" uid="uid://qls13l6n5mve" path="res://battle_scene/entities/player/player_entity.gd" id="1_i5uyf"]
 [ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="2_dkpvf"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://b7m80cndvmobf" path="res://battle_scene/entities/status_effects/status_effect_controller.gd" id="5_x21no"]
 [ext_resource type="Texture2D" uid="uid://dwxtsifsf8ejr" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="6_22bmj"]
 [ext_resource type="Script" uid="uid://bjoyeomu5qcct" path="res://common/stat_components/energy.gd" id="6_elg6u"]
-[ext_resource type="Script" uid="uid://lfe70eidg8li" path="res://battle_scene/entities/player/trait.gd" id="7_u807v"]
 [ext_resource type="Script" uid="uid://svatns4ki80t" path="res://card_system/card_handler.gd" id="9_elg6u"]
 [ext_resource type="PackedScene" uid="uid://nxd0nkvcjmf6" path="res://battle_scene/entities/ui/creature_stat_display.tscn" id="11_elg6u"]
 [ext_resource type="PackedScene" uid="uid://bjyogff5ux6jl" path="res://battle_scene/entities/player/object_slot.tscn" id="12_u807v"]
@@ -474,15 +473,6 @@ affected_creature = NodePath("../..")
 
 [node name="Energy" type="Node" parent="Stats" unique_id=1011106717]
 script = ExtResource("6_elg6u")
-
-[node name="Offense" type="Node" parent="Stats" unique_id=1083800543]
-script = ExtResource("7_u807v")
-
-[node name="Defense" type="Node" parent="Stats" unique_id=1454066020]
-script = ExtResource("7_u807v")
-
-[node name="Strategy" type="Node" parent="Stats" unique_id=950283640]
-script = ExtResource("7_u807v")
 
 [node name="MovementController" type="Node" parent="." unique_id=1292032099]
 script = ExtResource("3_mkis6")

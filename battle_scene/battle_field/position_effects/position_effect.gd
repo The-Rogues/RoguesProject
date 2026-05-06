@@ -37,12 +37,14 @@ func on_player_entered(player:PlayerEntity):
 		data.behaviour.on_entered(player, self)
 		updated.emit()
 
-
 func on_player_exited(player:PlayerEntity):
 	if data:
 		data.behaviour.on_exited(player, self)
 		updated.emit()
 
+func on_turn_entered(player:PlayerEntity):
+	if data:
+		data.behaviour.on_turn_entered(player, self)
 
 func end_effect():
 	effect_ended.emit()

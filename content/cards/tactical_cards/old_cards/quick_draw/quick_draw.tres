@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dy206drb1nafs"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_d04ww"]
+[ext_resource type="Script" uid="uid://cx0fywlx00xp2" path="res://content/cards/tactical_cards/old_cards/quick_draw/quick_draw_power.gd" id="2_4i0th"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_atnea"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="4_frpcw"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_p8uxa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av3pd"]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
+
+[sub_resource type="Resource" id="Resource_h3vxd"]
+script = ExtResource("2_4i0th")
+metadata/_custom_type_script = "uid://cx0fywlx00xp2"
+
+[sub_resource type="Resource" id="Resource_ccos5"]
+script = ExtResource("3_atnea")
+power = SubResource("Resource_h3vxd")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[sub_resource type="Resource" id="Resource_5xpue"]
+script = ExtResource("4_frpcw")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_2n8kq"]
+script = ExtResource("4_frpcw")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[resource]
+script = ExtResource("5_p8uxa")
+type = 2
+category = 1
+energy_cost = 2
+name = "Quick Draw"
+display_texture = SubResource("AtlasTexture_av3pd")
+description = "Draw 2 cards. If a Reload is drawn, it costs zero energy this turn."
+play_actions = Array[ExtResource("1_d04ww")]([SubResource("Resource_ccos5"), SubResource("Resource_5xpue"), SubResource("Resource_2n8kq")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

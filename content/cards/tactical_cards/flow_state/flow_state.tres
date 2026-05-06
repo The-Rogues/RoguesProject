@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bt0y1yjcdst8s"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_yyoof"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_1dp6t"]
+[ext_resource type="Script" uid="uid://cufwaceds21nw" path="res://content/cards/tactical_cards/flow_state/flow_state_power.gd" id="2_uf2s6"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_w7gwl"]
+
+[sub_resource type="Resource" id="Resource_4fct6"]
+script = ExtResource("2_uf2s6")
+metadata/_custom_type_script = "uid://cufwaceds21nw"
+
+[sub_resource type="Resource" id="Resource_0uvc5"]
+script = ExtResource("3_w7gwl")
+power = SubResource("Resource_4fct6")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[resource]
+script = ExtResource("2_1dp6t")
+type = 3
+category = 1
+energy_cost = 2
+name = "Flow State"
+description = "Every turn, add an Agile Shot into your hand. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_yyoof")]([SubResource("Resource_0uvc5")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

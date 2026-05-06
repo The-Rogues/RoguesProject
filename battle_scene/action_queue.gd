@@ -62,6 +62,9 @@ func _execute_queued_action():
 	#            user's sequence.
 	if queued_action.recalculate_targeting:
 		queued_action.context.creature_manager.update_attack_targeting()
+		queued_action.context.battle_field.update_preferences(
+			queued_action.context.get_player()
+		)
 	
 	processing_action = false
 	_check_action_queue()

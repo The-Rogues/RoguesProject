@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://bud06kwphwcgv"
 [resource]
 script = ExtResource("6_2rlxx")
 type = 2
+category = 3
 energy_cost = 1
 name = "Unearth"
 description = "Replace all [color=orange]positions[/color] with [color=orange]gem positions[/color]. [color=orange]Single use[/color]."

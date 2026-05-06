@@ -6,6 +6,7 @@ enum MoveTargetingCategory {
 	WEAPON,
 	TREASURE, 
 	THREAT,
+	UPGRADE,
 	DECOY
 }
 enum InteractionOption {

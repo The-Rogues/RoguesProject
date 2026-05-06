@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dxtj0ia4nmsqt"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_vsnvy"]
+[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="2_w2kmt"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_b3ii2"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_oqnj7"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="5_kd0dr"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_wdk56"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn8cu"]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
+
+[sub_resource type="Resource" id="Resource_aqyew"]
+script = ExtResource("3_b3ii2")
+projectile_scene = ExtResource("2_w2kmt")
+damage = 4
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_o5j8n"]
+script = ExtResource("4_oqnj7")
+projectile_config = SubResource("Resource_aqyew")
+target_option = 2
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[sub_resource type="Resource" id="Resource_4ryad"]
+script = ExtResource("5_kd0dr")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[resource]
+script = ExtResource("6_wdk56")
+type = 1
+category = 1
+name = "Agile Shot"
+display_texture = SubResource("AtlasTexture_mn8cu")
+description = "Fire a [color=#43A047]4[/color] damage projectile. Draw [color=#43A047]1[/color] card. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_vsnvy")]([SubResource("Resource_o5j8n"), SubResource("Resource_4ryad")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d0oxyst1aiy7l"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://de5b8p156d76s"]
 
-[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_w7crc"]
-[ext_resource type="PackedScene" uid="uid://dut1e5pow4ffy" path="res://content/cards/tactical_cards/charge_shot/charged_shot.tscn" id="2_qr6ty"]
-[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_eqks2"]
-[ext_resource type="Script" uid="uid://rv7388vy6x1e" path="res://content/cards/tactical_cards/charge_shot/charge_shot_action.gd" id="4_t0p26"]
-[ext_resource type="Script" uid="uid://hs8k3uwcadn5" path="res://battle_scene/entities/actions/skill/remove_cards_by_name_action.gd" id="5_sd4eo"]
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_717bn"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ryvnk"]
+[ext_resource type="PackedScene" uid="uid://bdggj7sagoq88" path="res://content/cards/tactical_cards/charge_shot/charged_shot.tscn" id="2_3rq2h"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_idu1n"]
+[ext_resource type="Script" uid="uid://e4t40hj5tidi" path="res://content/cards/tactical_cards/charge_shot/charge_shot_action.gd" id="4_4tajv"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_m254h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
@@ -14,30 +13,25 @@ load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8
 atlas = SubResource("CompressedTexture2D_gnf83")
 region = Rect2(200, 560, 40, 40)
 
-[sub_resource type="Resource" id="Resource_6aulh"]
-script = ExtResource("3_eqks2")
-projectile_scene = ExtResource("2_qr6ty")
-damage = 10
+[sub_resource type="Resource" id="Resource_ffk8r"]
+script = ExtResource("3_idu1n")
+projectile_scene = ExtResource("2_3rq2h")
+damage = 12
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
-[sub_resource type="Resource" id="Resource_epijx"]
-script = ExtResource("4_t0p26")
-projectile_config = SubResource("Resource_6aulh")
-target_option = 2
-metadata/_custom_type_script = "uid://rv7388vy6x1e"
-
-[sub_resource type="Resource" id="Resource_52b50"]
-script = ExtResource("5_sd4eo")
-_name = "Shot"
-metadata/_custom_type_script = "uid://hs8k3uwcadn5"
+[sub_resource type="Resource" id="Resource_w7crc"]
+script = ExtResource("4_4tajv")
+projectile_config = SubResource("Resource_ffk8r")
+target_option = 3
+metadata/_custom_type_script = "uid://e4t40hj5tidi"
 
 [resource]
-script = ExtResource("6_717bn")
+script = ExtResource("6_m254h")
 type = 1
 category = 1
-energy_cost = 3
+energy_cost = 2
 name = "Charge Shot"
 display_texture = SubResource("AtlasTexture_w7crc")
-description = "Deal 12 damage. +3 damage for every Shot card in your hand."
-play_actions = Array[ExtResource("1_w7crc")]([SubResource("Resource_epijx"), SubResource("Resource_52b50")])
+description = "Deal [color=#43A047]12[/color] damage to a random enemy for every [color=orange]Shot[/color] in your hand."
+play_actions = Array[ExtResource("1_ryvnk")]([SubResource("Resource_w7crc")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

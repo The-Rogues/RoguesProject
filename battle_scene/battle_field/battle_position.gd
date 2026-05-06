@@ -72,7 +72,6 @@ func add_position_effect(data:PositionEffectConfig) -> void:
 
 func remove_position_effect() -> void:
 	if _effect:
-		_effect.data.behaviour.on_removed(_effect)
 		floating_text.create("Effect Over")
 		_effect.queue_free()
 		_effect = null
@@ -100,9 +99,14 @@ func on_player_exited(player:PlayerEntity):
 			_object.health.died.disconnect(player.place_object)
 
 
-func enter_turn(turn_count:int):
-	#decay_effect()
-	
+func enter_turn(
+	turn_count: int,
+	player: PlayerEntity
+):
+	decay_effect()
+	if _effect:
+		if player.battle_position == self:
+			_effect.on_turn_entered(player)
 	if _object:
 		_object.enter_turn(turn_count)
 
