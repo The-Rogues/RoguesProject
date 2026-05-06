@@ -499,12 +499,14 @@ offset_left = -38.0
 offset_top = 19.0
 offset_right = 50.0
 offset_bottom = 59.0
+mouse_filter = 2
 
 [node name="ObjectSlot" parent="." unique_id=231197000 instance=ExtResource("12_u807v")]
 offset_left = -21.0
 offset_top = -89.0
 offset_right = -21.0
 offset_bottom = -89.0
+mouse_filter = 2
 
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=652373515]
 position = Vector2(0, -45)

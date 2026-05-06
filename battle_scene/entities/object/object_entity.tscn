@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://6mivq3t47aoh" path="res://battle_scene/entities/projectiles/projectile_launcher.gd" id="3_yg38b"]
 [ext_resource type="Script" uid="uid://cq0ofbmvfv5qo" path="res://common/hit_flash/hit_flash.gd" id="4_r666h"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="7_lc0qn"]
+[ext_resource type="PackedScene" uid="uid://758lfph2mfo0" path="res://battle_scene/entities/object/object_tooltip.tscn" id="7_n2vx5"]
 [ext_resource type="Script" uid="uid://bg6brfw33g1s0" path="res://battle_scene/entities/object/object_stat_display.gd" id="7_vgro0"]
 [ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="8_ufudi"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_lc0qn"]
@@ -197,12 +198,14 @@ script = ExtResource("4_r666h")
 libraries/ = SubResource("AnimationLibrary_jasan")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=230165893]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1270511977]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_vooi2")
 
 [node name="CollisionBox" type="StaticBody2D" parent="." unique_id=219449472]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox" unique_id=1595754214]
 position = Vector2(0, -32)
@@ -225,6 +228,15 @@ script = ExtResource("3_i7gfg")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=149920664]
 libraries/ = SubResource("AnimationLibrary_wiqcq")
 
+[node name="HoverArea" type="Control" parent="." unique_id=910446123]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -31.0
+offset_top = -62.0
+offset_right = 33.0
+offset_bottom = 2.0
+
 [node name="ObjectStatDisplay" type="Control" parent="." unique_id=1848121133]
 texture_filter = 1
 layout_mode = 3
@@ -241,7 +253,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(41, 40)
 size_flags_horizontal = 4
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("7_lc0qn")
 script = ExtResource("7_vgro0")
 
@@ -260,6 +272,7 @@ offset_right = 40.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_78mw1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_40yxv")
 value = 50.0
@@ -274,6 +287,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_2txnt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_42bac")
 value = 80.0
@@ -288,6 +302,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HealthLabel" type="Label" parent="ObjectStatDisplay/HealthBar/CenterContainer" unique_id=551701136]
 texture_filter = 1
@@ -331,6 +346,13 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 10
 text = "Interaction"
 
+[node name="ObjectTooltip" parent="." unique_id=2004448281 instance=ExtResource("7_n2vx5")]
+visible = false
+offset_left = 19.0
+offset_top = -79.0
+offset_right = 239.0
+offset_bottom = -27.0
+
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1688580079]
 position = Vector2(0, -45)
 
@@ -348,5 +370,7 @@ unique_name_in_owner = true
 stream = ExtResource("15_f1i1o")
 bus = &"SFX"
 
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_hover_area_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_hover_area_mouse_exited"]
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_timer_timeout"]

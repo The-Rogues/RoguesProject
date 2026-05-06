@@ -22,8 +22,8 @@ func get_battle_rewards() -> Array[BattleRewardData]:
 	if use_default_rewards:
 		rewards.append(cards)
 	
-	#if card_loot:
-		#rewards.append(card_loot)
+	if card_loot:
+		rewards.append(card_loot)
 	
 	
 	return rewards

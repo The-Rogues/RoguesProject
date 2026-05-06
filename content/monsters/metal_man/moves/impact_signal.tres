@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://vvi1wh37oo5l"]
+
+[ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="1_1hd8u"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_v7k0u"]
+[ext_resource type="Script" uid="uid://dvoeu864dr02w" path="res://content/monsters/metal_man/arial_strike/arial_strike_behaviour.gd" id="2_iiiqs"]
+[ext_resource type="Script" uid="uid://dd40p6dnepp41" path="res://battle_scene/battle_field/position_effects/position_effect_display.gd" id="3_r0hqg"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="4_wjj8o"]
+[ext_resource type="Script" uid="uid://ch2spgxvn4cv" path="res://battle_scene/entities/actions/skill/apply_position_effect_action.gd" id="5_3ukq1"]
+
+[sub_resource type="Resource" id="Resource_opnsh"]
+script = ExtResource("2_iiiqs")
+metadata/_custom_type_script = "uid://dvoeu864dr02w"
+
+[sub_resource type="Resource" id="Resource_kq31p"]
+script = ExtResource("3_r0hqg")
+metadata/_custom_type_script = "uid://dd40p6dnepp41"
+
+[sub_resource type="Resource" id="Resource_wde3r"]
+script = ExtResource("4_wjj8o")
+behaviour = SubResource("Resource_opnsh")
+display = SubResource("Resource_kq31p")
+duration = 1
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_1twa4"]
+script = ExtResource("5_3ukq1")
+position_effect = SubResource("Resource_wde3r")
+metadata/_custom_type_script = "uid://ch2spgxvn4cv"
+
+[resource]
+script = ExtResource("1_v7k0u")
+type = 1
+intent_icon = ExtResource("1_1hd8u")
+name = "Arial Strike"
+description = "This enemy intends to call an arial strike."
+primary_action = SubResource("Resource_1twa4")
+metadata/_custom_type_script = "uid://c410dannt5adg"

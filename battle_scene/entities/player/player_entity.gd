@@ -166,7 +166,7 @@ func _object_intercept_attack(damage:int, _attacker) -> bool:
 	if _attacker is Projectile:
 		return false
 	
-	if battle_position.has_object():
+	if battle_position.has_object() and battle_position.get_object().health.is_alive:
 		battle_position.get_object().take_damage(damage, _attacker)
 		return true
 	else:

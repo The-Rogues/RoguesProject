@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 
 [resource]
 script = ExtResource("8_ii3wu")
-weight = 100
+weight = 5
 encounter_name = "Crawly Ambush"
 gold = SubResource("Resource_bn4px")
 card_loot = ExtResource("1_qvljm")

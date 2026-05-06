@@ -13,7 +13,7 @@ const TIER_1_THRESHOLD = 3
 const TIER_2_THRESHOLD = 6
 
 var enemy_encounter_cache:Array[EnemyEncounter] = []
-
+var override_encounter:EnemyEncounter = null
 
 func get_enemy_encounter_pool(progress:int) -> Array[EnemyEncounter]:
 	if progress <= TIER_1_THRESHOLD:
@@ -35,6 +35,11 @@ func get_battlefield_layout_pool(progress:int) -> Array[BattleFieldConfig]:
 
 func choose_enemy_encounter(
 		encounters:Array[EnemyEncounter]) -> EnemyEncounter:
+	if override_encounter:
+		var encounter = override_encounter.duplicate(true)
+		override_encounter = null
+		return encounter
+	
 	var weight = 0
 	
 	for encounter in encounters:

@@ -12,6 +12,7 @@ var instance:CardInstance
 @onready var card_type_label: Label = $CardTypePlaque/CardTypeLabel
 @onready var display_texture_rect: TextureRect = %DisplayTextureRect
 @onready var card_edge: PanelContainer = %CardEdge
+@onready var sparkles: CPUParticles2D = %Sparkles
 
 
 var base_scale: Vector2
@@ -42,6 +43,9 @@ func initialize(_instance:CardInstance):
 			card_edge.self_modulate = Color("3dccff")
 		CardData.Category.STRATEGIC:
 			card_edge.self_modulate = Color("aef300")
+		CardData.Category.LEGENDARY:
+			card_edge.modulate = Color(0.998, 0.218, 0.594, 1.0)
+			sparkles.emitting = true
 
 func update_ui():
 	card_cost_label.text = str(instance.energy_cost)

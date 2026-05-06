@@ -18,5 +18,9 @@ func on_exited(_player:PlayerEntity, _instance:PositionEffect) -> void:
 	pass
 
 
+func on_removed(_instance:PositionEffect) -> void:
+	pass
+
+
 func clear_effect():
 	cleared_effect.emit()

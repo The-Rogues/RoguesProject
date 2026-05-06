@@ -101,3 +101,8 @@ func move_player(
 func enter_turn(turn_count:int):
 	for battle_position in battle_positions:
 		battle_position.enter_turn(turn_count)
+	
+
+func decay_position_effects():
+	for battle_position in battle_positions:
+		battle_position.decay_effect()

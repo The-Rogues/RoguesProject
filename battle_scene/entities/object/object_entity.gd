@@ -11,6 +11,10 @@ var data:ObjectData
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var object_stat_display: ObjectStatDisplay = $ObjectStatDisplay
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
+@onready var collision_box: StaticBody2D = %CollisionBox
+@onready var hurt_box: Area2D = %HurtBox
+@onready var object_tooltip: PanelContainer = $ObjectTooltip
+
 
 func initialize(_data:ObjectData):
 	data = _data
@@ -18,6 +22,7 @@ func initialize(_data:ObjectData):
 	sprite_2d.texture = _data.display_texture
 	object_stat_display.initialize(self)
 	health.died.connect(on_destroyed)
+	object_tooltip.initialize(data)
 
 
 func take_damage(amount:int, _attacker = null):
@@ -34,6 +39,9 @@ func take_damage(amount:int, _attacker = null):
 
 
 func on_destroyed():
+	hurt_box.monitorable = false
+	collision_box.disable_mode = CollisionObject2D.DISABLE_MODE_REMOVE
+	
 	#queue_actions.emit(data.on_destroyed_actions)
 	if data.interaction == ObjectData.InteractionOption.ON_DESTROYED:
 		await interact()
@@ -98,3 +106,18 @@ func resolve_hit_interaction():
 				await interact()
 		_:
 			return
+
+
+func _on_hover_area_mouse_entered() -> void:
+	var pos = object_tooltip.global_position
+	object_tooltip.top_level = true
+	object_tooltip.visible = true
+	object_tooltip.global_position = pos
+	pass # Replace with function body.
+
+
+func _on_hover_area_mouse_exited() -> void:
+	var pos = object_tooltip.global_position
+	object_tooltip.top_level = false
+	object_tooltip.visible = false
+	object_tooltip.global_position = pos

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cep06h6t4snd8"]
+
+[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="1_e35xa"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_hfe21"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://battle_scene/entities/monster/intents/projectile_icon.tres" id="1_kgabd"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="2_kgabd"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="3_v1fn7"]
+
+[sub_resource type="Resource" id="Resource_w7lde"]
+script = ExtResource("2_kgabd")
+projectile_scene = ExtResource("1_e35xa")
+projectile_count = 5
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_8ki1u"]
+script = ExtResource("3_v1fn7")
+projectile_config = SubResource("Resource_w7lde")
+target_option = 1
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("1_hfe21")
+intent_icon = ExtResource("1_kgabd")
+name = "Rapid Fire"
+description = "This Enemy intends to fire many projectiles"
+primary_action = SubResource("Resource_8ki1u")
+metadata/_custom_type_script = "uid://c410dannt5adg"

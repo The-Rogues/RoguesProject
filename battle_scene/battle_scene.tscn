@@ -223,7 +223,6 @@ visible = false
 visible = false
 
 [node name="TurnBanner" parent="UILayer" unique_id=1379108646 instance=ExtResource("14_2203u")]
-mouse_filter = 2
 
 [node name="RewardsScreen" parent="UILayer" unique_id=11968669 instance=ExtResource("14_4ll6p")]
 visible = false

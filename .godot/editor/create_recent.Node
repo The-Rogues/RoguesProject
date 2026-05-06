@@ -1,6 +1,8 @@
+Control
+CanvasLayer
+Sprite2D
 AudioStreamPlayer
 Node
-Control
 TextureRect
 VBoxContainer
 HBoxContainer
@@ -10,5 +12,3 @@ Label
 Panel
 ColorRect
 RichTextLabel
-MarginContainer
-Node2D

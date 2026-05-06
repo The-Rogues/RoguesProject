@@ -72,6 +72,7 @@ func add_position_effect(data:PositionEffectConfig) -> void:
 
 func remove_position_effect() -> void:
 	if _effect:
+		_effect.data.behaviour.on_removed(_effect)
 		floating_text.create("Effect Over")
 		_effect.queue_free()
 		_effect = null
@@ -100,7 +101,7 @@ func on_player_exited(player:PlayerEntity):
 
 
 func enter_turn(turn_count:int):
-	decay_effect()
+	#decay_effect()
 	
 	if _object:
 		_object.enter_turn(turn_count)

@@ -25,6 +25,8 @@ func fire(target_position:Vector2, data:ProjectileFireData):
 	
 	projectile.target_position = target_position
 	projectile.global_position = fire_point.global_position
+	
+	
 	projectile.status = data.status_effect
 	if data.damage != -1:
 		projectile.damage = data.damage

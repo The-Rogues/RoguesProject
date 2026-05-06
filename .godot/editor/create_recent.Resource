@@ -1,3 +1,3 @@
-res://personality_system/personality_data.gd
+res://card_system/card_data.gd
 AtlasTexture
 Curve

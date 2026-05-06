@@ -44,7 +44,6 @@ metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
 [resource]
 script = ExtResource("13_dpubt")
-weight = 5
 encounter_name = "The big one"
 gold = SubResource("Resource_5tp13")
 card_loot = ExtResource("1_c4i0e")

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bs8hbhwulqly3"]
+
+[ext_resource type="Texture2D" uid="uid://b5q8hr8gvmqkb" path="res://common/art/placeholder/joi3/tactical_icon.tres" id="1_0x7wb"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_jycm4"]
+[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="3_14et0"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="4_5grvs"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="5_ia5m5"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_gm36g"]
+
+[sub_resource type="Resource" id="Resource_3edyy"]
+script = ExtResource("4_5grvs")
+projectile_scene = ExtResource("3_14et0")
+projectile_count = 5
+damage = 3
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_l3p5b"]
+script = ExtResource("5_ia5m5")
+projectile_config = SubResource("Resource_3edyy")
+target_option = 3
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("6_gm36g")
+type = 1
+category = 4
+energy_cost = 2
+name = "Rapid Fire"
+display_texture = ExtResource("1_0x7wb")
+description = "Deal get_atk3x3 damage to all enemies."
+play_actions = Array[ExtResource("2_jycm4")]([SubResource("Resource_l3p5b")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
