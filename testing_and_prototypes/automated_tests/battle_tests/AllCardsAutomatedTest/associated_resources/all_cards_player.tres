@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
 [ext_resource type="Resource" uid="uid://biytyhg5hx4cd" path="res://content/cards/friendly_cards/carrot_treat.tres" id="3_ps3ye"]
-[ext_resource type="Resource" uid="uid://d2kjt0sd3fi1o" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
+[ext_resource type="Resource" uid="uid://ccg0j48lxm8sh" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
 [ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/fish_treat.tres" id="4_h10xn"]
 [ext_resource type="Resource" uid="uid://dui2cujdu8hw7" path="res://content/cards/friendly_cards/handshake.tres" id="5_5ubvd"]
 [ext_resource type="Resource" uid="uid://dy3ixqkqfrwer" path="res://content/cards/friendly_cards/playdate.tres" id="6_045gi"]
@@ -27,7 +27,7 @@
 [ext_resource type="Resource" uid="uid://b0w7q3nduf8j2" path="res://content/cards/greedy_cards/cash_in/cash_in.tres" id="22_yw8ka"]
 [ext_resource type="Resource" uid="uid://3eathy5ylmpr" path="res://content/cards/greedy_cards/gold_rush/gold_rush.tres" id="23_82djd"]
 [ext_resource type="Resource" uid="uid://df8onaglb031c" path="res://content/cards/greedy_cards/life_savings/life_savings.tres" id="24_10klg"]
-[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/money_shot/money_shot.tres" id="25_agpt6"]
+[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/greedy_shot/greedy_shot.tres" id="25_agpt6"]
 [ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="26_f01yo"]
 [ext_resource type="Resource" uid="uid://dl3si50nm35f1" path="res://content/cards/laidback_cards/strategize.tres" id="27_1en2p"]
 [ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/naive_cards/adrenaline.tres" id="28_xoeoh"]
@@ -47,6 +47,7 @@
 [ext_resource type="Resource" uid="uid://bhnmqjrvedryq" path="res://content/cards/tactical_cards/reload/reload.tres" id="42_ehfqv"]
 [ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/vengeful_cards/inferno.tres" id="43_mains"]
 [ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="44_3iy1m"]
+
 
 [resource]
 script = ExtResource("3_p83cn")

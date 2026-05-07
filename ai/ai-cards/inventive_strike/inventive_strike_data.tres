@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwes3ofvkbg00" path="res://ai/scripts/CardGenOption.gd" id="1_2xeaa"]
 [ext_resource type="Script" uid="uid://bekh8ffmsdvll" path="res://ai/callbacks/inventive_attack_script.gd" id="2_rjs6n"]
-[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="3_y82hj"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="3_2xeaa"]
 [ext_resource type="Script" uid="uid://cjwj13hduiyqg" path="res://ai/scripts/AiCardData.gd" id="4_dl14e"]
 
 [sub_resource type="Resource" id="Resource_dl14e"]
