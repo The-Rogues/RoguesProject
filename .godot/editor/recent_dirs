@@ -1,3 +1,4 @@
+res://content/cards/traitless_cards/
 res://content/scene_configuration/enemy_encounters/tier_4_encounters/
 res://content/scene_configuration/enemy_encounters/tier_3_encounters/
 res://content/monsters/anpu/
@@ -7,4 +8,3 @@ res://content/scene_configuration/enemy_encounters/
 res://content/items/bone/
 res://content/map_events/
 res://content/cards/legendary_cards/
-res://content/cards/traitless_cards/

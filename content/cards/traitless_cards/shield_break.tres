@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8hl6h527kkwv"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ieoco"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_vpk1k"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_wo5p2"]
+[ext_resource type="Script" uid="uid://hopwhp65chew" path="res://battle_scene/entities/actions/attack/status_attack_action.gd" id="3_tt5a6"]
+[ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="4_iok26"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_qirar"]
+
+[sub_resource type="Resource" id="Resource_2gjwf"]
+script = ExtResource("4_iok26")
+metadata/_custom_type_script = "uid://pmvfxl88wt1h"
+
+[sub_resource type="Resource" id="Resource_n7lnn"]
+script = ExtResource("5_qirar")
+behaviour = SubResource("Resource_2gjwf")
+duration = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_xd3w0"]
+script = ExtResource("3_tt5a6")
+status_effect = SubResource("Resource_n7lnn")
+base_damage = 6
+target_option = 2
+metadata/_custom_type_script = "uid://hopwhp65chew"
+
+[resource]
+script = ExtResource("2_wo5p2")
+energy_cost = 1
+name = "Shield Break"
+display_texture = ExtResource("1_vpk1k")
+description = "Deal [color=red]get_atk6[/color] Damage. Apply 2 Frail. "
+play_actions = Array[ExtResource("1_ieoco")]([SubResource("Resource_xd3w0")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

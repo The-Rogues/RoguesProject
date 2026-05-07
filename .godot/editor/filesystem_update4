@@ -207,3 +207,8 @@ res://content/scene_configuration/enemy_encounters/tier_4_encounters/freak_show.
 res://content/scene_configuration/enemy_encounters/tier_4_encounters/slime_rancher.tres
 res://content/scene_configuration/enemy_encounters/tier_4_encounters/doomsday.tres
 res://content/scene_configuration/enemy_encounters/tier_1_encounters/angry_shroom.tres
+res://content/monsters/big_slime/moves/split.tres
+res://content/cards/traitless_cards/shield_break.tres
+res://content/scene_configuration/default_starting_card_deck.tres
+res://content/cards/friendly_cards/fuzzy_friend.tres
+res://content/cards/friendly_cards/crawly_friend.tres
