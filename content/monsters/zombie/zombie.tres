@@ -45,7 +45,6 @@ metadata/_custom_type_script = "uid://bqss3xu5ffqum"
 [sub_resource type="Resource" id="Resource_h6alm"]
 script = ExtResource("6_8vp1x")
 monster_data = SubResource("Resource_52vld")
-spawn_count = 1
 starting_health = 40
 metadata/_custom_type_script = "uid://crxnbj8rigrkp"
 

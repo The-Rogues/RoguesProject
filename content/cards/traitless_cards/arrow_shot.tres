@@ -23,6 +23,5 @@ type = 1
 energy_cost = 1
 name = "Arrow Shot"
 description = "Deal [color=red]get_atk6[/color] damage."
-exhaust_after_play = null
 play_actions = Array[ExtResource("1_1um6x")]([SubResource("Resource_12btk")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

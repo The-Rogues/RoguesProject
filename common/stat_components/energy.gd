@@ -9,6 +9,7 @@ signal depleted
 @export_range(0, 10) var value:int = 3
 @export_range(1,10) var max_value:int = 3
 
+var bonus_energy: int = 0
 
 func initialize(starting:int, maximum:int):
 	value = starting
@@ -43,5 +44,11 @@ func set_energy(_current:int, _max:int):
 
 
 func refill():
-	value = max_value
+	value = max_value + bonus_energy
+	bonus_energy = 0
 	energy_changed.emit(value, max_value)
+
+func add_bonus_energy(amount: int) -> void:
+	bonus_energy += amount
+	
+	

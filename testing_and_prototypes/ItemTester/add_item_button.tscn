@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://csdigsm2fgov7" path="res://testing_and_prototypes/ItemTester/add_item_button.gd" id="2_ovtnd"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_ovtnd"]
 
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovtnd"]
 texture = ExtResource("1_a8nrk")
 texture_margin_left = 4.0

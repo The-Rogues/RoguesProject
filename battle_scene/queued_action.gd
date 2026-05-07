@@ -18,4 +18,6 @@ func _init(
 	recalculate_targeting = _recalculate
 
 func execute() -> void:
+	if user != null and not is_instance_valid(user):
+		user = null
 	await action.execute(context, user)

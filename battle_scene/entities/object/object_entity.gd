@@ -27,15 +27,19 @@ func take_damage(amount:int, _attacker = null):
 	sprite_2d.flash()
 	
 	
-	if (_attacker is PlayerEntity 
-			and data.interaction == ObjectData.InteractionOption.ON_HIT):
-		interact()
+	#if (_attacker is PlayerEntity 
+	#		and data.interaction == ObjectData.InteractionOption.ON_HIT):
+	#	interact()
 
 
 func on_destroyed():
 	#queue_actions.emit(data.on_destroyed_actions)
 	sprite_2d.flash()
-	await play_destroyed_anim()
+	
+	
+	if data.interaction == ObjectData.InteractionOption.ON_HIT:
+		interacted.emit(self)
+		await play_destroyed_anim()
 
 
 func enter_turn(_turn_count:int):

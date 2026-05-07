@@ -34,7 +34,8 @@ func place_object(data:ObjectData) -> void:
 	object_entity.initialize(data)
 	_object = object_entity
 	
-	_object.health.died.connect(remove_object)
+	#_object.health.died.connect(remove_object)
+	_object.health.died.connect(_on_object_died)
 	object_entity.on_placed()
 	object_state_updated.emit()
 	#floating_text.create("Placed " + data.name)
@@ -112,3 +113,19 @@ func decay_effect():
 		
 		if _effect.duration == 0:
 			remove_position_effect()
+			
+func _on_object_died():
+	if _object == null:
+		return
+	
+	floating_text.create("Destroyed " + _object.data.name)
+	
+	await _object.on_destroyed()
+	
+	# THEN remove safely
+	_object.queue_free()
+	_object = null
+	object_state_updated.emit()
+	
+	# small delay to stabilize
+	await get_tree().create_timer(0.05).timeout
