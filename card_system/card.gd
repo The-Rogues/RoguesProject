@@ -2,7 +2,7 @@ extends Control
 class_name Card
 
 signal clicked(card: Card)
-#signal hovered(card: Card, is_hovering: bool)
+signal launched
 
 var instance:CardInstance
 
@@ -21,6 +21,7 @@ var in_play_area := false
 var check_for_play_area:bool = true
 var draggable:bool = false
 var interaction_mode:bool = false
+
 
 func initialize(_instance:CardInstance):
 	instance = _instance
@@ -113,6 +114,8 @@ func launch_towards(target_pos: Vector2) -> void:
 	
 	var tween := create_tween()
 	tween.set_parallel(true)
+	
+	launched.emit()
 	
 	tween.tween_property(
 		self, 

@@ -18,8 +18,8 @@ func _on_win_button_up() -> void:
 	if not battle_manager:
 		return
 	
-	for enemy in battle_manager.enemies:
-		enemy.health.kill()
+	while !battle_manager.enemies.is_empty():
+		battle_manager.enemies[0].health.kill()
 	
 	pass # Replace with function body.
 

@@ -10,8 +10,11 @@ func _ready() -> void:
 			damage_sound.play())
 	
 	entity.health.died.connect(func():
-		damage_sound.play())
+		death_sound.reparent(entity.get_parent())
+		death_sound.play()
+		death_sound.finished.connect(queue_free)
+	)
 	
-	#entity.block.changed.connect(func(_b):
-		#if _b > 0:
-			#add_block_sound.play())
+	entity.block.changed.connect(func(_b):
+		if _b > 0:
+			add_block_sound.play())

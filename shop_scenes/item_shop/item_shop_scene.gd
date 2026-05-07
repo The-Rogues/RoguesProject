@@ -1,6 +1,10 @@
 extends Control
 ## Initializer for the item shop
 
+signal transaction_completed
+signal item_selected
+signal failed_to_buy_item
+
 enum ShopState {BUY_ITEMS, SELL_ITEMS}
 
 var shop_state:ShopState = ShopState.BUY_ITEMS
@@ -61,12 +65,15 @@ func initialize(data:ItemShopData) -> void:
 # Processing Clicked Shop Entries
 # -------------------------------------------------
 func _on_entry_selected(shop_entry:ShopEntry):
+	item_selected.emit()
+	
 	if !player_data:
 		_process_bought_entry(shop_entry)
 		return
 	
 	if not player_data.can_pay_price(shop_entry.entry_data.price):
 		#Reject
+		failed_to_buy_item.emit()
 		shop_entry.reject()
 		shop_keeper_dialogue.say("Not enough Gold!")
 		return
@@ -142,6 +149,8 @@ func _create_shop_item_entry(
 func _play_buy_effect(entry:ShopEntry):
 	if !entry:
 		return
+	
+	transaction_completed.emit()
 	
 	var pos = entry.texture_rect.global_position
 	pos = Vector2(pos.x + 200, pos.y + 12)
