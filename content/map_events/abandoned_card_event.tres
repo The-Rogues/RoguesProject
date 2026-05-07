@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://4aesuls8rvn8"]
+
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_dpulr"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="1_lrphw"]
+[ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="2_rt6vp"]
+[ext_resource type="Script" uid="uid://brd5m732vyy5t" path="res://mini_event_system/results/random_event_result.gd" id="3_82qfy"]
+[ext_resource type="Resource" uid="uid://yx660xg08js8" path="res://content/cards/traitless_cards/snakio.tres" id="3_uy0so"]
+[ext_resource type="Script" uid="uid://cjm2fawobo7a0" path="res://mini_event_system/results/give_card_event_result.gd" id="4_fabal"]
+[ext_resource type="Resource" uid="uid://br1liejdw3sis" path="res://content/cards/traitless_cards/mr_bat.tres" id="5_o5xob"]
+[ext_resource type="Resource" uid="uid://by2kl8w4kkm1m" path="res://content/cards/traitless_cards/stinky.tres" id="6_3drbr"]
+[ext_resource type="Resource" uid="uid://qbxcv1tx3lp1" path="res://content/cards/traitless_cards/privilege.tres" id="7_g17fc"]
+
+[sub_resource type="Resource" id="Resource_07xk0"]
+script = ExtResource("4_fabal")
+card = ExtResource("3_uy0so")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[sub_resource type="Resource" id="Resource_1mi4f"]
+script = ExtResource("4_fabal")
+card = ExtResource("5_o5xob")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[sub_resource type="Resource" id="Resource_etxqi"]
+script = ExtResource("4_fabal")
+card = ExtResource("6_3drbr")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[sub_resource type="Resource" id="Resource_a1vlr"]
+script = ExtResource("4_fabal")
+card = ExtResource("7_g17fc")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[sub_resource type="Resource" id="Resource_m5h84"]
+script = ExtResource("3_82qfy")
+results = Array[ExtResource("2_rt6vp")]([SubResource("Resource_07xk0"), SubResource("Resource_1mi4f"), SubResource("Resource_etxqi"), SubResource("Resource_a1vlr")])
+weights = Array[float]([1.0, 1.0, 1.0, 1.0])
+metadata/_custom_type_script = "uid://brd5m732vyy5t"
+
+[resource]
+script = ExtResource("1_dpulr")
+display_image = ExtResource("1_lrphw")
+scenario_text = "You find a card flipped over on the floor. It is wet and someone stepped on it."
+option_1_text = "Take it"
+option_2_text = "Leave it"
+option_1_branch = Array[String](["You wipe off the surface so it's legible and take it with you."])
+option_2_branch = Array[String](["Despite your most deepest desires, you leave it on the floor and move on."])
+option_1_accept_event = SubResource("Resource_m5h84")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

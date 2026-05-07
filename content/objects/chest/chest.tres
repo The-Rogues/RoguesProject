@@ -19,6 +19,7 @@ script = ExtResource("2_ytog5")
 targeting_categories = Array[int]([0, 2])
 interaction = 4
 interaction_actions = Array[ExtResource("1_gt58y")]([SubResource("Resource_j5o26")])
+hover_description = "Requires a key to open. Contains an upgrade."
 display_texture = ExtResource("1_ytog5")
 name = "Chest"
 health = 10

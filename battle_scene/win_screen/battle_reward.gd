@@ -1,6 +1,8 @@
 extends PanelContainer
 class_name BattleReward
 
+signal accepted
+
 @onready var reward_texture: TextureRect = $Contents/RewardTexture
 @onready var reward_name: RichTextLabel = $Contents/RewardName
 var data:BattleRewardData
@@ -12,5 +14,7 @@ func initialize(_data:BattleRewardData):
 
 
 func _on_accept_reward_button_up() -> void:
-	data.get_reward()
-	queue_free()
+	accepted.emit()
+	if data:
+		data.get_reward()
+		queue_free()

@@ -11,6 +11,8 @@ var data:ObjectData
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var object_stat_display: ObjectStatDisplay = $ObjectStatDisplay
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
+@onready var object_tooltip: PanelContainer = %ObjectTooltip
+
 
 func initialize(_data:ObjectData):
 	data = _data
@@ -18,6 +20,7 @@ func initialize(_data:ObjectData):
 	sprite_2d.texture = _data.display_texture
 	object_stat_display.initialize(self)
 	health.died.connect(on_destroyed)
+	object_tooltip.initialize(data)
 
 
 func take_damage(amount:int, _attacker = null):
@@ -31,6 +34,9 @@ func take_damage(amount:int, _attacker = null):
 	
 	if _attacker is AbstractEntity:
 		_attacker.set_last_attacked_entity(self)
+	
+	if _attacker is Projectile and _attacker.source is AbstractEntity:
+		_attacker.source.set_last_attacked_entity(self)
 
 
 func on_destroyed():
@@ -98,3 +104,18 @@ func resolve_hit_interaction():
 				await interact()
 		_:
 			return
+
+
+func _on_hover_area_mouse_entered() -> void:
+	var pos = object_tooltip.global_position
+	object_tooltip.top_level = true
+	object_tooltip.visible = true
+	object_tooltip.global_position = pos
+	pass # Replace with function body.
+
+
+func _on_hover_area_mouse_exited() -> void:
+	var pos = object_tooltip.global_position
+	object_tooltip.top_level = false
+	object_tooltip.visible = false
+	object_tooltip.global_position = pos

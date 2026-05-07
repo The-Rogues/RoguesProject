@@ -127,11 +127,11 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_qx44d"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_xo5uh"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_e5rpv"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_yb5ok"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_y6kk7"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_5s1si"]
 
 [node name="CharacterCreator" type="Control" unique_id=120215782]
 layout_mode = 3
@@ -170,7 +170,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 24
 
+[node name="HeaderLabel2" type="RichTextLabel" parent="Elements" unique_id=2084553760]
+custom_minimum_size = Vector2(524, 29)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave amp=20.0 freq=5.0 connected=1]Create a Character[/wave]"
+horizontal_alignment = 1
+
 [node name="HeaderLabel" type="Label" parent="Elements" unique_id=436641017]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "New Character"
@@ -323,16 +332,16 @@ layout_mode = 2
 text = "Aggression"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_qx44d")
+button_group = SubResource("ButtonGroup_xo5uh")
 
 [node name="Low" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_qx44d")
+button_group = SubResource("ButtonGroup_xo5uh")
 
 [node name="High" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_qx44d")
+button_group = SubResource("ButtonGroup_xo5uh")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/AggressionSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1022197764, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_qx44d")
+button_group = SubResource("ButtonGroup_xo5uh")
 
 [node name="ResolveSurvey" parent="Elements/PersonalitySurveys" unique_id=325705533 instance=ExtResource("10_g1dsd")]
 unique_name_in_owner = true
@@ -342,16 +351,16 @@ layout_mode = 2
 text = "Resolve"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_e5rpv")
+button_group = SubResource("ButtonGroup_yb5ok")
 
 [node name="Low" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_e5rpv")
+button_group = SubResource("ButtonGroup_yb5ok")
 
 [node name="High" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_e5rpv")
+button_group = SubResource("ButtonGroup_yb5ok")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_e5rpv")
+button_group = SubResource("ButtonGroup_yb5ok")
 
 [node name="HighLabel" parent="Elements/PersonalitySurveys/ResolveSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(325705533, 1064984447) index="5" unique_id=573113404]
 text = "high"
@@ -364,16 +373,16 @@ layout_mode = 2
 text = "Quirkiness"
 
 [node name="Lower" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_y6kk7")
+button_group = SubResource("ButtonGroup_5s1si")
 
 [node name="Low" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_y6kk7")
+button_group = SubResource("ButtonGroup_5s1si")
 
 [node name="High" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_y6kk7")
+button_group = SubResource("ButtonGroup_5s1si")
 
 [node name="Higher" parent="Elements/PersonalitySurveys/QuirkinessSurvey/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1168133177, 1064984447) index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_y6kk7")
+button_group = SubResource("ButtonGroup_5s1si")
 
 [node name="Options" type="HBoxContainer" parent="Elements" unique_id=1837197351]
 layout_mode = 2

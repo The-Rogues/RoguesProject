@@ -4,6 +4,11 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_30h70"]
 [ext_resource type="Texture2D" uid="uid://ql4mr7lxmc8t" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-022.png" id="3_eth35"]
 [ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="3_ps0ye"]
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="5_ta0ct"]
+[ext_resource type="Script" uid="uid://6ehg6c1foxey" path="res://card_system/card_sound_manager.gd" id="6_ayj2t"]
+[ext_resource type="AudioStream" uid="uid://lvsf6utb83lr" path="res://common/sound_effects/helton_yans_pixel_combat/card_select.wav" id="7_qbhlc"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="8_qbhlc"]
+[ext_resource type="AudioStream" uid="uid://dj0gw6drxgbs" path="res://common/sound_effects/helton_yans_pixel_combat/card_play.wav" id="9_gqjox"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu8sv"]
 content_margin_left = 6.0
@@ -61,6 +66,14 @@ border_color = Color(0.09411765, 0.14509805, 0.18431373, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu8sv"]
 size = Vector2(126, 179)
+
+[sub_resource type="Curve" id="Curve_4iswc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.50928384, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_6toe5"]
+offsets = PackedFloat32Array(0, 0.14389534, 0.36482558)
+colors = PackedColorArray(0.49803922, 0.87058824, 0.9882353, 1, 1, 0.7490196, 0.5764706, 1, 0.49803922, 0.87058824, 0.9882353, 1)
 
 [node name="Card" type="Control" unique_id=2072196125]
 custom_minimum_size = Vector2(130, 178)
@@ -276,6 +289,40 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardCollisionArea" unique_id=946080812]
 position = Vector2(63, 87.5)
 shape = SubResource("RectangleShape2D_vu8sv")
+
+[node name="Sparkles" type="CPUParticles2D" parent="." unique_id=1253612788]
+unique_name_in_owner = true
+position = Vector2(64, 94)
+emitting = false
+amount = 7
+texture = ExtResource("5_ta0ct")
+speed_scale = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(70, 80)
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_4iswc")
+color_ramp = SubResource("Gradient_6toe5")
+
+[node name="SoundManager" type="Node" parent="." unique_id=1877552396 node_paths=PackedStringArray("card")]
+script = ExtResource("6_ayj2t")
+card = NodePath("..")
+
+[node name="CardHover" type="AudioStreamPlayer" parent="SoundManager" unique_id=500268274]
+stream = ExtResource("7_qbhlc")
+volume_db = -5.0
+pitch_scale = 0.6
+bus = &"SFX"
+
+[node name="CardClick" type="AudioStreamPlayer" parent="SoundManager" unique_id=1297589490]
+stream = ExtResource("8_qbhlc")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CardPlay" type="AudioStreamPlayer" parent="SoundManager" unique_id=1263205163]
+stream = ExtResource("9_gqjox")
+bus = &"SFX"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

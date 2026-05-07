@@ -81,6 +81,8 @@ func end_player_turn():
 	if battle_state == State.ENDED:
 		return
 	
+	battle_field.decay_position_effects()
+	
 	for enemy in enemies:
 		enemy.enter_turn(turn_count)
 	

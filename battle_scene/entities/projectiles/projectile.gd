@@ -39,6 +39,9 @@ func _on_hitbox_body_entered(body):
 		if entity == source:
 			return
 		
+		if !entity.health.is_alive:
+			return
+		
 		entity.take_damage(damage, self)
 		
 		if entity is AbstractCreature and status:

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PositionEffectDisplay" format=3 uid="uid://ctkrawky8lqdh"]
+
+[ext_resource type="Script" uid="uid://dd40p6dnepp41" path="res://battle_scene/battle_field/position_effects/position_effect_display.gd" id="1_xjc34"]
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_yq624"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1yrp"]
+atlas = ExtResource("1_yq624")
+region = Rect2(8, 408, 24, 24)
+
+[resource]
+script = ExtResource("1_xjc34")
+floor_texture = SubResource("AtlasTexture_c1yrp")
+floor_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://dd40p6dnepp41"

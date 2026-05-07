@@ -14,6 +14,7 @@ func add_icon(in_texture: Texture2D):
 	add_theme_constant_override("separation", 4)
 	add_child(display_rect)
 
+
 func clear_icons():
 	var cont_children = get_children()
 	for i in range(0, cont_children.size()):

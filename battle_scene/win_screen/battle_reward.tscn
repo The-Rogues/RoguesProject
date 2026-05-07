@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="4_k1y0t"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_bny2b"]
 [ext_resource type="PackedScene" uid="uid://bc0a6udl8uter" path="res://common/particle_effects/sparkles.tscn" id="6_eqe3h"]
+[ext_resource type="Script" uid="uid://dels7uhdj6p8v" path="res://battle_scene/win_screen/battle_reward_sound_manager.gd" id="7_vf65w"]
+[ext_resource type="AudioStream" uid="uid://cf8rrtixvcoaf" path="res://common/sound_effects/helton_yans_pixel_combat/hover_sound_1.wav" id="8_jfrix"]
+[ext_resource type="AudioStream" uid="uid://brbce2bsjaxl6" path="res://common/sound_effects/helton_yans_pixel_combat/reward_screen.wav" id="9_ns1hp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb1yi"]
 bg_color = Color(0.7676419, 0.5590647, 0.11251082, 1)
@@ -54,12 +57,17 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jfrix"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("9_ns1hp")
+
 [node name="BattleReward" type="PanelContainer" unique_id=1556243692]
 texture_filter = 1
 custom_minimum_size = Vector2(333, 56)
 offset_right = 333.0
 offset_bottom = 56.0
-mouse_filter = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_bb1yi")
 script = ExtResource("1_qa7rv")
 
@@ -96,6 +104,20 @@ vertical_alignment = 1
 
 [node name="Sparkles" parent="." unique_id=1253612788 instance=ExtResource("6_eqe3h")]
 position = Vector2(164, 27)
+
+[node name="SoundManager" type="Node" parent="." unique_id=1241421026 node_paths=PackedStringArray("battle_reward", "accept_reward")]
+script = ExtResource("7_vf65w")
+battle_reward = NodePath("..")
+accept_reward = NodePath("../AcceptReward")
+
+[node name="Hover" type="AudioStreamPlayer" parent="SoundManager" unique_id=901559250]
+stream = ExtResource("8_jfrix")
+bus = &"SFX"
+
+[node name="Accepted" type="AudioStreamPlayer" parent="SoundManager" unique_id=1990689739]
+stream = SubResource("AudioStreamRandomizer_jfrix")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="button_up" from="AcceptReward" to="." method="_on_select_button_up"]

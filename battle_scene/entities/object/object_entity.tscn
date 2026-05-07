@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://qcl0n2yii78d" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (2).wav" id="13_n2vx5"]
 [ext_resource type="AudioStream" uid="uid://dbak7xwfehp36" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (3).wav" id="14_vq31a"]
 [ext_resource type="AudioStream" uid="uid://e20ql0judybs" path="res://common/sound_effects/helton_yans_pixel_combat/rubble_explosion.wav" id="15_f1i1o"]
+[ext_resource type="PackedScene" uid="uid://758lfph2mfo0" path="res://battle_scene/entities/object/object_tooltip.tscn" id="17_vq31a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiqcq"]
 atlas = ExtResource("2_mnebb")
@@ -359,5 +360,28 @@ unique_name_in_owner = true
 stream = ExtResource("15_f1i1o")
 bus = &"SFX"
 
+[node name="HoverArea" type="Control" parent="." unique_id=836682292]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+
+[node name="ObjectTooltip" parent="HoverArea" unique_id=2004448281 instance=ExtResource("17_vq31a")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 59.0
+offset_top = -37.0
+offset_right = 279.0
+offset_bottom = 15.0
+grow_vertical = 2
+
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_hover_area_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_hover_area_mouse_exited"]

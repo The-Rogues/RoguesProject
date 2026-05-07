@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ca7f8p0ojbhy" path="res://battle_scene/battle_field/position_effects/position_effect.gd" id="1_4nxnx"]
 [ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="2_t86xw"]
 [ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://common/art/placeholder/32_rogues/tiles.png" id="3_0f47m"]
+[ext_resource type="PackedScene" uid="uid://bq0u344ybf14m" path="res://battle_scene/battle_field/position_effects/position_effect_tooltip.tscn" id="4_jmi53"]
 
 [sub_resource type="Curve" id="Curve_dn0dt"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7383177, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -30,3 +31,24 @@ scale_amount_curve = SubResource("Curve_dn0dt")
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_jmi53")
+
+[node name="Control" type="Control" parent="." unique_id=1313440859]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -21.0
+offset_top = -16.0
+offset_right = 19.0
+offset_bottom = 24.0
+
+[node name="PositionEffectTooltip" parent="." unique_id=2004448281 instance=ExtResource("4_jmi53")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 52)
+offset_left = 13.0
+offset_top = -49.0
+offset_right = 233.0
+offset_bottom = 3.0
+
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]

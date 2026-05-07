@@ -17,6 +17,7 @@ targeting_categories = Array[int]([3])
 interaction = 5
 interaction_actions = Array[ExtResource("1_r6xxc")]([SubResource("Resource_sd16f")])
 turn_interaction_counter = 2
+hover_description = "Summons a Bee enemy every 2 turns."
 display_texture = ExtResource("1_wy4mv")
 name = "Hive"
 health = 1

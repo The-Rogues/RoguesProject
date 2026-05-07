@@ -6,7 +6,7 @@ class_name CardData
 ## to perform. Intended to be used as a creatable asset that is passed
 ## to CardUI for initialization
 enum Type {ATTACK, RANGED, SKILL, POWER, AI, JUNK}
-enum Category {TRAITLESS, OFFENSIVE, DEFENSIVE, STRATEGIC}
+enum Category {TRAITLESS, OFFENSIVE, DEFENSIVE, STRATEGIC, LEGENDARY}
 
 @export var type:Type
 @export var category:Category

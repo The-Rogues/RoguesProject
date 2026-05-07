@@ -2,7 +2,7 @@ extends Control
 class_name Card
 
 signal clicked(card: Card)
-#signal hovered(card: Card, is_hovering: bool)
+signal launched
 
 var instance:CardInstance
 
@@ -12,6 +12,7 @@ var instance:CardInstance
 @onready var card_type_label: Label = $CardTypePlaque/CardTypeLabel
 @onready var display_texture_rect: TextureRect = %DisplayTextureRect
 @onready var card_edge: PanelContainer = %CardEdge
+@onready var sparkles: CPUParticles2D = %Sparkles
 
 
 var base_scale: Vector2
@@ -20,6 +21,7 @@ var in_play_area := false
 var check_for_play_area:bool = true
 var draggable:bool = false
 var interaction_mode:bool = false
+
 
 func initialize(_instance:CardInstance):
 	instance = _instance
@@ -42,6 +44,9 @@ func initialize(_instance:CardInstance):
 			card_edge.self_modulate = Color("3dccff")
 		CardData.Category.STRATEGIC:
 			card_edge.self_modulate = Color("aef300")
+		CardData.Category.LEGENDARY:
+			card_edge.modulate = Color(0.998, 0.218, 0.594, 1.0)
+			sparkles.emitting = true
 
 func update_ui():
 	card_cost_label.text = str(instance.energy_cost)
@@ -109,6 +114,8 @@ func launch_towards(target_pos: Vector2) -> void:
 	
 	var tween := create_tween()
 	tween.set_parallel(true)
+	
+	launched.emit()
 	
 	tween.tween_property(
 		self, 

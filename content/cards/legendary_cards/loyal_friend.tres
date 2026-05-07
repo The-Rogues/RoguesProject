@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bsnkhs3iathog"]
+
+[ext_resource type="Texture2D" uid="uid://drxuwl2xesmth" path="res://common/art/placeholder/joi3/friendly_icon.tres" id="1_lknwn"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_rttk5"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_ulllh"]
+[ext_resource type="Script" uid="uid://kal88a8adg2l" path="res://content/friends/wolf/wolf_friend.gd" id="3_4dub5"]
+[ext_resource type="Script" uid="uid://24v1ynwivrsc" path="res://content/cards/friendly_cards/summon_friend_action.gd" id="4_0qxu4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g0b7"]
+atlas = ExtResource("1_lknwn")
+
+[sub_resource type="Resource" id="Resource_lllkh"]
+script = ExtResource("3_4dub5")
+metadata/_custom_type_script = "uid://kal88a8adg2l"
+
+[sub_resource type="Resource" id="Resource_jj37o"]
+script = ExtResource("4_0qxu4")
+friend = SubResource("Resource_lllkh")
+metadata/_custom_type_script = "uid://24v1ynwivrsc"
+
+[resource]
+script = ExtResource("2_ulllh")
+type = 2
+category = 4
+energy_cost = 2
+name = "Loyal Friend"
+display_texture = SubResource("AtlasTexture_2g0b7")
+description = "Summon Wolf. Deals 5 to 9 damage after you attack."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_rttk5")]([SubResource("Resource_jj37o")])
+shop_price = 500
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

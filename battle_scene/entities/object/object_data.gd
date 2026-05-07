@@ -25,6 +25,7 @@ enum InteractionOption {
 @export var interaction_actions:Array[Action]
 @export_range(-1, 10) var turn_interaction_counter:int = -1
 @export var is_enemy:bool = false
+@export_multiline var hover_description:String
 # Behaviour scripts
 
 

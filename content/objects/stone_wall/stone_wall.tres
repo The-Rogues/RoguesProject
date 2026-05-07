@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("1_bjhrg")
 targeting_categories = Array[int]([0])
+hover_description = "Provides temporary protection."
 display_texture = ExtResource("1_wq4rh")
 name = "Stone Wall"
 health = 20

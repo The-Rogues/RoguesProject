@@ -82,6 +82,9 @@ func take_damage(amount:int, _attacker = null):
 		
 		if _attacker is AbstractEntity:
 			_attacker.set_last_attacked_entity(self)
+		
+		if _attacker is Projectile and _attacker.source is AbstractEntity:
+			_attacker.source.set_last_attacked_entity(self)
 
 
 func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):
@@ -176,7 +179,7 @@ func _object_intercept_attack(damage:int, _attacker) -> bool:
 	if _attacker is Projectile:
 		return false
 	
-	if battle_position.has_object():
+	if battle_position.has_object() and battle_position.get_object().health.is_alive:
 		battle_position.get_object().take_damage(damage, _attacker)
 		return true
 	else:

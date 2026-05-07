@@ -103,12 +103,19 @@ func enter_turn(turn_count:int, player:PlayerEntity):
 	for battle_position in battle_positions:
 		battle_position.enter_turn(turn_count, player)
 
+
+func decay_position_effects():
+	for battle_position in battle_positions:
+		battle_position.decay_effect()
+
+
 func toggle_preferences():
 	for i in range(0, battle_positions.size()):
 		var curr_object: ObjectEntity = battle_positions[i].get_object()
 		if curr_object != null:
 			var change = !curr_object.object_stat_display.preference_container.visible
 			curr_object.object_stat_display.preference_container.visible = change
+
 
 func update_preferences(in_player: PlayerEntity):
 	var display_order: Array[int] = in_player.data.personality.create_trait_order(

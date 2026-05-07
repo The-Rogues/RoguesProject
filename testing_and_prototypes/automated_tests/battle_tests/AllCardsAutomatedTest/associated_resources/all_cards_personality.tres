@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PersonalityData" format=3 uid="uid://d2kjt0sd3fi1o"]
+[gd_resource type="Resource" script_class="PersonalityData" format=3 uid="uid://ccg0j48lxm8sh"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_hjyhc"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_3cjc7"]

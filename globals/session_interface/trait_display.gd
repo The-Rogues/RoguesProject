@@ -5,10 +5,12 @@ signal finished_animation
 
 @onready var trait_label: Label = $Offensive/TraitLabel
 @onready var trait_context: ContextPanel = $Offensive/TraitLabel/TraitContext
-@onready var weight_label: Label = $Offensive/WeightLabel
+@onready var weight_label: Label = %WeightLabel
 @onready var operation_label: Label = %OperationLabel
 @onready var operation_timer: Timer = %OperationTimer
 var pending_weigh_text:String = ""
+@onready var trait_icon: TextureRect = %TraitIcon
+
 
 func update_weight_label(weight:int):
 	_start_operation_timer(weight)
@@ -16,6 +18,7 @@ func update_weight_label(weight:int):
 
 
 func update_trait_label(_trait:PersonalityTrait):
+	trait_icon.texture = _trait.display_texture
 	trait_label.text = _trait.name
 	trait_context.set_context(_trait.description)
 
