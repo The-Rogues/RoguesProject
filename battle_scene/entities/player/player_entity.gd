@@ -74,6 +74,9 @@ func take_damage(amount:int, _attacker = null):
 		
 		if _attacker is AbstractEntity:
 			_attacker.set_last_attacked_entity(self)
+		
+		if _attacker is Projectile and _attacker.source is AbstractEntity:
+			_attacker.source.set_last_attacked_entity(self)
 
 
 func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):

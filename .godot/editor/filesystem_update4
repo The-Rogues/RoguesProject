@@ -134,3 +134,17 @@ res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.gd
 res://battle_scene/win_screen/battle_reward.tscn
 res://battle_scene/win_screen/battle_reward.gd
 res://battle_scene/win_screen/battle_reward_sound_manager.gd
+res://content/friends/wolf_friend/wolf_texture.tres
+res://content/friends/wolf/wolf_friend.gd
+res://content/cards/legendary_cards/loyal_friend.tres
+res://battle_scene/entities/monster/monster_entity.gd
+res://battle_scene/entities/player/player_entity.gd
+res://common/art/placeholder/joi3/friendly_icon.tres
+res://content/map_events/starving_wolf_event.tres
+res://mini_event_system/conditions/has_item_condition.gd
+res://mini_event_system/results/remove_item_event_result.gd
+res://content/items/bone/bone_texture.tres
+res://content/items/bone/bone.tres
+res://Map/map_module/map_data_structures/MapGraph.gd
+res://content/items/apple/apple_healing_item_data.tres
+res://content/items/bread/bread_healing_item_data.tres

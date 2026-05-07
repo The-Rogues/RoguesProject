@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://nfbq0lgtnevp"]
+
+[ext_resource type="Texture2D" uid="uid://bs4rwlkpsthsd" path="res://content/friends/wolf/wolf_texture.tres" id="1_ippjh"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_xcu8l"]
+[ext_resource type="Resource" uid="uid://ceqn6vhw30utf" path="res://content/items/bone/bone.tres" id="2_d4vd8"]
+[ext_resource type="Script" uid="uid://cehicoywcndnw" path="res://mini_event_system/conditions/has_item_condition.gd" id="2_diksw"]
+[ext_resource type="Script" uid="uid://b63o5rbvcmp1f" path="res://mini_event_system/results/remove_item_event_result.gd" id="3_frs10"]
+[ext_resource type="Resource" uid="uid://bsnkhs3iathog" path="res://content/cards/legendary_cards/loyal_friend.tres" id="5_l0j64"]
+[ext_resource type="Script" uid="uid://cjm2fawobo7a0" path="res://mini_event_system/results/give_card_event_result.gd" id="6_624do"]
+
+[sub_resource type="Resource" id="Resource_avidl"]
+script = ExtResource("3_frs10")
+item = ExtResource("2_d4vd8")
+metadata/_custom_type_script = "uid://b63o5rbvcmp1f"
+
+[sub_resource type="Resource" id="Resource_ql3v8"]
+script = ExtResource("2_diksw")
+item = ExtResource("2_d4vd8")
+metadata/_custom_type_script = "uid://cehicoywcndnw"
+
+[sub_resource type="Resource" id="Resource_0rdev"]
+script = ExtResource("6_624do")
+card = ExtResource("5_l0j64")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[resource]
+script = ExtResource("1_xcu8l")
+display_image = ExtResource("1_ippjh")
+scenario_text = "You find hungry looking wolf leaning against a wall. It looks tired. What do you do?"
+option_1_text = "Give it a Bone"
+option_2_text = "Leave it alone"
+option_1_branch = Array[String](["The wolf swollows it whole. It seems happier."])
+option_2_branch = Array[String](["You leave the wolf alone."])
+option_1_condition = SubResource("Resource_ql3v8")
+option_1_accept_event = SubResource("Resource_avidl")
+option_1_result = SubResource("Resource_0rdev")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"
