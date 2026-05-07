@@ -3,6 +3,8 @@ class_name PlayerEntity
 
 signal played_card(card:CardInstance)
 signal carry_object_updated
+signal start_ai_processing
+signal end_ai_processing
 
 var carried_object:ObjectData = null
 var battle_position:BattlePosition
@@ -72,6 +74,12 @@ func take_damage(amount:int, _attacker = null):
 		if !_attacker is Projectile:
 			effects.on_attacked(_attacker)
 		
+		if damage > 0:
+			if !_attacker is Projectile:
+				effects.on_damaged(_attacker, self)
+			else:
+				effects.on_damaged(null, self)
+		
 		if _attacker is AbstractEntity:
 			_attacker.set_last_attacked_entity(self)
 		
@@ -108,6 +116,7 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 		play_hand.confirm_play(card)
 		
 		if card.instance.data is AiCardData:
+			start_ai_processing.emit()
 			var processed_card: CardData = await ai_processer.process_card(
 				data.personality,
 				card.instance.data
@@ -118,6 +127,7 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 				true
 			)
 			cards.draw_cards(1)
+			end_ai_processing.emit()
 		else:
 			resolver.process_actions(card.instance.data.play_actions, self)
 		

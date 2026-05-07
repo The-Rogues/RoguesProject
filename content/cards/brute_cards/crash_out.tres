@@ -35,6 +35,6 @@ script = ExtResource("5_1hxr8")
 category = 1
 energy_cost = 2
 name = "Crash Out"
-description = "If [color=orange]offense[/color] is [color=#43A047]8[/color] or more, [color=red]get_atk40[/color] damage to all enemies. Reduce [color=orange]offense[/color] by [color=#43A047]3[/color]."
+description = "If [color=orange]offense[/color] is [color=#43A047]8[/color] or more, [color=red]get_atk40[/color] damage to all enemies. Lose [color=#43A047]3[/color] [color=orange]offense[/color]."
 play_actions = Array[ExtResource("1_l2efl")]([SubResource("Resource_5f474"), SubResource("Resource_g8vyx")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

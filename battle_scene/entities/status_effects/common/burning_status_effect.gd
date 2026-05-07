@@ -4,7 +4,8 @@ class_name BurningEffect
 
 func on_stack(
 	instance:ActiveStatusEffect, 
-	_other:ActiveStatusEffect = null
+	_other:ActiveStatusEffect = null,
+	_affected: AbstractCreature = null
 ) -> void:
 	instance.duration += _other.duration
 

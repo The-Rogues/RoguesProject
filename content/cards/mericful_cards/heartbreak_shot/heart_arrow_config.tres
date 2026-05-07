@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ProjectileFireData" format=3 uid="uid://bdull4gn0wwvu"]
+
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="1_7ds0a"]
+[ext_resource type="PackedScene" uid="uid://buyveudd4e086" path="res://content/cards/mericful_cards/heartbreak_shot/heart_arrow_scn.tscn" id="1_nvxtv"]
+
+[resource]
+script = ExtResource("1_7ds0a")
+projectile_scene = ExtResource("1_nvxtv")
+damage = 20
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"

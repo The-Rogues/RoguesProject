@@ -7,7 +7,8 @@ signal effect_ended
 @abstract
 func on_stack(
 	instance:ActiveStatusEffect, 
-	_other:ActiveStatusEffect = null
+	_other:ActiveStatusEffect = null,
+	_affected: AbstractCreature = null
 ) -> void
 
 
@@ -49,6 +50,8 @@ func modify_incoming_damage(damage:int, _instance:ActiveStatusEffect) -> int:
 func on_attacked(_attacker:AbstractEntity, _instance:ActiveStatusEffect):
 	pass
 
+func on_damaged(_attacker: AbstractEntity, _damaged_entity: AbstractEntity, _instance: ActiveStatusEffect):
+	pass
 
 func can_execute_action(
 	_action:Action, 

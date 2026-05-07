@@ -21,6 +21,6 @@ script = ExtResource("2_fnpa4")
 type = 2
 category = 3
 name = "Cash In"
-description = "Spend [color=#43A047]5[/color] [color=orange]gems[/color]. Draw [color=#43A047]3 cards[/color]."
+description = "Spend [color=#43A047]5[/color] [color=orange]gems[/color]. Draw [color=#43A047]3[/color] cards."
 play_actions = Array[ExtResource("1_qw06e")]([SubResource("Resource_v1cs6")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

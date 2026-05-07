@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_pw367"]
 script = ExtResource("2_p3fov")
-base_damage = 5
+base_damage = 4
 hits = 2
 target_option = 2
 metadata/_custom_type_script = "uid://c4hroa2x01w40"
@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 script = ExtResource("6_0tjmj")
 category = 1
 energy_cost = 1
-name = "Duel Strike"
-description = "Deal [color=red]get_atk5[/color] damage twice. Gain [color=#43A047]1[/color] [color=orange]strength[/color]."
+name = "Dual Strike"
+description = "Deal [color=red]get_atk4[/color] damage twice. Gain [color=#43A047]1[/color] [color=orange]strength[/color]."
 play_actions = Array[ExtResource("1_xjoa4")]([SubResource("Resource_pw367"), SubResource("Resource_dchwo")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

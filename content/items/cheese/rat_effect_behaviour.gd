@@ -9,7 +9,8 @@ var owner
 
 func on_stack(
 	instance:ActiveStatusEffect, 
-	_other:ActiveStatusEffect = null
+	_other:ActiveStatusEffect = null,
+	_affected: AbstractCreature = null
 ) -> void:
 	add_rats(owner)
 	instance.stack = rats.size()

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://4dob4uruga2l"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_s04sr"]
+[ext_resource type="Script" uid="uid://dthoottn2f5po" path="res://content/cards/mericful_cards/go_easy/hp_percent_reduction_action.gd" id="2_cxudc"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_ra5bn"]
+
+[sub_resource type="Resource" id="Resource_str63"]
+script = ExtResource("2_cxudc")
+percent = 0.3
+target_option = 2
+metadata/_custom_type_script = "uid://dthoottn2f5po"
+
+[resource]
+script = ExtResource("3_ra5bn")
+category = 1
+energy_cost = 2
+name = "Go Easy"
+description = "Reduce an enemy's remaining HP by [color=#43A047]30[/color] percent."
+play_actions = Array[ExtResource("1_s04sr")]([SubResource("Resource_str63")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

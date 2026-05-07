@@ -4,7 +4,8 @@ class_name ThornsStatusEffectBehaviour
 
 func on_stack(
 	instance:ActiveStatusEffect, 
-	_other:ActiveStatusEffect = null
+	_other:ActiveStatusEffect = null,
+	_affected: AbstractCreature = null
 ) -> void:
 	instance.stack += _other.stack
 	instance.duration = 2

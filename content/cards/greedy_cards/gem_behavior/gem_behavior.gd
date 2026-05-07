@@ -4,7 +4,8 @@ class_name GemEffect
 
 func on_stack(
 	instance:ActiveStatusEffect, 
-	_other:ActiveStatusEffect = null
+	_other:ActiveStatusEffect = null,
+	_affected: AbstractCreature = null
 ) -> void:
 	var run = GlobalSessionManager.run_progress
 	if run:
@@ -24,4 +25,4 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 
 
 func get_texture() -> Texture2D:
-	return load("res://content/cards/greedy_cards/assets/gem.png")
+	return load("res://content/cards/greedy_cards/assets/gem_icon.tres")

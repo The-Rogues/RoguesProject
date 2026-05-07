@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bchnqrjy0vhrh"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_r8dkh"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_dpmpq"]
+[ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="3_w34vr"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_wxfmo"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_ktway"]
+[ext_resource type="Script" uid="uid://bq1ioojbpn7gn" path="res://content/cards/mericful_cards/fist_bump/multi_targeted_action.gd" id="6_sg736"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="7_ugfql"]
+
+[sub_resource type="Resource" id="Resource_u5rjl"]
+script = ExtResource("2_dpmpq")
+base_damage = 10
+target_option = 2
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_x52dn"]
+script = ExtResource("4_wxfmo")
+behaviour = ExtResource("3_w34vr")
+duration = -1
+stack = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_u1ghf"]
+script = ExtResource("5_ktway")
+effect = SubResource("Resource_x52dn")
+target_option = 2
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_1dcwx"]
+script = ExtResource("6_sg736")
+actions = Array[ExtResource("1_r8dkh")]([SubResource("Resource_u5rjl"), SubResource("Resource_u1ghf")])
+target_option = 2
+metadata/_custom_type_script = "uid://bq1ioojbpn7gn"
+
+[resource]
+script = ExtResource("7_ugfql")
+category = 1
+energy_cost = 1
+name = "Fist Bump"
+description = "Deal [color=red]10[/color] damage and apply [color=#43A047]2[/color] [color=orange]friendship[/color] to an enemy."
+play_actions = Array[ExtResource("1_r8dkh")]([SubResource("Resource_1dcwx")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

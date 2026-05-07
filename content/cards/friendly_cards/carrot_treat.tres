@@ -25,10 +25,10 @@ metadata/_custom_type_script = "uid://24v1ynwivrsc"
 script = ExtResource("2_at6qp")
 type = 2
 category = 3
-energy_cost = 3
+energy_cost = 2
 name = "Carrot Treat"
 display_texture = SubResource("AtlasTexture_xq8mk")
-description = "Summons a Bunny friend. Player heals 2 HP at the start of each turn. Exhaust."
+description = "Summons a bunny. Player heals [color=#43A047]2[/color] HP each turn. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_jucpp")]([SubResource("Resource_4kbfl")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

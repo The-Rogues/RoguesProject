@@ -14,5 +14,12 @@ func on_apply(_context:BattleContext):
 	end_power()
 
 func _on_card_drawn(card:CardInstance):
-	if card.data.name == "Agile Shot" || card.data.name == "Charge Shot" || card.data.name == "Arrow Shot":
+	var names: Array[String] = [
+		"Agile Shot",
+		"Charge Shot",
+		"Arrow Shot",
+		"Money Shot",
+		"Heartbreak Shot"
+	]
+	if names.has(card.data.name):
 			player.cards.draw_cards(1)
