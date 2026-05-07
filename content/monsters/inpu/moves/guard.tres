@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cl3si2mbcfvws"]
+
+[ext_resource type="Texture2D" uid="uid://cg8j7bhiea5pf" path="res://battle_scene/entities/monster/intents/defend_icon.tres" id="1_b20cw"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_kvi6r"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_ug88x"]
+[ext_resource type="Script" uid="uid://c2vnumlq5latn" path="res://battle_scene/entities/status_effects/common/thorns_status_effect.gd" id="4_6uo5s"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_kcfi0"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_h72fu"]
+
+[sub_resource type="Resource" id="Resource_nil38"]
+script = ExtResource("2_ug88x")
+amount = 7
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_u7ood"]
+script = ExtResource("4_6uo5s")
+metadata/_custom_type_script = "uid://c2vnumlq5latn"
+
+[sub_resource type="Resource" id="Resource_on3d5"]
+script = ExtResource("5_kcfi0")
+behaviour = SubResource("Resource_u7ood")
+duration = 2
+stack = 4
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_fmn4t"]
+script = ExtResource("6_h72fu")
+effect = SubResource("Resource_on3d5")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("1_kvi6r")
+type = 1
+intent_icon = ExtResource("1_b20cw")
+name = "Guard"
+description = "This Enemy intends to block and apply a buff."
+primary_action = SubResource("Resource_nil38")
+secondary_action = SubResource("Resource_fmn4t")
+metadata/_custom_type_script = "uid://c410dannt5adg"

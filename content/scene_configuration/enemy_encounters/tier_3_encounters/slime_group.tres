@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://2bkv0dsmmkce"]
 
-[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_mm80e"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_elylh"]
 [ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/small_slime_data.tres" id="3_5ir63"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="4_8788u"]
@@ -28,7 +27,6 @@ metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 script = ExtResource("9_y88pm")
 encounter_name = "Slime Group"
 gold = SubResource("Resource_431ds")
-card_loot = ExtResource("1_mm80e")
 item_pool = Array[ExtResource("6_ocsv4")]([SubResource("Resource_vuvoe")])
 enemies = Array[ExtResource("2_elylh")]([ExtResource("3_5ir63"), ExtResource("3_5ir63"), ExtResource("3_5ir63")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

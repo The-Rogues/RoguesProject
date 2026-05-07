@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cnvul20nk68le"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_025aj"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_gusi4"]
+[ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="2_yy5q0"]
+
+[sub_resource type="Resource" id="Resource_8skjb"]
+script = ExtResource("2_yy5q0")
+max_damage = 14
+base_damage = 7
+target_option = 1
+metadata/_custom_type_script = "uid://dwljy2imh2ge8"
+
+[resource]
+script = ExtResource("1_025aj")
+intent_icon = ExtResource("1_gusi4")
+name = "Stab"
+description = "This Enemy intends to attack for get_atk7-get_atk14 damage."
+primary_action = SubResource("Resource_8skjb")
+metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -35,5 +35,4 @@ gold = SubResource("Resource_upfa2")
 card_loot = SubResource("Resource_nglmx")
 enemies = Array[ExtResource("1_3a3wk")]([ExtResource("9_st3ww")])
 battlefield_layout = ExtResource("1_qxntn")
-use_default_rewards = false
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

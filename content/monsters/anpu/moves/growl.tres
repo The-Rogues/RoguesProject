@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://d3l25o233wmcp"]
+
+[ext_resource type="Texture2D" uid="uid://cdj50rusvnt6h" path="res://battle_scene/entities/monster/intents/debuff_icon.tres" id="1_xpgrs"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="2_e1lt4"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_kaavn"]
+
+[sub_resource type="Resource" id="Resource_ydol0"]
+script = ExtResource("2_e1lt4")
+operation = 2
+trait_category = 1
+weight = 2
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[resource]
+script = ExtResource("3_kaavn")
+type = 1
+intent_icon = ExtResource("1_xpgrs")
+name = "Growl"
+description = "This Enemy intends to decrease your defense."
+primary_action = SubResource("Resource_ydol0")
+metadata/_custom_type_script = "uid://c410dannt5adg"

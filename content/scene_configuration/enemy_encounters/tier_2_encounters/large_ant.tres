@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://3nslcpk1pfrw"]
 
-[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_a0msg"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_np1t5"]
 [ext_resource type="Resource" uid="uid://c3c0eiqiul3lq" path="res://content/monsters/large_fire_ant/large_fire_ant.tres" id="3_a0msg"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="4_hi5e7"]
@@ -20,6 +19,5 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("7_260kq")
 encounter_name = "Large Ant"
 gold = SubResource("Resource_nrxny")
-card_loot = ExtResource("1_a0msg")
 enemies = Array[ExtResource("2_np1t5")]([ExtResource("3_a0msg"), ExtResource("4_np1t5")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

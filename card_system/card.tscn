@@ -311,17 +311,18 @@ card = NodePath("..")
 
 [node name="CardHover" type="AudioStreamPlayer" parent="SoundManager" unique_id=500268274]
 stream = ExtResource("7_qbhlc")
-volume_db = -5.0
+volume_db = -10.0
 pitch_scale = 0.6
 bus = &"SFX"
 
 [node name="CardClick" type="AudioStreamPlayer" parent="SoundManager" unique_id=1297589490]
 stream = ExtResource("8_qbhlc")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="CardPlay" type="AudioStreamPlayer" parent="SoundManager" unique_id=1263205163]
 stream = ExtResource("9_gqjox")
+volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

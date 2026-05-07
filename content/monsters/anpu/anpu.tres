@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bo4kcxqr3rbcx"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_5f5j0"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_mujob"]
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_a5xpl"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_ky6ri"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_kgd3q"]
+[ext_resource type="Resource" uid="uid://d3l25o233wmcp" path="res://content/monsters/anpu/moves/growl.tres" id="5_51hdg"]
+[ext_resource type="Resource" uid="uid://d4ftkvaqw8tor" path="res://content/monsters/anpu/moves/dagger.tres" id="6_c3fff"]
+[ext_resource type="Resource" uid="uid://d2fxncc6j7j3t" path="res://content/monsters/anpu/moves/daggers.tres" id="7_b7xq6"]
+[ext_resource type="Resource" uid="uid://cnvul20nk68le" path="res://content/monsters/anpu/moves/stab.tres" id="8_ovylf"]
+
+[sub_resource type="Resource" id="Resource_ks60t"]
+script = ExtResource("1_5f5j0")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8g5c"]
+atlas = ExtResource("2_a5xpl")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk2h0"]
+atlas = SubResource("AtlasTexture_q8g5c")
+
+[sub_resource type="Resource" id="Resource_oj5ve"]
+script = ExtResource("1_mujob")
+moves = Array[ExtResource("4_kgd3q")]([ExtResource("5_51hdg"), ExtResource("6_c3fff"), ExtResource("7_b7xq6")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_h4tuv"]
+script = ExtResource("1_mujob")
+moves = Array[ExtResource("4_kgd3q")]([ExtResource("8_ovylf"), ExtResource("6_c3fff")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_ky6ri")
+move_sequences = Array[ExtResource("1_mujob")]([SubResource("Resource_oj5ve"), SubResource("Resource_h4tuv")])
+behaviour = SubResource("Resource_ks60t")
+init_targeting = Array[int]([1, 6])
+display_texture = SubResource("AtlasTexture_kk2h0")
+name = "Anpu"
+health = 27
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://44x3f1pcjojs"]
+
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_i8kkn"]
+[ext_resource type="Resource" uid="uid://25itnkhn1son" path="res://content/monsters/savage/savage.tres" id="2_irelq"]
+[ext_resource type="Resource" uid="uid://c3c0eiqiul3lq" path="res://content/monsters/large_fire_ant/large_fire_ant.tres" id="3_6jjs4"]
+[ext_resource type="Resource" uid="uid://bdqekfp4y42wh" path="res://content/monsters/crawler/crawler.tres" id="4_xi317"]
+[ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="5_xvds6"]
+[ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="6_nmhaw"]
+[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="7_bbhb2"]
+[ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="8_oufes"]
+
+[sub_resource type="Resource" id="Resource_2ardj"]
+script = ExtResource("6_nmhaw")
+amount = 40
+display_texture = ExtResource("5_xvds6")
+metadata/_custom_type_script = "uid://drffwoufolf1p"
+
+[resource]
+script = ExtResource("8_oufes")
+encounter_name = "Freak show"
+gold = SubResource("Resource_2ardj")
+enemies = Array[ExtResource("1_i8kkn")]([ExtResource("2_irelq"), ExtResource("3_6jjs4"), ExtResource("4_xi317")])
+metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

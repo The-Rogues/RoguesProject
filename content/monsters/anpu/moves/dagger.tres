@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://d4ftkvaqw8tor"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_ai6ag"]
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://battle_scene/entities/monster/intents/projectile_icon.tres" id="1_h0puf"]
+[ext_resource type="PackedScene" uid="uid://cye3dqbf8whyl" path="res://content/monsters/anpu/dagger/dagger.tscn" id="2_1h1je"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_q2jd4"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_at22j"]
+
+[sub_resource type="Resource" id="Resource_yp32o"]
+script = ExtResource("3_q2jd4")
+projectile_scene = ExtResource("2_1h1je")
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_lm34r"]
+script = ExtResource("4_at22j")
+projectile_config = SubResource("Resource_yp32o")
+target_option = 1
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("1_ai6ag")
+intent_icon = ExtResource("1_h0puf")
+name = "Dagger"
+description = "This Enemy intends to throw a projectile and apply a debuff."
+primary_action = SubResource("Resource_lm34r")
+metadata/_custom_type_script = "uid://c410dannt5adg"
