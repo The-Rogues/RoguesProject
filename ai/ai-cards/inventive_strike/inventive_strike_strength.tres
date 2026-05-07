@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ApplyStatusAction" format=3 uid="uid://bhcdcw0w1xxso"]
+
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="1_0qime"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_bk24s"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="3_n57a5"]
+
+[sub_resource type="Resource" id="Resource_seifu"]
+script = ExtResource("1_0qime")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_ia70c"]
+script = ExtResource("2_bk24s")
+behaviour = SubResource("Resource_seifu")
+duration = -1
+stack = 3
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[resource]
+script = ExtResource("3_n57a5")
+effect = SubResource("Resource_ia70c")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"

@@ -6,14 +6,17 @@
 
 [sub_resource type="Resource" id="Resource_q4js6"]
 script = ExtResource("2_3cjc7")
+name = "Naive"
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_1b6jr"]
 script = ExtResource("2_3cjc7")
+name = "Merciful"
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_d5fqq"]
 script = ExtResource("2_3cjc7")
+name = "Greedy"
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [resource]

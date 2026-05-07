@@ -4,7 +4,8 @@ class_name ArmoredEffect
 
 func on_stack(
 	instance:ActiveStatusEffect, 
-	_other:ActiveStatusEffect = null
+	_other:ActiveStatusEffect = null,
+	_affected: AbstractCreature = null
 ) -> void:
 	instance.duration += 1
 

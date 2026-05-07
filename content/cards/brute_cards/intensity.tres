@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_xf55m"]
 script = ExtResource("2_sg2n8")
 operation = 1
-weight = 2
+weight = 3
 metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
@@ -16,6 +16,6 @@ type = 2
 category = 1
 energy_cost = 1
 name = "Intensity"
-description = "Gain [color=#43A047]2[/color] [color=orange]offense[/color]."
+description = "Gain [color=#43A047]3[/color] [color=orange]offense[/color]."
 play_actions = Array[ExtResource("1_xf55m")]([SubResource("Resource_xf55m")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

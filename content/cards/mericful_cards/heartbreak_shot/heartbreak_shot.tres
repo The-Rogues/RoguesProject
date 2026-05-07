@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cqym7pxoy0cnt"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ccw00"]
+[ext_resource type="Resource" uid="uid://bdull4gn0wwvu" path="res://content/cards/mericful_cards/heartbreak_shot/heart_arrow_config.tres" id="2_qleu6"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="3_qa3l8"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="4_1xq1f"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_qsv62"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_mkscm"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="7_417mu"]
+
+[sub_resource type="Resource" id="Resource_oou82"]
+script = ExtResource("3_qa3l8")
+projectile_config = ExtResource("2_qleu6")
+target_option = 2
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[sub_resource type="Resource" id="Resource_dfqgm"]
+script = ExtResource("4_1xq1f")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_ssrsc"]
+script = ExtResource("5_qsv62")
+behaviour = SubResource("Resource_dfqgm")
+duration = -1
+stack = -3
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_qfs2l"]
+script = ExtResource("6_mkscm")
+effect = SubResource("Resource_ssrsc")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("7_417mu")
+type = 1
+category = 1
+energy_cost = 1
+name = "Heartbreak Shot"
+description = "Deal [color=red]20[/color] damage to an enemy. Lose [color=#43A047]3[/color] [color=orange]strength[/color]."
+play_actions = Array[ExtResource("1_ccw00")]([SubResource("Resource_oou82"), SubResource("Resource_qfs2l")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

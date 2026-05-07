@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dc380udp7vi2j"]
+
+[ext_resource type="Script" uid="uid://celuju3ai46nu" path="res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_scripts/AiTimedAutomatedTest_scn_main.gd" id="1_fkisd"]
+
+[node name="AiTimedAutomatedTest" type="Node" unique_id=806590617]
+script = ExtResource("1_fkisd")

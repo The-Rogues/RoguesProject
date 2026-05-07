@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://d0w221my7a46d"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_csuag"]
+[ext_resource type="Script" uid="uid://c4dyswv0im3vw" path="res://content/cards/mericful_cards/old_cards/merciful_strike/spare_damage_action.gd" id="2_qluxl"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_fuqhx"]
+
+[sub_resource type="Resource" id="Resource_b4np1"]
+script = ExtResource("2_qluxl")
+damage_amount = 10
+spare_amount = 20
+target_option = 2
+metadata/_custom_type_script = "uid://c4dyswv0im3vw"
+
+[resource]
+script = ExtResource("3_fuqhx")
+energy_cost = 1
+name = "Merciful Strike"
+description = "Deal [color=red]get_atk10[/color]  damage. If target has [color=#43A047]20[/color] HP or less, [color=orange]spare[/color] instead."
+play_actions = Array[ExtResource("1_csuag")]([SubResource("Resource_b4np1")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

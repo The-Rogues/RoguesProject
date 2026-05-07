@@ -25,10 +25,10 @@ metadata/_custom_type_script = "uid://24v1ynwivrsc"
 script = ExtResource("2_rpwxa")
 type = 2
 category = 3
-energy_cost = 3
+energy_cost = 2
 name = "Worm Treat"
 display_texture = SubResource("AtlasTexture_hp51y")
-description = "Summons a Turtle friend. +1 Block when playing a defense card. Exhaust."
+description = "Summons a turtle. Gives [color=#43A047]1[/color] extra block on block gained. [color=orange]Single Use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_tcalb")]([SubResource("Resource_uhfih")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

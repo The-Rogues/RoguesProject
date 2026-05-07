@@ -2,18 +2,31 @@
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_133mg"]
 [ext_resource type="Script" uid="uid://rnvxk3dxi20x" path="res://content/cards/crafty_cards/entrench/assign_object_hp_action.gd" id="2_tp7ux"]
-[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="3_d167o"]
+[ext_resource type="Script" uid="uid://c8hd1f80oye2s" path="res://content/cards/stoic_cards/suit_up/armor/armor_behavior.gd" id="3_d167o"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_gkcky"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_jfcpn"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_8ipw4"]
 
 [sub_resource type="Resource" id="Resource_jfcpn"]
 script = ExtResource("2_tp7ux")
 metadata/_custom_type_script = "uid://rnvxk3dxi20x"
 
-[sub_resource type="Resource" id="Resource_8ipw4"]
+[sub_resource type="Resource" id="Resource_y5wef"]
 script = ExtResource("3_d167o")
-amount = 4
+metadata/_custom_type_script = "uid://c8hd1f80oye2s"
+
+[sub_resource type="Resource" id="Resource_mauce"]
+script = ExtResource("4_jfcpn")
+behaviour = SubResource("Resource_y5wef")
+duration = -1
+stack = 4
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_x1cd7"]
+script = ExtResource("5_8ipw4")
+effect = SubResource("Resource_mauce")
 ignore_foreground = true
-metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 
 [resource]
 script = ExtResource("4_gkcky")
@@ -21,6 +34,6 @@ type = 2
 category = 2
 energy_cost = 1
 name = "Entrench"
-description = "Place a [color=#43A047]1[/color] HP wall at the front position. Gain [color=deep_sky_blue]4[/color] block."
-play_actions = Array[ExtResource("1_133mg")]([SubResource("Resource_jfcpn"), SubResource("Resource_8ipw4")])
+description = "Place a [color=#43A047]1[/color] HP wall at the front position. Gain [color=deep_sky_blue]4[/color] [color=orange]armor[/color]."
+play_actions = Array[ExtResource("1_133mg")]([SubResource("Resource_jfcpn"), SubResource("Resource_x1cd7")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

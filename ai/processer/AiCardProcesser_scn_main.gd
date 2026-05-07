@@ -33,7 +33,7 @@ const RESPONSE_GRAMMAR: String = """root ::= ([0-9]+" ")+"""
 # Return: Void.
 func _ready() -> void:
 	#print("here")
-	slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-IQ3_M.gguf"
+	slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
 	slf_chat.model_node = slf_model
 	slf_chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)
 	#slf_chat.system_prompt = SYSTEM_PROMPT
@@ -53,13 +53,10 @@ func process_card(personality: PersonalityData, card_data: AiCardData) -> CardDa
 	
 	# Attempt to get a valid response from the AI twice.
 	var response_arr: Array[int]
-	for i in range(0, 2):
-		slf_chat.reset_context() # All context needed is provided by the current prompt.
-		slf_chat.ask(prompt_str)
-		var response_str: String = await slf_chat.response_finished
-		response_arr = parse_response(response_str, card_data)
-		if response_arr.size() != 0:
-			break # Break out of the loop if valid input is received.
+	slf_chat.reset_context() # All context needed is provided by the current prompt.
+	slf_chat.ask(prompt_str)
+	var response_str: String = await slf_chat.response_finished
+	response_arr = parse_response(response_str, card_data)
 	
 	# Create the card generation callback from within the AiCardData and return its result.
 	var card_generator: RefCounted = card_data.gen_callback.new()
@@ -75,7 +72,7 @@ func generate_prompt(personality: PersonalityData, card_data: AiCardData) -> Str
 	
 	# This section lists the general command and the players personality information.
 	var ret_val: String = "### Task:\n"
-	ret_val += "Your response will be used to create an action by combining the listed components you choose. You will make choices based on the character personality data provided. The total energy cost of the components chosen must be four or less, including the mandatory base option.\n"
+	ret_val += "Your response will be used to create an action by combining the listed components you choose. Personality data is provided and unique dependent results are expected.\n"
 	ret_val += "### Personality Data\n"
 	ret_val += "- Offensive Personality: " + personality.offensive_trait.name + "\n"
 	ret_val += "- Offensive Personality Weight: " + str(personality.offensive_weight) + "\n"
@@ -83,10 +80,10 @@ func generate_prompt(personality: PersonalityData, card_data: AiCardData) -> Str
 	ret_val += "- Defensive Personality Weight: " + str(personality.defensive_weight) + "\n"
 	ret_val += "- Strategic Personality: " + personality.strategic_trait.name + "\n"
 	ret_val += "- Strategic Personality Weight: " + str(personality.strategic_weight) + "\n"
-	ret_val += "### Base Option\n"
-	ret_val += "{\"energy\":" + str(card_data.default_option.energy_cost) + ","
-	ret_val += "\"component\":\"" + str(CardGenConst.CardGenNames[card_data.default_option.card_option]) + "\"}\n"
-	ret_val += "### Choice Options\n"
+	#ret_val += "### Base Option\n"
+	#ret_val += "{\"energy\":" + str(card_data.default_option.energy_cost) + ","
+	#ret_val += "\"component\":\"" + str(CardGenConst.CardGenNames[card_data.default_option.card_option]) + "\"}\n"
+	ret_val += "### Options\n"
 	
 	# For each card option, list its index, energy cost, and identifier.
 	for i in range(0, card_data.ai_options.size()):
@@ -96,7 +93,7 @@ func generate_prompt(personality: PersonalityData, card_data: AiCardData) -> Str
 	
 	# Confirm response format at prompt end.
 	ret_val += "### Response Format\n"
-	ret_val += "Return only a series of numbers separated by spaces. These numbers should corespond to the choice options. There should be no repeated numbers. Return one, two, or three numbers."
+	ret_val += "Return only a series of numbers separated by spaces. These numbers should corespond to the options provided. There should be no repeated numbers. Return one, two, or three numbers. The total energy cost of the components chosen must be three or less. Two is the standard cost, but three is common too."
 	return ret_val
 
 func generate_sys_prompt(card_data: AiCardData) -> String:

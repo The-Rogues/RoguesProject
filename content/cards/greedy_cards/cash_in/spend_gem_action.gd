@@ -20,7 +20,7 @@ func get_num_gems(player: PlayerEntity) -> int:
 	return 0
 
 func spend_gems(amount: int, player: PlayerEntity) -> void:
-	for i in range(0, player.effects.active_effects.size()):
+	for i in range(player.effects.active_effects.size() - 1, -1, -1):
 		if player.effects.active_effects[i].effect == gem_behavior:
 			player.effects.active_effects[i].stack -= amount
 			player.effects.effect_changed.emit(player.effects.active_effects[i])

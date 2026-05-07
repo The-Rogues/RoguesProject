@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://drusengu3gs5f"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_bxgd3"]
+[ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="2_vivec"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_r85fp"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_nytxf"]
+[ext_resource type="Script" uid="uid://cdgpssao72lex" path="res://content/cards/mericful_cards/betray/filtered_any_action.gd" id="5_1cu1c"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="6_4vj47"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="7_2a2pa"]
+
+[sub_resource type="Resource" id="Resource_m6of5"]
+script = ExtResource("3_r85fp")
+behaviour = ExtResource("2_vivec")
+duration = -1
+stack = 5
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_yy28p"]
+script = ExtResource("4_nytxf")
+effect = SubResource("Resource_m6of5")
+target_option = 3
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_54ybl"]
+script = ExtResource("5_1cu1c")
+action = SubResource("Resource_yy28p")
+filter_type = 4
+target_option = 3
+metadata/_custom_type_script = "uid://cdgpssao72lex"
+
+[sub_resource type="Resource" id="Resource_j6wif"]
+script = ExtResource("6_4vj47")
+base_damage = 1
+target_option = 3
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("7_2a2pa")
+category = 1
+energy_cost = 1
+name = "Hug"
+description = "Undamaged enemies gain [color=#43A047]5[/color] [color=orange]friendship[/color]. Deal [color=red]1[/color] damage to enemies. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_bxgd3")]([SubResource("Resource_54ybl"), SubResource("Resource_j6wif")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dy3ixqkqfrwer"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_slfgx"]
+[ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="2_0vd2n"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_6o7r8"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_5kp4t"]
+[ext_resource type="Script" uid="uid://2fhdaficxwtc" path="res://content/cards/friendly_cards/filtered_apply_status_action.gd" id="4_q66wg"]
+
+[sub_resource type="Resource" id="Resource_8tq7h"]
+script = ExtResource("3_5kp4t")
+behaviour = ExtResource("2_0vd2n")
+duration = -1
+stack = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_qmmj3"]
+script = ExtResource("4_q66wg")
+effect = SubResource("Resource_8tq7h")
+filter_type = 5
+target_option = 3
+ignore_foreground = true
+metadata/_custom_type_script = "uid://2fhdaficxwtc"
+
+[resource]
+script = ExtResource("2_6o7r8")
+type = 2
+category = 3
+energy_cost = 2
+name = "Playdate"
+description = "All enemies with [color=orange]friendship[/color] gain [color=#43A047]2[/color] [color=orange]friendship[/color]."
+play_actions = Array[ExtResource("1_slfgx")]([SubResource("Resource_qmmj3")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
