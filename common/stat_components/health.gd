@@ -54,6 +54,7 @@ func kill() -> void:
 	
 	value = 0
 	health_changed.emit(value, max_value)
+	is_alive = false
 	died.emit()
 
 

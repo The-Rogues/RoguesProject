@@ -4,12 +4,12 @@
 [ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/go_easy/go_easy.tres" id="2_g6crd"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
-[ext_resource type="Resource" uid="uid://biytyhg5hx4cd" path="res://content/cards/friendly_cards/carrot_treat.tres" id="3_ps3ye"]
+[ext_resource type="Resource" path="res://content/cards/friendly_cards/carrot_treat.tres" id="3_ps3ye"]
 [ext_resource type="Resource" uid="uid://ccg0j48lxm8sh" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
 [ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/fish_treat.tres" id="4_h10xn"]
 [ext_resource type="Resource" uid="uid://dui2cujdu8hw7" path="res://content/cards/friendly_cards/handshake.tres" id="5_5ubvd"]
 [ext_resource type="Resource" uid="uid://dy3ixqkqfrwer" path="res://content/cards/friendly_cards/playdate.tres" id="6_045gi"]
-[ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/worm_treat.tres" id="7_i0ptq"]
+[ext_resource type="Resource" path="res://content/cards/friendly_cards/worm_treat.tres" id="7_i0ptq"]
 [ext_resource type="Resource" uid="uid://cveo1a1cklvwm" path="res://content/cards/mericful_cards/betray/betray.tres" id="8_r8xn1"]
 [ext_resource type="Resource" uid="uid://bchnqrjy0vhrh" path="res://content/cards/mericful_cards/fist_bump/Fist Bump.tres" id="9_f5dmp"]
 [ext_resource type="Resource" uid="uid://cqym7pxoy0cnt" path="res://content/cards/mericful_cards/heartbreak_shot/heartbreak_shot.tres" id="10_8vtjb"]
@@ -47,7 +47,6 @@
 [ext_resource type="Resource" uid="uid://bhnmqjrvedryq" path="res://content/cards/tactical_cards/reload/reload.tres" id="42_ehfqv"]
 [ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/vengeful_cards/inferno.tres" id="43_mains"]
 [ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="44_3iy1m"]
-
 
 [resource]
 script = ExtResource("3_p83cn")

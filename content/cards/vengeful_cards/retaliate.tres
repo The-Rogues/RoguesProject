@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dw5lr446sq5lt"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_o4j54"]
+[ext_resource type="Script" uid="uid://t8gnkbgx340y" path="res://content/cards/vengeful_cards/vengeful_action.gd" id="2_88as6"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_pyv7h"]
+
+[sub_resource type="Resource" id="Resource_ir235"]
+script = ExtResource("2_88as6")
+effect_type = 2
+base_damage = 10
+target_option = 3
+metadata/_custom_type_script = "uid://t8gnkbgx340y"
+
+[resource]
+script = ExtResource("2_pyv7h")
+category = 1
+energy_cost = 2
+name = "Retaliate"
+description = "Deal [color=#43A047]10[/color] damage. Costs [color=#43A047]1[/color] less if you took damage last turn."
+play_actions = Array[ExtResource("1_o4j54")]([SubResource("Resource_ir235")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

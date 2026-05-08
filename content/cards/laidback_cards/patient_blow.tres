@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://rq7lxh5t1a8g"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_scd0k"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_8thrk"]
+[ext_resource type="Script" uid="uid://c4wacutsxb7p6" path="res://content/cards/laidback_cards/laidback_action.gd" id="2_gcxsf"]
+
+[sub_resource type="Resource" id="Resource_8swll"]
+script = ExtResource("2_gcxsf")
+effect_type = 2
+target_option = 3
+metadata/_custom_type_script = "uid://c4wacutsxb7p6"
+
+[resource]
+script = ExtResource("2_8thrk")
+type = 2
+category = 3
+energy_cost = 1
+name = "Patient Blow"
+description = "Deal [color=#43A047]6[/color] damage. If you did not attack last turn, deal [color=#43A047]16[/color] damage instead."
+play_actions = Array[ExtResource("1_scd0k")]([SubResource("Resource_8swll")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

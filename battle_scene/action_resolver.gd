@@ -125,7 +125,8 @@ func process_actions(actions:Array[Action], user:AbstractEntity):
 		var recalculate_targeting: bool = true
 		if i < (actions.size() - 1):
 			recalculate_targeting = false
-		
+		if user is ObjectEntity:
+			user = null
 		action_queue.enqueue(
 			actions[i],
 			battle_context,

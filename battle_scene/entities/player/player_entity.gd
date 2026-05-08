@@ -9,6 +9,12 @@ signal end_ai_processing
 var carried_object:ObjectData = null
 var battle_position:BattlePosition
 var data:PlayerData = null
+var damage_taken_this_turn:int = 0
+var damage_taken_last_turn:int = 0
+var attacked_this_turn: bool = false
+var attacked_last_turn: bool = false
+
+var unused_energy_last_turn: int = 0
 
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var movement_controller:PlayerMovementController = $MovementController
@@ -61,6 +67,7 @@ func initialize(_data:PlayerData):
 	add_child(ai_processer)
 
 
+
 func take_damage(amount:int, _attacker = null):
 	var damage:int = effects.apply_incoming_damage_effects(amount)
 	
@@ -70,6 +77,7 @@ func take_damage(amount:int, _attacker = null):
 		DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
 		sprite_2d.flash()
 		health.take_damage(damage)
+		damage_taken_this_turn += damage
 		
 		if !_attacker is Projectile:
 			effects.on_attacked(_attacker)
@@ -103,9 +111,16 @@ func on_destroyed():
 
 
 func enter_turn(_turn_count:int):
+	damage_taken_last_turn = damage_taken_this_turn
+	damage_taken_this_turn = 0
+	
+	attacked_last_turn = attacked_this_turn
+	attacked_this_turn = false
+	
 	block.set_to_zero()
 	effects.on_entered_turn()
 	#effects.decay_status_effects()
+	record_end_turn_state()
 	energy.refill()
 	turn_entered.emit()
 
@@ -135,6 +150,7 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 		
 			played_card.emit(card.instance)
 			if card.instance.data.type == CardData.Type.ATTACK:
+				attacked_this_turn = true
 				play_attack_anim()
 				melee_weapon_animator.play("swing")
 			elif card.instance.data.type == CardData.Type.RANGED:
@@ -171,6 +187,10 @@ func place_object() -> bool:
 
 func _on_enterned_new_position():
 	place_object()
+
+
+func record_end_turn_state():
+	unused_energy_last_turn = energy.value
 
 
 func _object_intercept_attack(damage:int, _attacker) -> bool:
