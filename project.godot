@@ -26,9 +26,6 @@ GlobalSaveManager="*uid://lnp0r05fc1u2"
 GlobalSceneLoader="*uid://bp63dsvlxoj6w"
 DamageNumber="*uid://v8hwxqcyaen8"
 MusicManager="*uid://cawypsenbgkoi"
-AllCards="*uid://7t6edb8dbdly"
-AiTimed="*uid://c5r63qi3j74px"
-AllMonsters="*uid://dc380udp7vi2j"
 
 [display]
 
