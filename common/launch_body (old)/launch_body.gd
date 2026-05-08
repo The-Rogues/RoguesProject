@@ -86,3 +86,12 @@ func on_timer_ended():
 func _on_timer_timeout() -> void:
 	queue_free()
 	pass # Replace with function body.
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.get_parent() is AbstractEntity:
+		var entity:AbstractEntity = body.get_parent()
+		if !entity.health.is_alive:
+			return
+		
+		entity.take_damage(randi_range(1, 2), null)

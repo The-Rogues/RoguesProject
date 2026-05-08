@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://8ydj2bjd1wqa" path="res://options_menu/options_menu.gd" id="1_05uyy"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_nwcfo"]
 [ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://options_menu/settings_menu.tscn" id="2_nwcfo"]
+[ext_resource type="Script" uid="uid://cdysovk5uss4b" path="res://options_menu/options_sound_manager.gd" id="4_rhvhm"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="5_6y6pd"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="6_ftnx2"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="7_kw0k2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0eu6"]
 bg_color = Color(0, 0, 0, 1)
@@ -75,14 +79,17 @@ theme_override_constants/separation = 16
 alignment = 1
 
 [node name="Settings" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1242346398]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
 [node name="MainMenu" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer" unique_id=711704978]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Main Menu"
 
 [node name="Close" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1891064938]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Close"
 
@@ -101,6 +108,25 @@ offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_05uyy")
+
+[node name="SoundManager" type="Node" parent="." unique_id=640369228 node_paths=PackedStringArray("buttons")]
+script = ExtResource("4_rhvhm")
+buttons = [NodePath("../Container/MarginContainer/VBoxContainer/VBoxContainer/Settings"), NodePath("../Container/MarginContainer/VBoxContainer/VBoxContainer/MainMenu"), NodePath("../Container/MarginContainer/VBoxContainer/VBoxContainer/Close")]
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1868528816]
+stream = ExtResource("5_6y6pd")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1395183125]
+stream = ExtResource("6_ftnx2")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1990752074]
+stream = ExtResource("7_kw0k2")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="button_up" from="Container/MarginContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
 [connection signal="button_up" from="Container/MarginContainer/VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_button_up"]

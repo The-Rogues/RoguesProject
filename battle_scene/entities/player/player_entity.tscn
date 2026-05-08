@@ -500,5 +500,5 @@ bus = &"SFX"
 [node name="AddBlockSound" type="AudioStreamPlayer" parent="EntitySoundManager" unique_id=1723683470]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamWAV_22bmj")
-pitch_scale = 2.0
+volume_db = -5.0
 bus = &"SFX"

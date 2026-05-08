@@ -78,6 +78,9 @@ stream_0/stream = ExtResource("7_l2l7k")
 stream_1/stream = ExtResource("8_oebbs")
 stream_2/stream = ExtResource("9_dnrgo")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_251fg"]
+radius = 30.0
+
 [node name="LaunchedBody" type="CharacterBody2D" unique_id=1775996269]
 script = ExtResource("1_251fg")
 bounce_range = 0.75
@@ -116,4 +119,11 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_lgh13")
 bus = &"SFX"
 
+[node name="HitBox" type="Area2D" parent="." unique_id=1231329328]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1141263492]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_251fg")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

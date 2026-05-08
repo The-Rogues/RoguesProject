@@ -353,11 +353,13 @@ entity = NodePath("..")
 [node name="DamageSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1232128601]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_fvgdg")
+volume_db = -5.0
 bus = &"SFX"
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=57633498]
 unique_name_in_owner = true
 stream = ExtResource("15_f1i1o")
+volume_db = -5.0
 bus = &"SFX"
 
 [node name="HoverArea" type="Control" parent="." unique_id=836682292]

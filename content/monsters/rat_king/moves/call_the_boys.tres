@@ -31,7 +31,6 @@ metadata/_custom_type_script = "uid://bqss3xu5ffqum"
 script = ExtResource("7_ksdr1")
 monster_data = SubResource("Resource_eqh43")
 spawn_count = 2
-starting_health = 10
 metadata/_custom_type_script = "uid://crxnbj8rigrkp"
 
 [resource]

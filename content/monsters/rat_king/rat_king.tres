@@ -23,5 +23,5 @@ move_sequences = Array[ExtResource("3_xn6uq")]([SubResource("Resource_2w734")])
 behaviour = SubResource("Resource_8wjr6")
 display_texture = ExtResource("2_lfqtc")
 name = "Rat King"
-health = 30
+health = 36
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

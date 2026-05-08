@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8hl6h527kkwv"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ieoco"]
-[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_vpk1k"]
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_vpk1k"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_wo5p2"]
 [ext_resource type="Script" uid="uid://hopwhp65chew" path="res://battle_scene/entities/actions/attack/status_attack_action.gd" id="3_tt5a6"]
 [ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="4_iok26"]

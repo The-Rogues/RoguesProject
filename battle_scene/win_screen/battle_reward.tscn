@@ -112,6 +112,7 @@ accept_reward = NodePath("../AcceptReward")
 
 [node name="Hover" type="AudioStreamPlayer" parent="SoundManager" unique_id=901559250]
 stream = ExtResource("8_jfrix")
+volume_db = -5.0
 bus = &"SFX"
 
 [node name="Accepted" type="AudioStreamPlayer" parent="SoundManager" unique_id=1990689739]

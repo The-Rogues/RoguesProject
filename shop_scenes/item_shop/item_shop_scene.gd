@@ -167,7 +167,7 @@ func _on_buy_items_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		shop_entry_interface.update_shop_ui(remaining_entries)
 		
-		shop_state = ShopState.SELL_ITEMS
+		shop_state = ShopState.BUY_ITEMS
 
 
 func _on_sell_items_toggled(toggled_on: bool) -> void:
