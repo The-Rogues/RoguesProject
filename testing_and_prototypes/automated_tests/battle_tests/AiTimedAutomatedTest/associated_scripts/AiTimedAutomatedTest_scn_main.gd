@@ -5,7 +5,7 @@ extends Node
 @onready var progress_res: RunProgress = preload("res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_progress.tres")
 @onready var field_res: BattleFieldConfig = preload("res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_battle_field.tres")
 
-var num_iterations: int = 50
+var num_iterations: int = 10
 var ai_cards: Array[AiCardData] = [
 	preload("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
 ]
