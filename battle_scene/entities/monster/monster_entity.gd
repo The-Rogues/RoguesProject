@@ -52,6 +52,13 @@ func take_damage(amount:int, _attacker = null):
 	if !_attacker is Projectile:
 		effects.on_attacked(_attacker)
 	
+	if damage > 0:
+		if !_attacker is Projectile:
+			effects.on_damaged(_attacker, self)
+		else:
+			print("HEARTBREAK")
+			effects.on_damaged(null, self)
+	
 	if _attacker is AbstractEntity:
 		_attacker.set_last_attacked_entity(self)
 	

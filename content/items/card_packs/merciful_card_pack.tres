@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://vfxn0v7gtuaf"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_mptc0"]
-[ext_resource type="Resource" uid="uid://jocbe8p5e2es" path="res://content/cards/mericful_cards/forgive/forgive.tres" id="2_25n5g"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_rulel"]
-[ext_resource type="Resource" uid="uid://d0w221my7a46d" path="res://content/cards/mericful_cards/merciful_strike/merciful_strike.tres" id="3_tua7u"]
-[ext_resource type="Resource" uid="uid://c37iffvwm80vl" path="res://content/cards/mericful_cards/pacify/pacify.tres" id="4_0wy6u"]
-[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/shrink/shrink.tres" id="5_2vu7y"]
+[ext_resource type="Resource" uid="uid://cveo1a1cklvwm" path="res://content/cards/mericful_cards/betray/betray.tres" id="2_tua7u"]
+[ext_resource type="Resource" uid="uid://bchnqrjy0vhrh" path="res://content/cards/mericful_cards/fist_bump/Fist Bump.tres" id="3_0wy6u"]
+[ext_resource type="Resource" uid="uid://cqym7pxoy0cnt" path="res://content/cards/mericful_cards/heartbreak_shot/heartbreak_shot.tres" id="5_0pv4q"]
+[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/go_easy/go_easy.tres" id="5_2vu7y"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="6_0pv4q"]
+[ext_resource type="Resource" uid="uid://drusengu3gs5f" path="res://content/cards/mericful_cards/hug/hug.tres" id="6_tua7u"]
 
 [resource]
 script = ExtResource("2_rulel")
-card_pool = Array[ExtResource("1_mptc0")]([ExtResource("2_25n5g"), ExtResource("3_tua7u"), ExtResource("4_0wy6u"), ExtResource("5_2vu7y")])
+card_pool = Array[ExtResource("1_mptc0")]([ExtResource("2_tua7u"), ExtResource("3_0wy6u"), ExtResource("5_2vu7y"), ExtResource("5_0pv4q"), ExtResource("6_tua7u")])
 draw_count = 3
 rarity = 1
 name = "Merciful Card Pack"

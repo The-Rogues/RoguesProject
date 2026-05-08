@@ -1,56 +1,57 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_i06bj"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_sds6a"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_jfmdv"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_uahfr"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_ce22o"]
-[ext_resource type="Script" path="res://item_system/item_data.gd" id="6_3l5uq"]
-[ext_resource type="Resource" path="res://content/personality_traits/naive.tres" id="7_sds6a"]
-[ext_resource type="Resource" path="res://content/personality_traits/merciful.tres" id="8_jfmdv"]
-[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="9_iofhu"]
-[ext_resource type="Resource" path="res://content/personality_traits/laidback.tres" id="10_uahfr"]
-[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_k3uip"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="12_ce22o"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="13_3l5uq"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="14_7xv35"]
-[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="15_ff1hj"]
-[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_rjjt7"]
-[ext_resource type="Resource" path="res://content/map_events/metal_man_challenge.tres" id="17_ugj3v"]
-[ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="18_ju2aj"]
-[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="19_7cy65"]
-[ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="20_sds6a"]
+[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_f04e1"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_i06bj"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_sds6a"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_jfmdv"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_uahfr"]
+[ext_resource type="Resource" path="res://ai/ai-cards/inventive_strike/inventive_strike_data.tres" id="6_ce22o"]
+[ext_resource type="Script" path="res://item_system/item_data.gd" id="7_3l5uq"]
+[ext_resource type="Resource" path="res://content/personality_traits/crafty.tres" id="8_jfmdv"]
+[ext_resource type="Resource" path="res://content/personality_traits/merciful.tres" id="9_jfmdv"]
+[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="10_iofhu"]
+[ext_resource type="Resource" path="res://content/personality_traits/friendly.tres" id="11_uahfr"]
+[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="12_k3uip"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/scepter.tres" id="13_ce22o"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/gem_staff.tres" id="14_3l5uq"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="15_7xv35"]
+[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="16_ff1hj"]
+[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="17_rjjt7"]
+[ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="18_7xv35"]
+[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="18_ugj3v"]
+[ext_resource type="Resource" path="res://content/map_events/metal_man_challenge.tres" id="19_8qiin"]
+[ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="20_iofhu"]
 
 [sub_resource type="Resource" id="Resource_8qiin"]
-script = ExtResource("9_iofhu")
-offensive_trait = ExtResource("8_jfmdv")
+script = ExtResource("10_iofhu")
+offensive_trait = ExtResource("9_jfmdv")
 offensive_weight = 2
-defensive_trait = ExtResource("7_sds6a")
+defensive_trait = ExtResource("8_jfmdv")
 defensive_weight = 1
-strategic_trait = ExtResource("10_uahfr")
+strategic_trait = ExtResource("11_uahfr")
 strategic_weight = 1
-priority_trait = ExtResource("8_jfmdv")
+priority_trait = ExtResource("9_jfmdv")
 
 [sub_resource type="Resource" id="Resource_iofhu"]
-script = ExtResource("11_k3uip")
-name = "Jacob"
+script = ExtResource("12_k3uip")
+name = "Maria"
 max_health = 70
 current_health = 70
 max_energy = 3
 item_capacity = 1
-cards = Array[ExtResource("1_i06bj")]([ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("3_jfmdv"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("5_ce22o"), ExtResource("5_ce22o"), ExtResource("5_ce22o"), ExtResource("5_ce22o")])
+cards = Array[ExtResource("1_f04e1")]([ExtResource("2_i06bj"), ExtResource("2_i06bj"), ExtResource("2_i06bj"), ExtResource("3_sds6a"), ExtResource("4_jfmdv"), ExtResource("4_jfmdv"), ExtResource("4_jfmdv"), ExtResource("4_jfmdv"), ExtResource("5_uahfr"), ExtResource("5_uahfr"), ExtResource("5_uahfr"), ExtResource("5_uahfr"), ExtResource("6_ce22o")])
 personality = SubResource("Resource_8qiin")
 
 [resource]
-script = ExtResource("15_ff1hj")
+script = ExtResource("16_ff1hj")
 player_data = SubResource("Resource_iofhu")
-player_texture = ExtResource("14_7xv35")
-player_melee_weapon_texture = ExtResource("12_ce22o")
-player_ranged_weapon_texture = ExtResource("13_3l5uq")
-player_name = "Jacob"
+player_texture = ExtResource("15_7xv35")
+player_melee_weapon_texture = ExtResource("13_ce22o")
+player_ranged_weapon_texture = ExtResource("14_3l5uq")
+player_name = "Maria"
 player_backstory = ""
-map_seed = 232483837
+map_seed = 33806848
 pending_node_index = 2
 room_in_progress = true
-single_time_mini_events = Array[ExtResource("16_rjjt7")]([ExtResource("17_ugj3v"), ExtResource("19_7cy65"), ExtResource("20_sds6a"), ExtResource("18_ju2aj")])
+single_time_mini_events = Array[ExtResource("17_rjjt7")]([ExtResource("20_iofhu"), ExtResource("19_8qiin"), ExtResource("18_7xv35"), ExtResource("18_ugj3v")])
 initialized = true

@@ -2,7 +2,7 @@
 extends TargetedAction
 class_name FilteredTargetedAction
 
-enum FilterType {HP_PCT, HP_THRESHOLD, MAX_HP_THRESHOLD}
+enum FilterType {HP_PCT, HP_THRESHOLD, MAX_HP_THRESHOLD, MOST_HP, UNDAMAGED, FRIENDSHIP}
 @export var filter_type: FilterType
 
 @export var filter_value: float

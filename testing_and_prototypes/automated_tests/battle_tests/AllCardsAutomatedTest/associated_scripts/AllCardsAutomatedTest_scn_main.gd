@@ -27,7 +27,7 @@ func _ready():
 	while hand_has_cards:
 		
 		var cards = battle_scene.battle_flow_manager.play_hand.get_children()
-		await battle_scene.player.resolve_card(
+		battle_scene.player.resolve_card(
 			cards[0], 
 			battle_scene.battle_flow_manager.play_hand.resolver, 
 			battle_scene.battle_flow_manager.play_hand
@@ -38,7 +38,7 @@ func _ready():
 			hand_has_cards = false
 		
 		battle_scene.battle_flow_manager.play_hand.confirm_play(cards[0])
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(0.5).timeout
 		
 		if battle_scene.battle_flow_manager.player.cards.draw_pile.size() > 0:
 			battle_scene.battle_flow_manager.player.cards.draw_cards(1)

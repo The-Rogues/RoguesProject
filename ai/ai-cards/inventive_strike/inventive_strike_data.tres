@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="AiCardData" format=3 uid="uid://d1bplvxmsevih"]
+
+[ext_resource type="Script" uid="uid://bwes3ofvkbg00" path="res://ai/scripts/CardGenOption.gd" id="1_2xeaa"]
+[ext_resource type="Script" uid="uid://bekh8ffmsdvll" path="res://ai/callbacks/inventive_attack_script.gd" id="2_rjs6n"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="3_2xeaa"]
+[ext_resource type="Script" uid="uid://cjwj13hduiyqg" path="res://ai/scripts/AiCardData.gd" id="4_dl14e"]
+
+[sub_resource type="Resource" id="Resource_dl14e"]
+script = ExtResource("1_2xeaa")
+energy_cost = 1
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_2xeaa"]
+script = ExtResource("1_2xeaa")
+energy_cost = 1
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_xc128"]
+script = ExtResource("1_2xeaa")
+energy_cost = 1
+card_option = 3
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_y82hj"]
+script = ExtResource("1_2xeaa")
+energy_cost = 1
+card_option = 2
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_xxo3m"]
+script = ExtResource("1_2xeaa")
+energy_cost = 1
+card_option = 4
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_rjs6n"]
+script = ExtResource("1_2xeaa")
+energy_cost = -1
+card_option = 5
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_d3v1g"]
+script = ExtResource("1_2xeaa")
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[resource]
+script = ExtResource("4_dl14e")
+default_option = SubResource("Resource_d3v1g")
+ai_options = Array[ExtResource("1_2xeaa")]([SubResource("Resource_dl14e"), SubResource("Resource_2xeaa"), SubResource("Resource_xc128"), SubResource("Resource_y82hj"), SubResource("Resource_xxo3m"), SubResource("Resource_rjs6n")])
+gen_callback = ExtResource("2_rjs6n")
+name = "Inventive Strike"
+description = "Generate a melee attack card based on current personality weights."
+exhaust_after_play = true
+metadata/_custom_type_script = "uid://cjwj13hduiyqg"

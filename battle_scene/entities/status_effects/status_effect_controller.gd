@@ -31,7 +31,8 @@ func add_effect(
 	if existing_instance:
 		existing_instance.effect.on_stack(
 			existing_instance,
-			new_instance
+			new_instance,
+			affected_creature
 		)
 		effect_changed.emit(existing_instance)
 	else:
@@ -83,10 +84,13 @@ func apply_incoming_damage_effects(damage:int) -> int:
 func on_attacked(attacker:AbstractEntity):
 	if attacker == null:
 		return
-	
+
 	for instance in active_effects:
 		instance.effect.on_attacked(attacker, instance)
 
+func on_damaged(attacker: AbstractEntity, damaged_entity: AbstractEntity):
+	for instance in active_effects:
+		instance.effect.on_damaged(attacker, damaged_entity, instance)
 
 func process_played_card(card:CardInstance, resolver:ActionResolver):
 	for instance in active_effects:
