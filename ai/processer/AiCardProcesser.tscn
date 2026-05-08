@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnb5oxjyfj4rf" path="res://ai/processer/AiCardProcesser_scn_main.gd" id="1_nydah"]
 
+
 [node name="AiCardProcesser" type="Node" unique_id=1787560181]
 script = ExtResource("1_nydah")
 

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bf8na5vpjce6h" path="res://main_menu/main_menu_scene.gd" id="1_k7suw"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_l7n8r"]
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_vv2lb"]
-[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_1yt4p"]
 [ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://options_menu/settings_menu.tscn" id="5_ph7i1"]
 [ext_resource type="Script" uid="uid://bhvccd0td2feo" path="res://common/warning_panel (old)/warning_panel.gd" id="7_bn1a5"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="7_ph7i1"]
@@ -12,12 +11,44 @@
 [ext_resource type="AudioStream" uid="uid://bu5ow7dk4bxeh" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_0.wav" id="10_it65c"]
 [ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="10_pqu83"]
 [ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="12_k0vs0"]
+[ext_resource type="Script" uid="uid://dhab3g8ttnw0y" path="res://main_menu_select_reticle.gd" id="13_vei62"]
+[ext_resource type="PackedScene" uid="uid://btfn4556spq36" path="res://main_menu/marching_banner/marching_sprite.tscn" id="14_vei62"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="14_ydc2x"]
+[ext_resource type="Texture2D" uid="uid://cd4vrwm5pi613" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="15_8p4ui"]
+[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="16_p6cxo"]
+[ext_resource type="Texture2D" uid="uid://bmw52pvu0otb0" path="res://content/monsters/skeleton_archer/skeleton_archer_texture.tres" id="17_empjt"]
+[ext_resource type="Texture2D" uid="uid://62uxm753emyb" path="res://content/monsters/dreamer/dreamer_texture.tres" id="18_54e4l"]
+[ext_resource type="Texture2D" uid="uid://ceevb82tjfvvo" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="19_quo8q"]
+[ext_resource type="Texture2D" uid="uid://xuib74aq2jny" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="20_auifj"]
+[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://content/monsters/crawler/crawler_texture.tres" id="21_xbe16"]
+[ext_resource type="Texture2D" uid="uid://bs4rwlkpsthsd" path="res://content/friends/wolf/wolf_texture.tres" id="22_pg7y1"]
+[ext_resource type="Texture2D" uid="uid://rpc04f3p2p63" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="23_d4pk3"]
+[ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="24_empjt"]
+[ext_resource type="Texture2D" uid="uid://drmhfgds0auy2" path="res://content/monsters/big_slime/big_slime_texture.tres" id="25_54e4l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0vs0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qut2w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vei62"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydc2x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv2lb"]
 content_margin_left = 36.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijfeh"]
 content_margin_left = 36.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo5so"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsdb7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pta7v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jv7j8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvne0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1yhy"]
 bg_color = Color(0, 0, 0, 1)
@@ -33,7 +64,116 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
+[sub_resource type="Animation" id="Animation_k0vs0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleHeader:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleHeader/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9882353, 0.654902, 0.2901961, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenuSelector/Reticle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qut2w"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleHeader:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16666667, 0.6666667, 0.76666665, 0.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(256, -300), Vector2(256, 0), Vector2(256, -30), Vector2(256, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleHeader/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667, 0.70000005, 0.7666667, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.9882353, 0.654902, 0.2901961, 1), Color(0.9882353, 0.654902, 0.2901961, 1), Color(1, 1, 1, 1), Color(0.9882353, 0.654902, 0.2901961, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.16666667, 0.76),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenuSelector/Reticle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.76),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vei62"]
+_data = {
+&"RESET": SubResource("Animation_k0vs0"),
+&"intro": SubResource("Animation_qut2w")
+}
+
 [node name="MainMenuScene" type="Control" unique_id=1974053826]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,11 +206,11 @@ grow_horizontal = 2
 theme_override_constants/margin_top = 160
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TitleHeader" unique_id=464789935]
+modulate = Color(0.9882353, 0.654902, 0.2901961, 1)
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Title" type="Label" parent="TitleHeader/VBoxContainer" unique_id=472913116]
-modulate = Color(0.98775417, 0.65455836, 0.2919453, 1)
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l7n8r")
@@ -79,7 +219,6 @@ text = "Identity Quest"
 horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="TitleHeader/VBoxContainer" unique_id=605160905]
-modulate = Color(0.98775417, 0.65455836, 0.2919453, 1)
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l7n8r")
@@ -88,7 +227,6 @@ text = "Roguelike Deckbuilder"
 horizontal_alignment = 1
 
 [node name="Devider" type="TextureRect" parent="TitleHeader/VBoxContainer" unique_id=58812547]
-modulate = Color(0.98775417, 0.65455836, 0.2919453, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(488, 0)
 layout_mode = 2
@@ -105,35 +243,66 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = 15.0
+offset_top = -44.0
 offset_right = 128.0
-offset_bottom = 189.0
+offset_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 32
 
-[node name="Start" parent="MainMenu" unique_id=395129651 instance=ExtResource("4_1yt4p")]
+[node name="Start" type="Button" parent="MainMenu" unique_id=1203694976]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
 text = "Start"
+alignment = 0
 
-[node name="Achievements" parent="MainMenu" unique_id=1256996498 instance=ExtResource("4_1yt4p")]
+[node name="Achievements" type="Button" parent="MainMenu" unique_id=761515797]
 layout_mode = 2
-text = "Achievements"
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
 disabled = true
+text = "Achievements"
+alignment = 0
 
-[node name="Options" parent="MainMenu" unique_id=909335963 instance=ExtResource("4_1yt4p")]
+[node name="Options" type="Button" parent="MainMenu" unique_id=1618048308]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
 text = "Options"
+alignment = 0
 
-[node name="Credits" parent="MainMenu" unique_id=2040342503 instance=ExtResource("4_1yt4p")]
+[node name="Credits" type="Button" parent="MainMenu" unique_id=350753254]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
 text = "Credits"
+alignment = 0
 
-[node name="ExitGame" parent="MainMenu" unique_id=1116633885 instance=ExtResource("4_1yt4p")]
+[node name="ExitGame" type="Button" parent="MainMenu" unique_id=1723264838]
 layout_mode = 2
-text = "Exit game"
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
+text = "Exit Game"
+alignment = 0
 
 [node name="StartMenu" type="VBoxContainer" parent="." unique_id=467774942]
 unique_name_in_owner = true
@@ -154,18 +323,38 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 32
 
-[node name="ContinueGame" parent="StartMenu" unique_id=34229224 instance=ExtResource("4_1yt4p")]
+[node name="Continue" type="Button" parent="StartMenu" unique_id=893349780]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
 text = "Continue"
+alignment = 0
 
-[node name="NewGame" parent="StartMenu" unique_id=954262013 instance=ExtResource("4_1yt4p")]
+[node name="NewGame" type="Button" parent="StartMenu" unique_id=824767530]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
 text = "New Game"
+alignment = 0
 
-[node name="GoBack" parent="StartMenu" unique_id=1433254334 instance=ExtResource("4_1yt4p")]
+[node name="Return" type="Button" parent="StartMenu" unique_id=1633294235]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Go Back"
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0vs0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qut2w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vei62")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ydc2x")
+text = "Return"
+alignment = 0
 
 [node name="CreditsMenu" type="VBoxContainer" parent="." unique_id=1815456122]
 unique_name_in_owner = true
@@ -288,10 +477,35 @@ theme_override_font_sizes/font_size = 16
 text = "JOI3 (https://joi3.itch.io/joi3s-free-pixel-art-emoji-icon)"
 horizontal_alignment = 1
 
-[node name="Return" type="Button" parent="CreditsMenu" unique_id=1584628513]
+[node name="ReturnCredits" type="Button" parent="CreditsMenu" unique_id=1584628513]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yo5so")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bsdb7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pta7v")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_jv7j8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_pvne0")
 text = "Return"
+
+[node name="MainMenuSelector" type="Control" parent="." unique_id=1934395617 node_paths=PackedStringArray("buttons")]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("13_vei62")
+buttons = [NodePath("../MainMenu/Start"), NodePath("../MainMenu/Options"), NodePath("../MainMenu/Credits"), NodePath("../MainMenu/ExitGame"), NodePath("../StartMenu/Continue"), NodePath("../StartMenu/NewGame"), NodePath("../StartMenu/Return")]
+
+[node name="Reticle" type="TextureRect" parent="MainMenuSelector" unique_id=769374993]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("14_ydc2x")
 
 [node name="SettingsMenu" parent="." unique_id=1072438755 instance=ExtResource("5_ph7i1")]
 unique_name_in_owner = true
@@ -424,13 +638,12 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_l7n8r")
 theme_override_font_sizes/font_size = 11
-text = "Developed by: Andy Gonzalez, Fletcher Greene, Han Hyunh, Nathaniel Stirret, & Fabian Hernandez-Angel"
+text = "Developed by: Andy Gonzalez, Fletcher Green, Han Hyunh, Nathaniel Stirret, & Fabian Hernandez-Angel"
 horizontal_alignment = 1
 
-[node name="SoundManager" type="Node" parent="." unique_id=1127945582 node_paths=PackedStringArray("select_buttons", "start_button")]
+[node name="SoundManager" type="Node" parent="." unique_id=1127945582 node_paths=PackedStringArray("select_buttons")]
 script = ExtResource("8_x1yhy")
-select_buttons = [NodePath("../MainMenu/Start"), NodePath("../MainMenu/Achievements"), NodePath("../MainMenu/Options"), NodePath("../MainMenu/Credits"), NodePath("../MainMenu/ExitGame"), NodePath("../StartMenu/ContinueGame"), NodePath("../StartMenu/GoBack"), NodePath("../StartMenu/NewGame")]
-start_button = [NodePath("../StartMenu/ContinueGame"), NodePath("../StartMenu/NewGame")]
+select_buttons = [NodePath("../MainMenu/Start"), NodePath("../MainMenu/Options"), NodePath("../MainMenu/Credits"), NodePath("../MainMenu/ExitGame"), NodePath("../StartMenu/Continue"), NodePath("../StartMenu/NewGame"), NodePath("../StartMenu/Return"), NodePath("../SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/Yes"), NodePath("../SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/No")]
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1290911644]
 stream = ExtResource("9_pqu83")
@@ -452,14 +665,92 @@ stream = ExtResource("12_k0vs0")
 volume_db = -5.0
 bus = &"SFX"
 
-[connection signal="clicked" from="MainMenu/Start" to="." method="_on_start_clicked"]
-[connection signal="clicked" from="MainMenu/Options" to="." method="_on_options_clicked"]
-[connection signal="clicked" from="MainMenu/Credits" to="." method="_on_credits_clicked"]
-[connection signal="clicked" from="MainMenu/ExitGame" to="." method="_on_close_clicked"]
-[connection signal="clicked" from="StartMenu/ContinueGame" to="." method="_on_continue_game_clicked"]
-[connection signal="clicked" from="StartMenu/NewGame" to="." method="_on_new_game_clicked"]
-[connection signal="clicked" from="StartMenu/GoBack" to="." method="_on_go_back_clicked"]
-[connection signal="button_up" from="CreditsMenu/Return" to="." method="_on_close_credits_button_up"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=21933793]
+libraries/ = SubResource("AnimationLibrary_vei62")
+autoplay = &"intro"
+
+[node name="Parrade" type="Node2D" parent="." unique_id=1584588249]
+modulate = Color(0.71129656, 0.71129656, 0.7112965, 1)
+
+[node name="MarchingSprite" parent="Parrade" unique_id=1318774895 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 10.0
+animation_delay_time = 0.0
+
+[node name="MarchingSprite2" parent="Parrade" unique_id=1735281555 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 12.0
+animation_delay_time = 0.225
+texture = ExtResource("15_8p4ui")
+
+[node name="MarchingSprite3" parent="Parrade" unique_id=1616040594 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 14.0
+animation_delay_time = 0.0
+texture = ExtResource("16_p6cxo")
+
+[node name="MarchingSprite4" parent="Parrade" unique_id=1727786278 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 16.0
+animation_delay_time = 0.225
+texture = ExtResource("17_empjt")
+
+[node name="MarchingSprite5" parent="Parrade" unique_id=225969558 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 18.0
+animation_delay_time = 0.0
+texture = ExtResource("18_54e4l")
+
+[node name="MarchingSprite6" parent="Parrade" unique_id=1440645966 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 20.0
+animation_delay_time = 0.225
+texture = ExtResource("19_quo8q")
+
+[node name="MarchingSprite7" parent="Parrade" unique_id=253619895 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 22.0
+animation_delay_time = 0.0
+texture = ExtResource("20_auifj")
+
+[node name="MarchingSprite8" parent="Parrade" unique_id=2057269249 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 24.0
+animation_delay_time = 0.225
+texture = ExtResource("21_xbe16")
+
+[node name="MarchingSprite9" parent="Parrade" unique_id=1436396584 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 26.0
+animation_delay_time = 0.0
+texture = ExtResource("22_pg7y1")
+
+[node name="MarchingSprite10" parent="Parrade" unique_id=980694752 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 28.0
+animation_delay_time = 0.225
+texture = ExtResource("23_d4pk3")
+
+[node name="MarchingSprite11" parent="Parrade" unique_id=735458131 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 30.0
+animation_delay_time = 0.0
+texture = ExtResource("24_empjt")
+
+[node name="MarchingSprite12" parent="Parrade" unique_id=1273482261 instance=ExtResource("14_vei62")]
+position = Vector2(1185, 579)
+delay = 32.0
+animation_delay_time = 0.225
+texture = ExtResource("25_54e4l")
+
+[connection signal="button_up" from="MainMenu/Start" to="." method="_on_start_clicked"]
+[connection signal="button_up" from="MainMenu/Options" to="." method="_on_options_clicked"]
+[connection signal="button_up" from="MainMenu/Credits" to="." method="_on_credits_clicked"]
+[connection signal="button_up" from="MainMenu/ExitGame" to="." method="_on_close_clicked"]
+[connection signal="button_up" from="StartMenu/Continue" to="." method="_on_continue_game_clicked"]
+[connection signal="button_up" from="StartMenu/NewGame" to="." method="_on_new_game_clicked"]
+[connection signal="button_up" from="StartMenu/Return" to="." method="_on_return_to_main_menu"]
+[connection signal="button_up" from="CreditsMenu/ReturnCredits" to="." method="_on_close_credits_button_up"]
 [connection signal="button_up" from="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_button_up"]
 [connection signal="button_up" from="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="SaveWarningPopuo" method="_on_yes_clicked"]
 [connection signal="button_up" from="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_no_button_up"]

@@ -1,11 +1,11 @@
 extends Node
 
-@export var select_buttons:Array[SelectButton]
-@export var start_button:Array[SelectButton]
+@export var select_buttons:Array[Button]
+#@export var start_button:Array[Button]
 @onready var hover_sound: AudioStreamPlayer = $HoverSound
 @onready var start_sound: AudioStreamPlayer = $StartSound
 @onready var select_sound: AudioStreamPlayer = $SelectSound
-@onready var credits_return: Button = $"../CreditsMenu/Return"
+@onready var credits_return: Button = %ReturnCredits
 @onready var close_sound: AudioStreamPlayer = $CloseSound
 
 
@@ -14,14 +14,9 @@ func _ready() -> void:
 		button.mouse_entered.connect(
 			func():
 				hover_sound.play())
-		button.clicked.connect(
+		button.button_up.connect(
 			func():
-				select_sound.play()
+				start_sound.play()
 		)
-	
-	for button in start_button:
-		button.clicked.connect(
-			func():
-				start_sound.play())
 	
 	credits_return.button_up.connect(func(): close_sound.play())

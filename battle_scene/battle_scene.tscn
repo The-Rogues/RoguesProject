@@ -100,19 +100,6 @@ draw_pile_viewer = NodePath("UILayer/DrawPileViewer")
 discard_pile_viewer = NodePath("UILayer/DiscardPileViewer")
 preference_button = NodePath("UILayer/Button")
 
-[node name="Background" type="Node2D" parent="." unique_id=2063966942]
-
-[node name="BackgroundColor" type="ColorRect" parent="Background" unique_id=285933358]
-custom_minimum_size = Vector2(1152, 628)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.013922674, 2.0865432e-06, 0.017923031, 1)
-
 [node name="BattleField" parent="." unique_id=314861 instance=ExtResource("2_ceml1")]
 position = Vector2(557, 436)
 
@@ -153,6 +140,18 @@ shape = SubResource("SegmentShape2D_o1our")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WallCollisions" unique_id=703516065]
 position = Vector2(1152, 626)
 shape = SubResource("SegmentShape2D_o1our")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=550987699]
+layer = -1
+
+[node name="BackgroundColor" type="ColorRect" parent="Background" unique_id=285933358]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.013922674, 2.0865432e-06, 0.017923031, 1)
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]
 

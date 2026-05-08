@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://btfn4556spq36"]
+
+[ext_resource type="Script" uid="uid://caxs1cn0vyc2s" path="res://main_menu/marching_banner/marching_sprite.gd" id="1_6rqlj"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="2_pxiht"]
+[ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_e61b8"]
+[ext_resource type="Texture2D" uid="uid://ceevb82tjfvvo" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="4_yfq3a"]
+[ext_resource type="Texture2D" uid="uid://cd4vrwm5pi613" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_3.tres" id="5_oge3w"]
+[ext_resource type="Texture2D" uid="uid://rpc04f3p2p63" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="6_l7y51"]
+[ext_resource type="Texture2D" uid="uid://bj0folhnwqdlc" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_5.tres" id="7_hgc7e"]
+[ext_resource type="Texture2D" uid="uid://d3b32hvxgogfb" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="8_we2vn"]
+[ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="9_5efi0"]
+[ext_resource type="Texture2D" uid="uid://dbfpup62ss0wb" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="10_aua5s"]
+[ext_resource type="Texture2D" uid="uid://xuib74aq2jny" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="11_mkpul"]
+[ext_resource type="Texture2D" uid="uid://dc17ac23fjjqg" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="12_2dgc0"]
+[ext_resource type="Texture2D" uid="uid://b0jvfeo61xdxu" path="res://common/art/random_art/donkey.tres" id="13_pkn7d"]
+[ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://content/monsters/slime/slime_texture.tres" id="14_vbcw3"]
+[ext_resource type="Texture2D" uid="uid://bmw52pvu0otb0" path="res://content/monsters/skeleton_archer/skeleton_archer_texture.tres" id="15_l01g2"]
+[ext_resource type="Texture2D" uid="uid://62uxm753emyb" path="res://content/monsters/dreamer/dreamer_texture.tres" id="16_am74c"]
+[ext_resource type="Texture2D" uid="uid://bs4rwlkpsthsd" path="res://content/friends/wolf/wolf_texture.tres" id="17_acpgp"]
+[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://content/monsters/crawler/crawler_texture.tres" id="18_dt2wd"]
+[ext_resource type="Texture2D" uid="uid://drmhfgds0auy2" path="res://content/monsters/big_slime/big_slime_texture.tres" id="19_wtw33"]
+[ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://content/items/apple/apple_texture.tres" id="20_qj7qs"]
+[ext_resource type="Texture2D" uid="uid://dtq808atl3kp7" path="res://content/items/energy_potion/energy_potion_texture.tres" id="21_dirmd"]
+[ext_resource type="Texture2D" uid="uid://dte5dnc52hrbn" path="res://content/fletcher/monsters/ice_wizard/ice_wizard_texture.tres" id="22_vrw43"]
+[ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://content/items/cheese/Rats/rat_texture.tres" id="23_h62ud"]
+[ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="24_5uh36"]
+[ext_resource type="Texture2D" uid="uid://do5kp8psm4m4f" path="res://content/items/chest_key/key_texture.tres" id="25_2bcbv"]
+[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="26_8ntif"]
+[ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://shop_scenes/shop_keepers/shop_keeper_varient_1.tres" id="27_5ocyc"]
+[ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://shop_scenes/shop_keepers/shop_keeper_varient_2.tres" id="28_4qrbg"]
+
+[sub_resource type="Animation" id="Animation_pxiht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_03lgr"]
+resource_name = "march"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.225, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -14), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_leioc"]
+_data = {
+&"RESET": SubResource("Animation_pxiht"),
+&"march": SubResource("Animation_03lgr")
+}
+
+[node name="MarchingSprite" type="Node2D" unique_id=1318774895]
+script = ExtResource("1_6rqlj")
+textures = Array[Texture2D]([ExtResource("2_pxiht"), ExtResource("3_e61b8"), ExtResource("4_yfq3a"), ExtResource("5_oge3w"), ExtResource("6_l7y51"), ExtResource("7_hgc7e"), ExtResource("8_we2vn"), ExtResource("9_5efi0"), ExtResource("10_aua5s"), ExtResource("11_mkpul"), ExtResource("12_2dgc0"), ExtResource("13_pkn7d"), ExtResource("14_vbcw3"), ExtResource("15_l01g2"), ExtResource("16_am74c"), ExtResource("17_acpgp"), ExtResource("18_dt2wd"), ExtResource("19_wtw33"), ExtResource("20_qj7qs"), ExtResource("21_dirmd"), ExtResource("22_vrw43"), ExtResource("23_h62ud"), ExtResource("24_5uh36"), ExtResource("25_2bcbv"), ExtResource("26_8ntif"), ExtResource("27_5ocyc"), ExtResource("28_4qrbg")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143822268]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_pxiht")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1814481652]
+libraries/ = SubResource("AnimationLibrary_leioc")
+
+[node name="Timer" type="Timer" parent="." unique_id=63909855]
+wait_time = 25.0
+
+[node name="MarchDelay" type="Timer" parent="." unique_id=284824052]
+
+[node name="AnimationDelay" type="Timer" parent="." unique_id=631181035]
+wait_time = 0.2

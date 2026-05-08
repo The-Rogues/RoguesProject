@@ -5,14 +5,19 @@ extends Control
 ## Author: Nathaniel Stirret
 ## Editor: Fabian
 
-
 @onready var main_menu: VBoxContainer = %MainMenu
 @onready var start_menu: VBoxContainer = %StartMenu
 @onready var credits_menu: VBoxContainer = %CreditsMenu
 @onready var settings_menu: PanelContainer = %SettingsMenu
 @onready var closing_label: Label = %ClosingLabel
-@onready var continue_game_button: SelectButton = %ContinueGame
 @onready var save_warning_popuo: PanelContainer = %SaveWarningPopuo
+@onready var main_menu_selector: Control = %MainMenuSelector
+
+@onready var continue_game: Button = %Continue
+@onready var new_game: Button = %NewGame
+
+@onready var start: Button = %Start
+@onready var return_credits: Button = %ReturnCredits
 
 
 # -------------------------------------------------
@@ -30,9 +35,10 @@ func _ready() -> void:
 	closing_label.visible = false
 	start_menu.visible = false
 	
-	continue_game_button.set_disabled(!GlobalSaveManager.has_save())
+	continue_game.set_disabled(!GlobalSaveManager.has_save())
 	
 	MusicManager.change_song(MusicManager.track_list.main_menu)
+	main_menu_selector.focus_reticle(start)
 
 # -------------------------------------------------
 # Main Menu Navigation
@@ -42,6 +48,10 @@ func _ready() -> void:
 func _on_start_clicked() -> void:
 	main_menu.visible = false
 	start_menu.visible = true
+	if continue_game.disabled:
+		main_menu_selector.focus_reticle(new_game)
+	else:
+		main_menu_selector.focus_reticle(continue_game)
 
 
 # View Options Menu
@@ -53,6 +63,7 @@ func _on_options_clicked() -> void:
 func _on_credits_clicked() -> void:
 	credits_menu.visible = true
 	main_menu.visible = false
+	main_menu_selector.focus_reticle.call_deferred(return_credits)
 	pass # Replace with function body.
 
 
@@ -73,6 +84,7 @@ func _on_close_clicked() -> void:
 func _on_close_credits_button_up() -> void:
 	credits_menu.visible = false
 	main_menu.visible = true
+	main_menu_selector.focus_reticle(start)
 	pass # Replace with function body.
 
 # -------------------------------------------------
@@ -80,7 +92,7 @@ func _on_close_credits_button_up() -> void:
 # -------------------------------------------------
 
 # Navigate back to Main Menu from Start Menu
-func _on_go_back_clicked() -> void:
+func _on_return_to_main_menu() -> void:
 	start_menu.visible = false
 	main_menu.visible = true
 	pass # Replace with function body.
