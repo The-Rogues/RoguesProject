@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PracticePerfectPower" format=3 uid="uid://da6x4neobpbqa"]
+
+[ext_resource type="Script" uid="uid://cscm51ub3gpj" path="res://content/cards/naive_cards/practice_makes_perfect/practice_perfect_power.gd" id="1_0ckpu"]
+
+[resource]
+script = ExtResource("1_0ckpu")
+metadata/_custom_type_script = "uid://cscm51ub3gpj"

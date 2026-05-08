@@ -31,6 +31,7 @@ func initialize(_context:BattleContext):
 	action_resolver = ActionResolver.new(_context)
 	battle_powers = BattlePowersManager.new()
 	player = _context.creature_manager.player
+	apply_innate_effects(context)
 	enemies = _context.creature_manager.enemies
 	battle_field = _context.battle_field
 	rewards_screen = _context.reward_handler
@@ -133,3 +134,6 @@ func _on_battle_ended():
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true
+
+func apply_innate_effects(in_context: BattleContext):
+	battle_powers.add_power(load("res://content/cards/naive_cards/practice_makes_perfect/practice_perfect_power.tres"), in_context)

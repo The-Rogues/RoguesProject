@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dc380udp7vi2j"]
+[gd_scene format=3 uid="uid://c5r63qi3j74px"]
 
-[ext_resource type="Script" uid="uid://celuju3ai46nu" path="res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_scripts/AiTimedAutomatedTest_scn_main.gd" id="1_fkisd"]
+[ext_resource type="Script" uid="uid://ccpa2x21vc4xu" path="res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_scripts/AiTimedAutomatedTest_scn_main.gd" id="1_7xx0q"]
 
-[node name="AiTimedAutomatedTest" type="Node" unique_id=806590617]
-script = ExtResource("1_fkisd")
+[node name="AllMonstersAutomatedTest" type="Node" unique_id=806590617]
+script = ExtResource("1_7xx0q")

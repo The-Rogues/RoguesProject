@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cy5uyionypise"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_t3m4w"]
+[ext_resource type="Resource" uid="uid://dilmbflavrk8r" path="res://testing_and_prototypes/automated_tests/battle_tests/AllMonstersAutomatedTest/associated_resources/all_monsters_personalities.tres" id="3_2kotu"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="3_5hixu"]
+[ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="5_h74pn"]
+
+[resource]
+script = ExtResource("5_h74pn")
+name = "All Monsters Player"
+max_health = 1000
+current_health = 1000
+current_energy = 1000
+max_energy = 1000
+item_capacity = 1
+personality = ExtResource("3_2kotu")
+metadata/_custom_type_script = "uid://p6tkdhpfg377"

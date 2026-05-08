@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://cvhr6umutfvhx"]
+[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://btx5ej5rhvxk"]
 
-[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_ayun1"]
-[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_i178p"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_fvw7r"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_4g0at"]
 
 [resource]
-script = ExtResource("2_i178p")
+script = ExtResource("2_4g0at")
 metadata/_custom_type_script = "uid://cjvnpxflphnr5"

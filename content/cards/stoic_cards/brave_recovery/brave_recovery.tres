@@ -11,6 +11,7 @@ metadata/_custom_type_script = "uid://c2uehha8tmoiq"
 [resource]
 script = ExtResource("3_4iunx")
 type = 2
+category = 2
 energy_cost = 1
 name = "Brave Recovery"
 description = "[color=orange]Heal[/color] equal to [color=orange]defense[/color]. [color=orange]Single use[/color]."
