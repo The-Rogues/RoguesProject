@@ -3,26 +3,37 @@
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_m2i66"]
 [ext_resource type="Script" uid="uid://cngqil6sledcm" path="res://character_creator/survey_interface.gd" id="2_5eioq"]
 [ext_resource type="Texture2D" uid="uid://d1v6vn7dcc10d" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-029.png" id="2_l2qha"]
-[ext_resource type="Texture2D" uid="uid://b5gcrvnsdwumi" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-014.png" id="3_5eioq"]
+[ext_resource type="Script" uid="uid://cdce0ngaiwfxx" path="res://character_creator/character_creator_sound_manager.gd" id="4_cb2lu"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="5_714qr"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="6_612ig"]
+[ext_resource type="AudioStream" uid="uid://bu5ow7dk4bxeh" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_0.wav" id="7_xxhkl"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="8_cqoqa"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omoii"]
-texture = ExtResource("2_l2qha")
-modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yb5ok"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nt3yj"]
-texture = ExtResource("3_5eioq")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rowjf"]
+texture = SubResource("CompressedTexture2D_yb5ok")
+modulate_color = Color(0, 0.37254903, 0.4509804, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5s1si"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5eioq"]
+texture = SubResource("CompressedTexture2D_5s1si")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m0xjj"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ju1ai"]
-texture = ExtResource("2_l2qha")
-modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
+texture = SubResource("CompressedTexture2D_m0xjj")
+modulate_color = Color(0, 0.07058824, 0.09803922, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_omoii"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mcabn"]
 load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ahnb0"]
-texture = SubResource("CompressedTexture2D_omoii")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
+texture = SubResource("CompressedTexture2D_mcabn")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cb2lu"]
 texture = ExtResource("2_l2qha")
@@ -34,145 +45,104 @@ modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_jgfwi"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ju1ai"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_khvre"]
 load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_612ig"]
-texture = SubResource("CompressedTexture2D_ju1ai")
-modulate_color = Color(0.92577255, 0.5813695, 0.3054379, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hifq"]
+texture = SubResource("CompressedTexture2D_khvre")
+modulate_color = Color(0.19267112, 0.43427688, 0.48827094, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5eioq"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qx44d"]
 load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqoqa"]
-texture = SubResource("CompressedTexture2D_5eioq")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
+texture = SubResource("CompressedTexture2D_qx44d")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l2qha"]
-load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5eioq"]
-texture = SubResource("CompressedTexture2D_l2qha")
-modulate_color = Color(0.92577255, 0.5813695, 0.3054379, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6iqlu"]
-load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8pg16"]
-texture = SubResource("CompressedTexture2D_6iqlu")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rqokx"]
-load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsjgq"]
-texture = SubResource("CompressedTexture2D_rqokx")
-modulate_color = Color(0.92577255, 0.5813695, 0.3054379, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sxbed"]
-load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iqlu"]
-texture = SubResource("CompressedTexture2D_sxbed")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nt3yj"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e5rpv"]
 load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqokx"]
-texture = SubResource("CompressedTexture2D_nt3yj")
+texture = SubResource("CompressedTexture2D_e5rpv")
+modulate_color = Color(3.6098065e-08, 0.21337092, 0.2720313, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6kk7"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8pg16"]
+texture = SubResource("CompressedTexture2D_y6kk7")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_86ah5"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsjgq"]
+texture = SubResource("CompressedTexture2D_86ah5")
 modulate_color = Color(0.92577255, 0.5813695, 0.3054379, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_murc7"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_612ig"]
+texture = SubResource("CompressedTexture2D_khvre")
+modulate_color = Color(0.93333334, 0.60784316, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l2qha"]
 load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ipemv"]
-texture = SubResource("CompressedTexture2D_murc7")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omoii"]
+texture = SubResource("CompressedTexture2D_l2qha")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8pg16"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jpvqh"]
 load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_murc7"]
-texture = SubResource("CompressedTexture2D_8pg16")
+texture = SubResource("CompressedTexture2D_jpvqh")
 modulate_color = Color(0.92577255, 0.5813695, 0.3054379, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxhkl"]
 texture = ExtResource("2_l2qha")
 modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ipemv"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gbq88"]
 load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwufi"]
-texture = SubResource("CompressedTexture2D_ipemv")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
+texture = SubResource("CompressedTexture2D_gbq88")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rsjgq"]
-load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l60h8"]
-texture = SubResource("CompressedTexture2D_rsjgq")
-modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l60h8"]
-load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4pol"]
-texture = SubResource("CompressedTexture2D_l60h8")
-modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rowjf"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a8nf6"]
 load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3jxu"]
-texture = SubResource("CompressedTexture2D_rowjf")
+texture = SubResource("CompressedTexture2D_a8nf6")
 modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jcwe8"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_afmxu"]
 load_path = "res://.godot/imported/panel-transparent-center-031.png-df6d5a1c0275c933e04c26513341cde9.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxbed"]
-texture = SubResource("CompressedTexture2D_jcwe8")
+texture = SubResource("CompressedTexture2D_afmxu")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
-[node name="SurveyInterface" type="PanelContainer" unique_id=1022197764]
-custom_minimum_size = Vector2(300, 70)
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PersonalitySurvey" type="HBoxContainer" unique_id=1064984447]
+offset_right = 270.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("1_m2i66")
+theme_override_constants/separation = 18
 script = ExtResource("2_5eioq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1011964024]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 6
-
-[node name="HeaderLabel" type="Label" parent="VBoxContainer" unique_id=269853903]
-layout_mode = 2
-text = "Header"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1064984447]
-layout_mode = 2
-theme_override_constants/separation = 18
-
-[node name="LowLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1618467330]
+[node name="LowLabel" type="Label" parent="." unique_id=1618467330]
 layout_mode = 2
 text = "Low"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Lower" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=585799121]
-custom_minimum_size = Vector2(32, 32)
+[node name="Lower" type="Button" parent="." unique_id=585799121]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_omoii")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_nt3yj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rowjf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5eioq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ju1ai")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ahnb0")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_cb2lu")
@@ -180,47 +150,71 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_714qr")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_jgfwi")
 
-[node name="Low" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=617546917]
-custom_minimum_size = Vector2(32, 32)
+[node name="Low" type="Button" parent="." unique_id=617546917]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_612ig")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5hifq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cqoqa")
-theme_override_styles/hover = SubResource("StyleBoxTexture_5eioq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_rsjgq")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_jgfwi")
 
-[node name="High" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1278709487]
-custom_minimum_size = Vector2(32, 32)
+[node name="High" type="Button" parent="." unique_id=1278709487]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_612ig")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iqlu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_omoii")
 theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ipemv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_murc7")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_jgfwi")
 
-[node name="Higher" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2017976477]
-custom_minimum_size = Vector2(32, 32)
+[node name="Higher" type="Button" parent="." unique_id=2017976477]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_xxhkl")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_fwufi")
-theme_override_styles/hover = SubResource("StyleBoxTexture_l60h8")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_i4pol")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_b3jxu")
 theme_override_styles/focus = SubResource("StyleBoxTexture_sxbed")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_jgfwi")
 
-[node name="HighLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=573113404]
+[node name="HighLabel" type="Label" parent="." unique_id=573113404]
 layout_mode = 2
 text = "High"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/Lower" to="." method="_on_lower_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/Low" to="." method="_on_low_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/High" to="." method="_on_high_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/Higher" to="." method="_on_higher_button_up"]
+[node name="SoundManager" type="Node" parent="." unique_id=95114727 node_paths=PackedStringArray("toggle_button")]
+script = ExtResource("4_cb2lu")
+toggle_button = [NodePath("../Lower"), NodePath("../Low"), NodePath("../High"), NodePath("../Higher")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1195827769]
+stream = ExtResource("5_714qr")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=967623266]
+stream = ExtResource("6_612ig")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=291296855]
+stream = ExtResource("7_xxhkl")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=173792066]
+stream = ExtResource("8_cqoqa")
+volume_db = -5.0
+bus = &"SFX"
+
+[connection signal="button_up" from="Lower" to="." method="_on_lower_button_up"]
+[connection signal="button_up" from="Low" to="." method="_on_low_button_up"]
+[connection signal="button_up" from="High" to="." method="_on_high_button_up"]
+[connection signal="button_up" from="Higher" to="." method="_on_higher_button_up"]

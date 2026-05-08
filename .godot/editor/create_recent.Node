@@ -1,3 +1,10 @@
+MarginContainer
+Label
+HBoxContainer
+VBoxContainer
+CheckBox
+CheckButton
+Button
 Node2D
 Timer
 AnimationPlayer
@@ -5,10 +12,3 @@ Sprite2D
 CanvasLayer
 Control
 RichTextLabel
-AnimationTree
-TextureRect
-ScrollContainer
-HScrollBar
-HBoxContainer
-Button
-VBoxContainer

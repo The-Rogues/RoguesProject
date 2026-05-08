@@ -1,7 +1,6 @@
-extends PanelContainer
+extends HBoxContainer
 
 signal option_selected(option:int)
-@onready var h_box_container: HBoxContainer = $VBoxContainer/HBoxContainer
 
 var filled:bool = false
 
@@ -9,7 +8,7 @@ var filled:bool = false
 func select_random():
 	var buttons:Array[Button] = []
 	
-	for option in h_box_container.get_children():
+	for option in get_children():
 		if option is Button:
 			buttons.append(option)
 	

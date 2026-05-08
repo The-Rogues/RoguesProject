@@ -365,6 +365,7 @@ item_shop_scene = NodePath("..")
 
 [node name="EnterShop" type="AudioStreamPlayer" parent="SoundManager" unique_id=129343263]
 stream = ExtResource("16_vaflh")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="TransactionCompleted" type="AudioStreamPlayer" parent="SoundManager" unique_id=1130895459]

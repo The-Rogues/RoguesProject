@@ -17,9 +17,9 @@ signal character_created(data:PlayerInitializationData)
 
 @onready var character_sprite: TextureRect = %CharacterSprite
 @onready var character_name_label: Label = %CharacterNameLabel
-@onready var aggression_survey: PanelContainer = %AggressionSurvey
-@onready var resolve_survey: PanelContainer = %ResolveSurvey
-@onready var quirkiness_survey: PanelContainer = %QuirkinessSurvey
+@onready var aggression_survey: HBoxContainer = %AggressionSurvey
+@onready var resolve_survey: HBoxContainer = %StabilitySurvey
+@onready var quirkiness_survey: HBoxContainer = %MotivationSurvey
 @onready var save_button: Button = %Save
 @onready var name_editor: Control = %NameEditor
 
@@ -154,13 +154,13 @@ func _on_aggression_survey_option_selected(option: int) -> void:
 	pass # Replace with function body.
 
 
-func _on_resolve_survey_option_selected(option: int) -> void:
+func _on_stability_survey_option_selected(option: int) -> void:
 	defensive_trait = defensive_traits[option]
 	update_save_button()
 	pass # Replace with function body.
 
 
-func _on_quirkiness_survey_option_selected(option: int) -> void:
+func _on_motivation_survey_option_selected(option: int) -> void:
 	strategic_trait = strategic_traits[option]
 	update_save_button()
 	pass # Replace with function body.

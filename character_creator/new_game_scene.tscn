@@ -5,6 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://vkpxy4xn7do2" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-017.png" id="3_ria2j"]
 [ext_resource type="PackedScene" uid="uid://mdymi56364et" path="res://character_creator/character_creator.tscn" id="4_bkb27"]
 [ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://main_menu/character_result_scene.gd.tscn" id="5_2h578"]
+[ext_resource type="Script" uid="uid://cdce0ngaiwfxx" path="res://character_creator/character_creator_sound_manager.gd" id="6_v3kfy"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="7_t2yff"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="8_ejrdb"]
+[ext_resource type="AudioStream" uid="uid://bu5ow7dk4bxeh" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_0.wav" id="9_56cqy"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="10_7phia"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iscmg"]
 texture = ExtResource("3_ria2j")
@@ -183,6 +188,30 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Starting Run..."
 horizontal_alignment = 1
+
+[node name="SoundManager" type="Node" parent="." unique_id=341738453 node_paths=PackedStringArray("select_buttons")]
+script = ExtResource("6_v3kfy")
+select_buttons = [NodePath("../GameModeSelector/HBoxContainer/NormalMode"), NodePath("../GameModeSelector/HBoxContainer/QuickStartMode"), NodePath("../GameModeSelector/HBoxContainer/AIMode"), NodePath("../GameModeSelector/MainMenuButton")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=752367837]
+stream = ExtResource("7_t2yff")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=864942112]
+stream = ExtResource("8_ejrdb")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1950213914]
+stream = ExtResource("9_56cqy")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1241730843]
+stream = ExtResource("10_7phia")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="button_up" from="GameModeSelector/HBoxContainer/NormalMode" to="." method="_on_normal_mode_button_up"]
 [connection signal="button_up" from="GameModeSelector/HBoxContainer/QuickStartMode" to="." method="_on_quick_start_mode_button_up"]

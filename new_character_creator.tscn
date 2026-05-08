@@ -1,0 +1,695 @@
+[gd_scene format=3 uid="uid://bfn2lih6p2d07"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_kn6nf"]
+[ext_resource type="Texture2D" uid="uid://cq26k5tc4mmtj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-002.png" id="2_td6r5"]
+[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="3_4ux6t"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_wec0g"]
+[ext_resource type="Texture2D" uid="uid://cituqdafbrum" path="res://common/art/placeholder/nikoichu/Icons_Boardgames.png" id="5_2hhy4"]
+[ext_resource type="Texture2D" uid="uid://cocbavryx3osk" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-015.png" id="6_dp1h0"]
+[ext_resource type="Texture2D" uid="uid://b7w45y1e258yp" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-002.png" id="7_g81s6"]
+[ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="8_24nl2"]
+[ext_resource type="Texture2D" uid="uid://d1v6vn7dcc10d" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-029.png" id="9_4ux6t"]
+[ext_resource type="Texture2D" uid="uid://cudcljbp6s7i2" path="res://battle_scene/entities/player/melee_weapon/short_sword.tres" id="9_cbxap"]
+[ext_resource type="Script" uid="uid://cngqil6sledcm" path="res://character_creator/survey_interface.gd" id="10_td6r5"]
+[ext_resource type="Texture2D" uid="uid://c6f27p1fjqd2q" path="res://battle_scene/entities/player/ranged_weapon/crossbow.tres" id="10_uw0d0"]
+[ext_resource type="PackedScene" uid="uid://bfn570nel15tp" path="res://character_creator/character_texture_selector.tscn" id="12_5fw6e"]
+[ext_resource type="Texture2D" uid="uid://domn773wxth76" path="res://battle_scene/entities/player/melee_weapon/long_sword.tres" id="13_5stac"]
+[ext_resource type="Texture2D" uid="uid://dxt2iuh6d67b2" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="14_5gcur"]
+[ext_resource type="Texture2D" uid="uid://n1r1l3lmk3ei" path="res://battle_scene/entities/player/melee_weapon/cane.tres" id="15_k50wo"]
+[ext_resource type="Texture2D" uid="uid://cwoyj50k2qy55" path="res://battle_scene/entities/player/melee_weapon/spear.tres" id="16_db6ft"]
+[ext_resource type="Texture2D" uid="uid://bxen4dfn76trb" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="17_pugbh"]
+[ext_resource type="Texture2D" uid="uid://d0jdfiuiyxfpt" path="res://battle_scene/entities/player/melee_weapon/wooden_stick.tres" id="18_gk8dn"]
+[ext_resource type="Texture2D" uid="uid://dk42g2ed1b47w" path="res://battle_scene/entities/player/ranged_weapon/book.tres" id="19_wqbf4"]
+[ext_resource type="Texture2D" uid="uid://do366ftl7nk6m" path="res://battle_scene/entities/player/ranged_weapon/trident.tres" id="20_t12ak"]
+[ext_resource type="Texture2D" uid="uid://b5mjabrfcjlfm" path="res://battle_scene/entities/player/melee_weapon/plasma_saber.tres" id="21_jwrpp"]
+[ext_resource type="Texture2D" uid="uid://capfat5kh2t4i" path="res://battle_scene/entities/player/melee_weapon/fire_saber.tres" id="22_mtu5y"]
+[ext_resource type="Texture2D" uid="uid://dpxhoc7oidp54" path="res://battle_scene/entities/player/ranged_weapon/scepter.tres" id="23_2axrv"]
+[ext_resource type="Texture2D" uid="uid://bucfv1v4lm42w" path="res://battle_scene/entities/player/ranged_weapon/bow.tres" id="24_13hcx"]
+[ext_resource type="Texture2D" uid="uid://m6dfi7vs2uw2" path="res://battle_scene/entities/player/ranged_weapon/gem_staff.tres" id="25_ly035"]
+[ext_resource type="Texture2D" uid="uid://dwxtsifsf8ejr" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="26_8oq87"]
+[ext_resource type="Texture2D" uid="uid://clbvqu4n3ea8h" path="res://battle_scene/entities/player/melee_weapon/axe.tres" id="27_fy6dm"]
+[ext_resource type="Texture2D" uid="uid://8kk1fqrepdka" path="res://battle_scene/entities/player/ranged_weapon/torch.tres" id="28_qv0jq"]
+[ext_resource type="PackedScene" uid="uid://bdwc1bwqyvlcr" path="res://character_creator/name_editor.tscn" id="29_kd02f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aw8bx"]
+load_path = "res://.godot/imported/panel-transparent-center-001.png-771c00a3fa782f53c7b268e48b626392.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxf65"]
+texture = SubResource("CompressedTexture2D_aw8bx")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_14ves"]
+texture = ExtResource("6_dp1h0")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khqir"]
+texture = ExtResource("7_g81s6")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cckob"]
+load_path = "res://.godot/imported/panel-border-015.png-7e2698cc400873402765099cfa426eff.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bx7ta"]
+texture = SubResource("CompressedTexture2D_cckob")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bx7ta"]
+load_path = "res://.godot/imported/panel-border-015.png-7e2698cc400873402765099cfa426eff.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xgrrw"]
+texture = SubResource("CompressedTexture2D_bx7ta")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_512jr"]
+load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5y224"]
+texture = SubResource("CompressedTexture2D_512jr")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nhgbo"]
+load_path = "res://.godot/imported/panel-border-022.png-904d85fbfe495471e9a0021a15cf2556.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3a31"]
+texture = SubResource("CompressedTexture2D_nhgbo")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h67jw"]
+texture = ExtResource("2_td6r5")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h67jw"]
+resource_local_to_scene = true
+atlas = ExtResource("3_4ux6t")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_omoii"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rowjf"]
+texture = SubResource("CompressedTexture2D_omoii")
+modulate_color = Color(0, 0.37254903, 0.4509804, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l2qha"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5eioq"]
+texture = SubResource("CompressedTexture2D_l2qha")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nt3yj"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ju1ai"]
+texture = SubResource("CompressedTexture2D_nt3yj")
+modulate_color = Color(0, 0.07058824, 0.09803922, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b3jxu"]
+load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ahnb0"]
+texture = SubResource("CompressedTexture2D_b3jxu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cb2lu"]
+texture = ExtResource("9_4ux6t")
+modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_714qr"]
+texture = ExtResource("9_4ux6t")
+modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_4ux6t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tslsx"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hifq"]
+texture = SubResource("CompressedTexture2D_tslsx")
+modulate_color = Color(0.19267112, 0.43427688, 0.48827094, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jtns1"]
+load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqoqa"]
+texture = SubResource("CompressedTexture2D_jtns1")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cb2lu"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqokx"]
+texture = SubResource("CompressedTexture2D_cb2lu")
+modulate_color = Color(3.6098065e-08, 0.21337092, 0.2720313, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rsjgq"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8pg16"]
+texture = SubResource("CompressedTexture2D_rsjgq")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bamkb"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsjgq"]
+texture = SubResource("CompressedTexture2D_bamkb")
+modulate_color = Color(0.92577255, 0.5813695, 0.3054379, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_612ig"]
+texture = SubResource("CompressedTexture2D_tslsx")
+modulate_color = Color(0.93333334, 0.60784316, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_krq38"]
+load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iqlu"]
+texture = SubResource("CompressedTexture2D_krq38")
+modulate_color = Color(0.35228845, 0.7994194, 0.8591434, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wg2v3"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_murc7"]
+texture = SubResource("CompressedTexture2D_wg2v3")
+modulate_color = Color(0.92577255, 0.5813695, 0.3054379, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxhkl"]
+texture = ExtResource("9_4ux6t")
+modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s5lbs"]
+load_path = "res://.godot/imported/panel-014.png-d8e2ea50df25dbd95dcd41b6f5fec65d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwufi"]
+texture = SubResource("CompressedTexture2D_s5lbs")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4l8fb"]
+load_path = "res://.godot/imported/panel-029.png-e321dfa1ce02e4675c349bb5430409c7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3jxu"]
+texture = SubResource("CompressedTexture2D_4l8fb")
+modulate_color = Color(0.80118346, 0.31661248, 0.35152575, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sierm"]
+load_path = "res://.godot/imported/panel-transparent-center-031.png-df6d5a1c0275c933e04c26513341cde9.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxbed"]
+texture = SubResource("CompressedTexture2D_sierm")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_wec0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgbo"]
+atlas = ExtResource("5_2hhy4")
+region = Rect2(64, 32, 16, 16)
+
+[node name="CharacterCreator" type="Control" unique_id=120215782]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kn6nf")
+
+[node name="Background" type="ColorRect" parent="." unique_id=919930622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Elements" type="VBoxContainer" parent="." unique_id=2133499037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -235.5
+offset_right = 235.0
+offset_bottom = 235.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="HeaderLabel" type="RichTextLabel" parent="Elements" unique_id=2084553760]
+custom_minimum_size = Vector2(524, 29)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave amp=20.0 freq=5.0 connected=1]Create a Character[/wave]"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Elements" unique_id=1290679891]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="CharacterImage" type="VBoxContainer" parent="Elements/HBoxContainer2" unique_id=1146666257]
+layout_mode = 2
+
+[node name="CharacterTextureSlot" type="Button" parent="Elements/HBoxContainer2/CharacterImage" unique_id=1320877058]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_kn6nf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kxf65")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_14ves")
+theme_override_styles/hover = SubResource("StyleBoxTexture_khqir")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_bx7ta")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xgrrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Elements/HBoxContainer2/CharacterImage/CharacterTextureSlot" unique_id=1517634332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterSprite" type="TextureRect" parent="Elements/HBoxContainer2/CharacterImage/CharacterTextureSlot/MarginContainer" unique_id=27307526]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_24nl2")
+expand_mode = 1
+
+[node name="Change" type="Button" parent="Elements/HBoxContainer2/CharacterImage" unique_id=242507976]
+layout_mode = 2
+text = "Change"
+
+[node name="CharacterInfo" type="VBoxContainer" parent="Elements/HBoxContainer2" unique_id=1880823526]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Naming" type="HBoxContainer" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=187849523]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/Naming" unique_id=1958034268]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Name:"
+
+[node name="NameEditorButton" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/Naming" unique_id=558257534]
+custom_minimum_size = Vector2(232, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_5y224")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d3a31")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h67jw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Elements/HBoxContainer2/CharacterInfo/Naming/NameEditorButton" unique_id=1338865389]
+custom_minimum_size = Vector2(201, 30)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 198.0
+offset_bottom = 24.0
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="Elements/HBoxContainer2/CharacterInfo/Naming/NameEditorButton/HBoxContainer" unique_id=598776554]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_h67jw")
+expand_mode = 3
+
+[node name="CharacterNameLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/Naming/NameEditorButton/HBoxContainer" unique_id=844649035]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.4692968, 0.4692964, 0.46929651, 1)
+theme_override_fonts/font = ExtResource("4_wec0g")
+text = "Enter Name"
+
+[node name="Label" type="Label" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=1993341259]
+layout_mode = 2
+text = "   -Melee-  -Ranged-"
+
+[node name="Weapons" type="HBoxContainer" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=420966927]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="Elements/HBoxContainer2/CharacterInfo/Weapons" unique_id=540034870]
+layout_mode = 2
+
+[node name="MeleeWeaponTextureSlot" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/Weapons" unique_id=1448487501]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_kn6nf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kxf65")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_14ves")
+theme_override_styles/hover = SubResource("StyleBoxTexture_khqir")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_bx7ta")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xgrrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Elements/HBoxContainer2/CharacterInfo/Weapons/MeleeWeaponTextureSlot" unique_id=1220830634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="MeleeWeaponSprite" type="TextureRect" parent="Elements/HBoxContainer2/CharacterInfo/Weapons/MeleeWeaponTextureSlot/MarginContainer" unique_id=1681511409]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("9_cbxap")
+
+[node name="RangedWeaponTextureSlot" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/Weapons" unique_id=1614307471]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_kn6nf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kxf65")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_14ves")
+theme_override_styles/hover = SubResource("StyleBoxTexture_khqir")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_bx7ta")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xgrrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Elements/HBoxContainer2/CharacterInfo/Weapons/RangedWeaponTextureSlot" unique_id=78713931]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RangedWeaponSprite" type="TextureRect" parent="Elements/HBoxContainer2/CharacterInfo/Weapons/RangedWeaponTextureSlot/MarginContainer" unique_id=1673052525]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("10_uw0d0")
+
+[node name="PersonalityLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=1795619032]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Personality:"
+
+[node name="OffesinveTrait" type="HBoxContainer" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=1064984447]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_kn6nf")
+theme_override_constants/separation = 18
+script = ExtResource("10_td6r5")
+
+[node name="LowLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/OffesinveTrait" unique_id=1618467330]
+layout_mode = 2
+text = "Aggression:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lower" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/OffesinveTrait" unique_id=585799121]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_rowjf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5eioq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ju1ai")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ahnb0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cb2lu")
+theme_override_styles/focus = SubResource("StyleBoxTexture_714qr")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4ux6t")
+
+[node name="Low" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/OffesinveTrait" unique_id=617546917]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5hifq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cqoqa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rsjgq")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4ux6t")
+
+[node name="High" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/OffesinveTrait" unique_id=1278709487]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_612ig")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iqlu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_murc7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4ux6t")
+
+[node name="Higher" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/OffesinveTrait" unique_id=2017976477]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_xxhkl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fwufi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_b3jxu")
+theme_override_styles/focus = SubResource("StyleBoxTexture_sxbed")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4ux6t")
+
+[node name="HighLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/OffesinveTrait" unique_id=573113404]
+layout_mode = 2
+text = "High"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DefensiveTrait" type="HBoxContainer" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=2083925126]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_kn6nf")
+theme_override_constants/separation = 18
+script = ExtResource("10_td6r5")
+
+[node name="LowLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/DefensiveTrait" unique_id=366584297]
+layout_mode = 2
+text = "Resolution:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lower" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/DefensiveTrait" unique_id=1465695018]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_rowjf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5eioq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ju1ai")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ahnb0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cb2lu")
+theme_override_styles/focus = SubResource("StyleBoxTexture_714qr")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="Low" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/DefensiveTrait" unique_id=118398396]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5hifq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cqoqa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rsjgq")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="High" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/DefensiveTrait" unique_id=199313131]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_612ig")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iqlu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_murc7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="Higher" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/DefensiveTrait" unique_id=1572489701]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_xxhkl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fwufi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_b3jxu")
+theme_override_styles/focus = SubResource("StyleBoxTexture_sxbed")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="HighLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/DefensiveTrait" unique_id=189678211]
+layout_mode = 2
+text = "High"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StrategicTrait" type="HBoxContainer" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=977833741]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_kn6nf")
+theme_override_constants/separation = 18
+script = ExtResource("10_td6r5")
+
+[node name="LowLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/StrategicTrait" unique_id=458710347]
+layout_mode = 2
+text = "Motivation:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lower" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/StrategicTrait" unique_id=1166401692]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_rowjf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5eioq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ju1ai")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ahnb0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cb2lu")
+theme_override_styles/focus = SubResource("StyleBoxTexture_714qr")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="Low" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/StrategicTrait" unique_id=563801941]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5hifq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cqoqa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rsjgq")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="High" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/StrategicTrait" unique_id=1373534423]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_612ig")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iqlu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_murc7")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="Higher" type="Button" parent="Elements/HBoxContainer2/CharacterInfo/StrategicTrait" unique_id=794487868]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_xxhkl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fwufi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rqokx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8pg16")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_b3jxu")
+theme_override_styles/focus = SubResource("StyleBoxTexture_sxbed")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_wec0g")
+
+[node name="HighLabel" type="Label" parent="Elements/HBoxContainer2/CharacterInfo/StrategicTrait" unique_id=33976390]
+layout_mode = 2
+text = "High"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="HBoxContainer" parent="Elements" unique_id=1837197351]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Elements/Options" unique_id=1536727673]
+custom_minimum_size = Vector2(203, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Back"
+
+[node name="Save" type="Button" parent="Elements/Options" unique_id=2006843593]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(203, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Save"
+
+[node name="Randomize" type="Button" parent="Elements/Options" unique_id=1032394033]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Randomize"
+icon = SubResource("AtlasTexture_nhgbo")
+
+[node name="CharacterTextureSelector" parent="." unique_id=1083419816 instance=ExtResource("12_5fw6e")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="MeleeWeaponTextureSelector" parent="." unique_id=321794499 instance=ExtResource("12_5fw6e")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+textures = Array[Texture2D]([ExtResource("9_cbxap"), ExtResource("13_5stac"), ExtResource("14_5gcur"), ExtResource("15_k50wo"), ExtResource("16_db6ft"), ExtResource("17_pugbh"), ExtResource("18_gk8dn"), ExtResource("19_wqbf4"), ExtResource("20_t12ak"), ExtResource("21_jwrpp"), ExtResource("22_mtu5y"), ExtResource("23_2axrv")])
+
+[node name="HeaderLabel" parent="MeleeWeaponTextureSelector" index="1" unique_id=24380699]
+text = "Select a melee weapon"
+
+[node name="RangedWeaponTextureSelector" parent="." unique_id=100189891 instance=ExtResource("12_5fw6e")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+textures = Array[Texture2D]([ExtResource("10_uw0d0"), ExtResource("24_13hcx"), ExtResource("19_wqbf4"), ExtResource("25_ly035"), ExtResource("26_8oq87"), ExtResource("20_t12ak"), ExtResource("16_db6ft"), ExtResource("18_gk8dn"), ExtResource("27_fy6dm"), ExtResource("23_2axrv"), ExtResource("28_qv0jq")])
+
+[node name="HeaderLabel" parent="RangedWeaponTextureSelector" index="1" unique_id=24380699]
+text = "Select a ranged weapon"
+
+[node name="NameEditor" parent="." unique_id=1042457098 instance=ExtResource("29_kd02f")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="Elements/HBoxContainer2/CharacterImage/CharacterTextureSlot" to="." method="_on_character_texture_slot_button_down"]
+[connection signal="button_down" from="Elements/HBoxContainer2/CharacterInfo/Naming/NameEditorButton" to="." method="_on_name_editor_button_down"]
+[connection signal="button_down" from="Elements/HBoxContainer2/CharacterInfo/Weapons/MeleeWeaponTextureSlot" to="." method="_on_melee_weapon_texture_slot_button_down"]
+[connection signal="button_down" from="Elements/HBoxContainer2/CharacterInfo/Weapons/RangedWeaponTextureSlot" to="." method="_on_ranged_weapon_texture_slot_button_down"]
+[connection signal="button_up" from="Elements/Options/Cancel" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="Elements/Options/Save" to="." method="_on_save_button_up"]
+[connection signal="button_up" from="Elements/Options/Randomize" to="." method="_on_randomize_button_up"]
+
+[editable path="MeleeWeaponTextureSelector"]
+[editable path="RangedWeaponTextureSelector"]
