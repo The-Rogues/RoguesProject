@@ -1,9 +1,8 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://25itnkhn1son"]
 
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_1sqsf"]
-[ext_resource type="Resource" uid="uid://dftiy32f46d42" path="res://content/monsters/savage/moves/nowhere_to_hide/nowhere_to_hide.tres" id="1_p4jvl"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_1yne5"]
-[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/monsters/big_slime/split_monster_behaviour.gd" id="2_g37fq"]
+[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/fletcher/monsters/ice_wizard/scripts/init_move_monster_behaviour.gd" id="2_g37fq"]
 [ext_resource type="Texture2D" uid="uid://cffw8i053myij" path="res://content/monsters/savage/savage_texture.tres" id="3_abvwt"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="5_hvv38"]
 [ext_resource type="Resource" uid="uid://b4d8uack5ef5t" path="res://content/monsters/savage/moves/frenzy.tres" id="6_0rb44"]
@@ -12,8 +11,6 @@
 
 [sub_resource type="Resource" id="Resource_0l4nk"]
 script = ExtResource("2_g37fq")
-health_threshold = 12
-move = ExtResource("1_p4jvl")
 metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
 
 [sub_resource type="Resource" id="Resource_r13f4"]

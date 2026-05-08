@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_moxi6"]
 [ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="2_tgqyi"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_ijt14"]
-[ext_resource type="Script" path="res://content/cards/friendly_cards/filtered_apply_status_action.gd" id="4_fubrd"]
+[ext_resource type="Script" uid="uid://2fhdaficxwtc" path="res://content/cards/friendly_cards/filtered_apply_status_action.gd" id="4_fubrd"]
 
 [sub_resource type="Resource" id="Resource_m4yal"]
 script = ExtResource("3_ijt14")

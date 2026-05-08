@@ -1,9 +1,8 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://burkq1qvtpovb"]
 
 [ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="1_ab6h4"]
-[ext_resource type="Resource" uid="uid://b58t55od2cowv" path="res://content/monsters/big_slime/moves/split.tres" id="1_akhrs"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_u4og6"]
-[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/monsters/big_slime/split_monster_behaviour.gd" id="1_u55om"]
+[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/fletcher/monsters/ice_wizard/scripts/init_move_monster_behaviour.gd" id="1_u55om"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_ab6h4"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_u55om"]
 [ext_resource type="Resource" uid="uid://wndcwsjdqqly" path="res://content/monsters/big_slime/moves/prepare.tres" id="5_akhrs"]
@@ -13,7 +12,6 @@
 
 [sub_resource type="Resource" id="Resource_3s5ji"]
 script = ExtResource("1_u55om")
-move = ExtResource("1_akhrs")
 metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_en8hf"]

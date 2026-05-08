@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cpsrudoqjdvcy"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ylkmd"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_wjkxi"]
+
+[resource]
+script = ExtResource("2_wjkxi")
+category = 4
+energy_cost = 3
+name = "Fabian Hernandez"
+description = "Build Meister
+
+"
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

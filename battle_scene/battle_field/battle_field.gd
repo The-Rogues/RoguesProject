@@ -123,6 +123,9 @@ func update_preferences(in_player: PlayerEntity):
 		in_player.defensive_trait.weight_value,
 		in_player.strategic_trait.weight_value
 	)
+	var highlight_trait: int = get_highest_trait(in_player)
+	if highlight_trait == -1:
+		return
 	for i in range(0, battle_positions.size()):
 		var curr_object = battle_positions[i].get_object()
 		if curr_object != null:
@@ -138,6 +141,38 @@ func update_preferences(in_player: PlayerEntity):
 					2:
 						curr_trait = in_player.strategic_trait
 				if curr_object.data.targeting_categories.has(curr_trait.data.object_targeting_preference):
+					var highlight_icon: = false
+					if j == highlight_trait:
+						highlight_icon = true
 					curr_object.object_stat_display.preference_container.add_icon(
-						curr_trait.data.display_texture
+						curr_trait.data.display_texture,
+						highlight_icon
 					)
+
+func get_highest_trait(in_player: PlayerEntity) -> int:
+	var display_order: Array[int] = in_player.data.personality.create_trait_order(
+		in_player.offensive_trait.weight_value,
+		in_player.defensive_trait.weight_value,
+		in_player.strategic_trait.weight_value
+	)
+	var ret_index: int = display_order.size()
+	for i in range(0, battle_positions.size()):
+		var curr_object = battle_positions[i].get_object()
+		if curr_object != null:
+			curr_object.object_stat_display.preference_container.visible = show_preferences
+			curr_object.object_stat_display.preference_container.clear_icons()
+			for j in range(0, display_order.size()):
+				var curr_trait: Trait
+				match display_order[j]:
+					0:
+						curr_trait = in_player.offensive_trait
+					1:
+						curr_trait = in_player.defensive_trait
+					2:
+						curr_trait = in_player.strategic_trait
+				if curr_object.data.targeting_categories.has(curr_trait.data.object_targeting_preference):
+					if j < ret_index:
+						ret_index = j
+	if ret_index < display_order.size():
+		return display_order[ret_index]
+	return -1

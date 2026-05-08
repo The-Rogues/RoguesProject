@@ -122,6 +122,9 @@ func update_preference_displays():
 		player.defensive_trait.weight_value,
 		player.strategic_trait.weight_value
 	)
+	var monster_priority_trait: int = get_highest_trait()
+	if monster_priority_trait < 0:
+		return
 	for i in range(0, enemies.size()):
 		enemies[i].stat_display.preference_container.clear_icons()
 		enemies[i].stat_display.preference_container.visible = show_preferences
@@ -136,9 +139,40 @@ func update_preference_displays():
 				2:
 					curr_trait = player.strategic_trait
 			if enemies[i].updated_targeting.has(curr_trait.data.enemy_targeting_preference):
+				var highlight_icon: = false
+				if j == monster_priority_trait:
+					highlight_icon = true
 				enemies[i].stat_display.preference_container.add_icon(
-					curr_trait.data.display_texture
+					curr_trait.data.display_texture,
+					highlight_icon
 				)
+
+func get_highest_trait() -> int:
+	var display_order: Array[int] = player.data.personality.create_trait_order(
+		player.offensive_trait.weight_value,
+		player.defensive_trait.weight_value,
+		player.strategic_trait.weight_value
+	)
+	var ret_index: int = display_order.size()
+	for i in range(0, enemies.size()):
+		enemies[i].stat_display.preference_container.clear_icons()
+		enemies[i].stat_display.preference_container.visible = show_preferences
+		enemies[i].stat_display.status_effect_container.visible = !show_preferences
+		for j in range(0, display_order.size()):
+			var curr_trait: Trait
+			match display_order[j]:
+				0:
+					curr_trait = player.offensive_trait
+				1:
+					curr_trait = player.defensive_trait
+				2:
+					curr_trait = player.strategic_trait
+			if enemies[i].updated_targeting.has(curr_trait.data.enemy_targeting_preference):
+				if j < ret_index:
+					ret_index = j
+	if ret_index < display_order.size():
+		return display_order[ret_index]
+	return -1
 
 func apply_healthiest() -> void:
 	if enemies.size() == 0:
