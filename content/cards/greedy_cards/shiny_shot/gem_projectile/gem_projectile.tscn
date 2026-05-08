@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds7syc74md3bk"]
 
-[ext_resource type="Script" uid="uid://dphjwjbta0bwb" path="res://content/cards/greedy_cards/greedy_shot/gem_projectile/gem_projectile_script.gd" id="1_agtbk"]
+[ext_resource type="Script" uid="uid://dphjwjbta0bwb" path="res://content/cards/greedy_cards/shiny_shot/gem_projectile/gem_projectile_script.gd" id="1_agtbk"]
 [ext_resource type="Texture2D" uid="uid://cbw2owjnhrjbu" path="res://content/cards/greedy_cards/assets/gem.png" id="2_660ic"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_o20h5"]
 

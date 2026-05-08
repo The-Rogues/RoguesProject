@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c53u3vfvnfhmr"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_kfuv1"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_q6bdk"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_0b6c3"]
+
+[sub_resource type="Resource" id="Resource_gffiv"]
+script = ExtResource("2_q6bdk")
+amount = 16
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[resource]
+script = ExtResource("3_0b6c3")
+type = 2
+category = 2
+energy_cost = 6
+name = "Practice Makes Perfect"
+description = "Gain 16 block. Energy discounted by [color=#43A047]2[/color] for every [color=#43A047]2[/color] [color=orange]defense[/color]."
+play_actions = Array[ExtResource("1_kfuv1")]([SubResource("Resource_gffiv")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

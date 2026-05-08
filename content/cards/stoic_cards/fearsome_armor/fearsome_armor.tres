@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://b64uijfohxxcp"
 [resource]
 script = ExtResource("3_sw4py")
 type = 2
+category = 2
 energy_cost = 3
 name = "Fearsome Armor"
 description = "Gain [color=orange]block[/color] equal to target enemy's missing HP."
