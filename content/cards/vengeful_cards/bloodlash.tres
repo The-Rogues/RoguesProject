@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bpfpkrjgihikt"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_f4vrx"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_4osv0"]
+[ext_resource type="Script" uid="uid://t8gnkbgx340y" path="res://content/cards/vengeful_cards/vengeful_action.gd" id="2_mex4t"]
+
+[sub_resource type="Resource" id="Resource_31gqj"]
+script = ExtResource("2_mex4t")
+effect_type = 1
+base_damage = 5
+target_option = 3
+metadata/_custom_type_script = "uid://t8gnkbgx340y"
+
+[resource]
+script = ExtResource("2_4osv0")
+category = 1
+energy_cost = 1
+name = "Bloodlash"
+description = "Deal [color=#43A047]5[/color] damage. If you took damage last turn, attack twice."
+play_actions = Array[ExtResource("1_f4vrx")]([SubResource("Resource_31gqj")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

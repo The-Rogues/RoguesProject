@@ -46,7 +46,6 @@ func initialize(
 	strategic_weight = 1
 	
 	var trait_category = _priority_trait.to_upper()
-	
 	if trait_category == "OFFENSIVE":
 		priority_trait = offensive_trait
 		offensive_weight = 2
@@ -57,8 +56,19 @@ func initialize(
 		priority_trait = strategic_trait
 		strategic_weight = 2
 
-func choose_move_direction(left_idx: int, right_idx: int, positions: Array[BattlePosition]) -> bool:
-	var priority_order: Array[int] = create_trait_order()
+func choose_move_direction(
+	left_idx: int, 
+	right_idx: int, 
+	positions: Array[BattlePosition],
+	in_offensive: int,
+	in_defensive: int,
+	in_strategic: int
+) -> bool:
+	var priority_order: Array[int] = create_trait_order(
+		in_offensive,
+		in_defensive,
+		in_strategic
+	)
 	
 	for i in range(0, priority_order.size()):
 		var targeting_option: ObjectData.MoveTargetingCategory
@@ -114,9 +124,18 @@ func dist_from_preferred(
 					break
 	return ret_val
 
-func choose_object_target(objects: Array[ObjectEntity]) -> ObjectEntity:
+func choose_object_target(
+	objects: Array[ObjectEntity],
+	in_offensive: int,
+	in_defensive: int,
+	in_strategic: int
+) -> ObjectEntity:
 	
-	var priority_order: Array[int] = create_trait_order()
+	var priority_order: Array[int] = create_trait_order(
+		in_offensive,
+		in_defensive,
+		in_strategic
+	)
 	
 	for i in range(0, priority_order.size()):
 		var targeting_option: ObjectData.MoveTargetingCategory
@@ -136,9 +155,18 @@ func choose_object_target(objects: Array[ObjectEntity]) -> ObjectEntity:
 	return objects.pick_random()
 
 ## Choosest the highest priority target given the biases of personality traits.
-func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
+func choose_enemy_target(
+	enemies:Array[MonsterEntity],
+	in_offensive: int,
+	in_defensive: int,
+	in_strategic: int
+) -> MonsterEntity:
 	
-	var priority_order: Array[int] = create_trait_order()
+	var priority_order: Array[int] = create_trait_order(
+		in_offensive,
+		in_defensive,
+		in_strategic
+	)
 	
 	for i in range(0, priority_order.size()):
 		var targeting_option: MonsterData.AttackTargetingCategory
@@ -160,38 +188,53 @@ func choose_enemy_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
 # offense -> 0
 # defense -> 1
 # strategic -> 2
-func create_trait_order() -> Array[int]:
+func create_trait_order(
+	in_offensive: int,
+	in_defensive: int,
+	in_strategic: int
+) -> Array[int]:
+	
 	var ret_val: Array[int] = []
 	var i: int = 0
 	while ret_val.size() < 3:
-		ret_val = ret_val + get_highest_offset(i)
+		ret_val = ret_val + get_highest_offset(
+			i, 
+			in_offensive, 
+			in_defensive, 
+			in_strategic
+		)
 		i = i + 1
 	return ret_val
 
 
-func get_highest_offset(highest_offset: int) -> Array[int]:
+func get_highest_offset(
+	highest_offset: int,
+	in_offensive: int,
+	in_defensive: int,
+	in_strategic: int
+) -> Array[int]:
 	
 	var prev_highest: int = 11
 	var curr_highest: int = 0
 	var ret_val: Array[int]
 	
 	for i in range(0, highest_offset + 1):
-		if offensive_weight > curr_highest && offensive_weight < prev_highest:
-			curr_highest = offensive_weight 
-		if defensive_weight > curr_highest && defensive_weight < prev_highest:
-			curr_highest = defensive_weight
-		if strategic_weight > curr_highest && strategic_weight < prev_highest:
-			curr_highest = strategic_weight
+		if in_offensive > curr_highest && in_offensive < prev_highest:
+			curr_highest = in_offensive
+		if in_defensive > curr_highest && in_defensive < prev_highest:
+			curr_highest = in_defensive
+		if in_strategic > curr_highest && in_strategic < prev_highest:
+			curr_highest = in_strategic
 		
 		prev_highest = curr_highest
 		curr_highest = 0
 		
 		if i == highest_offset:
-			if offensive_weight == prev_highest:
+			if in_offensive == prev_highest:
 				ret_val.append(0)
-			if defensive_weight == prev_highest:
+			if in_defensive == prev_highest:
 				ret_val.append(1)
-			if strategic_weight == prev_highest:
+			if in_strategic == prev_highest:
 				ret_val.append(2)
 	
 	return ret_val
@@ -239,26 +282,25 @@ func set_trait_weight(trait_category:String, _weight:int) -> void:
 			offensive_weight = clampi(
 					offensive_weight, 
 					MINIMUM_WEIGHT, 
-					MINIMUM_WEIGHT)
+					MAXIMUM_WEIGHT)
 			updated_offensive_trait.emit(offensive_trait, offensive_weight)
 			updated.emit(self)
 		"DEFENSIVE":
 			defensive_weight = _weight
 			defensive_weight = clampi(defensive_weight, 
 					MINIMUM_WEIGHT, 
-					MINIMUM_WEIGHT)
+					MAXIMUM_WEIGHT)
 			updated_defensive_trait.emit(defensive_trait, defensive_weight)
 			updated.emit(self)
 		"STRATEGIC":
 			strategic_weight = _weight
 			strategic_weight = clampi(strategic_weight, 
 					MINIMUM_WEIGHT, 
-					MINIMUM_WEIGHT)
+					MAXIMUM_WEIGHT)
 			updated_strategic_trait.emit(strategic_trait, strategic_weight)
 			updated.emit(self)
 		_:
 			pass
-	
 	update_priority_trait()
 
 
@@ -272,13 +314,3 @@ func update_priority_trait() -> void:
 	if priority_trait != _priority_trait:
 		priority_trait = _priority_trait
 		updated_priority_trait.emit(priority_trait)
-
-
-# TODO: Consider moving to dedicated DeckBuilder class
-func get_starting_deck() -> Array[CardData]:
-	var deck:Array[CardData] = []
-	deck.append_array(offensive_trait.starter_cards)
-	deck.append_array(defensive_trait.starter_cards)
-	deck.append_array(strategic_trait.starter_cards)
-	
-	return deck

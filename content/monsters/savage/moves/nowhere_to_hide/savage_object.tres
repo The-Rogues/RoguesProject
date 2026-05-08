@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://dot7qtd5tennl"]
+
+[ext_resource type="Texture2D" uid="uid://cffw8i053myij" path="res://content/monsters/savage/savage_texture.tres" id="1_notfo"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_mu711"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="3_4xb3k"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="4_g2yoh"]
+
+[sub_resource type="Resource" id="Resource_fui3a"]
+script = ExtResource("3_4xb3k")
+base_damage = 2
+hits = 3
+target_option = 1
+ignore_foreground = true
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("4_g2yoh")
+targeting_categories = Array[int]([3])
+interaction = 5
+interaction_actions = Array[ExtResource("2_mu711")]([SubResource("Resource_fui3a")])
+turn_interaction_counter = 1
+is_enemy = true
+display_texture = ExtResource("1_notfo")
+name = "Savage"
+health = 12
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

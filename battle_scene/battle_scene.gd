@@ -24,6 +24,7 @@ class_name BattleScene
 @export var discard_pile_icon: Control
 @export var draw_pile_viewer: CardViewer
 @export var discard_pile_viewer: CardViewer
+@export var preference_button: Button
 
 
 func _ready() -> void:
@@ -49,6 +50,8 @@ func initialize(battle_config:BattleConfig):
 	player.movement_controller.battle_field = battle_field
 	if GlobalSessionManager.run_progress:
 		player.sprite_2d.texture = GlobalSessionManager.run_progress.player_texture
+		player.melee_weapon_sprite.texture = GlobalSessionManager.run_progress.player_melee_weapon_texture
+		player.ranged_weapon_sprite.texture = GlobalSessionManager.run_progress.player_ranged_weapon_texture
 	
 	var battle_context := BattleContext.new(
 		creature_manager,
@@ -67,7 +70,7 @@ func initialize(battle_config:BattleConfig):
 	player.cards.draw_pile_updated.connect(draw_pile_viewer.on_cards_updated)
 	player.cards.discard_pile_updated.connect(discard_pile_icon._on_card_pile_updated)
 	player.cards.discard_pile_updated.connect(discard_pile_viewer.on_cards_updated)
-	#player.cards.drew_card.connect(play_hand._on_card_drawn)
+	battle_field.object_placed.connect(creature_manager.add_object_enemy)
 	
 	GlobalSessionInterface.connect_to_player(player)
 	
@@ -84,3 +87,10 @@ func _on_view_draw_pile_button_up() -> void:
 func _on_view_discard_pile_button_up() -> void:
 	discard_pile_viewer.visible = true
 	pass # Replace with function body.
+
+
+func _on_preference_button_pressed() -> void:
+	creature_manager.toggle_preferences()
+	creature_manager.show_preferences = !creature_manager.show_preferences
+	battle_field.toggle_preferences()
+	battle_field.show_preferences = !battle_field.show_preferences

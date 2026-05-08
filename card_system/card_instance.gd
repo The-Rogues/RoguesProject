@@ -15,7 +15,7 @@ func _init(
 
 
 func change_cost(amount:int):
-	energy_cost += amount
+	energy_cost = amount
 	updated.emit()
 
 

@@ -6,7 +6,7 @@
 #------------------------------------------------------------------------------------
 
 extends Resource
-class_name MiniEventData
+class_name OldMiniEventData
 
 @export var event_callback: Script # The callback executed when the mini event is activated.
 @export var map_texture: CompressedTexture2D # The texture for the event diaplayed on the map.

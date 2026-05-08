@@ -2,7 +2,7 @@ extends Resource
 class_name TrackList
 
 @export var main_menu:AudioStream
-@export var save_screen:AudioStream
+@export var new_game_scene:AudioStream
 @export var map_scene:AudioStream
 @export var early_map_theme:AudioStream
 @export var mid_game_map_theme:AudioStream

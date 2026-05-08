@@ -1,8 +1,7 @@
 extends Projectile
 class_name Arrow
 
-@onready var stuck_arrow: Node2D = $StuckArrow
-@export var status:StatusEffectConfig = null
+@onready var stuck_arrow: Node2D = %StuckArrow
 
 func _on_hitbox_body_entered(body):
 	if body.get_parent() is AbstractEntity:
@@ -16,7 +15,7 @@ func _on_hitbox_body_entered(body):
 		stuck_arrow.visible = true
 		await get_tree().process_frame
 		
-		entity.take_damage(damage, null)
+		entity.take_damage(damage, self)
 		
 		if entity is AbstractCreature and status:
 			entity.apply_status_effect(status)

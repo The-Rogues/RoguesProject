@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://cfnfd0npf4gfs"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_xxw0k"]
+[ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="2_8pc1n"]
+[ext_resource type="Texture2D" uid="uid://406412hdhwpd" path="res://common/art/placeholder/joi3/vengeful_icon.tres" id="2_qtdd1"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_upoc6"]
+[ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/vengeful_cards/inferno.tres" id="3_8pc1n"]
+
+[resource]
+script = ExtResource("2_upoc6")
+display_texture = ExtResource("2_qtdd1")
+name = "Vengeful"
+description = "Seeks revenge for past wounds. Targets dangerous enemies. Moves toward existing weapons."
+enemy_targeting_preference = 2
+object_targeting_preference = 1
+card_loot_pool = Array[ExtResource("1_xxw0k")]([ExtResource("2_8pc1n"), ExtResource("2_8pc1n"), ExtResource("3_8pc1n"), ExtResource("3_8pc1n")])
+metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

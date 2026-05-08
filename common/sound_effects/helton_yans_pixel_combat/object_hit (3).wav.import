@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbak7xwfehp36"
+path="res://.godot/imported/object_hit (3).wav-b7b7b59db653a4e610a73b1deca03136.sample"
+
+[deps]
+
+source_file="res://common/sound_effects/helton_yans_pixel_combat/object_hit (3).wav"
+dest_files=["res://.godot/imported/object_hit (3).wav-b7b7b59db653a4e610a73b1deca03136.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -6,7 +6,7 @@ signal entered_new_position
 
 var player: PlayerEntity
 var battle_field: BattleField
-
+var can_move:bool = true
 
 #func move_by_offset(offset: int) -> void:
 	#if !battle_field or !player:
@@ -111,9 +111,27 @@ var battle_field: BattleField
 	#
 	#pass
 
+func move_out_of_cover() -> void:
+	
+	var empty_positions: Array[BattlePosition]
+	for i in range(0, battle_field.battle_positions.size()):
+		if battle_field.battle_positions[i].get_object() == null:
+			if battle_field.battle_positions[i] != player.battle_position:
+				empty_positions.append(battle_field.battle_positions[i])
+	
+	if empty_positions.size() == 0:
+		return
+	
+	await battle_field.move_player(
+		player, 
+		empty_positions.pick_random()
+	)
+	entered_new_position.emit()
+
 func position_state_updated():
 	if player.battle_position.has_effect():
 		player.battle_position.get_effect().on_player_entered(player)
+
 
 func find_decoy_position() -> BattlePosition:
 	for i in range(0, battle_field.battle_positions.size()):
@@ -124,14 +142,19 @@ func find_decoy_position() -> BattlePosition:
 				return battle_field.battle_positions[i]
 	return null
 
+
 func move_behind_perferred_object() -> void:
+	if can_move == false: return
 	
 	var curr_objects: Array[ObjectEntity] = get_battle_field_objects()
 	if curr_objects.size() < 1:
 		return
 	
 	var target_object: ObjectEntity = player.data.personality.choose_object_target(
-		curr_objects
+		curr_objects,
+		player.offensive_trait.weight_value,
+		player.defensive_trait.weight_value,
+		player.strategic_trait.weight_value
 	)
 	
 	await battle_field.move_player(
@@ -142,7 +165,9 @@ func move_behind_perferred_object() -> void:
 	)
 	entered_new_position.emit()
 
+
 func move_behind_object_type(in_type: ObjectData.MoveTargetingCategory) -> void:
+	if can_move == false: return
 	
 	var eligible_objects: Array[ObjectEntity]
 	var all_objects: Array[ObjectEntity] = get_battle_field_objects()
@@ -162,7 +187,9 @@ func move_behind_object_type(in_type: ObjectData.MoveTargetingCategory) -> void:
 	)
 	entered_new_position.emit()
 
+
 func move_toward_perfered_object(num_spaces: int) -> void:
+	if can_move == false: return
 	num_spaces = clamp(num_spaces, 1, 4)
 	
 	var player_index = battle_field.battle_positions.find(
@@ -179,7 +206,10 @@ func move_toward_perfered_object(num_spaces: int) -> void:
 	var is_right: bool = player.data.personality.choose_move_direction(
 		clamp(player_index - num_spaces, 0, 4),
 		clamp(player_index + num_spaces, 0, 4),
-		battle_field.battle_positions
+		battle_field.battle_positions,
+		player.offensive_trait.weight_value,
+		player.defensive_trait.weight_value,
+		player.strategic_trait.weight_value
 	)
 	
 	if is_right:
@@ -187,7 +217,9 @@ func move_toward_perfered_object(num_spaces: int) -> void:
 		return
 	move_player_left(num_spaces)
 
+
 func move_player_left(num_spaces: int) -> void:
+	if can_move == false: return
 	var player_index = battle_field.battle_positions.find(
 		player.battle_position
 	)
@@ -203,7 +235,9 @@ func move_player_left(num_spaces: int) -> void:
 	)
 	entered_new_position.emit()
 
+
 func move_player_right(num_spaces: int) -> void:
+	if can_move == false: return
 	var player_index = battle_field.battle_positions.find(
 		player.battle_position
 	)
@@ -219,11 +253,13 @@ func move_player_right(num_spaces: int) -> void:
 	)
 	entered_new_position.emit()
 
+
 func get_battle_position_by_object(in_object: ObjectEntity) -> BattlePosition:
 	for i in range(0, battle_field.battle_positions.size()):
 		if in_object == battle_field.battle_positions[i].get_object():
 			return battle_field.battle_positions[i]
 	return null
+
 
 func get_battle_field_objects() -> Array[ObjectEntity]:
 	var ret_val: Array[ObjectEntity]

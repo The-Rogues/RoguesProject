@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bgdai8ivk0ewn"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_37558"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_ithr1"]
+[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_k161c"]
+[ext_resource type="Script" uid="uid://cmtvhdvaoqfdy" path="res://battle_scene/entities/status_effects/common/scared_status_effect.gd" id="3_vj6ya"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_bjh1m"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_6mhco"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="6_lplob"]
+
+[sub_resource type="Resource" id="Resource_rqx6e"]
+script = ExtResource("3_vj6ya")
+metadata/_custom_type_script = "uid://cmtvhdvaoqfdy"
+
+[sub_resource type="Resource" id="Resource_bsl8h"]
+script = ExtResource("4_bjh1m")
+behaviour = SubResource("Resource_rqx6e")
+duration = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_lteqs"]
+script = ExtResource("5_6mhco")
+effect = SubResource("Resource_bsl8h")
+target_option = 2
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_f1pdi"]
+script = ExtResource("2_k161c")
+threshold = 5
+success_action = SubResource("Resource_lteqs")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_xdkjs"]
+script = ExtResource("6_lplob")
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[sub_resource type="Resource" id="Resource_73ow2"]
+script = ExtResource("2_k161c")
+threshold = 5
+success_action = SubResource("Resource_xdkjs")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[resource]
+script = ExtResource("2_ithr1")
+type = 2
+category = 1
+energy_cost = 1
+name = "Intimidate"
+description = "If offense is higher than 5, spend it to apply 2 Scared. "
+play_actions = Array[ExtResource("1_37558")]([SubResource("Resource_f1pdi"), SubResource("Resource_73ow2")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

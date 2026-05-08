@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://21wffiti3nv7"]
+
+[ext_resource type="Script" uid="uid://dd7jh4fpdl56o" path="res://battle_scene/win_screen/card_reward_picker.gd" id="1_a4m2r"]
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="2_wwwc6"]
+[ext_resource type="Script" uid="uid://cgja4omcqdq18" path="res://card_system/ui/card_picker.gd" id="3_o73tb"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_mmpvr"]
+[ext_resource type="PackedScene" uid="uid://581jy4tu3i01" path="res://battle_scene/win_screen/stat_modifier/stat_modifier.tscn" id="5_f2h5e"]
+
+[node name="CardRewardPicker" type="Control" unique_id=95724889]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_a4m2r")
+
+[node name="CardPicker" type="Control" parent="." unique_id=2047647765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wwwc6")
+script = ExtResource("3_o73tb")
+
+[node name="Background" type="ColorRect" parent="CardPicker" unique_id=861343767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8117647)
+
+[node name="ModifyStat" type="Button" parent="CardPicker" unique_id=528403380]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 122.0
+offset_right = 73.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_mmpvr")
+theme_override_font_sizes/font_size = 16
+text = "Or Modify Stat"
+
+[node name="PanelContainer" type="PanelContainer" parent="CardPicker" unique_id=1376271826]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 108.0
+offset_right = 210.0
+offset_bottom = 157.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CardPicker/PanelContainer" unique_id=215829902]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Choose a Card"
+
+[node name="CardPanel" type="PanelContainer" parent="CardPicker" unique_id=1250906828]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 0
+offset_left = 291.0
+offset_top = 170.0
+offset_right = 891.0
+offset_bottom = 420.0
+
+[node name="CardContainer" type="HBoxContainer" parent="CardPicker/CardPanel" unique_id=1433934201]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 57
+alignment = 1
+
+[node name="StatModifier" parent="." unique_id=1272357020 instance=ExtResource("5_f2h5e")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_up" from="CardPicker/ModifyStat" to="CardPicker" method="_on_cancel_button_up"]
+[connection signal="button_up" from="CardPicker/ModifyStat" to="CardPicker" method="_on_close_button_up"]
+[connection signal="button_up" from="CardPicker/ModifyStat" to="." method="_on_modify_stat_button_up"]

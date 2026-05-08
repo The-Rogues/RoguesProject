@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp2osh5b7ynnu"]
+
+[ext_resource type="Texture2D" uid="uid://b5q8hr8gvmqkb" path="res://common/art/placeholder/joi3/tactical_icon.tres" id="1_5hech"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_qlib6"]
+[ext_resource type="PackedScene" uid="uid://cqk2sv85r2g3x" path="res://content/monsters/crawler/fire_ball.tscn" id="3_flxv5"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="4_5thd3"]
+[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="5_rpfmv"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="6_a6bm2"]
+[ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="7_ma23s"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="8_7aofd"]
+
+[sub_resource type="Resource" id="Resource_bb75s"]
+script = ExtResource("5_rpfmv")
+metadata/_custom_type_script = "uid://di1j13j6xybid"
+
+[sub_resource type="Resource" id="Resource_jci76"]
+script = ExtResource("6_a6bm2")
+behaviour = SubResource("Resource_bb75s")
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_gkue5"]
+script = ExtResource("4_5thd3")
+projectile_scene = ExtResource("3_flxv5")
+projectile_count = 3
+fire_delay = 0.2
+status_effect = SubResource("Resource_jci76")
+damage = 4
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_7gv0c"]
+script = ExtResource("7_ma23s")
+projectile_config = SubResource("Resource_gkue5")
+target_option = 2
+metadata/_custom_type_script = "uid://bfh7ajwoc15fx"
+
+[resource]
+script = ExtResource("8_7aofd")
+type = 1
+category = 4
+energy_cost = 2
+name = "Flamethrower"
+display_texture = ExtResource("1_5hech")
+description = "Deal 4x3 damage. Apply 3 burn."
+play_actions = Array[ExtResource("2_qlib6")]([SubResource("Resource_7gv0c")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -11,6 +11,7 @@ signal freed(projectile:Projectile)
 @export var target_position:Vector2
 @onready var sprite_pivot: Node2D = $SpritePivot
 @export var face_move_direction:bool = true
+@export var status:StatusEffectConfig
 
 
 var direction
@@ -38,8 +39,10 @@ func _on_hitbox_body_entered(body):
 		if entity == source:
 			return
 		
-		entity.take_damage(damage, null)
+		entity.take_damage(damage, self)
 		
+		if entity is AbstractCreature and status:
+			entity.apply_status_effect(status)
 		
 		hit.emit(body)
 		freed.emit(self)

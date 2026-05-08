@@ -11,12 +11,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qxsou")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1971422879]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1405905508]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1180037299]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 78
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1971422879]
+unique_name_in_owner = true
+layout_mode = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 2
 
-[node name="VScrollBar" type="VScrollBar" parent="ScrollContainer" unique_id=1708964921]
+[node name="VScrollBar" type="VScrollBar" parent="MarginContainer/ScrollContainer" unique_id=1708964921]
 layout_mode = 2

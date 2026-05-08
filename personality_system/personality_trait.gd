@@ -5,6 +5,7 @@ class_name PersonalityTrait
 enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
 #enum EnemyPreference { HEALTHIEST, WEAKEST, DANGEROUS, INTELEGENT }
 
+@export var display_texture:Texture2D
 @export var name:String
 @export_multiline var description:String
 @export var trait_category:TraitCategory
@@ -13,7 +14,7 @@ enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
 @export var object_targeting_preference:ObjectData.MoveTargetingCategory
 
 @export var card_loot_pool:Array[CardData]
-@export var starter_cards:Array[CardData]
+#@export var starter_cards:Array[CardData]
 
 
 func get_strongest_target(enemies:Array[MonsterEntity]) -> MonsterEntity:

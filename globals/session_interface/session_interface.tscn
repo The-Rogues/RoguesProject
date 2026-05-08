@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bex8s0ww7mxsv" path="res://globals/session_interface/session_interface.gd" id="1_2dwta"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_nhbhh"]
 [ext_resource type="Texture2D" uid="uid://dxefwuaynwrdl" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-008.png" id="2_pmlv7"]
+[ext_resource type="PackedScene" uid="uid://581jy4tu3i01" path="res://battle_scene/win_screen/stat_modifier/stat_modifier.tscn" id="3_e6ktk"]
 [ext_resource type="PackedScene" uid="uid://bp3ihfbthp8yd" path="res://card_system/ui/card_picker.tscn" id="3_h8e6q"]
 [ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="3_rmvr3"]
 [ext_resource type="PackedScene" uid="uid://cton5ap6s24lx" path="res://card_system/ui/card_remover.tscn" id="3_yiynv"]
@@ -42,11 +43,55 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DeckViewer" parent="Control" unique_id=2047647765 instance=ExtResource("13_ssfyd")]
+[node name="CardPicker" parent="Control" unique_id=663818043 instance=ExtResource("3_h8e6q")]
 visible = false
 layout_mode = 1
 
-[node name="CardPicker" parent="Control" unique_id=663818043 instance=ExtResource("3_h8e6q")]
+[node name="ModifyStat" type="Button" parent="Control/CardPicker" unique_id=211694469]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 122.0
+offset_right = 73.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 16
+text = "Or Modify Stat"
+
+[node name="CloseCardPicker" type="Button" parent="Control/CardPicker" unique_id=322052580]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -112.0
+offset_right = 183.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("1_nhbhh")
+theme_override_font_sizes/font_size = 16
+text = "Cancel"
+
+[node name="StatModifier" parent="Control" unique_id=1272357020 instance=ExtResource("3_e6ktk")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="DeckViewer" parent="Control" unique_id=2047647765 instance=ExtResource("13_ssfyd")]
 visible = false
 layout_mode = 1
 
@@ -213,6 +258,8 @@ layout_mode = 2
 [node name="OptionsMenu" parent="." unique_id=852568960 instance=ExtResource("13_h8e6q")]
 visible = false
 
+[connection signal="button_up" from="Control/CardPicker/ModifyStat" to="." method="_on_modify_stat_button_up"]
+[connection signal="button_up" from="Control/CardPicker/CloseCardPicker" to="." method="_on_close_card_picker_button_up"]
 [connection signal="button_up" from="Control/Container/Treasure/DeckUI/CardPileButton" to="." method="_on_view_card_deck"]
 [connection signal="button_up" from="Control/Container/Stats/Settings" to="." method="_on_settings_button_up"]
 

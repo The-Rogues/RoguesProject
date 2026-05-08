@@ -7,6 +7,9 @@ var run_progress: RunProgress = null
 var started_session:bool = false
 
 
+const DEFAULT_STARTING_DECK = preload("res://content/scene_configuration/default_starting_card_deck.tres")
+
+
 func _ready() -> void:
 	GlobalSessionManager.run_progress = GlobalSaveManager.load_run()
 	
@@ -14,6 +17,7 @@ func _ready() -> void:
 		connect_run_signals()
 		await get_tree().process_frame
 		GlobalSessionInterface.initialize()
+		
 
 
 # -------------------------------------------------
@@ -33,12 +37,14 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	var run:RunProgress = RunProgress.new()
 	
 	var player_data = PlayerData.new()
-	player_data.initialize(data.personality, data.personality.get_starting_deck())
+	player_data.initialize(data.personality, DEFAULT_STARTING_DECK.cards.duplicate(true))
 	run.player_data = player_data
 	run.player_data.name = data.name
 	run.player_name = data.name
 	run.player_texture = data.display_texure
 	run.player_backstory = data.backstory
+	run.player_melee_weapon_texture = data.melee_weapon_texture
+	run.player_ranged_weapon_texture = data.ranged_weapon_texture
 	
 	run.total_gold_collected = 0
 	run.total_cards_collected = 0
@@ -112,10 +118,14 @@ func select_map_node(corr_node: RefCounted) -> void:
 	GlobalSaveManager.save_run(run_progress)
 	
 	if corr_node.node_data.mini_event != null:
-		var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
-		var mini_instance: Control = mini_event_scene.instantiate()
-		get_tree().current_scene.add_child(mini_instance)
-		mini_instance.init_screen(corr_node.node_data)
+		#var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
+		#var mini_instance: Control = mini_event_scene.instantiate()
+		#get_tree().current_scene.add_child(mini_instance)
+		#mini_instance.init_screen(corr_node.node_data)
+		var mini_event:PackedScene = load("res://mini_event_system/mini_event_interface.tscn")
+		var instance = mini_event.instantiate()
+		get_tree().current_scene.add_child(instance)
+		instance.initialize(corr_node.node_data)
 	else:
 		var callback: RefCounted = corr_node.node_data.main_event.event_callback.new()
 		callback.process_event()

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://by2kl8w4kkm1m"]
+
+[ext_resource type="Texture2D" uid="uid://dtfw56mesa6nq" path="res://common/art/placeholder/32_rogues/animals.png" id="1_52j4t"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_muqt3"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_52j4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u55j"]
+atlas = ExtResource("1_52j4t")
+region = Rect2(0, 72, 32, 32)
+
+[resource]
+script = ExtResource("2_52j4t")
+type = 5
+name = "Stinky"
+display_texture = SubResource("AtlasTexture_4u55j")
+description = "It's a Monstermon card! Cool but incompatible with this game."
+shop_price = 0
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

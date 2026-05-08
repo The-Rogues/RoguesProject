@@ -24,3 +24,7 @@ func _on_back_button_up() -> void:
 func _on_ai_mode_toggled(toggled_on: bool) -> void:
 	if GlobalSessionManager.run_progress:
 		GlobalSessionManager.run_progress.ai_mode = toggled_on
+
+
+func _on_sound_effects_volume_slider_value_changed(value: float) -> void:
+	MusicManager.set_sfx_volume(value)

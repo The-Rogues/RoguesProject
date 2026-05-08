@@ -65,8 +65,9 @@ func start_player_turn():
 	
 	# Fletcher - Updates calculated targeting after enemies have chosen new moves.
 	context.creature_manager.update_attack_targeting()
+	context.battle_field.update_preferences(player)
 	
-	battle_field.enter_turn(turn_count)
+	battle_field.enter_turn(turn_count, player)
 	
 	battle_powers.enter_turn(context)
 	
@@ -79,6 +80,8 @@ func start_player_turn():
 func end_player_turn():
 	if battle_state == State.ENDED:
 		return
+	
+	battle_field.decay_position_effects()
 	
 	for enemy in enemies:
 		enemy.enter_turn(turn_count)
@@ -105,6 +108,8 @@ func run_enemy_turn():
 		enemy_attack_delay.start()
 		await enemy_attack_delay.timeout
 	
+	if !action_resolver.action_queue.queue.is_empty():
+		await action_resolver.action_queue.processed_all_actions
 	await get_tree().create_timer(1).timeout
 	
 	start_player_turn()
@@ -113,14 +118,17 @@ func run_enemy_turn():
 func _on_battle_ended():
 	battle_state = State.ENDED
 	
+	GlobalSessionInterface.disconnect_from_player(player)
+	GlobalSessionInterface.reset_stats_to_base_display()
+	
 	MusicManager.stop()
 	await get_tree().create_timer(2).timeout
 	
 	if !player.health.is_alive:
-		MusicManager.change_song(MusicManager.track_list.victory_theme)
+		MusicManager.change_song(MusicManager.track_list.defeated_theme)
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
 		rewards_screen.initialize()
-		MusicManager.change_song(MusicManager.track_list.defeated_theme)
+		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true

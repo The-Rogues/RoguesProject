@@ -1,9 +1,0 @@
-res://battle_scene/entities/actions/skill/add_item_to_reward_action.gd
-res://battle_scene/battle_field/battle_position.gd
-res://battle_scene/battle_field/battle_field.gd
-res://battle_scene/battle_context.gd
-res://battle_scene/entities/actions/skill/kill_action.gd
-res://battle_scene/entities/actions/skill/spawn_enemy_action.gd
-res://battle_scene/win_screen/rewards_data/battle_reward_data.gd
-res://battle_scene/win_screen/rewards_data/item_reward_data.gd
-res://content/items/card_packs/brute_card_pack.tres

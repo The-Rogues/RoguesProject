@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://mvv68pd37lkl"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_taexl"]
+[ext_resource type="Resource" uid="uid://c4hg7so7onlbq" path="res://content/cards/laidback_cards/calm_guard.tres" id="2_78rxn"]
+[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="3_kd0yo"]
+[ext_resource type="Resource" uid="uid://rq7lxh5t1a8g" path="res://content/cards/laidback_cards/patient_blow.tres" id="4_5nn66"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_78rxn"]
+[ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="5_o5mhf"]
+
+[resource]
+script = ExtResource("5_o5mhf")
+card_pool = Array[ExtResource("1_taexl")]([ExtResource("2_78rxn"), ExtResource("3_kd0yo"), ExtResource("4_5nn66")])
+draw_count = 3
+name = "Laidback Card Pack"
+description = "Choose 1 Laidback card to add to your deck."
+display_texture = ExtResource("5_78rxn")
+shop_price = 11
+metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

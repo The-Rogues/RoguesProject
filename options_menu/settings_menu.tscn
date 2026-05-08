@@ -3,6 +3,10 @@
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_0cmel"]
 [ext_resource type="Script" uid="uid://ch77og4vicfj6" path="res://options_menu/settings_menu.gd" id="2_d0eu6"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_mlw3h"]
+[ext_resource type="Script" uid="uid://vrho84hio6c4" path="res://options_menu/settings_menu_sound_manager.gd" id="4_grlu4"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="4_qbfup"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="5_leooa"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="6_grlu4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0eu6"]
 bg_color = Color(0, 0, 0, 1)
@@ -57,7 +61,8 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_mlw3h")
 text = "Master sound:"
 
-[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/Master" unique_id=314626406]
+[node name="MasterVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/Master" unique_id=314626406]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 max_value = 1.0
@@ -73,7 +78,25 @@ theme_override_fonts/font = ExtResource("2_mlw3h")
 text = "Music sound: "
 vertical_alignment = 1
 
-[node name="VolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/Music" unique_id=1016941298]
+[node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/Music" unique_id=1016941298]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SoundEffects" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AudioSettings" unique_id=1363000836]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/AudioSettings/SoundEffects" unique_id=306387186]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlw3h")
+text = "Sound effects: "
+vertical_alignment = 1
+
+[node name="SoundVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioSettings/SoundEffects" unique_id=1508571515]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 max_value = 1.0
@@ -87,12 +110,6 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_mlw3h")
 button_pressed = true
 text = "Music ON/OFF"
-
-[node name="ExperimentalHeader" type="Label" parent="MarginContainer/VBoxContainer" unique_id=208596932]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_mlw3h")
-text = "Experimental:"
 
 [node name="ResolutionHeaderLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=648387271]
 visible = false
@@ -132,7 +149,25 @@ alignment = 1
 layout_mode = 2
 text = "Back"
 
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Master/VolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Music/VolumeSlider" to="." method="_on_music_slider_value_changed"]
+[node name="SoundManager" type="Node" parent="." unique_id=1290532495 node_paths=PackedStringArray("volume_sliders")]
+script = ExtResource("4_grlu4")
+volume_sliders = [NodePath("../MarginContainer/VBoxContainer/AudioSettings/SoundEffects/SoundVolumeSlider"), NodePath("../MarginContainer/VBoxContainer/AudioSettings/Music/MusicVolumeSlider"), NodePath("../MarginContainer/VBoxContainer/AudioSettings/Master/MasterVolumeSlider")]
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1989373439]
+stream = ExtResource("4_qbfup")
+bus = &"SFX"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=702828780]
+stream = ExtResource("6_grlu4")
+bus = &"SFX"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=130928900]
+stream = ExtResource("5_leooa")
+bus = &"SFX"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Master/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/Music/MusicVolumeSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioSettings/SoundEffects/SoundVolumeSlider" to="." method="_on_sound_effects_volume_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/AudioSettings/MusicToggle" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/AudioSettings/MusicToggle" to="SoundManager" method="_on_music_toggle_toggled"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_button_up"]

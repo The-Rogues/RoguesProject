@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://jh4842oe7n3n"]
+
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_rf6he"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_sh244"]
+
+[resource]
+script = ExtResource("2_sh244")
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://4dob4uruga2l"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_87a4a"]
+[ext_resource type="Script" uid="uid://dthoottn2f5po" path="res://content/cards/mericful_cards/shrink/hp_percent_reduction_action.gd" id="2_qsict"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_so388"]
+
+[sub_resource type="Resource" id="Resource_str63"]
+script = ExtResource("2_qsict")
+target_option = 2
+ignore_foreground = true
+metadata/_custom_type_script = "uid://dthoottn2f5po"
+
+[resource]
+script = ExtResource("2_so388")
+type = 2
+energy_cost = 2
+name = "Shrink"
+description = "Reduce an enemy's remaining HP by [color=#43A047]50[/color] percent."
+play_actions = Array[ExtResource("1_87a4a")]([SubResource("Resource_str63")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

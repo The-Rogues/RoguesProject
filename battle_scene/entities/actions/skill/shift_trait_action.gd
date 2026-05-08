@@ -25,6 +25,7 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 				_calculate_weight(player.strategic_trait.weight_value)
 			)
 	await _context.creature_manager.get_tree().create_timer(0.15).timeout
+	#assert(false)
 
 
 func _calculate_weight(current_weight:int) -> int:

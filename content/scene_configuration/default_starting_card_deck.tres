@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardDeck" format=3 uid="uid://22ofhj78lh2w"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_apc5v"]
+[ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="2_u3a0g"]
+[ext_resource type="Resource" uid="uid://8cc0qb3afpjw" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_gep5e"]
+[ext_resource type="Resource" uid="uid://bjmif7jljymoe" path="res://content/cards/traitless_cards/defend.tres" id="4_uxlmi"]
+[ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="5_s7w31"]
+[ext_resource type="Script" uid="uid://pgg0p2c0npuf" path="res://content/scene_configuration/scripts/card_deck.gd" id="6_faw30"]
+
+[resource]
+script = ExtResource("6_faw30")
+deck_name = "Default Starting Card Deck"
+cards = Array[ExtResource("1_apc5v")]([ExtResource("2_u3a0g"), ExtResource("2_u3a0g"), ExtResource("2_u3a0g"), ExtResource("3_gep5e"), ExtResource("4_uxlmi"), ExtResource("4_uxlmi"), ExtResource("4_uxlmi"), ExtResource("4_uxlmi"), ExtResource("5_s7w31"), ExtResource("5_s7w31"), ExtResource("5_s7w31"), ExtResource("5_s7w31")])
+metadata/_custom_type_script = "uid://pgg0p2c0npuf"

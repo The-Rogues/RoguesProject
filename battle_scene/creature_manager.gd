@@ -8,11 +8,15 @@ signal enemy_spawned(monster:MonsterEntity)
 
 @export var template_enemy:PackedScene
 @export var spawn_parent:Node2D
+
+var enemy_objects:Array[ObjectEntity] = []
 var enemies:Array[MonsterEntity]
 var player:PlayerEntity
 
 const ENEMY_SPACING = 0.15
 #const ENEMY_Y_POSITION = 0.5
+
+var show_preferences: bool = false
 
 func initialize(_player:PlayerEntity, _enemies:Array[MonsterData]):
 	player = _player
@@ -22,7 +26,11 @@ func initialize(_player:PlayerEntity, _enemies:Array[MonsterData]):
 		spawn_enemy(data, -1, false)
 
 
-func spawn_enemy(data:MonsterData, starting_health:int = -1, choose_intent:bool = false):
+func spawn_enemy(
+		data:MonsterData, 
+		starting_health:int = -1, 
+		choose_intent:bool = false,
+		status_effect:StatusEffectConfig = null):
 	var monster:MonsterEntity = template_enemy.instantiate()
 	spawn_parent.add_child(monster)
 	monster.global_position = spawn_parent.global_position
@@ -43,6 +51,9 @@ func spawn_enemy(data:MonsterData, starting_health:int = -1, choose_intent:bool 
 	
 	if choose_intent:
 		monster.choose_intent()
+	
+	if status_effect:
+		monster.apply_status_effect(status_effect)
 
 
 func _position_enemies():
@@ -67,6 +78,15 @@ func _position_enemies():
 		enemies[i].global_position = Vector2(start_x + i * spacing, y_pos)
 
 
+func add_object_enemy(object:ObjectEntity):
+	if object.data.is_enemy:
+		enemy_objects.append(object)
+		object.destroyed.connect(
+			func(_object):
+				enemy_objects.erase(_object)
+				check_enemy_defeat_condition())
+
+
 func _on_creature_defeated(creature:AbstractCreature):
 	if creature is PlayerEntity:
 		player_defeated.emit()
@@ -74,10 +94,18 @@ func _on_creature_defeated(creature:AbstractCreature):
 		enemy_defeated.emit(creature)
 		enemies.erase(creature)
 		
-		if enemies.is_empty():
-			all_enemies_defeated.emit()
+		check_enemy_defeat_condition()
 		
 		creature.queue_free()
+
+
+func check_enemy_defeat_condition():
+	if enemies.is_empty() and enemy_objects.is_empty():
+			all_enemies_defeated.emit()
+
+func toggle_preferences():
+	for i in range(0, enemies.size()):
+		enemies[i].stat_display.toggle_preferences()
 
 func update_attack_targeting() -> void:
 	reset_attack_targeting()
@@ -86,6 +114,31 @@ func update_attack_targeting() -> void:
 	apply_dangerous()
 	apply_intelegent()
 	apply_imbued()
+	update_preference_displays()
+
+func update_preference_displays():
+	var display_order: Array[int] = player.data.personality.create_trait_order(
+		player.offensive_trait.weight_value,
+		player.defensive_trait.weight_value,
+		player.strategic_trait.weight_value
+	)
+	for i in range(0, enemies.size()):
+		enemies[i].stat_display.preference_container.clear_icons()
+		enemies[i].stat_display.preference_container.visible = show_preferences
+		enemies[i].stat_display.status_effect_container.visible = !show_preferences
+		for j in range(0, display_order.size()):
+			var curr_trait: Trait
+			match display_order[j]:
+				0:
+					curr_trait = player.offensive_trait
+				1:
+					curr_trait = player.defensive_trait
+				2:
+					curr_trait = player.strategic_trait
+			if enemies[i].updated_targeting.has(curr_trait.data.enemy_targeting_preference):
+				enemies[i].stat_display.preference_container.add_icon(
+					curr_trait.data.display_texture
+				)
 
 func apply_healthiest() -> void:
 	if enemies.size() == 0:

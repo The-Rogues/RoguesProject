@@ -4,7 +4,6 @@ class_name ActionResolver
 var action_queue:ActionQueue
 var battle_context:BattleContext
 
-
 func _init(context:BattleContext) -> void:
 	battle_context = context
 	action_queue = ActionQueue.new()
@@ -25,10 +24,7 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 				if battle_pos:
 					resolved_targeting.append(battle_pos.get_object())
 				else:
-					if player.battle_position.has_object() && !in_action.ignore_foreground:
-						resolved_targeting.append(player.battle_position.get_object())
-					else:
-						resolved_targeting.append(player)
+					resolved_targeting.append(player)
 			else:
 				resolved_targeting.append(player)
 		2: # Enemy
@@ -46,7 +42,10 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 						filtered_enemies = battle_context.creature_manager.enemies
 					
 					target = player.data.personality.choose_enemy_target(
-						filtered_enemies
+						filtered_enemies,
+						player.offensive_trait.weight_value,
+						player.defensive_trait.weight_value,
+						player.strategic_trait.weight_value
 					)
 				
 				resolved_targeting.append(target)

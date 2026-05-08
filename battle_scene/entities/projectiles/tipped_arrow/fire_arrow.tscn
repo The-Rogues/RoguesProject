@@ -461,10 +461,10 @@ radius = 14.035668
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_qcblo")
-status = SubResource("Resource_mlfnm")
 speed = 420.0
 damage = 6
 life_span = NodePath("LifeSpan")
+status = SubResource("Resource_mlfnm")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=753249800]
 
@@ -476,6 +476,7 @@ scale = Vector2(1.9999999, 1.9999999)
 texture = ExtResource("2_wm3rg")
 
 [node name="StuckArrow" parent="SpritePivot/Sprite2D2" unique_id=1169763427 instance=ExtResource("3_u7cpw")]
+unique_name_in_owner = true
 position = Vector2(-6.7800894, -5.939735)
 rotation = -0.83077675
 scale = Vector2(0.5, 0.5)

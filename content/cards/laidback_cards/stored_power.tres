@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp26ik751gx8i"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qrcph"]
+[ext_resource type="Script" uid="uid://c4wacutsxb7p6" path="res://content/cards/laidback_cards/laidback_action.gd" id="2_hlhw7"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_wu1rk"]
+
+[sub_resource type="Resource" id="Resource_6712o"]
+script = ExtResource("2_hlhw7")
+metadata/_custom_type_script = "uid://c4wacutsxb7p6"
+
+[resource]
+script = ExtResource("2_wu1rk")
+type = 2
+category = 3
+name = "Stored Power"
+description = "Gain [color=#43A047]1[/color] Energy next turn. If you did not attack last turn, draw [color=#43A047]1[/color] card."
+play_actions = Array[ExtResource("1_qrcph")]([SubResource("Resource_6712o")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

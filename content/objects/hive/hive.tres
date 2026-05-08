@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://b8mm8aiuou87g"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_r6xxc"]
+[ext_resource type="Texture2D" uid="uid://ce07qyh04wril" path="res://content/objects/hive/hive.png" id="1_wy4mv"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_fxoqt"]
+[ext_resource type="Resource" uid="uid://ql7kqaenuut" path="res://content/monsters/bee/bee.tres" id="3_gmdqs"]
+[ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="4_6wrow"]
+
+[sub_resource type="Resource" id="Resource_sd16f"]
+script = ExtResource("4_6wrow")
+monster_data = ExtResource("3_gmdqs")
+metadata/_custom_type_script = "uid://crxnbj8rigrkp"
+
+[resource]
+script = ExtResource("2_fxoqt")
+targeting_categories = Array[int]([3])
+interaction = 5
+interaction_actions = Array[ExtResource("1_r6xxc")]([SubResource("Resource_sd16f")])
+turn_interaction_counter = 2
+hover_description = "Summons a Bee enemy every 2 turns."
+display_texture = ExtResource("1_wy4mv")
+name = "Hive"
+health = 1
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

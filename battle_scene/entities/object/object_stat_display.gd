@@ -4,6 +4,7 @@ class_name ObjectStatDisplay
 @onready var health_bar: HealthBar = $HealthBar
 #@onready var interaction_label: Label = $InteractionLabel
 @onready var interaction_button: Button = $InteractionButton
+@onready var preference_container: PreferenceContainer = $PreferenceContainer
 var can_interact:bool = true
 
 func initialize(object:ObjectEntity):
@@ -16,11 +17,7 @@ func initialize(object:ObjectEntity):
 		ObjectData.InteractionOption.ON_HIT:
 			pass
 			#interaction_label.text = "Hit"
-		ObjectData.InteractionOption.BUTTON:
-			#interaction_label.text = "Get Close"
-			interaction_button.text = "Interact"
-			interaction_button.button_up.connect(object.interact)
-		ObjectData.InteractionOption.BUTTON_WITH_KEY:
+		ObjectData.InteractionOption.WITH_KEY:
 			#interaction_label.text = "Get Close"
 			
 			connect_button_to_player(object)
@@ -60,8 +57,7 @@ func _on_health_changed(current:int, max:int):
 
 
 func _on_player_entered(object:ObjectEntity):
-	if (object.data.interaction == ObjectData.InteractionOption.BUTTON or
-		object.data.interaction == ObjectData.InteractionOption.BUTTON_WITH_KEY
+	if  (object.data.interaction == ObjectData.InteractionOption.WITH_KEY
 		and can_interact):
 		interaction_button.visible = true
 	else:

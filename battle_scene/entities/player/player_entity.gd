@@ -17,12 +17,21 @@ var unused_energy_last_turn: int = 0
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var movement_controller:PlayerMovementController = $MovementController
 @onready var energy:Energy = $Stats/Energy
-@onready var offensive_trait:Trait = $Stats/Offense
-@onready var defensive_trait:Trait = $Stats/Defense
-@onready var strategic_trait:Trait = $Stats/Strategy
+@onready var offensive_trait:Trait = Trait.new()
+@onready var defensive_trait:Trait = Trait.new()
+@onready var strategic_trait:Trait = Trait.new()
 @onready var cards:CardHandler = $CardHandler
 @onready var object_slot: ObjectSlot = $ObjectSlot
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
+
+@onready var melee_weapon_animator: AnimationPlayer = %MeleeWeaponAnimator
+@onready var ranged_weapon_animator: AnimationPlayer = %RangedWeaponAnimator
+@onready var ranged_weapon: Node2D = %RangedWeapon
+@onready var ranged_weapon_sprite: Sprite2D = $RangedWeapon/Sprite2D
+@onready var melee_weapon_sprite: Sprite2D = $MeleeWeapon/Sprite2D
+
+var ai_processer_scn: PackedScene = preload("res://ai/processer/AiCardProcesser.tscn")
+var ai_processer: AiCardProcesser = ai_processer_scn.instantiate()
 
 
 func initialize(_data:PlayerData):
@@ -52,18 +61,27 @@ func initialize(_data:PlayerData):
 	health.died.connect(on_destroyed)
 	movement_controller.entered_new_position.connect(_on_enterned_new_position)
 	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
+	
+	add_child(ai_processer)
+
 
 
 func take_damage(amount:int, _attacker = null):
 	var damage:int = effects.apply_incoming_damage_effects(amount)
-	damage = block.absorb_damage(damage)
 	
-	DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
-	sprite_2d.flash()
-	health.take_damage(damage)
-	damage_taken_this_turn += damage
-	
-	effects.on_attacked(_attacker)
+	if !_object_intercept_attack(damage, _attacker):
+		attacker = _attacker
+		damage = block.absorb_damage(damage)
+		DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
+		sprite_2d.flash()
+		health.take_damage(damage)
+		damage_taken_this_turn += damage
+		
+		if !_attacker is Projectile:
+			effects.on_attacked(_attacker)
+		
+		if _attacker is AbstractEntity:
+			_attacker.set_last_attacked_entity(self)
 
 
 func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):
@@ -93,21 +111,37 @@ func enter_turn(_turn_count:int):
 	#effects.decay_status_effects()
 	record_end_turn_state()
 	energy.refill()
-	
+	turn_entered.emit()
 
 
 func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 	if energy.spend(card.instance.energy_cost):
 		cards.move_drawn_card_into_discard_pile(card.instance)
 		play_hand.confirm_play(card)
-		resolver.process_actions(card.instance.data.play_actions, self)
 		
-		effects.process_played_card(card.instance, resolver)
+		if card.instance.data is AiCardData:
+			var processed_card: CardData = await ai_processer.process_card(
+				data.personality,
+				card.instance.data
+			)
+			var processed_card_instance: CardInstance = CardInstance.new(processed_card)
+			cards.add_card_to_draw_pile(
+				processed_card_instance, 
+				true
+			)
+			cards.draw_cards(1)
+		else:
+			resolver.process_actions(card.instance.data.play_actions, self)
 		
-		played_card.emit(card.instance)
-		if card.instance.data.type == CardData.Type.ATTACK:
-			attacked_this_turn = true
-			play_attack_anim()
+			effects.process_played_card(card.instance, resolver)
+		
+			played_card.emit(card.instance)
+			if card.instance.data.type == CardData.Type.ATTACK:
+				attacked_this_turn = true
+				play_attack_anim()
+				melee_weapon_animator.play("swing")
+			elif card.instance.data.type == CardData.Type.RANGED:
+				ranged_weapon_animator.play("fire")
 	else:
 		play_hand.reject_play()
 
@@ -141,5 +175,19 @@ func place_object() -> bool:
 func _on_enterned_new_position():
 	place_object()
 
+
 func record_end_turn_state():
 	unused_energy_last_turn = energy.value
+
+
+func _object_intercept_attack(damage:int, _attacker) -> bool:
+	if !_attacker is MonsterEntity:
+		return false
+	if _attacker is Projectile:
+		return false
+	
+	if battle_position.has_object() and battle_position.get_object().health.is_alive:
+		battle_position.get_object().take_damage(damage, _attacker)
+		return true
+	else:
+		return false

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4m3oghhdtbj0"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_2xa68"]
+[ext_resource type="PackedScene" uid="uid://cifla3w3bv3qa" path="res://content/friends/penguin/snowball.tscn" id="2_ebyhj"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_xwkpn"]
+[ext_resource type="Script" uid="uid://dmdtjr7nutx2e" path="res://content/friends/penguin/penguin_friend.gd" id="4_tcf8i"]
+[ext_resource type="Script" uid="uid://24v1ynwivrsc" path="res://content/cards/friendly_cards/summon_friend_action.gd" id="5_nmiy6"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_6dv4y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_igrcg"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdp1r"]
+atlas = SubResource("CompressedTexture2D_igrcg")
+region = Rect2(440, 0, 40, 40)
+
+[sub_resource type="Resource" id="Resource_7e5qi"]
+script = ExtResource("3_xwkpn")
+projectile_scene = ExtResource("2_ebyhj")
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_imai8"]
+script = ExtResource("4_tcf8i")
+projectile_data = SubResource("Resource_7e5qi")
+metadata/_custom_type_script = "uid://dmdtjr7nutx2e"
+
+[sub_resource type="Resource" id="Resource_jq0jd"]
+script = ExtResource("5_nmiy6")
+friend = SubResource("Resource_imai8")
+metadata/_custom_type_script = "uid://24v1ynwivrsc"
+
+[resource]
+script = ExtResource("6_6dv4y")
+type = 2
+category = 3
+energy_cost = 3
+name = "Fish Treat"
+display_texture = SubResource("AtlasTexture_sdp1r")
+description = "Summons a Penguin friend. Throws a snowball when you attack. Exhaust."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_2xa68")]([SubResource("Resource_jq0jd")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

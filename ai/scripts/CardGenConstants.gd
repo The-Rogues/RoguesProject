@@ -16,9 +16,16 @@ enum CardGenEnum {
 }
 
 # Map for turning the enumerations into strings within the prompt.
-const CardGenMap: Dictionary[CardGenEnum, String] = {
+const CardGenNames: Dictionary[CardGenEnum, String] = {
 	CardGenEnum.stdatk: "stdatk",
 	CardGenEnum.stddef: "stddef",
 	CardGenEnum.dblatk: "dblatk",
 	CardGenEnum.atkall: "atkall"
+}
+
+const CardGenDefs: Dictionary[CardGenEnum, String] = {
+	CardGenEnum.stdatk: "Adds a standard ammount of attack damage to an action.",
+	CardGenEnum.stddef: "Adds a standard ammount of sheild, which blocks enemy damage, to an action.",
+	CardGenEnum.dblatk: "Adds a small ammount of attack damage to an action. The action's attack damage is split into two strikes.",
+	CardGenEnum.atkall: "Adds a small ammount of attack damage to an action. The action's attack damage is applied to all enemies."
 }

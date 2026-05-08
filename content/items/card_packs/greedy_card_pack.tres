@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://cvm36c08hkjht"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_63y64"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="2_5qfqh"]
+[ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_bywr7"]
+[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/charity/charity.tres" id="2_dtcdo"]
+[ext_resource type="Resource" uid="uid://b0w7q3nduf8j2" path="res://content/cards/greedy_cards/cash_in/cash_in.tres" id="3_6noxn"]
+[ext_resource type="Resource" uid="uid://3eathy5ylmpr" path="res://content/cards/greedy_cards/gold_rush/gold_rush.tres" id="4_70qja"]
+[ext_resource type="Resource" uid="uid://df8onaglb031c" path="res://content/cards/greedy_cards/life_savings/life_savings.tres" id="5_1c2le"]
+[ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="6_b2dgu"]
+
+[resource]
+script = ExtResource("2_bywr7")
+card_pool = Array[ExtResource("1_63y64")]([ExtResource("2_dtcdo"), ExtResource("3_6noxn"), ExtResource("4_70qja"), ExtResource("5_1c2le"), ExtResource("6_b2dgu")])
+draw_count = 3
+rarity = 1
+name = "Greedy Card Pack"
+description = "Choose 1 Greedy card to add to your deck."
+display_texture = ExtResource("2_5qfqh")
+shop_price = 15
+sell_price = 5
+metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

@@ -9,5 +9,9 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 			continue
 		
 		if target is AbstractCreature:
-			target.apply_status_effect(effect)
-			await action_resolve_delay()
+			if !ignore_foreground:
+				target.apply_status_effect(effect)
+				await action_resolve_delay()
+			else:
+				target.apply_status_effect(effect, true)
+				await action_resolve_delay()

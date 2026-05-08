@@ -33,5 +33,5 @@ move_sequences = Array[ExtResource("1_jia20")]([SubResource("Resource_tbafi"), S
 behaviour = SubResource("Resource_u1gvk")
 display_texture = SubResource("AtlasTexture_expjv")
 name = "Skeleton Archer"
-health = 20
+health = 12
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

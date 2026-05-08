@@ -7,7 +7,7 @@ func on_stack(
 	_other:ActiveStatusEffect = null
 ) -> void:
 	instance.stack += _other.stack
-	instance.duration += 1
+	instance.duration = 2
 
 
 func get_status_name() -> String:
@@ -24,3 +24,15 @@ func get_texture() -> Texture2D:
 
 func on_attacked(_attacker:AbstractEntity, _instance:ActiveStatusEffect):
 	_attacker.take_damage(_instance.stack, null)
+
+func on_turn_entered(
+	_creature:AbstractCreature = null,
+	_instance:ActiveStatusEffect = null
+) -> void:
+	if _creature is PlayerEntity:
+		_creature.effects.active_effects.erase(_instance)
+		_creature.stat_display.status_effect_container.icons[_instance].queue_free()
+		_creature.stat_display.status_effect_container.icons.erase(_instance)
+		effect_ended.emit()
+	if _creature is MonsterEntity:
+		_instance.duration = 1

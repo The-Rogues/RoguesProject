@@ -1,45 +1,60 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_k7d58"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_wh6of"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="3_upqny"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="4_br818"]
-[ext_resource type="Script" path="res://item_system/item_data.gd" id="5_r5eiv"]
-[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="6_fcpjs"]
-[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="7_f04e1"]
-[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="8_i06bj"]
-[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="9_sds6a"]
-[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="10_jfmdv"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="11_k7d58"]
-[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="12_ce22o"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_i06bj"]
+[ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="2_sds6a"]
+[ext_resource type="Resource" uid="uid://8cc0qb3afpjw" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_jfmdv"]
+[ext_resource type="Resource" uid="uid://bjmif7jljymoe" path="res://content/cards/traitless_cards/defend.tres" id="4_uahfr"]
+[ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="5_ce22o"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="6_3l5uq"]
+[ext_resource type="Resource" uid="uid://qbxcv1tx3lp1" path="res://content/cards/traitless_cards/privilege.tres" id="6_i06bj"]
+[ext_resource type="Resource" uid="uid://ck1tj3cj82hbk" path="res://content/personality_traits/skittish.tres" id="7_i06bj"]
+[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="7_sds6a"]
+[ext_resource type="Resource" uid="uid://5txjkiagx73e" path="res://content/personality_traits/merciful.tres" id="8_sds6a"]
+[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://personality_system/personality_data.gd" id="9_iofhu"]
+[ext_resource type="Resource" uid="uid://c6hd6w7xmy4jb" path="res://content/personality_traits/greedy.tres" id="10_f04e1"]
+[ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="11_k3uip"]
+[ext_resource type="Texture2D" uid="uid://do366ftl7nk6m" path="res://battle_scene/entities/player/ranged_weapon/trident.tres" id="12_i06bj"]
+[ext_resource type="Texture2D" uid="uid://iif4a4jwl7i2" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_7.tres" id="13_sds6a"]
+[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://globals/scene_management/run_progress.gd" id="15_ff1hj"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="16_rjjt7"]
+[ext_resource type="Resource" uid="uid://caj2y7wvrkaru" path="res://content/map_events/metal_man_challenge.tres" id="17_ugj3v"]
+[ext_resource type="Resource" uid="uid://4aesuls8rvn8" path="res://content/map_events/abandoned_card_event.tres" id="18_ju2aj"]
+[ext_resource type="Resource" uid="uid://c00go6pppylp" path="res://content/map_events/old_man_event_v1.tres" id="19_7cy65"]
 
-[sub_resource type="Resource" id="Resource_wh6of"]
-script = ExtResource("8_i06bj")
-offensive_trait = ExtResource("7_f04e1")
+[sub_resource type="Resource" id="Resource_jfmdv"]
+script = ExtResource("9_iofhu")
+offensive_trait = ExtResource("8_sds6a")
 offensive_weight = 2
-defensive_trait = ExtResource("6_fcpjs")
+defensive_trait = ExtResource("7_i06bj")
 defensive_weight = 1
-strategic_trait = ExtResource("9_sds6a")
+strategic_trait = ExtResource("10_f04e1")
 strategic_weight = 1
-priority_trait = ExtResource("7_f04e1")
+priority_trait = ExtResource("8_sds6a")
 
-[sub_resource type="Resource" id="Resource_upqny"]
-script = ExtResource("10_jfmdv")
-name = "Jacob"
+[sub_resource type="Resource" id="Resource_uahfr"]
+script = ExtResource("11_k3uip")
+name = "Ruth"
 max_health = 70
 current_health = 70
+current_energy = 3
 max_energy = 3
 item_capacity = 1
-cards = Array[ExtResource("1_k7d58")]([ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("2_wh6of"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("3_upqny"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818"), ExtResource("4_br818")])
-personality = SubResource("Resource_wh6of")
+cards = Array[ExtResource("1_i06bj")]([ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("3_jfmdv"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("5_ce22o"), ExtResource("5_ce22o"), ExtResource("5_ce22o"), ExtResource("5_ce22o"), ExtResource("6_i06bj"), ExtResource("7_sds6a")])
+gold = 28
+personality = SubResource("Resource_jfmdv")
 
 [resource]
-script = ExtResource("12_ce22o")
-player_data = SubResource("Resource_upqny")
-player_texture = ExtResource("11_k7d58")
-player_name = "Jacob"
+script = ExtResource("15_ff1hj")
+player_data = SubResource("Resource_uahfr")
+player_texture = ExtResource("13_sds6a")
+player_melee_weapon_texture = ExtResource("12_i06bj")
+player_ranged_weapon_texture = ExtResource("12_i06bj")
+player_name = "Ruth"
 player_backstory = ""
-map_seed = 4272367249
-pending_node_index = 1
+map_seed = 1354888844
+player_node_index = 7
+pending_node_index = 9
 room_in_progress = true
+single_time_mini_events = Array[ExtResource("16_rjjt7")]([ExtResource("17_ugj3v"), ExtResource("19_7cy65"), ExtResource("18_ju2aj")])
+total_rooms_explored = 3
 initialized = true

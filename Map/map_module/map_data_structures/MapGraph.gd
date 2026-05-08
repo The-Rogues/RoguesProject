@@ -553,6 +553,24 @@ func get_layer(in_layer: int) -> Array[RefCounted]:
 			break
 	return ret_val
 
+
+func choose_mini_event() -> MiniEventData:
+	var events:Array[MiniEventData] = [
+		load("res://content/map_events/old_man_event_v1.tres"),
+		load("res://content/map_events/treasure_pot_event.tres"),
+		load("res://content/map_events/campfire_event.tres"),
+		load("res://content/map_events/metal_man_challenge.tres"),
+		load("res://content/map_events/abandoned_card_event.tres")
+	]
+	
+	var run = GlobalSessionManager.run_progress
+	if run:
+		for event in run.single_time_mini_events:
+			if events.has(event):
+				events.erase(event)
+	return events.pick_random()
+
+
 # --populate_events Function--
 # Description: Logic for determining the distribution of events among MapGraphNodes.
 #              Currently evenly distributes battle and non-battle events.
@@ -645,7 +663,14 @@ func populate_events(rand_seed: int) -> void:
 	
 	for i in range(1, node_arr.size()):
 		if (i % 2) == 1:
-			node_arr[i].node_data.mini_event = mini_data
+			var event = choose_mini_event()
+			if !event.repeatable:
+				var run = GlobalSessionManager.run_progress
+				
+				if run:
+					run.single_time_mini_events.append(event)
+			
+			node_arr[i].node_data.mini_event = event
 
 # --add_main_event Function--
 # Description: Creates a new EventData resource and adds the provided main event to it.

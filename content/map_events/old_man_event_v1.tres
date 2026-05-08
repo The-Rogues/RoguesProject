@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://c00go6pppylp"]
+
+[ext_resource type="Texture2D" uid="uid://qa0uh472nj2w" path="res://common/art/placeholder/32_rogues/rogues.png" id="1_8r540"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_546tw"]
+[ext_resource type="Script" uid="uid://dlyrsdehcqr1v" path="res://mini_event_system/results/give_gold_event_result.gd" id="2_8df7h"]
+[ext_resource type="Script" uid="uid://6yb8bx1u36ap" path="res://mini_event_system/conditions/has_gold_event_condition.gd" id="3_t5hs4"]
+[ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="4_jh1y2"]
+[ext_resource type="Script" uid="uid://b76synm5erqo8" path="res://mini_event_system/results/change_health_event_result.gd" id="5_btujx"]
+[ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="6_v824j"]
+[ext_resource type="Script" uid="uid://jfvuxohdk2yt" path="res://mini_event_system/results/give_item_event_result.gd" id="7_xvmwv"]
+[ext_resource type="Script" uid="uid://brd5m732vyy5t" path="res://mini_event_system/results/random_event_result.gd" id="8_lcgk8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krvhp"]
+atlas = ExtResource("1_8r540")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="Resource" id="Resource_vyejp"]
+script = ExtResource("2_8df7h")
+gold = -15
+metadata/_custom_type_script = "uid://dlyrsdehcqr1v"
+
+[sub_resource type="Resource" id="Resource_vjdii"]
+script = ExtResource("3_t5hs4")
+required_gold = 15
+metadata/_custom_type_script = "uid://6yb8bx1u36ap"
+
+[sub_resource type="Resource" id="Resource_m1dcj"]
+script = ExtResource("5_btujx")
+amount = 7
+metadata/_custom_type_script = "uid://b76synm5erqo8"
+
+[sub_resource type="Resource" id="Resource_45n3l"]
+script = ExtResource("7_xvmwv")
+item = ExtResource("6_v824j")
+metadata/_custom_type_script = "uid://jfvuxohdk2yt"
+
+[sub_resource type="Resource" id="Resource_dql76"]
+script = ExtResource("2_8df7h")
+gold = 30
+metadata/_custom_type_script = "uid://dlyrsdehcqr1v"
+
+[sub_resource type="Resource" id="Resource_1vb0d"]
+script = ExtResource("8_lcgk8")
+results = Array[ExtResource("4_jh1y2")]([SubResource("Resource_m1dcj"), SubResource("Resource_45n3l"), SubResource("Resource_dql76")])
+weights = Array[float]([1.0, 2.0, 1.0])
+metadata/_custom_type_script = "uid://brd5m732vyy5t"
+
+[resource]
+script = ExtResource("1_546tw")
+display_image = SubResource("AtlasTexture_krvhp")
+scenario_text = "You encounter an old man hunched on a wall. He pleads: \"Spare me some gold that I may eat\"."
+option_1_text = "Give Gold (15)"
+option_2_text = "Keep Walking"
+option_1_branch = Array[String](["The old man thanks you. Sparkles begin to surround him. He transforms into a wizard.", "\"Woooooooooough! You have passed my test. Heres something to help you on your journey.\""])
+option_2_branch = Array[String](["Farewell then."])
+option_1_condition = SubResource("Resource_vjdii")
+option_1_accept_event = SubResource("Resource_vyejp")
+option_1_result = SubResource("Resource_1vb0d")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

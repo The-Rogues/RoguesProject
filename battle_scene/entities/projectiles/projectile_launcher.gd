@@ -17,9 +17,19 @@ func fire(target_position:Vector2, data:ProjectileFireData):
 	
 	projectile_scene = data.projectile_scene
 	var projectile:Projectile = projectile_scene.instantiate()
-	projectile.source = get_parent()
+	
+	if get_parent() is Friend:
+		projectile.source = get_parent().player_owner
+	else:
+		projectile.source = get_parent()
+	
 	projectile.target_position = target_position
 	projectile.global_position = fire_point.global_position
+	
+	
+	projectile.status = data.status_effect
+	if data.damage != -1:
+		projectile.damage = data.damage
 	get_tree().current_scene.add_child(projectile)
 	projectiles.append(projectile)
 	projectile.freed.connect(projectile_freed)

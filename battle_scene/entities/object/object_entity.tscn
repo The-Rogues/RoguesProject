@@ -10,6 +10,13 @@
 [ext_resource type="Script" uid="uid://bg6brfw33g1s0" path="res://battle_scene/entities/object/object_stat_display.gd" id="7_vgro0"]
 [ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="8_ufudi"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="9_lc0qn"]
+[ext_resource type="Script" uid="uid://d8ft0of5kv3e" path="res://battle_scene/entities/object/object_sound_manager.gd" id="11_lc0qn"]
+[ext_resource type="Script" uid="uid://iiyj3mh6swyn" path="res://battle_scene/entities/ui/preference_container.gd" id="11_n2vx5"]
+[ext_resource type="AudioStream" uid="uid://bah4tuxd3vivs" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (1).wav" id="12_rxman"]
+[ext_resource type="AudioStream" uid="uid://qcl0n2yii78d" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (2).wav" id="13_n2vx5"]
+[ext_resource type="AudioStream" uid="uid://dbak7xwfehp36" path="res://common/sound_effects/helton_yans_pixel_combat/object_hit (3).wav" id="14_vq31a"]
+[ext_resource type="AudioStream" uid="uid://e20ql0judybs" path="res://common/sound_effects/helton_yans_pixel_combat/rubble_explosion.wav" id="15_f1i1o"]
+[ext_resource type="PackedScene" uid="uid://758lfph2mfo0" path="res://battle_scene/entities/object/object_tooltip.tscn" id="17_vq31a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiqcq"]
 atlas = ExtResource("2_mnebb")
@@ -169,6 +176,12 @@ shadow_color = Color(0, 0, 0, 0.27450982)
 bg_color = Color(0.9858559, 0.7745562, 0.79182756, 1)
 shadow_color = Color(0, 0, 0, 0.27450982)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fvgdg"]
+streams_count = 3
+stream_0/stream = ExtResource("12_rxman")
+stream_1/stream = ExtResource("13_n2vx5")
+stream_2/stream = ExtResource("14_vq31a")
+
 [node name="ObjectEntity" type="Node2D" unique_id=1521707546 node_paths=PackedStringArray("health", "projectile_launcher")]
 script = ExtResource("1_mnebb")
 health = NodePath("Health")
@@ -320,8 +333,55 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 10
 text = "Interaction"
 
+[node name="PreferenceContainer" type="HBoxContainer" parent="ObjectStatDisplay" unique_id=1784178439]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10227273
+anchor_top = 2.475
+anchor_right = 0.82954544
+anchor_bottom = 3.075
+script = ExtResource("11_n2vx5")
+metadata/_edit_use_anchors_ = true
+
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1688580079]
 position = Vector2(0, -45)
 
+[node name="SoundManager" type="Node" parent="." unique_id=1074507864 node_paths=PackedStringArray("entity")]
+script = ExtResource("11_lc0qn")
+entity = NodePath("..")
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1232128601]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_fvgdg")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=57633498]
+unique_name_in_owner = true
+stream = ExtResource("15_f1i1o")
+bus = &"SFX"
+
+[node name="HoverArea" type="Control" parent="." unique_id=836682292]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+
+[node name="ObjectTooltip" parent="HoverArea" unique_id=2004448281 instance=ExtResource("17_vq31a")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 59.0
+offset_top = -37.0
+offset_right = 279.0
+offset_bottom = 15.0
+grow_vertical = 2
+
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="ObjectStatDisplay/HealthBar/Timer" to="ObjectStatDisplay/HealthBar" method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_hover_area_mouse_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_hover_area_mouse_exited"]

@@ -10,6 +10,11 @@
 [ext_resource type="Script" uid="uid://b7m80cndvmobf" path="res://battle_scene/entities/status_effects/status_effect_controller.gd" id="4_8ijsm"]
 [ext_resource type="PackedScene" uid="uid://nxd0nkvcjmf6" path="res://battle_scene/entities/ui/creature_stat_display.tscn" id="7_1hoga"]
 [ext_resource type="PackedScene" uid="uid://5dltxoue1tck" path="res://battle_scene/entities/monster/intents/intent_icon.tscn" id="8_834fu"]
+[ext_resource type="Script" uid="uid://laanchd48n58" path="res://battle_scene/entities/entity_sound_manager.gd" id="11_fawig"]
+[ext_resource type="AudioStream" uid="uid://4o8q6fuof520" path="res://common/sound_effects/helton_yans_pixel_combat/creature_hit_0.wav" id="12_hkf6l"]
+[ext_resource type="Script" uid="uid://cyo44ts1gsti5" path="res://battle_scene/entities/monster/monster_body_launcher.gd" id="13_hkf6l"]
+[ext_resource type="AudioStream" uid="uid://cje4f1quref5q" path="res://common/sound_effects/helton_yans_pixel_combat/monster_death.wav" id="13_jad2f"]
+[ext_resource type="AudioStream" uid="uid://bt7amllty1mb3" path="res://common/sound_effects/helton_yans_pixel_combat/add_shield.wav" id="14_y75dj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ijsm"]
 resource_local_to_scene = true
@@ -170,6 +175,12 @@ _data = {
 &"walk": SubResource("Animation_8ijsm")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jad2f"]
+streams_count = 3
+stream_0/stream = ExtResource("12_hkf6l")
+stream_1/stream = ExtResource("12_hkf6l")
+stream_2/stream = ExtResource("12_hkf6l")
+
 [node name="MonsterEntity" type="Node2D" unique_id=1521707546 node_paths=PackedStringArray("effects", "block", "animation_player", "stat_display", "health", "projectile_launcher")]
 script = ExtResource("1_834fu")
 effects = NodePath("Stats/StatusEffectController")
@@ -244,3 +255,27 @@ offset_bottom = -61.0
 
 [node name="DamageNumbersSpawn" type="Node2D" parent="." unique_id=1596181474]
 position = Vector2(0, -45)
+
+[node name="EntitySoundManager" type="Node" parent="." unique_id=1771114949 node_paths=PackedStringArray("entity")]
+script = ExtResource("11_fawig")
+entity = NodePath("..")
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="EntitySoundManager" unique_id=2037221433]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_jad2f")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="EntitySoundManager" unique_id=2093531142]
+unique_name_in_owner = true
+stream = ExtResource("13_jad2f")
+bus = &"SFX"
+
+[node name="AddBlockSound" type="AudioStreamPlayer" parent="EntitySoundManager" unique_id=1464478815]
+unique_name_in_owner = true
+stream = ExtResource("14_y75dj")
+pitch_scale = 2.0
+bus = &"SFX"
+
+[node name="MonsterBodyLauncher" type="Node" parent="." unique_id=71949423 node_paths=PackedStringArray("monster")]
+script = ExtResource("13_hkf6l")
+monster = NodePath("..")

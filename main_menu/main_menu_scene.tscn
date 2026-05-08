@@ -4,15 +4,34 @@
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_l7n8r"]
 [ext_resource type="Texture2D" uid="uid://bdtyt8v7c3o51" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Divider/divider-002.png" id="3_vv2lb"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="4_1yt4p"]
-[ext_resource type="PackedScene" uid="uid://dnqnor18jtlow" path="res://main_menu/save_screen.tscn" id="5_3s87x"]
 [ext_resource type="PackedScene" uid="uid://dr83xtsi28vsw" path="res://options_menu/settings_menu.tscn" id="5_ph7i1"]
+[ext_resource type="Script" uid="uid://bhvccd0td2feo" path="res://common/warning_panel (old)/warning_panel.gd" id="7_bn1a5"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="7_ph7i1"]
+[ext_resource type="Script" uid="uid://bjewkcldewjoc" path="res://main_menu/main_menu_sound_manager.gd" id="8_x1yhy"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="9_pqu83"]
+[ext_resource type="AudioStream" uid="uid://bu5ow7dk4bxeh" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_0.wav" id="10_it65c"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="10_pqu83"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="12_k0vs0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vv2lb"]
 content_margin_left = 36.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijfeh"]
 content_margin_left = 36.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1yhy"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_it65c"]
+load_path = "res://.godot/imported/panel-transparent-center-001.png-771c00a3fa782f53c7b268e48b626392.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pqu83"]
+texture = SubResource("CompressedTexture2D_it65c")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [node name="MainMenuScene" type="Control" unique_id=1974053826]
 layout_mode = 3
@@ -22,6 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("7_ph7i1")
 script = ExtResource("1_k7suw")
 
 [node name="Background" type="ColorRect" parent="." unique_id=2074132055]
@@ -34,39 +54,32 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TitleScreen" type="Control" parent="." unique_id=199966900]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="TitleMargin" type="MarginContainer" parent="TitleScreen" unique_id=1363348183]
+[node name="TitleHeader" type="MarginContainer" parent="." unique_id=1363348183]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -320.0
 offset_right = 320.0
-offset_bottom = 222.0
+offset_bottom = 236.0
 grow_horizontal = 2
 theme_override_constants/margin_top = 160
 
-[node name="Title" type="VBoxContainer" parent="TitleScreen/TitleMargin" unique_id=464789935]
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleHeader" unique_id=464789935]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Title" type="Label" parent="TitleScreen/TitleMargin/Title" unique_id=472913116]
+[node name="Title" type="Label" parent="TitleHeader/VBoxContainer" unique_id=472913116]
+modulate = Color(0.98775417, 0.65455836, 0.2919453, 1)
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l7n8r")
 theme_override_font_sizes/font_size = 40
-text = "The Rogues"
+text = "Identity Quest"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="TitleScreen/TitleMargin/Title" unique_id=605160905]
+[node name="Subtitle" type="Label" parent="TitleHeader/VBoxContainer" unique_id=605160905]
+modulate = Color(0.98775417, 0.65455836, 0.2919453, 1)
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l7n8r")
@@ -74,8 +87,8 @@ theme_override_font_sizes/font_size = 24
 text = "Roguelike Deckbuilder"
 horizontal_alignment = 1
 
-[node name="Devider" type="TextureRect" parent="TitleScreen/TitleMargin/Title" unique_id=58812547]
-modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
+[node name="Devider" type="TextureRect" parent="TitleHeader/VBoxContainer" unique_id=58812547]
+modulate = Color(0.98775417, 0.65455836, 0.2919453, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(488, 0)
 layout_mode = 2
@@ -83,50 +96,205 @@ size_flags_horizontal = 4
 mouse_filter = 2
 texture = ExtResource("3_vv2lb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TitleScreen" unique_id=1994636074]
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=2113473643]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -173.5
-offset_top = -294.0
-offset_right = 173.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 15.0
+offset_right = 128.0
+offset_bottom = 189.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 91
-theme_override_constants/margin_bottom = 120
-
-[node name="MenuElements" type="VBoxContainer" parent="TitleScreen/MarginContainer" unique_id=2113473643]
-layout_mode = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/separation = 16
-alignment = 1
+theme_override_constants/separation = 32
 
-[node name="Start" parent="TitleScreen/MarginContainer/MenuElements" unique_id=395129651 instance=ExtResource("4_1yt4p")]
+[node name="Start" parent="MainMenu" unique_id=395129651 instance=ExtResource("4_1yt4p")]
 layout_mode = 2
 text = "Start"
 
-[node name="Achievements" parent="TitleScreen/MarginContainer/MenuElements" unique_id=1256996498 instance=ExtResource("4_1yt4p")]
+[node name="Achievements" parent="MainMenu" unique_id=1256996498 instance=ExtResource("4_1yt4p")]
 layout_mode = 2
 text = "Achievements"
 disabled = true
 
-[node name="Options" parent="TitleScreen/MarginContainer/MenuElements" unique_id=909335963 instance=ExtResource("4_1yt4p")]
+[node name="Options" parent="MainMenu" unique_id=909335963 instance=ExtResource("4_1yt4p")]
 layout_mode = 2
 text = "Options"
 
-[node name="Credits" parent="TitleScreen/MarginContainer/MenuElements" unique_id=2040342503 instance=ExtResource("4_1yt4p")]
+[node name="Credits" parent="MainMenu" unique_id=2040342503 instance=ExtResource("4_1yt4p")]
 layout_mode = 2
 text = "Credits"
 
-[node name="Close" parent="TitleScreen/MarginContainer/MenuElements" unique_id=1116633885 instance=ExtResource("4_1yt4p")]
+[node name="ExitGame" parent="MainMenu" unique_id=1116633885 instance=ExtResource("4_1yt4p")]
 layout_mode = 2
 text = "Exit game"
 
+[node name="StartMenu" type="VBoxContainer" parent="." unique_id=467774942]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 15.0
+offset_right = 128.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+
+[node name="ContinueGame" parent="StartMenu" unique_id=34229224 instance=ExtResource("4_1yt4p")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="NewGame" parent="StartMenu" unique_id=954262013 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+text = "New Game"
+
+[node name="GoBack" parent="StartMenu" unique_id=1433254334 instance=ExtResource("4_1yt4p")]
+layout_mode = 2
+text = "Go Back"
+
+[node name="CreditsMenu" type="VBoxContainer" parent="." unique_id=1815456122]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -463.0
+offset_top = -73.0
+offset_right = 463.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsMenu" unique_id=1340963984]
+custom_minimum_size = Vector2(700, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vv2lb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ijfeh")
+horizontal_scroll_mode = 0
+
+[node name="Credits" type="VBoxContainer" parent="CreditsMenu/ScrollContainer" unique_id=1598296720]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="Title" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=877860117]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 32
+text = "Assets"
+horizontal_alignment = 1
+
+[node name="Seth" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=638712466]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Seth: 32rogues
+https://sethbb.itch.io/32rogues"
+horizontal_alignment = 1
+
+[node name="Kenny" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=1664690098]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Kenney: Fantasy UI Borders, Emotes Pack
+https://kenney.nl/assets/fantasy-ui-borders
+https://kenney.nl/assets/emotes-pack"
+horizontal_alignment = 1
+
+[node name="Nikoichu" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=1947236731]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Nikoichu: 1-bit Pixel Icons
+https://nikoichu.itch.io/pixel-icons"
+horizontal_alignment = 1
+
+[node name="Datagoblin" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=283660786]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Datagoblin: Dungeon-mode font
+https://datagoblin.itch.io/dungeonmode"
+horizontal_alignment = 1
+
+[node name="MarlionSilva" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=2147374293]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Marllon Silva (xDeviruchi)
+https://xdeviruchi.itch.io/16-bit-fantasy-adventure-music-pack"
+horizontal_alignment = 1
+
+[node name="Stealthix" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=465442769]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Stealthix (https://stealthix.itch.io/animated-fires)"
+horizontal_alignment = 1
+
+[node name="Heltan Yan" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=1159478717]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "Heltan Yan (https://heltonyan.itch.io/pixelcombat)"
+horizontal_alignment = 1
+
+[node name="JOI3" type="Label" parent="CreditsMenu/ScrollContainer/Credits" unique_id=1847147211]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
+theme_override_fonts/font = ExtResource("2_l7n8r")
+theme_override_font_sizes/font_size = 16
+text = "JOI3 (https://joi3.itch.io/joi3s-free-pixel-art-emoji-icon)"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="CreditsMenu" unique_id=1584628513]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return"
+
 [node name="SettingsMenu" parent="." unique_id=1072438755 instance=ExtResource("5_ph7i1")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -141,174 +309,88 @@ offset_bottom = 243.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SaveScreen" parent="." unique_id=1030190134 node_paths=PackedStringArray("main_menu") instance=ExtResource("5_3s87x")]
+[node name="SaveWarningPopuo" type="PanelContainer" parent="." unique_id=1096449001]
+unique_name_in_owner = true
 visible = false
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(500, 60)
 layout_mode = 1
-main_menu = NodePath("../TitleScreen")
-
-[node name="CreditsMenu" type="Control" parent="." unique_id=784894307]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -147.5
+offset_right = 250.0
+offset_bottom = 147.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_ph7i1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_x1yhy")
+script = ExtResource("7_bn1a5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenu" unique_id=1815456122]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/separation = 20
-
-[node name="TitleMargin" type="MarginContainer" parent="CreditsMenu/VBoxContainer" unique_id=1113944254]
+[node name="Panel" type="Panel" parent="SaveWarningPopuo" unique_id=1549253220]
 layout_mode = 2
-theme_override_constants/margin_top = 64
+theme_override_styles/panel = SubResource("StyleBoxTexture_pqu83")
 
-[node name="Title" type="VBoxContainer" parent="CreditsMenu/VBoxContainer/TitleMargin" unique_id=1857602040]
+[node name="MarginContainer" type="MarginContainer" parent="SaveWarningPopuo" unique_id=1019061704]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveWarningPopuo/MarginContainer" unique_id=1802182832]
+layout_mode = 2
+theme_override_constants/separation = 46
+
+[node name="Header" type="Label" parent="SaveWarningPopuo/MarginContainer/VBoxContainer" unique_id=13387678]
+texture_filter = 1
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 0
-
-[node name="Title" type="Label" parent="CreditsMenu/VBoxContainer/TitleMargin/Title" unique_id=1616805751]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_l7n8r")
-theme_override_font_sizes/font_size = 40
-text = "The Rogues"
-horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="CreditsMenu/VBoxContainer/TitleMargin/Title" unique_id=1879312395]
-texture_filter = 1
-layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l7n8r")
 theme_override_font_sizes/font_size = 24
-text = "Roguelike Deckbuilder"
+text = "Warning"
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="Devider" type="TextureRect" parent="CreditsMenu/VBoxContainer/TitleMargin/Title" unique_id=48037174]
-modulate = Color(0.47866166, 0.47866172, 0.47866166, 1)
+[node name="Info" type="Label" parent="SaveWarningPopuo/MarginContainer/VBoxContainer" unique_id=1476823782]
 texture_filter = 1
-custom_minimum_size = Vector2(488, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-mouse_filter = 2
-texture = ExtResource("3_vv2lb")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CreditsMenu/VBoxContainer" unique_id=1340963984]
-custom_minimum_size = Vector2(700, 320)
-layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
-mouse_filter = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_vv2lb")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ijfeh")
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CreditsMenu/VBoxContainer/ScrollContainer" unique_id=1598296720]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = 32
-alignment = 2
-
-[node name="Title" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=877860117]
-texture_filter = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_l7n8r")
-theme_override_font_sizes/font_size = 32
-text = "Assets"
-horizontal_alignment = 1
-
-[node name="Seth" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=638712466]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
 theme_override_fonts/font = ExtResource("2_l7n8r")
 theme_override_font_sizes/font_size = 16
-text = "Seth: 32rogues
-https://sethbb.itch.io/32rogues"
-horizontal_alignment = 1
+text = "Starting a new game will delete your existing save file. 
 
-[node name="Kenny" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=1664690098]
-texture_filter = 1
+Do you wish to continue?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveWarningPopuo/MarginContainer/VBoxContainer" unique_id=1022339721]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
-theme_override_fonts/font = ExtResource("2_l7n8r")
-theme_override_font_sizes/font_size = 16
-text = "Kenney: Fantasy UI Borders, Emotes Pack
-https://kenney.nl/assets/fantasy-ui-borders
-https://kenney.nl/assets/emotes-pack"
-horizontal_alignment = 1
+theme_override_constants/separation = 64
+alignment = 1
 
-[node name="Nikoichu" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=1947236731]
-texture_filter = 1
+[node name="Yes" type="Button" parent="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer" unique_id=378407732]
+custom_minimum_size = Vector2(116, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
-theme_override_fonts/font = ExtResource("2_l7n8r")
-theme_override_font_sizes/font_size = 16
-text = "Nikoichu: 1-bit Pixel Icons
-https://nikoichu.itch.io/pixel-icons"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = "Yes"
 
-[node name="Datagoblin" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=283660786]
-texture_filter = 1
+[node name="No" type="Button" parent="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1134642428]
+custom_minimum_size = Vector2(116, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
-theme_override_fonts/font = ExtResource("2_l7n8r")
-theme_override_font_sizes/font_size = 16
-text = "Datagoblin: Dungeon-mode font
-https://datagoblin.itch.io/dungeonmode"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = "No
+"
 
-[node name="MarlionSilva" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=2147374293]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
-theme_override_fonts/font = ExtResource("2_l7n8r")
-theme_override_font_sizes/font_size = 16
-text = "Marllon Silva (xDeviruchi)
-https://xdeviruchi.itch.io/16-bit-fantasy-adventure-music-pack"
-horizontal_alignment = 1
-
-[node name="Stealthix" type="Label" parent="CreditsMenu/VBoxContainer/ScrollContainer/VBoxContainer2" unique_id=465442769]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(0.98039216, 0.98039216, 0.50980395, 1)
-theme_override_fonts/font = ExtResource("2_l7n8r")
-theme_override_font_sizes/font_size = 16
-text = "Stealthix (https://stealthix.itch.io/animated-fires)"
-horizontal_alignment = 1
-
-[node name="Return" type="Button" parent="CreditsMenu" unique_id=1584628513]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -117.0
-offset_right = 61.0
-offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Return"
-
-[node name="CloseMenu" type="Control" parent="." unique_id=1472450577]
+[node name="ClosingLabel" type="Label" parent="." unique_id=264555522]
+unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="Label" parent="CloseMenu" unique_id=264555522]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -345,8 +427,39 @@ theme_override_font_sizes/font_size = 11
 text = "Developed by: Andy Gonzalez, Fletcher Greene, Han Hyunh, Nathaniel Stirret, & Fabian Hernandez-Angel"
 horizontal_alignment = 1
 
-[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Start" to="." method="_on_start_clicked"]
-[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Options" to="." method="_on_options_clicked"]
-[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Credits" to="." method="_on_credits_clicked"]
-[connection signal="clicked" from="TitleScreen/MarginContainer/MenuElements/Close" to="." method="_on_close_clicked"]
+[node name="SoundManager" type="Node" parent="." unique_id=1127945582 node_paths=PackedStringArray("select_buttons", "start_button")]
+script = ExtResource("8_x1yhy")
+select_buttons = [NodePath("../MainMenu/Start"), NodePath("../MainMenu/Achievements"), NodePath("../MainMenu/Options"), NodePath("../MainMenu/Credits"), NodePath("../MainMenu/ExitGame"), NodePath("../StartMenu/ContinueGame"), NodePath("../StartMenu/GoBack"), NodePath("../StartMenu/NewGame")]
+start_button = [NodePath("../StartMenu/ContinueGame"), NodePath("../StartMenu/NewGame")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1290911644]
+stream = ExtResource("9_pqu83")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1565348027]
+stream = ExtResource("10_pqu83")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=307234472]
+stream = ExtResource("10_it65c")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=547394518]
+stream = ExtResource("12_k0vs0")
+bus = &"SFX"
+
+[connection signal="clicked" from="MainMenu/Start" to="." method="_on_start_clicked"]
+[connection signal="clicked" from="MainMenu/Options" to="." method="_on_options_clicked"]
+[connection signal="clicked" from="MainMenu/Credits" to="." method="_on_credits_clicked"]
+[connection signal="clicked" from="MainMenu/ExitGame" to="." method="_on_close_clicked"]
+[connection signal="clicked" from="StartMenu/ContinueGame" to="." method="_on_continue_game_clicked"]
+[connection signal="clicked" from="StartMenu/NewGame" to="." method="_on_new_game_clicked"]
+[connection signal="clicked" from="StartMenu/GoBack" to="." method="_on_go_back_clicked"]
 [connection signal="button_up" from="CreditsMenu/Return" to="." method="_on_close_credits_button_up"]
+[connection signal="button_up" from="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_button_up"]
+[connection signal="button_up" from="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="SaveWarningPopuo" method="_on_yes_clicked"]
+[connection signal="button_up" from="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_no_button_up"]
+[connection signal="button_up" from="SaveWarningPopuo/MarginContainer/VBoxContainer/HBoxContainer/No" to="SaveWarningPopuo" method="_on_no_clicked"]

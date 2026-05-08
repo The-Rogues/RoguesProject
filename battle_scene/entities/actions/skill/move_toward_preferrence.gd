@@ -1,4 +1,4 @@
-extends Action
+extends MovePlayerAction
 class_name MoveTowardPreferrenceAction
 
 @export var num_spaces: int

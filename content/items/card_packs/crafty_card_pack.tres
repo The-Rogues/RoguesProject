@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://bo8137yjpu0bo"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_etb5f"]
+[ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_6q1li"]
+[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="2_mndgu"]
+[ext_resource type="Resource" uid="uid://dv4ljbon6org0" path="res://content/cards/crafty_cards/entrench/entrench.tres" id="3_ibcvg"]
+[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="4_n6e03"]
+[ext_resource type="Resource" uid="uid://dcdxa26imgs4t" path="res://content/cards/crafty_cards/repair/repair.tres" id="5_8yk55"]
+[ext_resource type="Resource" uid="uid://c8b3tr01yois" path="res://content/cards/crafty_cards/repurpose/repurpose.tres" id="6_hr8ab"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="7_t1v0q"]
+
+[resource]
+script = ExtResource("2_6q1li")
+card_pool = Array[ExtResource("1_etb5f")]([ExtResource("2_mndgu"), ExtResource("3_ibcvg"), ExtResource("4_n6e03"), ExtResource("5_8yk55"), ExtResource("6_hr8ab")])
+draw_count = 3
+rarity = 1
+name = "Crafty Card Pack"
+description = "Choose 1 Crafty card to add to your deck."
+display_texture = ExtResource("7_t1v0q")
+shop_price = 15
+sell_price = 5
+metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

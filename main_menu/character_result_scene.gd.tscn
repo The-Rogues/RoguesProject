@@ -133,17 +133,18 @@ theme_override_constants/margin_bottom = 60
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="ViewDeck" parent="ButtonsMargin/VBoxContainer" unique_id=395129651 instance=ExtResource("6_hd0fe")]
-layout_mode = 2
-text = "View Deck"
-
 [node name="BeginRun" parent="ButtonsMargin/VBoxContainer" unique_id=1238515846 instance=ExtResource("6_hd0fe")]
 layout_mode = 2
 text = "Continue"
+
+[node name="ViewDeck" parent="ButtonsMargin/VBoxContainer" unique_id=395129651 instance=ExtResource("6_hd0fe")]
+visible = false
+layout_mode = 2
+text = "View Deck"
 
 [node name="DeckViewer" parent="." unique_id=2047647765 instance=ExtResource("7_yvjms")]
 visible = false
 layout_mode = 1
 
-[connection signal="clicked" from="ButtonsMargin/VBoxContainer/ViewDeck" to="." method="_on_view_deck_clicked"]
 [connection signal="clicked" from="ButtonsMargin/VBoxContainer/BeginRun" to="." method="_on_begin_run_clicked"]
+[connection signal="clicked" from="ButtonsMargin/VBoxContainer/ViewDeck" to="." method="_on_view_deck_clicked"]

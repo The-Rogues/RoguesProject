@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://brhttoqlaxswr" path="res://globals/session_interface/trait_display.gd" id="1_p1rcy"]
 [ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_agxqj"]
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="2_b0rt2"]
 [ext_resource type="Script" uid="uid://pxlprseij451" path="res://common/tooltip_panel/hover_context_popup.gd" id="3_m1o0a"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="4_17dya"]
-
 
 [node name="TraitDisplay" type="Control" unique_id=1400420390]
 custom_minimum_size = Vector2(100, 28)
@@ -20,9 +20,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -31.0
-offset_top = -12.0
+offset_top = -14.0
 offset_right = 31.0
-offset_bottom = 12.0
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -48,7 +48,19 @@ offset_top = 35.0
 offset_right = 212.0
 offset_bottom = 95.0
 
-[node name="WeightLabel" type="Label" parent="Offensive" unique_id=2099718963]
+[node name="HBoxContainer" type="HBoxContainer" parent="Offensive" unique_id=1359150752]
+layout_mode = 2
+
+[node name="TraitIcon" type="TextureRect" parent="Offensive/HBoxContainer" unique_id=447688941]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_b0rt2")
+expand_mode = 1
+
+[node name="WeightLabel" type="Label" parent="Offensive/HBoxContainer" unique_id=2099718963]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
 theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
@@ -56,3 +68,17 @@ theme_override_fonts/font = ExtResource("2_agxqj")
 theme_override_font_sizes/font_size = 12
 text = "10"
 horizontal_alignment = 1
+
+[node name="OperationLabel" type="Label" parent="Offensive" unique_id=1821945218]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("2_agxqj")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="OperationTimer" type="Timer" parent="." unique_id=1633406092]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="OperationTimer" to="." method="_on_operation_timer_timeout"]

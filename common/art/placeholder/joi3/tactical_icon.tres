@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://b5q8hr8gvmqkb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_gnf83")
+region = Rect2(200, 560, 40, 40)
