@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ds7syc74md3bk"]
+
+[ext_resource type="Script" uid="uid://dphjwjbta0bwb" path="res://content/cards/greedy_cards/shiny_shot/gem_projectile/gem_projectile_script.gd" id="1_agtbk"]
+[ext_resource type="Texture2D" uid="uid://cbw2owjnhrjbu" path="res://content/cards/greedy_cards/assets/gem.png" id="2_660ic"]
+[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_o20h5"]
+
+
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
+radius = 11.18034
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
+radius = 14.035668
+
+[node name="GemProjectile" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_agtbk")
+life_span = NodePath("LifeSpan")
+
+[node name="SpritePivot" type="Node2D" parent="." unique_id=1685385418]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpritePivot" unique_id=72437752]
+texture_filter = 1
+position = Vector2(-13, -9.778888e-09)
+rotation = 4.718543
+scale = Vector2(2, 2)
+texture = ExtResource("2_660ic")
+
+[node name="WallCollider" type="CollisionShape2D" parent="." unique_id=1085450663]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_bofno")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1046127275]
+
+[node name="EntityCollider" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_5ed72")
+
+[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+wait_time = 5.0
+
+[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_o20h5")]
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]

@@ -32,5 +32,5 @@ func _calculate_count(player_cards:CardHandler) -> int:
 	ret_val += player_cards.get_cards_by_name("Arrow Shot").size()
 	ret_val += player_cards.get_cards_by_name("Charge Shot").size()
 	ret_val += player_cards.get_cards_by_name("Heartbreak Shot").size()
-	ret_val += player_cards.get_cards_by_name("Money Shot").size()
+	ret_val += player_cards.get_cards_by_name("Shiny Shot").size()
 	return ret_val + 1

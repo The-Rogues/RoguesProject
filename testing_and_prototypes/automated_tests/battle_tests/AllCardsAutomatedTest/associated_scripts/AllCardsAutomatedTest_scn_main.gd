@@ -5,7 +5,7 @@ extends Node
 @onready var progress_res: RunProgress = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_progress.tres")
 @onready var field_res: BattleFieldConfig = preload("res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_battle_field.tres")
 
-var test_enabled: bool = false
+var test_enabled: bool = true
 
 func _ready():
 	

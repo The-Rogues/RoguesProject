@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://d0x6xy423fmqm"
 [resource]
 script = ExtResource("2_uxs1i")
 type = 2
+category = 2
 energy_cost = 1
 name = "Challenge"
 description = "[color=orange]Move[/color] to an empty position. [color=orange]Block[/color] equal to [color=orange]defense[/color]."

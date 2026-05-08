@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_63y64"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="2_5qfqh"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_bywr7"]
-[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/greedy_shot/greedy_shot.tres" id="2_dtcdo"]
+[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/shiny_shot/shiny_shot.tres" id="2_dtcdo"]
 [ext_resource type="Resource" uid="uid://b0w7q3nduf8j2" path="res://content/cards/greedy_cards/cash_in/cash_in.tres" id="3_6noxn"]
 [ext_resource type="Resource" uid="uid://3eathy5ylmpr" path="res://content/cards/greedy_cards/gold_rush/gold_rush.tres" id="4_70qja"]
 [ext_resource type="Resource" uid="uid://df8onaglb031c" path="res://content/cards/greedy_cards/life_savings/life_savings.tres" id="5_1c2le"]
 [ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="6_b2dgu"]
+
 
 [resource]
 script = ExtResource("2_bywr7")

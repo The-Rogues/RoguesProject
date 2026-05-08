@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MoveSequence" format=3 uid="uid://cyag2hs6ba3lb"]
+
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_ume2y"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_wdnu6"]
+
+[resource]
+script = ExtResource("1_ume2y")
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
