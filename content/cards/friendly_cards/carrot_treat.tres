@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://biytyhg5hx4cd"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4q605vo7173f"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_jucpp"]
 [ext_resource type="Script" uid="uid://erv0y2lofll0" path="res://content/friends/bunny_friend/bunny_friend.gd" id="2_ahrou"]

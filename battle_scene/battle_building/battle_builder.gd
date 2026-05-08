@@ -4,13 +4,19 @@ class_name BattleBuilder
 @export var tier_1_encounters:Array[EnemyEncounter]
 @export var tier_2_encounters:Array[EnemyEncounter]
 @export var tier_3_encounters:Array[EnemyEncounter]
+@export var tier_4_encounters:Array[EnemyEncounter]
+@export var tier_5_encounters:Array[EnemyEncounter]
 
 @export var tier_1_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_2_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_3_battlefield_layouts:Array[BattleFieldConfig]
+@export var tier_4_battlefield_layouts:Array[BattleFieldConfig]
+@export var tier_5_battlefield_layouts:Array[BattleFieldConfig]
 
-const TIER_1_THRESHOLD = 3
-const TIER_2_THRESHOLD = 6
+const TIER_1_THRESHOLD = 4
+const TIER_2_THRESHOLD = 8
+const TIER_3_THRESHHOLD = 12
+const TIER_4_THRESHHOLD = 16
 
 var enemy_encounter_cache:Array[EnemyEncounter] = []
 var override_encounter:EnemyEncounter = null
@@ -20,8 +26,12 @@ func get_enemy_encounter_pool(progress:int) -> Array[EnemyEncounter]:
 		return tier_1_encounters
 	if progress <= TIER_2_THRESHOLD:
 		return tier_2_encounters
-	else:
+	if progress <= TIER_3_THRESHHOLD:
 		return tier_3_encounters
+	if progress <= TIER_4_THRESHHOLD:
+		return tier_4_encounters
+	
+	return tier_5_encounters
 
 
 func get_battlefield_layout_pool(progress:int) -> Array[BattleFieldConfig]:
@@ -29,8 +39,12 @@ func get_battlefield_layout_pool(progress:int) -> Array[BattleFieldConfig]:
 		return tier_2_battlefield_layouts
 	if progress <= TIER_2_THRESHOLD:
 		return tier_2_battlefield_layouts
-	else:
+	if progress <= TIER_3_THRESHHOLD:
 		return tier_3_battlefield_layouts
+	if progress <= TIER_2_THRESHOLD:
+		return tier_4_battlefield_layouts
+	
+	return tier_5_battlefield_layouts
 
 
 func choose_enemy_encounter(

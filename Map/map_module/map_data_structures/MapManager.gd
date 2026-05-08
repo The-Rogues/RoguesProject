@@ -31,7 +31,7 @@ func _init(map_seed_in: int) -> void:
 		5,
 		[0.23, 0.45, 0.32, 0] as Array[float],
 		[0.75, 0.15, 0.10] as Array[float],
-		10,
+		20,
 		1,
 		map_seed
 	)

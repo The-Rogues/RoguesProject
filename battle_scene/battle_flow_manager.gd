@@ -117,6 +117,7 @@ func run_enemy_turn():
 
 func _on_battle_ended():
 	battle_state = State.ENDED
+	play_hand.clear_hand()
 	
 	GlobalSessionInterface.disconnect_from_player(player)
 	GlobalSessionInterface.reset_stats_to_base_display()

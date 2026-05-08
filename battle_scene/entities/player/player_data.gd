@@ -24,7 +24,7 @@ signal gold_collected(amount:int)
 @export var gold:int
 @export var personality:PersonalityData
 
-const STARTING_HEALTH = 70
+const STARTING_HEALTH = 50
 const STARTING_ENERGY = 3
 const STARTING_ITEM_CAPACITY = 1
 const STARTING_GOLD = 0

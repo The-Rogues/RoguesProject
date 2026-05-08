@@ -12,8 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="9_i30tm"]
 [ext_resource type="Texture2D" uid="uid://b5u5dai20ccpg" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-004.png" id="13_vdjib"]
 [ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="14_ccect"]
+[ext_resource type="Script" uid="uid://chn0ssrhnmtda" path="res://shop_scenes/item_shop/item_shop_sound_manager.gd" id="15_fq01n"]
 [ext_resource type="Texture2D" uid="uid://c8wyv8ydr7oo0" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-005.png" id="16_eaklt"]
+[ext_resource type="AudioStream" uid="uid://cea17fsmkfscs" path="res://common/sound_effects/helton_yans_pixel_combat/enter_shop_sound.wav" id="16_vaflh"]
 [ext_resource type="Texture2D" uid="uid://dbs6ilahrbi3v" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-008.png" id="17_6eu2m"]
+[ext_resource type="AudioStream" uid="uid://daq5dncg7skvi" path="res://common/sound_effects/helton_yans_pixel_combat/gold_sound (1).wav" id="17_yvwxv"]
+[ext_resource type="AudioStream" uid="uid://dsvy7jqckkye7" path="res://common/sound_effects/helton_yans_pixel_combat/failed_item_purchase.wav" id="20_5ee5j"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="21_6lx0g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fq01n"]
 content_margin_left = 32.0
@@ -111,6 +116,10 @@ colors = PackedColorArray(0.49803922, 0.87058824, 0.9882353, 1, 1, 0.7490196, 0.
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lu6d"]
 atlas = ExtResource("14_ccect")
 region = Rect2(8, 776, 16, 16)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bx46l"]
+streams_count = 1
+stream_0/stream = ExtResource("17_yvwxv")
 
 [node name="ItemShopScene" type="Control" unique_id=1932341387]
 layout_mode = 3
@@ -349,6 +358,26 @@ initial_velocity_max = 200.0
 scale_amount_min = 2.0
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_ccect")
+
+[node name="SoundManager" type="Node" parent="." unique_id=1846813936 node_paths=PackedStringArray("item_shop_scene")]
+script = ExtResource("15_fq01n")
+item_shop_scene = NodePath("..")
+
+[node name="EnterShop" type="AudioStreamPlayer" parent="SoundManager" unique_id=129343263]
+stream = ExtResource("16_vaflh")
+bus = &"SFX"
+
+[node name="TransactionCompleted" type="AudioStreamPlayer" parent="SoundManager" unique_id=1130895459]
+stream = SubResource("AudioStreamRandomizer_bx46l")
+bus = &"SFX"
+
+[node name="FailedToBuy" type="AudioStreamPlayer" parent="SoundManager" unique_id=1685054177]
+stream = ExtResource("20_5ee5j")
+bus = &"SFX"
+
+[node name="ItemSelected" type="AudioStreamPlayer" parent="SoundManager" unique_id=1536174316]
+stream = ExtResource("21_6lx0g")
+bus = &"SFX"
 
 [connection signal="toggled" from="Options/Buy Items" to="." method="_on_buy_items_toggled"]
 [connection signal="toggled" from="Options/Sell Items" to="." method="_on_sell_items_toggled"]

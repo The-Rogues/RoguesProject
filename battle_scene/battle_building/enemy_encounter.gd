@@ -8,9 +8,9 @@ class_name EnemyEncounter
 @export var item_pool:Array[ItemRewardData]
 @export var enemies:Array[MonsterData]
 @export var battlefield_layout:BattleFieldConfig = null
-@export var use_default_rewards:bool = true
+@export var disable_card_reward:bool = false
 
-#const cards = preload("res://content/scene_configuration/battle_loot/battle_card_draw.tres")
+const cards = preload("res://content/scene_configuration/battle_loot/battle_card_draw.tres")
 const ITEM_CHANCE = 0.4
 
 func get_battle_rewards() -> Array[BattleRewardData]:
@@ -21,6 +21,8 @@ func get_battle_rewards() -> Array[BattleRewardData]:
 	
 	if card_loot:
 		rewards.append(card_loot)
+	elif !disable_card_reward:
+		rewards.append(cards)
 	
 	
 	return rewards

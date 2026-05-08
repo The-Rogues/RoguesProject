@@ -560,7 +560,8 @@ func choose_mini_event() -> MiniEventData:
 		load("res://content/map_events/treasure_pot_event.tres"),
 		load("res://content/map_events/campfire_event.tres"),
 		load("res://content/map_events/metal_man_challenge.tres"),
-		load("res://content/map_events/abandoned_card_event.tres")
+		load("res://content/map_events/abandoned_card_event.tres"),
+		load("res://content/map_events/starving_wolf_event.tres")
 	]
 	
 	var run = GlobalSessionManager.run_progress

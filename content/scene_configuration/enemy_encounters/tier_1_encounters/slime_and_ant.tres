@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://cqdcbcfoce4k0"]
 
-[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_wc5mm"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_8ao2i"]
 [ext_resource type="Resource" uid="uid://504d265c8kwa" path="res://content/monsters/fire_ant/fire_ant.tres" id="3_b40g3"]
 [ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/small_slime_data.tres" id="4_larwx"]
@@ -19,6 +18,5 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("8_24vui")
 encounter_name = "Slime and Ants"
 gold = SubResource("Resource_54sqd")
-card_loot = ExtResource("1_wc5mm")
 enemies = Array[ExtResource("2_8ao2i")]([ExtResource("3_b40g3"), ExtResource("4_larwx")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

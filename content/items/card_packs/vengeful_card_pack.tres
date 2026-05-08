@@ -4,15 +4,18 @@
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_635h4"]
 [ext_resource type="Resource" uid="uid://ddnye3ee7eiss" path="res://content/cards/vengeful_cards/payback_strike.tres" id="2_qimdh"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="2_vo17d"]
+[ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/vengeful_cards/inferno.tres" id="5_0362k"]
 [ext_resource type="Resource" uid="uid://dw5lr446sq5lt" path="res://content/cards/vengeful_cards/retaliate.tres" id="5_q6yot"]
 [ext_resource type="Resource" uid="uid://bpfpkrjgihikt" path="res://content/cards/vengeful_cards/bloodlash.tres" id="6_q6yot"]
+[ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="6_xnnj1"]
 
 [resource]
 script = ExtResource("2_635h4")
-card_pool = Array[ExtResource("1_lr8m6")]([ExtResource("2_qimdh"), ExtResource("5_q6yot"), ExtResource("6_q6yot")])
+card_pool = Array[ExtResource("1_lr8m6")]([ExtResource("2_qimdh"), ExtResource("5_q6yot"), ExtResource("6_q6yot"), ExtResource("5_0362k"), ExtResource("6_xnnj1")])
 draw_count = 3
 name = "Vengeful Card Pack"
 description = "Choose 1 Vengeful card to add to your deck."
 display_texture = ExtResource("2_vo17d")
-shop_price = 11
+shop_price = 15
+sell_price = 5
 metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

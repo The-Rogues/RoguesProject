@@ -20,6 +20,8 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null)
 
 func action_resolve_delay():
 	if resolved_targets.size() > 1:
-		await resolved_targets[0].get_tree().create_timer(MULTI_TARGET_DELAY).timeout
+		if is_instance_valid(resolved_targets[0]):
+			await resolved_targets[0].get_tree().create_timer(MULTI_TARGET_DELAY).timeout
 	else:
-		await resolved_targets[0].get_tree().create_timer(SINGLE_TARGET_DELAY).timeout
+		if is_instance_valid(resolved_targets[0]):
+			await resolved_targets[0].get_tree().create_timer(SINGLE_TARGET_DELAY).timeout

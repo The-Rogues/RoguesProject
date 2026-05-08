@@ -4,10 +4,15 @@ class_name StrengthEffect
 
 func on_stack(
 	instance:ActiveStatusEffect, 
-	_other:ActiveStatusEffect = null
+	_other:ActiveStatusEffect = null,
+	_affected: AbstractCreature = null
 ) -> void:
-	instance.duration += 1 
+	instance.duration = -1 
 	instance.stack += _other.stack
+	if instance.stack == 0:
+		_affected.effects.active_effects.erase(instance)
+		_affected.stat_display.status_effect_container.icons[instance].queue_free()
+		_affected.stat_display.status_effect_container.icons.erase(instance)
 
 
 func get_status_name() -> String:
@@ -15,7 +20,10 @@ func get_status_name() -> String:
 
 
 func get_description(instance:ActiveStatusEffect) -> String:
-	return "Increase Attack Damage by " + str(instance.stack) + "." 
+	if instance.stack < 0:
+		return "Decrease melee attack damage by " + str(instance.stack * -1) + "."
+	else:
+		return "Increase melee attack damage by " + str(instance.stack) + "."
 
 
 func get_texture() -> Texture2D:
@@ -23,4 +31,6 @@ func get_texture() -> Texture2D:
 
 
 func modify_attack_damage(damage:int, _instance:ActiveStatusEffect) -> int:
+	if (damage + _instance.stack) < 0:
+		return 0
 	return damage + _instance.stack

@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://nj4x1yrcpw4r"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_8qjh5"]
-[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_414ym"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_ag2c1"]
 [ext_resource type="Resource" uid="uid://dilnesq4smd0t" path="res://content/monsters/gatling_worm/gatling_worm.tres" id="3_414ym"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_i6vep"]
@@ -19,6 +18,5 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("3_i6vep")
 encounter_name = "Gatling Worm Attack"
 gold = SubResource("Resource_mmjos")
-card_loot = ExtResource("1_414ym")
 enemies = Array[ExtResource("1_8qjh5")]([ExtResource("3_414ym")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dui2cujdu8hw7"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_alfbk"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_moxi6"]
+[ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="2_tgqyi"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_ijt14"]
+[ext_resource type="Script" path="res://content/cards/friendly_cards/filtered_apply_status_action.gd" id="4_fubrd"]
+
+[sub_resource type="Resource" id="Resource_m4yal"]
+script = ExtResource("3_ijt14")
+behaviour = ExtResource("2_tgqyi")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_2wvpj"]
+script = ExtResource("4_fubrd")
+effect = SubResource("Resource_m4yal")
+filter_type = 3
+target_option = 3
+ignore_foreground = true
+metadata/_custom_type_script = "uid://2fhdaficxwtc"
+
+[resource]
+script = ExtResource("2_moxi6")
+type = 2
+category = 3
+name = "Handshake"
+description = "Apply [color=#43A047]1[/color] [color=orange]friendship[/color] to the highest HP enemies."
+play_actions = Array[ExtResource("1_alfbk")]([SubResource("Resource_2wvpj")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -11,8 +11,6 @@ var data:ObjectData
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var object_stat_display: ObjectStatDisplay = $ObjectStatDisplay
 @onready var damage_numbers_spawn: Node2D = $DamageNumbersSpawn
-@onready var collision_box: StaticBody2D = %CollisionBox
-@onready var hurt_box: Area2D = %HurtBox
 @onready var object_tooltip: PanelContainer = %ObjectTooltip
 
 
@@ -36,12 +34,12 @@ func take_damage(amount:int, _attacker = null):
 	
 	if _attacker is AbstractEntity:
 		_attacker.set_last_attacked_entity(self)
+	
+	if _attacker is Projectile and _attacker.source is AbstractEntity:
+		_attacker.source.set_last_attacked_entity(self)
 
 
 func on_destroyed():
-	hurt_box.monitorable = false
-	collision_box.disable_mode = CollisionObject2D.DISABLE_MODE_REMOVE
-	
 	#queue_actions.emit(data.on_destroyed_actions)
 	if data.interaction == ObjectData.InteractionOption.ON_DESTROYED:
 		await interact()

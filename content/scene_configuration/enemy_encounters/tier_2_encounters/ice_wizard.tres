@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://cm5184nfihs1g"]
 
-[ext_resource type="Resource" uid="uid://fobtti7la7n7" path="res://content/scene_configuration/battle_loot/battle_card_loot_pool.tres" id="1_n7qqd"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_slxgw"]
 [ext_resource type="Resource" uid="uid://dcg6lha6wurrf" path="res://content/fletcher/monsters/ice_wizard/ice_wizard.tres" id="3_n7qqd"]
 [ext_resource type="Resource" uid="uid://fxp7g31f6nmx" path="res://content/fletcher/monsters/fragile_minion/fragile_minion.tres" id="4_slxgw"]
@@ -38,7 +37,6 @@ metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 script = ExtResource("12_0e1pi")
 encounter_name = "Frost Leigon"
 gold = SubResource("Resource_kosmk")
-card_loot = ExtResource("1_n7qqd")
 item_pool = Array[ExtResource("7_18u30")]([SubResource("Resource_hi742"), SubResource("Resource_vevwm")])
 enemies = Array[ExtResource("2_slxgw")]([ExtResource("3_n7qqd"), ExtResource("4_slxgw")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

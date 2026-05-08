@@ -35,7 +35,7 @@ script = ExtResource("2_dkeat")
 category = 1
 energy_cost = 1
 name = "Sharpen"
-description = "Gain [color=#43A047]2[/color] [color=orange]strength[/color]. Gain [color=#43A047]3[/color] [color=orange]offense[/color]. [color=orange]Single Use[/color]."
+description = "Gain [color=#43A047]2[/color] [color=orange]strength[/color]. Gain [color=#43A047]2[/color] [color=orange]offense[/color]. [color=orange]Single Use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_ycqn2")]([SubResource("Resource_0n322"), SubResource("Resource_jo5gc")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

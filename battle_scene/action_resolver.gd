@@ -87,6 +87,28 @@ func filter_enemies(in_action: FilteredTargetedAction) -> Array[MonsterEntity]:
 		for i in range(filtered_enemies.size() - 1, -1, -1):
 			if int(in_action.filter_value) < filtered_enemies[i].health.max_value:
 				filtered_enemies.remove_at(i)
+	elif in_action.filter_type == FilteredTargetedAction.FilterType.MOST_HP:
+		var most_hp_value: int = 0
+		for i in range(0, filtered_enemies.size()):
+			if filtered_enemies[i].health.value > most_hp_value:
+				most_hp_value = filtered_enemies[i].health.value
+		for i in range(filtered_enemies.size() - 1, -1, -1):
+			if filtered_enemies[i].health.value != most_hp_value:
+				filtered_enemies.remove_at(i)
+	elif in_action.filter_type == FilteredTargetedAction.FilterType.UNDAMAGED:
+		for i in range(filtered_enemies.size() - 1, -1, -1):
+			if filtered_enemies[i].health.max_value != filtered_enemies[i].health.value:
+				filtered_enemies.remove_at(i)
+	elif in_action.filter_type == FilteredTargetedAction.FilterType.FRIENDSHIP:
+		var freindship_behavior: StatusEffectBehaviour = load("res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres")
+		for i in range(filtered_enemies.size() - 1, -1, -1):
+			var has_effect: bool = false
+			for j in range(0, filtered_enemies[i].effects.active_effects.size()):
+				if filtered_enemies[i].effects.active_effects[j].effect == freindship_behavior:
+					has_effect = true
+					break
+			if !has_effect:
+				filtered_enemies.remove_at(i)
 	return filtered_enemies
 
 func process_actions(actions:Array[Action], user:AbstractEntity):

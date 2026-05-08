@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="KeyItem" format=3 uid="uid://ceqn6vhw30utf"]
+
+[ext_resource type="Script" uid="uid://c6lrmd6uaaqx8" path="res://item_system/key_item_data.gd" id="1_gu7jr"]
+[ext_resource type="Texture2D" uid="uid://dbjdyy2u2p4us" path="res://content/items/bone/bone_texture.tres" id="1_rsmf2"]
+
+[resource]
+script = ExtResource("1_gu7jr")
+key_id = "bone"
+rarity = 2
+name = "Bone"
+description = "A tasty treat for animals and monsters alike."
+display_texture = ExtResource("1_rsmf2")
+shop_price = 16
+sell_price = 5
+metadata/_custom_type_script = "uid://c6lrmd6uaaqx8"

@@ -29,4 +29,5 @@ move_sequences = Array[ExtResource("3_48a1t")]([SubResource("Resource_lx6ar"), S
 behaviour = SubResource("Resource_oaqer")
 display_texture = ExtResource("2_48imj")
 name = "Small Slime"
+health = 10
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

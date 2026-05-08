@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ProjectileFireData" format=3 uid="uid://dkiidld2e5f2p"]
+
+[ext_resource type="PackedScene" uid="uid://ds7syc74md3bk" path="res://content/cards/greedy_cards/greedy_shot/gem_projectile/gem_projectile.tscn" id="1_8eufh"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="1_xwcil"]
+
+
+
+[resource]
+script = ExtResource("1_xwcil")
+projectile_scene = ExtResource("1_8eufh")
+fire_delay = 0.01
+damage = 2
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"

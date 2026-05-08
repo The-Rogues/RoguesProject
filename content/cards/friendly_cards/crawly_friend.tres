@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ckm6orfsmv2ib"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_tcalb"]
+[ext_resource type="Script" uid="uid://cumy6tvxkobgv" path="res://content/friends/turtle/turtle_friend.gd" id="2_3rsoc"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_rpwxa"]
+[ext_resource type="Script" uid="uid://24v1ynwivrsc" path="res://content/cards/friendly_cards/summon_friend_action.gd" id="3_is6ct"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_igrcg"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp51y"]
+atlas = SubResource("CompressedTexture2D_igrcg")
+region = Rect2(440, 0, 40, 40)
+
+[sub_resource type="Resource" id="Resource_rgyil"]
+script = ExtResource("2_3rsoc")
+metadata/_custom_type_script = "uid://cumy6tvxkobgv"
+
+[sub_resource type="Resource" id="Resource_uhfih"]
+script = ExtResource("3_is6ct")
+friend = SubResource("Resource_rgyil")
+metadata/_custom_type_script = "uid://24v1ynwivrsc"
+
+[resource]
+script = ExtResource("2_rpwxa")
+type = 2
+category = 3
+energy_cost = 2
+name = "Worm Treat"
+display_texture = SubResource("AtlasTexture_hp51y")
+description = "Summons a turtle. Gives [color=#43A047]1[/color] extra block on block gained. [color=orange]Single Use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_tcalb")]([SubResource("Resource_uhfih")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

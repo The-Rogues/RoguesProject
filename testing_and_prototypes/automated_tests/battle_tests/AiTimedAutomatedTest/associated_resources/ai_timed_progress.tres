@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://c211s0pc3uf6a"]
+
+[ext_resource type="Resource" uid="uid://cslydk2dhl5kp" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_player.tres" id="1_vwxvx"]
+[ext_resource type="Texture2D" uid="uid://csem5lpkfo6te" path="res://content/monsters/reaper/reaper_texture.tres" id="2_hby1i"]
+[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://globals/scene_management/run_progress.gd" id="3_3fwte"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="4_o8qam"]
+
+[resource]
+script = ExtResource("3_3fwte")
+player_data = ExtResource("1_vwxvx")
+player_texture = ExtResource("2_hby1i")
+player_name = "AI Timed Player"
+metadata/_custom_type_script = "uid://c6dr42ke5aj7b"
