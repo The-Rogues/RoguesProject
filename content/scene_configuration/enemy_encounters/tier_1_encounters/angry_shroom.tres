@@ -11,7 +11,6 @@
 script = ExtResource("4_3o6u3")
 amount = 15
 display_texture = ExtResource("3_3ve2g")
-name = "Found Gold (15)"
 metadata/_custom_type_script = "uid://drffwoufolf1p"
 
 [resource]

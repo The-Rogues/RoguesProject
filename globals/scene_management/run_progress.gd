@@ -41,6 +41,10 @@ var run_map: MapManager
 @export var total_items_collected:int = 0
 @export var total_personality_shifts:int = 0
 @export var total_rooms_explored:int = 0
+@export var total_energy_potions_used: int = 0
+@export var total_health_potions_used: int = 0
+@export var total_item_packs_used: int = 0
+@export var total_ai_packs_found: int = 0
 
 @export var initialized:bool = false
 @export var ai_mode:bool = false

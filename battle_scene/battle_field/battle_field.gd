@@ -128,6 +128,9 @@ func update_preferences(in_player: PlayerEntity):
 		return
 	for i in range(0, battle_positions.size()):
 		var curr_object = battle_positions[i].get_object()
+		var is_player_position: bool = false
+		if battle_positions[i] == in_player.battle_position:
+			is_player_position = true
 		if curr_object != null:
 			curr_object.object_stat_display.preference_container.visible = show_preferences
 			curr_object.object_stat_display.preference_container.clear_icons()
@@ -142,7 +145,7 @@ func update_preferences(in_player: PlayerEntity):
 						curr_trait = in_player.strategic_trait
 				if curr_object.data.targeting_categories.has(curr_trait.data.object_targeting_preference):
 					var highlight_icon: = false
-					if j == highlight_trait:
+					if j == highlight_trait && !is_player_position:
 						highlight_icon = true
 					curr_object.object_stat_display.preference_container.add_icon(
 						curr_trait.data.display_texture,
@@ -157,6 +160,8 @@ func get_highest_trait(in_player: PlayerEntity) -> int:
 	)
 	var ret_index: int = display_order.size()
 	for i in range(0, battle_positions.size()):
+		if battle_positions[i] == in_player.battle_position:
+			continue
 		var curr_object = battle_positions[i].get_object()
 		if curr_object != null:
 			curr_object.object_stat_display.preference_container.visible = show_preferences
@@ -171,8 +176,8 @@ func get_highest_trait(in_player: PlayerEntity) -> int:
 					2:
 						curr_trait = in_player.strategic_trait
 				if curr_object.data.targeting_categories.has(curr_trait.data.object_targeting_preference):
-					if j < ret_index:
-						ret_index = j
+						if j < ret_index:
+							ret_index = j
 	if ret_index < display_order.size():
 		return display_order[ret_index]
 	return -1

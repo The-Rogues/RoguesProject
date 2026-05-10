@@ -7,7 +7,7 @@ var final_amount:int = -1
 const RANDOM_GOLD_AMOUNT = 7
 
 
-func get_reward() -> void:
+func get_reward() -> bool:
 	var run = GlobalSessionManager.run_progress
 	
 	_ensure_final_amount()
@@ -15,6 +15,7 @@ func get_reward() -> void:
 	if run:
 		run.player_data.set_gold(
 			run.player_data.gold + final_amount)
+	return true
 
 
 func _ensure_final_amount():
@@ -24,4 +25,7 @@ func _ensure_final_amount():
 
 func get_reward_name() -> String:
 	_ensure_final_amount()
-	return "Found Gold (" + str(final_amount) + ")."
+	if name == "":
+		return "Found Gold (" + str(final_amount) + ")"
+	else:
+		return name + " (" + str(final_amount) + ")"

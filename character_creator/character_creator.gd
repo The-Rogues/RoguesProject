@@ -63,6 +63,8 @@ func _ready() -> void:
 	
 	name_editor.name_saved.connect(_on_name_set)
 	update_save_button()
+	print(offensive_traits)
+	print(defensive_traits)
 
 
 func randomize_input():

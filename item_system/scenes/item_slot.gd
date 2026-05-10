@@ -6,6 +6,7 @@ signal used(index:int, item_slot:ItemSlot)
 signal discard(index:int, item_slot:ItemSlot)
 
 @export var item_icon_button: TextureButton
+@export var item_border: Panel
 @export var item_texture_rect: TextureRect
 @export var contents:VBoxContainer
 @export var context_panel:ContextPanel
@@ -20,7 +21,7 @@ func _ready() -> void:
 	item_icon_button.disabled = true
 
 
-func initialize(item_data:ItemData, new_index:int):
+func initialize(item_data:ItemData, new_index:int, add_col: bool = false):
 	var context:String = item_data.name + "\n" + item_data.description
 	context_panel.set_context(context)
 	item_texture_rect.texture = item_data.display_texture
@@ -29,6 +30,13 @@ func initialize(item_data:ItemData, new_index:int):
 	
 	index = new_index
 
+func color_item_slot():
+	item_border.modulate = Color(1.0, 0.0, 0.0)
+	item_icon_button.modulate = Color(1.0, 0.0, 0.0)
+
+func uncolor_item_slot():
+	item_border.modulate = Color(1.0, 1.0, 1.0)
+	item_icon_button.modulate = Color(1.0, 1.0, 1.0)
 
 func _on_item_slot_clicked() -> void:
 	contents.visible = true

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://c0uf3am8qex4k"]
+
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_mqe1g"]
+[ext_resource type="Texture2D" uid="uid://omffyiuy3df" path="res://common/art/placeholder/joi3/stoic_icon.tres" id="1_uxkpr"]
+[ext_resource type="Script" uid="uid://x6iyl7ntfili" path="res://content/map_events/tier_1_events/results/replace_card_by_name_result.gd" id="2_ll3om"]
+
+[sub_resource type="Resource" id="Resource_junk5"]
+script = ExtResource("2_ll3om")
+card_name = "Defend"
+metadata/_custom_type_script = "uid://x6iyl7ntfili"
+
+[sub_resource type="Resource" id="Resource_y5rla"]
+script = ExtResource("2_ll3om")
+card_name = "Move"
+metadata/_custom_type_script = "uid://x6iyl7ntfili"
+
+[resource]
+script = ExtResource("1_mqe1g")
+display_image = ExtResource("1_uxkpr")
+scenario_text = "You decide to train for the journey ahead. Which skill do you focus on?"
+option_1_text = "Defend"
+option_2_text = "Move"
+option_1_branch = Array[String](["Your Defend is now more reliable."])
+option_2_branch = Array[String](["Your Move is now more reliable."])
+option_1_accept_event = SubResource("Resource_junk5")
+option_2_accept_event = SubResource("Resource_y5rla")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

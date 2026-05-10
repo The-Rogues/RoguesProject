@@ -6,7 +6,7 @@ class_name BattleRewardData
 @export var name:String
 
 @abstract
-func get_reward() -> void
+func get_reward() -> bool
 
 
 func get_reward_name() -> String:

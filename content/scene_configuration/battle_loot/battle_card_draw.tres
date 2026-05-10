@@ -10,5 +10,5 @@ region = Rect2(176, 32, 16, 16)
 [resource]
 script = ExtResource("1_louc8")
 display_texture = SubResource("AtlasTexture_p55ak")
-name = "Choose 1 card."
+name = "Personality Card Reward"
 metadata/_custom_type_script = "uid://cabnmxb17rq6i"

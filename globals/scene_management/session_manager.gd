@@ -145,6 +145,12 @@ func complete_current_room() -> void:
 	run_progress.pending_room_type = -1
 	run_progress.room_in_progress = false
 	
+	# Clear extra item slot.
+	if run_progress.player_data.items.size() == run_progress.player_data.item_capacity:
+		run_progress.player_data.remove_item(
+			run_progress.player_data.items[run_progress.player_data.items.size() - 1]
+		)
+	
 	GlobalSaveManager.save_run(run_progress)
 
 func erase_run_progress():

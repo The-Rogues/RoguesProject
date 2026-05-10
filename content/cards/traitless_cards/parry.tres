@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp6j5ppmnwg2"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_6jmr8"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_57b8e"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_q01w4"]
+[ext_resource type="Script" uid="uid://bockg7qo5uy2y" path="res://content/cards/stoic_cards/challenge/defense_block_action2.gd" id="3_57b8e"]
+
+[sub_resource type="Resource" id="Resource_kik8o"]
+script = ExtResource("2_57b8e")
+amount = 7
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_py01r"]
+script = ExtResource("3_57b8e")
+def_increment = 2
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bockg7qo5uy2y"
+
+[resource]
+script = ExtResource("2_q01w4")
+description = "Gain 7 block. Gain an additional block for every 2 defense."
+play_actions = Array[ExtResource("1_6jmr8")]([SubResource("Resource_kik8o"), SubResource("Resource_py01r")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

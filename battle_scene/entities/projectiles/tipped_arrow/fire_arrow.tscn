@@ -457,7 +457,7 @@ radius = 11.18034
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 14.035668
 
-[node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="Arrow2" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_qcblo")

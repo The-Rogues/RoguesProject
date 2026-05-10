@@ -3,5 +3,8 @@ class_name ItemRewardData
 
 @export var item:ItemData
 
-func get_reward() -> void:
-	GlobalSessionManager.add_held_item(item)
+func get_reward() -> bool:
+	if GlobalSessionManager.run_progress.player_data.add_item(item):
+		return true
+	else:
+		return false

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://bj16p41qglnna"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_xa2g2"]
+[ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/valorous_cards/RecklessRush/RecklessRush.tres" id="2_k7uoe"]
+[ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_vke7g"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="3_3waw0"]
+
+[resource]
+script = ExtResource("2_vke7g")
+card_pool = Array[ExtResource("1_xa2g2")]([ExtResource("2_k7uoe"), ExtResource("2_k7uoe"), ExtResource("2_k7uoe"), ExtResource("2_k7uoe")])
+draw_count = 3
+name = "Valorous Card Pack"
+description = "Choose 1 Valorous card to add to your deck."
+display_texture = ExtResource("3_3waw0")
+shop_price = 15
+sell_price = 5
+metadata/_custom_type_script = "uid://dlv5cg3gsif3q"

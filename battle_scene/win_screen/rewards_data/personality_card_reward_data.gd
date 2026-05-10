@@ -2,7 +2,7 @@ extends BattleRewardData
 class_name PersonalityCardRewardData
 
 
-func get_reward() -> void:
+func get_reward() -> bool:
 	var run = GlobalSessionManager.run_progress
 	var loot_pool:Array[CardData] = []
 	if run:
@@ -14,3 +14,4 @@ func get_reward() -> void:
 		
 		loot_pool.resize(3)
 		GlobalSessionInterface.open_card_picker(loot_pool, true)
+	return true

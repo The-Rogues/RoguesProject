@@ -172,6 +172,8 @@ func _init(
 					else:
 						return max_layer_sz
 			).call()
+			if curr_layer == 3:
+				nodes_in_layer = 3
 			
 			# Get the nodes that were in the previousley added layer.
 			var prev_layer_nodes: Array[RefCounted] = []
@@ -594,12 +596,21 @@ func populate_events(rand_seed: int) -> void:
 	node_arr[0].node_data = add_main_event(battle_data)
 	
 	# First layer is always battle nodes.
-	var curr_layer: Array[RefCounted] = get_layer(1)
-	for i in range(0, curr_layer.size()):
-		curr_layer[i].node_data = add_main_event(battle_data)
+	for i in range(0, 2):
+		var curr_layer: Array[RefCounted] = get_layer(i + 1)
+		for j in range(0, curr_layer.size()):
+			curr_layer[j].node_data = add_main_event(battle_data)
+	
+	var layer_four: Array[RefCounted] = get_layer(3)
+	var shop_types: Array[RefCounted] = [shop_data, shop_data, shop_data]
+	for i in range(0, layer_four.size()):
+		var curr_shop: RefCounted = shop_types.pick_random()
+		layer_four[i].node_data = add_main_event(curr_shop)
+		shop_types.erase(curr_shop)
 	
 	# Iterate over all other map layers.
-	for i in range(2, map_layers):
+	var curr_layer: Array[RefCounted]
+	for i in range(3, map_layers):
 		
 		# If the final layer is reached, it is set to a boss node.
 		if i == (map_layers - 1):
@@ -608,7 +619,7 @@ func populate_events(rand_seed: int) -> void:
 			break
 		
 		# Layers are processed in pairs, odd layers can be ignored.
-		if (i % 2) == 1:
+		if (i % 2) == 0:
 			continue
 		
 		# Get the current layer and iterate over it.

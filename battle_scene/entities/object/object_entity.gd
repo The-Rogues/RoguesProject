@@ -45,6 +45,7 @@ func on_destroyed():
 		await interact()
 	if (data.interaction == ObjectData.InteractionOption.ON_PLAYER_DESTROYED and
 		attacker is PlayerEntity):
+		print("Pot")
 		await interact()
 	
 	await sprite_2d.flash()

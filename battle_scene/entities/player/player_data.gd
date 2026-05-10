@@ -26,7 +26,7 @@ signal gold_collected(amount:int)
 
 const STARTING_HEALTH = 50
 const STARTING_ENERGY = 3
-const STARTING_ITEM_CAPACITY = 1
+const STARTING_ITEM_CAPACITY = 2
 const STARTING_GOLD = 0
 
 
@@ -95,7 +95,6 @@ func buy_item(item:ItemData) -> bool:
 		return true
 	
 	return false
-
 
 func sell_item(item:ItemData) -> bool:
 	if items.has(item):
