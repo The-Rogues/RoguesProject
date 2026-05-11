@@ -89,14 +89,11 @@ func choose_battlefield_layout(
 
 
 func create_battle_config() -> BattleConfig:
-	print(self)
 	var run := GlobalSessionManager.run_progress
 	if run:
 		var progress:int = run.total_rooms_explored
-		print(progress)
 		var encounters = get_enemy_encounter_pool(progress).duplicate()
 		var layouts = get_battlefield_layout_pool(progress).duplicate()
-		print(layouts)
 		if enemy_encounter_cache.size() == encounters.size():
 			enemy_encounter_cache.clear()
 		else:

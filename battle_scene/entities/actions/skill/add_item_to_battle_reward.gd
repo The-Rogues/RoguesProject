@@ -19,7 +19,6 @@ enum LootSource { CHEST, POT }
 
 
 func execute(_context: BattleContext = null, _user: AbstractEntity = null):
-	print("Grumbus McChumbus")
 	var reward: BattleRewardData = null
 	match loot_source:
 		LootSource.CHEST:

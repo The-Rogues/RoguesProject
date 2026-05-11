@@ -55,7 +55,6 @@ func _execute_queued_action():
 	# developer mistake
 	if queued_action.action != null:
 		# Waits action finishes executing
-		print("executing")
 		await queued_action.execute()
 		action_processed.emit(queued_action.action)
 	

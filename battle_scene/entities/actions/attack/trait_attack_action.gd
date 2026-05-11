@@ -13,7 +13,6 @@ func execute(_context: BattleContext = null, _user: AbstractEntity = null):
 		return
 	
 	amount = _trait.weight_value
-	print("trait attack")
 	super(_context, _user)
 
 

@@ -214,7 +214,6 @@ func _on_create_clicked() -> void:
 	# its text to be empty.
 	chat.ask(prompt) # Fletcher - Added
 	var ai_response:String = await chat.response_finished # Fletcher - Moddified
-	print(ai_response)
 	var character_json:Dictionary = _validate_character_string(ai_response)
 	_initialize_character_from_json(character_json)
 	

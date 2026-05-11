@@ -14,7 +14,6 @@ var is_moving:bool = false
 
 
 func apply_status_effect(effect:StatusEffectConfig):
-	print("BIG BOOTY")
 	effects.add_effect(effect.behaviour, effect.duration, effect.stack)
 
 

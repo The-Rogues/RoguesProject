@@ -1,6 +1,9 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bhnmqjrvedryq"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_1br5u"]
+[ext_resource type="Resource" uid="uid://dxtj0ia4nmsqt" path="res://content/cards/tactical_cards/reload/agile_shot.tres" id="2_wikjn"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="3_0t41o"]
+[ext_resource type="Script" uid="uid://bq00f60pxwisq" path="res://battle_scene/entities/actions/skill/shuffle_pile_action.gd" id="4_g4qe6"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_o1ijd"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gnf83"]
@@ -10,6 +13,29 @@ load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8
 atlas = SubResource("CompressedTexture2D_gnf83")
 region = Rect2(200, 560, 40, 40)
 
+[sub_resource type="Resource" id="Resource_kqv2m"]
+script = ExtResource("3_0t41o")
+card = ExtResource("2_wikjn")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_onvil"]
+script = ExtResource("3_0t41o")
+card = ExtResource("2_wikjn")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_u7jh4"]
+script = ExtResource("3_0t41o")
+card = ExtResource("2_wikjn")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_4mw3r"]
+script = ExtResource("4_g4qe6")
+is_draw = true
+metadata/_custom_type_script = "uid://bq00f60pxwisq"
+
 [resource]
 script = ExtResource("4_o1ijd")
 type = 2
@@ -18,4 +44,5 @@ energy_cost = 2
 name = "Reload"
 display_texture = SubResource("AtlasTexture_l5c3e")
 description = "Shuffle [color=#43A047]3[/color] Agile Shot cards into your draw pile."
+play_actions = Array[ExtResource("1_1br5u")]([SubResource("Resource_kqv2m"), SubResource("Resource_onvil"), SubResource("Resource_u7jh4"), SubResource("Resource_4mw3r")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

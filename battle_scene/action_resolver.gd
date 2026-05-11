@@ -126,7 +126,6 @@ func process_actions(actions:Array[Action], user:AbstractEntity):
 		if i < (actions.size() - 1):
 			recalculate_targeting = false
 		if user is ObjectEntity:
-			print("Slime")
 			user = null
 		action_queue.enqueue(
 			actions[i],
