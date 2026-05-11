@@ -10,11 +10,11 @@ func on_apply(_context:BattleContext):
 
 func _on_card_drawn(card:CardInstance):
 	if card.data.name == "Practice Makes Perfect" && is_instance_valid(player):
-		var base_cost: int = 6
+		var base_cost: int = 4
 		for i in range(0, player.defensive_trait.weight_value + 1, 2):
 			if i == 0:
 				continue
-			base_cost -= 2
+			base_cost -= 1
 		if base_cost < 0:
 			base_cost = 0
 		card.energy_cost = base_cost
@@ -27,11 +27,11 @@ func discount_hand_cards(def_amnt: int):
 		if cards.size() == 0:
 			return
 		
-		var base_cost: int = 6
+		var base_cost: int = 4
 		for i in range(0, def_amnt + 1, 2):
 			if i == 0:
 				continue
-			base_cost -= 2
+			base_cost -= 1
 		if base_cost < 0:
 			base_cost = 0
 		for i in range(0, cards.size()):

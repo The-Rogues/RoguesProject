@@ -15,5 +15,6 @@ display_texture = ExtResource("2_wanmy")
 name = "Stoic"
 description = "Defends to strike back. Targets healthiest enemies. Moves toward threats."
 trait_category = 1
+object_targeting_preference = 3
 card_loot_pool = Array[ExtResource("1_ilpv2")]([ExtResource("2_xudqc"), ExtResource("3_5xwfy"), ExtResource("4_4gmrv"), ExtResource("5_rqv7j"), ExtResource("6_4hx2e")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

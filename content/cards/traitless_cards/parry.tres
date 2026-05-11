@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_kik8o"]
 script = ExtResource("2_57b8e")
-amount = 7
+amount = 6
 ignore_foreground = true
 metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
 
@@ -19,6 +19,8 @@ metadata/_custom_type_script = "uid://bockg7qo5uy2y"
 
 [resource]
 script = ExtResource("2_q01w4")
-description = "Gain 7 block. Gain an additional block for every 2 defense."
+energy_cost = 1
+name = "Parry"
+description = "Gain [color=deep_sky_blue]6[/color] block. Gain an extra block for every [color=#43A047]2[/color] [color=orange]defense[/color]."
 play_actions = Array[ExtResource("1_6jmr8")]([SubResource("Resource_kik8o"), SubResource("Resource_py01r")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

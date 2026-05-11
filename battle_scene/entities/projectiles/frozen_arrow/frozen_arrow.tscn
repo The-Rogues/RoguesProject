@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://bn7qgjpnrgqjj"
 script = ExtResource("3_6d5y3")
 behaviour = SubResource("Resource_txbk8")
 duration = -1
-stack = 4
+stack = 3
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ri64t"]
@@ -459,11 +459,12 @@ radius = 11.18034
 radius = 14.035668
 
 [node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+scale = Vector2(0.76, 0.76)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_awbi0")
-speed = 420.0
-damage = 6
+speed = 700.0
+damage = 2
 life_span = NodePath("LifeSpan")
 status = SubResource("Resource_slwc3")
 
@@ -472,9 +473,9 @@ status = SubResource("Resource_slwc3")
 [node name="Sprite2D2" type="Sprite2D" parent="SpritePivot" unique_id=72437752]
 modulate = Color(0, 0.43529412, 1, 1)
 texture_filter = 1
-position = Vector2(-17.000002, 1.1920929e-07)
+position = Vector2(-39, -2.6822082e-07)
 rotation = 2.3666666
-scale = Vector2(1.9999999, 1.9999999)
+scale = Vector2(3.7111802, 3.7111802)
 texture = ExtResource("4_iakv0")
 
 [node name="StuckArrow" parent="SpritePivot/Sprite2D2" unique_id=1169763427 instance=ExtResource("5_0jcyh")]
@@ -488,9 +489,9 @@ visible = false
 texture = SubResource("AtlasTexture_ri64t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpritePivot" unique_id=491095849]
-modulate = Color(0, 0.6431373, 0.90588236, 0.54901963)
+modulate = Color(0, 0.6431373, 0.90588236, 0.5019608)
 texture_filter = 1
-scale = Vector2(0.8, 0.8)
+scale = Vector2(3.010527, 3.010527)
 sprite_frames = SubResource("SpriteFrames_c4fy0")
 autoplay = "default"
 frame_progress = 0.8443866

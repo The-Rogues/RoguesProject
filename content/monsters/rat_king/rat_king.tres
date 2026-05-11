@@ -1,27 +1,32 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://xf5mvnd2uwes"]
 
-[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_iysgd"]
+[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/fletcher/monsters/ice_wizard/scripts/init_move_monster_behaviour.gd" id="1_k238j"]
 [ext_resource type="Texture2D" uid="uid://d2nmyy8mwiiys" path="res://content/monsters/rat_king/rat_king_texture.tres" id="2_lfqtc"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_xn6uq"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_xjslx"]
-[ext_resource type="Resource" uid="uid://c5k3n40ct56l7" path="res://content/monsters/rat_king/moves/bite.tres" id="5_e47hq"]
+[ext_resource type="Resource" uid="uid://d27rikjsdm8c" path="res://content/monsters/rat_king/moves/claw.tres" id="5_k238j"]
 [ext_resource type="Resource" uid="uid://x0offs2scpki" path="res://content/monsters/rat_king/moves/call_the_boys.tres" id="6_wlf8v"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="7_x3ljp"]
 
-[sub_resource type="Resource" id="Resource_8wjr6"]
-script = ExtResource("1_iysgd")
-metadata/_custom_type_script = "uid://bn6t0778mctv4"
+[sub_resource type="Resource" id="Resource_mipo8"]
+script = ExtResource("1_k238j")
+metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
+
+[sub_resource type="Resource" id="Resource_lxysv"]
+script = ExtResource("3_xn6uq")
+moves = Array[ExtResource("4_xjslx")]([ExtResource("5_k238j"), ExtResource("6_wlf8v"), ExtResource("6_wlf8v")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [sub_resource type="Resource" id="Resource_2w734"]
 script = ExtResource("3_xn6uq")
-moves = Array[ExtResource("4_xjslx")]([ExtResource("5_e47hq"), ExtResource("6_wlf8v"), ExtResource("5_e47hq")])
+moves = Array[ExtResource("4_xjslx")]([ExtResource("5_k238j")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [resource]
 script = ExtResource("7_x3ljp")
-move_sequences = Array[ExtResource("3_xn6uq")]([SubResource("Resource_2w734")])
-behaviour = SubResource("Resource_8wjr6")
+move_sequences = Array[ExtResource("3_xn6uq")]([SubResource("Resource_lxysv"), SubResource("Resource_2w734")])
+behaviour = SubResource("Resource_mipo8")
 display_texture = ExtResource("2_lfqtc")
 name = "Rat King"
-health = 36
+health = 39
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

@@ -11,10 +11,13 @@ region = Rect2(64, 544, 32, 32)
 
 [resource]
 script = ExtResource("2_lqkhd")
-targeting_categories = Array[int]([0, 2])
+targeting_categories = Array[int]([2])
 interaction = 7
 interaction_actions = Array[ExtResource("1_1fwaj")]([ExtResource("3_8r3bl")])
-hover_description = "Break to collect what's inside."
+hover_description = "
+Object Category: Treasure
+
+On Player Destroyed: Gain an extra reward after battle."
 display_texture = SubResource("AtlasTexture_5cgrj")
 name = "Treasure Pot"
 health = 1

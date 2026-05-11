@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cidn510ow7gs1"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_4r2tu"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_6uwk0"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_u8gd3"]
+
+[sub_resource type="Resource" id="Resource_fyrf3"]
+script = ExtResource("2_6uwk0")
+base_damage = 8
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("3_u8gd3")
+intent_icon = ExtResource("1_4r2tu")
+name = "Lurch"
+description = "This enemy intends to attack for [color=red]get_atk8[/color] damage."
+primary_action = SubResource("Resource_fyrf3")
+metadata/_custom_type_script = "uid://c410dannt5adg"

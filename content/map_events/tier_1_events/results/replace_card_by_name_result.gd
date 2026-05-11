@@ -9,3 +9,6 @@ func resolve():
 		if GlobalSessionManager.run_progress.player_data.cards[i].name == card_name:
 			GlobalSessionManager.run_progress.player_data.cards.remove_at(i)
 			GlobalSessionManager.run_progress.player_data.cards.append(new_card)
+	GlobalSessionManager.run_progress.player_data.cards_updated.emit(
+		GlobalSessionManager.run_progress.player_data.cards
+	)

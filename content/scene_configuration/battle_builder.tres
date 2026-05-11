@@ -2,13 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_xfhqu"]
 [ext_resource type="Script" uid="uid://blh0k76h8lwis" path="res://battle_scene/battle_building/battle_builder.gd" id="2_wh5q6"]
+[ext_resource type="Resource" uid="uid://20ggd4aobxad" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/chest_and_loot.tres" id="3_eswd4"]
 [ext_resource type="Resource" uid="uid://cpqt75k24oioa" path="res://content/scene_configuration/battle_field_layouts/pots.tres" id="3_eypvv"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_xcnaf"]
+[ext_resource type="Resource" uid="uid://dhoiydlklby6u" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/chest_and_upgrades.tres" id="4_eypvv"]
 [ext_resource type="Resource" uid="uid://c0mtay5bpskby" path="res://content/scene_configuration/battle_field_layouts/split_walls.tres" id="5_ea1em"]
+[ext_resource type="Resource" uid="uid://b7vqjxj25kn03" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/free_loot.tres" id="5_uu101"]
+[ext_resource type="Resource" uid="uid://c54et4d65kq7i" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/lots_of_loot.tres" id="6_iaeg7"]
 [ext_resource type="Resource" uid="uid://c6v6r0kxmsvcb" path="res://content/scene_configuration/enemy_encounters/tier_1_encounters/angry_shroom.tres" id="6_mviad"]
+[ext_resource type="Resource" uid="uid://bc63e35x0qq8x" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/upgrade_advantage.tres" id="7_4gia5"]
+[ext_resource type="Resource" uid="uid://chlbwg0qx6m2a" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/weapon_advantage.tres" id="8_cthsh"]
 [ext_resource type="Resource" uid="uid://ccyf1xvrcexq4" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/turtle_guards.tres" id="8_jve6n"]
 [ext_resource type="Resource" uid="uid://d165vww2jsclm" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/forest_gang.tres" id="9_mviad"]
 [ext_resource type="Resource" uid="uid://nj4x1yrcpw4r" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/gatling_worm_attack.tres" id="10_3llie"]
+[ext_resource type="Resource" uid="uid://yxwoiiqcux1x" path="res://content/scene_configuration/enemy_encounters/tier_1_encounters/the_infected.tres" id="10_iaeg7"]
+[ext_resource type="Resource" uid="uid://dk6xh7nusp3ss" path="res://content/scene_configuration/enemy_encounters/tier_1_encounters/rat_king.tres" id="11_4gia5"]
 [ext_resource type="Resource" uid="uid://cm5184nfihs1g" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/ice_wizard.tres" id="13_0k0r7"]
 [ext_resource type="Resource" uid="uid://3nslcpk1pfrw" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/large_ant.tres" id="14_vpdql"]
 [ext_resource type="Resource" uid="uid://2bkv0dsmmkce" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/slime_group.tres" id="15_eswd4"]
@@ -24,12 +32,12 @@
 
 [resource]
 script = ExtResource("2_wh5q6")
-tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_mviad")])
+tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_iaeg7"), ExtResource("11_4gia5"), ExtResource("6_mviad")])
 tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("9_mviad"), ExtResource("10_3llie"), ExtResource("13_0k0r7"), ExtResource("14_vpdql"), ExtResource("15_eswd4"), ExtResource("8_jve6n")])
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("18_eypvv"), ExtResource("19_uu101"), ExtResource("20_iaeg7"), ExtResource("21_4gia5"), ExtResource("22_cthsh")])
 tier_4_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("23_a5ep4"), ExtResource("24_58ou1"), ExtResource("25_7mqno")])
 tier_5_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("26_4c4kg")])
-tier_1_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("3_eypvv"), ExtResource("3_eypvv"), ExtResource("3_eypvv"), ExtResource("3_eypvv")])
+tier_1_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("3_eswd4"), ExtResource("4_eypvv"), ExtResource("5_uu101"), ExtResource("6_iaeg7"), ExtResource("7_4gia5"), ExtResource("8_cthsh")])
 tier_2_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("5_ea1em")])
 tier_3_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("3_eypvv")])
 tier_4_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("3_eypvv")])

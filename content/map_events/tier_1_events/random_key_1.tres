@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://yx660xg08js8" path="res://content/cards/traitless_cards/snakio.tres" id="3_wnc7q"]
 [ext_resource type="Script" uid="uid://cjm2fawobo7a0" path="res://mini_event_system/results/give_card_event_result.gd" id="4_gnb1e"]
 [ext_resource type="Resource" uid="uid://by2kl8w4kkm1m" path="res://content/cards/traitless_cards/stinky.tres" id="5_4co7w"]
-[ext_resource type="Resource" uid="uid://qbxcv1tx3lp1" path="res://content/cards/traitless_cards/privilege.tres" id="6_rl85h"]
 [ext_resource type="Resource" uid="uid://br1liejdw3sis" path="res://content/cards/traitless_cards/mr_bat.tres" id="7_cbaag"]
 [ext_resource type="Script" uid="uid://brd5m732vyy5t" path="res://mini_event_system/results/random_event_result.gd" id="8_c0an5"]
 [ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="9_ik3dd"]
@@ -22,11 +21,6 @@ script = ExtResource("4_gnb1e")
 card = ExtResource("5_4co7w")
 metadata/_custom_type_script = "uid://cjm2fawobo7a0"
 
-[sub_resource type="Resource" id="Resource_frviw"]
-script = ExtResource("4_gnb1e")
-card = ExtResource("6_rl85h")
-metadata/_custom_type_script = "uid://cjm2fawobo7a0"
-
 [sub_resource type="Resource" id="Resource_7y8s1"]
 script = ExtResource("4_gnb1e")
 card = ExtResource("7_cbaag")
@@ -34,7 +28,7 @@ metadata/_custom_type_script = "uid://cjm2fawobo7a0"
 
 [sub_resource type="Resource" id="Resource_bqlgt"]
 script = ExtResource("8_c0an5")
-results = Array[ExtResource("2_r4tul")]([SubResource("Resource_gkkpo"), SubResource("Resource_d4bdk"), SubResource("Resource_frviw"), SubResource("Resource_7y8s1")])
+results = Array[ExtResource("2_r4tul")]([SubResource("Resource_gkkpo"), SubResource("Resource_d4bdk"), SubResource("Resource_7y8s1")])
 weights = Array[float]([1.0, 1.0, 1.0, 1.0])
 metadata/_custom_type_script = "uid://brd5m732vyy5t"
 
@@ -52,7 +46,7 @@ option_2_text = "Left Hand"
 option_1_branch = Array[String](["The hooded man smiles as he reveals your choice.
 \"Congratulations! You received a MonsterMon card!\" he proclaims."])
 option_2_branch = Array[String](["The hooded man seems disappointed as he reveals your choice.
-“Here, take this key. I have no use for it,” he says."])
+\"Here, take this key. I have no use for it,\" he says."])
 option_1_accept_event = SubResource("Resource_bqlgt")
 option_2_accept_event = SubResource("Resource_1kx0x")
 metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bk2qa27qd5f1t"]
+
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_t4r22"]
+[ext_resource type="Script" uid="uid://bdpfrus5vumk" path="res://battle_scene/entities/actions/skill/heal_action.gd" id="2_lcyeh"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_w3l4r"]
+[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/the_infected/infection_behavior.gd" id="4_h3n86"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_cdlt2"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_8lrr3"]
+
+[sub_resource type="Resource" id="Resource_a5w7q"]
+script = ExtResource("2_lcyeh")
+amount = 99
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bdpfrus5vumk"
+
+[sub_resource type="Resource" id="Resource_xvgnw"]
+script = ExtResource("4_h3n86")
+metadata/_custom_type_script = "uid://cs8gcwstv68ba"
+
+[sub_resource type="Resource" id="Resource_3quff"]
+script = ExtResource("5_cdlt2")
+behaviour = SubResource("Resource_xvgnw")
+duration = -1
+stack = 10
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_ftjgu"]
+script = ExtResource("6_8lrr3")
+effect = SubResource("Resource_3quff")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("3_w3l4r")
+type = 1
+intent_icon = ExtResource("1_t4r22")
+name = "Cursed Recovery"
+description = "This Enemy intends to heal to full HP. Gains [color=#43A047]10[/color] [color=orange]infection[/color]."
+primary_action = SubResource("Resource_a5w7q")
+secondary_action = SubResource("Resource_ftjgu")
+metadata/_custom_type_script = "uid://c410dannt5adg"

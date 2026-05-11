@@ -65,6 +65,7 @@ func _ready() -> void:
 	update_save_button()
 	print(offensive_traits)
 	print(defensive_traits)
+	print(strategic_traits)
 
 
 func randomize_input():

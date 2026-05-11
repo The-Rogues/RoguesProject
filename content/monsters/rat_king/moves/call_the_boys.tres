@@ -24,19 +24,18 @@ move_sequences = Array[ExtResource("3_k3x16")]([SubResource("Resource_bsytf")])
 behaviour = SubResource("Resource_0hiti")
 display_texture = ExtResource("2_x7x0q")
 name = "Minion Rat"
-health = 6
+health = 1
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"
 
 [sub_resource type="Resource" id="Resource_2jxkh"]
 script = ExtResource("7_ksdr1")
 monster_data = SubResource("Resource_eqh43")
-spawn_count = 2
 metadata/_custom_type_script = "uid://crxnbj8rigrkp"
 
 [resource]
 script = ExtResource("1_o7j0w")
 intent_icon = ExtResource("1_odjxf")
 name = "Call the Boys"
-description = "This enemy intends to call backup."
+description = "This enemy intends to summon a minion rat."
 primary_action = SubResource("Resource_2jxkh")
 metadata/_custom_type_script = "uid://c410dannt5adg"

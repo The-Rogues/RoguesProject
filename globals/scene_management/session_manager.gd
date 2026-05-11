@@ -56,9 +56,9 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	
 	# Add AI Card to starting deck
-	run.player_data.cards.append(
-		load("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
-	)
+	#run.player_data.cards.append(
+	#	load("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
+	#)
 	
 	return run
 

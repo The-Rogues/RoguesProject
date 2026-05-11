@@ -30,5 +30,7 @@ display_image = ExtResource("1_dlbpc")
 scenario_text = "You encounter a merchant selling a rare item. Do you spend all of your gold to obtain it?"
 option_1_text = "Obtain The Item"
 option_2_text = "Keep Your Gold"
+option_1_branch = Array[String](["You buy the rare item. You are now broke."])
+option_2_branch = Array[String](["You decide to save your gold, hoping for a better opportunity in the future."])
 option_1_accept_event = SubResource("Resource_5kuu0")
 metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

@@ -28,6 +28,6 @@ script = ExtResource("2_wo5p2")
 energy_cost = 1
 name = "Shield Break"
 display_texture = ExtResource("1_vpk1k")
-description = "Deal [color=red]get_atk7[/color] Damage. Apply 1 Frail. "
+description = "Deal [color=red]get_atk7[/color] Damage. Apply [color=#43A047]1[/color] [color=orange]frail[/color]. "
 play_actions = Array[ExtResource("1_ieoco")]([SubResource("Resource_xd3w0")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -32,6 +32,6 @@ script = ExtResource("4_gsi7b")
 type = 2
 energy_cost = 1
 name = "Adapt"
-description = "Move toward preferred object. Gain 1 offense, defense, and strategy."
+description = "Move toward preferred object. Gain [color=#43A047]1[/color] stat point in each category."
 play_actions = Array[ExtResource("1_5yhlw")]([SubResource("Resource_7ta40"), SubResource("Resource_62qg3"), SubResource("Resource_hjbbf"), SubResource("Resource_3u2lu")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -36,6 +36,6 @@ script = ExtResource("5_uwgx7")
 type = 1
 energy_cost = 1
 name = "Frozen Shot"
-description = "Deal 2 damage. Apply 4 frozen."
+description = "Deal [color=red]2[/color] damage. Apply [color=#43A047]4[/color] [color=orange]frozen[/color]."
 play_actions = Array[ExtResource("1_ns18h")]([SubResource("Resource_12btk")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"
