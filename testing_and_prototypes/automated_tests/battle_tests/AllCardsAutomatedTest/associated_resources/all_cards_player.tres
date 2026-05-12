@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cslydk2dhl5kp"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_05fxo"]
+[ext_resource type="Resource" uid="uid://isl47ffhxdab" path="res://content/cards/naive_cards/inspiration.tres" id="2_biq4x"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
-[ext_resource type="Resource" uid="uid://bvmlgyi3ettn8" path="res://content/cards/traitless_cards/frozen_shot.tres" id="2_xmijq"]
-[ext_resource type="Resource" uid="uid://doo3cpvgs6bvq" path="res://content/cards/traitless_cards/adapt.tres" id="3_fiell"]
+[ext_resource type="Resource" uid="uid://bgdai8ivk0ewn" path="res://content/cards/naive_cards/intimidate.tres" id="3_mv3uk"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
 [ext_resource type="Resource" uid="uid://ccg0j48lxm8sh" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
-[ext_resource type="Resource" uid="uid://8hl6h527kkwv" path="res://content/cards/traitless_cards/shield_break.tres" id="4_biq4x"]
-[ext_resource type="Resource" uid="uid://cp6j5ppmnwg2" path="res://content/cards/traitless_cards/parry.tres" id="5_fiell"]
+[ext_resource type="Resource" uid="uid://dlvts2ye4x82h" path="res://content/cards/naive_cards/over_prepared.tres" id="4_kcscn"]
+[ext_resource type="Resource" uid="uid://gkca76tmjgte" path="res://content/cards/naive_cards/tough_skin.tres" id="5_eosiw"]
+[ext_resource type="Resource" uid="uid://c53u3vfvnfhmr" path="res://content/cards/naive_cards/practice_makes_perfect/practice_makes_perfect.tres" id="6_bjdh3"]
 
 [resource]
 script = ExtResource("3_p83cn")
@@ -17,6 +18,6 @@ current_health = 1000
 current_energy = 1000
 max_energy = 1000
 item_capacity = 1
-cards = Array[ExtResource("1_05fxo")]([ExtResource("2_xmijq"), ExtResource("3_fiell"), ExtResource("4_biq4x"), ExtResource("5_fiell")])
+cards = Array[ExtResource("1_05fxo")]([ExtResource("2_biq4x"), ExtResource("3_mv3uk"), ExtResource("4_kcscn"), ExtResource("5_eosiw"), ExtResource("6_bjdh3")])
 personality = ExtResource("3_rhmp2")
 metadata/_custom_type_script = "uid://p6tkdhpfg377"

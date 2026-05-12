@@ -1,2 +1,2 @@
-res://battle_scene/battle_building/enemy_encounter.gd
+res://card_system/card_data.gd
 AtlasTexture

@@ -1,14 +1,4 @@
-res://battle_scene/entities/abstract_creature.gd
-res://battle_scene/action_queue.gd
-res://battle_scene/action_resolver.gd
-res://battle_scene/entities/actions/skill/add_item_to_battle_reward.gd
-res://main_menu/character_creators/ai_character_creator.gd
-res://battle_scene/battle_building/battle_builder.gd
-res://character_creator/character_creator.gd
-res://content/fletcher/monsters/ice_wizard/scripts/ice_spikes_position_effect_behavior.gd
-res://battle_scene/entities/monster/monster_entity.gd
-res://battle_scene/entities/object/object_entity.gd
-res://battle_scene/entities/actions/attack/trait_attack_action.gd
+res://battle_scene/entities/ui/stack_icon.gd
 res://testing_and_prototypes/automated_tests/battle_tests/AllMonstersAutomatedTest/AllMonstersAutomatedTest.tscn
 res://testing_and_prototypes/rogues_theme.tres
 res://content/scene_configuration/battle_loot/battle_card_draw.tres
@@ -185,6 +175,7 @@ res://content/cards/friendly_cards/crawly_friend.tres
 res://content/personality_traits/friendly.tres
 res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_9.tres
 res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres
+res://content/personality_traits/valorous.tres
 res://battle_scene/entities/player/melee_weapon/short_sword.tres
 res://battle_scene/entities/player/melee_weapon/long_sword.tres
 res://battle_scene/entities/player/melee_weapon/cane.tres
@@ -199,4 +190,12 @@ res://battle_scene/entities/player/melee_weapon/axe.tres
 res://battle_scene/entities/player/ranged_weapon/scepter.tres
 res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_monster.tres
 res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_personality.tres
-res://content/fletcher/monsters/ice_wizard/scripts/init_move_monster_behaviour.gd
+res://content/items/cheese/Cards/rat_attack.tres
+res://content/cards/naive_cards/over_prepared.tres
+res://content/cards/naive_cards/tough_skin.tres
+res://battle_scene/entities/status_effects/common/scared_status_effect.gd
+res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_player.tres
+res://content/personality_traits/naive.tres
+res://content/cards/naive_cards/inspiration.tres
+res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_scripts/AllCardsAutomatedTest_scn_main.gd
+res://battle_scene/battle_flow_manager.gd

@@ -17,9 +17,10 @@ metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
 [resource]
 script = ExtResource("4_t7vcl")
 type = 3
+category = 2
 energy_cost = 3
 name = "Over Prepared"
-description = "Block is not removed at the start of your turn. Exhaust."
+description = "Block is not removed at the start of your turn. Single Use."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_ilwsm")]([SubResource("Resource_xkcp1")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

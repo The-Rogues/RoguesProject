@@ -7,12 +7,13 @@
 [ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/brute_cards/dual_strike.tres" id="5_3sdt6"]
 [ext_resource type="Resource" uid="uid://fa2pctlxbe8m" path="res://content/cards/traitless_cards/magic_pot/magic_pot_card.tres" id="6_peaux"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="7_q3xb6"]
-[ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/naive_cards/adrenaline.tres" id="7_x81jl"]
+[ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/naive_cards/old_cards/adrenaline.tres" id="7_x81jl"]
 [ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/vengeful_cards/inferno.tres" id="8_1vp3d"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="8_an1ps"]
 [ext_resource type="Resource" uid="uid://doj675nih2jy4" path="res://content/cards/brute_cards/intensity.tres" id="9_peaux"]
 [ext_resource type="Resource" uid="uid://cre6wnbqrbfvd" path="res://content/cards/traitless_cards/guard.tres" id="10_q3xb6"]
 [ext_resource type="Resource" uid="uid://dl3si50nm35f1" path="res://content/cards/laidback_cards/strategize.tres" id="11_an1ps"]
+
 
 
 [resource]
