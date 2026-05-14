@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_5dxgu"]
 [ext_resource type="Resource" uid="uid://jh4842oe7n3n" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_battle_field.tres" id="1_8xybe"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_cfl6v"]
-[ext_resource type="Resource" uid="uid://cu7om2knmjn0n" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_monster.tres" id="3_2l15t"]
+[ext_resource type="Resource" uid="uid://b5wswl7nkud4h" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_monster.tres" id="3_2l15t"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_8xybe"]
 
 [resource]
 script = ExtResource("3_8xybe")
 encounter_name = "All Cards Encounter"
-enemies = Array[ExtResource("1_5dxgu")]([ExtResource("3_2l15t")])
+enemies = Array[ExtResource("1_5dxgu")]([ExtResource("3_2l15t"), ExtResource("3_2l15t")])
 battlefield_layout = ExtResource("1_8xybe")
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

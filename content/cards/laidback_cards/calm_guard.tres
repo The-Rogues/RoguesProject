@@ -7,13 +7,15 @@
 [sub_resource type="Resource" id="Resource_5i6ko"]
 script = ExtResource("2_w6x8p")
 effect_type = 1
+boosted_block = 18
 metadata/_custom_type_script = "uid://c4wacutsxb7p6"
 
 [resource]
 script = ExtResource("2_imppd")
 type = 2
 category = 3
+energy_cost = 1
 name = "Calm Guard"
-description = "Gain [color=#43A047]8[/color] Block. If you had unused Energy last turn, gain [color=#43A047]12[/color] Block instead."
+description = "Gain [color=deep_sky_blue]8[/color] block. If you had unused energy last turn, gain [color=deep_sky_blue]18[/color] instead."
 play_actions = Array[ExtResource("1_7lc6e")]([SubResource("Resource_5i6ko")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

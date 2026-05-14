@@ -23,16 +23,16 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 func get_texture() -> Texture2D:
 	return load("res://content/cards/stoic_cards/suit_up/armor/armor_icon.tres")
 
-func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
-	if _creature is PlayerEntity:
-		_creature.block.add_block(_instance.stack)
+#func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
+#	if _creature is PlayerEntity:
+#		_creature.block.add_block(_instance.stack)
 
-func on_turn_entered(
+func on_turn(
 	_creature:AbstractCreature = null,
 	_instance:ActiveStatusEffect = null
 ) -> void:
-	_instance.stack -= 2
 	_creature.block.add_block(_instance.stack)
+	_instance.stack -= 2
 	if _instance.stack <= 0:
 		_creature.effects.active_effects.erase(_instance)
 		_creature.stat_display.status_effect_container.icons[_instance].queue_free()

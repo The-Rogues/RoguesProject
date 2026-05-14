@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://bsusaqh4w4gk1"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_s4esk"]
-[ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/valorous_cards/RecklessRush/RecklessRush.tres" id="2_s4esk"]
+[ext_resource type="Resource" uid="uid://dv22vxv6dmc2m" path="res://content/cards/valorous_cards/crushing_presence.tres" id="2_0358x"]
 [ext_resource type="Texture2D" uid="uid://duwn2qipdjoo" path="res://common/art/placeholder/joi3/valorous_icon.tres" id="3_4yvaj"]
+[ext_resource type="Resource" uid="uid://dkuh4lea68efk" path="res://content/cards/valorous_cards/side_quest/side_quest.tres" id="3_hhblu"]
+[ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/valorous_cards/reckless_rush/reckless_rush.tres" id="4_gc6ix"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="4_tuj4a"]
+[ext_resource type="Resource" uid="uid://dt6fseflbysgv" path="res://content/cards/valorous_cards/fortitude/fortitude.tres" id="5_5olkd"]
+[ext_resource type="Resource" uid="uid://b0e3y8sjlb5ki" path="res://content/cards/valorous_cards/final_surge/final_surge.tres" id="6_slmm2"]
 
 [resource]
 script = ExtResource("4_tuj4a")
@@ -13,5 +17,5 @@ description = "Journeys to become stronger. Targets dangerous enemies. Moves tow
 trait_category = 2
 enemy_targeting_preference = 2
 object_targeting_preference = 4
-card_loot_pool = Array[ExtResource("1_s4esk")]([ExtResource("2_s4esk"), ExtResource("2_s4esk"), ExtResource("2_s4esk"), ExtResource("2_s4esk")])
+card_loot_pool = Array[ExtResource("1_s4esk")]([ExtResource("2_0358x"), ExtResource("3_hhblu"), ExtResource("4_gc6ix"), ExtResource("5_5olkd"), ExtResource("6_slmm2")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ca40y4htu81rg"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_holuh"]
+[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_v8rbx"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="3_5y8cp"]
+[ext_resource type="Script" uid="uid://bm5oygnb1m3h7" path="res://battle_scene/entities/actions/skill/move_out_of_cover_action.gd" id="4_ua046"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="5_m8kdk"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_hguxs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qgpnc"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3pdg"]
+atlas = SubResource("CompressedTexture2D_qgpnc")
+region = Rect2(440, 440, 40, 40)
+
+[sub_resource type="Resource" id="Resource_nxkwv"]
+script = ExtResource("3_5y8cp")
+amount = 10
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_f3pdg"]
+script = ExtResource("2_v8rbx")
+category = 1
+threshold = 2
+success_action = SubResource("Resource_nxkwv")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_pthp1"]
+script = ExtResource("4_ua046")
+metadata/_custom_type_script = "uid://bm5oygnb1m3h7"
+
+[sub_resource type="Resource" id="Resource_61ntn"]
+script = ExtResource("2_v8rbx")
+category = 1
+threshold = 2
+success_action = SubResource("Resource_pthp1")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_rkhou"]
+script = ExtResource("5_m8kdk")
+operation = 2
+trait_category = 1
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[sub_resource type="Resource" id="Resource_gh7qi"]
+script = ExtResource("2_v8rbx")
+category = 1
+threshold = 2
+success_action = SubResource("Resource_rkhou")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[resource]
+script = ExtResource("6_hguxs")
+type = 2
+category = 2
+energy_cost = 1
+name = "Hold Your Ground"
+display_texture = SubResource("AtlasTexture_f3pdg")
+description = "If defense is above [color=#43A047]1[/color], gain [color=deep_sky_blue]10[/color] block and move out of cover. Lose [color=#43A047]1[/color] [color=orange]defense[/color]."
+play_actions = Array[ExtResource("1_holuh")]([SubResource("Resource_f3pdg"), SubResource("Resource_61ntn"), SubResource("Resource_gh7qi")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

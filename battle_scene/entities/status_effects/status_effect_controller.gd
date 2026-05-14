@@ -21,10 +21,11 @@ func get_effect(effect_behaviour:Script) -> ActiveStatusEffect:
 func add_effect(
 	effect:StatusEffectBehaviour, 
 	duration:int = -1, 
-	stack:int = -1
+	stack:int = -1,
+	turn_entered: bool = true
 ) -> void:
 	# Checking if effect already applied
-	var new_instance := ActiveStatusEffect.new(effect, duration, stack)
+	var new_instance := ActiveStatusEffect.new(effect, duration, stack, turn_entered)
 	new_instance.effect_ended.connect(remove_effect)
 	
 	var existing_instance:ActiveStatusEffect = get_effect(effect.get_script())
@@ -62,7 +63,7 @@ func apply_attack_damage_effects(damage:int) -> int:
 	
 	for instance in active_effects:
 		final_damage = instance.effect.modify_attack_damage(
-			damage,
+			final_damage,
 			instance
 		)
 	
@@ -104,19 +105,21 @@ func can_use_action(action:Action) -> bool:
 	return true
 
 
-func on_entered_turn() -> void:
+func on_turn(turn_entered: bool) -> void:
 	for instance in active_effects:
-		instance.effect.on_turn_entered(affected_creature, instance)
+		if instance.turn_entered == turn_entered:
+			instance.effect.on_turn(affected_creature, instance)
 
 
-func decay_status_effects():
+func decay_status_effects(turn_entered: bool):
 	for instance in active_effects:
-		instance.duration -= 1
+		if instance.turn_entered == turn_entered: 
+			instance.duration -= 1
 		
-		if instance.duration == 0:
-			remove_effect(instance.effect.get_script())
+			if instance.duration == 0:
+				remove_effect(instance.effect.get_script())
 		
-		effect_changed.emit(instance)
+			effect_changed.emit(instance)
 
 
 func process_projectile(projectile:Projectile):

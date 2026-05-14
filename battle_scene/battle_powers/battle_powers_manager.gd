@@ -26,6 +26,9 @@ func enter_turn(context:BattleContext):
 	for active_power in active_powers:
 		active_power.on_turn_entered(context)
 
+func end_turn(context:BattleContext):
+	for active_power in active_powers:
+		active_power.on_turn_ended(context)
 
 func remove_power(power:BattlePower) -> bool:
 	for active_power in active_powers:

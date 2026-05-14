@@ -14,12 +14,14 @@ metadata/_custom_type_script = "uid://cs8gcwstv68ba"
 script = ExtResource("3_roqpm")
 behaviour = SubResource("Resource_nmy0u")
 duration = -1
-stack = 5
+stack = 4
+turn_entered = false
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_2c1io"]
 script = ExtResource("4_mix8l")
 effect = SubResource("Resource_6mlow")
+ignore_foreground = true
 metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 
 [resource]
@@ -27,6 +29,6 @@ script = ExtResource("5_y60yt")
 type = 1
 intent_icon = ExtResource("1_gtom6")
 name = "Fester"
-description = "This Enemy intends to gain [color=#43A047]5[/color] [color=orange]infection[/color]."
+description = "This Enemy intends to gain [color=#43A047]4[/color] [color=orange]infection[/color]."
 primary_action = SubResource("Resource_2c1io")
 metadata/_custom_type_script = "uid://c410dannt5adg"

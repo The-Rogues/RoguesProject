@@ -128,11 +128,11 @@ resource_local_to_scene = true
 atlas = ExtResource("7_g1oom")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_kxkvj"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_42o4x"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_b67tb"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_khvre"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_3ctbe"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_qx44d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1q3w"]
 atlas = ExtResource("9_qangh")
@@ -147,9 +147,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wh7xx")
 script = ExtResource("1_braph")
-offensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("3_ctoup"), ExtResource("6_yb5ok"), ExtResource("4_xo5uh"), ExtResource("5_40a81")])
-defensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("10_m0xjj"), ExtResource("9_5s1si"), ExtResource("4_g1oom"), ExtResource("11_mcabn")])
-strategic_traits = Array[ExtResource("2_5i41c")]([ExtResource("5_epxpy"), ExtResource("8_ojf1h"), ExtResource("12_42o4x"), ExtResource("15_khvre")])
+offensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("4_xo5uh"), ExtResource("5_40a81"), ExtResource("6_yb5ok"), ExtResource("3_ctoup")])
+defensive_traits = Array[ExtResource("2_5i41c")]([ExtResource("4_g1oom"), ExtResource("9_5s1si"), ExtResource("10_m0xjj"), ExtResource("11_mcabn")])
+strategic_traits = Array[ExtResource("2_5i41c")]([ExtResource("12_42o4x"), ExtResource("8_ojf1h"), ExtResource("5_epxpy"), ExtResource("15_khvre")])
 
 [node name="Background" type="ColorRect" parent="." unique_id=919930622]
 layout_mode = 1
@@ -352,16 +352,16 @@ size_flags_horizontal = 0
 text = "Aggression:"
 
 [node name="Lower" parent="Elements/HBoxContainer2/CharacterInfo/AggressionSurvey" index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_42o4x")
 
 [node name="Low" parent="Elements/HBoxContainer2/CharacterInfo/AggressionSurvey" index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_42o4x")
 
 [node name="High" parent="Elements/HBoxContainer2/CharacterInfo/AggressionSurvey" index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_42o4x")
 
 [node name="Higher" parent="Elements/HBoxContainer2/CharacterInfo/AggressionSurvey" index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_kxkvj")
+button_group = SubResource("ButtonGroup_42o4x")
 
 [node name="StabilitySurvey" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=1306906920 instance=ExtResource("10_g1dsd")]
 unique_name_in_owner = true
@@ -372,16 +372,16 @@ size_flags_horizontal = 0
 text = "Stability: "
 
 [node name="Lower" parent="Elements/HBoxContainer2/CharacterInfo/StabilitySurvey" index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_khvre")
 
 [node name="Low" parent="Elements/HBoxContainer2/CharacterInfo/StabilitySurvey" index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_khvre")
 
 [node name="High" parent="Elements/HBoxContainer2/CharacterInfo/StabilitySurvey" index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_khvre")
 
 [node name="Higher" parent="Elements/HBoxContainer2/CharacterInfo/StabilitySurvey" index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_b67tb")
+button_group = SubResource("ButtonGroup_khvre")
 
 [node name="MotivationSurvey" parent="Elements/HBoxContainer2/CharacterInfo" unique_id=728717384 instance=ExtResource("10_g1dsd")]
 unique_name_in_owner = true
@@ -392,16 +392,16 @@ size_flags_horizontal = 0
 text = "Motivation:"
 
 [node name="Lower" parent="Elements/HBoxContainer2/CharacterInfo/MotivationSurvey" index="1" unique_id=585799121]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="Low" parent="Elements/HBoxContainer2/CharacterInfo/MotivationSurvey" index="2" unique_id=617546917]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="High" parent="Elements/HBoxContainer2/CharacterInfo/MotivationSurvey" index="3" unique_id=1278709487]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="Higher" parent="Elements/HBoxContainer2/CharacterInfo/MotivationSurvey" index="4" unique_id=2017976477]
-button_group = SubResource("ButtonGroup_3ctbe")
+button_group = SubResource("ButtonGroup_qx44d")
 
 [node name="MarginContainer" type="MarginContainer" parent="Elements" unique_id=825983225]
 layout_mode = 2

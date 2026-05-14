@@ -22,7 +22,7 @@ func get_texture() -> Texture2D:
 	return load("res://battle_scene/entities/status_effects/common/burning_icon.tres")
 
 
-func on_turn_entered(
+func on_turn(
 	_creature:AbstractCreature = null,
 	_instance:ActiveStatusEffect = null
 ) -> void:

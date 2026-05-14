@@ -23,6 +23,6 @@ type = 2
 category = 2
 energy_cost = 2
 name = "Inspiration"
-description = "Gain 3 block for every defense. Gain 1 defense."
+description = "Gain [color=deep_sky_blue]3[/color] block for every defense. Gain [color=#43A047]1[/color] [color=orange]defense[/color]."
 play_actions = Array[ExtResource("1_qb84c")]([SubResource("Resource_47tp2"), SubResource("Resource_hh30j")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

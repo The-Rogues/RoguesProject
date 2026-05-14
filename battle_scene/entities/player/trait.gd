@@ -9,6 +9,10 @@ signal updated_trait(current:PersonalityData)
 @export_range(1, 10) var weight_value:int = 1
 @export_range(1, 10) var base_weight_value:int = 2
 
+# Variables used by the brute class.
+var can_modify_next_turn: bool = true
+var can_modify_this_turn: bool = true
+
 
 func initialize(personality_trait:PersonalityTrait, starting_weight:int):
 	data = personality_trait
@@ -21,5 +25,14 @@ func set_trait(personality_trait:PersonalityTrait):
 	updated_trait.emit(personality_trait)
 
 func set_weight(weight:int):
-	weight_value = clampi(weight, 1, 10)
-	updated_trait_weight.emit(weight_value)
+	if weight_value == 10 && weight >= 10:
+		return
+	if weight_value == 1 && weight <= 1:
+		return
+	if !can_modify_this_turn:
+		if weight > weight_value:
+			weight_value = clampi(weight, 1, 10)
+			updated_trait_weight.emit(weight_value)
+	else:
+		weight_value = clampi(weight, 1, 10)
+		updated_trait_weight.emit(weight_value)

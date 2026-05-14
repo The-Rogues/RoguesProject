@@ -20,6 +20,9 @@ metadata/_custom_type_script = "uid://cmtvhdvaoqfdy"
 [sub_resource type="Resource" id="Resource_mhoji"]
 script = ExtResource("5_axjic")
 behaviour = SubResource("Resource_g83vi")
+duration = null
+stack = null
+turn_entered = null
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_iremj"]

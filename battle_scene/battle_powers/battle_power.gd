@@ -16,6 +16,8 @@ func on_remove():
 func on_turn_entered(_context:BattleContext):
 	pass
 
+func on_turn_ended(_context: BattleContext):
+	pass
 
 func end_power():
 	power_ended.emit(self)

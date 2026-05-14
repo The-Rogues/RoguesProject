@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4cex25p8arux"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_3e55x"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_75ilt"]
+[ext_resource type="Script" uid="uid://eo04g3psi2bf" path="res://battle_scene/entities/actions/skill/move_toward_preferrence.gd" id="3_f5ljq"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_8f7sy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qgpnc"]
+load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ycv8"]
+atlas = SubResource("CompressedTexture2D_qgpnc")
+region = Rect2(440, 440, 40, 40)
+
+[sub_resource type="Resource" id="Resource_6doii"]
+script = ExtResource("2_75ilt")
+amount = 14
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_2psjg"]
+script = ExtResource("3_f5ljq")
+num_spaces = 2
+metadata/_custom_type_script = "uid://eo04g3psi2bf"
+
+[resource]
+script = ExtResource("4_8f7sy")
+type = 2
+category = 2
+energy_cost = 2
+name = "Leap"
+display_texture = SubResource("AtlasTexture_1ycv8")
+description = "Gain [color=deep_sky_blue]14[/color] block. Move [color=#43A047]2[/color] spaces toward desired object."
+play_actions = Array[ExtResource("1_3e55x")]([SubResource("Resource_6doii"), SubResource("Resource_2psjg")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

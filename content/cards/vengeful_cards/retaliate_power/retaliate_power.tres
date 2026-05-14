@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RetaliatePower" format=3 uid="uid://b7na0ldwb1hje"]
+
+[ext_resource type="Script" uid="uid://bsl00u7u2rext" path="res://content/cards/vengeful_cards/retaliate_power/retaliate_power.gd" id="1_fe8gf"]
+
+[resource]
+script = ExtResource("1_fe8gf")
+metadata/_custom_type_script = "uid://bsl00u7u2rext"

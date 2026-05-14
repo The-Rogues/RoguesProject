@@ -13,7 +13,6 @@ metadata/_custom_type_script = "uid://dpxubkl5w63oj"
 [sub_resource type="Resource" id="Resource_4wr5p"]
 script = ExtResource("3_3me3d")
 behaviour = SubResource("Resource_l7r44")
-duration = 2
 stack = -1
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
@@ -27,6 +26,6 @@ script = ExtResource("2_8s01n")
 type = 2
 category = 2
 name = "Tough Skin"
-description = "Gain 2 armored."
+description = "Gain [color=#43A047]1[/color] [color=orange]armored[/color]."
 play_actions = Array[ExtResource("1_3uj1k")]([SubResource("Resource_xq2fj")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

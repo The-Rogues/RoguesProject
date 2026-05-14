@@ -32,6 +32,6 @@ category = 1
 energy_cost = 2
 name = "Charge Shot"
 display_texture = SubResource("AtlasTexture_w7crc")
-description = "Deal [color=#43A047]12[/color] damage to a random enemy for every [color=orange]Shot[/color] in your hand."
+description = "Deal [color=#43A047]12[/color] damage to a random enemy for every \"Shot\" in your hand."
 play_actions = Array[ExtResource("1_ryvnk")]([SubResource("Resource_w7crc")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -5,35 +5,34 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_uh8an"]
 [ext_resource type="Script" uid="uid://c2vnumlq5latn" path="res://battle_scene/entities/status_effects/common/thorns_status_effect.gd" id="3_tberr"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_tt48p"]
-[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_u2mev"]
+[ext_resource type="Script" uid="uid://deyxmrcnahgoj" path="res://content/cards/vengeful_cards/assorted_scripts/status_offense_action.gd" id="5_o2cep"]
 
 [sub_resource type="Resource" id="Resource_qdxkb"]
 script = ExtResource("2_o2cep")
 metadata/_custom_type_script = "uid://bm5oygnb1m3h7"
 
-[sub_resource type="Resource" id="Resource_vd06a"]
+[sub_resource type="Resource" id="Resource_tberr"]
 script = ExtResource("3_tberr")
 metadata/_custom_type_script = "uid://c2vnumlq5latn"
 
-[sub_resource type="Resource" id="Resource_x12ur"]
+[sub_resource type="Resource" id="Resource_tt48p"]
 script = ExtResource("4_tt48p")
-behaviour = SubResource("Resource_vd06a")
-duration = 2
-stack = 6
+behaviour = SubResource("Resource_tberr")
+stack = -1
+turn_entered = false
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
-[sub_resource type="Resource" id="Resource_vq655"]
-script = ExtResource("5_u2mev")
-effect = SubResource("Resource_x12ur")
+[sub_resource type="Resource" id="Resource_u2mev"]
+script = ExtResource("5_o2cep")
+effect = SubResource("Resource_tt48p")
 ignore_foreground = true
-metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+metadata/_custom_type_script = "uid://deyxmrcnahgoj"
 
 [resource]
 script = ExtResource("2_uh8an")
 type = 2
 category = 1
-energy_cost = 1
 name = "Threaten"
-description = "Move to an open position. Gain [color=#43A047]6[/color] [color=orange]thorns[/color]."
-play_actions = Array[ExtResource("1_sch67")]([SubResource("Resource_qdxkb"), SubResource("Resource_vq655")])
+description = "Move to an open position. Gain [color=orange]thorns[/color] equal to [color=orange]offense[/color]."
+play_actions = Array[ExtResource("1_sch67")]([SubResource("Resource_qdxkb"), SubResource("Resource_u2mev")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

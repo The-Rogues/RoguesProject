@@ -268,7 +268,7 @@ func get_battle_position_by_object(in_object: ObjectEntity) -> BattlePosition:
 func get_battle_field_objects() -> Array[ObjectEntity]:
 	var ret_val: Array[ObjectEntity]
 	for i in range(0, battle_field.battle_positions.size()):
-		if battle_field.battle_positions[i].get_object() != null:
+		if battle_field.battle_positions[i].get_object() != null && battle_field.battle_positions[i].get_object().health.value != 0:
 			if player.battle_position != battle_field.battle_positions[i]:
 				ret_val.append(battle_field.battle_positions[i].get_object())
 	return ret_val

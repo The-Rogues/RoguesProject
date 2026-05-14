@@ -14,7 +14,7 @@ var is_moving:bool = false
 
 
 func apply_status_effect(effect:StatusEffectConfig):
-	effects.add_effect(effect.behaviour, effect.duration, effect.stack)
+	effects.add_effect(effect.behaviour, effect.duration, effect.stack, effect.turn_entered)
 
 
 func play_idle_anim():
@@ -51,8 +51,8 @@ func move_to(new_position:Vector2):
 
 func enter_turn(_turn_count:int):
 	block.set_to_zero()
-	effects.on_entered_turn()
-	effects.decay_status_effects()
+	#effects.on_entered_turn()
+	#effects.decay_status_effects()
 
 
 func _on_projectile_fired(projectile:Projectile):

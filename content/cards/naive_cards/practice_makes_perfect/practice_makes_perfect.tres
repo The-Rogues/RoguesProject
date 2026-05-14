@@ -16,6 +16,6 @@ type = 2
 category = 2
 energy_cost = 4
 name = "Practice Makes Perfect"
-description = "Gain 18 block. Energy discounted by [color=#43A047]1[/color] for every [color=#43A047]2[/color] [color=orange]defense[/color]."
+description = "Gain [color=deep_sky_blue]18[/color] block. Energy discounted by [color=#43A047]1[/color] for every [color=#43A047]2[/color] [color=orange]defense[/color]."
 play_actions = Array[ExtResource("1_kfuv1")]([SubResource("Resource_gffiv")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

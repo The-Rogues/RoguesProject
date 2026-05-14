@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dmr3wvwbs4lbk"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_thcs7"]
+[ext_resource type="Script" uid="uid://dcabksqrj75i0" path="res://content/cards/brute_cards/rage_effect/rage_status_effect.gd" id="2_gyfsk"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_y2635"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_t1hjq"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_651iw"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="5_qbgun"]
+
+[sub_resource type="Resource" id="Resource_b670y"]
+script = ExtResource("2_gyfsk")
+metadata/_custom_type_script = "uid://dcabksqrj75i0"
+
+[sub_resource type="Resource" id="Resource_v3dqa"]
+script = ExtResource("3_t1hjq")
+behaviour = SubResource("Resource_b670y")
+duration = -1
+stack = 3
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_qbfnu"]
+script = ExtResource("4_651iw")
+effect = SubResource("Resource_v3dqa")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_wywm3"]
+script = ExtResource("5_qbgun")
+operation = 2
+weight = 2
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[resource]
+script = ExtResource("2_y2635")
+category = 1
+energy_cost = 1
+name = "Breaking Point"
+description = "Gain [color=#43A047]3[/color] [color=orange]rage[/color]. Lose [color=#43A047]2[/color] [color=orange]offense[/color]."
+play_actions = Array[ExtResource("1_thcs7")]([SubResource("Resource_qbfnu"), SubResource("Resource_wywm3")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

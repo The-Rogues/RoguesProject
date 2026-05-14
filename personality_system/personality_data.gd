@@ -227,7 +227,8 @@ func choose_enemy_target(
 		var filtered_enemies: Array[MonsterEntity]
 		for j in range(0, enemies.size()):
 			if enemies[j].updated_targeting.has(targeting_option):
-				filtered_enemies.append(enemies[j])
+				if enemies[j].health.value > 0:
+					filtered_enemies.append(enemies[j])
 		if filtered_enemies.size() > 0:
 			return filtered_enemies.pick_random()
 	return enemies.pick_random()

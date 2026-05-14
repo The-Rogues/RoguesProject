@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_u5jvk"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_6k3ak"]
+[ext_resource type="Resource" uid="uid://sluy216yg7ae" path="res://content/cards/skittish_cards/cower.tres" id="2_lded7"]
 [ext_resource type="Resource" uid="uid://dt07iyph77k70" path="res://content/cards/skittish_cards/escape_plan/escape_plan.tres" id="2_u0mrf"]
-[ext_resource type="Resource" uid="uid://c4cex25p8arux" path="res://content/cards/skittish_cards/skittish_block.tres" id="3_lded7"]
-[ext_resource type="Resource" uid="uid://ca40y4htu81rg" path="res://content/cards/skittish_cards/plea.tres" id="4_hb3rg"]
-[ext_resource type="Resource" uid="uid://bwhog8444u2g5" path="res://content/cards/skittish_cards/trample/trample.tres" id="5_oerxl"]
+[ext_resource type="Resource" uid="uid://c4cex25p8arux" path="res://content/cards/skittish_cards/leap.tres" id="3_lded7"]
+[ext_resource type="Resource" uid="uid://ca40y4htu81rg" path="res://content/cards/skittish_cards/hold_your_ground.tres" id="4_hb3rg"]
+[ext_resource type="Resource" uid="uid://rb7fqo2eigtv" path="res://content/cards/skittish_cards/shifty/shifty.tres" id="5_hb3rg"]
 [ext_resource type="Texture2D" uid="uid://d3n5jucckygdh" path="res://common/art/placeholder/joi3/skittish_icon.tres" id="6_lded7"]
 
 [resource]
@@ -15,5 +16,5 @@ name = "Skittish"
 description = "Quick to act. Targets weakest Enemies. Moves toward cover."
 trait_category = 1
 enemy_targeting_preference = 1
-card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_u0mrf"), ExtResource("3_lded7"), ExtResource("4_hb3rg"), ExtResource("5_oerxl")])
+card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_lded7"), ExtResource("4_hb3rg"), ExtResource("3_lded7"), ExtResource("5_hb3rg"), ExtResource("2_u0mrf")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

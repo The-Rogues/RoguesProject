@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dd7tmxi2h8ukl"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_4rixt"]
+[ext_resource type="Script" uid="uid://eo04g3psi2bf" path="res://battle_scene/entities/actions/skill/move_toward_preferrence.gd" id="2_xdph1"]
+[ext_resource type="Script" uid="uid://bdwpcyoseo0rm" path="res://content/cards/vengeful_cards/assorted_scripts/activate_weapon_twice_action.gd" id="3_ni3xv"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_eykk4"]
+
+[sub_resource type="Resource" id="Resource_gehfr"]
+script = ExtResource("2_xdph1")
+num_spaces = 1
+metadata/_custom_type_script = "uid://eo04g3psi2bf"
+
+[sub_resource type="Resource" id="Resource_qlm6u"]
+script = ExtResource("3_ni3xv")
+metadata/_custom_type_script = "uid://bdwpcyoseo0rm"
+
+[resource]
+script = ExtResource("4_eykk4")
+type = 2
+category = 1
+energy_cost = 1
+name = "Overload"
+description = "Move toward prefered object. If it is a weapon, activate it twice."
+play_actions = Array[ExtResource("1_4rixt")]([SubResource("Resource_gehfr"), SubResource("Resource_qlm6u")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

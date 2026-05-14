@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c8b3tr01yois"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_cbpbg"]
+[ext_resource type="Script" uid="uid://csffago5oog5a" path="res://content/cards/crafty_cards/old_cards/repurpose/DestroyBlockAction.gd" id="2_cye83"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_u8dtk"]
+
+[sub_resource type="Resource" id="Resource_wxbsi"]
+script = ExtResource("2_cye83")
+block_multiplier = 2
+metadata/_custom_type_script = "uid://csffago5oog5a"
+
+[resource]
+script = ExtResource("2_u8dtk")
+type = 2
+energy_cost = 2
+name = "Repurpose"
+description = "Destroy front [color=orange]object[/color]. Gain [color=orange]block[/color] equal to double its HP (max [color=#43A047]50[/color])."
+play_actions = Array[ExtResource("1_cbpbg")]([SubResource("Resource_wxbsi")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

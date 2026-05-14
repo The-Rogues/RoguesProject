@@ -18,6 +18,8 @@ metadata/_custom_type_script = "uid://cwavgo31xrs4f"
 script = ExtResource("4_vlvu5")
 behaviour = SubResource("Resource_eau5t")
 duration = 3
+stack = null
+turn_entered = null
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eau5t"]

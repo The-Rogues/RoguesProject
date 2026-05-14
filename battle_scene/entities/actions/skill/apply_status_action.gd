@@ -15,5 +15,10 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 				else:
 					target.apply_status_effect(effect, false)
 			else:
-				target.apply_status_effect(effect)
+				if ignore_foreground:
+					target.apply_status_effect(effect)
+				elif _user is PlayerEntity && _user.battle_position.get_object() == null:
+					target.apply_status_effect(effect)
+				elif _user is PlayerEntity && _user.battle_position.get_object() != null && _user.battle_position.get_object().health.value == 0:
+					target.apply_status_effect(effect)
 			await action_resolve_delay()

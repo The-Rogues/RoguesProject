@@ -9,7 +9,7 @@ class_name StackIcon
 func initialize(instance:ActiveStatusEffect):
 	icon.texture = instance.effect.get_texture()
 	stack_label.text = str(instance.duration)
-	if instance.stack > 0:
+	if instance.stack != 0:
 		stack_label.text = str(instance.stack)
 	else:
 		stack_label.text = str(instance.duration)

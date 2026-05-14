@@ -40,9 +40,9 @@ metadata/_custom_type_script = "uid://bq00f60pxwisq"
 script = ExtResource("4_o1ijd")
 type = 2
 category = 1
-energy_cost = 2
+energy_cost = 1
 name = "Reload"
 display_texture = SubResource("AtlasTexture_l5c3e")
-description = "Shuffle [color=#43A047]3[/color] Agile Shot cards into your draw pile."
+description = "Shuffle [color=#43A047]3[/color] \"Agile Shot\" cards into your draw pile."
 play_actions = Array[ExtResource("1_1br5u")]([SubResource("Resource_kqv2m"), SubResource("Resource_onvil"), SubResource("Resource_u7jh4"), SubResource("Resource_4mw3r")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

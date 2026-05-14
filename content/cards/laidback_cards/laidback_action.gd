@@ -41,13 +41,13 @@ func execute_stored_power(_context:BattleContext, _user:AbstractEntity):
 	# Gain 1 extra energy next turn
 	_user.energy.add_bonus_energy(energy_next_turn)
 	
-	# If did not attack last turn, draw 1 card
-	if not _user.attacked_last_turn:
-		_user.cards.draw_cards(draw_amount)
+	## If did not attack last turn, draw 1 card
+	#if not _user.attacked_last_turn:
+	#	_user.cards.draw_cards(draw_amount)
 
 
 func execute_calm_guard(_context:BattleContext, _user:AbstractEntity):
-	var final_block = block_amount
+	amount = block_amount
 	
 	# If unused energy last turn, gain more block
 	if _user.unused_energy_last_turn > 0:
@@ -62,5 +62,8 @@ func execute_patient_blow(_context:BattleContext, _user:AbstractEntity):
 	if not _user.attacked_last_turn:
 		final_damage = boosted_damage
 	
+	final_damage = _user.effects.apply_attack_damage_effects(final_damage)
+	
 	for target in resolved_targets:
-		target.take_damage(final_damage, _user)
+		if is_instance_valid(target):
+			target.take_damage(final_damage, _user)

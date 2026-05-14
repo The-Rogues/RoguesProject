@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dtokbvk03doqq"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_yi8kc"]
+[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="2_jmgca"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_3lvb0"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_2mvk6"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="5_jmgca"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_n2msa"]
+
+[sub_resource type="Resource" id="Resource_3lvb0"]
+script = ExtResource("5_jmgca")
+base_damage = 3
+ignore_foreground = true
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_1l0er"]
+script = ExtResource("2_jmgca")
+metadata/_custom_type_script = "uid://di1j13j6xybid"
+
+[sub_resource type="Resource" id="Resource_6xpcr"]
+script = ExtResource("3_3lvb0")
+behaviour = SubResource("Resource_1l0er")
+duration = 8
+stack = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_jwpvx"]
+script = ExtResource("4_2mvk6")
+effect = SubResource("Resource_6xpcr")
+target_option = 3
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("5_n2msa")
+type = 2
+category = 1
+energy_cost = 2
+name = "Inferno"
+description = "Take [color=red]get_atk3[/color] damage. Apply [color=#43A047]8[/color] [color=orange]burning[/color] to all enemies."
+play_actions = Array[ExtResource("1_yi8kc")]([SubResource("Resource_3lvb0"), SubResource("Resource_jwpvx")])
+shop_price = 100
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -31,6 +31,4 @@ func get_texture() -> Texture2D:
 
 
 func modify_attack_damage(damage:int, _instance:ActiveStatusEffect) -> int:
-	if (damage + _instance.stack) < 0:
-		return 0
 	return damage + _instance.stack

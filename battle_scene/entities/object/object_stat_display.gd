@@ -81,7 +81,8 @@ func _on_player_entered(object:ObjectEntity):
 		interaction_button.visible = true
 	elif (object.data.interaction == ObjectData.InteractionOption.FREE_INTERACT
 		and can_interact):
-		interaction_button.visible = true
+		if !interaction_button.disabled:
+			interaction_button.visible = true
 	else:
 		interaction_button.visible = false
 

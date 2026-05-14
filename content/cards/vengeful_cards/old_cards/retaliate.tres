@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dw5lr446sq5lt"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_o4j54"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_4f4tw"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_pyv7h"]
+
+[sub_resource type="Resource" id="Resource_ficty"]
+script = ExtResource("2_4f4tw")
+base_damage = 30
+target_option = 2
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("2_pyv7h")
+category = 1
+energy_cost = 3
+name = "Retaliate"
+description = "Deal [color=red]get_atk30[/color] damage. Costs [color=#43A047]2[/color] less if damaged last turn."
+play_actions = Array[ExtResource("1_o4j54")]([SubResource("Resource_ficty")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

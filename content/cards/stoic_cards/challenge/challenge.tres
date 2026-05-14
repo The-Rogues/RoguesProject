@@ -11,6 +11,7 @@ metadata/_custom_type_script = "uid://bm5oygnb1m3h7"
 
 [sub_resource type="Resource" id="Resource_2rrxi"]
 script = ExtResource("3_h2rfa")
+block_multiplier = 2
 ignore_foreground = true
 metadata/_custom_type_script = "uid://bockg7qo5uy2y"
 
@@ -20,6 +21,6 @@ type = 2
 category = 2
 energy_cost = 1
 name = "Challenge"
-description = "[color=orange]Move[/color] to an empty position. [color=orange]Block[/color] equal to [color=orange]defense[/color]."
+description = "[color=orange]Move[/color] to an empty position. block equal to double [color=orange]defense[/color]."
 play_actions = Array[ExtResource("1_jb40b")]([SubResource("Resource_xig3t"), SubResource("Resource_2rrxi")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -14,6 +14,7 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 [resource]
 script = ExtResource("2_2at4h")
 type = 2
+category = 2
 energy_cost = 2
 name = "Forage"
 description = "Gain [color=#43A047]5[/color] [color=orange]defense[/color]."

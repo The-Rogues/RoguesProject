@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://e7br3off1f00"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_sm1sm"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_63k3l"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="2_x3p6p"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="3_0qj40"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_2xnb1"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_hy31u"]
+
+[sub_resource type="Resource" id="Resource_exetp"]
+script = ExtResource("2_x3p6p")
+weight = 10
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[sub_resource type="Resource" id="Resource_p4qit"]
+script = ExtResource("3_0qj40")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_s7ied"]
+script = ExtResource("4_2xnb1")
+behaviour = SubResource("Resource_p4qit")
+duration = -1
+stack = -8
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_ren7b"]
+script = ExtResource("5_hy31u")
+effect = SubResource("Resource_s7ied")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("2_63k3l")
+type = 2
+category = 1
+energy_cost = 1
+name = "Warm Up"
+description = "Set [color=orange]offense[/color] to [color=#43A047]10[/color]. Lose [color=#43A047]10[/color] [color=orange]strength[/color]. [color=orange]Single use[/color]."
+play_actions = Array[ExtResource("1_sm1sm")]([SubResource("Resource_exetp"), SubResource("Resource_ren7b")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

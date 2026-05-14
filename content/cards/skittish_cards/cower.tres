@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://sluy216yg7ae"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qer55"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_8fit5"]
+[ext_resource type="Script" uid="uid://c4rdrslv7dg07" path="res://battle_scene/entities/actions/skill/move_behind_type_action.gd" id="2_8t4rv"]
+[ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="3_ftrih"]
+
+[sub_resource type="Resource" id="Resource_16tpc"]
+script = ExtResource("2_8t4rv")
+metadata/_custom_type_script = "uid://c4rdrslv7dg07"
+
+[sub_resource type="Resource" id="Resource_wurjy"]
+script = ExtResource("3_ftrih")
+operation = 1
+trait_category = 1
+weight = 2
+metadata/_custom_type_script = "uid://cbl1opxh4gat8"
+
+[resource]
+script = ExtResource("2_8fit5")
+category = 2
+energy_cost = 1
+name = "Cower"
+description = "Move behind cover. Gain [color=#43A047]2[/color] [color=orange]defense[/color]."
+play_actions = Array[ExtResource("1_qer55")]([SubResource("Resource_16tpc"), SubResource("Resource_wurjy")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

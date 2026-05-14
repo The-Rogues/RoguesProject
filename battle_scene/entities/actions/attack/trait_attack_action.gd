@@ -4,7 +4,7 @@ class_name TraitAttackAction
 enum TraitCategory {OFFENSIVE, DEFENSIVE, STRATEGIC}
 
 @export var category: TraitCategory
-
+@export var multiplier: int = 1
 
 func execute(_context: BattleContext = null, _user: AbstractEntity = null):
 	var _trait = get_trait(_context.get_player())
@@ -12,7 +12,7 @@ func execute(_context: BattleContext = null, _user: AbstractEntity = null):
 	if _trait == null:
 		return
 	
-	amount = _trait.weight_value
+	amount = _trait.weight_value * multiplier
 	super(_context, _user)
 
 

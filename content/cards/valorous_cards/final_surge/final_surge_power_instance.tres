@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FinalSurgePower" format=3 uid="uid://d2fw6d0q8ddl"]
+
+[ext_resource type="Script" uid="uid://dp6yomhs0bs1d" path="res://content/cards/valorous_cards/final_surge/final_surge_power.gd" id="1_pjnm1"]
+
+[resource]
+script = ExtResource("1_pjnm1")
+metadata/_custom_type_script = "uid://dp6yomhs0bs1d"

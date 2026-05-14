@@ -13,8 +13,9 @@ metadata/_custom_type_script = "uid://cmtvhdvaoqfdy"
 [sub_resource type="Resource" id="Resource_v2pma"]
 script = ExtResource("4_bjh1m")
 behaviour = SubResource("Resource_2pinn")
-duration = 3
+duration = 2
 stack = -1
+turn_entered = false
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_lo3vq"]
@@ -30,7 +31,7 @@ type = 2
 category = 2
 energy_cost = 2
 name = "Intimidate"
-description = "Apply 3 scared to all enemies. Single use. "
+description = "Apply [color=#43A047]2[/color] [color=orange]scared[/color] to all enemies. [color=orange]Single use[/color]. "
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_37558")]([SubResource("Resource_lo3vq")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"
