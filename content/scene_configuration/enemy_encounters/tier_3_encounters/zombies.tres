@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://op7g7uhiw87v"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_8gtyq"]
-[ext_resource type="Resource" uid="uid://dxuy20coirc1l" path="res://content/monsters/zombie/zombie.tres" id="2_14cwc"]
+[ext_resource type="Resource" uid="uid://dxuy20coirc1l" path="res://content/monsters/the_infected/the_infected.tres" id="2_14cwc"]
 [ext_resource type="Resource" uid="uid://bo4kcxqr3rbcx" path="res://content/monsters/anpu/anpu.tres" id="3_ti8a7"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="4_f4tk2"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="5_rcjhn"]

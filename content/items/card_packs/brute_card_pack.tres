@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_hidoy"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_li4aa"]
-[ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="2_xrwuu"]
-[ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/brute_cards/dual_strike.tres" id="3_pykkq"]
-[ext_resource type="Resource" uid="uid://doj675nih2jy4" path="res://content/cards/brute_cards/intensity.tres" id="4_o6krf"]
-[ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/rage.tres" id="4_xrwuu"]
+[ext_resource type="Resource" uid="uid://dmr3wvwbs4lbk" path="res://content/cards/brute_cards/breaking_point.tres" id="2_pykkq"]
+[ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/crash_out.tres" id="2_xrwuu"]
+[ext_resource type="Resource" uid="uid://dbuxw0i2ftjdx" path="res://content/cards/brute_cards/sustain.tres" id="4_o6krf"]
+[ext_resource type="Resource" uid="uid://e7br3off1f00" path="res://content/cards/brute_cards/warm_up.tres" id="5_nvq3y"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_pykkq"]
-[ext_resource type="Resource" uid="uid://7nthsvdksfy3" path="res://content/cards/brute_cards/sharpen.tres" id="6_nvq3y"]
+[ext_resource type="Resource" uid="uid://byaf2eustj1ey" path="res://content/cards/brute_cards/war_machine.tres" id="6_8ug8q"]
 
 [resource]
 script = ExtResource("2_li4aa")
-card_pool = Array[ExtResource("1_hidoy")]([ExtResource("2_xrwuu"), ExtResource("3_pykkq"), ExtResource("4_o6krf"), ExtResource("4_xrwuu"), ExtResource("6_nvq3y")])
+card_pool = Array[ExtResource("1_hidoy")]([ExtResource("2_pykkq"), ExtResource("2_xrwuu"), ExtResource("4_o6krf"), ExtResource("5_nvq3y"), ExtResource("6_8ug8q")])
 draw_count = 3
 name = "Brute Card Pack"
 description = "Choose 1 Brutish card to add to your deck."

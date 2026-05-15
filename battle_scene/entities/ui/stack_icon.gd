@@ -9,6 +9,14 @@ class_name StackIcon
 func initialize(instance:ActiveStatusEffect):
 	icon.texture = instance.effect.get_texture()
 	stack_label.text = str(instance.duration)
+	if instance.stack != 0:
+		stack_label.text = str(instance.stack)
+	else:
+		stack_label.text = str(instance.duration)
+	stack_label.modulate = Color(1.0, 0, 0)
+	stack_label.label_settings = LabelSettings.new()
+	stack_label.label_settings.outline_size = 10
+	stack_label.label_settings.outline_color = Color(0.0, 0.0, 0.0)
 	status_tool_tip.initialize(instance)
 
 

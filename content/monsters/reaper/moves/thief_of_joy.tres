@@ -21,6 +21,7 @@ script = ExtResource("6_c27m4")
 behaviour = SubResource("Resource_mb3up")
 duration = 3
 stack = 4
+turn_entered = null
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_dwsyb"]

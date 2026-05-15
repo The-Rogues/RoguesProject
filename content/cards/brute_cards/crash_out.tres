@@ -1,40 +1,27 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bobl10hpsgoli"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bg6ngklejhef5"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_l2efl"]
-[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_hx8t1"]
-[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="3_8w2mh"]
+[ext_resource type="Script" uid="uid://3wqo7cxkm1ci" path="res://battle_scene/entities/actions/attack/trait_attack_action.gd" id="2_bndwi"]
 [ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="4_74dcj"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_1hxr8"]
 
-[sub_resource type="Resource" id="Resource_7y3qv"]
-script = ExtResource("3_8w2mh")
-base_damage = 40
+[sub_resource type="Resource" id="Resource_gqnyy"]
+script = ExtResource("2_bndwi")
+multiplier = 2
 target_option = 3
-metadata/_custom_type_script = "uid://c4hroa2x01w40"
+metadata/_custom_type_script = "uid://3wqo7cxkm1ci"
 
-[sub_resource type="Resource" id="Resource_5f474"]
-script = ExtResource("2_hx8t1")
-threshold = 8
-success_action = SubResource("Resource_7y3qv")
-metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
-
-[sub_resource type="Resource" id="Resource_4nwkt"]
+[sub_resource type="Resource" id="Resource_cr17j"]
 script = ExtResource("4_74dcj")
-operation = 2
-weight = 3
+operation = 1
+weight = 2
 metadata/_custom_type_script = "uid://cbl1opxh4gat8"
-
-[sub_resource type="Resource" id="Resource_g8vyx"]
-script = ExtResource("2_hx8t1")
-threshold = 8
-success_action = SubResource("Resource_4nwkt")
-metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
 
 [resource]
 script = ExtResource("5_1hxr8")
 category = 1
 energy_cost = 2
 name = "Crash Out"
-description = "If [color=orange]offense[/color] is [color=#43A047]8[/color] or more, [color=red]get_atk40[/color] damage to all enemies. Lose [color=#43A047]3[/color] [color=orange]offense[/color]."
-play_actions = Array[ExtResource("1_l2efl")]([SubResource("Resource_5f474"), SubResource("Resource_g8vyx")])
+description = "Damage all enemies equal to double [color=orange]offense[/color]. Gain [color=#43A047]2[/color] [color=orange]offense[/color]."
+play_actions = Array[ExtResource("1_l2efl")]([SubResource("Resource_gqnyy"), SubResource("Resource_cr17j")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

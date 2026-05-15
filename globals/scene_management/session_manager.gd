@@ -58,9 +58,9 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	
 	# Add AI Card to starting deck
-	run.player_data.cards.append(
-		load("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
-	)
+	#run.player_data.cards.append(
+	#	load("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
+	#)
 	
 	Events.used_personality_trait.emit(player_data.personality.offensive_trait.name)
 	Events.used_personality_trait.emit(player_data.personality.defensive_trait.name)
@@ -151,6 +151,12 @@ func complete_current_room() -> void:
 	run_progress.pending_node_index = -1 # These will be save. I want to use this to prevent player when the back to the game, they choose other location instead. 
 	run_progress.pending_room_type = -1
 	run_progress.room_in_progress = false
+	
+	# Clear extra item slot.
+	if run_progress.player_data.items.size() == run_progress.player_data.item_capacity:
+		run_progress.player_data.remove_item(
+			run_progress.player_data.items[run_progress.player_data.items.size() - 1]
+		)
 	
 	GlobalSaveManager.save_run(run_progress)
 

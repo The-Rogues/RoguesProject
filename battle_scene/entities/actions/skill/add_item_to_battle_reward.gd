@@ -6,12 +6,16 @@ enum LootSource { CHEST, POT }
 @export var loot_source: LootSource = LootSource.CHEST
 
 # Chest rewards
-@export var chest_items: Array[BattleRewardData]
+@export var energy_potion: ItemRewardData
+@export var health_potion: ItemRewardData
+@export var item_pouch: ItemRewardData
+@export var ai_pack: ItemRewardData
 
 # Pot rewards
 @export var high_chance_item: Array[BattleRewardData]
 @export var medium_chance_item: Array[BattleRewardData]
 @export var low_chance_item: Array[BattleRewardData]
+@export var personality_card_packs: Array[ItemRewardData]
 
 
 func execute(_context: BattleContext = null, _user: AbstractEntity = null):
@@ -27,9 +31,32 @@ func execute(_context: BattleContext = null, _user: AbstractEntity = null):
 
 
 func get_chest_item() -> BattleRewardData:
-	if chest_items.is_empty():
+	
+	var reward_pool: Array[BattleRewardData]
+	if GlobalSessionManager.run_progress.total_energy_potions_used < 2:
+		reward_pool.append(energy_potion)
+	if GlobalSessionManager.run_progress.total_health_potions_used < 2:
+		reward_pool.append(health_potion)
+	if GlobalSessionManager.run_progress.total_item_packs_used < 2:
+		reward_pool.append(item_pouch)
+	if GlobalSessionManager.run_progress.total_ai_packs_found < 2:
+		reward_pool.append(ai_pack)
+	
+	if reward_pool.size() < 0:
 		return null
-	return chest_items.pick_random()
+	
+	var ret_reward: BattleRewardData = reward_pool.pick_random()
+	
+	if ret_reward == energy_potion:
+		GlobalSessionManager.run_progress.total_energy_potions_used += 1
+	if ret_reward == health_potion:
+		GlobalSessionManager.run_progress.total_health_potions_used += 1
+	if ret_reward == item_pouch:
+		GlobalSessionManager.run_progress.total_item_packs_used += 1
+	if ret_reward == ai_pack:
+		GlobalSessionManager.run_progress.total_ai_packs_found += 1
+	
+	return ret_reward
 
 
 
@@ -41,10 +68,13 @@ func get_pot_item() -> BattleRewardData:
 			return null
 		return high_chance_item.pick_random()
 	# 30%
-	elif roll < 0.9:
-		if medium_chance_item.is_empty():
-			return null
-		return medium_chance_item.pick_random()
+	elif roll < 0.95:
+		if randf() < 0.5:
+			return personality_card_packs.pick_random()
+		else: 
+			if medium_chance_item.is_empty():
+				return null
+			return medium_chance_item.pick_random()
 	# 10%
 	else:
 		if low_chance_item.is_empty():

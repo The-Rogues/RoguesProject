@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://jsdadisdd6n8"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_3xdji"]
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_tuun4"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_fetjb"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_s5ac5"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="5_s3yiw"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="6_58oj2"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="7_8c4dk"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="8_w3hs6"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="9_6f1d5"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="10_kwdty"]
+
+[sub_resource type="Resource" id="Resource_30rgb"]
+script = ExtResource("1_3xdji")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br3xu"]
+resource_local_to_scene = true
+atlas = ExtResource("2_tuun4")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iooee"]
+load_path = "res://.godot/imported/Icons_RPG.png-b59b7ecc48f4838d17052a96cf776a5a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n250"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_iooee")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_tb4ij"]
+script = ExtResource("5_s3yiw")
+base_damage = 4
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_di4n3"]
+script = ExtResource("6_58oj2")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_ys8k1"]
+script = ExtResource("7_8c4dk")
+behaviour = SubResource("Resource_di4n3")
+duration = -1
+stack = null
+turn_entered = null
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_kd86i"]
+script = ExtResource("8_w3hs6")
+effect = SubResource("Resource_ys8k1")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_ad5k6"]
+script = ExtResource("4_s5ac5")
+intent_icon = SubResource("AtlasTexture_2n250")
+name = "Propagate"
+description = "This enemy intends to attack for [color=red]get_atk4[/color] damage. Gains [color=#43A047]1[/color] [color=orange]strength[/color]."
+primary_action = SubResource("Resource_tb4ij")
+secondary_action = SubResource("Resource_kd86i")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_xmaup"]
+script = ExtResource("5_s3yiw")
+base_damage = 4
+hits = 2
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_or4sf"]
+script = ExtResource("4_s5ac5")
+intent_icon = ExtResource("9_6f1d5")
+name = "Unleash"
+description = "This Enemy intends to attack for [color=red]get_atk4[/color] damage, twice."
+primary_action = SubResource("Resource_xmaup")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_c31ea"]
+script = ExtResource("3_fetjb")
+moves = Array[ExtResource("4_s5ac5")]([SubResource("Resource_ad5k6"), SubResource("Resource_ad5k6"), SubResource("Resource_or4sf")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("10_kwdty")
+move_sequences = Array[ExtResource("3_fetjb")]([SubResource("Resource_c31ea")])
+behaviour = SubResource("Resource_30rgb")
+display_texture = SubResource("AtlasTexture_br3xu")
+name = "Angry Shroom"
+health = 42
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

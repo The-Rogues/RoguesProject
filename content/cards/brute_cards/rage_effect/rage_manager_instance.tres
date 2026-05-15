@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RageManagerPower" format=3 uid="uid://btjhpqywd8u2r"]
+
+[ext_resource type="Script" uid="uid://bdm8yafnjqxqy" path="res://content/cards/brute_cards/rage_effect/rage_manager_power.gd" id="1_cxe32"]
+
+[resource]
+script = ExtResource("1_cxe32")
+metadata/_custom_type_script = "uid://bdm8yafnjqxqy"

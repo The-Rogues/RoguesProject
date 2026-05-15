@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://eoarmxrechlt"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_tnr3p"]
+[ext_resource type="Script" uid="uid://bh2v21tgh3mhi" path="res://content/cards/crafty_cards/upkeep/upkeep_power.gd" id="2_4qbks"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_uilfm"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_d3hpg"]
+
+[sub_resource type="Resource" id="Resource_1uprb"]
+script = ExtResource("2_4qbks")
+metadata/_custom_type_script = "uid://bh2v21tgh3mhi"
+
+[sub_resource type="Resource" id="Resource_dr7yb"]
+script = ExtResource("3_d3hpg")
+power = SubResource("Resource_1uprb")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[resource]
+script = ExtResource("2_uilfm")
+type = 3
+category = 2
+energy_cost = 2
+name = "Upkeep"
+description = "Each turn, objects heal [color=#43A047]7[/color] HP. Excess healing adds max HP. [color=orange]Single use[/color]."
+play_actions = Array[ExtResource("1_tnr3p")]([SubResource("Resource_dr7yb")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

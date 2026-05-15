@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_4v2cw"]
 script = ExtResource("2_08crq")
-base_damage = 20
+base_damage = 18
 target_option = 3
 metadata/_custom_type_script = "uid://c4hroa2x01w40"
 
@@ -23,6 +23,6 @@ script = ExtResource("2_rso4t")
 category = 1
 energy_cost = 1
 name = "Betray"
-description = "Deal [color=red]20[/color] damage to all enemies with [color=orange]friendship[/color]."
+description = "Deal [color=red]18[/color] damage to all enemies with [color=orange]friendship[/color]."
 play_actions = Array[ExtResource("1_noshu")]([SubResource("Resource_pp6ny")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

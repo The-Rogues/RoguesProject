@@ -44,6 +44,25 @@ func initialize(object:ObjectEntity):
 			check_chest(object)
 		ObjectData.InteractionOption.ON_ENTERED_TURN:
 			pass
+		ObjectData.InteractionOption.FREE_INTERACT:
+			#interaction_label.text = "Get Close"
+			
+			connect_button_to_player(object)
+			
+			interaction_button.text = "Use Object"
+			interaction_button.button_up.connect(func():
+					if !can_interact:
+						return 
+					object.interact()
+					interaction_button.visible = false
+					can_interact = false
+			)
+			object.player_entered.connect(
+				func():
+					_on_player_entered(object)
+			)
+			object.player_exited.connect(_on_player_exited)
+			interaction_button.disabled = false
 		ObjectData.InteractionOption.NONE:
 			#interaction_button.text = ""
 			interaction_button.visible = false
@@ -61,6 +80,10 @@ func _on_player_entered(object:ObjectEntity):
 	if  (object.data.interaction == ObjectData.InteractionOption.WITH_KEY
 		and can_interact):
 		interaction_button.visible = true
+	elif (object.data.interaction == ObjectData.InteractionOption.FREE_INTERACT
+		and can_interact):
+		if !interaction_button.disabled:
+			interaction_button.visible = true
 	else:
 		interaction_button.visible = false
 

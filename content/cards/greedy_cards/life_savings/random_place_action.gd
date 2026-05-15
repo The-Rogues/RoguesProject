@@ -1,7 +1,7 @@
 extends Action
 class_name RandomPlaceAction
 
-@export var object:ObjectData
+@export var object_pool: Array[ObjectData]
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	var empty_positions: Array[BattlePosition] = []
@@ -12,5 +12,5 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	if empty_positions.size() == 0:
 		return
 	
-	_context.battle_field.place_object(object, empty_positions.pick_random())
+	_context.battle_field.place_object(object_pool.pick_random(), empty_positions.pick_random())
 	await _context.battle_field.get_tree().create_timer(0.15).timeout

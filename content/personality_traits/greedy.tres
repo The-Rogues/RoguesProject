@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://c6hd6w7xmy4jb"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_pwvpf"]
+[ext_resource type="Resource" uid="uid://b0w7q3nduf8j2" path="res://content/cards/greedy_cards/cash_in/cash_in.tres" id="2_6cw4b"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_u7tgh"]
+[ext_resource type="Resource" uid="uid://3eathy5ylmpr" path="res://content/cards/greedy_cards/gold_rush/gold_rush.tres" id="3_twlur"]
+[ext_resource type="Resource" uid="uid://df8onaglb031c" path="res://content/cards/greedy_cards/life_savings/life_savings.tres" id="4_r05rm"]
+[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/shiny_shot/shiny_shot.tres" id="5_vjly5"]
+[ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="6_s0ocm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pjfy1"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
@@ -18,4 +23,5 @@ description = "Excitable and short sighted. Targets shiny enemies. Moves toward 
 trait_category = 2
 enemy_targeting_preference = 5
 object_targeting_preference = 2
+card_loot_pool = Array[ExtResource("1_pwvpf")]([ExtResource("2_6cw4b"), ExtResource("3_twlur"), ExtResource("4_r05rm"), ExtResource("5_vjly5"), ExtResource("6_s0ocm")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

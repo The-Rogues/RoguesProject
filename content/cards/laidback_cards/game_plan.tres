@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://di3od57i4tngw"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_nmh7q"]
+[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_v4s1d"]
+[ext_resource type="Script" uid="uid://d1kuqw84jswgt" path="res://content/cards/greedy_cards/cash_in/draw_card_action.gd" id="3_i0hsu"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_du3f3"]
+
+[sub_resource type="Resource" id="Resource_j1suv"]
+script = ExtResource("3_i0hsu")
+amount = 3
+metadata/_custom_type_script = "uid://d1kuqw84jswgt"
+
+[sub_resource type="Resource" id="Resource_5ciy5"]
+script = ExtResource("2_v4s1d")
+category = 2
+threshold = 5
+success_action = SubResource("Resource_j1suv")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[resource]
+script = ExtResource("4_du3f3")
+type = 2
+category = 3
+energy_cost = 1
+name = "Game Plan"
+description = "If [color=orange]strategy[/color] is [color=#43A047]5[/color] or more, draw [color=#43A047]3[/color] cards."
+play_actions = Array[ExtResource("1_nmh7q")]([SubResource("Resource_5ciy5")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

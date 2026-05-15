@@ -2,27 +2,8 @@
 
 [ext_resource type="Script" uid="uid://celuju3ai46nu" path="res://testing_and_prototypes/automated_tests/battle_tests/AllMonstersAutomatedTest/associated_scripts/AllMonstersAutomatedTest_scn_main.gd" id="1_s8njh"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_kh4x8"]
-[ext_resource type="Resource" uid="uid://ql7kqaenuut" path="res://content/monsters/bee/bee.tres" id="3_c7lb6"]
-[ext_resource type="Resource" uid="uid://fxp7g31f6nmx" path="res://content/fletcher/monsters/fragile_minion/fragile_minion.tres" id="4_1ielv"]
-[ext_resource type="Resource" uid="uid://c3c0eiqiul3lq" path="res://content/monsters/large_fire_ant/large_fire_ant.tres" id="4_c7lb6"]
-[ext_resource type="Resource" uid="uid://dcg6lha6wurrf" path="res://content/fletcher/monsters/ice_wizard/ice_wizard.tres" id="5_jn21v"]
-[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/fletcher/monsters/angry_shroom/angry_shroom.tres" id="5_w2g4j"]
-[ext_resource type="Resource" uid="uid://d2sdri3l8hfdy" path="res://content/fletcher/monsters/angry_shroom/angry_shroom_alt.tres" id="6_ilmn7"]
-[ext_resource type="Resource" uid="uid://bo4kcxqr3rbcx" path="res://content/monsters/anpu/anpu.tres" id="7_70m5q"]
-[ext_resource type="Resource" uid="uid://burkq1qvtpovb" path="res://content/monsters/big_slime/big_slime.tres" id="9_hstxd"]
-[ext_resource type="Resource" uid="uid://bdqekfp4y42wh" path="res://content/monsters/crawler/crawler.tres" id="10_nbscd"]
-[ext_resource type="Resource" uid="uid://4vpscxhgbidh" path="res://content/monsters/dreamer/dreamer.tres" id="11_3824c"]
-[ext_resource type="Resource" uid="uid://504d265c8kwa" path="res://content/monsters/fire_ant/fire_ant.tres" id="12_jj2cc"]
-[ext_resource type="Resource" uid="uid://dilnesq4smd0t" path="res://content/monsters/gatling_worm/gatling_worm.tres" id="13_4140t"]
-[ext_resource type="Resource" uid="uid://pgym5gykmlji" path="res://content/monsters/inpu/inpu.tres" id="14_qxtov"]
-[ext_resource type="Resource" uid="uid://bv4ochxklc86t" path="res://content/monsters/metal_man/metal_man.tres" id="16_mtmip"]
 [ext_resource type="Resource" uid="uid://xf5mvnd2uwes" path="res://content/monsters/rat_king/rat_king.tres" id="17_v8mrf"]
-[ext_resource type="Resource" uid="uid://bh8ve6rblma52" path="res://content/monsters/reaper/reaper.tres" id="18_w7108"]
-[ext_resource type="Resource" uid="uid://25itnkhn1son" path="res://content/monsters/savage/savage.tres" id="19_5j2rv"]
-[ext_resource type="Resource" uid="uid://qbob7g6qo7nr" path="res://content/monsters/skeleton_archer/skeleton_archer.tres" id="20_yjj1k"]
-[ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/small_slime_data.tres" id="21_6kg7g"]
-[ext_resource type="Resource" uid="uid://dxuy20coirc1l" path="res://content/monsters/zombie/zombie.tres" id="22_gte6k"]
 
-[node name="AiTimedAutomatedTest" type="Node" unique_id=806590617]
+[node name="AllMonstersAutomatedTest" type="Node" unique_id=806590617]
 script = ExtResource("1_s8njh")
-all_monsters = Array[ExtResource("2_kh4x8")]([ExtResource("5_jn21v"), ExtResource("4_1ielv"), ExtResource("5_w2g4j"), ExtResource("6_ilmn7"), ExtResource("7_70m5q"), ExtResource("3_c7lb6"), ExtResource("9_hstxd"), ExtResource("10_nbscd"), ExtResource("11_3824c"), ExtResource("12_jj2cc"), ExtResource("13_4140t"), ExtResource("14_qxtov"), ExtResource("4_c7lb6"), ExtResource("16_mtmip"), ExtResource("17_v8mrf"), ExtResource("18_w7108"), ExtResource("19_5j2rv"), ExtResource("20_yjj1k"), ExtResource("21_6kg7g"), ExtResource("22_gte6k")])
+all_monsters = Array[ExtResource("2_kh4x8")]([ExtResource("17_v8mrf")])

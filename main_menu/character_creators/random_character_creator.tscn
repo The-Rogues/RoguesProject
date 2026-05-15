@@ -1,6 +1,5 @@
-[gd_scene format=3 uid="uid://beujvprpoyvls"]
+[gd_scene format=3 uid="uid://odkqs8110ggm"]
 
-[ext_resource type="Script" uid="uid://towtss3sguju" path="res://main_menu/character_creators/random_character_creator.gd" id="1_4h0ux"]
 [ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://main_menu/character_result_scene.gd.tscn" id="2_daqla"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="2_fou63"]
 [ext_resource type="Texture2D" uid="uid://dby4mypma4boa" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="3_0af26"]
@@ -16,6 +15,73 @@
 [ext_resource type="Resource" uid="uid://ck1tj3cj82hbk" path="res://content/personality_traits/skittish.tres" id="13_sabue"]
 [ext_resource type="Resource" uid="uid://c6hd6w7xmy4jb" path="res://content/personality_traits/greedy.tres" id="14_q3jsc"]
 
+[sub_resource type="GDScript" id="GDScript_43rmt"]
+script/source = "extends Control
+
+@onready var character_result: CharacterScreen = $CharacterResult
+
+# Character sprite and name varients
+@export var character_sprite_varients:Array[Texture2D]
+@export var name_varients:Array[String]
+@export var offensive_traits:Array[PersonalityTrait]
+@export var defensive_traits:Array[PersonalityTrait]
+@export var strategic_traits:Array[PersonalityTrait]
+
+# Dictionary that maps character trait to Backstory entry
+# TODO: Have the AI look at all character traits and write its own backstory
+const backstories := {
+	\"Brutish\": \"They enter to prove their strength, believing only pain and broken foes can affirm who they are.\",
+	\"Skittish\": \"Reluctant explorer.\",
+	\"Greedy\": \"Promises of wealth lure them inward, certain that gold is worth any risk the tower demands.\",
+}
+
+func _ready() -> void:
+	randomize_character()
+
+
+func randomize_character() -> void:
+	var _name = name_varients.pick_random()
+	var offensive_trait:PersonalityTrait = offensive_traits.pick_random()
+	var defensive_trait:PersonalityTrait = defensive_traits.pick_random()
+	var strategic_trait:PersonalityTrait = strategic_traits.pick_random()
+	var offense:int = randi_range(1, 10)
+	var defense:int = randi_range(1, 10)
+	var strategy:int = randi_range(1, 10)
+	
+	var max_weight:int = offense
+	var max_trait:PersonalityTrait = offensive_trait
+	
+	if max_weight < defense:
+		max_trait = defensive_trait
+		max_weight = defense
+	if max_weight < strategy:
+		max_trait = strategic_trait
+	
+	var backstory = backstories[max_trait.name]
+	var character_texture:Texture2D = character_sprite_varients.pick_random()
+	
+	var personality_data: PersonalityData = PersonalityData.new()
+	personality_data.initialize(
+		offensive_trait,
+		defensive_trait,
+		strategic_trait,
+		\"OFFENSIVE\"
+	)
+	
+	var data := PlayerInitializationData.new(
+			_name,
+			backstory,
+			character_texture,
+			personality_data,
+			personality_data.get_starting_deck()
+	)
+	GlobalSessionManager.initialize(data)
+	
+	character_result.initialize()
+	character_result.visible = true
+	pass # Replace with function body.
+"
+
 [node name="RandomCharacterCreator" type="Control" unique_id=502271570]
 layout_mode = 3
 anchors_preset = 15
@@ -23,7 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4h0ux")
+script = SubResource("GDScript_43rmt")
 character_sprite_varients = Array[Texture2D]([ExtResource("2_fou63"), ExtResource("3_0af26"), ExtResource("4_85au7"), ExtResource("5_t7j5t"), ExtResource("6_djns8"), ExtResource("7_tp7td"), ExtResource("8_lgbau"), ExtResource("9_tio18"), ExtResource("10_fegyj")])
 name_varients = Array[String](["Abel", "Xavier", "Judas", "Cyrprus", "Ollie", "Erdrick", "Salome", "Abraham", "Jon", "Ash"])
 offensive_traits = Array[ExtResource("11_nw8hs")]([ExtResource("12_cd33l")])

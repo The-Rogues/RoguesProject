@@ -172,6 +172,8 @@ func _init(
 					else:
 						return max_layer_sz
 			).call()
+			if curr_layer == 3:
+				nodes_in_layer = 3
 			
 			# Get the nodes that were in the previousley added layer.
 			var prev_layer_nodes: Array[RefCounted] = []
@@ -571,6 +573,24 @@ func choose_mini_event() -> MiniEventData:
 				events.erase(event)
 	return events.pick_random()
 
+func choose_layer_one_event() -> MiniEventData:
+	var events:Array[MiniEventData] = [
+		load("res://content/map_events/tier_1_events/skill_upgrade_event.tres"),
+		load("res://content/map_events/tier_1_events/random_key_2.tres"),
+		load("res://content/map_events/tier_1_events/key_damage_event.tres"),
+		load("res://content/map_events/tier_1_events/free_rare_item.tres"),
+	]
+	var alt_hooded: MiniEventData = load("res://content/map_events/tier_1_events/random_key_1.tres")
+	var alt_upgrade: MiniEventData = load("res://content/map_events/tier_1_events/attack_upgrade_event.tres")
+	var ret_event: MiniEventData = events.pick_random()
+	if ret_event == events[0]:
+		if randf() < 0.5:
+			ret_event = alt_upgrade
+	elif ret_event == events[1]:
+		if randf() < 0.5:
+			ret_event = alt_hooded
+	return ret_event
+
 
 # --populate_events Function--
 # Description: Logic for determining the distribution of events among MapGraphNodes.
@@ -594,12 +614,24 @@ func populate_events(rand_seed: int) -> void:
 	node_arr[0].node_data = add_main_event(battle_data)
 	
 	# First layer is always battle nodes.
-	var curr_layer: Array[RefCounted] = get_layer(1)
-	for i in range(0, curr_layer.size()):
-		curr_layer[i].node_data = add_main_event(battle_data)
+	for i in range(0, 2):
+		var curr_layer: Array[RefCounted] = get_layer(i + 1)
+		for j in range(0, curr_layer.size()):
+			curr_layer[j].node_data = add_main_event(battle_data)
+	
+	var layer_three_event_node: RefCounted = get_layer(2).pick_random()
+	layer_three_event_node.node_data.mini_event = choose_layer_one_event()
+	
+	var layer_four: Array[RefCounted] = get_layer(3)
+	var shop_types: Array[RefCounted] = [shop_data, shop_data, shop_data]
+	for i in range(0, layer_four.size()):
+		var curr_shop: RefCounted = shop_types.pick_random()
+		layer_four[i].node_data = add_main_event(curr_shop)
+		shop_types.erase(curr_shop)
 	
 	# Iterate over all other map layers.
-	for i in range(2, map_layers):
+	var curr_layer: Array[RefCounted]
+	for i in range(4, map_layers):
 		
 		# If the final layer is reached, it is set to a boss node.
 		if i == (map_layers - 1):
@@ -662,16 +694,31 @@ func populate_events(rand_seed: int) -> void:
 	#	shop_nodes.remove_at(target_idx)
 	#	count += 1
 	
-	for i in range(1, node_arr.size()):
-		if (i % 2) == 1:
+	for i in range(4, map_layers):
+		
+		var target_layer: Array[RefCounted] = get_layer(i)
+		var num_events: int
+		
+		if target_layer.size() == 4:
+			if randf() < 0.3:
+				num_events = 1
+			else:
+				num_events = 2
+		else:
+			if randf() < 0.3:
+				num_events = 0
+			else:
+				num_events = 1
+			
+		for j in range(0, num_events):
 			var event = choose_mini_event()
+			var target_node: RefCounted = target_layer.pick_random() 
 			if !event.repeatable:
 				var run = GlobalSessionManager.run_progress
-				
 				if run:
 					run.single_time_mini_events.append(event)
-			
-			node_arr[i].node_data.mini_event = event
+			target_node.node_data.mini_event = event
+			target_layer.erase(target_node)
 
 # --add_main_event Function--
 # Description: Creates a new EventData resource and adds the provided main event to it.

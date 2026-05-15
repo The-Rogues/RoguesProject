@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dbuxw0i2ftjdx"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_kmnl3"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_j4khv"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_n64b3"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_n64b3"]
+[ext_resource type="Script" uid="uid://dmbalt6lm7a1x" path="res://content/cards/brute_cards/sustain_power/sustain_power.gd" id="3_yxxf7"]
+
+[sub_resource type="Resource" id="Resource_yxxf7"]
+script = ExtResource("2_n64b3")
+base_damage = 6
+hits = 2
+target_option = 2
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_t17mk"]
+script = ExtResource("3_yxxf7")
+metadata/_custom_type_script = "uid://dmbalt6lm7a1x"
+
+[sub_resource type="Resource" id="Resource_vo3f4"]
+script = ExtResource("3_n64b3")
+power = SubResource("Resource_t17mk")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[resource]
+script = ExtResource("2_j4khv")
+category = 1
+energy_cost = 2
+name = "Sustain"
+description = "Attack for [color=red]get_atk6[/color] damage, twice. Next turn, you can't lose [color=orange]offense[/color]."
+play_actions = Array[ExtResource("1_kmnl3")]([SubResource("Resource_yxxf7"), SubResource("Resource_vo3f4")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

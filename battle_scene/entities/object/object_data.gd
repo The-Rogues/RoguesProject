@@ -18,6 +18,7 @@ enum InteractionOption {
 	ON_ENTERED_TURN,
 	ON_DESTROYED,
 	ON_PLAYER_DESTROYED,
+	FREE_INTERACT,
 }
 
 @export var targeting_categories: Array[MoveTargetingCategory]

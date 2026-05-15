@@ -3,8 +3,6 @@ class_name BattleFlowManager
 ## Responsible for executing player and enemy turn logic. Also handles turn
 ## transitions and ending battles.
 
-signal entered_turn(turn_count:int)
-
 # Used to prevent some functions from execution if the battle is in a different state
 enum State {START, PLAYER_TURN, ENEMY_TURN, ENDED}
 var battle_state:State = State.START
@@ -50,6 +48,11 @@ func start_battle():
 		await turn_banner.display("Battle Start")
 		
 		battle_field.move_player(player, player.battle_position)
+		player.unused_energy_last_turn = 0
+		player.damage_taken_this_turn = 0
+		player.damage_taken_last_turn = 0
+		player.attacked_this_turn = true
+		player.attacked_last_turn = true
 		start_player_turn()
 
 
@@ -58,11 +61,14 @@ func start_player_turn():
 		return
 	
 	turn_count += 1
-	entered_turn.emit(turn_count)
 	
 	await turn_banner.display("Player Turn\nTurn: " + str(turn_count))
 	
-	player.enter_turn(turn_count)
+	if turn_count == 1:
+		player.enter_turn(turn_count, true)
+	else:
+		player.enter_turn(turn_count, false)
+	manage_effects(true)
 	
 	for enemy in enemies:
 		enemy.choose_intent()
@@ -78,7 +84,7 @@ func start_player_turn():
 	player.cards.draw_cards(5)
 	
 	end_turn_button.disabled = false
-	end_turn_button.text = "End Turn."
+	end_turn_button.text = "End Turn"
 
 
 func end_player_turn():
@@ -86,11 +92,13 @@ func end_player_turn():
 		return
 	
 	battle_field.decay_position_effects()
+	battle_powers.end_turn(context)
 	
 	for enemy in enemies:
 		enemy.enter_turn(turn_count)
+	manage_effects(false)
 	
-	player.effects.decay_status_effects()
+	#player.effects.decay_status_effects(false)
 	end_turn_button.disabled = true
 	end_turn_button.text = "Enemy Turn."
 	player.cards.move_draw_into_discard_pile()
@@ -134,12 +142,19 @@ func _on_battle_ended():
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
-		GameStats.end_battle(player)
-		
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true
 
+func manage_effects(player_turn_entered: bool):
+	player.effects.on_turn(player_turn_entered)
+	player.effects.decay_status_effects(player_turn_entered)
+	for i in range(0, enemies.size()):
+		enemies[i].effects.on_turn(!player_turn_entered)
+		enemies[i].effects.decay_status_effects(!player_turn_entered)
 
 func apply_innate_effects(in_context: BattleContext):
 	battle_powers.add_power(load("res://content/cards/naive_cards/practice_makes_perfect/practice_perfect_power.tres"), in_context)
+	battle_powers.add_power(load("res://content/cards/vengeful_cards/retaliate_power/retaliate_power.tres"), in_context)
+	battle_powers.add_power(load("res://content/cards/brute_cards/rage_effect/rage_manager_instance.tres"), in_context)
+	battle_powers.add_power(load("res://content/cards/valorous_cards/final_surge/final_surge_power_instance.tres"), in_context)

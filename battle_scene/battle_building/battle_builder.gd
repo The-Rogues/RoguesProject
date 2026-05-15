@@ -13,7 +13,7 @@ class_name BattleBuilder
 @export var tier_4_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_5_battlefield_layouts:Array[BattleFieldConfig]
 
-const TIER_1_THRESHOLD = 4
+const TIER_1_THRESHOLD = 3
 const TIER_2_THRESHOLD = 8
 const TIER_3_THRESHHOLD = 12
 const TIER_4_THRESHHOLD = 16
@@ -36,7 +36,7 @@ func get_enemy_encounter_pool(progress:int) -> Array[EnemyEncounter]:
 
 func get_battlefield_layout_pool(progress:int) -> Array[BattleFieldConfig]:
 	if progress <= TIER_1_THRESHOLD:
-		return tier_2_battlefield_layouts
+		return tier_1_battlefield_layouts
 	if progress <= TIER_2_THRESHOLD:
 		return tier_2_battlefield_layouts
 	if progress <= TIER_3_THRESHHOLD:
@@ -90,12 +90,10 @@ func choose_battlefield_layout(
 
 func create_battle_config() -> BattleConfig:
 	var run := GlobalSessionManager.run_progress
-	
 	if run:
 		var progress:int = run.total_rooms_explored
 		var encounters = get_enemy_encounter_pool(progress).duplicate()
 		var layouts = get_battlefield_layout_pool(progress).duplicate()
-		
 		if enemy_encounter_cache.size() == encounters.size():
 			enemy_encounter_cache.clear()
 		else:

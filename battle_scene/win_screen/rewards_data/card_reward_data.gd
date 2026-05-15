@@ -5,7 +5,7 @@ class_name CardRewardData
 @export var card_count:int = 3
 @export var modify_stat_option:bool = true
 
-func get_reward() -> void:
+func get_reward() -> bool:
 	var cards = card_pool.duplicate(true)
 	cards.shuffle()
 	var chosen_cards:Array[CardData]
@@ -14,3 +14,4 @@ func get_reward() -> void:
 		chosen_cards.append(cards.pop_front())
 	
 	GlobalSessionInterface.open_card_picker(chosen_cards, modify_stat_option)
+	return true

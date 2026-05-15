@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://cnj8uhi6qo6v3"]
+
+[ext_resource type="Texture2D" uid="uid://do5kp8psm4m4f" path="res://content/items/chest_key/key_texture.tres" id="1_4ifaw"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_q1sxf"]
+[ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="2_1ib6s"]
+[ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="3_wx5u6"]
+[ext_resource type="Script" uid="uid://jfvuxohdk2yt" path="res://mini_event_system/results/give_item_event_result.gd" id="4_crxet"]
+[ext_resource type="Script" uid="uid://j2lp4urompob" path="res://content/map_events/tier_1_events/results/damage_no_kill_result.gd" id="5_twlyn"]
+[ext_resource type="Script" uid="uid://do5hw3sgq6ea3" path="res://content/map_events/tier_1_events/results/multi_result.gd" id="6_ji6to"]
+
+[sub_resource type="Resource" id="Resource_c13m0"]
+script = ExtResource("4_crxet")
+item = ExtResource("3_wx5u6")
+metadata/_custom_type_script = "uid://jfvuxohdk2yt"
+
+[sub_resource type="Resource" id="Resource_7en3p"]
+script = ExtResource("5_twlyn")
+damage_amount = 5
+metadata/_custom_type_script = "uid://j2lp4urompob"
+
+[sub_resource type="Resource" id="Resource_blqe1"]
+script = ExtResource("6_ji6to")
+outcomes = Array[ExtResource("2_1ib6s")]([SubResource("Resource_c13m0"), SubResource("Resource_7en3p")])
+metadata/_custom_type_script = "uid://do5hw3sgq6ea3"
+
+[resource]
+script = ExtResource("1_q1sxf")
+display_image = ExtResource("1_4ifaw")
+scenario_text = "You stumble across a key protected by a variety of obvious traps. You want to grab the key, but know that you will get hurt in the process."
+option_1_text = "Take The Key"
+option_2_text = "Leave It Alone"
+option_1_branch = Array[String](["You swiftly grab the key. As you make your escape, you slip on a bananna peel. Ouch."])
+option_2_branch = Array[String](["You decide that it is too dangerous to take the key."])
+option_1_accept_event = SubResource("Resource_blqe1")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

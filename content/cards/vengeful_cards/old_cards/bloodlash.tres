@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bpfpkrjgihikt"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_f4vrx"]
+[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="2_0vj8s"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_4osv0"]
+[ext_resource type="Script" uid="uid://t8gnkbgx340y" path="res://content/cards/vengeful_cards/assorted_scripts/vengeful_action.gd" id="2_mex4t"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_glhts"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_q4sun"]
+
+[sub_resource type="Resource" id="Resource_glhts"]
+script = ExtResource("2_0vj8s")
+metadata/_custom_type_script = "uid://di1j13j6xybid"
+
+[sub_resource type="Resource" id="Resource_q4sun"]
+script = ExtResource("3_glhts")
+behaviour = SubResource("Resource_glhts")
+duration = 8
+stack = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_ndwm6"]
+script = ExtResource("4_q4sun")
+effect = SubResource("Resource_q4sun")
+target_option = 3
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_31gqj"]
+script = ExtResource("2_mex4t")
+effect_type = 3
+conditional_effect = SubResource("Resource_ndwm6")
+base_damage = 8
+target_option = 3
+metadata/_custom_type_script = "uid://t8gnkbgx340y"
+
+[resource]
+script = ExtResource("2_4osv0")
+category = 1
+energy_cost = 1
+name = "Bloodlash"
+description = "Deal [color=red]get_atk8[/color] damage to enemies. If damaged last turn, apply [color=#43A047]8[/color] [color=orange]burning[/color]."
+play_actions = Array[ExtResource("1_f4vrx")]([SubResource("Resource_31gqj")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

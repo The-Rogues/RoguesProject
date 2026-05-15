@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://byaf2eustj1ey"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_1l0mw"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_hf64u"]
+[ext_resource type="Script" uid="uid://dexkyaig026pu" path="res://content/cards/brute_cards/war_machine_effect/war_machine_effect.gd" id="2_qkfc1"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_l3wix"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_grs7x"]
+
+[sub_resource type="Resource" id="Resource_i4o5c"]
+script = ExtResource("2_qkfc1")
+metadata/_custom_type_script = "uid://dexkyaig026pu"
+
+[sub_resource type="Resource" id="Resource_hg0v0"]
+script = ExtResource("3_l3wix")
+behaviour = SubResource("Resource_i4o5c")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_yp3wb"]
+script = ExtResource("4_grs7x")
+effect = SubResource("Resource_hg0v0")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("2_hf64u")
+type = 3
+category = 1
+energy_cost = 2
+name = "War Machine"
+description = "Every turn, gain [color=#43A047]2[/color] [color=orange]rage[/color] and lose [color=#43A047]1[/color] [color=orange]offense[/color]. [color=orange]Single use[/color]."
+play_actions = Array[ExtResource("1_1l0mw")]([SubResource("Resource_yp3wb")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

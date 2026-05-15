@@ -10,5 +10,6 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		if !target:
 			continue
 		
-		target.take_damage(floor(target.health.value * percent), _user)
+		target.health.value = target.health.value - floor(target.health.value * percent)
+		target.health.health_changed.emit(target.health.value, target.health.max_value)
 		await action_resolve_delay()

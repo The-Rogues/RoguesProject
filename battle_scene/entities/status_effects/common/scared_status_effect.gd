@@ -2,7 +2,7 @@ extends StatusEffectBehaviour
 class_name ScaredStatusEffect
 
 
-const FAIL_CHANCE = 0.25
+const FAIL_CHANCE = 0.5
 
 
 func on_stack(
@@ -18,7 +18,7 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "When attacking, has a % chance to become Scared Stiff and fail."
+	return "When attacking, has a 50% chance to become Scared Stiff and fail."
 
 
 func get_texture() -> Texture2D:

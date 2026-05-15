@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dcvclegf2rnld"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_l1lky"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_f2nyh"]
+[ext_resource type="Script" uid="uid://bw1mpvkd7qbtq" path="res://content/cards/vengeful_cards/frenzy_action.gd" id="2_iqcxl"]
+
+[sub_resource type="Resource" id="Resource_8ru5e"]
+script = ExtResource("2_iqcxl")
+metadata/_custom_type_script = "uid://bw1mpvkd7qbtq"
+
+[resource]
+script = ExtResource("2_f2nyh")
+category = 1
+energy_cost = 3
+name = "Frenzy"
+description = "Move to and activate all weapons on the field. [color=orange]Single use[/color]."
+play_actions = Array[ExtResource("1_l1lky")]([SubResource("Resource_8ru5e")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

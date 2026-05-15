@@ -30,7 +30,7 @@ type = 2
 category = 3
 energy_cost = 1
 name = "Unearth"
-description = "Replace all [color=orange]positions[/color] with [color=orange]gem positions[/color]. [color=orange]Single use[/color]."
+description = "Replace all positions with gem positions. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_tsxkl")]([SubResource("Resource_3n4gp")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

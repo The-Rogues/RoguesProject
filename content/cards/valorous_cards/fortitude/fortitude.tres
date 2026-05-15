@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dt6fseflbysgv"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ta885"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_nrby5"]
+[ext_resource type="Script" uid="uid://08n3244joq6b" path="res://content/cards/valorous_cards/fortitude/fortitude_effect.gd" id="2_vfjnx"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_te3vy"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_kaa2g"]
+
+[sub_resource type="Resource" id="Resource_qamq3"]
+script = ExtResource("2_vfjnx")
+metadata/_custom_type_script = "uid://08n3244joq6b"
+
+[sub_resource type="Resource" id="Resource_qo4qa"]
+script = ExtResource("3_te3vy")
+behaviour = SubResource("Resource_qamq3")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_nphbe"]
+script = ExtResource("4_kaa2g")
+effect = SubResource("Resource_qo4qa")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("2_nrby5")
+type = 3
+category = 3
+energy_cost = 1
+name = "Fortitude"
+description = "Every turn, lose [color=#43A047]1[/color] random stat and gain [color=#43A047]2[/color] [color=orange]strength[/color]. [color=orange]Single use[/color]."
+play_actions = Array[ExtResource("1_ta885")]([SubResource("Resource_nphbe")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

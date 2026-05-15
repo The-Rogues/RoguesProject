@@ -92,7 +92,7 @@ func _ready():
 	print("- Average Time: " + str((avg_time * 1.0) / (num_iterations * ai_cards.size() * 1000)) + " seconds.")
 	print("- Time Error Rate: " + str((time_errors * 1.0) / (num_iterations * ai_cards.size())))
 	print("- Generation Error Rate: " + str((generation_errors * 1.0) / (num_iterations * ai_cards.size())))
-	print("- Total Error Rate: " + str(((generation_errors + time_errors) * 1.0) / (num_iterations * ai_cards.size())))
+	print("- Total Error Rate: " + str(((total_errors) * 1.0) / (num_iterations * ai_cards.size())))
 
 func randomize_personality() -> void:
 	for i in range(0, 3):

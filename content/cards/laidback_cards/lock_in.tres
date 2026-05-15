@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c15u81mfodt5o"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ejge5"]
+[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_7psfy"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_uig8y"]
+[ext_resource type="Script" uid="uid://o7j4of1jhi36" path="res://content/cards/laidback_cards/add_energy_action.gd" id="3_k25cb"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="4_hs0ah"]
+
+[sub_resource type="Resource" id="Resource_xkugv"]
+script = ExtResource("3_k25cb")
+metadata/_custom_type_script = "uid://o7j4of1jhi36"
+
+[sub_resource type="Resource" id="Resource_d3r21"]
+script = ExtResource("2_7psfy")
+category = 2
+threshold = 3
+success_action = SubResource("Resource_xkugv")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_7vw50"]
+script = ExtResource("4_hs0ah")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_3couk"]
+script = ExtResource("2_7psfy")
+category = 2
+threshold = 3
+success_action = SubResource("Resource_7vw50")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_7psfy"]
+script = ExtResource("3_k25cb")
+metadata/_custom_type_script = "uid://o7j4of1jhi36"
+
+[sub_resource type="Resource" id="Resource_k25cb"]
+script = ExtResource("2_7psfy")
+category = 2
+threshold = 6
+success_action = SubResource("Resource_7psfy")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_hs0ah"]
+script = ExtResource("4_hs0ah")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_mxhgh"]
+script = ExtResource("2_7psfy")
+category = 2
+threshold = 6
+success_action = SubResource("Resource_hs0ah")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_t382h"]
+script = ExtResource("3_k25cb")
+metadata/_custom_type_script = "uid://o7j4of1jhi36"
+
+[sub_resource type="Resource" id="Resource_bs6qp"]
+script = ExtResource("2_7psfy")
+category = 2
+threshold = 9
+success_action = SubResource("Resource_t382h")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_jj833"]
+script = ExtResource("4_hs0ah")
+pile = 1
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_3cmbf"]
+script = ExtResource("2_7psfy")
+category = 2
+threshold = 9
+success_action = SubResource("Resource_jj833")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[resource]
+script = ExtResource("2_uig8y")
+category = 3
+name = "Lock In"
+description = "Draw [color=#43A047]1[/color] card and gain [color=#43A047]1[/color] energy for every [color=#43A047]3[/color] [color=orange]strategy[/color]. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_ejge5")]([SubResource("Resource_d3r21"), SubResource("Resource_3couk"), SubResource("Resource_k25cb"), SubResource("Resource_mxhgh"), SubResource("Resource_bs6qp"), SubResource("Resource_3cmbf")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

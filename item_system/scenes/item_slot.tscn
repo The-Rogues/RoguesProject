@@ -15,7 +15,7 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffdei"]
 atlas = ExtResource("2_cy2mh")
 
-[node name="ItemSlot" type="Control" unique_id=1515963044 node_paths=PackedStringArray("item_icon_button", "item_texture_rect", "contents", "context_panel", "use_button")]
+[node name="ItemSlot" type="Control" unique_id=1515963044 node_paths=PackedStringArray("item_icon_button", "item_border", "item_texture_rect", "contents", "context_panel", "use_button")]
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 3
 anchors_preset = 0
@@ -25,6 +25,7 @@ mouse_filter = 2
 theme = ExtResource("1_m7r1j")
 script = ExtResource("1_8dcad")
 item_icon_button = NodePath("Panel/ItemIcon")
+item_border = NodePath("Panel")
 item_texture_rect = NodePath("Panel/ItemIcon/Item")
 contents = NodePath("Contents")
 context_panel = NodePath("Contents/ContextPanel")

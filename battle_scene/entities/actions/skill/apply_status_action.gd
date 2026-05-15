@@ -9,5 +9,16 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 			continue
 		
 		if target is AbstractCreature:
-			target.apply_status_effect(effect)
+			if target is PlayerEntity:
+				if ignore_foreground:
+					target.apply_status_effect(effect, true)
+				else:
+					target.apply_status_effect(effect, false)
+			else:
+				if ignore_foreground:
+					target.apply_status_effect(effect)
+				elif _user is PlayerEntity && _user.battle_position.get_object() == null:
+					target.apply_status_effect(effect)
+				elif _user is PlayerEntity && _user.battle_position.get_object() != null && _user.battle_position.get_object().health.value == 0:
+					target.apply_status_effect(effect)
 			await action_resolve_delay()

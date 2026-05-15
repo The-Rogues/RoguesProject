@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://gkca76tmjgte"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_3uj1k"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_8s01n"]
+[ext_resource type="Script" uid="uid://dpxubkl5w63oj" path="res://battle_scene/entities/status_effects/common/armored_status_effect.gd" id="2_fxguh"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_3me3d"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_kfav7"]
+
+[sub_resource type="Resource" id="Resource_l7r44"]
+script = ExtResource("2_fxguh")
+metadata/_custom_type_script = "uid://dpxubkl5w63oj"
+
+[sub_resource type="Resource" id="Resource_4wr5p"]
+script = ExtResource("3_3me3d")
+behaviour = SubResource("Resource_l7r44")
+stack = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_xq2fj"]
+script = ExtResource("4_kfav7")
+effect = SubResource("Resource_4wr5p")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("2_8s01n")
+type = 2
+category = 2
+name = "Tough Skin"
+description = "Gain [color=#43A047]1[/color] [color=orange]armored[/color]."
+play_actions = Array[ExtResource("1_3uj1k")]([SubResource("Resource_xq2fj")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

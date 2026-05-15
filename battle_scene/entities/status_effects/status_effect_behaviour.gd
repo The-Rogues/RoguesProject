@@ -25,6 +25,7 @@ func get_texture() -> Texture2D
 
 
 func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
+
 	pass
 
 
@@ -32,7 +33,7 @@ func on_remove(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void
 	pass
 
 
-func on_turn_entered(
+func on_turn(
 	_creature:AbstractCreature = null,
 	_instance:ActiveStatusEffect = null
 ) -> void:

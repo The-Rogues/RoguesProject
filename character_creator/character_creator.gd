@@ -65,6 +65,7 @@ func _ready() -> void:
 	update_save_button()
 
 
+
 func randomize_input():
 	character_name_label.text = name_presets.pick_random()
 	name_editor.text_edit.text = character_name_label.text

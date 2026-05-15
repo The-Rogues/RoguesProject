@@ -15,6 +15,7 @@ script = ExtResource("3_udy62")
 behaviour = SubResource("Resource_ayugq")
 duration = -1
 stack = 8
+turn_entered = false
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_uv7x6"]
@@ -27,7 +28,7 @@ metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 script = ExtResource("2_hqffc")
 type = 2
 category = 2
-energy_cost = 1
+energy_cost = 2
 name = "Suit Up"
 description = "Gain [color=#43A047]8[/color] [color=orange]armor[/color]."
 play_actions = Array[ExtResource("1_5beiy")]([SubResource("Resource_uv7x6")])

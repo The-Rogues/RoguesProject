@@ -203,10 +203,14 @@ func move_toward_perfered_object(num_spaces: int) -> void:
 		move_player_left(num_spaces)
 		return
 	
+	var valid_positions: Array[BattlePosition] = battle_field.battle_positions.duplicate(true)
+	for i in range(0, valid_positions.size()):
+		if valid_positions[i] == player.battle_position:
+			valid_positions[i] = BattlePosition.new()
 	var is_right: bool = player.data.personality.choose_move_direction(
 		clamp(player_index - num_spaces, 0, 4),
 		clamp(player_index + num_spaces, 0, 4),
-		battle_field.battle_positions,
+		valid_positions,
 		player.offensive_trait.weight_value,
 		player.defensive_trait.weight_value,
 		player.strategic_trait.weight_value
@@ -264,7 +268,7 @@ func get_battle_position_by_object(in_object: ObjectEntity) -> BattlePosition:
 func get_battle_field_objects() -> Array[ObjectEntity]:
 	var ret_val: Array[ObjectEntity]
 	for i in range(0, battle_field.battle_positions.size()):
-		if battle_field.battle_positions[i].get_object() != null:
+		if battle_field.battle_positions[i].get_object() != null && battle_field.battle_positions[i].get_object().health.value != 0:
 			if player.battle_position != battle_field.battle_positions[i]:
 				ret_val.append(battle_field.battle_positions[i].get_object())
 	return ret_val

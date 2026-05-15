@@ -100,7 +100,7 @@ func apply_status_effect(effect:StatusEffectConfig, pass_object:bool = false):
 	if battle_position.has_object() and !pass_object:
 		return
 	
-	effects.add_effect(effect.behaviour, effect.duration, effect.stack)
+	effects.add_effect(effect.behaviour, effect.duration, effect.stack, effect.turn_entered)
 
 
 func on_destroyed():
@@ -111,7 +111,7 @@ func on_destroyed():
 	sprite_2d.visible = false
 
 
-func enter_turn(_turn_count:int):
+func enter_turn(_turn_count:int, turn_one: bool = false):
 	damage_taken_last_turn = damage_taken_this_turn
 	damage_taken_this_turn = 0
 	
@@ -119,9 +119,10 @@ func enter_turn(_turn_count:int):
 	attacked_this_turn = false
 	
 	block.set_to_zero()
-	effects.on_entered_turn()
+	#effects.on_entered_turn()
 	#effects.decay_status_effects()
-	record_end_turn_state()
+	if !turn_one:
+		record_end_turn_state()
 	energy.refill()
 	turn_entered.emit()
 
@@ -156,6 +157,7 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 				play_attack_anim()
 				melee_weapon_animator.play("swing")
 			elif card.instance.data.type == CardData.Type.RANGED:
+				attacked_this_turn = true
 				ranged_weapon_animator.play("fire")
 	else:
 		play_hand.reject_play()

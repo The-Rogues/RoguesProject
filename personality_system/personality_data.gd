@@ -103,6 +103,53 @@ func choose_move_direction(
 		return false
 	return true
 
+#func choose_move_direction(
+	#left_idx: int, 
+	#right_idx: int, 
+	#positions: Array[BattlePosition],
+	#in_offensive: int,
+	#in_defensive: int,
+	#in_strategic: int
+#) -> bool:
+	#var priority_order: Array[int] = create_trait_order(
+		#in_offensive,
+		#in_defensive,
+		#in_strategic
+	#)
+	#
+	#for i in range(0, priority_order.size()):
+		#var targeting_option: ObjectData.MoveTargetingCategory
+		#match priority_order[i]:
+			#0:
+				#targeting_option = offensive_trait.object_targeting_preference
+			#1:
+				#targeting_option = defensive_trait.object_targeting_preference
+			#2:
+				#targeting_option = strategic_trait.object_targeting_preference
+		#var object_exists: bool = false
+		#for j in range(0, positions.size()):
+			#var curr_obj: ObjectEntity = positions[j].get_object()
+			#if curr_obj == null:
+				#continue
+			#elif curr_obj.data.targeting_categories.has(targeting_option):
+				#object_exists = true
+				#break
+		#if !object_exists:
+			#continue
+		#var dist_left: int = dist_from_preferred(left_idx, targeting_option, positions)
+		#var dist_right: int = dist_from_preferred(right_idx, targeting_option, positions)
+		#if dist_left == dist_right:
+			#if randf() < 0.5:
+				#return false
+			#return true
+		#elif dist_left < dist_right:
+			#return false
+		#else:
+			#return true
+	#if randf() < 0.5:
+		#return false
+	#return true
+
 func dist_from_preferred(
 	in_idx: int, 
 	in_targeting: ObjectData.MoveTargetingCategory, 
@@ -180,7 +227,8 @@ func choose_enemy_target(
 		var filtered_enemies: Array[MonsterEntity]
 		for j in range(0, enemies.size()):
 			if enemies[j].updated_targeting.has(targeting_option):
-				filtered_enemies.append(enemies[j])
+				if enemies[j].health.value > 0:
+					filtered_enemies.append(enemies[j])
 		if filtered_enemies.size() > 0:
 			return filtered_enemies.pick_random()
 	return enemies.pick_random()

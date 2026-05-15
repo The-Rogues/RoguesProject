@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://cp2osh5b7ynnu" path="res://content/cards/legendary_cards/flamethrower.tres" id="4_kg3tj"]
 [ext_resource type="Resource" uid="uid://dvntgnsyslkwr" path="res://content/cards/legendary_cards/iron_fist.tres" id="5_iafc3"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="6_ah6kf"]
-[ext_resource type="Script" uid="uid://g0vmtd44ta3m" path="res://battle_scene/win_screen/rewards_data/card_reward_data.gd" id="7_7tgmj"]
+[ext_resource type="Script" uid="uid://2dasaxkrjqap" path="res://battle_scene/win_screen/rewards_data/card_reward_data.gd" id="7_7tgmj"]
 [ext_resource type="Resource" uid="uid://bv4ochxklc86t" path="res://content/monsters/metal_man/metal_man.tres" id="9_st3ww"]
 [ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="10_sg6cm"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="11_12xa1"]

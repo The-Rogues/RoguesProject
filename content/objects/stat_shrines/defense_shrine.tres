@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://vc36jo48ntct"]
+
+[ext_resource type="Texture2D" uid="uid://c37tg564o10pt" path="res://content/objects/stat_shrines/defense_shrine.png" id="1_15qoj"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_k2ktj"]
+[ext_resource type="Script" uid="uid://sbvvweac52w" path="res://content/monsters/bee/actions/perma_stat_mod_action.gd" id="3_a7qst"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="4_m4j4o"]
+
+[sub_resource type="Resource" id="Resource_uv57p"]
+script = ExtResource("3_a7qst")
+trait_category = 1
+metadata/_custom_type_script = "uid://sbvvweac52w"
+
+[resource]
+script = ExtResource("4_m4j4o")
+targeting_categories = Array[int]([4])
+interaction = 7
+interaction_actions = Array[ExtResource("2_k2ktj")]([SubResource("Resource_uv57p")])
+hover_description = "
+Object Category: Upgrade
+
+On Player Destroyed: Permanantley gain [color=#43A047]1[/color] [color=orange]defense[/color]."
+display_texture = ExtResource("1_15qoj")
+name = "Defense Shrine"
+health = 1
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://cqfuppf7uqwgg"]
+
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_fotxb"]
+[ext_resource type="Texture2D" uid="uid://dvgsoggodes7u" path="res://content/map_events/tier_1_events/hooded_man_texture.tres" id="1_w7gh0"]
+[ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="2_ouw7c"]
+[ext_resource type="Script" uid="uid://ckrumpg5asoa2" path="res://content/map_events/tier_1_events/results/add_item_result.gd" id="3_n16k4"]
+[ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="4_na0uk"]
+[ext_resource type="Script" uid="uid://cjm2fawobo7a0" path="res://mini_event_system/results/give_card_event_result.gd" id="6_sdkbm"]
+[ext_resource type="Resource" uid="uid://yx660xg08js8" path="res://content/cards/traitless_cards/snakio.tres" id="7_ujc3m"]
+[ext_resource type="Resource" uid="uid://by2kl8w4kkm1m" path="res://content/cards/traitless_cards/stinky.tres" id="8_pgf1m"]
+[ext_resource type="Resource" uid="uid://br1liejdw3sis" path="res://content/cards/traitless_cards/mr_bat.tres" id="9_xhuw6"]
+[ext_resource type="Script" uid="uid://brd5m732vyy5t" path="res://mini_event_system/results/random_event_result.gd" id="10_uc24m"]
+
+[sub_resource type="Resource" id="Resource_b8ssy"]
+script = ExtResource("3_n16k4")
+item = ExtResource("2_ouw7c")
+metadata/_custom_type_script = "uid://ckrumpg5asoa2"
+
+[sub_resource type="Resource" id="Resource_3u4mt"]
+script = ExtResource("6_sdkbm")
+card = ExtResource("7_ujc3m")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[sub_resource type="Resource" id="Resource_llqm6"]
+script = ExtResource("6_sdkbm")
+card = ExtResource("8_pgf1m")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[sub_resource type="Resource" id="Resource_behpf"]
+script = ExtResource("6_sdkbm")
+card = ExtResource("9_xhuw6")
+metadata/_custom_type_script = "uid://cjm2fawobo7a0"
+
+[sub_resource type="Resource" id="Resource_61aaq"]
+script = ExtResource("10_uc24m")
+results = Array[ExtResource("4_na0uk")]([SubResource("Resource_3u4mt"), SubResource("Resource_llqm6"), SubResource("Resource_behpf")])
+weights = Array[float]([1.0, 1.0, 1.0, 1.0])
+metadata/_custom_type_script = "uid://brd5m732vyy5t"
+
+[resource]
+script = ExtResource("1_fotxb")
+display_image = ExtResource("1_w7gh0")
+scenario_text = "A hooded figure approaches you. In each hand, he clutches a hidden item. Extending his arms, he offers you a choice."
+option_1_text = "Right Hand"
+option_2_text = "Left hand"
+option_1_branch = Array[String](["The hooded man seems disappointed as he reveals your choice.
+\"Here, take this key. I have no use for it,\" he says."])
+option_2_branch = Array[String](["The hooded man smiles as he reveals your choice.
+\"Congratulations! You received a MonsterMon card!\" he proclaims."])
+option_1_accept_event = SubResource("Resource_b8ssy")
+option_2_accept_event = SubResource("Resource_61aaq")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

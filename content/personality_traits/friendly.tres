@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_4i5wy"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_2llmf"]
-[ext_resource type="Resource" uid="uid://biytyhg5hx4cd" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="2_2uu3v"]
-[ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/crawly_friend.tres" id="3_8ufui"]
-[ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/icey_friend.tres" id="4_tqbx8"]
+[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/carrot_treat.tres" id="2_tqbx8"]
+[ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/crawly_friend.tres" id="3_ypqti"]
+[ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/fish_treat.tres" id="4_plrgl"]
+[ext_resource type="Resource" uid="uid://dui2cujdu8hw7" path="res://content/cards/friendly_cards/handshake.tres" id="5_2cf1t"]
+[ext_resource type="Resource" uid="uid://dy3ixqkqfrwer" path="res://content/cards/friendly_cards/playdate.tres" id="6_u8rox"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_igrcg"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
@@ -20,5 +22,5 @@ name = "Friendly"
 description = "Charismatic, capable of recruiting allies. Targets healthiest enemies. Moves toward upgrades."
 trait_category = 2
 object_targeting_preference = 4
-card_loot_pool = Array[ExtResource("1_4i5wy")]([ExtResource("2_2uu3v"), ExtResource("3_8ufui"), ExtResource("4_tqbx8")])
+card_loot_pool = Array[ExtResource("1_4i5wy")]([ExtResource("3_ypqti"), ExtResource("2_tqbx8"), ExtResource("4_plrgl"), ExtResource("5_2cf1t"), ExtResource("6_u8rox")])
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

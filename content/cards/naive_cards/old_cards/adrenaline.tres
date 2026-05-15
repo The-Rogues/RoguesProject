@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b6nt8hb3iqny0"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_8kxir"]
+[ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_11w4w"]
+[ext_resource type="Script" uid="uid://dpxubkl5w63oj" path="res://battle_scene/entities/status_effects/common/armored_status_effect.gd" id="3_c6u8e"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_xo5kj"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_fd33y"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="6_l187x"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="7_4bxhh"]
+
+[sub_resource type="Resource" id="Resource_0cxwx"]
+script = ExtResource("3_c6u8e")
+metadata/_custom_type_script = "uid://dpxubkl5w63oj"
+
+[sub_resource type="Resource" id="Resource_iuwpo"]
+script = ExtResource("4_xo5kj")
+behaviour = SubResource("Resource_0cxwx")
+duration = 2
+stack = null
+turn_entered = null
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_satrp"]
+script = ExtResource("5_fd33y")
+effect = SubResource("Resource_iuwpo")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_3pkhw"]
+script = ExtResource("2_11w4w")
+category = 1
+threshold = 5
+success_action = SubResource("Resource_satrp")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[sub_resource type="Resource" id="Resource_0o3gv"]
+script = ExtResource("6_l187x")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_s60xn"]
+script = ExtResource("4_xo5kj")
+behaviour = SubResource("Resource_0o3gv")
+duration = 2
+stack = 2
+turn_entered = null
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_rrcah"]
+script = ExtResource("5_fd33y")
+effect = SubResource("Resource_s60xn")
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_1sk3g"]
+script = ExtResource("2_11w4w")
+category = 1
+threshold = 5
+success_action = SubResource("Resource_rrcah")
+metadata/_custom_type_script = "uid://dvbo2nw5tsuc"
+
+[resource]
+script = ExtResource("7_4bxhh")
+type = 2
+energy_cost = 1
+name = "Adrenaline"
+description = "If defense is more than 4, apply 2 armored and strength."
+play_actions = Array[ExtResource("1_8kxir")]([SubResource("Resource_3pkhw"), SubResource("Resource_1sk3g")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

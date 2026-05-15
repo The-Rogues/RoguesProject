@@ -12,6 +12,7 @@ func decide_next_action(monster:MonsterEntity):
 	monster.move_index += 1
 	
 	if monster.move_index == monster.move_sequence.moves.size():
+		#print("Here")
 		monster.move_sequence = monster.data.move_sequences[1]
 		monster.move_index = 0
 	

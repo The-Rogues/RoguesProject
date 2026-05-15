@@ -14,13 +14,12 @@ metadata/_custom_type_script = "uid://pmvfxl88wt1h"
 [sub_resource type="Resource" id="Resource_n7lnn"]
 script = ExtResource("5_qirar")
 behaviour = SubResource("Resource_2gjwf")
-duration = 2
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_xd3w0"]
 script = ExtResource("3_tt5a6")
 status_effect = SubResource("Resource_n7lnn")
-base_damage = 6
+base_damage = 7
 target_option = 2
 metadata/_custom_type_script = "uid://hopwhp65chew"
 
@@ -29,6 +28,6 @@ script = ExtResource("2_wo5p2")
 energy_cost = 1
 name = "Shield Break"
 display_texture = ExtResource("1_vpk1k")
-description = "Deal [color=red]get_atk6[/color] Damage. Apply 2 Frail. "
+description = "Deal [color=red]get_atk7[/color] Damage. Apply [color=#43A047]1[/color] [color=orange]frail[/color]. "
 play_actions = Array[ExtResource("1_ieoco")]([SubResource("Resource_xd3w0")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

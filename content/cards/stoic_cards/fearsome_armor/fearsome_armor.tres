@@ -16,6 +16,6 @@ type = 2
 category = 2
 energy_cost = 3
 name = "Fearsome Armor"
-description = "Gain [color=orange]block[/color] equal to target enemy's missing HP."
+description = "Gain block equal to target enemy's missing HP."
 play_actions = Array[ExtResource("1_pewt7")]([SubResource("Resource_yk4wd")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dv22vxv6dmc2m"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_otv63"]
+[ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="3_6di7p"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_nkabh"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_l06uq"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_tox8n"]
+
+[sub_resource type="Resource" id="Resource_h8tk1"]
+script = ExtResource("3_6di7p")
+metadata/_custom_type_script = "uid://pmvfxl88wt1h"
+
+[sub_resource type="Resource" id="Resource_kry2p"]
+script = ExtResource("4_nkabh")
+behaviour = SubResource("Resource_h8tk1")
+duration = 3
+stack = 0
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_nnmee"]
+script = ExtResource("5_l06uq")
+effect = SubResource("Resource_kry2p")
+target_option = 3
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("6_tox8n")
+type = 2
+category = 3
+energy_cost = 2
+name = "Crushing Presence"
+description = "Apply [color=#43A047]3[/color] [color=orange]frail[/color] to all enemies. [color=orange]Single use[/color]."
+play_actions = Array[ExtResource("1_otv63")]([SubResource("Resource_nnmee")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
