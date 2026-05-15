@@ -3,6 +3,8 @@ class_name BattleFlowManager
 ## Responsible for executing player and enemy turn logic. Also handles turn
 ## transitions and ending battles.
 
+signal entered_turn(turn_count:int)
+
 # Used to prevent some functions from execution if the battle is in a different state
 enum State {START, PLAYER_TURN, ENEMY_TURN, ENDED}
 var battle_state:State = State.START
@@ -56,6 +58,7 @@ func start_player_turn():
 		return
 	
 	turn_count += 1
+	entered_turn.emit(turn_count)
 	
 	await turn_banner.display("Player Turn\nTurn: " + str(turn_count))
 	
@@ -131,9 +134,12 @@ func _on_battle_ended():
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
+		GameStats.end_battle(player)
+		
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true
+
 
 func apply_innate_effects(in_context: BattleContext):
 	battle_powers.add_power(load("res://content/cards/naive_cards/practice_makes_perfect/practice_perfect_power.tres"), in_context)

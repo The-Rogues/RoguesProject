@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://caeg32a3qvjsp"]
+
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_t0s51"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://globals/achievements_system/achievement_data.gd" id="2_0pd1d"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://globals/achievements_system/stat_requirement.gd" id="3_kc04k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy73m"]
+atlas = ExtResource("1_t0s51")
+region = Rect2(480, 720, 40, 40)
+
+[sub_resource type="Resource" id="Resource_juuyt"]
+script = ExtResource("3_kc04k")
+stat_name = "personalities_used"
+comparison = "size>="
+target = 6
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[resource]
+script = ExtResource("2_0pd1d")
+name = "Empathic"
+display_image = SubResource("AtlasTexture_gy73m")
+description = "Use 12 different personality traits."
+listen_signal = "used_personality_trait"
+stat_checks = Array[ExtResource("3_kc04k")]([SubResource("Resource_juuyt")])
+metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cuukmx5jhs7wn" path="res://item_system/scenes/player_items.tscn" id="13_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="13_ssfyd"]
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://globals/session_interface/session_gold_label.gd" id="14_pxp8h"]
+[ext_resource type="PackedScene" uid="uid://dggtkbmkynxrm" path="res://testing_and_prototypes/CardEffects/card_effects_manager.tscn" id="15_nsjr7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmlv7"]
 bg_color = Color(0.44755095, 0.44755095, 0.44755095, 1)
@@ -254,6 +255,10 @@ layout_mode = 2
 
 [node name="StrategicTraitDisplay" parent="Control/Container/Stats" unique_id=689925448 instance=ExtResource("10_rmvr3")]
 layout_mode = 2
+
+[node name="CardEffectsManager" parent="Control" unique_id=641375129 instance=ExtResource("15_nsjr7")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [node name="OptionsMenu" parent="." unique_id=852568960 instance=ExtResource("13_h8e6q")]
 visible = false

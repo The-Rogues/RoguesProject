@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://dvrywao3dk7fc"]
+
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_fk8dt"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://globals/achievements_system/achievement_data.gd" id="2_u7dhy"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://globals/achievements_system/stat_requirement.gd" id="3_mxky8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb7gi"]
+atlas = ExtResource("1_fk8dt")
+
+[sub_resource type="Resource" id="Resource_5hcrm"]
+script = ExtResource("3_mxky8")
+stat_name = "enemy_encounters_defeated"
+comparison = "contains"
+contains_value = "The Metal Man"
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[resource]
+script = ExtResource("2_u7dhy")
+name = "Magic vs. Metal"
+display_image = SubResource("AtlasTexture_vb7gi")
+description = "Defeat the Metal Man."
+listen_signal = "battle_won"
+stat_checks = Array[ExtResource("3_mxky8")]([SubResource("Resource_5hcrm")])
+metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

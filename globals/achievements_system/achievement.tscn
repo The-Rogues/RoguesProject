@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://djc8m1ivy1pm4"]
+
+[ext_resource type="Texture2D" uid="uid://cxf701ylb6mqf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-031.png" id="1_88lmq"]
+[ext_resource type="Script" uid="uid://d0xlcqktrxait" path="res://globals/achievements_system/achievement.gd" id="1_cdf0q"]
+[ext_resource type="Texture2D" uid="uid://cj4sfn1i7mlw5" path="res://splash_screen/the_rogues_logo_v1.png" id="2_cdf0q"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_esvca"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtldr"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftf4u"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("1_88lmq")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="Achievement" type="PanelContainer" unique_id=1556243692]
+texture_filter = 1
+custom_minimum_size = Vector2(460, 95)
+offset_right = 333.0
+offset_bottom = 56.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_mtldr")
+script = ExtResource("1_cdf0q")
+
+[node name="Border" type="Panel" parent="." unique_id=1733285174]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ftf4u")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=915527344]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Contents" type="HBoxContainer" parent="MarginContainer" unique_id=9046373]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="AchievementIcon" type="TextureRect" parent="MarginContainer/Contents" unique_id=432463361]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_cdf0q")
+expand_mode = 1
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="MarginContainer/Contents" unique_id=1530490295]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(263, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_esvca")
+bbcode_enabled = true
+text = "[color=f1b43a]Unamed Achievement[/color] [color=gray]
+(Incomplete)[/color]
+Achievemet complete condition."
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

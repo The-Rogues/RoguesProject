@@ -29,8 +29,11 @@ class_name BattleScene
 
 func _ready() -> void:
 	var config = GlobalSceneLoader.battle_config
+	
 	if config:
 		initialize(config)
+		
+		
 
 
 func initialize(battle_config:BattleConfig):
@@ -77,6 +80,23 @@ func initialize(battle_config:BattleConfig):
 	battle_flow_manager.start_battle()
 	
 	MusicManager.change_song(MusicManager.track_list.choose_battle_theme())
+	
+	GameStats.initialize_battle(battle_config.enemy_encounter)
+
+
+func _setup_player_entity(data:PlayerData):
+	player.initialize(data)
+	
+	player.cards.draw_pile_updated.connect(draw_pile_icon._on_card_pile_updated)
+	player.cards.draw_pile_updated.connect(draw_pile_viewer.on_cards_updated)
+	player.cards.discard_pile_updated.connect(discard_pile_icon._on_card_pile_updated)
+	player.cards.discard_pile_updated.connect(discard_pile_viewer.on_cards_updated)
+	
+	GlobalSessionInterface.connect_to_player(player)
+
+
+func _register_creatures():
+	pass
 
 
 func _on_view_draw_pile_button_up() -> void:

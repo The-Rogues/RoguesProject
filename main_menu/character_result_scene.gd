@@ -32,6 +32,8 @@ func initialize():
 				preview.personality.strategic_trait,
 				preview.personality.strategic_weight)
 		
+		
+		
 		deck_viewer.on_cards_updated(deck_cards)
 
 

@@ -5,6 +5,7 @@ signal played_card(card:CardInstance)
 signal carry_object_updated
 signal start_ai_processing
 signal end_ai_processing
+signal summoned_friend(friend:Friend)
 
 var carried_object:ObjectData = null
 var battle_position:BattlePosition
@@ -34,7 +35,7 @@ var unused_energy_last_turn: int = 0
 
 var ai_processer_scn: PackedScene = preload("res://ai/processer/AiCardProcesser.tscn")
 var ai_processer: AiCardProcesser = ai_processer_scn.instantiate()
-
+var friends:Array[Friend] = []
 
 func initialize(_data:PlayerData):
 	health.initialize(_data.current_health, _data.max_health)
@@ -149,6 +150,7 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 			effects.process_played_card(card.instance, resolver)
 		
 			played_card.emit(card.instance)
+			Events.energy_used.emit(card.instance.energy_cost)
 			if card.instance.data.type == CardData.Type.ATTACK:
 				attacked_this_turn = true
 				play_attack_anim()
@@ -180,6 +182,7 @@ func place_object() -> bool:
 		return false
 	
 	battle_position.place_object(carried_object)
+	Events.object_placed.emit(carried_object)
 	carried_object = null
 	carry_object_updated.emit()
 	return true
@@ -204,3 +207,9 @@ func _object_intercept_attack(damage:int, _attacker) -> bool:
 		return true
 	else:
 		return false
+
+
+func register_friend(friend:Friend):
+	friends.append(friend)
+	summoned_friend.emit(friend)
+	Events.friend_summoned.emit(friend)

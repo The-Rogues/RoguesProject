@@ -12,6 +12,11 @@ extends Control
 @onready var closing_label: Label = %ClosingLabel
 @onready var save_warning_popuo: PanelContainer = %SaveWarningPopuo
 @onready var main_menu_selector: Control = %MainMenuSelector
+@onready var achievements_screen: Control = %AchievementsScreen
+@onready var achievements_return_button: Button = %AchievementsReturnButton
+@onready var delete_save_warning: PanelContainer = %DeleteSaveWarning
+@onready var delete_data: Button = %DeleteData
+
 
 @onready var continue_game: Button = %Continue
 @onready var new_game: Button = %NewGame
@@ -127,3 +132,38 @@ func _on_yes_button_up() -> void:
 
 func _on_no_button_up() -> void:
 	save_warning_popuo.visible = false
+
+
+# -------------------------------------------------
+# Achievements Screen
+# -------------------------------------------------
+
+func _on_achievements_button_up() -> void:
+	main_menu.visible = false
+	achievements_screen.visible = true
+	main_menu_selector.focus_reticle(achievements_return_button)
+
+
+func _on_achievements_return_button_button_up() -> void:
+	achievements_screen.visible = false
+	main_menu.visible = true
+	main_menu_selector.focus_reticle(start)
+	pass # Replace with function body.
+
+# -------------------------------------------------
+# Delete All Data
+# -------------------------------------------------
+
+func _on_delete_all_data_button_up() -> void:
+	delete_save_warning.visible = true
+
+
+func _on_yes_delete_all_data_button_up() -> void:
+	Achievements.reset_achievements()
+	GameStats.stats_data = GameStatsData.new()
+	GlobalSaveManager.reset()
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAIN_MENU_PATH)
+
+
+func _on_no_delete_all_data_button_up() -> void:
+	delete_save_warning.visible = false

@@ -38,6 +38,8 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	var player_data = PlayerData.new()
 	player_data.initialize(data.personality, DEFAULT_STARTING_DECK.cards.duplicate(true))
+	
+	
 	run.player_data = player_data
 	run.player_data.name = data.name
 	run.player_name = data.name
@@ -59,6 +61,11 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	run.player_data.cards.append(
 		load("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
 	)
+	
+	Events.used_personality_trait.emit(player_data.personality.offensive_trait.name)
+	Events.used_personality_trait.emit(player_data.personality.defensive_trait.name)
+	Events.used_personality_trait.emit(player_data.personality.strategic_trait.name)
+	
 	
 	return run
 
