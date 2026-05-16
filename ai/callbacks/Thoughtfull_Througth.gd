@@ -44,8 +44,8 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	#var ret_move: BattleMove = BattleMove.new()
 	
 	# Generate the name and description for the card.
-	ret_val.name = "Thoughtfull Through"
-	ret_val.description = "Attack "
+	ret_val.name = "Thoughtfull Throw"
+	ret_val.description = "Ranged Attack "
 	if dbl_atk && atk_all:
 		ret_val.description += "all enemies for " + str(total_atk / 2) + ", twice."
 	elif dbl_atk: 
