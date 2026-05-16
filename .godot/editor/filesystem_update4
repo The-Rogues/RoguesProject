@@ -1,5 +1,5 @@
-res://battle_scene/entities/player/player_entity.tscn
-res://common/sprite_flasher/hit_flash.tres
+res://ai/ai-cards/inventive_attack_data.tres
+res://splash_screen/rogues_splash_screen.tscn
 res://testing_and_prototypes/rogues_theme.tres
 res://content/objects/treasure_pot/treasure_pot.tres
 res://content/monsters/skeleton_archer/moves/arrow_shot.tres
@@ -80,11 +80,6 @@ res://content/monsters/large_fire_ant/moves/fire_dance.tres
 res://content/monsters/large_fire_ant/large_fire_ant.tres
 res://content/scene_configuration/enemy_encounters/tier_2_encounters/large_ant.tres
 res://content/scene_configuration/track_list.tres
-res://battle_scene/entities/player/melee_weapon/long_sword.tres
-res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres
-res://content/cards/traitless_cards/defend.tres
-res://content/personality_traits/valorous.tres
-res://content/cards/traitless_cards/strike.tres
-res://content/personality_traits/tactical.tres
-res://content/cards/traitless_cards/move.tres
-res://content/cards/traitless_cards/arrow_shot.tres
+res://content/items/cheese/Cards/rat_attack.tres
+res://ai/ai-cards/Thoughtfull_Through.tres
+res://ai/callbacks/Thoughtfull_Througth.gd
