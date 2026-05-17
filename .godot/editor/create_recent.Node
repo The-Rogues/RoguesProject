@@ -1,10 +1,14 @@
+RichTextLabel
+Label
+FoldableContainer
+ColorRect
+Sprite2D
+CPUParticles2D
+Timer
 TextureRect
 MarginContainer
 Node
-ColorRect
 Button
 VBoxContainer
 ScrollContainer
-RichTextLabel
-Label
 Panel

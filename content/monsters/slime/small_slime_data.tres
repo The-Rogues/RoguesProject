@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 script = ExtResource("8_cc683")
 move_sequences = Array[ExtResource("3_48a1t")]([SubResource("Resource_lx6ar"), SubResource("Resource_ew08v")])
 behaviour = SubResource("Resource_oaqer")
+speech = Array[String](["*blurb*", "*blurb*"])
 display_texture = ExtResource("2_48imj")
 name = "Small Slime"
 health = 10

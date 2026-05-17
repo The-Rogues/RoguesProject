@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="KoalaPlushItemData" format=3 uid="uid://d32ri7nxelqgc"]
+
+[ext_resource type="Script" uid="uid://b6w228yjv335d" path="res://content/items/koala_plush/koala_plush_item_data.gd" id="1_tjao1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhto6"]
+load_path = "res://.godot/imported/animals.png-cc7bd97b6692d93b9c8161f1113e3a7a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjao1"]
+atlas = SubResource("CompressedTexture2D_bhto6")
+region = Rect2(32, 392, 32, 32)
+
+[resource]
+script = ExtResource("1_tjao1")
+rarity = 1
+name = "Koala Plush"
+description = "Smells like ketchup. Resets personality stats to base levels in battle."
+display_texture = SubResource("AtlasTexture_tjao1")
+shop_price = 8
+sell_price = 1
+metadata/_custom_type_script = "uid://b6w228yjv335d"

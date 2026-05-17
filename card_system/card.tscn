@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://lvsf6utb83lr" path="res://common/sound_effects/helton_yans_pixel_combat/card_select.wav" id="7_qbhlc"]
 [ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="8_qbhlc"]
 [ext_resource type="AudioStream" uid="uid://dj0gw6drxgbs" path="res://common/sound_effects/helton_yans_pixel_combat/card_play.wav" id="9_gqjox"]
+[ext_resource type="PackedScene" uid="uid://ivfuk87f0mn3" path="res://common/particle_effects/poof.tscn" id="10_1xroo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu8sv"]
 content_margin_left = 6.0
@@ -324,6 +325,10 @@ bus = &"SFX"
 stream = ExtResource("9_gqjox")
 volume_db = -5.0
 bus = &"SFX"
+
+[node name="Poof" parent="." unique_id=1376596785 instance=ExtResource("10_1xroo")]
+unique_name_in_owner = true
+position = Vector2(64, 89)
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

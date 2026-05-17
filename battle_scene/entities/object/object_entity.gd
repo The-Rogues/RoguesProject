@@ -21,6 +21,8 @@ func initialize(_data:ObjectData):
 	object_stat_display.initialize(self)
 	health.died.connect(on_destroyed)
 	object_tooltip.initialize(data)
+	
+	add_to_group("Objects")
 
 
 func take_damage(amount:int, _attacker = null):

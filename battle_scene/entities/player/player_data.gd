@@ -15,9 +15,9 @@ signal card_collected(card:CardData)
 signal gold_collected(amount:int)
 
 @export var name:String = "Player"
-@export var texture:Texture2D
-@export var melee_weapon:Texture2D
-@export var ranged_weapon:Texture2D
+@export var character_texture:Texture2D
+@export var melee_weapon_texture:Texture2D
+@export var ranged_weapon_texture:Texture2D
 @export var max_health:int
 @export var current_health:int
 @export var current_energy:int
@@ -30,7 +30,7 @@ signal gold_collected(amount:int)
 
 const STARTING_HEALTH = 50
 const STARTING_ENERGY = 3
-const STARTING_ITEM_CAPACITY = 2
+const STARTING_ITEM_CAPACITY = 3
 const STARTING_GOLD = 0
 
 

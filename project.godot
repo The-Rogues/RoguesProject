@@ -35,6 +35,12 @@ Achievements="*uid://brcb8f764p8ru"
 
 window/stretch/mode="viewport"
 
+[global_group]
+
+Player="Player Entity & Friends"
+Enemies="Monster Entity"
+Objects="Objects in battle scenes"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

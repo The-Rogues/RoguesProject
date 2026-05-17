@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://dc17ac23fjjqg" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="25_bxfyy"]
 [ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="27_sb17t"]
 [ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="33_yiad3"]
-[ext_resource type="Texture2D" uid="uid://dtq808atl3kp7" path="res://content/items/energy_potion/energy_potion_texture.tres" id="34_xtx1j"]
+[ext_resource type="Texture2D" uid="uid://dtq808atl3kp7" path="res://content/items/super_energy_potion/super_energy_potion_texture.tres" id="34_xtx1j"]
 [ext_resource type="Texture2D" uid="uid://dtfw56mesa6nq" path="res://common/art/placeholder/32_rogues/animals.png" id="35_5fb16"]
 [ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="36_6n051"]
 [ext_resource type="Texture2D" uid="uid://do5kp8psm4m4f" path="res://content/items/chest_key/key_texture.tres" id="37_ylsfx"]

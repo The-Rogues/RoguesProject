@@ -7,14 +7,19 @@
 [ext_resource type="Resource" uid="uid://bd2ynpbh5j0kj" path="res://content/items/cheese/cheese_item_data.tres" id="5_h885g"]
 [ext_resource type="Resource" uid="uid://dlviwum7qlyod" path="res://content/items/bread/bread_healing_item_data.tres" id="6_j5dww"]
 [ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="7_f25c6"]
-[ext_resource type="Resource" uid="uid://dnpnr60u7xv62" path="res://content/items/diamong/diamond_item_data.tres" id="8_irxfw"]
+[ext_resource type="Resource" uid="uid://dnpnr60u7xv62" path="res://content/items/diamond/diamond_item_data.tres" id="8_irxfw"]
 [ext_resource type="Resource" uid="uid://crt46sxdbx2pm" path="res://content/items/dummy/dummy_item_data.tres" id="9_hcgci"]
-[ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/energy_potion/energy_potion_upgrade_item_data.tres" id="12_hqtqt"]
-[ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/health_potion/health_potion_character_upgrade_item_data.tres" id="13_mdkpc"]
+[ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/super_energy_potion/super_energy_potion_upgrade_item_data.tres" id="12_hqtqt"]
+[ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/super_health_potion/super_health_potion_character_upgrade_item_data.tres" id="13_mdkpc"]
+[ext_resource type="Resource" uid="uid://mi4ggqd8gx0j" path="res://content/items/energy_potion/energy_potion.tres" id="14_42174"]
 [ext_resource type="Resource" uid="uid://c1akblk4le2jm" path="res://content/items/repeat_potion/repeat_potion_item_data.tres" id="14_gvnpo"]
-[ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://content/items/item_pouch/item_pouch_item_data.tres" id="14_jsypc"]
 [ext_resource type="Texture2D" uid="uid://bkndt4q8sxwb4" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-015.png" id="15_51bub"]
+[ext_resource type="Resource" uid="uid://dju78xldybhe5" path="res://content/items/shield_potion/shield_potion.tres" id="15_uhvnf"]
 [ext_resource type="Resource" uid="uid://4p1d4nfy0a1f" path="res://content/items/forbidden_relic/forbidden_relic_item_data.tres" id="16_h885g"]
+[ext_resource type="Resource" uid="uid://di0f2cxcij3vn" path="res://content/items/thorns_potion/thorns_potion.tres" id="16_hmxhr"]
+[ext_resource type="Resource" uid="uid://b24fjcgroekd0" path="res://content/items/strength_potion/strength_potion.tres" id="17_0xxw4"]
+[ext_resource type="Resource" uid="uid://dkgaaj52of0uc" path="res://content/items/iron_skin_potion/iron_skin_potion.tres" id="18_mv3gp"]
+[ext_resource type="Resource" uid="uid://d32ri7nxelqgc" path="res://content/items/koala_plush/koala_plush.tres" id="19_km70y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsypc"]
 
@@ -32,7 +37,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jsypc")
 script = ExtResource("1_8p0en")
-items = Array[ExtResource("2_jsypc")]([ExtResource("3_6si53"), ExtResource("4_ugfjp"), ExtResource("6_j5dww"), ExtResource("5_h885g"), ExtResource("7_f25c6"), ExtResource("8_irxfw"), ExtResource("9_hcgci"), ExtResource("16_h885g"), ExtResource("14_gvnpo"), ExtResource("12_hqtqt"), ExtResource("13_mdkpc"), ExtResource("14_jsypc")])
+items = Array[ExtResource("2_jsypc")]([ExtResource("3_6si53"), ExtResource("4_ugfjp"), ExtResource("6_j5dww"), ExtResource("5_h885g"), ExtResource("7_f25c6"), ExtResource("8_irxfw"), ExtResource("9_hcgci"), ExtResource("16_h885g"), ExtResource("14_gvnpo"), ExtResource("12_hqtqt"), ExtResource("13_mdkpc"), ExtResource("14_42174"), ExtResource("15_uhvnf"), ExtResource("16_hmxhr"), ExtResource("17_0xxw4"), ExtResource("18_mv3gp"), ExtResource("19_km70y")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1354529598]
 layout_mode = 2

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="13_ssfyd"]
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://globals/session_interface/session_gold_label.gd" id="14_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://dggtkbmkynxrm" path="res://testing_and_prototypes/CardEffects/card_effects_manager.tscn" id="15_nsjr7"]
+[ext_resource type="PackedScene" uid="uid://r41r7srv4bme" path="res://battle_scene/ui/generating_card_overlay.tscn" id="15_t4l4l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmlv7"]
 bg_color = Color(0.44755095, 0.44755095, 0.44755095, 1)
@@ -32,7 +33,6 @@ modulate_color = Color(0, 0, 0, 1)
 
 [node name="SessionInterface" type="CanvasLayer" unique_id=279760499]
 layer = 4
-visible = false
 script = ExtResource("1_2dwta")
 
 [node name="Control" type="Control" parent="." unique_id=535703033]
@@ -255,6 +255,16 @@ layout_mode = 2
 
 [node name="StrategicTraitDisplay" parent="Control/Container/Stats" unique_id=689925448 instance=ExtResource("10_rmvr3")]
 layout_mode = 2
+
+[node name="GeneratingCardOverlay" parent="Control" unique_id=1773033190 instance=ExtResource("15_t4l4l")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="CardEffectsManager" parent="Control" unique_id=641375129 instance=ExtResource("15_nsjr7")]
 unique_name_in_owner = true

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="StatusEffectItem" format=3 uid="uid://dkgaaj52of0uc"]
+
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://item_system/status_effect_item.gd" id="1_l8rgk"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="1_pwabc"]
+[ext_resource type="Script" uid="uid://dpxubkl5w63oj" path="res://battle_scene/entities/status_effects/common/armored_status_effect.gd" id="2_o04au"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2xr2m"]
+load_path = "res://.godot/imported/items.png-5e838646d81f99780382478d164ffa21.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djoaw"]
+atlas = SubResource("CompressedTexture2D_2xr2m")
+region = Rect2(128, 608, 32, 32)
+
+[sub_resource type="Resource" id="Resource_g52rd"]
+script = ExtResource("2_o04au")
+metadata/_custom_type_script = "uid://dpxubkl5w63oj"
+
+[sub_resource type="Resource" id="Resource_djoaw"]
+script = ExtResource("1_pwabc")
+behaviour = SubResource("Resource_g52rd")
+duration = 3
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[resource]
+script = ExtResource("1_l8rgk")
+effect = SubResource("Resource_djoaw")
+name = "Iron Skin Potion"
+description = "Take 50% less damage for 3 turns"
+display_texture = SubResource("AtlasTexture_djoaw")
+shop_price = 10
+sell_price = 5
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

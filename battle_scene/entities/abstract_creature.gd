@@ -4,6 +4,7 @@ class_name AbstractCreature
 
 signal finished_moving
 signal defeated(creature:AbstractCreature)
+signal turn_exited
 
 @export var effects:StatusEffectController
 @export var block:Block
@@ -54,6 +55,9 @@ func enter_turn(_turn_count:int):
 	#effects.on_entered_turn()
 	#effects.decay_status_effects()
 
+
+func exit_turn():
+	turn_exited.emit()
 
 func _on_projectile_fired(projectile:Projectile):
 	effects.process_projectile(projectile)

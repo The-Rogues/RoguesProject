@@ -19,7 +19,6 @@ script = ExtResource("2_q1mqk")
 name = "Material World"
 display_image = SubResource("AtlasTexture_jpgfq")
 description = "Use a total of 10 different items."
-completed = true
 listen_signal = "item_used"
 stat_checks = Array[ExtResource("3_v0uds")]([SubResource("Resource_olkv8")])
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

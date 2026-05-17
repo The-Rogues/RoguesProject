@@ -84,6 +84,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 script = ExtResource("10_kwdty")
 move_sequences = Array[ExtResource("3_fetjb")]([SubResource("Resource_c31ea")])
 behaviour = SubResource("Resource_30rgb")
+speech = Array[String](["I really wish I weren't here right now.", "*squek*", "*foot shuffling*"])
 display_texture = SubResource("AtlasTexture_br3xu")
 name = "Angry Shroom"
 health = 42

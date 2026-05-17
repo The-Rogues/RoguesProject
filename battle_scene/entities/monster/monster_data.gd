@@ -3,6 +3,7 @@ class_name MonsterData
 
 @export var move_sequences:Array[MoveSequence]
 @export var behaviour:MonsterBehaviour
+@export var speech:Array[String]
 
 # Fletcher - Added the below enum for targeting.
 enum AttackTargetingCategory {

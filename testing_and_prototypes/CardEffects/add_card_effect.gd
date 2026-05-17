@@ -3,7 +3,7 @@ extends Control
 
 const CARD = preload("res://card_system/card.tscn")
 @export var spawn_radius:float = 10
-@export var preview_time:float = 2
+@export var preview_time:float = 1.5
 
 
 func add_card_effect(data:CardData, target_pos:Vector2):
@@ -16,7 +16,7 @@ func add_card_effect(data:CardData, target_pos:Vector2):
 	var timer = Timer.new()
 	card.add_child(timer)
 	timer.timeout.connect(func():
-		card.launch_towards(target_pos))
+		card.launch_towards(target_pos, false))
 	timer.start(preview_time)
 
 
@@ -30,5 +30,6 @@ func remove_card_effect(data:CardData):
 	var timer = Timer.new()
 	card.add_child(timer)
 	timer.timeout.connect(func():
-		card.queue_free())
+		card.poof_card())
+	
 	timer.start(preview_time)

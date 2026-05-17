@@ -72,6 +72,7 @@ func start_player_turn():
 	
 	for enemy in enemies:
 		enemy.choose_intent()
+		enemy.turn_entered.emit()
 	
 	# Fletcher - Updates calculated targeting after enemies have chosen new moves.
 	context.creature_manager.update_attack_targeting()
@@ -96,6 +97,7 @@ func end_player_turn():
 	
 	for enemy in enemies:
 		enemy.enter_turn(turn_count)
+		enemy.exit_turn()
 	manage_effects(false)
 	
 	#player.effects.decay_status_effects(false)
@@ -142,16 +144,20 @@ func _on_battle_ended():
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
+		Events.battle_won.emit(player)
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true
+
 
 func manage_effects(player_turn_entered: bool):
 	player.effects.on_turn(player_turn_entered)
 	player.effects.decay_status_effects(player_turn_entered)
 	for i in range(0, enemies.size()):
 		enemies[i].effects.on_turn(!player_turn_entered)
-		enemies[i].effects.decay_status_effects(!player_turn_entered)
+		if !enemies.is_empty():
+			enemies[i].effects.decay_status_effects(!player_turn_entered)
+
 
 func apply_innate_effects(in_context: BattleContext):
 	battle_powers.add_power(load("res://content/cards/naive_cards/practice_makes_perfect/practice_perfect_power.tres"), in_context)

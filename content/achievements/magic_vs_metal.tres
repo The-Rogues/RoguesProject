@@ -19,6 +19,7 @@ script = ExtResource("2_u7dhy")
 name = "Magic vs. Metal"
 display_image = SubResource("AtlasTexture_vb7gi")
 description = "Defeat the Metal Man."
+completed = true
 listen_signal = "battle_won"
 stat_checks = Array[ExtResource("3_mxky8")]([SubResource("Resource_5hcrm")])
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

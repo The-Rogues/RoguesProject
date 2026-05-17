@@ -7,6 +7,7 @@ signal projectiles_freed
 var projectile_scene:PackedScene
 @export var fire_delay:Timer
 @export var fire_point:Node2D
+@export var group:String = ""
 #@export var bonus_projectiles:int = 0
 
 var projectiles:Array[Projectile]
@@ -17,6 +18,9 @@ func fire(target_position:Vector2, data:ProjectileFireData):
 	
 	projectile_scene = data.projectile_scene
 	var projectile:Projectile = projectile_scene.instantiate()
+	
+	if group != "":
+		projectile.add_to_group(group)
 	
 	projectile.source = get_parent()
 	

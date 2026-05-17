@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dlvts2ye4x82h"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ce81qrnyt4akj"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ilwsm"]
 [ext_resource type="Script" uid="uid://bvp8edtm17mq8" path="res://battle_scene/battle_powers/powers/keep_block.gd" id="2_u5v74"]

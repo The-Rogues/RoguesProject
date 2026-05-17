@@ -25,7 +25,7 @@ func initialize():
 	run.player_data.cards_updated.connect(deck_ui._on_card_pile_updated)
 	player_items.initialize()
 	gold_label.initialize()
-	name_label.text = run.player_name
+	name_label.text = run.player_data.name
 	health_label.text = str(run.player_data.current_health) + "/" + str(run.player_data.max_health)
 	
 	
@@ -79,6 +79,11 @@ func connect_to_player(player:PlayerEntity):
 	offesnive_trait_display.connect_to_battle_trait(player.offensive_trait)
 	defensive_trait_display.connect_to_battle_trait(player.defensive_trait)
 	strategic_trait_display.connect_to_battle_trait(player.strategic_trait)
+	
+	player.data.card_collected.connect(func(card:CardData):
+		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
+	player.data.card_removed.connect(func(card:CardData):
+		card_effects_manager.remove_card_effect(card))
 	pass
 
 
@@ -86,6 +91,10 @@ func disconnect_from_player(player: PlayerEntity):
 	offesnive_trait_display.disconnect_from_battle_trait(player.offensive_trait)
 	defensive_trait_display.disconnect_from_battle_trait(player.defensive_trait)
 	strategic_trait_display.disconnect_from_battle_trait(player.strategic_trait)
+	player.data.card_collected.disconnect(func(card:CardData):
+		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
+	player.data.card_removed.disconnect(func(card:CardData):
+		card_effects_manager.remove_card_effect(card))
 
 
 func _on_health_updated(current:int, max:int):

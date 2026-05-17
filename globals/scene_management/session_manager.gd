@@ -38,15 +38,18 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	var player_data = PlayerData.new()
 	player_data.initialize(data.personality, DEFAULT_STARTING_DECK.cards.duplicate(true))
-	
+	player_data.character_texture = data.character_texture
+	player_data.melee_weapon_texture = data.melee_weapon_texture
+	player_data.ranged_weapon_texture = data.ranged_weapon_texture
+	player_data.name = data.name
 	
 	run.player_data = player_data
-	run.player_data.name = data.name
-	run.player_name = data.name
-	run.player_texture = data.display_texure
-	run.player_backstory = data.backstory
-	run.player_melee_weapon_texture = data.melee_weapon_texture
-	run.player_ranged_weapon_texture = data.ranged_weapon_texture
+	#run.player_data.name = data.name
+	#run.player_name = data.name
+	#run.player_texture = data.display_texure
+	#run.player_backstory = data.backstory
+	#run.player_melee_weapon_texture = data.melee_weapon_texture
+	#run.player_ranged_weapon_texture = data.ranged_weapon_texture
 	
 	run.total_gold_collected = 0
 	run.total_cards_collected = 0
@@ -181,6 +184,8 @@ func get_current_floor():
 
 func get_character_texture():
 	if run_progress == null:
-		return load("res://Testing/donkey.tres")
+		return load("res://common/art/random_art/donkey.tres")
+	if run_progress.player_data == null:
+		return load("res://common/art/random_art/donkey.tres")
 	
-	return run_progress.player_texture
+	return run_progress.player_data.character_texture

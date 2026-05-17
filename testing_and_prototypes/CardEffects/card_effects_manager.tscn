@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://br52ffuw3kodi" path="res://testing_and_prototypes/CardEffects/add_card_effect.gd" id="1_v1whq"]
 
-[node name="CardEffectsManager" type="Control" unique_id=641375129]
+[node name="CardEffectsManager" type="Control" unique_id=641375129 groups=["Enemies", "Objects", "Player"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

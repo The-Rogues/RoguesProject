@@ -108,5 +108,6 @@ func modify_stat(increasing:bool):
 				personality.strategic_weight + mod)
 	
 	disable_buttons()
+	
 	await get_tree().create_timer(2).timeout
 	visible = false

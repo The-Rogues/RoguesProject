@@ -18,9 +18,9 @@ func initialize():
 	var deck_cards := get_card_instances()
 	
 	if preview and !deck_cards.is_empty():
-		character_image.texture = preview.display_texure
+		character_image.texture = preview.character_texture
 		name_label.text = preview.name
-		backstory.text = preview.backstory
+		#backstory.text = preview.backstory
 		
 		offensive_trait._on_trait_data_updated(
 				preview.personality.offensive_trait,
@@ -44,11 +44,10 @@ func get_character_preview() -> PlayerInitializationData:
 		return null
 	
 	return PlayerInitializationData.new(
-			run_progress.player_name,
-			run_progress.player_backstory,
-			run_progress.player_texture,
-			run_progress.player_melee_weapon_texture,
-			run_progress.player_ranged_weapon_texture,
+			run_progress.player_data.name,
+			run_progress.player_data.character_texture,
+			run_progress.player_data.melee_weapon_texture,
+			run_progress.player_data.ranged_weapon_texture,
 			run_progress.player_data.personality
 	)
 

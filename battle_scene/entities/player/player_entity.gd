@@ -58,6 +58,11 @@ func initialize(_data:PlayerData):
 	_data.connect_to_player_entity(self)
 	
 	movement_controller.player = self
+	
+	sprite_2d.texture = data.character_texture
+	melee_weapon_sprite.texture = data.melee_weapon_texture
+	ranged_weapon_sprite.texture = data.ranged_weapon_texture
+	
 	stat_display.initialize(self)
 	object_slot.initialize(self)
 	
@@ -65,6 +70,7 @@ func initialize(_data:PlayerData):
 	movement_controller.entered_new_position.connect(_on_enterned_new_position)
 	projectile_launcher.fired_projectile.connect(_on_projectile_fired)
 	
+	add_to_group("Player")
 	add_child(ai_processer)
 
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://dv1krhb21lmwi"]
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://cym8ccfrq7r5o"]
 
 [ext_resource type="Texture2D" uid="uid://dsvhtxrr0nfkg" path="res://content/objects/stat_shrines/offense_shrine.png" id="1_08bgo"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qewnt"]

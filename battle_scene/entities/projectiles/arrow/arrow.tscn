@@ -10,7 +10,7 @@ atlas = ExtResource("2_bibgj")
 region = Rect2(0, 736, 32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
-radius = 11.18034
+radius = 0.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 14.035668
@@ -54,5 +54,5 @@ wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_mkfkv")]
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]

@@ -36,6 +36,7 @@ func initialize(_data:MonsterData):
 	#health.died.connect(on_destroyed)
 	updated_targeting = data.init_targeting.duplicate()
 	#projectile_launcher.fired_projectile.connect(_on_projectile_fired)
+	add_to_group("Enemies")
 
 
 
@@ -76,7 +77,8 @@ func on_destroyed():
 
 func enter_turn(_turn_count:int):
 	super(_turn_count)
-	turn_entered.emit()
+	#turn_entered.emit()
+
 
 
 func choose_intent():

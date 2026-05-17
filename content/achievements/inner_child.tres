@@ -34,7 +34,6 @@ script = ExtResource("2_i2hri")
 name = "Inner Child"
 display_image = SubResource("AtlasTexture_tg58m")
 description = "Collect all 3 Monstermon cards."
-completed = true
 listen_signal = "card_collected"
 stat_checks = Array[ExtResource("3_h11vd")]([SubResource("Resource_6k1xg"), SubResource("Resource_y25kv"), SubResource("Resource_4h1gv")])
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

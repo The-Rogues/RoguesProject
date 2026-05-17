@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://0q00vk2rp8gd"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp26ik751gx8i"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_puc8n"]
 [ext_resource type="Script" uid="uid://c4wacutsxb7p6" path="res://content/cards/laidback_cards/laidback_action.gd" id="2_jgha8"]

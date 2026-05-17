@@ -14,7 +14,6 @@ script = ExtResource("1_4lx00")
 name = "Treasure Hunter"
 display_image = ExtResource("1_16sho")
 description = "Open a locked chest in a battle."
-completed = true
 listen_signal = "chest_opened"
 stat_checks = Array[ExtResource("2_16sho")]([SubResource("Resource_b58nt")])
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

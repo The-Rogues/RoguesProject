@@ -48,7 +48,6 @@ func refill():
 	bonus_energy = 0
 	energy_changed.emit(value, max_value)
 
+
 func add_bonus_energy(amount: int) -> void:
 	bonus_energy += amount
-	
-	
