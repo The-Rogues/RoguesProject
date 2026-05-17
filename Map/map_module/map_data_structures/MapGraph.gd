@@ -639,8 +639,14 @@ func populate_events(rand_seed: int) -> void:
 			curr_layer[0].node_data = add_main_event(boss_data)
 			break
 		
+		if (i % 3) == 1:
+			curr_layer = get_layer(i)
+			for j in range(0, curr_layer.size()):
+				curr_layer[j].node_data = add_main_event(battle_data)
+			continue
+		
 		# Layers are processed in pairs, odd layers can be ignored.
-		if (i % 2) == 1:
+		if (i % 3) == 0:
 			continue
 		
 		# Get the current layer and iterate over it.

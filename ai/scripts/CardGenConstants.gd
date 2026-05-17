@@ -14,7 +14,9 @@ enum CardGenEnum {
 	dblatk, # Adds a small amount of attack and splits attack into two strikes.
 	atkall, # Adds a small amount of attack and attacks all enemies.
 	strength, # Player gains strength as a side effect of the action.
-	discount
+	discount,
+	armor,
+	toughness
 }
 
 # Map for turning the enumerations into strings within the prompt.
@@ -24,7 +26,9 @@ const CardGenNames: Dictionary[CardGenEnum, String] = {
 	CardGenEnum.dblatk: "dblatk",
 	CardGenEnum.atkall: "atkall",
 	CardGenEnum.strength: "strength",
-	CardGenEnum.discount: "discount"
+	CardGenEnum.discount: "discount",
+	CardGenEnum.armor: "armor",
+	CardGenEnum.toughness: "toughness"
 }
 
 const CardGenDefs: Dictionary[CardGenEnum, String] = {
@@ -33,5 +37,7 @@ const CardGenDefs: Dictionary[CardGenEnum, String] = {
 	CardGenEnum.dblatk: "Adds a small ammount of attack damage to an action. The action's attack damage is split into two strikes.",
 	CardGenEnum.atkall: "Adds a small ammount of attack damage to an action. The action's attack damage is applied to all enemies.",
 	CardGenEnum.strength: "User gets stronger after using the action.",
-	CardGenEnum.discount: "Less energy penalty."
+	CardGenEnum.discount: "Less energy penalty.",
+	CardGenEnum.armor: "Sheild is converted into armor. Less effective but lasts longer.",
+	CardGenEnum.toughness: "Applies tougness buff, reducing all incoming damage."
 }

@@ -108,9 +108,22 @@ func enter_turn(
 	if _effect:
 		if player.battle_position == self:
 			_effect.on_turn_entered(player)
+		else:
+			_effect.on_turn_entered(null)
+	
 	if _object:
 		_object.enter_turn(turn_count)
 
+func end_turn(
+	_turn_count: int,
+	player: PlayerEntity
+):
+	#decay_effect()
+	if _effect:
+		if player.battle_position == self:
+			_effect.on_turn_ended(player)
+		else:
+			_effect.on_turn_ended(null)
 
 func decay_effect():
 	if _effect:

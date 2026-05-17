@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="AiCardData" format=3 uid="uid://52gbttbauwd1"]
+
+[ext_resource type="Script" uid="uid://bwes3ofvkbg00" path="res://ai/scripts/CardGenOption.gd" id="1_8frnh"]
+[ext_resource type="Script" uid="uid://ckgg8whr6rtj7" path="res://ai/callbacks/inventive_defend_script.gd" id="2_c2ta7"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_ibsgl"]
+[ext_resource type="Script" uid="uid://cjwj13hduiyqg" path="res://ai/scripts/AiCardData.gd" id="3_c2ta7"]
+
+[sub_resource type="Resource" id="Resource_d5aqg"]
+script = ExtResource("1_8frnh")
+energy_cost = 1
+card_option = 1
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_8frnh"]
+script = ExtResource("1_8frnh")
+energy_cost = 1
+card_option = 1
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_ibsgl"]
+script = ExtResource("1_8frnh")
+energy_cost = 1
+card_option = 1
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_1skev"]
+script = ExtResource("1_8frnh")
+energy_cost = 2
+card_option = 7
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_u3p6n"]
+script = ExtResource("1_8frnh")
+energy_cost = -1
+card_option = 5
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_c2ta7"]
+script = ExtResource("1_8frnh")
+energy_cost = 1
+card_option = 6
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[sub_resource type="Resource" id="Resource_0vagy"]
+script = ExtResource("1_8frnh")
+energy_cost = 1
+card_option = 1
+metadata/_custom_type_script = "uid://bwes3ofvkbg00"
+
+[resource]
+script = ExtResource("3_c2ta7")
+default_option = SubResource("Resource_0vagy")
+ai_options = Array[ExtResource("1_8frnh")]([SubResource("Resource_d5aqg"), SubResource("Resource_8frnh"), SubResource("Resource_ibsgl"), SubResource("Resource_1skev"), SubResource("Resource_u3p6n"), SubResource("Resource_c2ta7")])
+gen_callback = ExtResource("2_c2ta7")
+type = 2
+category = 4
+name = "Invent Defend"
+description = "Character invents a defensive move. [color=orange]Single use[/color]."
+exhaust_after_play = true
+metadata/_custom_type_script = "uid://cjwj13hduiyqg"

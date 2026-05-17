@@ -30,6 +30,7 @@ metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 
 [resource]
 script = ExtResource("6_h582v")
+type = 2
 category = 1
 energy_cost = 1
 name = "Tag"

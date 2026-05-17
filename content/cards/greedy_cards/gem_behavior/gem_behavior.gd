@@ -7,11 +7,6 @@ func on_stack(
 	_other:ActiveStatusEffect = null,
 	_affected: AbstractCreature = null
 ) -> void:
-	var run = GlobalSessionManager.run_progress
-	if run:
-		for i in range(0, _other.stack):
-			if randf() < 0.25:
-				run.player_data.set_gold(run.player_data.gold + 1)
 	instance.stack += _other.stack
 	instance.duration = -1
 
@@ -21,7 +16,7 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "You have " + str(_instance.stack) + " gems. Whenever you gain a gem, you have a 25 percent chance to gain a gold too."
+	return "If you have 5 or more gems at the end of combat, gain an extra gold reward."
 
 
 func get_texture() -> Texture2D:

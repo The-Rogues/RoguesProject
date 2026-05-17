@@ -12,4 +12,5 @@ func on_apply(_context:BattleContext):
 
 
 func _on_fired_projectile(projectile:Projectile):
-	projectile.status = status
+	if !projectile.status:
+		projectile.status = status

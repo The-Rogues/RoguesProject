@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://4vpscxhgbidh"]
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://drvx5qef655vx"]
 
 [ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="1_rfsmx"]
-[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_yj36m"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_yj36m"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_g886v"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_6rrga"]
-[ext_resource type="Resource" uid="uid://bhfhfg54xj1jy" path="res://content/monsters/dreamer/moves/soothe.tres" id="5_ki73l"]
-[ext_resource type="Resource" uid="uid://ym7jhg8sub4f" path="res://content/monsters/dreamer/moves/ram.tres" id="6_h4jsr"]
-[ext_resource type="Resource" uid="uid://dmur0k3idqo8h" path="res://content/monsters/dreamer/moves/rest.tres" id="7_7uyqv"]
+[ext_resource type="Resource" uid="uid://bopcg08nbircp" path="res://content/monsters/dreamer/moves/deepest_desire.tres" id="5_6rrga"]
+[ext_resource type="Resource" uid="uid://blc6bmmw0fqrt" path="res://content/monsters/dreamer/moves/ram.tres" id="6_h4jsr"]
+[ext_resource type="Resource" uid="uid://bpfd8tbw24woc" path="res://content/monsters/dreamer/moves/nightmare.tres" id="6_ki73l"]
+[ext_resource type="Resource" uid="uid://cn8qt2o8jabm4" path="res://content/monsters/dreamer/moves/awaken.tres" id="7_h4jsr"]
+[ext_resource type="Resource" uid="uid://0jwg5okbxwyw" path="res://content/monsters/dreamer/moves/sweet_dreams.tres" id="8_7uyqv"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="8_b1ngk"]
 
 [sub_resource type="Resource" id="Resource_q4j4g"]
@@ -17,21 +19,21 @@ metadata/_custom_type_script = "uid://bn6t0778mctv4"
 atlas = ExtResource("1_rfsmx")
 region = Rect2(160, 224, 32, 32)
 
-[sub_resource type="Resource" id="Resource_mdnly"]
+[sub_resource type="Resource" id="Resource_o208g"]
 script = ExtResource("3_g886v")
-moves = Array[ExtResource("4_6rrga")]([ExtResource("5_ki73l"), ExtResource("6_h4jsr"), ExtResource("7_7uyqv")])
+moves = Array[ExtResource("4_6rrga")]([ExtResource("5_6rrga"), ExtResource("6_ki73l"), ExtResource("7_h4jsr")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
-[sub_resource type="Resource" id="Resource_i4eld"]
+[sub_resource type="Resource" id="Resource_b1ngk"]
 script = ExtResource("3_g886v")
-moves = Array[ExtResource("4_6rrga")]([ExtResource("6_h4jsr"), ExtResource("6_h4jsr"), ExtResource("5_ki73l")])
+moves = Array[ExtResource("4_6rrga")]([ExtResource("5_6rrga"), ExtResource("8_7uyqv"), ExtResource("6_h4jsr")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [resource]
 script = ExtResource("8_b1ngk")
-move_sequences = Array[ExtResource("3_g886v")]([SubResource("Resource_mdnly"), SubResource("Resource_i4eld")])
+move_sequences = Array[ExtResource("3_g886v")]([SubResource("Resource_o208g"), SubResource("Resource_b1ngk")])
 behaviour = SubResource("Resource_q4j4g")
 display_texture = SubResource("AtlasTexture_p6cif")
 name = "Dreamer"
-health = 40
+health = 81
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

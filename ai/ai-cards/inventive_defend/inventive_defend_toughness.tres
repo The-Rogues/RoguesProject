@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ApplyStatusAction" format=3 uid="uid://dcyf1h288lwjf"]
+
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="1_5fb2g"]
+[ext_resource type="Script" uid="uid://dpxubkl5w63oj" path="res://battle_scene/entities/status_effects/common/armored_status_effect.gd" id="1_6u5lm"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_67h2w"]
+
+[sub_resource type="Resource" id="Resource_yktdn"]
+script = ExtResource("1_6u5lm")
+metadata/_custom_type_script = "uid://dpxubkl5w63oj"
+
+[sub_resource type="Resource" id="Resource_3d8fi"]
+script = ExtResource("2_67h2w")
+behaviour = SubResource("Resource_yktdn")
+duration = 2
+stack = 0
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[resource]
+script = ExtResource("1_5fb2g")
+effect = SubResource("Resource_3d8fi")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"

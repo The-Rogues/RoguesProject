@@ -126,12 +126,13 @@ func _on_cancel_button_up() -> void:
 
 
 func _on_save_button_up() -> void:
+	var priority_options: Array[String] = ["OFFENSIVE", "DEFENSIVE", "STRATEGIC"]
 	var personality = PersonalityData.new()
 	personality.initialize(
 		offensive_trait,
 		defensive_trait,
 		strategic_trait,
-		"OFFENSIVE"
+		priority_options.pick_random()
 	)
 	
 	var player_data = PlayerInitializationData.new(

@@ -7,8 +7,8 @@
 [sub_resource type="Resource" id="Resource_8swll"]
 script = ExtResource("2_gcxsf")
 effect_type = 2
-damage = 15
-boosted_damage = 45
+damage = 10
+boosted_damage = 30
 target_option = 2
 metadata/_custom_type_script = "uid://c4wacutsxb7p6"
 
@@ -17,6 +17,6 @@ script = ExtResource("2_8thrk")
 category = 3
 energy_cost = 2
 name = "Patient Blow"
-description = "Deal [color=red]get_atk15[/color] damage. If you didn't attack last turn, deal [color=#43A047]30[/color] extra damge."
+description = "Deal [color=red]get_atk10[/color] damage. If you didn't attack last turn, deal [color=#43A047]20[/color] extra damge."
 play_actions = Array[ExtResource("1_scd0k")]([SubResource("Resource_8swll")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

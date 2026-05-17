@@ -1,5 +1,5 @@
-extends MonsterBehaviour
-class_name HealthThresholdMonsterBehaviour
+extends NormalMonsterBehaviour
+class_name HealthThresholdMonsterBehavior
 ## Enemy chooses an action the same action when below a certain amount of health
 
 @export var health_threshold:int = 20
@@ -7,6 +7,7 @@ class_name HealthThresholdMonsterBehaviour
 
 
 func decide_next_action(monster:MonsterEntity):
+	print("Split")
 	if monster.health.value <= health_threshold:
 		var sequence = MoveSequence.new()
 		sequence.moves.append(move)

@@ -1,41 +1,20 @@
-[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://ym7jhg8sub4f"]
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://blc6bmmw0fqrt"]
 
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_2u4is"]
-[ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="1_amolo"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_unqww"]
-[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="4_ytgnq"]
-[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_xw6qr"]
-[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_bg2l3"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_unqww"]
 
-[sub_resource type="Resource" id="Resource_unqww"]
-script = ExtResource("1_amolo")
-max_damage = 15
-base_damage = 12
+[sub_resource type="Resource" id="Resource_dlqb3"]
+script = ExtResource("2_unqww")
+base_damage = 4
+hits = 2
 target_option = 1
-metadata/_custom_type_script = "uid://dwljy2imh2ge8"
-
-[sub_resource type="Resource" id="Resource_mp4k8"]
-script = ExtResource("4_ytgnq")
-metadata/_custom_type_script = "uid://ebwvb1etrwgq"
-
-[sub_resource type="Resource" id="Resource_vmk1g"]
-script = ExtResource("5_xw6qr")
-behaviour = SubResource("Resource_mp4k8")
-duration = 3
-stack = 2
-turn_entered = null
-metadata/_custom_type_script = "uid://b4s32yn3jp78u"
-
-[sub_resource type="Resource" id="Resource_g6l6d"]
-script = ExtResource("6_bg2l3")
-effect = SubResource("Resource_vmk1g")
-metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
 
 [resource]
 script = ExtResource("1_2u4is")
 intent_icon = ExtResource("1_unqww")
 name = "Ram"
-description = "This Enemy intends to attack for [color=red]get_atk12[/color] to [color=red]get_atk15[/color] damage and apply a buff."
-primary_action = SubResource("Resource_unqww")
-secondary_action = SubResource("Resource_g6l6d")
+description = "Deals [color=red]get_atk4[/color] damage [color=#43A047]2[/color] times."
+primary_action = SubResource("Resource_dlqb3")
 metadata/_custom_type_script = "uid://c410dannt5adg"

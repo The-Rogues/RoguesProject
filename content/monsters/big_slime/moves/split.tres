@@ -2,15 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_jubqs"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_tmvdi"]
-[ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/small_slime_data.tres" id="2_cxrkf"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_0u2ud"]
+[ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/slime.tres" id="2_cxrkf"]
 [ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="3_x0yof"]
+[ext_resource type="Resource" uid="uid://bp4r5noe1wbrb" path="res://content/monsters/slime/slime_alt.tres" id="4_j8ke1"]
 [ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="4_x0yof"]
 
 [sub_resource type="Resource" id="Resource_cxrkf"]
 script = ExtResource("4_x0yof")
-monster_data = ExtResource("2_cxrkf")
-spawn_count = 2
-starting_health = 15
+monsters = Array[ExtResource("2_0u2ud")]([ExtResource("2_cxrkf"), ExtResource("4_j8ke1")])
+starting_health = 26
 metadata/_custom_type_script = "uid://crxnbj8rigrkp"
 
 [sub_resource type="Resource" id="Resource_x0yof"]
@@ -22,7 +23,7 @@ script = ExtResource("1_tmvdi")
 type = 1
 intent_icon = ExtResource("1_jubqs")
 name = "Split"
-description = "This Enemy Intends to split into two Slimes."
+description = "Splits into two \"Slime\" enemies."
 primary_action = SubResource("Resource_cxrkf")
 secondary_action = SubResource("Resource_x0yof")
 metadata/_custom_type_script = "uid://c410dannt5adg"

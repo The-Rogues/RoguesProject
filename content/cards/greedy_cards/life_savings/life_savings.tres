@@ -14,8 +14,9 @@ metadata/_custom_type_script = "uid://b3fvjsgb155cu"
 [resource]
 script = ExtResource("4_lm2bu")
 type = 2
+category = 3
 energy_cost = 1
 name = "Life Savings"
-description = "Place a [color=#43A047]20[/color] HP treasure pile at a random available [color=orange]position[/color]."
+description = "Place a [color=#43A047]10[/color] HP treasure pile at a random available [color=orange]position[/color]."
 play_actions = Array[ExtResource("1_8fawf")]([SubResource("Resource_cuocj")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

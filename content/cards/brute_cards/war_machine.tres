@@ -29,5 +29,6 @@ category = 1
 energy_cost = 2
 name = "War Machine"
 description = "Every turn, gain [color=#43A047]2[/color] [color=orange]rage[/color] and lose [color=#43A047]1[/color] [color=orange]offense[/color]. [color=orange]Single use[/color]."
+exhaust_after_play = true
 play_actions = Array[ExtResource("1_1l0mw")]([SubResource("Resource_yp3wb")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

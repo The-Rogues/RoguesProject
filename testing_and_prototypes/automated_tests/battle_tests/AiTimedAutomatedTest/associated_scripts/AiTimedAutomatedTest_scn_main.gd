@@ -7,7 +7,8 @@ extends Node
 
 var num_iterations: int = 10
 var ai_cards: Array[AiCardData] = [
-	preload("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
+	#preload("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres"),
+	preload("res://ai/ai-cards/inventive_defend/inventive_defend_data.tres")
 ]
 var personality_traits: Array[PersonalityTrait] = [
 	preload("res://content/personality_traits/brutish.tres"),

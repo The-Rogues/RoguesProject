@@ -7,8 +7,10 @@
 [resource]
 script = ExtResource("1_bjhrg")
 targeting_categories = Array[int]([0])
-hover_description = "Provides temporary protection."
+hover_description = "
+Object Category: Cover
+
+Provides temporary protection."
 display_texture = ExtResource("1_wq4rh")
 name = "Stone Wall"
-health = 20
 metadata/_custom_type_script = "uid://dns34mcsxn8f6"

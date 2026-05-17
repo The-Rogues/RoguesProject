@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://0jwg5okbxwyw"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_hw6ir"]
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_hy57x"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_qo1nb"]
+[ext_resource type="Resource" uid="uid://be3kcavgwy5px" path="res://content/monsters/dreamer/minions/illusion/illusion_data.tres" id="2_hy57x"]
+[ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="3_phoom"]
+[ext_resource type="Script" uid="uid://c4w2j0ixxjv2a" path="res://battle_scene/entities/status_effects/common/decaying_status_effect.gd" id="4_shju6"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_oxq7b"]
+
+[sub_resource type="Resource" id="Resource_4oseo"]
+script = ExtResource("4_shju6")
+metadata/_custom_type_script = "uid://c4w2j0ixxjv2a"
+
+[sub_resource type="Resource" id="Resource_7rcl8"]
+script = ExtResource("5_oxq7b")
+behaviour = SubResource("Resource_4oseo")
+duration = 3
+stack = 0
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_4sn6k"]
+script = ExtResource("3_phoom")
+monsters = Array[ExtResource("1_qo1nb")]([ExtResource("2_hy57x")])
+status = SubResource("Resource_7rcl8")
+metadata/_custom_type_script = "uid://crxnbj8rigrkp"
+
+[resource]
+script = ExtResource("1_hw6ir")
+intent_icon = ExtResource("1_hy57x")
+name = "Sweet Dreams"
+description = "Summons an \"illusion\"."
+primary_action = SubResource("Resource_4sn6k")
+metadata/_custom_type_script = "uid://c410dannt5adg"

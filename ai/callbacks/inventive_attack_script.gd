@@ -61,7 +61,7 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	else:
 		ret_val.description += "an enemy for [color=red]get_atk" + str(total_atk) + "[/color]."
 	if add_strength:
-		ret_val.description += "Gain [color=#43A047]3[/color] strength."
+		ret_val.description += " Gain [color=#43A047]3[/color] strength."
 	
 	# Generate the attack action component of the card.
 	var atk_action: AttackAction = AttackAction.new()

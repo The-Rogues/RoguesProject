@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bpfd8tbw24woc"]
+
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_c45cp"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_wkp8n"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_6m2aw"]
+[ext_resource type="Resource" uid="uid://djh8y6l4w2exd" path="res://content/monsters/dreamer/minions/phantom/phantom_data.tres" id="3_0luql"]
+[ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="4_xbeg5"]
+[ext_resource type="Script" uid="uid://c4w2j0ixxjv2a" path="res://battle_scene/entities/status_effects/common/decaying_status_effect.gd" id="5_3rthl"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="6_qdfej"]
+
+[sub_resource type="Resource" id="Resource_h1geu"]
+script = ExtResource("5_3rthl")
+metadata/_custom_type_script = "uid://c4w2j0ixxjv2a"
+
+[sub_resource type="Resource" id="Resource_g0vv6"]
+script = ExtResource("6_qdfej")
+behaviour = SubResource("Resource_h1geu")
+duration = 3
+stack = 0
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_7dyrt"]
+script = ExtResource("4_xbeg5")
+monsters = Array[ExtResource("2_6m2aw")]([ExtResource("3_0luql")])
+status = SubResource("Resource_g0vv6")
+metadata/_custom_type_script = "uid://crxnbj8rigrkp"
+
+[resource]
+script = ExtResource("1_wkp8n")
+intent_icon = ExtResource("1_c45cp")
+name = "Nightmare"
+description = "Summons a \"phantom\"."
+primary_action = SubResource("Resource_7dyrt")
+metadata/_custom_type_script = "uid://c410dannt5adg"

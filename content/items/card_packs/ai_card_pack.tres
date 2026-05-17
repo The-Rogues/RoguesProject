@@ -4,10 +4,11 @@
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_bm06r"]
 [ext_resource type="Resource" uid="uid://d1bplvxmsevih" path="res://ai/ai-cards/inventive_strike/inventive_strike_data.tres" id="2_w0q65"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="3_ebj4g"]
+[ext_resource type="Resource" uid="uid://52gbttbauwd1" path="res://ai/ai-cards/inventive_defend/inventive_defend_data.tres" id="3_n2cri"]
 
 [resource]
 script = ExtResource("2_bm06r")
-card_pool = Array[ExtResource("1_cut6q")]([ExtResource("2_w0q65"), ExtResource("2_w0q65"), ExtResource("2_w0q65")])
+card_pool = Array[ExtResource("1_cut6q")]([ExtResource("2_w0q65"), ExtResource("2_w0q65"), ExtResource("3_n2cri")])
 draw_count = 3
 rarity = 2
 name = "AI Card Pack"

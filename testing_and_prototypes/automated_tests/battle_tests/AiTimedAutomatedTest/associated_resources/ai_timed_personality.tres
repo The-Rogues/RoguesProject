@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PersonalityData" format=3 uid="uid://rtx2whc402c6"]
 
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_rrhu2"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_m3g8t"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_cfeux"]
 [ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://personality_system/personality_data.gd" id="3_8okbe"]
 

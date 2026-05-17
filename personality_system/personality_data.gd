@@ -30,6 +30,9 @@ signal updated(personality:PersonalityData)
 const MINIMUM_WEIGHT = 1
 const MAXIMUM_WEIGHT = 10
 
+var offensive_trait_override: PersonalityTrait = null
+var defensive_trait_override: PersonalityTrait = null
+var strategic_trait_override: PersonalityTrait = null
 
 func initialize(
 		_offensive_trait:PersonalityTrait,
@@ -56,13 +59,18 @@ func initialize(
 		priority_trait = strategic_trait
 		strategic_weight = 2
 
+func reset_trait_overrides():
+	offensive_trait_override = null
+	defensive_trait_override = null
+	strategic_trait_override = null
+
 func choose_move_direction(
 	left_idx: int, 
 	right_idx: int, 
 	positions: Array[BattlePosition],
 	in_offensive: int,
 	in_defensive: int,
-	in_strategic: int
+	in_strategic: int,
 ) -> bool:
 	var priority_order: Array[int] = create_trait_order(
 		in_offensive,
@@ -70,15 +78,25 @@ func choose_move_direction(
 		in_strategic
 	)
 	
+	var override_offensive: PersonalityTrait = offensive_trait
+	var override_defensive: PersonalityTrait = defensive_trait
+	var override_strategic: PersonalityTrait = strategic_trait
+	if offensive_trait_override != null:
+		override_offensive = offensive_trait_override
+	if defensive_trait_override != null:
+		override_defensive = defensive_trait_override
+	if strategic_trait_override != null:
+		override_strategic = strategic_trait_override
+	
 	for i in range(0, priority_order.size()):
 		var targeting_option: ObjectData.MoveTargetingCategory
 		match priority_order[i]:
 			0:
-				targeting_option = offensive_trait.object_targeting_preference
+				targeting_option = override_offensive.object_targeting_preference
 			1:
-				targeting_option = defensive_trait.object_targeting_preference
+				targeting_option = override_defensive.object_targeting_preference
 			2:
-				targeting_option = strategic_trait.object_targeting_preference
+				targeting_option = override_strategic.object_targeting_preference
 		var object_exists: bool = false
 		for j in range(0, positions.size()):
 			var curr_obj: ObjectEntity = positions[j].get_object()
@@ -184,15 +202,25 @@ func choose_object_target(
 		in_strategic
 	)
 	
+	var override_offensive: PersonalityTrait = offensive_trait
+	var override_defensive: PersonalityTrait = defensive_trait
+	var override_strategic: PersonalityTrait = strategic_trait
+	if offensive_trait_override != null:
+		override_offensive = offensive_trait_override
+	if defensive_trait_override != null:
+		override_defensive = defensive_trait_override
+	if strategic_trait_override != null:
+		override_strategic = strategic_trait_override
+	
 	for i in range(0, priority_order.size()):
 		var targeting_option: ObjectData.MoveTargetingCategory
 		match priority_order[i]:
 			0:
-				targeting_option = offensive_trait.object_targeting_preference
+				targeting_option = override_offensive.object_targeting_preference
 			1:
-				targeting_option = defensive_trait.object_targeting_preference
+				targeting_option = override_defensive.object_targeting_preference
 			2:
-				targeting_option = strategic_trait.object_targeting_preference
+				targeting_option = override_strategic.object_targeting_preference
 		var filtered_objects: Array[ObjectEntity]
 		for j in range(0, objects.size()):
 			if objects[j].data.targeting_categories.has(targeting_option):
@@ -215,15 +243,25 @@ func choose_enemy_target(
 		in_strategic
 	)
 	
+	var override_offensive: PersonalityTrait = offensive_trait
+	var override_defensive: PersonalityTrait = defensive_trait
+	var override_strategic: PersonalityTrait = strategic_trait
+	if offensive_trait_override != null:
+		override_offensive = offensive_trait_override
+	if defensive_trait_override != null:
+		override_defensive = defensive_trait_override
+	if strategic_trait_override != null:
+		override_strategic = strategic_trait_override
+	
 	for i in range(0, priority_order.size()):
 		var targeting_option: MonsterData.AttackTargetingCategory
 		match priority_order[i]:
 			0:
-				targeting_option = offensive_trait.enemy_targeting_preference
+				targeting_option = override_offensive.enemy_targeting_preference
 			1:
-				targeting_option = defensive_trait.enemy_targeting_preference
+				targeting_option = override_defensive.enemy_targeting_preference
 			2:
-				targeting_option = strategic_trait.enemy_targeting_preference
+				targeting_option = override_strategic.enemy_targeting_preference
 		var filtered_enemies: Array[MonsterEntity]
 		for j in range(0, enemies.size()):
 			if enemies[j].updated_targeting.has(targeting_option):
@@ -323,7 +361,7 @@ func set_trait(trait_category:String, _trait:PersonalityTrait) -> void:
 	update_priority_trait()
 
 
-func set_trait_weight(trait_category:String, _weight:int) -> void:
+func set_trait_weight(trait_category:String, _weight:int, update_now: bool = true) -> void:
 	match trait_category.to_upper():
 		"OFFENSIVE":
 			offensive_weight = _weight
@@ -331,22 +369,34 @@ func set_trait_weight(trait_category:String, _weight:int) -> void:
 					offensive_weight, 
 					MINIMUM_WEIGHT, 
 					MAXIMUM_WEIGHT)
-			updated_offensive_trait.emit(offensive_trait, offensive_weight)
-			updated.emit(self)
+			if offensive_trait_override != null:
+				updated_offensive_trait.emit(offensive_trait_override, offensive_weight)
+			else:
+				updated_offensive_trait.emit(offensive_trait, offensive_weight)
+			if update_now:
+				updated.emit(self)
 		"DEFENSIVE":
 			defensive_weight = _weight
 			defensive_weight = clampi(defensive_weight, 
 					MINIMUM_WEIGHT, 
 					MAXIMUM_WEIGHT)
-			updated_defensive_trait.emit(defensive_trait, defensive_weight)
-			updated.emit(self)
+			if defensive_trait_override != null:
+				updated_defensive_trait.emit(defensive_trait_override, defensive_weight)
+			else:
+				updated_defensive_trait.emit(defensive_trait, defensive_weight)
+			if update_now:
+				updated.emit(self)
 		"STRATEGIC":
 			strategic_weight = _weight
 			strategic_weight = clampi(strategic_weight, 
 					MINIMUM_WEIGHT, 
 					MAXIMUM_WEIGHT)
-			updated_strategic_trait.emit(strategic_trait, strategic_weight)
-			updated.emit(self)
+			if strategic_trait_override != null:
+				updated_strategic_trait.emit(strategic_trait_override, strategic_weight)
+			else:
+				updated_strategic_trait.emit(strategic_trait, strategic_weight)
+			if update_now:
+				updated.emit(self)
 		_:
 			pass
 	update_priority_trait()

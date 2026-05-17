@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://bockg7qo5uy2y"
 
 [resource]
 script = ExtResource("2_q01w4")
+type = 2
 energy_cost = 1
 name = "Parry"
 description = "Gain [color=deep_sky_blue]6[/color] block. Gain an extra block for every [color=#43A047]2[/color] [color=orange]defense[/color]."

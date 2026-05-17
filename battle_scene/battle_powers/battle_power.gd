@@ -4,6 +4,7 @@ class_name BattlePower
 
 signal power_ended(behaviour:BattlePower)
 
+@export var can_reapply: bool = false
 
 @abstract
 func on_apply(_context:BattleContext)

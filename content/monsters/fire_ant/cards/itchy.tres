@@ -2,13 +2,21 @@
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_rm7r0"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_eedqd"]
+[ext_resource type="Resource" uid="uid://cmuh5c4anox8j" path="res://content/monsters/fire_ant/cards/fire_ant_strength.tres" id="3_7odf7"]
+[ext_resource type="Script" uid="uid://oyibjb6iq8sg" path="res://content/monsters/dreamer/minions/illusion/apply_effect_by_name_action.gd" id="3_ndhxy"]
+
+[sub_resource type="Resource" id="Resource_7odf7"]
+script = ExtResource("3_ndhxy")
+effect = ExtResource("3_7odf7")
+name = "Fire Ant"
+metadata/_custom_type_script = "uid://oyibjb6iq8sg"
 
 [resource]
 script = ExtResource("2_eedqd")
 type = 5
-energy_cost = 1
 name = "Itchy"
-description = "Remove this card from your deck."
+description = "All \"Fire Ant\" enemies gain [color=#43A047]1[/color] [color=orange]strength[/color]. [color=orange]Single use[/color]."
 exhaust_after_play = true
+play_actions = Array[ExtResource("1_rm7r0")]([SubResource("Resource_7odf7")])
 shop_price = 0
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

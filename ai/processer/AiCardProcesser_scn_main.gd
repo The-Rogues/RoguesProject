@@ -33,7 +33,8 @@ const RESPONSE_GRAMMAR: String = """root ::= ([0-9]+" ")+"""
 # Return: Void.
 func _ready() -> void:
 	#print("here")
-	slf_model.model_path = OS.get_executable_path().get_base_dir() + "ai/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+	#slf_model.model_path = OS.get_executable_path().get_base_dir() + "ai/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+	slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
 	slf_chat.model_node = slf_model
 	slf_chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)
 	#slf_chat.system_prompt = SYSTEM_PROMPT
@@ -139,6 +140,8 @@ func parse_response(in_str: String, card_data: AiCardData) -> Array[int]:
 	# This for loop checks that every index only appears once and counts the
 	# eneergy cost of the card.
 	for i in range(0, ret_val.size()):
+		if ret_val[i] >= card_data.ai_options.size():
+			return []
 		total_cost += card_data.ai_options[ret_val[i]].energy_cost
 		if found_dict[ret_val[i]]:
 			return []

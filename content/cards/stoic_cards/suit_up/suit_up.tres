@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 script = ExtResource("2_hqffc")
 type = 2
 category = 2
-energy_cost = 2
+energy_cost = 3
 name = "Suit Up"
 description = "Gain [color=#43A047]8[/color] [color=orange]armor[/color]."
 play_actions = Array[ExtResource("1_5beiy")]([SubResource("Resource_uv7x6")])

@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bq15vpdleqc3v"]
+
+[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/monsters/big_slime/split_monster_behaviour.gd" id="1_1ccot"]
+[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_0wo5t"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_q511p"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_bqwdc"]
+[ext_resource type="Resource" uid="uid://dadt4soexvrc5" path="res://content/monsters/big_slime/moves/grow.tres" id="5_x236n"]
+[ext_resource type="Resource" uid="uid://wndcwsjdqqly" path="res://content/monsters/big_slime/moves/prepare.tres" id="6_l5kfp"]
+[ext_resource type="Resource" uid="uid://dujouqqv4x4bh" path="res://content/monsters/big_slime/moves/stomp.tres" id="7_88ixr"]
+[ext_resource type="Resource" uid="uid://d03b7poc0s1f5" path="res://content/monsters/slime/move_set/harden.tres" id="8_bqd1l"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="9_l6ycs"]
+
+[sub_resource type="Resource" id="Resource_3s5ji"]
+script = ExtResource("1_1ccot")
+metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en8hf"]
+atlas = ExtResource("2_0wo5t")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="Resource" id="Resource_3v7w8"]
+script = ExtResource("3_q511p")
+moves = Array[ExtResource("4_bqwdc")]([ExtResource("5_x236n"), ExtResource("6_l5kfp"), ExtResource("7_88ixr")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_x21ar"]
+script = ExtResource("3_q511p")
+moves = Array[ExtResource("4_bqwdc")]([ExtResource("6_l5kfp"), ExtResource("7_88ixr"), ExtResource("8_bqd1l")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("9_l6ycs")
+move_sequences = Array[ExtResource("3_q511p")]([SubResource("Resource_3v7w8"), SubResource("Resource_x21ar")])
+behaviour = SubResource("Resource_3s5ji")
+display_texture = SubResource("AtlasTexture_en8hf")
+name = "Big Slime"
+health = 150
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"
