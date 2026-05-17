@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dwkcncjqjv4g5" path="res://content/objects/gravestone/gravestone_texture.tres" id="1_ml54k"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_m4747"]
-[ext_resource type="Resource" uid="uid://qbob7g6qo7nr" path="res://content/monsters/skeleton_archer/skeleton_archer.tres" id="3_om4cs"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="3_om4cs"]
 [ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="4_ujixn"]
 [ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="5_8swqu"]
 [ext_resource type="Script" uid="uid://c4w2j0ixxjv2a" path="res://battle_scene/entities/status_effects/common/decaying_status_effect.gd" id="5_om4cs"]
@@ -23,7 +23,6 @@ metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_5hjjo"]
 script = ExtResource("4_ujixn")
-monster_data = ExtResource("3_om4cs")
 status = SubResource("Resource_78xol")
 metadata/_custom_type_script = "uid://crxnbj8rigrkp"
 

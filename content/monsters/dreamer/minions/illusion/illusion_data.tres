@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://be3kcavgwy5px"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_2wgs5"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_057t3"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="2_2aqtq"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_ncm81"]
+[ext_resource type="Texture2D" uid="uid://bvlgqwm0c6f3d" path="res://content/monsters/dreamer/minions/illusion/illusion.tres" id="2_vnbyo"]
+[ext_resource type="Texture2D" uid="uid://6wf2ykstfawr" path="res://battle_scene/entities/monster/intents/sleep_icon.tres" id="3_fmdix"]
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="4_w2kq5"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="7_ydgjq"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="8_f351f"]
+[ext_resource type="Script" uid="uid://oyibjb6iq8sg" path="res://content/monsters/dreamer/minions/illusion/apply_effect_by_name_action.gd" id="9_jfuvg"]
+
+[sub_resource type="Resource" id="Resource_qf8ah"]
+script = ExtResource("1_2wgs5")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_iguu0"]
+script = ExtResource("2_2aqtq")
+type = 1
+intent_icon = ExtResource("3_fmdix")
+name = "Linger"
+description = "Applies a buff next turn."
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_0du45"]
+script = ExtResource("7_ydgjq")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_n68nv"]
+script = ExtResource("8_f351f")
+behaviour = SubResource("Resource_0du45")
+duration = -1
+stack = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_toafb"]
+script = ExtResource("9_jfuvg")
+effect = SubResource("Resource_n68nv")
+name = "Dreamer"
+metadata/_custom_type_script = "uid://oyibjb6iq8sg"
+
+[sub_resource type="Resource" id="Resource_pjqpe"]
+script = ExtResource("2_2aqtq")
+type = 1
+intent_icon = ExtResource("4_w2kq5")
+name = "Manifest"
+description = "Applies [color=#43A047]2[/color] [color=orange]strength[/color] to \"Dreamer\"."
+primary_action = SubResource("Resource_toafb")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_2wgs5"]
+script = ExtResource("1_057t3")
+moves = Array[ExtResource("2_2aqtq")]([SubResource("Resource_iguu0"), SubResource("Resource_pjqpe")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_ncm81")
+move_sequences = Array[ExtResource("1_057t3")]([SubResource("Resource_2wgs5")])
+behaviour = SubResource("Resource_qf8ah")
+display_texture = ExtResource("2_vnbyo")
+name = "Illusion"
+health = 7
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

@@ -10,9 +10,10 @@ func _init() -> void:
 
 
 func add_power(power:BattlePower, context:BattleContext) -> bool:
-	for active_power in active_powers:
-		if active_power.get_script() == power.get_script():
-			return false
+	if !power.can_reapply:
+		for active_power in active_powers:
+			if active_power.get_script() == power.get_script():
+				return false
 	
 	var instance = power.duplicate(true)
 	active_powers.append(instance)

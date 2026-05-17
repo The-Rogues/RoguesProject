@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://dpxubkl5w63oj"
 [sub_resource type="Resource" id="Resource_4wr5p"]
 script = ExtResource("3_3me3d")
 behaviour = SubResource("Resource_l7r44")
-stack = -1
+stack = 0
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_xq2fj"]

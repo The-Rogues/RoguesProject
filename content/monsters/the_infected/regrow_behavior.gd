@@ -1,4 +1,4 @@
-extends MonsterBehaviour
+extends NormalMonsterBehaviour
 class_name RegrowBehaviour
 
 ## Enemy uses a special move when below a certain health

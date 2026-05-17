@@ -103,6 +103,9 @@ func enter_turn(turn_count:int, player:PlayerEntity):
 	for battle_position in battle_positions:
 		battle_position.enter_turn(turn_count, player)
 
+func end_turn(turn_count:int, player:PlayerEntity):
+	for battle_position in battle_positions:
+		battle_position.end_turn(turn_count, player)
 
 func decay_position_effects():
 	for battle_position in battle_positions:
@@ -145,7 +148,7 @@ func update_preferences(in_player: PlayerEntity):
 						curr_trait = in_player.strategic_trait
 				if curr_object.data.targeting_categories.has(curr_trait.data.object_targeting_preference):
 					var highlight_icon: = false
-					if j == highlight_trait && !is_player_position:
+					if display_order[j] == highlight_trait && !is_player_position:
 						highlight_icon = true
 					curr_object.object_stat_display.preference_container.add_icon(
 						curr_trait.data.display_texture,

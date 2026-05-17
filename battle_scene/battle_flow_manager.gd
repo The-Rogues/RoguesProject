@@ -98,6 +98,8 @@ func end_player_turn():
 		enemy.enter_turn(turn_count)
 	manage_effects(false)
 	
+	battle_field.end_turn(turn_count, player)
+	
 	#player.effects.decay_status_effects(false)
 	end_turn_button.disabled = true
 	end_turn_button.text = "Enemy Turn."
@@ -114,8 +116,24 @@ func run_enemy_turn():
 	
 	await turn_banner.display("Enemy Turn") 
 	
-	for enemy in enemies:
-		await enemy.resolve_intent(action_resolver)
+	var start_size = enemies.size()
+	var processed_enemies: Array[MonsterEntity] = []
+	var curr_enemy_idx: int = 0
+	while curr_enemy_idx < enemies.size():
+		if !processed_enemies.has(enemies[curr_enemy_idx]):
+			var curr_enemy: MonsterEntity =  enemies[curr_enemy_idx]
+			await curr_enemy.resolve_intent(action_resolver)
+			if enemies.has(curr_enemy) && curr_enemy.health.is_alive:
+				processed_enemies.append(enemies[curr_enemy_idx])
+			else:
+				start_size = enemies.size()
+				curr_enemy_idx = 0
+				continue
+		if start_size != enemies.size():
+			start_size = enemies.size()
+			curr_enemy_idx = 0
+			continue
+		curr_enemy_idx += 1
 		
 		enemy_attack_delay.start()
 		await enemy_attack_delay.timeout
@@ -129,8 +147,12 @@ func run_enemy_turn():
 
 func _on_battle_ended():
 	battle_state = State.ENDED
-	play_hand.clear_hand()
 	
+	play_hand.clear_hand()
+	add_gem_reward()
+	player.effects.active_effects.clear()
+	
+	GlobalSessionManager.run_progress.player_data.personality.reset_trait_overrides()
 	GlobalSessionInterface.disconnect_from_player(player)
 	GlobalSessionInterface.reset_stats_to_base_display()
 	
@@ -146,12 +168,24 @@ func _on_battle_ended():
 		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true
 
+func add_gem_reward():
+	var gem_behavior: GemEffect = load("res://content/cards/greedy_cards/gem_behavior/gem_behavior.tres")
+	var num_gems: int = 0
+	for i in range(0, player.effects.active_effects.size()):
+		if player.effects.active_effects[i].effect == gem_behavior:
+			num_gems = player.effects.active_effects[i].stack
+	if num_gems >= 5:
+		context.reward_handler.add_reward(load(
+			"res://content/cards/greedy_cards/gem_reward/gem_gold_reward.tres"
+		))
+
 func manage_effects(player_turn_entered: bool):
 	player.effects.on_turn(player_turn_entered)
 	player.effects.decay_status_effects(player_turn_entered)
-	for i in range(0, enemies.size()):
-		enemies[i].effects.on_turn(!player_turn_entered)
-		enemies[i].effects.decay_status_effects(!player_turn_entered)
+	for i in range(enemies.size() - 1, -1, -1):
+		var curr_enemy: MonsterEntity = enemies[i]
+		curr_enemy.effects.on_turn(!player_turn_entered)
+		curr_enemy.effects.decay_status_effects(!player_turn_entered)
 
 func apply_innate_effects(in_context: BattleContext):
 	battle_powers.add_power(load("res://content/cards/naive_cards/practice_makes_perfect/practice_perfect_power.tres"), in_context)

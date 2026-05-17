@@ -12,8 +12,8 @@ metadata/_custom_type_script = "uid://qx2qfyjcwdb8"
 script = ExtResource("3_xymge")
 type = 2
 category = 2
-energy_cost = 2
+energy_cost = 1
 name = "Barrier"
-description = "Place a wall with [color=#43A047]5[/color] x [color=orange]defense[/color] HP. Lose all [color=orange]defense[/color]."
+description = "Place a wall with [color=#43A047]4[/color] x [color=orange]defense[/color] HP. Lose all [color=orange]defense[/color]."
 play_actions = Array[ExtResource("1_0oin5")]([SubResource("Resource_wsi8r")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

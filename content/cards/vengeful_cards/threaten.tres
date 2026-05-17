@@ -19,7 +19,6 @@ metadata/_custom_type_script = "uid://c2vnumlq5latn"
 script = ExtResource("4_tt48p")
 behaviour = SubResource("Resource_tberr")
 stack = -1
-turn_entered = false
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_u2mev"]

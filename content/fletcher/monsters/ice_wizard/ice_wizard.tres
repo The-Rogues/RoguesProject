@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="5_61rjb"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="5_d5y4n"]
 [ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="6_5ibeg"]
-[ext_resource type="Resource" uid="uid://fxp7g31f6nmx" path="res://content/fletcher/monsters/fragile_minion/fragile_minion.tres" id="6_nsqlp"]
 [ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="6_yj3yd"]
 [ext_resource type="Script" uid="uid://85iqt7cgotam" path="res://content/fletcher/monsters/ice_wizard/scripts/ice_spikes_position_effect_behavior.gd" id="8_nyigi"]
 [ext_resource type="Resource" uid="uid://d4monl5tudtl5" path="res://content/fletcher/monsters/ice_wizard/assets/ice_spikes_position_effect_display.tres" id="9_hslb3"]
@@ -27,7 +26,6 @@ region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="Resource" id="Resource_nyigi"]
 script = ExtResource("5_5ibeg")
-monster_data = ExtResource("6_nsqlp")
 spawn_count = 2
 metadata/_custom_type_script = "uid://crxnbj8rigrkp"
 

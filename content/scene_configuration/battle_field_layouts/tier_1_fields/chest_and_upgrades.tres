@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://dhoiydlklby6u"]
 
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_8lqam"]
-[ext_resource type="Resource" uid="uid://vc36jo48ntct" path="res://content/objects/stat_shrines/defense_shrine.tres" id="2_786b0"]
+[ext_resource type="Resource" uid="uid://dv1krhb21lmwi" path="res://content/objects/stat_shrines/offense_shrine.tres" id="2_786b0"]
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_x7nhn"]
 [ext_resource type="Resource" uid="uid://dwtier3o3culw" path="res://content/objects/chest/chest.tres" id="3_73683"]
 [ext_resource type="Resource" uid="uid://c4r6doyu1088g" path="res://content/objects/stat_shrines/strategy_shrine.tres" id="4_5kkdb"]
 
 [resource]
 script = ExtResource("2_x7nhn")
-weight = 2
+weight = 1
 layout = Dictionary[int, ExtResource("1_8lqam")]({
 0: ExtResource("2_786b0"),
 1: ExtResource("3_73683"),
 2: null,
-3: null,
-4: ExtResource("4_5kkdb")
+3: ExtResource("4_5kkdb"),
+4: null
 })
 metadata/_custom_type_script = "uid://cjvnpxflphnr5"

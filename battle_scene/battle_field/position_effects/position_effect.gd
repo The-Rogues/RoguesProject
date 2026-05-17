@@ -46,6 +46,10 @@ func on_turn_entered(player:PlayerEntity):
 	if data:
 		data.behaviour.on_turn_entered(player, self)
 
+func on_turn_ended(player:PlayerEntity):
+	if data:
+		data.behaviour.on_turn_ended(player, self)
+
 func end_effect():
 	effect_ended.emit()
 

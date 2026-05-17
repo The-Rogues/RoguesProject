@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GoldRewardData" format=3 uid="uid://cnbyhfdrmivrc"]
+
+[ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="1_6xpdr"]
+[ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="1_aqs8o"]
+
+[resource]
+script = ExtResource("1_6xpdr")
+amount = 3
+display_texture = ExtResource("1_aqs8o")
+name = "Gem Gold"
+metadata/_custom_type_script = "uid://drffwoufolf1p"

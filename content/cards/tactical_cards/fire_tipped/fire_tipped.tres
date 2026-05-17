@@ -22,11 +22,13 @@ metadata/_custom_type_script = "uid://di1j13j6xybid"
 script = ExtResource("4_pnvjr")
 behaviour = SubResource("Resource_kja1y")
 duration = 2
+stack = 0
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_abqie"]
 script = ExtResource("2_45ror")
 status = SubResource("Resource_3ar84")
+can_reapply = true
 metadata/_custom_type_script = "uid://d4m20s2r5jeqd"
 
 [sub_resource type="Resource" id="Resource_p11oh"]
@@ -41,7 +43,7 @@ category = 1
 energy_cost = 2
 name = "Fire Tipped"
 display_texture = SubResource("AtlasTexture_yep3s")
-description = "Apply [color=#43A047]2[/color] [color=orange]Burn[/color] to projectiles until the end of battle."
+description = "Apply [color=#43A047]2[/color] [color=orange]burn[/color] to projectiles until the end of battle."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_yep3s")]([SubResource("Resource_p11oh")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

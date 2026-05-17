@@ -12,7 +12,8 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		PersonalityTrait.TraitCategory.OFFENSIVE:
 			GlobalSessionManager.run_progress.player_data.personality.set_trait_weight(
 				"OFFENSIVE",
-				GlobalSessionManager.run_progress.player_data.personality.offensive_weight + weight
+				GlobalSessionManager.run_progress.player_data.personality.offensive_weight + weight,
+				false
 			)
 			player.offensive_trait.set_weight(
 				player.offensive_trait.weight_value + weight
@@ -20,7 +21,8 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		PersonalityTrait.TraitCategory.DEFENSIVE:
 			GlobalSessionManager.run_progress.player_data.personality.set_trait_weight(
 				"DEFENSIVE",
-				GlobalSessionManager.run_progress.player_data.personality.defensive_weight + weight
+				GlobalSessionManager.run_progress.player_data.personality.defensive_weight + weight,
+				false
 			)
 			player.defensive_trait.set_weight(
 				player.defensive_trait.weight_value + weight
@@ -28,7 +30,8 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		PersonalityTrait.TraitCategory.STRATEGIC:
 			GlobalSessionManager.run_progress.player_data.personality.set_trait_weight(
 				"STRATEGIC",
-				GlobalSessionManager.run_progress.player_data.personality.strategic_weight + weight
+				GlobalSessionManager.run_progress.player_data.personality.strategic_weight + weight,
+				false
 			)
 			player.strategic_trait.set_weight(
 				player.strategic_trait.weight_value + weight

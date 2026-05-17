@@ -13,7 +13,7 @@
 script = ExtResource("2_khskm")
 display_texture = ExtResource("2_wanmy")
 name = "Stoic"
-description = "Defends to strike back. Targets healthiest enemies. Moves toward threats."
+description = "Defends to strike back. Targets healthiest enemies. Moves to neutralize threats."
 trait_category = 1
 object_targeting_preference = 3
 card_loot_pool = Array[ExtResource("1_ilpv2")]([ExtResource("2_xudqc"), ExtResource("3_5xwfy"), ExtResource("4_4gmrv"), ExtResource("5_rqv7j"), ExtResource("6_4hx2e")])

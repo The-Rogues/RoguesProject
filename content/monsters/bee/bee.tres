@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://ql7kqaenuut"]
 
-[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/monster_behaviour.gd" id="1_4g4oq"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_4g4oq"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_ch8hk"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_1w4no"]
 [ext_resource type="Texture2D" uid="uid://c2ucfwls568w" path="res://content/monsters/bee/bee.png" id="2_264e2"]

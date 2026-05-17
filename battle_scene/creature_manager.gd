@@ -140,7 +140,7 @@ func update_preference_displays():
 					curr_trait = player.strategic_trait
 			if enemies[i].updated_targeting.has(curr_trait.data.enemy_targeting_preference):
 				var highlight_icon: = false
-				if j == monster_priority_trait:
+				if display_order[j] == monster_priority_trait:
 					highlight_icon = true
 				enemies[i].stat_display.preference_container.add_icon(
 					curr_trait.data.display_texture,

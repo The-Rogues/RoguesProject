@@ -13,12 +13,13 @@ class_name BattleBuilder
 @export var tier_4_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_5_battlefield_layouts:Array[BattleFieldConfig]
 
-const TIER_1_THRESHOLD = 3
+const TIER_1_THRESHOLD = 2
 const TIER_2_THRESHOLD = 8
 const TIER_3_THRESHHOLD = 12
 const TIER_4_THRESHHOLD = 16
 
 var enemy_encounter_cache:Array[EnemyEncounter] = []
+var battle_field_cashe: Array[BattleFieldConfig] = []
 var override_encounter:EnemyEncounter = null
 
 func get_enemy_encounter_pool(progress:int) -> Array[EnemyEncounter]:
@@ -100,12 +101,19 @@ func create_battle_config() -> BattleConfig:
 			for encounter in enemy_encounter_cache:
 				encounters.erase(encounter)
 		
+		if battle_field_cashe.size() == layouts.size():
+			battle_field_cashe.clear()
+		else:
+			for field in battle_field_cashe:
+				layouts.erase(field)
+		
 		var enemy_encounter:EnemyEncounter = choose_enemy_encounter(encounters)
 		var battlefield_config:BattleFieldConfig = null
 		if enemy_encounter.battlefield_layout:
 			battlefield_config = enemy_encounter.battlefield_layout
 		else:
 			battlefield_config = choose_battlefield_layout(layouts)
+			battle_field_cashe.append(battlefield_config)
 		
 		enemy_encounter_cache.append(enemy_encounter)
 		

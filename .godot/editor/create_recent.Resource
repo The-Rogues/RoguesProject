@@ -1,2 +1,2 @@
-res://battle_scene/entities/status_effects/status_effect_config.gd
+res://battle_scene/win_screen/rewards_data/gold_reward_data.gd
 AtlasTexture

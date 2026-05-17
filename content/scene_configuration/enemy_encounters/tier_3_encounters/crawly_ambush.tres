@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_we0ns"]
 [ext_resource type="Resource" uid="uid://25itnkhn1son" path="res://content/monsters/savage/savage.tres" id="3_va5pc"]
-[ext_resource type="Resource" uid="uid://504d265c8kwa" path="res://content/monsters/fire_ant/fire_ant.tres" id="4_8wytb"]
+[ext_resource type="Resource" uid="uid://504d265c8kwa" path="res://content/monsters/fire_ant/old/fire_ant.tres" id="4_8wytb"]
 [ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="5_omuvq"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="6_4klm2"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="6_siovv"]

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://ur1v6en7yals"]
+
+[ext_resource type="Texture2D" uid="uid://cdj50rusvnt6h" path="res://battle_scene/entities/monster/intents/debuff_icon.tres" id="1_0b48k"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_4l132"]
+[ext_resource type="Resource" uid="uid://cu00lkobobbmb" path="res://content/monsters/fire_ant/cards/itchy.tres" id="2_llbvt"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="3_l2pkk"]
+[ext_resource type="Script" uid="uid://bq00f60pxwisq" path="res://battle_scene/entities/actions/skill/shuffle_pile_action.gd" id="5_llbvt"]
+
+[sub_resource type="Resource" id="Resource_4kh1y"]
+script = ExtResource("3_l2pkk")
+card = ExtResource("2_llbvt")
+pile = 1
+count = 2
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_l2pkk"]
+script = ExtResource("5_llbvt")
+is_draw = true
+metadata/_custom_type_script = "uid://bq00f60pxwisq"
+
+[resource]
+script = ExtResource("1_4l132")
+type = 1
+intent_icon = ExtResource("1_0b48k")
+name = "Alergic Reaction"
+description = "Shuffles [color=#43A047]2[/color] \"Itchy\" cards into your draw pile."
+primary_action = SubResource("Resource_4kh1y")
+secondary_action = SubResource("Resource_l2pkk")
+metadata/_custom_type_script = "uid://c410dannt5adg"

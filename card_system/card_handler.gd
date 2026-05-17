@@ -30,6 +30,19 @@ func get_cards_by_name(_name:String) -> Array[CardInstance]:
 			result.append(card)
 	return result
 
+func get_draw_cards_by_name(_name:String) -> Array[CardInstance]:
+	var result:Array[CardInstance] = []
+	for card in draw_pile:
+		if card.data.name == _name:
+			result.append(card)
+	return result
+
+func get_discard_cards_by_name(_name:String) -> Array[CardInstance]:
+	var result:Array[CardInstance] = []
+	for card in discard_pile:
+		if card.data.name == _name:
+			result.append(card)
+	return result
 
 func draw_cards(amount: int):
 	if draw_pile.size() < amount:

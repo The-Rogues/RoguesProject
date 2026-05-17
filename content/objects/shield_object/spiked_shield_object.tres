@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://db1863a0hon12"]
+
+[ext_resource type="Texture2D" uid="uid://bnlyjj8hgol7c" path="res://content/objects/shield_object/spiked_shield_texture.tres" id="1_sji8j"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_1j8b8"]
+[ext_resource type="Script" uid="uid://c8hd1f80oye2s" path="res://content/cards/stoic_cards/suit_up/armor/armor_behavior.gd" id="3_s7n7k"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_rlmyv"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_0mguc"]
+[ext_resource type="Script" uid="uid://c2vnumlq5latn" path="res://battle_scene/entities/status_effects/common/thorns_status_effect.gd" id="6_xk7ys"]
+[ext_resource type="Script" uid="uid://c7jsu5qwcwqo7" path="res://content/objects/chest/destroy_front_object_action.gd" id="7_bmhg8"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="8_6jfjf"]
+
+[sub_resource type="Resource" id="Resource_gi3wn"]
+script = ExtResource("3_s7n7k")
+metadata/_custom_type_script = "uid://c8hd1f80oye2s"
+
+[sub_resource type="Resource" id="Resource_vo4a8"]
+script = ExtResource("4_rlmyv")
+behaviour = SubResource("Resource_gi3wn")
+duration = -1
+stack = 8
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_1hyqe"]
+script = ExtResource("5_0mguc")
+effect = SubResource("Resource_vo4a8")
+target_option = 1
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_mvfps"]
+script = ExtResource("6_xk7ys")
+metadata/_custom_type_script = "uid://c2vnumlq5latn"
+
+[sub_resource type="Resource" id="Resource_s7lxy"]
+script = ExtResource("4_rlmyv")
+behaviour = SubResource("Resource_mvfps")
+stack = 4
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_j0cdq"]
+script = ExtResource("5_0mguc")
+effect = SubResource("Resource_s7lxy")
+target_option = 1
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_3owfp"]
+script = ExtResource("7_bmhg8")
+metadata/_custom_type_script = "uid://c7jsu5qwcwqo7"
+
+[resource]
+script = ExtResource("8_6jfjf")
+targeting_categories = Array[int]([1])
+interaction = 8
+interaction_actions = Array[ExtResource("2_1j8b8")]([SubResource("Resource_1hyqe"), SubResource("Resource_j0cdq"), SubResource("Resource_3owfp")])
+hover_description = "
+Object Category: Weapon
+
+On Interacted: Gain [color=#43A047]8[/color] [color=orange]armor[/color] and [color=#43A047]4[/color] [color=orange]thorns[/color]."
+display_texture = ExtResource("1_sji8j")
+name = "Spiked Shield"
+health = 1
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

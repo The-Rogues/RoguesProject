@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bp4r5noe1wbrb"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_kkxco"]
+[ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://content/monsters/slime/slime_texture.tres" id="2_s4duk"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_hnt48"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_s2svu"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="5_s4cwu"]
+[ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="6_iyvgl"]
+[ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="7_vq070"]
+[ext_resource type="Script" uid="uid://dveewx3nfgc7a" path="res://content/monsters/slime/acid_effect/acid_position_effect_behaviour.gd" id="8_urjud"]
+[ext_resource type="Resource" uid="uid://mhnjafoncine" path="res://content/monsters/slime/acid_effect/acid_position_effect_display.tres" id="9_gik5y"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="10_xxfrp"]
+[ext_resource type="Script" uid="uid://ch2spgxvn4cv" path="res://battle_scene/entities/actions/skill/apply_position_effect_action.gd" id="11_q7nfy"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="12_5p1nx"]
+
+[sub_resource type="Resource" id="Resource_oaqer"]
+script = ExtResource("1_kkxco")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_2v8g1"]
+script = ExtResource("8_urjud")
+metadata/_custom_type_script = "uid://dveewx3nfgc7a"
+
+[sub_resource type="Resource" id="Resource_w03p2"]
+script = ExtResource("10_xxfrp")
+behaviour = SubResource("Resource_2v8g1")
+display = ExtResource("9_gik5y")
+duration = -1
+stack = -1
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_jwifp"]
+script = ExtResource("11_q7nfy")
+position_effect = SubResource("Resource_w03p2")
+count = 3
+metadata/_custom_type_script = "uid://ch2spgxvn4cv"
+
+[sub_resource type="Resource" id="Resource_ad6x6"]
+script = ExtResource("4_s2svu")
+type = 1
+intent_icon = ExtResource("7_vq070")
+name = "Acid Rain"
+description = "Places [color=#43A047]3[/color] acid positions randomly on the field."
+primary_action = SubResource("Resource_jwifp")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_2us62"]
+script = ExtResource("6_iyvgl")
+max_damage = 8
+target_option = 1
+metadata/_custom_type_script = "uid://dwljy2imh2ge8"
+
+[sub_resource type="Resource" id="Resource_eq2e5"]
+script = ExtResource("4_s2svu")
+intent_icon = ExtResource("5_s4cwu")
+name = "Sloppy Poke"
+description = "Attacks for between [color=red]get_atk4[/color] and [color=red]get_atk8[/color] damage."
+primary_action = SubResource("Resource_2us62")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_lx6ar"]
+script = ExtResource("3_hnt48")
+moves = Array[ExtResource("4_s2svu")]([SubResource("Resource_ad6x6"), SubResource("Resource_eq2e5")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("12_5p1nx")
+move_sequences = Array[ExtResource("3_hnt48")]([SubResource("Resource_lx6ar")])
+behaviour = SubResource("Resource_oaqer")
+display_texture = ExtResource("2_s4duk")
+name = "Slime"
+health = 41
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

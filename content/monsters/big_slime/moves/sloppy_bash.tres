@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dtvi5egtmrydp"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_dd7b2"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_h1wxw"]
+[ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="2_iu3by"]
+[ext_resource type="Script" uid="uid://dveewx3nfgc7a" path="res://content/monsters/slime/acid_effect/acid_position_effect_behaviour.gd" id="4_rgsh3"]
+[ext_resource type="Resource" uid="uid://mhnjafoncine" path="res://content/monsters/slime/acid_effect/acid_position_effect_display.tres" id="5_2ajmj"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="6_2xvoc"]
+[ext_resource type="Script" uid="uid://cdv8ma2l6a8tk" path="res://content/fletcher/monsters/ice_wizard/scripts/apply_player_position_effect_action.gd" id="7_wc6cl"]
+
+[sub_resource type="Resource" id="Resource_6a0bj"]
+script = ExtResource("2_iu3by")
+max_damage = 24
+base_damage = 12
+target_option = 1
+metadata/_custom_type_script = "uid://dwljy2imh2ge8"
+
+[sub_resource type="Resource" id="Resource_xtedl"]
+script = ExtResource("4_rgsh3")
+metadata/_custom_type_script = "uid://dveewx3nfgc7a"
+
+[sub_resource type="Resource" id="Resource_kg6rm"]
+script = ExtResource("6_2xvoc")
+behaviour = SubResource("Resource_xtedl")
+display = ExtResource("5_2ajmj")
+duration = -1
+stack = -1
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_vibxv"]
+script = ExtResource("7_wc6cl")
+position_effect = SubResource("Resource_kg6rm")
+metadata/_custom_type_script = "uid://cdv8ma2l6a8tk"
+
+[resource]
+script = ExtResource("1_h1wxw")
+intent_icon = ExtResource("1_dd7b2")
+name = "Sloppy Bash"
+description = "Attacks for between [color=red]get_atk12[/color] and [color=red]get_atk24[/color] damage. Creates acid under the player."
+primary_action = SubResource("Resource_6a0bj")
+secondary_action = SubResource("Resource_vibxv")
+metadata/_custom_type_script = "uid://c410dannt5adg"

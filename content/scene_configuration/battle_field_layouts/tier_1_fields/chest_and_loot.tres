@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_cveyu")
-weight = 2
+weight = 1
 layout = Dictionary[int, ExtResource("1_i0kny")]({
 0: null,
 1: ExtResource("2_hw3tb"),

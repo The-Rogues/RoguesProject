@@ -31,5 +31,6 @@ category = 3
 energy_cost = 2
 name = "Crushing Presence"
 description = "Apply [color=#43A047]3[/color] [color=orange]frail[/color] to all enemies. [color=orange]Single use[/color]."
+exhaust_after_play = true
 play_actions = Array[ExtResource("1_otv63")]([SubResource("Resource_nnmee")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -29,5 +29,6 @@ category = 3
 energy_cost = 1
 name = "Fortitude"
 description = "Every turn, lose [color=#43A047]1[/color] random stat and gain [color=#43A047]2[/color] [color=orange]strength[/color]. [color=orange]Single use[/color]."
+exhaust_after_play = true
 play_actions = Array[ExtResource("1_ta885")]([SubResource("Resource_nphbe")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"
