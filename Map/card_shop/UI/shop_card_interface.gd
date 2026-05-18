@@ -7,7 +7,7 @@ const SHOP_CARD_SLOT = preload("res://Map/card_shop/UI/shop_card_slot.tscn")
 
 @export var shop_card_slots:Array[ShopCardSlot]
 
-enum TransactionType { BUY, SELL }
+enum TransactionType { BUY, TRANSFORM }
 @export var transaction_type:TransactionType
 
 

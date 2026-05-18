@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardShopData" format=3 uid="uid://ddw6tbg2hcno0"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_ol2pt"]
+[ext_resource type="Resource" uid="uid://1va4po5od5ws" path="res://ai/ai-cards/temp.tres" id="2_xvwno"]
+[ext_resource type="Script" uid="uid://dwsw6g6r1tpur" path="res://Map/card_shop/card_shop_data.gd" id="2_xwdym"]
+[ext_resource type="Resource" uid="uid://7nthsvdksfy3" path="res://content/cards/brute_cards/sharpen.tres" id="3_51rus"]
+[ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="4_kyrff"]
+[ext_resource type="Resource" uid="uid://b6nt8hb3iqny0" path="res://content/cards/naive_cards/adrenaline.tres" id="5_p6d0m"]
+[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="6_b6msu"]
+[ext_resource type="Resource" uid="uid://1vhbrkh1vv58" path="res://content/cards/friendly_cards/worm_treat.tres" id="7_ogmeo"]
+[ext_resource type="Resource" uid="uid://dsqpvcub2xyes" path="res://content/cards/brute_cards/dual_strike.tres" id="8_n711g"]
+[ext_resource type="Resource" uid="uid://ca40y4htu81rg" path="res://content/cards/skittish_cards/plea.tres" id="10_lagjd"]
+[ext_resource type="Resource" uid="uid://drusengu3gs5f" path="res://content/cards/mericful_cards/hug/hug.tres" id="11_ei130"]
+[ext_resource type="Resource" uid="uid://dtokbvk03doqq" path="res://content/cards/vengeful_cards/inferno.tres" id="12_4fcgf"]
+
+[resource]
+script = ExtResource("2_xwdym")
+random_cards_pool = Array[ExtResource("1_ol2pt")]([ExtResource("3_51rus"), ExtResource("4_kyrff"), ExtResource("5_p6d0m"), ExtResource("6_b6msu"), ExtResource("7_ogmeo"), ExtResource("8_n711g"), ExtResource("6_b6msu")])
+unique_cards_pool = Array[ExtResource("1_ol2pt")]([ExtResource("7_ogmeo"), ExtResource("5_p6d0m"), ExtResource("10_lagjd"), ExtResource("11_ei130"), ExtResource("12_4fcgf")])
+ai_cards_pool = Array[ExtResource("1_ol2pt")]([ExtResource("2_xvwno"), ExtResource("2_xvwno"), ExtResource("2_xvwno"), ExtResource("2_xvwno")])
+metadata/_custom_type_script = "uid://dwsw6g6r1tpur"

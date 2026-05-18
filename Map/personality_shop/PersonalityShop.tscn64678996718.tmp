@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://x4guefxr5wcg"]
+
+[ext_resource type="Script" uid="uid://bvn6xjknn1gcg" path="res://Map/personality_shop/PersonalityShop_scn_main.gd" id="1_6qcw3"]
+[ext_resource type="Texture2D" uid="uid://b5u5dai20ccpg" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-004.png" id="2_2mehb"]
+[ext_resource type="Texture2D" uid="uid://diap58galr533" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-030.png" id="3_8rygw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_wlajs"]
+[ext_resource type="Texture2D" uid="uid://c8wyv8ydr7oo0" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-005.png" id="6_8rygw"]
+[ext_resource type="PackedScene" uid="uid://cvgl015ggx6vq" path="res://Map/personality_shop/UI/personality_shop_slot.tscn" id="6_rc1c3"]
+[ext_resource type="Texture2D" uid="uid://dbs6ilahrbi3v" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-008.png" id="7_wlajs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4b7g6"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("2_2mehb")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1f861"]
+texture = ExtResource("3_8rygw")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h041b"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("6_8rygw")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i30tm"]
+load_path = "res://.godot/imported/panel-border-005.png-46519a9b7279e4150fbcf51bb20752dd.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rc1c3"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = SubResource("CompressedTexture2D_i30tm")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3age"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("7_wlajs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2cm1x"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vdjib"]
+load_path = "res://.godot/imported/panel-border-005.png-46519a9b7279e4150fbcf51bb20752dd.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17jid"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = SubResource("CompressedTexture2D_vdjib")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_h3b1y"]
+
+[node name="PersonalityShop" type="Control" unique_id=1429736379]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6qcw3")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1080182644]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ShopContainer" type="PanelContainer" parent="." unique_id=1393199572]
+self_modulate = Color(0.24705882, 0.24705882, 0.24705882, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.0
+offset_top = -248.0
+offset_right = 524.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4b7g6")
+
+[node name="Elements" type="VBoxContainer" parent="ShopContainer" unique_id=2108697472]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ShopHeader" type="PanelContainer" parent="ShopContainer/Elements" unique_id=601802727]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1f861")
+
+[node name="Label" type="Label" parent="ShopContainer/Elements/ShopHeader" unique_id=1123141499]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wlajs")
+theme_override_font_sizes/font_size = 16
+text = "-Personality Shop-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TraitChange" type="HBoxContainer" parent="ShopContainer/Elements" unique_id=179535810]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 70
+
+[node name="TraitOffer" type="HBoxContainer" parent="ShopContainer/Elements" unique_id=822655478]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 70
+
+[node name="PersonalityShopSlot" parent="ShopContainer/Elements/TraitOffer" unique_id=1097779114 instance=ExtResource("6_rc1c3")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="PersonalityShopSlot2" parent="ShopContainer/Elements/TraitOffer" unique_id=448351174 instance=ExtResource("6_rc1c3")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="PersonalityShopSlot3" parent="ShopContainer/Elements/TraitOffer" unique_id=836918575 instance=ExtResource("6_rc1c3")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Options" type="HBoxContainer" parent="." unique_id=755398453]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -323.0
+offset_top = -100.0
+offset_right = 324.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 14
+
+[node name="Buy" type="Button" parent="Options" unique_id=579255]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_wlajs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_h041b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rc1c3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d3age")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_2cm1x")
+theme_override_styles/focus = SubResource("StyleBoxTexture_17jid")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_h3b1y")
+text = "Buy trait"

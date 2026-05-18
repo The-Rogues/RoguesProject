@@ -39,3 +39,10 @@ func get_weakest_target(enemies:Array[MonsterEntity]) -> MonsterEntity:
 			weakest = enemies[i]
 	
 	return weakest
+
+func get_category_key() -> String:
+	match trait_category:
+		TraitCategory.OFFENSIVE: return "OFFENSIVE"
+		TraitCategory.DEFENSIVE: return "DEFENSIVE"
+		TraitCategory.STRATEGIC: return "STRATEGIC"
+	return ""

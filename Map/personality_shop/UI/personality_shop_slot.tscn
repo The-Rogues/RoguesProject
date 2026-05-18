@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://cvgl015ggx6vq"]
+
+[ext_resource type="Script" uid="uid://8qqrfpj2uno5" path="res://Map/personality_shop/UI/personality_shop_slot.gd" id="1_d5vom"]
+[ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-000.png" id="2_ps6hp"]
+[ext_resource type="Script" uid="uid://brhttoqlaxswr" path="res://globals/session_interface/trait_display.gd" id="3_r38gs"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://common/tooltip_panel/hover_context_popup.gd" id="5_1recb"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_8uvdj"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="6_8uvdj"]
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="7_olddq"]
+
+[node name="PersonalityShopSlot" type="Control" unique_id=1093075231]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d5vom")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1669720130]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 184.0
+theme_override_constants/separation = 21
+
+[node name="Container" type="Control" parent="VBoxContainer3" unique_id=346466613]
+custom_minimum_size = Vector2(144, 168)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3/Container" unique_id=1478763490]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 134.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer3/Container/VBoxContainer" unique_id=451019943]
+self_modulate = Color(0.2901961, 0.13725491, 0.13725491, 1)
+custom_minimum_size = Vector2(170, 170)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_ps6hp")
+
+[node name="TraitDisplay" type="Control" parent="VBoxContainer3/Container/VBoxContainer/TextureRect" unique_id=1400420390]
+custom_minimum_size = Vector2(100, 28)
+anchors_preset = 0
+offset_left = 7.280004
+offset_right = 173.0
+offset_bottom = 176.0
+mouse_filter = 2
+script = ExtResource("3_r38gs")
+
+[node name="Offensive" type="VBoxContainer" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay" unique_id=1816283388]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -14.0
+offset_right = 31.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TraitLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive" unique_id=1765752570 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("5_8uvdj")
+theme_override_font_sizes/font_size = 18
+text = "Trait"
+horizontal_alignment = 1
+script = ExtResource("5_1recb")
+context_panel = NodePath("TraitContext")
+dynamic_positioning = false
+
+[node name="TraitContext" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive/TraitLabel" unique_id=1838000936 instance=ExtResource("6_8uvdj")]
+visible = false
+layout_mode = 0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive" unique_id=1359150752]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TraitIcon" type="TextureRect" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive/HBoxContainer" unique_id=447688941]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_olddq")
+
+[node name="WeightLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive/HBoxContainer" unique_id=2099718963]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("5_8uvdj")
+theme_override_font_sizes/font_size = 15
+text = "10"
+horizontal_alignment = 1
+
+[node name="OperationLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive" unique_id=1821945218]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("5_8uvdj")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="OperationTimer" type="Timer" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay" unique_id=1633406092]
+unique_name_in_owner = true
+
+[node name="CostLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer" unique_id=215682338]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_8uvdj")
+text = "10G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer3/Container" unique_id=270804268]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 54.0
+offset_right = 192.0
+offset_bottom = 120.0
+
+[node name="Up" type="Button" parent="VBoxContainer3/Container/VBoxContainer2" unique_id=1636301853]
+layout_mode = 2
+text = "▲"
+
+[node name="Down" type="Button" parent="VBoxContainer3/Container/VBoxContainer2" unique_id=55854275]
+layout_mode = 2
+text = "▼"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer3" unique_id=1669628483]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_8uvdj")
+selected = 0
+item_count = 2
+popup/item_0/text = "Trait"
+popup/item_0/id = 0
+popup/item_1/text = "Weight"
+popup/item_1/id = 1
+
+[node name="ChangeButton" type="Button" parent="VBoxContainer3" unique_id=332523002]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_8uvdj")
+text = "Change"
+
+[connection signal="timeout" from="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/OperationTimer" to="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay" method="_on_operation_timer_timeout"]
+[connection signal="pressed" from="VBoxContainer3/Container/VBoxContainer2/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Container/VBoxContainer2/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="VBoxContainer3/ChangeButton" to="." method="_on_button_pressed"]

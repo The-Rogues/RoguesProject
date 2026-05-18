@@ -48,13 +48,13 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fq01n"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i30tm"]
 load_path = "res://.godot/imported/panel-border-005.png-46519a9b7279e4150fbcf51bb20752dd.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaflh"]
 content_margin_left = 32.0
 content_margin_right = 32.0
-texture = SubResource("CompressedTexture2D_fq01n")
+texture = SubResource("CompressedTexture2D_i30tm")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
@@ -72,13 +72,13 @@ modulate_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6lx0g"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bx46l"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vdjib"]
 load_path = "res://.godot/imported/panel-border-005.png-46519a9b7279e4150fbcf51bb20752dd.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uh56"]
 content_margin_left = 32.0
 content_margin_right = 32.0
-texture = SubResource("CompressedTexture2D_bx46l")
+texture = SubResource("CompressedTexture2D_vdjib")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0

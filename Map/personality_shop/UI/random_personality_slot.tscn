@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://b2scet27uhug3"]
+
+[ext_resource type="Script" uid="uid://blb8s6rau4p7u" path="res://Map/personality_shop/UI/random_personality_slot.gd" id="1_ic505"]
+[ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-000.png" id="2_8d20n"]
+[ext_resource type="Script" uid="uid://brhttoqlaxswr" path="res://globals/session_interface/trait_display.gd" id="3_e6646"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_1bwsp"]
+[ext_resource type="Script" uid="uid://pxlprseij451" path="res://common/tooltip_panel/hover_context_popup.gd" id="5_ei6py"]
+[ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="6_q4ck3"]
+[ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="7_gufx4"]
+
+[node name="RandomPersonalitySlot" type="Control" unique_id=1568442972]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ic505")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=793541516]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 184.0
+theme_override_constants/separation = 21
+
+[node name="Container" type="Control" parent="VBoxContainer3" unique_id=1525360054]
+custom_minimum_size = Vector2(144, 168)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3/Container" unique_id=1100349350]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 134.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = -1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer3/Container/VBoxContainer" unique_id=331314550]
+self_modulate = Color(0.2901961, 0.13725491, 0.13725491, 1)
+custom_minimum_size = Vector2(170, 170)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_8d20n")
+
+[node name="TraitDisplay" type="Control" parent="VBoxContainer3/Container/VBoxContainer/TextureRect" unique_id=374556131]
+custom_minimum_size = Vector2(100, 28)
+anchors_preset = 0
+offset_left = 7.280004
+offset_right = 173.0
+offset_bottom = 176.0
+mouse_filter = 2
+script = ExtResource("3_e6646")
+
+[node name="Offensive" type="VBoxContainer" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay" unique_id=1591123542]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -14.0
+offset_right = 31.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TraitLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive" unique_id=13976859 node_paths=PackedStringArray("context_panel")]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("4_1bwsp")
+theme_override_font_sizes/font_size = 18
+text = "Random"
+horizontal_alignment = 1
+script = ExtResource("5_ei6py")
+context_panel = NodePath("TraitContext")
+dynamic_positioning = false
+
+[node name="TraitContext" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive/TraitLabel" unique_id=1838000936 instance=ExtResource("6_q4ck3")]
+visible = false
+layout_mode = 0
+offset_top = 35.0
+offset_right = 212.0
+offset_bottom = 95.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive" unique_id=1829416204]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TraitIcon" type="TextureRect" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive/HBoxContainer" unique_id=475556973]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_gufx4")
+
+[node name="WeightLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive/HBoxContainer" unique_id=749461436]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("4_1bwsp")
+theme_override_font_sizes/font_size = 15
+text = "10"
+horizontal_alignment = 1
+
+[node name="OperationLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/Offensive" unique_id=1422734063]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.75509936, 0.71463394, 0.74419564, 1)
+theme_override_fonts/font = ExtResource("4_1bwsp")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+
+[node name="OperationTimer" type="Timer" parent="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay" unique_id=871542459]
+unique_name_in_owner = true
+
+[node name="CostLabel" type="Label" parent="VBoxContainer3/Container/VBoxContainer" unique_id=1590282985]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_1bwsp")
+text = "10G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChangeButton" type="Button" parent="VBoxContainer3" unique_id=537324901]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_1bwsp")
+text = "Change"
+
+[connection signal="timeout" from="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay/OperationTimer" to="VBoxContainer3/Container/VBoxContainer/TextureRect/TraitDisplay" method="_on_operation_timer_timeout"]

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://x4guefxr5wcg"]
+
+[ext_resource type="Script" uid="uid://bvn6xjknn1gcg" path="res://Map/personality_shop/PersonalityShop_scn_main.gd" id="1_6qcw3"]
+[ext_resource type="Texture2D" uid="uid://b5u5dai20ccpg" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-004.png" id="2_2mehb"]
+[ext_resource type="Texture2D" uid="uid://diap58galr533" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-030.png" id="3_8rygw"]
+[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_wlajs"]
+[ext_resource type="PackedScene" uid="uid://cvgl015ggx6vq" path="res://Map/personality_shop/UI/personality_shop_slot.tscn" id="6_rc1c3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4b7g6"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("2_2mehb")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1f861"]
+texture = ExtResource("3_8rygw")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="PersonalityShop" type="Control" unique_id=1429736379]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6qcw3")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1080182644]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ShopContainer" type="PanelContainer" parent="." unique_id=1393199572]
+self_modulate = Color(0.24705882, 0.24705882, 0.24705882, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.0
+offset_top = -248.0
+offset_right = 524.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4b7g6")
+
+[node name="Elements" type="VBoxContainer" parent="ShopContainer" unique_id=2108697472]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ShopHeader" type="PanelContainer" parent="ShopContainer/Elements" unique_id=601802727]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1f861")
+
+[node name="Label" type="Label" parent="ShopContainer/Elements/ShopHeader" unique_id=1123141499]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wlajs")
+theme_override_font_sizes/font_size = 16
+text = "-Personality Shop-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TraitChange" type="HBoxContainer" parent="ShopContainer/Elements" unique_id=179535810]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 79
+
+[node name="PersonalityShopSlot" parent="ShopContainer/Elements/TraitChange" unique_id=1093075231 instance=ExtResource("6_rc1c3")]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+
+[node name="PersonalityShopSlot2" parent="ShopContainer/Elements/TraitChange" unique_id=863910701 instance=ExtResource("6_rc1c3")]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="PersonalityShopSlot3" parent="ShopContainer/Elements/TraitChange" unique_id=1474186734 instance=ExtResource("6_rc1c3")]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2

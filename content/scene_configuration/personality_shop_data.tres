@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PersonalityShopData" format=3 uid="uid://bp3eo5ikteydv"]
+
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="1_gbxbu"]
+[ext_resource type="Script" uid="uid://uwsj45qrnp6j" path="res://Map/personality_shop/personality_shop_data.gd" id="2_2gmh1"]
+[ext_resource type="Resource" uid="uid://dnpmpbjeyx65" path="res://content/personality_traits/brutish.tres" id="2_86rdb"]
+[ext_resource type="Resource" uid="uid://8yofaogmqdc3" path="res://content/personality_traits/crafty.tres" id="3_wtbm6"]
+[ext_resource type="Resource" uid="uid://c31mo2yg1u86r" path="res://content/personality_traits/friendly.tres" id="4_quje7"]
+[ext_resource type="Resource" uid="uid://c6hd6w7xmy4jb" path="res://content/personality_traits/greedy.tres" id="5_gvvcp"]
+[ext_resource type="Resource" uid="uid://hm5qntnly846" path="res://content/personality_traits/laidback.tres" id="6_tn5sf"]
+[ext_resource type="Resource" uid="uid://5txjkiagx73e" path="res://content/personality_traits/merciful.tres" id="7_xa3nx"]
+[ext_resource type="Resource" uid="uid://c5087rypp26h6" path="res://content/personality_traits/naive.tres" id="8_444cg"]
+[ext_resource type="Resource" uid="uid://ck1tj3cj82hbk" path="res://content/personality_traits/skittish.tres" id="9_gptfy"]
+[ext_resource type="Resource" uid="uid://bs4orhjt5mdde" path="res://content/personality_traits/stoic.tres" id="10_v5e5t"]
+[ext_resource type="Resource" uid="uid://cg0538d2e33j2" path="res://content/personality_traits/tactical.tres" id="11_ynug3"]
+[ext_resource type="Resource" uid="uid://bsusaqh4w4gk1" path="res://content/personality_traits/valorous.tres" id="12_648ap"]
+[ext_resource type="Resource" uid="uid://cfnfd0npf4gfs" path="res://content/personality_traits/vengeful.tres" id="13_vsg04"]
+[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="15_tn5sf"]
+[ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://shop_scenes/shop_keepers/shop_keeper_varient_1.tres" id="16_xa3nx"]
+[ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://shop_scenes/shop_keepers/shop_keeper_varient_2.tres" id="17_444cg"]
+[ext_resource type="Texture2D" uid="uid://cgkstjg1haxst" path="res://shop_scenes/shop_keepers/shop_keeper_varient_3.tres" id="18_gptfy"]
+
+[resource]
+script = ExtResource("2_2gmh1")
+shop_keeper_textures = Array[Texture2D]([ExtResource("15_tn5sf"), ExtResource("16_xa3nx"), ExtResource("17_444cg"), ExtResource("18_gptfy")])
+all_traits = Array[ExtResource("1_gbxbu")]([ExtResource("2_86rdb"), ExtResource("3_wtbm6"), ExtResource("4_quje7"), ExtResource("5_gvvcp"), ExtResource("6_tn5sf"), ExtResource("7_xa3nx"), ExtResource("8_444cg"), ExtResource("9_gptfy"), ExtResource("10_v5e5t"), ExtResource("11_ynug3"), ExtResource("12_648ap"), ExtResource("13_vsg04")])
+metadata/_custom_type_script = "uid://uwsj45qrnp6j"
