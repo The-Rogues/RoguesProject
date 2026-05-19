@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bpl8ew0bg32ka"]
 
-[ext_resource type="Script" uid="uid://drk5uv6iqcvsx" path="res://content/monsters/ice_wizard/init_sequence_monster_behaviour.gd" id="1_td3qc"]
-[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_h6m64"]
+[ext_resource type="Texture2D" uid="uid://dp8mia2sw6v8i" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_h6m64"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_wuuwl"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_is5q6"]
 [ext_resource type="Resource" uid="uid://cx5fep1ccwdcq" path="res://content/monsters/gatling_worm/moves/charge_attack.tres" id="5_3dddg"]
@@ -11,7 +10,6 @@
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="9_tr8mq"]
 
 [sub_resource type="Resource" id="Resource_misar"]
-script = ExtResource("1_td3qc")
 metadata/_custom_type_script = "uid://drk5uv6iqcvsx"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2lkq"]

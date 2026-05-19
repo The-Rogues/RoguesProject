@@ -4,39 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="1_ytog5"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_ytog5"]
 [ext_resource type="Script" uid="uid://432ln1nwxdgl" path="res://battle_scene/win_screen/rewards_data/battle_reward_data.gd" id="3_2ogyd"]
-[ext_resource type="Texture2D" uid="uid://k7mt5uhwsy0h" path="res://content/items/health_potion/health_potion_texture.tres" id="4_j5o26"]
-[ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/health_potion/health_potion_character_upgrade_item_data.tres" id="4_u3s0x"]
-[ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/energy_potion/energy_potion_upgrade_item_data.tres" id="5_876s6"]
-[ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://content/items/item_pouch/item_pouch_item_data.tres" id="6_43y1v"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="6_trkdf"]
-[ext_resource type="Texture2D" uid="uid://dtq808atl3kp7" path="res://content/items/energy_potion/energy_potion_texture.tres" id="7_k5yi6"]
-[ext_resource type="Texture2D" uid="uid://qih8trwgrmut" path="res://content/items/item_pouch/pouch_texture.tres" id="9_de101"]
 [ext_resource type="Script" uid="uid://bj6y7ncnmxyft" path="res://battle_scene/entities/actions/skill/add_item_to_battle_reward.gd" id="11_w4evx"]
-
-[sub_resource type="Resource" id="Resource_hkjyi"]
-script = ExtResource("6_trkdf")
-item = ExtResource("4_u3s0x")
-display_texture = ExtResource("4_j5o26")
-name = "Health Potion"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_xpxew"]
-script = ExtResource("6_trkdf")
-item = ExtResource("5_876s6")
-display_texture = ExtResource("7_k5yi6")
-name = "Energy Potion"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_0s2q6"]
-script = ExtResource("6_trkdf")
-item = ExtResource("6_43y1v")
-display_texture = ExtResource("9_de101")
-name = "Item Pouch"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
 [sub_resource type="Resource" id="Resource_pxkgv"]
 script = ExtResource("11_w4evx")
-chest_items = Array[ExtResource("3_2ogyd")]([SubResource("Resource_hkjyi"), SubResource("Resource_xpxew"), SubResource("Resource_0s2q6")])
 metadata/_custom_type_script = "uid://bj6y7ncnmxyft"
 
 [resource]

@@ -6,19 +6,13 @@
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_ce22o"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_3l5uq"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="6_7xv35"]
-[ext_resource type="Resource" path="res://content/cards/stoic_cards/gaurded_assault/gaurded_assault.tres" id="6_jfmdv"]
-[ext_resource type="Resource" path="res://content/personality_traits/stoic.tres" id="7_sds6a"]
-[ext_resource type="Resource" path="res://content/cards/valorous_cards/crushing_presence.tres" id="7_uahfr"]
-[ext_resource type="Resource" path="res://content/cards/valorous_cards/fortitude/fortitude.tres" id="8_3l5uq"]
-[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="8_jfmdv"]
-[ext_resource type="Resource" path="res://content/cards/stoic_cards/challenge/challenge.tres" id="9_7xv35"]
-[ext_resource type="Resource" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="10_8qiin"]
+[ext_resource type="Resource" path="res://content/personality_traits/crafty.tres" id="7_sds6a"]
+[ext_resource type="Resource" path="res://content/personality_traits/vengeful.tres" id="8_jfmdv"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="10_k3uip"]
 [ext_resource type="Resource" path="res://content/personality_traits/valorous.tres" id="10_uahfr"]
-[ext_resource type="Resource" path="res://content/cards/brute_cards/crash_out.tres" id="11_8qiin"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="11_t60l6"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/book.tres" id="13_5lbfv"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/gem_staff.tres" id="13_ce22o"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/spear.tres" id="12_uahfr"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/torch.tres" id="13_ce22o"]
 [ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="14_3l5uq"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="15_rjjt7"]
 [ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_ugj3v"]
@@ -27,38 +21,40 @@
 [ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="19_21v4l"]
 [ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="20_shnnu"]
 
-[sub_resource type="Resource" id="Resource_7xv35"]
+[sub_resource type="Resource" id="Resource_3l5uq"]
 script = ExtResource("10_k3uip")
 offensive_trait = ExtResource("8_jfmdv")
-offensive_weight = 7
+offensive_weight = 2
 defensive_trait = ExtResource("7_sds6a")
-defensive_weight = 1
+defensive_weight = 2
 strategic_trait = ExtResource("10_uahfr")
-strategic_weight = 3
+strategic_weight = 1
 priority_trait = ExtResource("10_uahfr")
 
-[sub_resource type="Resource" id="Resource_8qiin"]
+[sub_resource type="Resource" id="Resource_7xv35"]
 script = ExtResource("11_t60l6")
-name = "Boaz"
+name = "Noah"
 max_health = 50
-current_health = 12
-current_energy = 2
+current_health = 50
+current_energy = 3
 max_energy = 3
 item_capacity = 2
-cards = Array[ExtResource("1_sds6a")]([ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("5_3l5uq"), ExtResource("5_3l5uq"), ExtResource("6_jfmdv"), ExtResource("7_uahfr"), ExtResource("8_3l5uq"), ExtResource("9_7xv35"), ExtResource("10_8qiin"), ExtResource("11_8qiin"), ExtResource("8_3l5uq")])
-gold = 13
-personality = SubResource("Resource_7xv35")
+cards = Array[ExtResource("1_sds6a")]([ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("5_3l5uq"), ExtResource("5_3l5uq")])
+gold = 9
+personality = SubResource("Resource_3l5uq")
 
 [resource]
 script = ExtResource("15_rjjt7")
-player_data = SubResource("Resource_8qiin")
+player_data = SubResource("Resource_7xv35")
 player_texture = ExtResource("14_3l5uq")
-player_melee_weapon_texture = ExtResource("13_5lbfv")
+player_melee_weapon_texture = ExtResource("12_uahfr")
 player_ranged_weapon_texture = ExtResource("13_ce22o")
-player_name = "Boaz"
+player_name = "Noah"
 player_backstory = ""
-map_seed = 4081321733
-player_node_index = 27
-single_time_mini_events = Array[ExtResource("16_ugj3v")]([ExtResource("17_ju2aj"), ExtResource("20_shnnu"), ExtResource("19_21v4l"), ExtResource("18_7cy65")])
-total_rooms_explored = 9
+map_seed = 2171334017
+player_node_index = 12
+pending_node_index = 15
+room_in_progress = true
+single_time_mini_events = Array[ExtResource("16_ugj3v")]([ExtResource("18_7cy65"), ExtResource("17_ju2aj"), ExtResource("19_21v4l"), ExtResource("20_shnnu")])
+total_rooms_explored = 4
 initialized = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6ro5tcr0wfnx" path="res://battle_scene/entities/status_effects/common/burning_icon.tres" id="1_r4jeb"]
 [ext_resource type="Script" uid="uid://dd40p6dnepp41" path="res://battle_scene/battle_field/position_effects/position_effect_display.gd" id="2_2siqo"]
-[ext_resource type="Texture2D" uid="uid://camo27fp55dcl" path="res://common/art/placeholder/32_rogues/animated-tiles.png" id="2_ty4xj"]
+[ext_resource type="Texture2D" uid="uid://rbw35k6jw5jt" path="res://common/art/placeholder/32_rogues/animated-tiles.png" id="2_ty4xj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r30hp"]
 atlas = ExtResource("2_ty4xj")

@@ -1,10 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://b857lh2wcqwdd"]
 
-[ext_resource type="Texture2D" uid="uid://boa8n0ndmytmi" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-001.png" id="1_4uug6"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_ifibi"]
-[ext_resource type="Texture2D" uid="uid://bbio1dfmgy3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-031.png" id="2_yttrd"]
-[ext_resource type="Texture2D" uid="uid://cq6bf7ouy5rg2" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-010.png" id="3_awpbx"]
-[ext_resource type="Texture2D" uid="uid://diq1otqisnxbh" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-000.png" id="4_oeuor"]
+[ext_resource type="Texture2D" uid="uid://b08umn5ovaq7g" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-001.png" id="1_4uug6"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_ifibi"]
+[ext_resource type="Texture2D" uid="uid://55a2p45x26bn" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-031.png" id="2_yttrd"]
+[ext_resource type="Texture2D" uid="uid://pr31bsytpglw" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-010.png" id="3_awpbx"]
+[ext_resource type="Texture2D" uid="uid://ctsy2dwvj4im5" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Transparent center/panel-transparent-center-000.png" id="4_oeuor"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2iabr"]
 load_path = "res://.godot/imported/panel-transparent-center-010.png-e5cb3176995a19f55713d8538eddd002.ctex"
