@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://7qlkbhh2t500"]
+
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_6qal5"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_lcmuy"]
+[ext_resource type="Script" uid="uid://bjded1ye1cx2e" path="res://content/monsters/ice_warrior/resolve/ice_warrior_resolve_power.gd" id="2_qaihb"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_17yud"]
+[ext_resource type="Script" uid="uid://clf00n1l2txkr" path="res://content/monsters/ice_warrior/resolve/resolve.gd" id="5_5b8nq"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="6_xgo53"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="7_fxphv"]
+
+[sub_resource type="Resource" id="Resource_a8bef"]
+script = ExtResource("2_qaihb")
+strength_amount = 2
+can_reapply = true
+metadata/_custom_type_script = "uid://bjded1ye1cx2e"
+
+[sub_resource type="Resource" id="Resource_w6dmf"]
+script = ExtResource("3_17yud")
+power = SubResource("Resource_a8bef")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[sub_resource type="Resource" id="Resource_l7n38"]
+script = ExtResource("5_5b8nq")
+metadata/_custom_type_script = "uid://clf00n1l2txkr"
+
+[sub_resource type="Resource" id="Resource_2ljrc"]
+script = ExtResource("6_xgo53")
+behaviour = SubResource("Resource_l7n38")
+duration = -1
+stack = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_4rinn"]
+script = ExtResource("7_fxphv")
+effect = SubResource("Resource_2ljrc")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("1_lcmuy")
+intent_icon = ExtResource("1_6qal5")
+name = "Battle Cry"
+description = "Gains [color=#43A047]2[/color] [color=orange]reslove[/color]."
+primary_action = SubResource("Resource_w6dmf")
+secondary_action = SubResource("Resource_4rinn")
+metadata/_custom_type_script = "uid://c410dannt5adg"

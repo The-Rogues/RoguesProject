@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="IceWarriorResolvePower" format=3 uid="uid://ctd2hvpaqjtd1"]
+
+[ext_resource type="Script" uid="uid://bjded1ye1cx2e" path="res://content/monsters/ice_warrior/resolve/ice_warrior_resolve_power.gd" id="1_31563"]
+
+[resource]
+script = ExtResource("1_31563")
+metadata/_custom_type_script = "uid://bjded1ye1cx2e"

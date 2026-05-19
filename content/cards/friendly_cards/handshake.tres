@@ -27,6 +27,6 @@ script = ExtResource("2_moxi6")
 type = 2
 category = 3
 name = "Handshake"
-description = "Apply [color=#43A047]1[/color] [color=orange]friendship[/color] to the highest HP enemies."
+description = "Apply [color=#43A047]1[/color] [color=orange]friendship[/color] to the highest HP enemies. [color=orange]Permeative[/color]."
 play_actions = Array[ExtResource("1_alfbk")]([SubResource("Resource_2wvpj")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

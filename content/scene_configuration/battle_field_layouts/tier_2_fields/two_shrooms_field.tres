@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_g31ol"]
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_apml8"]
 [ext_resource type="Resource" uid="uid://dwtier3o3culw" path="res://content/objects/chest/chest.tres" id="2_rg3r8"]
-[ext_resource type="Resource" uid="uid://xdugix0cn773" path="res://content/objects/cannon/blast_cannon.tres" id="3_ke62l"]
+[ext_resource type="Resource" uid="uid://xdugix0cn773" path="res://content/objects/cannons/blast_cannon.tres" id="3_ke62l"]
 [ext_resource type="Resource" uid="uid://db1863a0hon12" path="res://content/objects/shield_object/spiked_shield_object.tres" id="3_rg3r8"]
 
 [resource]

@@ -21,13 +21,14 @@
 [ext_resource type="Texture2D" uid="uid://drmhfgds0auy2" path="res://content/monsters/big_slime/big_slime_texture.tres" id="19_wtw33"]
 [ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://content/items/apple/apple_texture.tres" id="20_qj7qs"]
 [ext_resource type="Texture2D" uid="uid://dtq808atl3kp7" path="res://content/items/energy_potion/energy_potion_texture.tres" id="21_dirmd"]
-[ext_resource type="Texture2D" uid="uid://dte5dnc52hrbn" path="res://content/fletcher/monsters/ice_wizard/ice_wizard_texture.tres" id="22_vrw43"]
+[ext_resource type="Texture2D" uid="uid://dte5dnc52hrbn" path="res://content/monsters/ice_wizard/ice_wizard_texture.tres" id="22_vrw43"]
 [ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://content/items/cheese/Rats/rat_texture.tres" id="23_h62ud"]
 [ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="24_5uh36"]
 [ext_resource type="Texture2D" uid="uid://do5kp8psm4m4f" path="res://content/items/chest_key/key_texture.tres" id="25_2bcbv"]
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="26_8ntif"]
 [ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://shop_scenes/shop_keepers/shop_keeper_varient_1.tres" id="27_5ocyc"]
 [ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://shop_scenes/shop_keepers/shop_keeper_varient_2.tres" id="28_4qrbg"]
+
 
 [sub_resource type="Animation" id="Animation_pxiht"]
 length = 0.001

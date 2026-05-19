@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 [resource]
 script = ExtResource("2_y2635")
 category = 1
-energy_cost = 1
+energy_cost = 2
 name = "Breaking Point"
 description = "Gain [color=#43A047]3[/color] [color=orange]rage[/color]. Lose [color=#43A047]2[/color] [color=orange]offense[/color]."
 play_actions = Array[ExtResource("1_thcs7")]([SubResource("Resource_qbfnu"), SubResource("Resource_wywm3")])

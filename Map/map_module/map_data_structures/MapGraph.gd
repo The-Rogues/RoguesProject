@@ -706,19 +706,20 @@ func populate_events(rand_seed: int) -> void:
 		var num_events: int
 		
 		if target_layer.size() == 4:
-			if randf() < 0.3:
+			if rand_gen.randf() < 0.3:
 				num_events = 1
 			else:
 				num_events = 2
 		else:
-			if randf() < 0.3:
+			if rand_gen.randf() < 0.3:
 				num_events = 0
 			else:
 				num_events = 1
 			
 		for j in range(0, num_events):
 			var event = choose_mini_event()
-			var target_node: RefCounted = target_layer.pick_random() 
+			var target_node_idx: int = rand_gen.randi_range(0, target_layer.size() - 1)
+			var target_node: RefCounted = target_layer[target_node_idx]
 			if !event.repeatable:
 				var run = GlobalSessionManager.run_progress
 				if run:

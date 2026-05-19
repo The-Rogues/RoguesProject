@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://c383v6ia5vk0x"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_gy24t"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_ht528"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_dyj5i"]
+
+[sub_resource type="Resource" id="Resource_2uopc"]
+script = ExtResource("2_dyj5i")
+base_damage = 1
+hits = 3
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("1_ht528")
+intent_icon = ExtResource("1_gy24t")
+name = "Avalanche"
+description = "Attacks for [color=red]get_atk1[/color] damage [color=#43A047]3[/color] times."
+primary_action = SubResource("Resource_2uopc")
+metadata/_custom_type_script = "uid://c410dannt5adg"
