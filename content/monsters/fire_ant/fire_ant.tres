@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://l2nwenkn6gcc"]
 
-[ext_resource type="Script" uid="uid://drk5uv6iqcvsx" path="res://content/fletcher/monsters/ice_wizard/init_sequence_monster_behaviour.gd" id="1_hac1v"]
+[ext_resource type="Script" uid="uid://drk5uv6iqcvsx" path="res://content/monsters/ice_wizard/init_sequence_monster_behaviour.gd" id="1_hac1v"]
 [ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_4dqwf"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_e6n66"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_h6ctx"]
@@ -34,5 +34,5 @@ move_sequences = Array[ExtResource("3_e6n66")]([SubResource("Resource_d3n6u"), S
 behaviour = SubResource("Resource_sxnes")
 display_texture = SubResource("AtlasTexture_sxnes")
 name = "Fire Ant"
-health = 33
+health = 39
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://cn45c0ucrfcna"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_fb0ke"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_k4a71"]
+[ext_resource type="Script" uid="uid://bviw2mv2d8whi" path="res://content/monsters/gatling_worm/dazed_status/dazed_status.gd" id="2_vffhk"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_ps8xw"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_0rcip"]
+[ext_resource type="Script" uid="uid://dxbrvj4isxnht" path="res://battle_scene/battle_field/position_effects/common/status_position_effect.gd" id="6_baoji"]
+[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="7_j0ipl"]
+[ext_resource type="Resource" uid="uid://cqeh60hfqjf6s" path="res://battle_scene/battle_field/position_effects/common/burning_effect_display.tres" id="8_0s5hn"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="9_urmkl"]
+[ext_resource type="Script" uid="uid://ch2spgxvn4cv" path="res://battle_scene/entities/actions/skill/apply_position_effect_action.gd" id="10_a07em"]
+
+[sub_resource type="Resource" id="Resource_sfihw"]
+script = ExtResource("2_vffhk")
+metadata/_custom_type_script = "uid://bviw2mv2d8whi"
+
+[sub_resource type="Resource" id="Resource_t40xl"]
+script = ExtResource("3_ps8xw")
+behaviour = SubResource("Resource_sfihw")
+duration = -1
+stack = -2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_xy827"]
+script = ExtResource("4_0rcip")
+effect = SubResource("Resource_t40xl")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_7dn2p"]
+script = ExtResource("7_j0ipl")
+metadata/_custom_type_script = "uid://di1j13j6xybid"
+
+[sub_resource type="Resource" id="Resource_wbwhp"]
+script = ExtResource("3_ps8xw")
+behaviour = SubResource("Resource_7dn2p")
+duration = 3
+stack = 0
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_2stm2"]
+script = ExtResource("6_baoji")
+status = SubResource("Resource_wbwhp")
+metadata/_custom_type_script = "uid://dxbrvj4isxnht"
+
+[sub_resource type="Resource" id="Resource_8kuxy"]
+script = ExtResource("9_urmkl")
+behaviour = SubResource("Resource_2stm2")
+display = ExtResource("8_0s5hn")
+duration = -1
+stack = 3
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_y36xb"]
+script = ExtResource("10_a07em")
+position_effect = SubResource("Resource_8kuxy")
+count = 2
+metadata/_custom_type_script = "uid://ch2spgxvn4cv"
+
+[resource]
+script = ExtResource("1_fb0ke")
+type = 1
+intent_icon = ExtResource("1_k4a71")
+name = "Speed Up"
+description = "Sets [color=orange]dazed[/color] to [color=#43A047]-2[/color] and places [color=#43A047]2[/color] [color=orange]burning positions[/color]."
+primary_action = SubResource("Resource_xy827")
+secondary_action = SubResource("Resource_y36xb")
+metadata/_custom_type_script = "uid://c410dannt5adg"

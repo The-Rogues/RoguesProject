@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dveewx3nfgc7a" path="res://content/monsters/slime/acid_effect/acid_position_effect_behaviour.gd" id="4_rgsh3"]
 [ext_resource type="Resource" uid="uid://mhnjafoncine" path="res://content/monsters/slime/acid_effect/acid_position_effect_display.tres" id="5_2ajmj"]
 [ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="6_2xvoc"]
-[ext_resource type="Script" uid="uid://cdv8ma2l6a8tk" path="res://content/fletcher/monsters/ice_wizard/scripts/apply_player_position_effect_action.gd" id="7_wc6cl"]
+[ext_resource type="Script" uid="uid://cdv8ma2l6a8tk" path="res://content/monsters/ice_wizard/scripts/apply_player_position_effect_action.gd" id="7_wc6cl"]
 
 [sub_resource type="Resource" id="Resource_6a0bj"]
 script = ExtResource("2_iu3by")
