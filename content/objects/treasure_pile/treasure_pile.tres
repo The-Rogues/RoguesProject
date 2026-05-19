@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://c75rv4a5xwpc8"]
 
-[ext_resource type="Texture2D" uid="uid://dbrjqbm8n02ej" path="res://content/objects/treasure_pile/treasure_pile.png" id="1_un54h"]
+[ext_resource type="Texture2D" uid="uid://bwfpfilbb1ri2" path="res://content/objects/treasure_pile/treasure_pile.png" id="1_un54h"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_3ajq4"]
 [ext_resource type="Resource" uid="uid://7lw2pqf7mdmq" path="res://content/cards/greedy_cards/gem_behavior/gem_behavior.tres" id="3_g4t70"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_rkxko"]

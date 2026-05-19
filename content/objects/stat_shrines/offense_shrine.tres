@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://dv1krhb21lmwi"]
 
-[ext_resource type="Texture2D" uid="uid://htylxm7dqete" path="res://content/objects/stat_shrines/offense_shrine.png" id="1_08bgo"]
+[ext_resource type="Texture2D" uid="uid://dsvhtxrr0nfkg" path="res://content/objects/stat_shrines/offense_shrine.png" id="1_08bgo"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qewnt"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_pmwjk"]
 [ext_resource type="Script" uid="uid://sbvvweac52w" path="res://content/monsters/bee/actions/perma_stat_mod_action.gd" id="3_f3b5q"]

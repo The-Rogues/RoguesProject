@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_7kbph"]
 [ext_resource type="Texture2D" uid="uid://c1nlq1bskdyg3" path="res://content/map_events/tier_1_events/merchant.tres" id="1_dlbpc"]
 [ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="2_msnah"]
+[ext_resource type="Texture2D" uid="uid://dq3rhou4q2vdh" path="res://content/map_events/random_event.png" id="2_v8bhf"]
 [ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/health_potion/health_potion_character_upgrade_item_data.tres" id="3_5msdl"]
 [ext_resource type="Script" uid="uid://do5hw3sgq6ea3" path="res://content/map_events/tier_1_events/results/multi_result.gd" id="3_75rbh"]
 [ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://content/items/item_pouch/item_pouch_item_data.tres" id="4_v8bhf"]
@@ -26,6 +27,7 @@ metadata/_custom_type_script = "uid://do5hw3sgq6ea3"
 
 [resource]
 script = ExtResource("1_7kbph")
+map_texture = ExtResource("2_v8bhf")
 display_image = ExtResource("1_dlbpc")
 scenario_text = "You encounter a merchant selling a rare item. Do you spend all of your gold to obtain it?"
 option_1_text = "Obtain The Item"

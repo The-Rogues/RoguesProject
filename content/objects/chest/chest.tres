@@ -3,20 +3,22 @@
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_gt58y"]
 [ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="1_ytog5"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_ytog5"]
-[ext_resource type="Script" uid="uid://432ln1nwxdgl" path="res://battle_scene/win_screen/rewards_data/battle_reward_data.gd" id="3_2ogyd"]
-[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="6_trkdf"]
-[ext_resource type="Script" uid="uid://bj6y7ncnmxyft" path="res://battle_scene/entities/actions/skill/add_item_to_battle_reward.gd" id="11_w4evx"]
+[ext_resource type="Resource" uid="uid://dlgx712dvpsdf" path="res://content/objects/object_reward_resources/chest_reward.tres" id="3_fft8g"]
+[ext_resource type="Script" uid="uid://c7jsu5qwcwqo7" path="res://content/objects/chest/destroy_front_object_action.gd" id="4_3s61g"]
 
-[sub_resource type="Resource" id="Resource_pxkgv"]
-script = ExtResource("11_w4evx")
-metadata/_custom_type_script = "uid://bj6y7ncnmxyft"
+[sub_resource type="Resource" id="Resource_tot73"]
+script = ExtResource("4_3s61g")
+metadata/_custom_type_script = "uid://c7jsu5qwcwqo7"
 
 [resource]
 script = ExtResource("2_ytog5")
 targeting_categories = Array[int]([0, 2])
 interaction = 4
-interaction_actions = Array[ExtResource("1_gt58y")]([SubResource("Resource_pxkgv")])
-hover_description = "Requires a key to open. Contains an upgrade."
+interaction_actions = Array[ExtResource("1_gt58y")]([ExtResource("3_fft8g"), SubResource("Resource_tot73")])
+hover_description = "
+Object Categories: Treasure, Cover
+
+On Opened With Key: Gain a rare reward after battle."
 display_texture = ExtResource("1_ytog5")
 name = "Chest"
 health = 10

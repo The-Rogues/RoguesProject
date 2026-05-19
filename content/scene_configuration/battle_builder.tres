@@ -35,7 +35,7 @@
 script = ExtResource("2_wh5q6")
 tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("6_mviad"), ExtResource("10_eypvv"), ExtResource("11_4gia5"), ExtResource("10_iaeg7")])
 tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("15_fmdaw"), ExtResource("14_phi5s"), ExtResource("16_eypvv"), ExtResource("15_eswd4")])
-tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("7_eswd4"), ExtResource("10_uu101")])
+tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_uu101"), ExtResource("7_eswd4")])
 tier_4_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("23_a5ep4"), ExtResource("24_58ou1"), ExtResource("25_7mqno")])
 tier_5_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("26_4c4kg")])
 tier_1_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("3_eswd4"), ExtResource("4_eypvv"), ExtResource("8_phi5s"), ExtResource("5_uu101"), ExtResource("6_iaeg7"), ExtResource("7_4gia5")])

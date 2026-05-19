@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xuib74aq2jny" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_9.tres" id="1_hmcg2"]
 [ext_resource type="Resource" uid="uid://daqp47v362e4h" path="res://content/scene_configuration/enemy_encounters/special_encounters/the_metal_man.tres" id="2_kwylo"]
+[ext_resource type="Texture2D" uid="uid://cv6k8xkx1rogu" path="res://content/map_events/challenge_event_icon.png" id="2_r8kgl"]
 [ext_resource type="Script" uid="uid://o7ighurpvhxu" path="res://mini_event_system/results/enter_battle_result.gd" id="3_r8kgl"]
 [ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="4_82vo3"]
 
@@ -12,6 +13,7 @@ metadata/_custom_type_script = "uid://o7ighurpvhxu"
 
 [resource]
 script = ExtResource("4_82vo3")
+map_texture = ExtResource("2_r8kgl")
 display_image = ExtResource("1_hmcg2")
 scenario_text = "My machines will overtake magic. I've invented a Metal Man. Can you help me test it's strength?"
 option_1_text = "Challenge"

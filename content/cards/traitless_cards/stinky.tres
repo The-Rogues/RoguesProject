@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://by2kl8w4kkm1m"]
 
-[ext_resource type="Texture2D" uid="uid://dtfw56mesa6nq" path="res://common/art/placeholder/32_rogues/animals.png" id="1_52j4t"]
+[ext_resource type="Texture2D" uid="uid://cljnpcwc5ef41" path="res://common/art/placeholder/32_rogues/animals.png" id="1_52j4t"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_muqt3"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_52j4t"]
 

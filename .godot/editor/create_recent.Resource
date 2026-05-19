@@ -1,2 +1,2 @@
-res://battle_scene/battle_building/battlefield_config.gd
+res://Map/event/event_resources/MainEventData.gd
 AtlasTexture

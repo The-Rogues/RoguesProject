@@ -1,6 +1,7 @@
 extends Resource
 class_name MiniEventData
 
+@export var map_texture: Texture2D
 @export var repeatable:bool
 @export var display_image:Texture2D
 @export_multiline var scenario_text:String

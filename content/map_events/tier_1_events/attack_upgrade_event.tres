@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://omffyiuy3df" path="res://common/art/placeholder/joi3/stoic_icon.tres" id="1_ak376"]
 [ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_iggjq"]
+[ext_resource type="Texture2D" uid="uid://dq3rhou4q2vdh" path="res://content/map_events/random_event.png" id="2_aahx7"]
 [ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="2_wivsh"]
 [ext_resource type="Resource" uid="uid://8hl6h527kkwv" path="res://content/cards/traitless_cards/shield_break.tres" id="3_4kljp"]
 [ext_resource type="Script" uid="uid://do5hw3sgq6ea3" path="res://content/map_events/tier_1_events/results/multi_result.gd" id="3_cyn3s"]
@@ -27,6 +28,7 @@ metadata/_custom_type_script = "uid://x6iyl7ntfili"
 
 [resource]
 script = ExtResource("1_iggjq")
+map_texture = ExtResource("2_aahx7")
 display_image = ExtResource("1_ak376")
 scenario_text = "You decide to train for the journey ahead. Which attack do you focus on?"
 option_1_text = "Strike"

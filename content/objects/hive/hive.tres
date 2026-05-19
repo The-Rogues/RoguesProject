@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://b8mm8aiuou87g"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_r6xxc"]
-[ext_resource type="Texture2D" uid="uid://b5kn3b56so2a" path="res://content/objects/hive/hive.png" id="1_wy4mv"]
+[ext_resource type="Texture2D" uid="uid://ce07qyh04wril" path="res://content/objects/hive/hive.png" id="1_wy4mv"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_fxoqt"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="3_gmdqs"]
 [ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="4_6wrow"]

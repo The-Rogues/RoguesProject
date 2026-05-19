@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_xcu8l"]
 [ext_resource type="Resource" uid="uid://ceqn6vhw30utf" path="res://content/items/bone/bone.tres" id="2_d4vd8"]
 [ext_resource type="Script" uid="uid://cehicoywcndnw" path="res://mini_event_system/conditions/has_item_condition.gd" id="2_diksw"]
+[ext_resource type="Texture2D" uid="uid://dq3rhou4q2vdh" path="res://content/map_events/random_event.png" id="2_frs10"]
 [ext_resource type="Script" uid="uid://b63o5rbvcmp1f" path="res://mini_event_system/results/remove_item_event_result.gd" id="3_frs10"]
 [ext_resource type="Resource" uid="uid://bsnkhs3iathog" path="res://content/cards/legendary_cards/loyal_friend.tres" id="5_l0j64"]
 [ext_resource type="Script" uid="uid://cjm2fawobo7a0" path="res://mini_event_system/results/give_card_event_result.gd" id="6_624do"]
@@ -25,6 +26,7 @@ metadata/_custom_type_script = "uid://cjm2fawobo7a0"
 
 [resource]
 script = ExtResource("1_xcu8l")
+map_texture = ExtResource("2_frs10")
 display_image = ExtResource("1_ippjh")
 scenario_text = "You find hungry looking wolf leaning against a wall. It looks tired. What do you do?"
 option_1_text = "Give it a Bone"

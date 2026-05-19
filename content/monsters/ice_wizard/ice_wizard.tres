@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://dcg6lha6wurrf"]
 
 [ext_resource type="Script" uid="uid://drk5uv6iqcvsx" path="res://content/monsters/ice_wizard/init_sequence_monster_behaviour.gd" id="1_xgq0y"]
-[ext_resource type="Texture2D" uid="uid://d4d4m2m31tat8" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_7d5lr"]
+[ext_resource type="Texture2D" uid="uid://dp8mia2sw6v8i" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_7d5lr"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_yn5w4"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_ta6w0"]
 [ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="5_koujx"]

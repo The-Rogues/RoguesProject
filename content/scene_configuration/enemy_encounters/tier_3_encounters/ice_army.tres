@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_g7vm5"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="2_lq2i0"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_lq2i0"]
+[ext_resource type="Resource" uid="uid://dcg6lha6wurrf" path="res://content/monsters/ice_wizard/ice_wizard.tres" id="3_lt202"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="3_tn6yp"]
+[ext_resource type="Resource" uid="uid://cvd6kxboogiko" path="res://content/monsters/ice_warrior/ice_warrior_data.tres" id="4_4ppke"]
 
 [sub_resource type="Resource" id="Resource_3yynl"]
 script = ExtResource("3_tn6yp")
@@ -17,5 +19,6 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("3_lq2i0")
 encounter_name = "Ice Army"
 gold = SubResource("Resource_3yynl")
+enemies = Array[ExtResource("1_am6yi")]([ExtResource("3_lt202"), ExtResource("4_4ppke")])
 battlefield_layout = ExtResource("1_lt202")
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

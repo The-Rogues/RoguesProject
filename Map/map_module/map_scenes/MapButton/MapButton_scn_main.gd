@@ -24,9 +24,8 @@ var elapsed_time: float = 0 # Time since the button was created used to modulate
 # Return: Void.
 func _ready() -> void:
 	if corr_node.node_data.mini_event != null:
-		#sub_container.texture = corr_node.node_data.mini_event.map_texture
-		sub_container.texture = load("res://Map/map_assets/mini_event_icon.png")
-	sub_container.size = Vector2(self.size.x / 2, self.size.y / 2)
+		sub_container.texture = corr_node.node_data.mini_event.map_texture
+	sub_container.size = Vector2(self.size.x, self.size.y / 2)
 	if sub_visible:
 		sub_container.visible = true
 	else:
@@ -47,7 +46,7 @@ func init_button(in_node: RefCounted, in_sz: bool) -> void:
 func resize():
 	if is_node_ready():
 		sub_container.position = Vector2(self.size.x / 2, self.size.y / 2)
-		sub_container.size = Vector2(self.size.x / 2, self.size.y / 2)
+		sub_container.size = Vector2(self.size.x / 1.5, self.size.y / 1.5)
 
 # --hide_mini_event Function--
 # Description: Makes the mini event icon invisible.
