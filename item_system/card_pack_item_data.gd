@@ -30,3 +30,9 @@ func use_item(_player:PlayerEntity = null) -> bool:
 	#				instance)
 	
 	return true
+	
+func get_random_card(old_card: CardData) -> CardData:
+	var possible_cards =card_pool.duplicate()
+	possible_cards.erase(old_card)
+	possible_cards.shuffle()
+	return possible_cards[0]
