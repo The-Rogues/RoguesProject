@@ -1,2 +1,2 @@
-res://Map/event/event_resources/MainEventData.gd
+res://ai/scripts/AiCardData.gd
 AtlasTexture

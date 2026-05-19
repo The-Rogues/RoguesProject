@@ -1,3 +1,4 @@
+res://ai/ai-cards/inventive_move/
 res://Map/event/event_instances/
 res://content/scene_configuration/battle_field_layouts/tier_3_fields/
 res://Map/map_module/map_data_structures/
@@ -19,4 +20,3 @@ res://content/scene_configuration/enemy_encounters/tier_2_encounters/
 res://content/monsters/fire_ant/moves/
 res://content/monsters/fire_ant_larvae/moves/
 res://content/monsters/fire_ant_larvae/
-res://content/monsters/fire_ant/cards/
