@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://cqd6wjbb86o0w"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_ixsem"]
+[ext_resource type="Resource" uid="uid://2m04j4nr2sfx" path="res://content/cards/brute_cards/breaking_point.tres" id="2_mu40i"]
+[ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_rn5s6"]
+[ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="3_djj5o"]
+[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/sustain.tres" id="4_uompj"]
+[ext_resource type="Resource" uid="uid://knf7yagaaaxo" path="res://content/cards/brute_cards/warm_up.tres" id="5_cdjfm"]
+[ext_resource type="Resource" uid="uid://bng6s3h0uuec3" path="res://content/cards/brute_cards/war_machine.tres" id="6_p5gg3"]
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="8_5gxm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34ke8"]
+atlas = ExtResource("8_5gxm0")
+region = Rect2(200, 480, 40, 40)
+
+[resource]
+script = ExtResource("2_rn5s6")
+card_pool = Array[ExtResource("1_ixsem")]([ExtResource("2_mu40i"), ExtResource("3_djj5o"), ExtResource("4_uompj"), ExtResource("5_cdjfm"), ExtResource("6_p5gg3")])
+texture = SubResource("AtlasTexture_34ke8")
+name = "Open Brutish card pack"
+description = "Choose 1 Brutish card to add to your deck."
+price = 15
+metadata/_custom_type_script = "uid://5e5dqru2odgj"

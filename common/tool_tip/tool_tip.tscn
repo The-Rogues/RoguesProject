@@ -16,6 +16,6 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
-text = "[color=gold]Title[/color][img]res://battle_scene/entities/monster/intents/attack_icon.tres[/img]
+text = "[color=gold]Title[/color][img=16]res://battle_scene/entities/monster/intents/attack_icon.tres[/img]
 If you can read this, this tooltip is unset."
 fit_content = true

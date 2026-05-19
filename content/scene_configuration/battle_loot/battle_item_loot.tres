@@ -7,7 +7,6 @@
 [ext_resource type="Resource" uid="uid://dlviwum7qlyod" path="res://content/items/bread/bread_healing_item_data.tres" id="6_onj3i"]
 [ext_resource type="Resource" uid="uid://ceqn6vhw30utf" path="res://content/items/bone/bone.tres" id="6_opqqf"]
 [ext_resource type="Resource" uid="uid://c1akblk4le2jm" path="res://content/items/repeat_potion/repeat_potion_item_data.tres" id="7_wpco3"]
-[ext_resource type="Resource" uid="uid://dnpnr60u7xv62" path="res://content/items/diamond/diamond_item_data.tres" id="8_tyi0f"]
 [ext_resource type="Resource" uid="uid://mi4ggqd8gx0j" path="res://content/items/energy_potion/energy_potion.tres" id="9_yx52h"]
 [ext_resource type="Resource" uid="uid://dju78xldybhe5" path="res://content/items/shield_potion/shield_potion.tres" id="10_6hxsb"]
 [ext_resource type="Resource" uid="uid://di0f2cxcij3vn" path="res://content/items/thorns_potion/thorns_potion.tres" id="11_pptgd"]
@@ -46,9 +45,12 @@ item = ExtResource("7_wpco3")
 weight = 0.4
 metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
+[sub_resource type="Resource" id="Resource_opqqf"]
+metadata/__load_path__ = "res://content/items/diamong/diamond_item_data.tres"
+
 [sub_resource type="Resource" id="Resource_sg7vx"]
 script = ExtResource("1_cju6y")
-item = ExtResource("8_tyi0f")
+item = SubResource("Resource_opqqf")
 weight = 0.01
 metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
@@ -88,7 +90,7 @@ metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 [sub_resource type="Resource" id="Resource_ir3g0"]
 script = ExtResource("1_cju6y")
 item = ExtResource("14_tyi0f")
-weight = 0.09999999999999999
+weight = 0.1
 metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
 [sub_resource type="Resource" id="Resource_lgrrr"]

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://dhrnvjo1dpbsc"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_c3rw2"]
+[ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_cte0j"]
+[ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/crawly_friend.tres" id="2_qw2b2"]
+[ext_resource type="Resource" uid="uid://biytyhg5hx4cd" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="3_7d76r"]
+[ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/icey_friend.tres" id="4_sw3xq"]
+[ext_resource type="Resource" uid="uid://dy3ixqkqfrwer" path="res://content/cards/friendly_cards/playdate.tres" id="5_nfl7g"]
+[ext_resource type="Resource" uid="uid://1vhbrkh1vv58" path="res://content/cards/friendly_cards/worm_treat.tres" id="6_12qrj"]
+[ext_resource type="Resource" uid="uid://dui2cujdu8hw7" path="res://content/cards/friendly_cards/handshake.tres" id="7_hh1y8"]
+[ext_resource type="Texture2D" uid="uid://drxuwl2xesmth" path="res://common/art/placeholder/joi3/friendly_icon.tres" id="9_nf66j"]
+
+[resource]
+script = ExtResource("2_cte0j")
+card_pool = Array[ExtResource("1_c3rw2")]([ExtResource("2_qw2b2"), ExtResource("3_7d76r"), ExtResource("4_sw3xq"), ExtResource("5_nfl7g"), ExtResource("6_12qrj"), ExtResource("7_hh1y8")])
+texture = ExtResource("9_nf66j")
+name = "Open Friendly card pack"
+description = "Choose 1 Friendly card to add to your deck."
+price = 15
+metadata/_custom_type_script = "uid://5e5dqru2odgj"

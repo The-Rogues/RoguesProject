@@ -114,7 +114,8 @@ func open_card_removal():
 		card_remover.visible = true
 
 
-func open_card_picker(cards:Array[CardData], allow_stat_mod:bool = false):
+func open_card_picker(cards:Array[CardData], 
+	allow_stat_mod:bool = false):
 	card_picker.initialize(cards)
 	card_picker.visible = true
 	
@@ -134,6 +135,7 @@ func open_stat_modifier() -> void:
 
 func _on_close_card_picker_button_up() -> void:
 	card_picker.visible = false
+	card_picker.closed.emit(false)
 	pass # Replace with function body.
 
 

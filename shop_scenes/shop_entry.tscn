@@ -174,6 +174,7 @@ layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("4_s2l5a")
+expand_mode = 1
 
 [node name="Name" type="RichTextLabel" parent="Container/MarginContainer/Item" unique_id=1530490295]
 texture_filter = 1

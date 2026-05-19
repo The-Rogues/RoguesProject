@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_5o8oa"]
 [ext_resource type="Script" uid="uid://4up4jdub524p" path="res://shop_scenes/item_shop/item_shop_scene.gd" id="1_yja7x"]
-[ext_resource type="Resource" uid="uid://cleehjci2nw3o" path="res://content/scene_configuration/item_shop_data.tres" id="2_yja7x"]
+[ext_resource type="Resource" uid="uid://cleehjci2nw3o" path="res://content/scene_configuration/shops/item_shop/item_shop_data.tres" id="2_yja7x"]
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="3_yja7x"]
 [ext_resource type="Texture2D" uid="uid://diap58galr533" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-030.png" id="4_6eu2m"]
 [ext_resource type="Texture2D" uid="uid://bh2bdnjhtrmd3" path="res://shop_scenes/shop_keepers/shop_desk.tres" id="4_rao7n"]

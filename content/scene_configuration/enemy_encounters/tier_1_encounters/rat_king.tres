@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://xf5mvnd2uwes" path="res://content/monsters/rat_king/rat_king.tres" id="2_idlah"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_edaif"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_7pjjr"]
-[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="5_4i1a0"]
+[ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="5_v62i3"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="6_30hmr"]
 
 [sub_resource type="Resource" id="Resource_cnu5i"]

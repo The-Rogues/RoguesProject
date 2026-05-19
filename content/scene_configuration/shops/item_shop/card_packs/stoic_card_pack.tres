@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://wv8r4f5usawx"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_pf4tv"]
+[ext_resource type="Resource" uid="uid://cb0st71k4otu3" path="res://content/cards/stoic_cards/brave_recovery/brave_recovery.tres" id="2_6p6va"]
+[ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_bc5uh"]
+[ext_resource type="Resource" uid="uid://da2h4oxxjao8w" path="res://content/cards/stoic_cards/challenge/challenge.tres" id="3_l5qi0"]
+[ext_resource type="Resource" uid="uid://bhtywhphbire1" path="res://content/cards/stoic_cards/fearsome_armor/fearsome_armor.tres" id="4_pdsgc"]
+[ext_resource type="Resource" uid="uid://m7ighmtyec2a" path="res://content/cards/stoic_cards/gaurded_assault/gaurded_assault.tres" id="5_0q0st"]
+[ext_resource type="Resource" uid="uid://bnxuepr12mnxx" path="res://content/cards/stoic_cards/suit_up/suit_up.tres" id="6_2vyi7"]
+[ext_resource type="Texture2D" uid="uid://omffyiuy3df" path="res://common/art/placeholder/joi3/stoic_icon.tres" id="8_4tjrx"]
+
+[resource]
+script = ExtResource("2_bc5uh")
+card_pool = Array[ExtResource("1_pf4tv")]([ExtResource("2_6p6va"), ExtResource("3_l5qi0"), ExtResource("4_pdsgc"), ExtResource("5_0q0st"), ExtResource("6_2vyi7")])
+texture = ExtResource("8_4tjrx")
+name = "Stoic"
+description = "Choose 1 Stoic card to add to your deck."
+price = 15
+metadata/_custom_type_script = "uid://5e5dqru2odgj"

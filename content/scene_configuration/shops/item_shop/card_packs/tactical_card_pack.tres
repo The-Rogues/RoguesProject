@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://b1hlmo7dx0jnr"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_ps817"]
+[ext_resource type="Resource" uid="uid://bhnmqjrvedryq" path="res://content/cards/tactical_cards/reload/reload.tres" id="2_f11rm"]
+[ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_ps817"]
+[ext_resource type="Resource" uid="uid://u6speansnd8p" path="res://content/cards/tactical_cards/quick_draw/quick_draw.tres" id="3_k8paj"]
+[ext_resource type="Resource" uid="uid://bt0y1yjcdst8s" path="res://content/cards/tactical_cards/flow_state/flow_state.tres" id="4_27sqy"]
+[ext_resource type="Resource" uid="uid://bgutrc02omy4f" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="5_kydgx"]
+[ext_resource type="Resource" uid="uid://de5b8p156d76s" path="res://content/cards/tactical_cards/charge_shot/charge_shot.tres" id="6_ku5w4"]
+[ext_resource type="Texture2D" uid="uid://b5q8hr8gvmqkb" path="res://common/art/placeholder/joi3/tactical_icon.tres" id="8_nxy2c"]
+
+[resource]
+script = ExtResource("2_ps817")
+card_pool = Array[ExtResource("1_ps817")]([ExtResource("2_f11rm"), ExtResource("3_k8paj"), ExtResource("4_27sqy"), ExtResource("5_kydgx"), ExtResource("6_ku5w4")])
+texture = ExtResource("8_nxy2c")
+name = "Tactical"
+description = "Choose 1 Tactical card to add to your deck."
+price = 15
+metadata/_custom_type_script = "uid://5e5dqru2odgj"

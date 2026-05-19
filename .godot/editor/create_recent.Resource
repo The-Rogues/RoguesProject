@@ -1,2 +1,2 @@
-res://content/items/koala_plush/koala_plush_item_data.gd
+res://shop_scenes/shop_entry_data/card_pack_service_data.gd
 AtlasTexture

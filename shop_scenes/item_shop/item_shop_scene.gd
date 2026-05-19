@@ -39,6 +39,8 @@ func initialize(data:ItemShopData) -> void:
 	# Adding Services
 	shop_entries.append_array(data.shop_services)
 	
+	shop_entries.append(data.card_packs.pick_random())
+	
 	# Adding Items
 	var shop_items:Array[ItemData] = data.get_shop_items()
 	for item_data in shop_items:
@@ -66,50 +68,52 @@ func initialize(data:ItemShopData) -> void:
 # -------------------------------------------------
 func _on_entry_selected(shop_entry:ShopEntry):
 	item_selected.emit()
-	
+
 	if !player_data:
 		_process_bought_entry(shop_entry)
 		return
-	
-	if not player_data.can_pay_price(shop_entry.entry_data.price):
-		#Reject
-		failed_to_buy_item.emit()
-		shop_entry.reject()
-		shop_keeper_dialogue.say("Not enough Gold!")
-		return
-	
+
 	if shop_entry.entry_data is ShopServiceData:
 		_process_shop_service(shop_entry)
 		return
-	
+
 	if shop_entry.entry_data is ShopItemData:
-		if shop_state == ShopState.BUY_ITEMS:
-			if player_data.inventory_full():
-				#Reject
-				shop_entry.reject()
-				shop_keeper_dialogue.say("Your inventory is full!")
-			else:
-				player_data.buy_item(shop_entry.entry_data.item)
-				_process_bought_entry(shop_entry)
-		elif shop_state == ShopState.SELL_ITEMS:
-			player_data.sell_item(shop_entry.entry_data.item)
-			_process_bought_entry(shop_entry)
+		match shop_state:
+			ShopState.BUY_ITEMS:
+				_handle_buy_item(shop_entry)
+
+			ShopState.SELL_ITEMS:
+				_handle_sell_item(shop_entry)
+
+
+func _process_shop_service(service:ShopEntry):
+	if service.entry_data is not ShopServiceData:
 		return
 	
-	shop_entry.reject()
+	pending_service = service
+	
+	service.entry_data.service_completed.connect(_on_service_completed)
+	service.entry_data.service_canceled.connect(_on_service_canceled)
+	
+	service.entry_data.execute_service()
 
 
-func _process_shop_service(shop_entry:ShopEntry):
-	if shop_entry.entry_data is ShopServiceData:
-		pending_service = shop_entry
-		match shop_entry.entry_data.service_id:
-			0:
-				GlobalSessionInterface.open_card_removal()
-				if !GlobalSessionInterface.card_remover.is_connected("closed",
-						_on_card_removal_returned):
-					GlobalSessionInterface.card_remover.closed.connect(
-							_on_card_removal_returned)
+func _handle_buy_item(shop_entry:ShopEntry):
+	if !_can_purchase(shop_entry.entry_data):
+		failed_to_buy_item.emit()
+		shop_entry.reject()
+		shop_keeper_dialogue.say("Not enough Gold!")
+	elif player_data.inventory_full():
+		shop_entry.reject()
+		shop_keeper_dialogue.say("Your inventory is full!")
+	else:
+		player_data.buy_item(shop_entry.entry_data.item)
+		_process_bought_entry(shop_entry)
 
+
+func _handle_sell_item(shop_entry:ShopEntry):
+	player_data.sell_item(shop_entry.entry_data.item)
+	_process_bought_entry(shop_entry)
 
 
 func _process_bought_entry(shop_entry:ShopEntry):
@@ -120,10 +124,43 @@ func _process_bought_entry(shop_entry:ShopEntry):
 	
 	shop_keeper_dialogue.say("Thank you.")
 
+# -------------------------------------------------
+# Shop Service Events
+# -------------------------------------------------
+func _on_service_completed():
+	if !pending_service:
+		return
+	
+	player_data.set_gold(
+				player_data.gold - pending_service.entry_data.price)
+	
+	_process_bought_entry(pending_service)
+	disconnect_service_signals()
+	pending_service = null
+
+
+func _on_service_canceled():
+	failed_to_buy_item.emit()
+	disconnect_service_signals()
+	pending_service = null
+
+
+func disconnect_service_signals():
+	if !pending_service:
+		return
+	
+	pending_service.entry_data.service_completed.disconnect(_on_service_completed)
+	pending_service.entry_data.service_canceled.disconnect(_on_service_canceled)
 
 # -------------------------------------------------
 # Helper Functions
 # -------------------------------------------------
+func _can_purchase(shop_entry:ShopEntryData) -> bool:
+	if !player_data or !shop_entry:
+		return false
+	
+	return player_data.gold >= shop_entry.price
+
 
 # Creates a shop entry to purchase a passed item
 func _create_shop_item_entry(
@@ -186,6 +223,9 @@ func _on_sell_items_toggled(toggled_on: bool) -> void:
 		
 		shop_entry_interface.update_shop_ui(sellable_item_entries)
 		shop_state = ShopState.SELL_ITEMS
+
+
+
 
 
 func _on_card_removal_returned(completed:bool):

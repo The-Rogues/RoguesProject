@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://bd6m2fribqpbi"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_50c2v"]
-[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_g712a"]
 [ext_resource type="Resource" uid="uid://l2nwenkn6gcc" path="res://content/monsters/fire_ant/fire_ant.tres" id="2_urreo"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_3kih2"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_bl8lm"]
 [ext_resource type="Resource" uid="uid://cejudkort1ssj" path="res://content/monsters/fire_ant_larvae/fire_ant_larvae.tres" id="3_yx4j7"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_yx4j7"]
+[ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="6_3kih2"]
 
 [sub_resource type="Resource" id="Resource_75o6r"]
 script = ExtResource("4_yx4j7")
