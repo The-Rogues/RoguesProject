@@ -13,7 +13,7 @@
 script = ExtResource("2_ps817")
 card_pool = Array[ExtResource("1_ps817")]([ExtResource("2_f11rm"), ExtResource("3_k8paj"), ExtResource("4_27sqy"), ExtResource("5_kydgx"), ExtResource("6_ku5w4")])
 texture = ExtResource("8_nxy2c")
-name = "Tactical"
+name = "Open Tactical card pack"
 description = "Choose 1 Tactical card to add to your deck."
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

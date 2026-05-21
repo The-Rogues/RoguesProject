@@ -1,3 +1,4 @@
+res://globals/achievements_system/
 res://content/scene_configuration/shops/item_shop/card_packs/
 res://content/items/koala_plush/
 res://content/scene_configuration/battle_loot/
@@ -9,7 +10,6 @@ res://content/items/
 res://battle_scene/ui/
 res://content/achievements/
 res://testing_and_prototypes/CardEffects/
-res://globals/achievements_system/
 res://globals/stat_tracking/
 C:/Users/Conqu/Documents/SoftwareProjects/Godot/
 res://splash_screen/

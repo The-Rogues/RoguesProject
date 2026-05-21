@@ -1,8 +1,6 @@
 extends Resource
 class_name AchievementData
 
-signal unlocked(achievement:AchievementData)
-
 enum StatType {GameStat, BattleStat}
 
 @export var name:String
@@ -14,9 +12,9 @@ enum StatType {GameStat, BattleStat}
 @export var stat_checks:Array[StatRequirement]
 
 
-func evaluate() -> void:
+func evaluate() -> bool:
 	if completed:
-		return
+		return false
 	
 	var passed := true
 	
@@ -67,10 +65,6 @@ func evaluate() -> void:
 					passed = false
 	
 	if passed:
-		_unlock()
-
-
-func _unlock():
-	completed = true
-	print("Achievement unlocked: " + name)
-	unlocked.emit(self)
+		completed = true
+		return true
+	return false

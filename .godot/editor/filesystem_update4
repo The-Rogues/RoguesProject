@@ -233,3 +233,11 @@ res://battle_scene/win_screen/rewards_data/item_reward_data.gd
 res://battle_scene/win_screen/battle_reward.gd
 res://battle_scene/win_screen/stat_modifier/stat_modifier.tscn
 res://battle_scene/win_screen/stat_modifier/stat_modifier.gd
+res://content/scene_configuration/shops/item_shop/card_packs/tactical_card_pack.tres
+res://globals/achievements_system/achievement_pop_up.gd
+res://globals/achievements_system/achievement_pop_up.tscn
+res://globals/achievements_system/achievement_data.gd
+res://globals/achievements_system/achievement_manager.gd
+res://globals/session_interface/session_interface.tscn
+res://battle_scene/entities/object/object_entity.tscn
+res://common/sprite_flasher/hit_flash.tres

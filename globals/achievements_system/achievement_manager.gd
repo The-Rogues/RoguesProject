@@ -3,6 +3,9 @@
 extends Node
 class_name AchievementsManager
 
+signal achievement_unlocked(achievement:AchievementData)
+
+
 signal achievements_reset
 @export var achievements:Array[AchievementData]
 
@@ -65,7 +68,8 @@ func _disconnect_existing() -> void:
 func _evaluate_signal(signal_name:String) -> void:
 	for achievement in achievements:
 		if achievement.listen_signal == signal_name:
-			achievement.evaluate()
+			if achievement.evaluate():
+				achievement_unlocked.emit(achievement)
 
 
 func reset_achievements():
