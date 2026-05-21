@@ -9,7 +9,7 @@ signal not_accepted
 var data:BattleRewardData
 
 func initialize(_data:BattleRewardData):
-	reward_texture.texture = _data.display_texture
+	reward_texture.texture = _data.get_reward_texture()
 	reward_name.text = _data.get_reward_name()
 	data = _data
 

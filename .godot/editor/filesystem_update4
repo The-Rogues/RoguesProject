@@ -226,3 +226,10 @@ res://content/items/diamond/diamond_texture.tres
 res://battle_scene/entities/actions/skill/add_item_to_battle_reward.gd
 res://shop_scenes/shop_entry.tscn
 res://common/tool_tip/tool_tip.tscn
+res://battle_scene/battle_scene.tscn
+res://battle_scene/entities/player/melee_weapon/long_sword.tres
+res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres
+res://battle_scene/win_screen/rewards_data/item_reward_data.gd
+res://battle_scene/win_screen/battle_reward.gd
+res://battle_scene/win_screen/stat_modifier/stat_modifier.tscn
+res://battle_scene/win_screen/stat_modifier/stat_modifier.gd

@@ -5,17 +5,14 @@
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_uahfr"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_ce22o"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_sds6a"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_2.tres" id="6_jfmdv"]
-[ext_resource type="Resource" path="res://content/cards/skittish_cards/shifty/shifty.tres" id="6_uahfr"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="6_sds6a"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="7_8qiin"]
-[ext_resource type="Resource" path="res://content/cards/skittish_cards/trample/trample.tres" id="7_ce22o"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/fire_saber.tres" id="8_uahfr"]
-[ext_resource type="Resource" path="res://content/items/chest_key/chest_key_item_data.tres" id="9_3l5uq"]
-[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="9_ce22o"]
-[ext_resource type="Resource" path="res://content/personality_traits/vengeful.tres" id="10_3l5uq"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/trident.tres" id="8_jfmdv"]
+[ext_resource type="Resource" path="res://content/personality_traits/crafty.tres" id="9_uahfr"]
+[ext_resource type="Resource" path="res://content/personality_traits/tactical.tres" id="10_ce22o"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="11_t60l6"]
-[ext_resource type="Resource" path="res://content/personality_traits/laidback.tres" id="12_7xv35"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/torch.tres" id="13_3l5uq"]
+[ext_resource type="Resource" path="res://content/personality_traits/friendly.tres" id="12_3l5uq"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/spear.tres" id="13_7xv35"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="14_ff1hj"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="15_rjjt7"]
 [ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_ugj3v"]
@@ -26,38 +23,36 @@
 
 [sub_resource type="Resource" id="Resource_8qiin"]
 script = ExtResource("11_t60l6")
-offensive_trait = ExtResource("10_3l5uq")
+offensive_trait = ExtResource("10_ce22o")
 offensive_weight = 1
-defensive_trait = ExtResource("9_ce22o")
+defensive_trait = ExtResource("9_uahfr")
 defensive_weight = 2
-strategic_trait = ExtResource("12_7xv35")
+strategic_trait = ExtResource("12_3l5uq")
 strategic_weight = 1
-priority_trait = ExtResource("12_7xv35")
+priority_trait = ExtResource("12_3l5uq")
 
 [sub_resource type="Resource" id="Resource_iofhu"]
 script = ExtResource("14_ff1hj")
-name = "Sarah"
-character_texture = ExtResource("6_jfmdv")
-melee_weapon_texture = ExtResource("8_uahfr")
-ranged_weapon_texture = ExtResource("13_3l5uq")
+name = "Elijah"
+character_texture = ExtResource("6_sds6a")
+melee_weapon_texture = ExtResource("8_jfmdv")
+ranged_weapon_texture = ExtResource("13_7xv35")
 max_health = 50
-current_health = 45
+current_health = 50
 current_energy = 2
 max_energy = 3
 item_capacity = 3
-items = Array[ExtResource("7_8qiin")]([ExtResource("9_3l5uq")])
-cards = Array[ExtResource("1_sds6a")]([ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("5_sds6a"), ExtResource("5_sds6a"), ExtResource("6_uahfr"), ExtResource("7_ce22o")])
-gold = 128
+cards = Array[ExtResource("1_sds6a")]([ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("5_sds6a"), ExtResource("5_sds6a")])
+gold = 19
 personality = SubResource("Resource_8qiin")
 
 [resource]
 script = ExtResource("15_rjjt7")
 player_data = SubResource("Resource_iofhu")
-map_seed = 96960915
-player_node_index = 17
-single_time_mini_events = Array[ExtResource("16_ugj3v")]([ExtResource("19_21v4l"), ExtResource("17_ju2aj"), ExtResource("18_7cy65"), ExtResource("20_shnnu")])
-total_gold_collected = 907
-total_items_collected = 2
-total_rooms_explored = 6
-total_ai_packs_found = 1
+map_seed = 1489807610
+player_node_index = 9
+single_time_mini_events = Array[ExtResource("16_ugj3v")]([ExtResource("17_ju2aj"), ExtResource("19_21v4l"), ExtResource("20_shnnu"), ExtResource("18_7cy65")])
+total_gold_collected = 28
+total_items_collected = 1
+total_rooms_explored = 3
 initialized = true
