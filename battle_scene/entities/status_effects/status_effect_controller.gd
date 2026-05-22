@@ -22,7 +22,8 @@ func add_effect(
 	effect:StatusEffectBehaviour, 
 	duration:int = -1, 
 	stack:int = -1,
-	turn_entered: bool = true
+	turn_entered: bool = true,
+	restore: bool = false
 ) -> void:
 	# Checking if effect already applied
 	var new_instance := ActiveStatusEffect.new(effect, duration, stack, turn_entered)
@@ -38,10 +39,11 @@ func add_effect(
 		effect_changed.emit(existing_instance)
 	else:
 		active_effects.append(new_instance)
-		new_instance.effect.on_apply(
-			affected_creature,
-			new_instance
-		)
+		if not restore:
+			new_instance.effect.on_apply(
+				affected_creature,
+				new_instance
+			)
 		
 		effect_added.emit(new_instance)
 

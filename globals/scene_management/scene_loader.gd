@@ -78,7 +78,30 @@ func load_battle_scene():
 	if loading_scene:
 		return
 	
-	battle_config = battle_builder.create_battle_config()
+	var run: RunProgress = GlobalSessionManager.run_progress
+	
+	
+	if run != null and run.room_in_progress \
+	and run.battle != null and run.battle.battle_config != null:
+		battle_config = BattleConfig.new(
+			run.battle.battle_config.enemy_encounter,
+			run.battle.battle_config.battle_field_config,
+			run.player_data
+		)
+	else:
+		# Fresh battle — generate and save config
+		battle_config = battle_builder.create_battle_config()
+		if run != null:
+			if run.battle == null:
+				run.battle = BattleSaveData.new()
+			run.battle.is_active = true
+			run.battle.resume_node_index = run.pending_node_index
+			var config_save : BattleConfigSaveData = BattleConfigSaveData.new()
+			config_save.enemy_encounter = battle_config.enemy_encounter     
+			config_save.battle_field_config = battle_config.battle_field_config
+			run.battle.battle_config = config_save
+			GlobalSaveManager.save_run(run)
+	
 	ResourceLoader.load_threaded_request(BATTLE_SCENE_PATH)
 	loading_scene_path = BATTLE_SCENE_PATH
 	loading_scene = true
