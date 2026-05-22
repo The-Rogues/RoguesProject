@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dthoottn2f5po"
 script = ExtResource("3_ra5bn")
 type = 2
 category = 1
-energy_cost = 3
+energy_cost = 2
 name = "Go Easy"
 description = "Reduce an enemy's remaining HP by [color=#43A047]40[/color] percent."
 play_actions = Array[ExtResource("1_s04sr")]([SubResource("Resource_str63")])

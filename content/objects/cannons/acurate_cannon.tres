@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://caws41005dm5o"]
+
+[ext_resource type="Texture2D" uid="uid://rxbinhawpbiv" path="res://content/objects/cannons/assets/accurate_cannon.png" id="1_mm3pd"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_yqhn2"]
+[ext_resource type="PackedScene" uid="uid://cm4b2q7umh0uh" path="res://content/objects/cannons/projectiles/acurate_cannon_ball.tscn" id="3_yqhn2"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="4_l5pt4"]
+[ext_resource type="Script" uid="uid://cx0b35316xpjg" path="res://content/objects/cannons/scripts/preferred_enemy_projectile_action.gd" id="5_fodbh"]
+[ext_resource type="Script" uid="uid://c7jsu5qwcwqo7" path="res://content/objects/chest/destroy_front_object_action.gd" id="6_qqmce"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="7_anflj"]
+
+[sub_resource type="Resource" id="Resource_l5pt4"]
+script = ExtResource("4_l5pt4")
+projectile_scene = ExtResource("3_yqhn2")
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_wsfim"]
+script = ExtResource("5_fodbh")
+projectile_config = SubResource("Resource_l5pt4")
+metadata/_custom_type_script = "uid://cx0b35316xpjg"
+
+[sub_resource type="Resource" id="Resource_2n512"]
+script = ExtResource("6_qqmce")
+metadata/_custom_type_script = "uid://c7jsu5qwcwqo7"
+
+[resource]
+script = ExtResource("7_anflj")
+targeting_categories = Array[int]([1])
+interaction = 8
+interaction_actions = Array[ExtResource("2_yqhn2")]([SubResource("Resource_wsfim"), SubResource("Resource_2n512")])
+hover_description = "
+Object Category: Weapon
+
+On Activated: Fires a 30 damage projectile at preferred enemy."
+display_texture = ExtResource("1_mm3pd")
+name = "Blast Cannon"
+health = 1
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

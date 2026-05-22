@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://b2fvbf3bdy0va"]
 
-[ext_resource type="Texture2D" uid="uid://chp7e4rtckvvi" path="res://common/art/placeholder/32_rogues/tiles.png" id="1_iexhh"]
+[ext_resource type="Texture2D" uid="uid://0gqsa4a6ea4m" path="res://common/art/placeholder/32_rogues/tiles.png" id="1_iexhh"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_04g3j"]
 [ext_resource type="PackedScene" uid="uid://cm0mikhelv506" path="res://battle_scene/entities/projectiles/arrow/arrow.tscn" id="3_krf8q"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="4_qovhj"]

@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://cmo07t7ydv6yv"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_ley2s"]
-[ext_resource type="Resource" uid="uid://dilnesq4smd0t" path="res://content/monsters/gatling_worm/gatling_worm.tres" id="2_slsrh"]
+[ext_resource type="Resource" uid="uid://bpl8ew0bg32ka" path="res://content/monsters/gatling_worm/gatling_worm.tres" id="2_slsrh"]
+[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_t1tus"]
 [ext_resource type="Resource" uid="uid://bdqekfp4y42wh" path="res://content/monsters/crawler/crawler.tres" id="3_c7ihl"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_cr614"]
 [ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="4_v7362"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="5_601it"]
-[ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="6_slsrh"]
 
 [sub_resource type="Resource" id="Resource_1gjnx"]
 script = ExtResource("5_601it")

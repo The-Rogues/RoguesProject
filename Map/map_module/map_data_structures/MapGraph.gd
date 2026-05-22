@@ -602,16 +602,17 @@ func populate_events(rand_seed: int) -> void:
 	# Get premade event instances.
 	var battle_data: Resource = load("res://Map/event/event_instances/battle_event_data.tres")
 	var shop_data: Resource = load("res://Map/event/event_instances/shop_event_data.tres")
-	#var personality_data: Resource = load("res://Map/event/event_instances/personality_event_data.tres")
+	var personality_data: Resource = load("res://Map/event/event_instances/personality_event_data.tres")
 	var boss_data: Resource = load("res://Map/event/event_instances/boss_event_data.tres")
-	var mini_data: Resource = load("res://Map/event/event_instances/test_mini_data.tres") 
-	#var card_data: Resource = load("res://Map/event/event_instances/card_shop_event_data.tres")
+	#var mini_data: Resource = load("res://Map/event/event_instances/test_mini_data.tres") 
+	var card_data: Resource = load("res://Map/event/event_instances/card_shop_event_data.tres")
+	var blank_data: Resource = load("res://Map/event/event_instances/blank_data.tres")
 	
 	# Create RandomNumberGernerator and give it the seed.
 	var rand_gen = RandomNumberGenerator.new()
 	rand_gen.seed = rand_seed
 	
-	node_arr[0].node_data = add_main_event(battle_data)
+	node_arr[0].node_data = add_main_event(blank_data)
 	
 	# First layer is always battle nodes.
 	for i in range(0, 2):
@@ -623,7 +624,7 @@ func populate_events(rand_seed: int) -> void:
 	layer_three_event_node.node_data.mini_event = choose_layer_one_event()
 	
 	var layer_four: Array[RefCounted] = get_layer(3)
-	var shop_types: Array[RefCounted] = [shop_data, shop_data, shop_data]
+	var shop_types: Array[RefCounted] = [shop_data, personality_data, card_data]
 	for i in range(0, layer_four.size()):
 		var curr_shop: RefCounted = shop_types.pick_random()
 		layer_four[i].node_data = add_main_event(curr_shop)
@@ -632,6 +633,12 @@ func populate_events(rand_seed: int) -> void:
 	# Iterate over all other map layers.
 	var curr_layer: Array[RefCounted]
 	for i in range(4, map_layers):
+		
+		var curr_available_shops: Array[Resource] = [
+			shop_data,
+			card_data,
+			personality_data
+		]
 		
 		# If the final layer is reached, it is set to a boss node.
 		if i == (map_layers - 1):
@@ -668,37 +675,38 @@ func populate_events(rand_seed: int) -> void:
 			# If the current node has a forced type, set that type.
 			# Otherwise, choose a random type. Set all adjacent nodes to the opposite type.
 			if is_shop:
-				curr_layer[j].node_data = add_main_event(shop_data)
+				if curr_available_shops.size() == 0:
+					curr_available_shops = [shop_data, card_data, personality_data]
+				var rand_idx: int = rand_gen.randi_range(0, curr_available_shops.size() - 1)
+				curr_layer[j].node_data = add_main_event(curr_available_shops[rand_idx])
+				curr_available_shops.erase(curr_available_shops[rand_idx])
 				for k in range(0, curr_layer[j].node_edges.size()):
 					curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
 			elif is_battle:
 				curr_layer[j].node_data = add_main_event(battle_data)
 				for k in range(0, curr_layer[j].node_edges.size()):
-					curr_layer[j].node_edges[k].node_data = add_main_event(shop_data)
+					if curr_available_shops.size() == 0:
+						curr_available_shops = [shop_data, card_data, personality_data]
+					var rand_idx: int = rand_gen.randi_range(0, curr_available_shops.size() - 1)
+					curr_layer[j].node_edges[k].node_data = add_main_event(curr_available_shops[rand_idx])
+					curr_available_shops.erase(curr_available_shops[rand_idx])
 			else:
 				if rand_gen.randf() < 0.5:
 					curr_layer[j].node_data = add_main_event(battle_data)
 					for k in range(0, curr_layer[j].node_edges.size()):
-						curr_layer[j].node_edges[k].node_data = add_main_event(shop_data)
+						if curr_available_shops.size() == 0:
+							curr_available_shops = [shop_data, card_data, personality_data]
+						var rand_idx: int = rand_gen.randi_range(0, curr_available_shops.size() - 1)
+						curr_layer[j].node_edges[k].node_data = add_main_event(curr_available_shops[rand_idx])
+						curr_available_shops.erase(curr_available_shops[rand_idx])
 				else:
-					curr_layer[j].node_data = add_main_event(shop_data)
+					if curr_available_shops.size() == 0:
+						curr_available_shops = [shop_data, card_data, personality_data]
+					var rand_idx: int = rand_gen.randi_range(0, curr_available_shops.size() - 1)
+					curr_layer[j].node_data = add_main_event(curr_available_shops[rand_idx])
+					curr_available_shops.erase(curr_available_shops[rand_idx])
 					for k in range(0, curr_layer[j].node_edges.size()):
 						curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
-	
-	var shop_nodes: Array[RefCounted]
-	for i in range(0, node_arr.size()):
-		if node_arr[i].node_data.main_event == shop_data:
-			shop_nodes.append(node_arr[i].node_data)
-	
-	#var count: int = 0
-	#while shop_nodes.size() != 0:
-	#	var target_idx: int = rand_gen.randi_range(0, shop_nodes.size() - 1)
-	#	if (count % 3) == 0:
-	#		shop_nodes[target_idx].main_event = personality_data
-	#	elif (count % 3) == 1:
-	#		shop_nodes[target_idx].main_event = card_data
-	#	shop_nodes.remove_at(target_idx)
-	#	count += 1
 	
 	for i in range(4, map_layers):
 		
@@ -706,19 +714,20 @@ func populate_events(rand_seed: int) -> void:
 		var num_events: int
 		
 		if target_layer.size() == 4:
-			if randf() < 0.3:
+			if rand_gen.randf() < 0.3:
 				num_events = 1
 			else:
 				num_events = 2
 		else:
-			if randf() < 0.3:
+			if rand_gen.randf() < 0.3:
 				num_events = 0
 			else:
 				num_events = 1
 			
 		for j in range(0, num_events):
 			var event = choose_mini_event()
-			var target_node: RefCounted = target_layer.pick_random() 
+			var target_node_idx: int = rand_gen.randi_range(0, target_layer.size() - 1)
+			var target_node: RefCounted = target_layer[target_node_idx]
 			if !event.repeatable:
 				var run = GlobalSessionManager.run_progress
 				if run:

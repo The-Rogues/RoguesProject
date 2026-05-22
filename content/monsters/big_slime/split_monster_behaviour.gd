@@ -7,7 +7,6 @@ class_name HealthThresholdMonsterBehavior
 
 
 func decide_next_action(monster:MonsterEntity):
-	print("Split")
 	if monster.health.value <= health_threshold:
 		var sequence = MoveSequence.new()
 		sequence.moves.append(move)

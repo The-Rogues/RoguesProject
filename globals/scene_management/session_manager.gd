@@ -38,18 +38,13 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	
 	var player_data = PlayerData.new()
 	player_data.initialize(data.personality, DEFAULT_STARTING_DECK.cards.duplicate(true))
-	player_data.character_texture = data.character_texture
-	player_data.melee_weapon_texture = data.melee_weapon_texture
-	player_data.ranged_weapon_texture = data.ranged_weapon_texture
-	player_data.name = data.name
-	
 	run.player_data = player_data
-	#run.player_data.name = data.name
-	#run.player_name = data.name
-	#run.player_texture = data.display_texure
-	#run.player_backstory = data.backstory
-	#run.player_melee_weapon_texture = data.melee_weapon_texture
-	#run.player_ranged_weapon_texture = data.ranged_weapon_texture
+	run.player_data.name = data.name
+	run.player_name = data.name
+	run.player_texture = data.display_texure
+	run.player_backstory = data.backstory
+	run.player_melee_weapon_texture = data.melee_weapon_texture
+	run.player_ranged_weapon_texture = data.ranged_weapon_texture
 	
 	run.total_gold_collected = 0
 	run.total_cards_collected = 0
@@ -64,11 +59,6 @@ func create_run(data:PlayerInitializationData) -> RunProgress:
 	#run.player_data.cards.append(
 	#	load("res://ai/ai-cards/inventive_strike/inventive_strike_data.tres")
 	#)
-	
-	Events.used_personality_trait.emit(player_data.personality.offensive_trait.name)
-	Events.used_personality_trait.emit(player_data.personality.defensive_trait.name)
-	Events.used_personality_trait.emit(player_data.personality.strategic_trait.name)
-	
 	
 	return run
 
@@ -127,7 +117,7 @@ func select_map_node(corr_node: RefCounted) -> void:
 	run_progress.room_in_progress = true
 	GlobalSaveManager.save_run(run_progress)
 	
-	if corr_node.node_data.mini_event != null:
+	if corr_node.node_data.mini_event != null and not run_progress.mini_event_completed:
 		#var mini_event_scene: PackedScene = load("res://Map/mini_event_screen/MiniEventScreen.tscn")
 		#var mini_instance: Control = mini_event_scene.instantiate()
 		#get_tree().current_scene.add_child(mini_instance)
@@ -155,6 +145,16 @@ func complete_current_room() -> void:
 	run_progress.pending_room_type = -1
 	run_progress.room_in_progress = false
 	
+	# Clear battle save data
+	run_progress.battle = null
+		
+	# Clear extra item slot.
+	if run_progress.player_data.items.size() == run_progress.player_data.item_capacity:
+		run_progress.player_data.remove_item(
+			run_progress.player_data.items[run_progress.player_data.items.size() - 1]
+		)
+	run_progress.shop_save = null
+	run_progress.mini_event_completed = false
 	
 	GlobalSaveManager.save_run(run_progress)
 
@@ -179,8 +179,6 @@ func get_current_floor():
 
 func get_character_texture():
 	if run_progress == null:
-		return load("res://common/art/random_art/donkey.tres")
-	if run_progress.player_data == null:
-		return load("res://common/art/random_art/donkey.tres")
+		return load("res://Testing/donkey.tres")
 	
-	return run_progress.player_data.character_texture
+	return run_progress.player_texture

@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b77g5rc258c10" path="res://Map/event/event_callbacks/load_card_shop.gd" id="1_bl1ut"]
 [ext_resource type="Script" uid="uid://dd4yv1layn0sy" path="res://Map/event/event_resources/MainEventData.gd" id="1_psnmj"]
-[ext_resource type="Texture2D" uid="uid://bc3h8yh2v7s6t" path="res://Map/map_assets/availablecardshop.png" id="2_rgqai"]
-[ext_resource type="Texture2D" uid="uid://c24s8suw7amhu" path="res://Map/map_assets/availablecardshophover.png" id="3_bl1ut"]
-[ext_resource type="Texture2D" uid="uid://ddvartckr0g1x" path="res://Map/map_assets/cardshop.png" id="4_tsxp6"]
+[ext_resource type="Texture2D" uid="uid://dtnn8avlovxs5" path="res://test_art/available_card.png" id="3_bl1ut"]
+[ext_resource type="Texture2D" uid="uid://dibbd5nsrac53" path="res://test_art/available_card_hover.png" id="4_tsxp6"]
+[ext_resource type="Texture2D" uid="uid://cixtp5o51lyxv" path="res://test_art/unavailable_card.png" id="5_cgrtc"]
+[ext_resource type="Texture2D" uid="uid://dcpniy2fvpqjs" path="res://test_art/completed_shop.png" id="5_tsxp6"]
 
 [resource]
 script = ExtResource("1_psnmj")
 event_callback = ExtResource("1_bl1ut")
-tex_ev_unavailable = ExtResource("4_tsxp6")
-tex_ev_available = ExtResource("2_rgqai")
-tex_ev_hover = ExtResource("3_bl1ut")
+tex_ev_unavailable = ExtResource("5_cgrtc")
+tex_ev_available = ExtResource("3_bl1ut")
+tex_ev_hover = ExtResource("4_tsxp6")
+tex_ev_passed = ExtResource("5_tsxp6")
 metadata/_custom_type_script = "uid://dd4yv1layn0sy"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MainEventData" format=3 uid="uid://cmqecx55mharo"]
+
+[ext_resource type="Script" uid="uid://c7ksovc3r2vnk" path="res://Map/event/event_callbacks/template.gd" id="1_0w82m"]
+[ext_resource type="Script" uid="uid://dd4yv1layn0sy" path="res://Map/event/event_resources/MainEventData.gd" id="1_lhjrn"]
+[ext_resource type="Texture2D" uid="uid://biecjqnjyj6tg" path="res://test_art/passed_position.png" id="3_tlvs0"]
+
+[resource]
+script = ExtResource("1_lhjrn")
+event_callback = ExtResource("1_0w82m")
+tex_ev_unavailable = ExtResource("3_tlvs0")
+tex_ev_available = ExtResource("3_tlvs0")
+tex_ev_hover = ExtResource("3_tlvs0")
+tex_ev_passed = ExtResource("3_tlvs0")
+metadata/_custom_type_script = "uid://dd4yv1layn0sy"

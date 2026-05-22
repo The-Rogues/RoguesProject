@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://carcwqa4rb615"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_n01hr"]
+[ext_resource type="Texture2D" uid="uid://doceeh17d8r7b" path="res://content/objects/glaicer_wall/glaicer_wall.png" id="1_x8523"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_fikrs"]
+[ext_resource type="Script" uid="uid://mn2qqhhkltii" path="res://content/objects/glaicer_wall/glaicer_wall_move_action.gd" id="3_d0kl5"]
+
+[sub_resource type="Resource" id="Resource_5tgm1"]
+script = ExtResource("3_d0kl5")
+is_right = false
+ignore_foreground = true
+metadata/_custom_type_script = "uid://mn2qqhhkltii"
+
+[resource]
+script = ExtResource("2_fikrs")
+targeting_categories = Array[int]([0])
+interaction = 5
+interaction_actions = Array[ExtResource("1_n01hr")]([SubResource("Resource_5tgm1")])
+turn_interaction_counter = 1
+hover_description = "
+Object Category: Cover
+
+On Player Turn Entered: Moves left if possible. Otherwise, begins moving right."
+display_texture = ExtResource("1_x8523")
+name = "Glacier Wall"
+health = 25
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

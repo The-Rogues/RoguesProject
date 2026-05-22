@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://cm5184nfihs1g"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_slxgw"]
-[ext_resource type="Resource" uid="uid://dcg6lha6wurrf" path="res://content/fletcher/monsters/ice_wizard/ice_wizard.tres" id="3_n7qqd"]
-[ext_resource type="Resource" uid="uid://fxp7g31f6nmx" path="res://content/fletcher/monsters/fragile_minion/fragile_minion.tres" id="4_slxgw"]
+[ext_resource type="Resource" uid="uid://dcg6lha6wurrf" path="res://content/monsters/ice_wizard/ice_wizard.tres" id="3_n7qqd"]
+[ext_resource type="Resource" uid="uid://fxp7g31f6nmx" path="res://content/monsters/ice_wizard/fragile_minion/fragile_minion.tres" id="4_slxgw"]
 [ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="5_ytkql"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="6_s32me"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="7_18u30"]

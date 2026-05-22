@@ -238,3 +238,22 @@ func reset_attack_targeting() -> void:
 				enemies[i].updated_targeting.remove_at(j)
 			elif enemies[i].updated_targeting[j] == MonsterData.AttackTargetingCategory.IMBUED:
 				enemies[i].updated_targeting.remove_at(j)
+
+func spawn_enemy_from_save(state: MonsterSaveData) -> void:
+	var monster: MonsterEntity = template_enemy.instantiate()
+	spawn_parent.add_child(monster)
+	monster.global_position = spawn_parent.global_position
+	enemies.append(monster)
+	monster.initialize(state.monster_data)
+	
+	# Override randomized health with saved values
+	monster.health.initialize(state.current_health, state.max_health)
+	
+	# Restore move index and intent
+	monster.move_index = state.move_index
+	monster.move_sequence = state.move_sequence
+	monster.intent = state.intent
+	
+	enemy_spawned.emit(monster)
+	monster.defeated.connect(_on_creature_defeated)
+	_position_enemies()

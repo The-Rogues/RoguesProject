@@ -11,8 +11,8 @@ extends Control
 var map_button_scn: PackedScene = preload("res://Map/map_module/map_scenes/MapButton/MapButton.tscn")
 
 # Textures to be used by MapButtons.
-var texture_player: CompressedTexture2D = preload("res://Map/map_assets/player.png")
-var texture_passed: CompressedTexture2D = preload("res://Map/map_assets/passed.png")
+var texture_player: CompressedTexture2D = preload("res://test_art/player_position.png")
+var texture_passed: CompressedTexture2D = preload("res://test_art/passed_position.png")
 
 var map_buttons: Array[TextureButton] # Array to keep track of buttons that belong to the map instance.
 var map_structure: RefCounted # Map structure is received in the init function, so the script does not need to be preloaded.
@@ -224,6 +224,7 @@ func set_button_states() -> void:
 			accessable_buttons = map_structure.node_arr[i].node_edges.duplicate(true)
 			map_buttons[i].texture_normal = texture_player
 			map_buttons[i].texture_hover = texture_player
+			map_buttons[i].hide_mini_event()
 		
 		# If the player's node has been found, this branch is executed.
 		elif player_layer >= 0:
@@ -255,10 +256,13 @@ func set_button_states() -> void:
 					map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
 					map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
 		else:
-			
-			# Set textures for passed nodes.
-			map_buttons[i].texture_normal = texture_passed
-			map_buttons[i].texture_hover = texture_passed
+			if map_structure.visited_nodes.has(map_buttons[i].corr_node):
+				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_passed
+				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_passed
+			else:
+				# Set textures for passed nodes.
+				map_buttons[i].texture_normal = texture_passed
+				map_buttons[i].texture_hover = texture_passed
 			map_buttons[i].hide_mini_event()
 
 

@@ -9,8 +9,6 @@ func on_stack(
 ) -> void:
 	instance.stack += _other.stack
 	instance.duration = -1
-	if _affected is PlayerEntity:
-		_affected.block.add_block(_other.stack)
 
 
 func get_status_name() -> String:

@@ -3,24 +3,36 @@
 [ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_iu2km"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_n0ome"]
 [ext_resource type="Script" uid="uid://dpxubkl5w63oj" path="res://battle_scene/entities/status_effects/common/armored_status_effect.gd" id="2_aqqu8"]
+[ext_resource type="Script" uid="uid://d3g82s2prsmh6" path="res://content/monsters/gatling_worm/slow_power/slow_power.gd" id="2_pvc6v"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_pvc6v"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_wfdxq"]
 [ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_wfdxq"]
 
 [sub_resource type="Resource" id="Resource_pd3bw"]
+script = ExtResource("2_pvc6v")
+can_reapply = true
+metadata/_custom_type_script = "uid://d3g82s2prsmh6"
+
+[sub_resource type="Resource" id="Resource_8gaf3"]
+script = ExtResource("3_wfdxq")
+power = SubResource("Resource_pd3bw")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[sub_resource type="Resource" id="Resource_auh0s"]
 script = ExtResource("2_aqqu8")
 metadata/_custom_type_script = "uid://dpxubkl5w63oj"
 
-[sub_resource type="Resource" id="Resource_8gaf3"]
+[sub_resource type="Resource" id="Resource_amlyd"]
 script = ExtResource("3_pvc6v")
-behaviour = SubResource("Resource_pd3bw")
-duration = 2
-stack = null
-turn_entered = null
+behaviour = SubResource("Resource_auh0s")
+duration = 3
+stack = 0
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
-[sub_resource type="Resource" id="Resource_auh0s"]
+[sub_resource type="Resource" id="Resource_uvq45"]
 script = ExtResource("4_wfdxq")
-effect = SubResource("Resource_8gaf3")
+effect = SubResource("Resource_amlyd")
+ignore_foreground = true
 metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 
 [resource]
@@ -28,6 +40,7 @@ script = ExtResource("1_n0ome")
 type = 1
 intent_icon = ExtResource("1_iu2km")
 name = "Hard Skin"
-description = "This Enemy intends to apply a buff"
-primary_action = SubResource("Resource_auh0s")
+description = "Gains [color=#43A047]1[/color] [color=orange]slow[/color] and [color=#43A047]3[/color] [color=orange]armored[/color]."
+primary_action = SubResource("Resource_8gaf3")
+secondary_action = SubResource("Resource_uvq45")
 metadata/_custom_type_script = "uid://c410dannt5adg"

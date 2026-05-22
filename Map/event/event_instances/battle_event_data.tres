@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dd4yv1layn0sy" path="res://Map/event/event_resources/MainEventData.gd" id="1_gffok"]
 [ext_resource type="Script" uid="uid://jkk3quktrxq5" path="res://Map/event/event_callbacks/load_battle.gd" id="1_ym0yp"]
-[ext_resource type="Texture2D" uid="uid://b1q0y0qdty5pc" path="res://Map/map_assets/availablebattle.png" id="2_ym0yp"]
-[ext_resource type="Texture2D" uid="uid://doxve5ndf15pr" path="res://Map/map_assets/availablebattlehover.png" id="3_8ufjm"]
-[ext_resource type="Texture2D" uid="uid://da8v4jmaogjv2" path="res://Map/map_assets/battle.png" id="4_0arsf"]
+[ext_resource type="Texture2D" uid="uid://c6wog2aisqic0" path="res://test_art/available_battle.png" id="3_t0fy2"]
+[ext_resource type="Texture2D" uid="uid://dt8e35rl5rei1" path="res://test_art/available_battle_hover.png" id="4_wni8b"]
+[ext_resource type="Texture2D" uid="uid://cq8a64gh27jvg" path="res://test_art/unavailable_battle.png" id="5_t0fy2"]
+[ext_resource type="Texture2D" uid="uid://c3iht6uid7uly" path="res://test_art/completed_battle.png" id="5_wni8b"]
 
 [resource]
 script = ExtResource("1_gffok")
 event_callback = ExtResource("1_ym0yp")
-tex_ev_unavailable = ExtResource("4_0arsf")
-tex_ev_available = ExtResource("2_ym0yp")
-tex_ev_hover = ExtResource("3_8ufjm")
+tex_ev_unavailable = ExtResource("5_t0fy2")
+tex_ev_available = ExtResource("3_t0fy2")
+tex_ev_hover = ExtResource("4_wni8b")
+tex_ev_passed = ExtResource("5_wni8b")
 metadata/_custom_type_script = "uid://dd4yv1layn0sy"

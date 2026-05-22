@@ -14,10 +14,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Identity Quest"
+config/name="Rogues Game"
 run/main_scene="uid://uelarvradxi5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://cj4sfn1i7mlw5"
 
 [autoload]
 
@@ -27,19 +26,15 @@ GlobalSaveManager="*uid://lnp0r05fc1u2"
 GlobalSceneLoader="*uid://bp63dsvlxoj6w"
 DamageNumber="*uid://v8hwxqcyaen8"
 MusicManager="*uid://cawypsenbgkoi"
-Events="*uid://dfnommkdq2kub"
-GameStats="*uid://wn7g5fo35oj7"
-Achievements="*uid://brcb8f764p8ru"
+AllCards="*uid://bknd6870x7qoq"
+AllMonsters="*uid://dc380udp7vi2j"
+AiTimed="*uid://c5r63qi3j74px"
+GlobalBattleSaveManager="*uid://fkj4pyye51uu"
 
 [display]
 
 window/stretch/mode="viewport"
-
-[global_group]
-
-Player="Player Entity & Friends"
-Enemies="Monster Entity"
-Objects="Objects in battle scenes"
+window/stretch/aspect="expand"
 
 [rendering]
 

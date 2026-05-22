@@ -16,7 +16,9 @@ enum CardGenEnum {
 	strength, # Player gains strength as a side effect of the action.
 	discount,
 	armor,
-	toughness
+	toughness,
+	moveone,
+	bullettime
 }
 
 # Map for turning the enumerations into strings within the prompt.
@@ -28,7 +30,9 @@ const CardGenNames: Dictionary[CardGenEnum, String] = {
 	CardGenEnum.strength: "strength",
 	CardGenEnum.discount: "discount",
 	CardGenEnum.armor: "armor",
-	CardGenEnum.toughness: "toughness"
+	CardGenEnum.toughness: "toughness",
+	CardGenEnum.moveone: "moveone",
+	CardGenEnum.bullettime: "bullettime"
 }
 
 const CardGenDefs: Dictionary[CardGenEnum, String] = {
@@ -39,5 +43,7 @@ const CardGenDefs: Dictionary[CardGenEnum, String] = {
 	CardGenEnum.strength: "User gets stronger after using the action.",
 	CardGenEnum.discount: "Less energy penalty.",
 	CardGenEnum.armor: "Sheild is converted into armor. Less effective but lasts longer.",
-	CardGenEnum.toughness: "Applies tougness buff, reducing all incoming damage."
+	CardGenEnum.toughness: "Applies tougness buff, reducing all incoming damage.",
+	CardGenEnum.moveone: "Moves the user one position toward an advantage.",
+	CardGenEnum.bullettime: "Gives the user more control over their movement."
 }

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://sxk7lvgkkh8p" path="res://content/monsters/slime/slime_texture.tres" id="3_bt074"]
 [ext_resource type="Resource" uid="uid://bsavrj1agiyt4" path="res://content/scene_configuration/battle_builder.tres" id="5_2ldrq"]
 [ext_resource type="Texture2D" uid="uid://bqf8kp7mqnk38" path="res://content/items/cheese/Rats/rat_texture.tres" id="6_n2qip"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="8_iwggg"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="8_iwggg"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="9_fehxy"]
 [ext_resource type="PackedScene" uid="uid://c7lb2ji3nvodm" path="res://common/screen_fader/screen_fade.tscn" id="10_qepw2"]
 

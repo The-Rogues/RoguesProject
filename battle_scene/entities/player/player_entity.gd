@@ -37,7 +37,7 @@ var ai_processer_scn: PackedScene = preload("res://ai/processer/AiCardProcesser.
 var ai_processer: AiCardProcesser = ai_processer_scn.instantiate()
 var friends:Array[Friend] = []
 
-func initialize(_data:PlayerData):
+func initialize(_data:PlayerData, skip_cards: bool = false):
 	health.initialize(_data.current_health, _data.max_health)
 	energy.initialize(_data.max_energy, _data.max_energy)
 	
@@ -53,7 +53,8 @@ func initialize(_data:PlayerData):
 			_data.personality.strategic_trait,
 			_data.personality.strategic_weight)
 	
-	cards.initialize(_data.cards, self)
+	if not skip_cards:
+		cards.initialize(_data.cards, self)
 	data = _data
 	_data.connect_to_player_entity(self)
 	

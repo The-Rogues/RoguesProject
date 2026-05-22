@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://pnagkm01axvv"]
+
+[ext_resource type="Texture2D" uid="uid://cr5mlkjnayeeh" path="res://content/objects/regrow_wall/regrow_wall.png" id="1_4lxjt"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_k5to2"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_dgx61"]
+[ext_resource type="Script" uid="uid://bdpfrus5vumk" path="res://battle_scene/entities/actions/skill/heal_action.gd" id="3_0cvnf"]
+
+[sub_resource type="Resource" id="Resource_fugxy"]
+script = ExtResource("3_0cvnf")
+amount = 5
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bdpfrus5vumk"
+
+[resource]
+script = ExtResource("2_dgx61")
+targeting_categories = Array[int]([0])
+interaction = 5
+interaction_actions = Array[ExtResource("1_k5to2")]([SubResource("Resource_fugxy")])
+turn_interaction_counter = 1
+hover_description = "
+Object Category: Cover
+
+On Player Turn Entered: Heals [color=#43A047]5[/color] HP."
+display_texture = ExtResource("1_4lxjt")
+name = "Regrow Wall"
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"
