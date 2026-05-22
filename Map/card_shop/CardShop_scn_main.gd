@@ -26,12 +26,38 @@ func _ready() -> void:
 
 	sell_scroll.visible = false
 	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-	shop_cards = card_shop_data.get_shop_card(GlobalSessionManager.run_progress.player_data.personality)
+	# reload shop cards if resume
+	var run : RunProgress = GlobalSessionManager.run_progress
+	print("=== CARD SHOP LOAD CHECK ===")
+	print("run null: ", run == null)
+	print("shop_save null: ", run.shop_save == null if run else "no run")
+	print("generated_cards: ", run.shop_save.generated_cards.size() if run and run.shop_save else 0)
+	print("resuming: ", run != null and run.shop_save != null and run.shop_save.generated_cards.size() > 0)
+	print("============================")
+	var resuming := run!= null and run.shop_save != null
+	
+	if resuming and run.shop_save.generated_cards.size() > 0:
+		print("resuming")
+		for card in run.shop_save.generated_cards:
+			print(card.name)
+			if run.shop_save.purchased_card_names.has(card.name):
+				continue
+			shop_cards.append(CardInstance.new(card))
+	else:
+		shop_cards = card_shop_data.get_shop_card(run.player_data.personality)
+		run.shop_save = ShopSaveData.new()
+		for card in shop_cards:
+			run.shop_save.generated_cards.append(card.data)
+		GlobalSaveManager.save_run(run)
+	print("=== CARD SHOP SAVE CHECK ===")
+	print("shop_save null: ", run.shop_save == null)
+	print("generated_cards: ", run.shop_save.generated_cards.size())
+	print("save path exists: ", FileAccess.file_exists("res://saves/save_progress.tres"))
+	print("============================")
 	card_shop_interface.initialize(shop_cards)
 	card_shop_interface.selected_card.connect(_on_selected_card)
 
-	if GlobalSessionManager.run_progress:
+	if run:
 		transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
 	else:
 		transform_card = []
@@ -65,16 +91,21 @@ func _on_selected_card(index:int, transaction_type:int, transaction_completed:bo
 		
 
 func _on_buy_card():
-	if !GlobalSessionManager.run_progress.player_data.can_buy_card(selected_card.data.shop_price):
+	var run := GlobalSessionManager.run_progress
+	if !run.player_data.can_buy_card(selected_card.data.shop_price):
 		return
-
-	GlobalSessionManager.run_progress.player_data.add_card(selected_card.data)
-	GlobalSessionManager.run_progress.player_data.set_gold(
-					GlobalSessionManager.run_progress.player_data.gold - selected_card.data.shop_price)
+	var resuming := run != null and run.shop_save != null
+	if resuming:
+		run.shop_save.purchased_card_names.append(selected_card.data.name)
+	
+	run.player_data.add_card(selected_card.data)
+	run.player_data.set_gold(
+					run.player_data.gold - selected_card.data.shop_price)
 	card_shop_interface.confirm_transaction(selected_card_index)
 					
 	selected_card = null
 	selected_card_index = -1
+	GlobalSaveManager.save_run(run)
 
 func _on_transform_card():
 	transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()

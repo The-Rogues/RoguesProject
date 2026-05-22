@@ -34,15 +34,28 @@ func _ready() -> void:
 
 
 func initialize(data:ItemShopData) -> void:
+	if GlobalSessionManager.run_progress:
+		player_data = GlobalSessionManager.run_progress.player_data 
 	var shop_entries:Array[ShopEntryData] = []
 	
 	# Adding Services
 	shop_entries.append_array(data.shop_services)
 	
 	# Adding Items
-	var shop_items:Array[ItemData] = data.get_shop_items()
+	var run : RunProgress = GlobalSessionManager.run_progress
+	var resuming := run != null and run.shop_save != null
+	var shop_items: Array[ItemData] = []
+	if resuming and run.shop_save.generated_items.size() > 0:
+		shop_items = run.shop_save.generated_items
+	else:
+		shop_items = data.get_shop_items()
+		run.shop_save = ShopSaveData.new()
+		run.shop_save.generated_items = shop_items
+		GlobalSaveManager.save_run(run)
 	for item_data in shop_items:
 		var item_entry = _create_shop_item_entry(item_data)
+		if resuming and run.shop_save.purchased_item_names.has(item_data.name):
+			continue
 		shop_entries.append(item_entry)
 	
 	# Initialize tracking bought entries
@@ -52,9 +65,7 @@ func initialize(data:ItemShopData) -> void:
 	
 	# Referencing player data
 	# TODO: Figure out a way to make this scene testable without a global
-	if GlobalSessionManager.run_progress:
-		player_data = GlobalSessionManager.run_progress.player_data
-		GlobalSessionManager.complete_current_room()
+	
 	
 	
 	shop_keeper.texture = data.shop_keeper_textures.pick_random()
@@ -90,6 +101,10 @@ func _on_entry_selected(shop_entry:ShopEntry):
 				shop_keeper_dialogue.say("Your inventory is full!")
 			else:
 				player_data.buy_item(shop_entry.entry_data.item)
+				var run := GlobalSessionManager.run_progress
+				if run != null and run.shop_save != null:
+					run.shop_save.purchased_item_names.append(shop_entry.entry_data.name)
+					GlobalSaveManager.save_run(run)
 				_process_bought_entry(shop_entry)
 		elif shop_state == ShopState.SELL_ITEMS:
 			player_data.sell_item(shop_entry.entry_data.item)
@@ -117,6 +132,9 @@ func _process_bought_entry(shop_entry:ShopEntry):
 	
 	if shop_entry.entry_data.exhaustable:
 		shop_entry_interface.find_and_remove_entry(shop_entry)
+		var run: RunProgress = GlobalSessionManager.run_progress
+		
+		GlobalSaveManager.save_run(run)
 	
 	shop_keeper_dialogue.say("Thank you.")
 
@@ -203,6 +221,8 @@ func _on_leave_button_up() -> void:
 	$Options/Leave.disabled = true
 	shop_entry_interface.visible = false
 	
+	GlobalSessionManager.complete_current_room() 
+	
 	if GlobalSessionManager.run_progress.run_map:
 		shop_keeper_dialogue.say("Goodbye.")
 		await shop_keeper_dialogue.finished
@@ -210,3 +230,4 @@ func _on_leave_button_up() -> void:
 		GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)
 	else:
 		shop_keeper_dialogue.say("Theres nowhere else to go.")
+		

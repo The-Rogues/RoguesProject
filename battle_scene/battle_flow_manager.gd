@@ -17,16 +17,24 @@ var player:PlayerEntity
 var enemies:Array[MonsterEntity]
 var battle_field:BattleField
 var rewards_screen:BattleRewardsHandler
-
 var action_resolver: ActionResolver
 var turn_count:int = 0
 var context:BattleContext = null
 var battle_powers:BattlePowersManager
+var resuming: bool = false
 
 
-func initialize(_context:BattleContext):
+func initialize(_context:BattleContext, _resuming: bool = false ):
 	battle_state = State.START
+	resuming = _resuming
 	
+	# If we quit after enemy turn, need to draw cards on resume
+	if _resuming:
+		var run : RunProgress = GlobalSessionManager.run_progress
+		if run != null and run.battle != null and run.battle.battle_state == 1:
+			resuming = false  
+
+
 	context = _context
 	action_resolver = ActionResolver.new(_context)
 	battle_powers = BattlePowersManager.new()
@@ -81,7 +89,12 @@ func start_player_turn():
 	
 	battle_powers.enter_turn(context)
 	
-	player.cards.draw_cards(5)
+	if resuming:
+		resuming = false  # only skip once, normal from turn 2 onwards
+	else:
+		player.cards.draw_cards(5)
+		print(player.data.current_energy)
+		_save_battle_state()
 	
 	end_turn_button.disabled = false
 	end_turn_button.text = "End Turn"
@@ -105,6 +118,13 @@ func end_player_turn():
 	end_turn_button.text = "Enemy Turn."
 	player.cards.move_draw_into_discard_pile()
 	play_hand.clear_hand()
+	
+	_save_battle_state()
+	# Mark that enemy turn is about to start
+	var run : RunProgress = GlobalSessionManager.run_progress
+	if run != null and run.battle != null:
+		run.battle.battle_state = 1
+		GlobalSaveManager.save_run(run)
 	
 	await get_tree().create_timer(1).timeout
 	run_enemy_turn()
@@ -142,6 +162,12 @@ func run_enemy_turn():
 		await action_resolver.action_queue.processed_all_actions
 	await get_tree().create_timer(1).timeout
 	
+	_save_battle_state()
+	# Mark that player turn is about to start
+	var run : RunProgress = GlobalSessionManager.run_progress
+	if run != null and run.battle != null:
+		run.battle.battle_state = 0
+		GlobalSaveManager.save_run(run)
 	start_player_turn()
 
 
@@ -192,3 +218,15 @@ func apply_innate_effects(in_context: BattleContext):
 	battle_powers.add_power(load("res://content/cards/vengeful_cards/retaliate_power/retaliate_power.tres"), in_context)
 	battle_powers.add_power(load("res://content/cards/brute_cards/rage_effect/rage_manager_instance.tres"), in_context)
 	battle_powers.add_power(load("res://content/cards/valorous_cards/final_surge/final_surge_power_instance.tres"), in_context)
+	
+func _save_battle_state() -> void:
+	var scene = get_tree().current_scene
+	if scene is BattleScene:
+		scene._save_enemy_states()
+		scene._save_object_states()
+		scene._save_player_position()
+		scene._save_card_piles()
+		scene._save_all_effects()
+		scene._save_player_energy()
+		scene._save_rewards() 
+	
