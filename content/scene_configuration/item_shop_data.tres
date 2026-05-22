@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="ItemShopData" format=3 uid="uid://cleehjci2nw3o"]
 
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="1_n4fg5"]
-[ext_resource type="Resource" uid="uid://8j55fp0s1034" path="res://content/items/card_packs/traitless_card_pack.tres" id="2_aoly8"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_k0en6"]
 [ext_resource type="Script" uid="uid://b3ne2lxaru7d4" path="res://shop_scenes/item_shop/item_shop_data.gd" id="3_7x27r"]
 [ext_resource type="Resource" uid="uid://cdy1pdif6b5ea" path="res://content/items/card_packs/brute_card_pack.tres" id="3_vfnob"]
@@ -24,7 +23,9 @@
 [ext_resource type="Resource" uid="uid://dpeq4ckm5i2us" path="res://content/items/card_packs/stoic_card_pack.tres" id="9_bjat4"]
 [ext_resource type="Resource" uid="uid://bo8137yjpu0bo" path="res://content/items/card_packs/crafty_card_pack.tres" id="10_x3km1"]
 [ext_resource type="Resource" uid="uid://mvv68pd37lkl" path="res://content/items/card_packs/laidback_card_pack.tres" id="11_bjat4"]
+[ext_resource type="Resource" uid="uid://bj16p41qglnna" path="res://content/items/card_packs/valorous_card_pack.tres" id="12_v2dax"]
 [ext_resource type="Resource" uid="uid://mkpivoj3v317" path="res://content/items/card_packs/vengeful_card_pack.tres" id="12_x3km1"]
+[ext_resource type="Resource" uid="uid://chdw11vdc12n0" path="res://content/items/card_packs/naive_card_pack.tres" id="13_yo0ia"]
 [ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="17_imoh2"]
 [ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://shop_scenes/shop_keepers/shop_keeper_varient_1.tres" id="18_u0g0y"]
 [ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://shop_scenes/shop_keepers/shop_keeper_varient_2.tres" id="19_og8iw"]
@@ -46,5 +47,5 @@ shop_keeper_textures = Array[Texture2D]([ExtResource("17_imoh2"), ExtResource("1
 shop_services = Array[ExtResource("4_hhvmi")]([SubResource("Resource_7x27r")])
 rare_item_pool = Array[ExtResource("2_k0en6")]([ExtResource("5_4tjyo"), ExtResource("6_7fck4"), ExtResource("7_bl04s"), ExtResource("8_aoly8"), ExtResource("21_2s4ey")])
 item_pool = Array[ExtResource("2_k0en6")]([ExtResource("3_wfi6s"), ExtResource("4_usqye"), ExtResource("6_vfnob"), ExtResource("7_v74i3"), ExtResource("8_ilyyc")])
-card_packs = Array[ExtResource("1_n4fg5")]([ExtResource("2_aoly8"), ExtResource("3_vfnob"), ExtResource("4_v74i3"), ExtResource("5_u0g0y"), ExtResource("6_og8iw"), ExtResource("7_2s4ey"), ExtResource("8_dska6"), ExtResource("9_bjat4"), ExtResource("10_x3km1"), ExtResource("12_x3km1"), ExtResource("11_bjat4")])
+card_packs = Array[ExtResource("1_n4fg5")]([ExtResource("3_vfnob"), ExtResource("4_v74i3"), ExtResource("5_u0g0y"), ExtResource("6_og8iw"), ExtResource("7_2s4ey"), ExtResource("8_dska6"), ExtResource("9_bjat4"), ExtResource("10_x3km1"), ExtResource("12_x3km1"), ExtResource("11_bjat4"), ExtResource("12_v2dax"), ExtResource("13_yo0ia")])
 metadata/_custom_type_script = "uid://b3ne2lxaru7d4"

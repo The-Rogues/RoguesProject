@@ -14,7 +14,7 @@ func get_status_name() -> String:
 	return "Freezing"
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return str(_instance.stack) + " freezing. Whenever freezing is applied, takes damage equal to total freezing."
+	return "Whenever [color=orange]freezing[/color] is applied, takes damage equal to total [color=orange]freezing[/color]."
 
 func get_texture() -> Texture2D:
 	return load("res://content/friends/penguin/cold_icon.png.png")

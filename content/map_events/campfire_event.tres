@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="1_8dhlu"]
 [ext_resource type="Texture2D" uid="uid://drhqkmagdm6mh" path="res://content/map_events/campfire_texture.tres" id="1_k1cpi"]
+[ext_resource type="Texture2D" uid="uid://dq3rhou4q2vdh" path="res://content/map_events/random_event.png" id="2_3v53q"]
 [ext_resource type="Script" uid="uid://i71momw8bs1f" path="res://mini_event_system/mini_event_result.gd" id="2_b7hjy"]
 [ext_resource type="Script" uid="uid://b76synm5erqo8" path="res://mini_event_system/results/change_health_event_result.gd" id="3_3v53q"]
 [ext_resource type="Script" uid="uid://brd5m732vyy5t" path="res://mini_event_system/results/random_event_result.gd" id="4_kmkvf"]
@@ -45,6 +46,7 @@ metadata/_custom_type_script = "uid://brd5m732vyy5t"
 
 [resource]
 script = ExtResource("1_8dhlu")
+map_texture = ExtResource("2_3v53q")
 repeatable = true
 display_image = ExtResource("1_k1cpi")
 scenario_text = "You come across a campfire. What do you want to do?"

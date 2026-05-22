@@ -136,25 +136,17 @@ func run_enemy_turn():
 	
 	await turn_banner.display("Enemy Turn") 
 	
-	var start_size = enemies.size()
 	var processed_enemies: Array[MonsterEntity] = []
 	var curr_enemy_idx: int = 0
 	while curr_enemy_idx < enemies.size():
 		if !processed_enemies.has(enemies[curr_enemy_idx]):
 			var curr_enemy: MonsterEntity =  enemies[curr_enemy_idx]
 			await curr_enemy.resolve_intent(action_resolver)
-			if enemies.has(curr_enemy) && curr_enemy.health.is_alive:
-				processed_enemies.append(enemies[curr_enemy_idx])
-			else:
-				start_size = enemies.size()
-				curr_enemy_idx = 0
-				continue
-		if start_size != enemies.size():
-			start_size = enemies.size()
+			if is_instance_valid(curr_enemy) && enemies.has(curr_enemy):
+				processed_enemies.append(curr_enemy)
 			curr_enemy_idx = 0
 			continue
 		curr_enemy_idx += 1
-		
 		enemy_attack_delay.start()
 		await enemy_attack_delay.timeout
 	

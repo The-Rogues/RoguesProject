@@ -10,7 +10,6 @@
 script = ExtResource("3_thshe")
 card = ExtResource("2_urwgv")
 pile = 1
-count = 2
 metadata/_custom_type_script = "uid://d3geijhd5bvo"
 
 [sub_resource type="Resource" id="Resource_55t87"]

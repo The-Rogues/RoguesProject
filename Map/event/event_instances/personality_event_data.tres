@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dd4yv1layn0sy" path="res://Map/event/event_resources/MainEventData.gd" id="1_l2lno"]
 [ext_resource type="Script" uid="uid://dopuwyf1c3cr5" path="res://Map/event/event_callbacks/load_personality_shop.gd" id="1_ya1gv"]
-[ext_resource type="Texture2D" uid="uid://dr7ioi0nve0wa" path="res://Map/map_assets/availablepersonality.png" id="3_ya1gv"]
-[ext_resource type="Texture2D" uid="uid://bdy4xjqpbsn37" path="res://Map/map_assets/availablepersonalityhover.png" id="4_7niof"]
-[ext_resource type="Texture2D" uid="uid://dobu3a0u04gme" path="res://Map/map_assets/personality.png" id="5_xytok"]
+[ext_resource type="Texture2D" uid="uid://b1p320i7lo04b" path="res://test_art/available_personality.png" id="3_ya1gv"]
+[ext_resource type="Texture2D" uid="uid://b6a4tqmst3iht" path="res://test_art/available_personality_hover.png" id="4_7niof"]
+[ext_resource type="Texture2D" uid="uid://dcpniy2fvpqjs" path="res://test_art/completed_shop.png" id="5_7niof"]
+[ext_resource type="Texture2D" uid="uid://moqeterrhmxq" path="res://test_art/unavailable_personality.png" id="5_xytok"]
 
 [resource]
 script = ExtResource("1_l2lno")
@@ -12,4 +13,5 @@ event_callback = ExtResource("1_ya1gv")
 tex_ev_unavailable = ExtResource("5_xytok")
 tex_ev_available = ExtResource("3_ya1gv")
 tex_ev_hover = ExtResource("4_7niof")
+tex_ev_passed = ExtResource("5_7niof")
 metadata/_custom_type_script = "uid://dd4yv1layn0sy"

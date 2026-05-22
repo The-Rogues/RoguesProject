@@ -23,5 +23,5 @@ move_sequences = Array[ExtResource("1_ifxp6")]([SubResource("Resource_k1ltu")])
 behaviour = SubResource("Resource_32kic")
 display_texture = ExtResource("2_tt2op")
 name = "Fire Ant Larvae"
-health = 37
+health = 43
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

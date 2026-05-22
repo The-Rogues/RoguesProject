@@ -5,12 +5,12 @@ class_name StatusPositionEffect
 
 
 func get_effect_name() -> String:
-	return status.behaviour.get_status_name()
+	return status.behaviour.get_status_name() + " Position"
 
 
 func get_description(_instance:PositionEffect) -> String:
-	return "Applies " + status.behaviour.get_status_name() + " when stood on." 
+	return "On Entered: Applies [color=#43A047]" + str(_instance.stack) + "[/color] [color=orange]" + status.behaviour.get_status_name() + "[/color]." 
 
 
 func on_entered(player:PlayerEntity, _instance:PositionEffect) -> void:
-	player.apply_status_effect(status)
+	player.apply_status_effect(status, true)

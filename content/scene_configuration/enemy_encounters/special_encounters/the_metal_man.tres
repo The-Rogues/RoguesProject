@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="10_sg6cm"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="11_12xa1"]
 
-
 [sub_resource type="Resource" id="Resource_nglmx"]
 script = ExtResource("7_7tgmj")
 card_pool = Array[ExtResource("2_qxntn")]([ExtResource("3_ccgsx"), ExtResource("4_kg3tj"), ExtResource("5_iafc3")])

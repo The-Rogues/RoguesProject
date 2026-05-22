@@ -64,7 +64,7 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	if armor_convert:
 		first_action = ApplyStatusAction.new()
 		first_action.effect = StatusEffectConfig.new()
-		first_action.effect.behaviour = ArmoredEffect.new()
+		first_action.effect.behaviour = ArmorEffect.new()
 		first_action.effect.stack = total_def
 		first_action.effect.duration = -1
 		first_action.effect.turn_entered = false

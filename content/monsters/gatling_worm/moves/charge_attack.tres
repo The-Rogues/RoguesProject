@@ -8,5 +8,5 @@ script = ExtResource("1_cfwqx")
 type = 1
 intent_icon = ExtResource("1_5b1dy")
 name = "Charge Attack"
-description = "This Enemy is preparing a powerful attack."
+description = "Will use a powerful attack next turn."
 metadata/_custom_type_script = "uid://c410dannt5adg"

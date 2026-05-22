@@ -14,7 +14,7 @@ class_name BattleBuilder
 @export var tier_5_battlefield_layouts:Array[BattleFieldConfig]
 
 const TIER_1_THRESHOLD = 2
-const TIER_2_THRESHOLD = 8
+const TIER_2_THRESHOLD = 5
 const TIER_3_THRESHHOLD = 12
 const TIER_4_THRESHHOLD = 16
 

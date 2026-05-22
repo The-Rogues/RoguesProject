@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="KeyItem" format=3 uid="uid://dnpnr60u7xv62"]
 
-[ext_resource type="Texture2D" uid="uid://dbvrk1678b3o" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="1_fq7fi"]
+[ext_resource type="Texture2D" uid="uid://glraf7tfvjyf" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="1_fq7fi"]
 [ext_resource type="Script" uid="uid://c6lrmd6uaaqx8" path="res://item_system/key_item_data.gd" id="2_ultor"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58q36"]
