@@ -12,4 +12,4 @@ func _on_entity_attacked(_entity:AbstractEntity):
 		await instance.play_attack()
 	
 		if is_instance_valid(_entity):
-			_entity.take_damage(randi_range(5, 9), owner)
+			_entity.take_damage(randi_range(5, 9), instance)

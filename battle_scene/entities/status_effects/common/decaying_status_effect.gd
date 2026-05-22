@@ -22,6 +22,7 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 func get_texture() -> Texture2D:
 	return load("res://battle_scene/entities/status_effects/common/decaying_icon.tres")
 
+
 func on_turn(
 	_creature:AbstractCreature = null,
 	_instance:ActiveStatusEffect = null

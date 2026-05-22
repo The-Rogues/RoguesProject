@@ -10,8 +10,6 @@
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="6_euh1n"]
 [ext_resource type="Texture2D" uid="uid://do5kp8psm4m4f" path="res://content/items/chest_key/key_texture.tres" id="9_bhyp3"]
 [ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="10_4mm8p"]
-[ext_resource type="Texture2D" uid="uid://qih8trwgrmut" path="res://content/items/item_pouch/pouch_texture.tres" id="12_vewxj"]
-[ext_resource type="Resource" uid="uid://dqpxq37e13c06" path="res://content/items/item_pouch/item_pouch_item_data.tres" id="13_6p0n5"]
 [ext_resource type="Resource" uid="uid://cdy1pdif6b5ea" path="res://content/items/card_packs/brute_card_pack.tres" id="16_c8m83"]
 [ext_resource type="Resource" uid="uid://vfxn0v7gtuaf" path="res://content/items/card_packs/merciful_card_pack.tres" id="17_anw1p"]
 [ext_resource type="Resource" uid="uid://bo8137yjpu0bo" path="res://content/items/card_packs/crafty_card_pack.tres" id="17_k7qwp"]
@@ -61,13 +59,6 @@ amount = 2
 display_texture = ExtResource("5_exv34")
 name = "Pot Gold"
 metadata/_custom_type_script = "uid://drffwoufolf1p"
-
-[sub_resource type="Resource" id="Resource_gjewo"]
-script = ExtResource("4_u0iy7")
-item = ExtResource("13_6p0n5")
-display_texture = ExtResource("12_vewxj")
-name = "Item Pouch (Chest Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
 [sub_resource type="Resource" id="Resource_go2g6"]
 metadata/__load_path__ = "res://content/items/diamong/diamond_texture.tres"
@@ -178,7 +169,6 @@ script = ExtResource("3_4q12w")
 loot_source = 1
 energy_potion = SubResource("Resource_wre2k")
 health_potion = SubResource("Resource_mcdeu")
-item_pouch = SubResource("Resource_gjewo")
 ai_pack = SubResource("Resource_k7qwp")
 high_chance_item = Array[ExtResource("1_7f1ng")]([SubResource("Resource_s7q2x")])
 medium_chance_item = Array[ExtResource("1_7f1ng")]([SubResource("Resource_anw1p")])

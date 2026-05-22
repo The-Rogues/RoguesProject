@@ -7,3 +7,4 @@ var energy_used_in_turn:int = 0
 var friends_summoned_in_turn:int = 0
 var objects_placed_in_battle:int = 0
 var encounter:EnemyEncounter = null
+var turn_signal:Signal

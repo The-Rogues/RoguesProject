@@ -23,5 +23,6 @@ func get_texture() -> Texture2D:
 	return load("res://battle_scene/entities/status_effects/common/thorns_icon.tres")
 
 
-func on_attacked(_attacker:AbstractEntity, _instance:ActiveStatusEffect):
-	_attacker.take_damage(_instance.stack, null)
+func on_attacked(_attacker, _instance:ActiveStatusEffect):
+	if _attacker is AbstractEntity:
+		_attacker.take_damage(_instance.stack, null)

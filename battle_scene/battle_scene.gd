@@ -82,7 +82,7 @@ func initialize(battle_config:BattleConfig):
 	
 	MusicManager.change_song(MusicManager.track_list.choose_battle_theme())
 	
-	GameStats.initialize_battle(battle_config.enemy_encounter)
+	GameStats.initialize_battle(battle_config.enemy_encounter, battle_flow_manager)
 
 
 func _setup_player_entity(data:PlayerData):

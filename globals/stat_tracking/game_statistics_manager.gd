@@ -43,10 +43,12 @@ func connect_to_signals():
 # Battle State Management
 # -------------------------------------------------
 
-func initialize_battle(encounter:EnemyEncounter) -> void:
+func initialize_battle(encounter:EnemyEncounter, battle:BattleFlowManager) -> void:
 	reset_battle_state()
 	battle_state.encounter = encounter
 	battle_state.in_active_battle = true
+	battle_state.turn_signal = battle.turn_entered
+	battle_state.turn_signal.connect(on_battle_turn_entered)
 
 
 func end_battle(player_state:PlayerEntity = null) -> void:
@@ -54,17 +56,26 @@ func end_battle(player_state:PlayerEntity = null) -> void:
 		battle_state.encounter,
 		player_state
 	)
+	
+	battle_state.turn_signal.disconnect(on_battle_turn_entered)
+	reset_battle_state(false)
 
+
+func on_battle_turn_entered() -> void:
 	reset_battle_state()
+	battle_state.turn_count += 1
 
 
-func reset_battle_state() -> void:
-	battle_state.in_active_battle = false
-	battle_state.turn_count = 0
+func reset_battle_state(keep_persistent_data:bool = true) -> void:
 	battle_state.energy_used_in_turn = 0
 	battle_state.friends_summoned_in_turn = 0
 	battle_state.objects_placed_in_battle = 0
-	battle_state.encounter = null
+	
+	if !keep_persistent_data:
+		battle_state.encounter = null
+		battle_state.in_active_battle = false
+		battle_state.turn_count = 0
+		battle_state.turn_signal = Signal()
 
 
 # -------------------------------------------------
@@ -112,6 +123,8 @@ func _on_gold_collected(amount:int):
 func _on_battle_won(encounter:EnemyEncounter, player_state:PlayerEntity):
 	if !stats_data.enemy_encounters_defeated.has(encounter.encounter_name):
 		stats_data.enemy_encounters_defeated.append(encounter.encounter_name)
+	
+	end_battle(player_state)
 
 
 func _on_card_collected(card:CardData):
