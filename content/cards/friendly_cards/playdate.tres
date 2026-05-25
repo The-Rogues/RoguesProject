@@ -10,7 +10,7 @@
 script = ExtResource("3_5kp4t")
 behaviour = ExtResource("2_0vd2n")
 duration = -1
-stack = 2
+stack = 3
 turn_entered = null
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
@@ -26,8 +26,8 @@ metadata/_custom_type_script = "uid://2fhdaficxwtc"
 script = ExtResource("2_6o7r8")
 type = 2
 category = 3
-energy_cost = 2
+energy_cost = 1
 name = "Playdate"
-description = "All enemies with [color=orange]friendship[/color] gain [color=#43A047]2[/color] [color=orange]friendship[/color]."
+description = "All enemies with [color=orange]friendship[/color] gain [color=#43A047]3[/color] [color=orange]friendship[/color]."
 play_actions = Array[ExtResource("1_slfgx")]([SubResource("Resource_qmmj3")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

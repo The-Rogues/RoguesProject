@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="StatusEffectConfig" format=3 uid="uid://ceva5etvs1buq"]
-
-[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="1_c2ils"]
-
-[resource]
-script = ExtResource("1_c2ils")
-turn_entered = false
-metadata/_custom_type_script = "uid://b4s32yn3jp78u"

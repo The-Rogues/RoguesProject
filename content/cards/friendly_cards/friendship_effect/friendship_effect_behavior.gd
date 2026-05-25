@@ -21,7 +21,7 @@ func get_description(_instance:ActiveStatusEffect) -> String:
 		calc_threshold = 100
 	else:
 		calc_threshold = (_instance.stack * 0.03) * 100
-	return "When this enemy's HP falls bellow " + str(calc_threshold) + " percent, they immediatley flee combat. Increases by 3 percent for each stack of friendship."
+	return "When this enemy's HP falls bellow [color=red]" + str(calc_threshold) + "[/color] percent, they immediatley flee combat. Increases by [color=#43A047]3[/color] percent for each stack of [color=orange]friendship[/color]."
 
 func get_texture() -> Texture2D:
 	return load("res://content/cards/friendly_cards/friendship_effect/friendship_icon.tres")

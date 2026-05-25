@@ -16,7 +16,7 @@ func _on_card_drawn(card: CardInstance):
 
 func _is_movement_card(data: CardData) -> bool:
 	for action in data.play_actions:
-		if action is MovePlayerAction:
+		if action is DirectionalMoveAction || action is MoveOutOfCoverAction || action is MoveBehindTypeAction || action is MoveTowardPreferrenceAction: 
 			return true
 	
 	return false

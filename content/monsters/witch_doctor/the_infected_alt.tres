@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://w3b7seye5yt8"]
+
+[ext_resource type="Resource" uid="uid://tf6p86bsqgjd" path="res://content/monsters/the_infected/moves/basic_sequence.tres" id="1_n1657"]
+[ext_resource type="Resource" uid="uid://hgedyn4y57p0" path="res://content/monsters/the_infected/moves/advanced_sequence.tres" id="2_n872j"]
+[ext_resource type="Script" uid="uid://dnqjw0cy8cna7" path="res://content/monsters/the_infected/regrow_behavior.gd" id="3_6y665"]
+[ext_resource type="Texture2D" uid="uid://crwcp5kcqw1o7" path="res://content/monsters/the_infected/zombie_texture.tres" id="4_fovpq"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="5_4yqah"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="6_5xw8r"]
+
+[sub_resource type="Resource" id="Resource_8vp1x"]
+script = ExtResource("3_6y665")
+health_threshold = 50
+basic_sequence = ExtResource("1_n1657")
+low_health_sequence = ExtResource("2_n872j")
+metadata/_custom_type_script = "uid://dnqjw0cy8cna7"
+
+[resource]
+script = ExtResource("6_5xw8r")
+move_sequences = Array[ExtResource("5_4yqah")]([ExtResource("1_n1657")])
+behaviour = SubResource("Resource_8vp1x")
+display_texture = ExtResource("4_fovpq")
+name = "The Infected"
+health = 60
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

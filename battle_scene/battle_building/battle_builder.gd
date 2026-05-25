@@ -109,8 +109,8 @@ func create_battle_config() -> BattleConfig:
 		
 		var enemy_encounter:EnemyEncounter = choose_enemy_encounter(encounters)
 		var battlefield_config:BattleFieldConfig = null
-		if enemy_encounter.battlefield_layout:
-			battlefield_config = enemy_encounter.battlefield_layout
+		if enemy_encounter.battlefield_layouts.size() > 0:
+			battlefield_config = enemy_encounter.battlefield_layouts.pick_random()
 		else:
 			battlefield_config = choose_battlefield_layout(layouts)
 			battle_field_cashe.append(battlefield_config)

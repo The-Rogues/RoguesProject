@@ -12,7 +12,7 @@ func on_turn_entered(_context:BattleContext):
 			continue
 		
 		var target_object: ObjectEntity = _context.battle_field.battle_positions[i].get_object()
-		if (5 + target_object.health.value) > target_object.health.max_value:
-			target_object.health.max_value = 5 + target_object.health.value
+		if (4 + target_object.health.value) > target_object.health.max_value:
+			target_object.health.max_value = 4 + target_object.health.value
 			
-		target_object.health.heal(5)
+		target_object.health.heal(4)

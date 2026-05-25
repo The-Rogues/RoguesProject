@@ -13,7 +13,7 @@ func get_status_name() -> String:
 	return "Special: Sustain"
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "This turn, you can't lose offense."
+	return "This turn, you can't lose [color=orange]offense[/color]."
 
 func get_texture() -> Texture2D:
 	return load("res://content/cards/brute_cards/war_machine_effect/power_icon.tres")

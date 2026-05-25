@@ -25,7 +25,7 @@ func initialize(_data:ObjectData):
 	add_to_group("Objects")
 
 
-func take_damage(amount:int, _attacker = null):
+func take_damage(amount:int, _attacker = null, _ignore_foreground: bool = false):
 	attacker = _attacker
 	health.take_damage(amount)
 	DamageNumber.display_number(amount, damage_numbers_spawn.global_position)

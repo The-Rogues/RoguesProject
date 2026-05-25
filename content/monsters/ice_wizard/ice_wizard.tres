@@ -110,5 +110,5 @@ behaviour = SubResource("Resource_7d5lr")
 init_targeting = Array[int]([0])
 display_texture = SubResource("AtlasTexture_8a28a")
 name = "Ice Wizard"
-health = 40
+health = 30
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

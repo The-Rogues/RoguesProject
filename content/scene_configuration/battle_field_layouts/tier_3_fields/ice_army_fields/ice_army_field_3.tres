@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://byqlbi0o5ud7m"]
+
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_ylkxd"]
+[ext_resource type="Resource" uid="uid://carcwqa4rb615" path="res://content/objects/glaicer_wall/glacier_wall_left.tres" id="2_iavmr"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="4_jmmfl"]
+
+[resource]
+script = ExtResource("4_jmmfl")
+layout = Dictionary[int, ExtResource("1_ylkxd")]({
+0: null,
+1: null,
+2: null,
+3: null,
+4: ExtResource("2_iavmr")
+})
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

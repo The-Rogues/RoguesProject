@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://dw16yr0fq5d8t"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_76avo"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_i8lnt"]
+[ext_resource type="Texture2D" uid="uid://dyxvm44pkdj0u" path="res://content/monsters/witch_doctor/witch_doctor.tres" id="2_f4guk"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_thibi"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_qtlhu"]
+[ext_resource type="Resource" uid="uid://v6suvii2djn5" path="res://content/monsters/witch_doctor/moves/witches_brew.tres" id="5_kygq5"]
+[ext_resource type="Resource" uid="uid://bf2bnqocu2bp1" path="res://content/monsters/witch_doctor/moves/catalyst.tres" id="6_hl51a"]
+[ext_resource type="Resource" uid="uid://dobfgvtt8bcdu" path="res://content/monsters/witch_doctor/moves/retreat.tres" id="7_0lvcd"]
+
+[sub_resource type="Resource" id="Resource_rxhc7"]
+script = ExtResource("1_76avo")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_scr2p"]
+script = ExtResource("1_i8lnt")
+moves = Array[ExtResource("4_qtlhu")]([ExtResource("5_kygq5"), ExtResource("6_hl51a"), ExtResource("7_0lvcd")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_thibi")
+move_sequences = Array[ExtResource("1_i8lnt")]([SubResource("Resource_scr2p")])
+behaviour = SubResource("Resource_rxhc7")
+display_texture = ExtResource("2_f4guk")
+name = "Witch Doctor"
+health = 75
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

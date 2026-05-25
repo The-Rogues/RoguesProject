@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://co1voym0erjbi"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_54vn6"]
+[ext_resource type="Script" uid="uid://gsq64b5tb0th" path="res://battle_scene/entities/actions/skill/directional_move_action.gd" id="2_jo1ub"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_02eht"]
+[ext_resource type="Script" uid="uid://d1kuqw84jswgt" path="res://content/cards/greedy_cards/cash_in/draw_card_action.gd" id="3_jo1ub"]
+
+[sub_resource type="Resource" id="Resource_b64wg"]
+script = ExtResource("2_jo1ub")
+num_spaces = 1
+metadata/_custom_type_script = "uid://gsq64b5tb0th"
+
+[sub_resource type="Resource" id="Resource_02eht"]
+script = ExtResource("3_jo1ub")
+amount = 1
+metadata/_custom_type_script = "uid://d1kuqw84jswgt"
+
+[resource]
+script = ExtResource("3_02eht")
+type = 2
+name = "Dash Left"
+description = "Move [color=#43A047]1[/color] space to the left. Draw [color=#43A047]1[/color] card. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_54vn6")]([SubResource("Resource_b64wg"), SubResource("Resource_02eht")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

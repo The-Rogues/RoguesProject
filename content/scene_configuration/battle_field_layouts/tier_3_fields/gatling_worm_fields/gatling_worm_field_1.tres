@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://bo1fx6b5dhacr"]
+
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_46sm3"]
+[ext_resource type="Resource" uid="uid://2j80tvleyqn5" path="res://content/objects/speedy_boots/speedy_boots_data.tres" id="2_jtgr5"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="3_5e06c"]
+
+[resource]
+script = ExtResource("3_5e06c")
+layout = Dictionary[int, ExtResource("1_46sm3")]({
+0: null,
+1: ExtResource("2_jtgr5"),
+2: null,
+3: ExtResource("2_jtgr5"),
+4: ExtResource("2_jtgr5")
+})
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

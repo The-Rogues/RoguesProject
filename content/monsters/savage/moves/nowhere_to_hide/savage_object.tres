@@ -2,25 +2,48 @@
 
 [ext_resource type="Texture2D" uid="uid://cffw8i053myij" path="res://content/monsters/savage/savage_texture.tres" id="1_notfo"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_mu711"]
-[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="3_4xb3k"]
+[ext_resource type="Script" uid="uid://d2wdqon5sxx82" path="res://content/monsters/savage/moves/nowhere_to_hide/hunt_player_action.gd" id="3_g2yoh"]
+[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/the_infected/infection_behavior.gd" id="4_0keyh"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="4_g2yoh"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_tg05q"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_ia503"]
 
-[sub_resource type="Resource" id="Resource_fui3a"]
-script = ExtResource("3_4xb3k")
-base_damage = 2
-hits = 3
+[sub_resource type="Resource" id="Resource_bxxgk"]
+script = ExtResource("3_g2yoh")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://d2wdqon5sxx82"
+
+[sub_resource type="Resource" id="Resource_vo7s2"]
+script = ExtResource("4_0keyh")
+metadata/_custom_type_script = "uid://cs8gcwstv68ba"
+
+[sub_resource type="Resource" id="Resource_uunbw"]
+script = ExtResource("5_tg05q")
+behaviour = SubResource("Resource_vo7s2")
+duration = -1
+stack = 2
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_c22ym"]
+script = ExtResource("6_ia503")
+effect = SubResource("Resource_uunbw")
 target_option = 1
 ignore_foreground = true
-metadata/_custom_type_script = "uid://c4hroa2x01w40"
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
 
 [resource]
 script = ExtResource("4_g2yoh")
 targeting_categories = Array[int]([3])
 interaction = 5
-interaction_actions = Array[ExtResource("2_mu711")]([SubResource("Resource_fui3a")])
+interaction_actions = Array[ExtResource("2_mu711")]([SubResource("Resource_bxxgk"), SubResource("Resource_c22ym")])
 turn_interaction_counter = 1
 is_enemy = true
+hover_description = "
+Object Category: Threat
+
+On Turn Entered: Moves in front of the player and applies 2 infection."
 display_texture = ExtResource("1_notfo")
 name = "Savage"
-health = 12
+health = 25
 metadata/_custom_type_script = "uid://dns34mcsxn8f6"

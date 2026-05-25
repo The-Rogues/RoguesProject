@@ -3,6 +3,7 @@ class_name CardShopData
 
 @export var random_cards_pool: Array[CardData]
 @export var ai_cards_pool: Array[CardData]
+@export var shop_unique_pool: Array[CardData]
 
 
 func get_shop_card(player_personality: PersonalityData) -> Array[CardInstance]:
@@ -20,10 +21,24 @@ func get_shop_card(player_personality: PersonalityData) -> Array[CardInstance]:
 
 	return shop_cards
 
+func get_ai_card(player_personality: PersonalityData) -> Array[CardInstance]:
+	var shop_cards: Array[CardInstance] = []
+
+	shop_cards.append(CardInstance.new(ai_cards_pool.pick_random()))
+
+	return shop_cards
+
+func get_random_cards(player_personality: PersonalityData) -> Array[CardInstance]:
+	var shop_cards: Array[CardInstance] = []
+
+	for i in range(3):
+		shop_cards.append(CardInstance.new(random_cards_pool.pick_random()))
+
+	return shop_cards
 
 func get_random_cards_from_player_traits(
 	player_personality: PersonalityData
-) -> Array[CardData]:
+) -> Array[CardInstance]:
 
 	var available_traits: Array[PersonalityTrait] = []
 
@@ -52,11 +67,14 @@ func get_random_cards_from_player_traits(
 
 		var t = available_traits[i]
 
-		if t.card_loot_pool.is_empty():
+		if t.shop_unique_card == null:
 			continue
 
 		result.append(
-			t.card_loot_pool.pick_random()
+			t.shop_unique_card
 		)
 
-	return result
+	var ret_val: Array[CardInstance]
+	for card in result:
+		ret_val.append(CardInstance.new(card))
+	return ret_val

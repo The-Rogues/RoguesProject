@@ -25,4 +25,5 @@ display_texture = ExtResource("1_ee2yn")
 description = "All cards that move the player cost [color=#43A047]0[/color] energy. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_w0cxp")]([SubResource("Resource_326rh")])
+shop_price = 20
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -22,5 +22,5 @@ func execute() -> void:
 		await action.execute(context, user)
 		return
 	if user == null:
-		await action.execute(context, user)
+		await action.execute(context, null)
 		return

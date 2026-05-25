@@ -37,4 +37,5 @@ energy_cost = 1
 name = "Entrench"
 description = "Place a [color=#43A047]1[/color] HP wall at the front position. Gain [color=#43A047]4[/color] [color=orange]armor[/color]."
 play_actions = Array[ExtResource("1_133mg")]([SubResource("Resource_jfcpn"), SubResource("Resource_x1cd7")])
+shop_price = 20
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

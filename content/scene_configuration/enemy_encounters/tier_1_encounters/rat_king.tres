@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://dk6xh7nusp3ss"]
 
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_4inej"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_il2iw"]
 [ext_resource type="Resource" uid="uid://xf5mvnd2uwes" path="res://content/monsters/rat_king/rat_king.tres" id="2_idlah"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_edaif"]

@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://cmtvhdvaoqfdy"
 script = ExtResource("4_bjh1m")
 behaviour = SubResource("Resource_2pinn")
 duration = 2
-stack = -1
+stack = 0
 turn_entered = false
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 

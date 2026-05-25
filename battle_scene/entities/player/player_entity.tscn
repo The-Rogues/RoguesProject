@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qls13l6n5mve" path="res://battle_scene/entities/player/player_entity.gd" id="1_i5uyf"]
 [ext_resource type="Material" uid="uid://wvuktnx05uyy" path="res://common/sprite_flasher/hit_flash.tres" id="2_dkpvf"]
-[ext_resource type="Texture2D" uid="uid://qa0uh472nj2w" path="res://common/art/placeholder/32_rogues/rogues.png" id="2_x21no"]
+[ext_resource type="Texture2D" uid="uid://cb2taps125hf7" path="res://common/art/placeholder/32_rogues/rogues.png" id="2_x21no"]
 [ext_resource type="Script" uid="uid://b3barw1bqu4tk" path="res://common/stat_components/health.gd" id="3_c7woo"]
 [ext_resource type="Script" uid="uid://cq0ofbmvfv5qo" path="res://common/hit_flash/hit_flash.gd" id="3_dkpvf"]
 [ext_resource type="Script" uid="uid://dd627e8yhr0bk" path="res://battle_scene/entities/player/player_movement_controller.gd" id="3_mkis6"]

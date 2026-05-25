@@ -13,6 +13,7 @@ func add_power(power:BattlePower, context:BattleContext) -> bool:
 	if !power.can_reapply:
 		for active_power in active_powers:
 			if active_power.get_script() == power.get_script():
+				active_power.on_stack()
 				return false
 	
 	var instance = power.duplicate(true)

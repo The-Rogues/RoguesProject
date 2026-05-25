@@ -42,5 +42,5 @@ move_sequences = Array[ExtResource("1_s3t1j")]([SubResource("Resource_0hvhe"), S
 behaviour = SubResource("Resource_fjoki")
 display_texture = ExtResource("2_0c32c")
 name = "Ice Warrior"
-health = 60
+health = 48
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

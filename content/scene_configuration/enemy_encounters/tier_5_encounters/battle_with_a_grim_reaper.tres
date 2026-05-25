@@ -20,5 +20,4 @@ weight = 5
 encounter_name = "Battle with a Grim Reaper"
 gold = SubResource("Resource_xek1p")
 enemies = Array[ExtResource("1_4l5up")]([ExtResource("3_ivn81")])
-battlefield_layout = ExtResource("1_ivn81")
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

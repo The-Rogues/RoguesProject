@@ -14,6 +14,7 @@ enum TraitCategory { OFFENSIVE, DEFENSIVE, STRATEGIC }
 @export var object_targeting_preference:ObjectData.MoveTargetingCategory
 
 @export var card_loot_pool:Array[CardData]
+@export var shop_unique_card: CardData
 #@export var starter_cards:Array[CardData]
 
 

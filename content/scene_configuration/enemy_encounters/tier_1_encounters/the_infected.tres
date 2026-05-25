@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://btrruu1ioyvr"]
 
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_7p6gw"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_g3c88"]
 [ext_resource type="Resource" uid="uid://dxuy20coirc1l" path="res://content/monsters/the_infected/the_infected.tres" id="2_nduxd"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_5f48y"]

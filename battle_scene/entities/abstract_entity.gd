@@ -10,7 +10,7 @@ signal turn_entered
 signal attacked_entity(entity:AbstractEntity)
 
 @abstract
-func take_damage(amount:int, _attacker = null)
+func take_damage(amount:int, _attacker = null, _ignore_foreground: bool = false)
 
 
 @abstract

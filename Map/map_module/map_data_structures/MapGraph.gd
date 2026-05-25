@@ -556,12 +556,15 @@ func get_layer(in_layer: int) -> Array[RefCounted]:
 	return ret_val
 
 
-func choose_mini_event() -> MiniEventData:
+func choose_mini_event(seed: int) -> MiniEventData:
+	
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = seed
+	
 	var events:Array[MiniEventData] = [
 		load("res://content/map_events/old_man_event_v1.tres"),
 		load("res://content/map_events/treasure_pot_event.tres"),
 		load("res://content/map_events/campfire_event.tres"),
-		load("res://content/map_events/metal_man_challenge.tres"),
 		load("res://content/map_events/abandoned_card_event.tres"),
 		load("res://content/map_events/starving_wolf_event.tres")
 	]
@@ -571,9 +574,14 @@ func choose_mini_event() -> MiniEventData:
 		for event in run.single_time_mini_events:
 			if events.has(event):
 				events.erase(event)
-	return events.pick_random()
+	var rand_num: int = rand_gen.randi_range(0, events.size() - 1)
+	return events[rand_num]
 
-func choose_layer_one_event() -> MiniEventData:
+func choose_layer_one_event(seed: int) -> MiniEventData:
+	
+	var rand_gen = RandomNumberGenerator.new()
+	rand_gen.seed = seed
+	
 	var events:Array[MiniEventData] = [
 		load("res://content/map_events/tier_1_events/skill_upgrade_event.tres"),
 		load("res://content/map_events/tier_1_events/random_key_2.tres"),
@@ -584,10 +592,10 @@ func choose_layer_one_event() -> MiniEventData:
 	var alt_upgrade: MiniEventData = load("res://content/map_events/tier_1_events/attack_upgrade_event.tres")
 	var ret_event: MiniEventData = events.pick_random()
 	if ret_event == events[0]:
-		if randf() < 0.5:
+		if rand_gen.randf() < 0.5:
 			ret_event = alt_upgrade
 	elif ret_event == events[1]:
-		if randf() < 0.5:
+		if rand_gen.randf() < 0.5:
 			ret_event = alt_hooded
 	return ret_event
 
@@ -607,6 +615,8 @@ func populate_events(rand_seed: int) -> void:
 	#var mini_data: Resource = load("res://Map/event/event_instances/test_mini_data.tres") 
 	var card_data: Resource = load("res://Map/event/event_instances/card_shop_event_data.tres")
 	var blank_data: Resource = load("res://Map/event/event_instances/blank_data.tres")
+	var metal_man: Resource = load("res://content/map_events/metal_man_challenge.tres")
+	var witch_doctor: Resource = load("res://content/map_events/witch_doctor_challenge.tres")
 	
 	# Create RandomNumberGernerator and give it the seed.
 	var rand_gen = RandomNumberGenerator.new()
@@ -621,12 +631,13 @@ func populate_events(rand_seed: int) -> void:
 			curr_layer[j].node_data = add_main_event(battle_data)
 	
 	var layer_three_event_node: RefCounted = get_layer(2).pick_random()
-	layer_three_event_node.node_data.mini_event = choose_layer_one_event()
+	layer_three_event_node.node_data.mini_event = choose_layer_one_event(rand_gen.randi())
 	
 	var layer_four: Array[RefCounted] = get_layer(3)
 	var shop_types: Array[RefCounted] = [shop_data, personality_data, card_data]
 	for i in range(0, layer_four.size()):
-		var curr_shop: RefCounted = shop_types.pick_random()
+		var rand_idx: int = rand_gen.randi_range(0, shop_types.size() - 1)
+		var curr_shop: RefCounted = shop_types[rand_idx]
 		layer_four[i].node_data = add_main_event(curr_shop)
 		shop_types.erase(curr_shop)
 	
@@ -685,6 +696,8 @@ func populate_events(rand_seed: int) -> void:
 			elif is_battle:
 				curr_layer[j].node_data = add_main_event(battle_data)
 				for k in range(0, curr_layer[j].node_edges.size()):
+					if curr_layer[j].node_edges[k].node_data != null:
+						continue
 					if curr_available_shops.size() == 0:
 						curr_available_shops = [shop_data, card_data, personality_data]
 					var rand_idx: int = rand_gen.randi_range(0, curr_available_shops.size() - 1)
@@ -694,6 +707,8 @@ func populate_events(rand_seed: int) -> void:
 				if rand_gen.randf() < 0.5:
 					curr_layer[j].node_data = add_main_event(battle_data)
 					for k in range(0, curr_layer[j].node_edges.size()):
+						if curr_layer[j].node_edges[k].node_data != null:
+							continue
 						if curr_available_shops.size() == 0:
 							curr_available_shops = [shop_data, card_data, personality_data]
 						var rand_idx: int = rand_gen.randi_range(0, curr_available_shops.size() - 1)
@@ -707,6 +722,35 @@ func populate_events(rand_seed: int) -> void:
 					curr_available_shops.erase(curr_available_shops[rand_idx])
 					for k in range(0, curr_layer[j].node_edges.size()):
 						curr_layer[j].node_edges[k].node_data = add_main_event(battle_data)
+	
+	var challenge_battles: Array[Resource] = [
+		witch_doctor,
+		metal_man
+	]
+	var remove_idx: int = rand_gen.randi_range(0, challenge_battles.size() - 1)
+	challenge_battles.remove_at(remove_idx)
+	
+	if challenge_battles.has(witch_doctor):
+		var valid_nodes: Array[RefCounted] = []
+		for i in range(7, 10):
+			var layer_option: Array[RefCounted] = get_layer(i)
+			for j in range(0, layer_option.size()):
+				if layer_option[j].node_data.main_event == battle_data:
+					valid_nodes.append(layer_option[j])
+		var target_idx: int = rand_gen.randi_range(0, valid_nodes.size() - 1)
+		var challenge_node: RefCounted = valid_nodes[target_idx]
+		challenge_node.node_data.mini_event = witch_doctor
+	
+	if challenge_battles.has(metal_man):
+		var valid_nodes: Array[RefCounted] = []
+		for i in range(10, 13):
+			var layer_option: Array[RefCounted] = get_layer(i)
+			for j in range(0, layer_option.size()):
+				if layer_option[j].node_data.main_event == battle_data:
+					valid_nodes.append(layer_option[j])
+		var target_idx: int = rand_gen.randi_range(0, valid_nodes.size() - 1)
+		var challenge_node: RefCounted = valid_nodes[target_idx]
+		challenge_node.node_data.mini_event = metal_man
 	
 	for i in range(4, map_layers):
 		
@@ -725,13 +769,24 @@ func populate_events(rand_seed: int) -> void:
 				num_events = 1
 			
 		for j in range(0, num_events):
-			var event = choose_mini_event()
+			
+			if target_layer.size() == 0:
+				break
+			
 			var target_node_idx: int = rand_gen.randi_range(0, target_layer.size() - 1)
 			var target_node: RefCounted = target_layer[target_node_idx]
+			
+			if target_node.node_data.mini_event != null:
+				target_layer.erase(target_node)
+				num_events += 1
+				continue
+			
+			var event = choose_mini_event(rand_gen.randi())
 			if !event.repeatable:
 				var run = GlobalSessionManager.run_progress
 				if run:
 					run.single_time_mini_events.append(event)
+			
 			target_node.node_data.mini_event = event
 			target_layer.erase(target_node)
 

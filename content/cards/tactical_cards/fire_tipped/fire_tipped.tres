@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bgutrc02omy4f"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_yep3s"]
-[ext_resource type="Script" uid="uid://d4m20s2r5jeqd" path="res://battle_scene/entities/actions/powers/status_effect_projectile_power.gd" id="2_45ror"]
-[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="3_luube"]
-[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_pnvjr"]
+[ext_resource type="Script" uid="uid://bhrhk7tyjbpjh" path="res://battle_scene/entities/actions/powers/fire_tipped_power.gd" id="2_sqpdi"]
 [ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="5_l7h8s"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_ed1e1"]
 
@@ -14,26 +12,13 @@ load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8
 atlas = SubResource("CompressedTexture2D_gnf83")
 region = Rect2(200, 560, 40, 40)
 
-[sub_resource type="Resource" id="Resource_kja1y"]
-script = ExtResource("3_luube")
-metadata/_custom_type_script = "uid://di1j13j6xybid"
-
-[sub_resource type="Resource" id="Resource_3ar84"]
-script = ExtResource("4_pnvjr")
-behaviour = SubResource("Resource_kja1y")
-duration = 2
-stack = 0
-metadata/_custom_type_script = "uid://b4s32yn3jp78u"
-
-[sub_resource type="Resource" id="Resource_abqie"]
-script = ExtResource("2_45ror")
-status = SubResource("Resource_3ar84")
-can_reapply = true
-metadata/_custom_type_script = "uid://d4m20s2r5jeqd"
+[sub_resource type="Resource" id="Resource_ht1bs"]
+script = ExtResource("2_sqpdi")
+metadata/_custom_type_script = "uid://bhrhk7tyjbpjh"
 
 [sub_resource type="Resource" id="Resource_p11oh"]
 script = ExtResource("5_l7h8s")
-power = SubResource("Resource_abqie")
+power = SubResource("Resource_ht1bs")
 metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
 
 [resource]

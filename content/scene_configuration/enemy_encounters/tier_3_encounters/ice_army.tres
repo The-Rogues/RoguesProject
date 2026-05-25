@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_am6yi"]
 [ext_resource type="Resource" uid="uid://r657mh3wnxgs" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/ice_army_field.tres" id="1_lt202"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="2_lq2i0"]
+[ext_resource type="Resource" uid="uid://dbllqq4qtvl2o" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/ice_army_fields/ice_army_field_2.tres" id="3_3i7f8"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_lq2i0"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="3_tn6yp"]
 [ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="5_tn6yp"]

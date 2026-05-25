@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="CardPackItemData" format=3 uid="uid://bj16p41qglnna"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_xa2g2"]
-[ext_resource type="Resource" uid="uid://b0e3y8sjlb5ki" path="res://content/cards/valorous_cards/final_surge/final_surge.tres" id="2_qff2c"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_vke7g"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="3_3waw0"]
 [ext_resource type="Resource" uid="uid://dt6fseflbysgv" path="res://content/cards/valorous_cards/fortitude/fortitude.tres" id="3_bmjir"]
@@ -11,7 +10,7 @@
 
 [resource]
 script = ExtResource("2_vke7g")
-card_pool = Array[ExtResource("1_xa2g2")]([ExtResource("2_qff2c"), ExtResource("3_bmjir"), ExtResource("4_ixank"), ExtResource("5_eanh1"), ExtResource("6_3vw3o")])
+card_pool = Array[ExtResource("1_xa2g2")]([ExtResource("3_bmjir"), ExtResource("4_ixank"), ExtResource("5_eanh1"), ExtResource("6_3vw3o")])
 draw_count = 3
 name = "Valorous Card Pack"
 description = "Choose 1 Valorous card to add to your deck."

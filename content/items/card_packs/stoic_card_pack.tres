@@ -4,14 +4,13 @@
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_jqi21"]
 [ext_resource type="Resource" uid="uid://cb0st71k4otu3" path="res://content/cards/stoic_cards/brave_recovery/brave_recovery.tres" id="2_wbj2f"]
 [ext_resource type="Resource" uid="uid://da2h4oxxjao8w" path="res://content/cards/stoic_cards/challenge/challenge.tres" id="3_eca7j"]
-[ext_resource type="Resource" uid="uid://bhtywhphbire1" path="res://content/cards/stoic_cards/fearsome_armor/fearsome_armor.tres" id="4_jbh4g"]
 [ext_resource type="Resource" uid="uid://m7ighmtyec2a" path="res://content/cards/stoic_cards/gaurded_assault/gaurded_assault.tres" id="5_m66kr"]
 [ext_resource type="Resource" uid="uid://bnxuepr12mnxx" path="res://content/cards/stoic_cards/suit_up/suit_up.tres" id="6_eca7j"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="6_jcvci"]
 
 [resource]
 script = ExtResource("2_jqi21")
-card_pool = Array[ExtResource("1_1plvq")]([ExtResource("2_wbj2f"), ExtResource("3_eca7j"), ExtResource("4_jbh4g"), ExtResource("5_m66kr"), ExtResource("6_eca7j")])
+card_pool = Array[ExtResource("1_1plvq")]([ExtResource("2_wbj2f"), ExtResource("3_eca7j"), ExtResource("5_m66kr"), ExtResource("6_eca7j")])
 draw_count = 3
 rarity = 1
 name = "Stoic Card Pack"

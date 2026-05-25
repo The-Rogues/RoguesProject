@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://c6v6r0kxmsvcb"]
 
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_j2cbc"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_llcp4"]
-[ext_resource type="Resource" uid="uid://d2sdri3l8hfdy" path="res://content/monsters/angry_shroom/angry_shroom_alt.tres" id="2_llcp4"]
+[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/monsters/angry_shroom/angry_shroom.tres" id="2_llcp4"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_3ve2g"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_3o6u3"]
 [ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="5_llcp4"]

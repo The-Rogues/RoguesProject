@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://b6hvgjdnxrppq"]
+
+[ext_resource type="Texture2D" uid="uid://cdj50rusvnt6h" path="res://battle_scene/entities/monster/intents/debuff_icon.tres" id="1_2uy5b"]
+[ext_resource type="Script" uid="uid://c1ukg4ky4nekq" path="res://content/monsters/crawler/dragon_turtle_evaluate_action.gd" id="1_5jj5f"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_kl3jm"]
+
+[sub_resource type="Resource" id="Resource_2uy5b"]
+script = ExtResource("1_5jj5f")
+metadata/_custom_type_script = "uid://c1ukg4ky4nekq"
+
+[resource]
+script = ExtResource("1_kl3jm")
+intent_icon = ExtResource("1_2uy5b")
+name = "Evaluate"
+description = "Decreases highest personality trait by [color=#43A047]1[/color]. Applies a buff based on the trait changed. [color=orange]Permeative.[/color]"
+primary_action = SubResource("Resource_2uy5b")
+metadata/_custom_type_script = "uid://c410dannt5adg"

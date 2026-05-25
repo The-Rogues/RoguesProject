@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bf2bnqocu2bp1"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_qxsle"]
+[ext_resource type="Texture2D" uid="uid://cdj50rusvnt6h" path="res://battle_scene/entities/monster/intents/debuff_icon.tres" id="1_xugtq"]
+[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/the_infected/infection_behavior.gd" id="2_cxm8e"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_qf38r"]
+[ext_resource type="Script" uid="uid://vc600f6njnsd" path="res://battle_scene/entities/actions/skill/apply_multi_status_action.gd" id="3_yphfq"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="4_cxm8e"]
+
+[sub_resource type="Resource" id="Resource_qf38r"]
+script = ExtResource("2_cxm8e")
+metadata/_custom_type_script = "uid://cs8gcwstv68ba"
+
+[sub_resource type="Resource" id="Resource_xugtq"]
+script = ExtResource("3_qf38r")
+behaviour = SubResource("Resource_qf38r")
+duration = -1
+stack = 5
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_6thyi"]
+script = ExtResource("4_cxm8e")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_whbxu"]
+script = ExtResource("3_qf38r")
+behaviour = SubResource("Resource_6thyi")
+duration = -1
+stack = -2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_cxm8e"]
+script = ExtResource("3_yphfq")
+effects = Array[ExtResource("3_qf38r")]([SubResource("Resource_xugtq"), SubResource("Resource_whbxu")])
+target_option = 3
+ignore_foreground = true
+metadata/_custom_type_script = "uid://vc600f6njnsd"
+
+[sub_resource type="Resource" id="Resource_1xk75"]
+script = ExtResource("2_cxm8e")
+metadata/_custom_type_script = "uid://cs8gcwstv68ba"
+
+[sub_resource type="Resource" id="Resource_7ahxt"]
+script = ExtResource("3_qf38r")
+behaviour = SubResource("Resource_1xk75")
+duration = -1
+stack = 5
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_ivtbv"]
+script = ExtResource("4_cxm8e")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_lxpq2"]
+script = ExtResource("3_qf38r")
+behaviour = SubResource("Resource_ivtbv")
+duration = -1
+stack = -2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_nt5k8"]
+script = ExtResource("3_yphfq")
+effects = Array[ExtResource("3_qf38r")]([SubResource("Resource_7ahxt"), SubResource("Resource_lxpq2")])
+target_option = 1
+ignore_foreground = true
+metadata/_custom_type_script = "uid://vc600f6njnsd"
+
+[resource]
+script = ExtResource("1_qxsle")
+type = 1
+intent_icon = ExtResource("1_xugtq")
+name = "Catalyst"
+description = "Gives everyone [color=#43A047]5[/color] [color=orange]infection[/color] and [color=#43A047]-2[/color] [color=orange]strength[/color]. [color=orange]Permeative[/color]."
+primary_action = SubResource("Resource_cxm8e")
+secondary_action = SubResource("Resource_nt5k8")
+metadata/_custom_type_script = "uid://c410dannt5adg"

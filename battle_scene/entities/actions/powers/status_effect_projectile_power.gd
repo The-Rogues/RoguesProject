@@ -12,5 +12,8 @@ func on_apply(_context:BattleContext):
 
 
 func _on_fired_projectile(projectile:Projectile):
-	if !projectile.status:
+	if projectile.status == null:
 		projectile.status = status
+	elif projectile.status.behaviour == status.behaviour:
+		projectile.status = projectile.status.duplicate(true)
+		projectile.status.stack += status.stack

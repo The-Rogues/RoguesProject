@@ -7,17 +7,21 @@ extends Control
 @onready var shop_scroll: ScrollContainer = $ShopContainer/Elements/Panel/ScrollContainer2
 @onready var sell_scroll: ScrollContainer = $ShopContainer/Elements/Panel/ScrollContainer
 
-@onready var card_shop_interface: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer2/CardShop
+@onready var card_shop_interface1: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer2/VBoxContainer/CardShop
+@onready var card_shop_interface2: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer2/VBoxContainer/CardShop2
+@onready var card_shop_interface3: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer2/VBoxContainer/CardShop3
 @onready var card_sell_interface: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer/CardTransform
 @onready var shop_keeper_animator: AnimationPlayer = $ShopKeeper/EntityAnimator
 @onready var shop_keeper_sprite: Sprite2D = $ShopKeeper/SpriteRoot/Sprite2D
 @onready var card_transform: TransformCard = $CardTransform
 @onready var shoop_keeper_dialogue: DialogueText = $CanvasLayer/Control/PanelContainer/ShopKeeperDialogue
 
-var shop_cards:Array[CardInstance] = []
+#var shop_cards:Array[CardInstance] = []
+var shop_cards = {}
 var selected_card:CardInstance
 var selected_card_index:int = -1
 var transform_card:Array[CardInstance] = []
+var selected_interface: ShopCardInterface = null
 
 func _ready() -> void:
 	GlobalSessionInterface.visible = true
@@ -26,6 +30,24 @@ func _ready() -> void:
 
 	sell_scroll.visible = false
 	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	shop_cards[card_shop_interface1] = card_shop_data.get_ai_card(GlobalSessionManager.run_progress.player_data.personality)
+	card_shop_interface1.initialize(
+		shop_cards[card_shop_interface1]
+	)
+	card_shop_interface1.selected_card.connect(_on_selected_card)
+
+	shop_cards[card_shop_interface2] = card_shop_data.get_random_cards_from_player_traits(GlobalSessionManager.run_progress.player_data.personality)
+	card_shop_interface2.initialize(
+		shop_cards[card_shop_interface2]
+	)
+	card_shop_interface2.selected_card.connect(_on_selected_card)
+
+	shop_cards[card_shop_interface3] = card_shop_data.get_random_cards(GlobalSessionManager.run_progress.player_data.personality)
+	card_shop_interface3.initialize(
+		shop_cards[card_shop_interface3]
+	)
+	card_shop_interface3.selected_card.connect(_on_selected_card)
 	# reload shop cards if resume
 	var run : RunProgress = GlobalSessionManager.run_progress
 	print("=== CARD SHOP LOAD CHECK ===")
@@ -74,9 +96,10 @@ func _ready() -> void:
 	
 
 
-func _on_selected_card(index:int, transaction_type:int, transaction_completed:bool) -> void:
+func _on_selected_card(index:int, transaction_type:int, transaction_completed:bool, shop_segment: ShopCardInterface = null) -> void:
 	if transaction_type == 0:
-		selected_card = shop_cards[index]
+		selected_interface = shop_segment
+		selected_card = shop_cards[selected_interface][index]
 	else:
 		selected_card = transform_card[index]
 
@@ -84,13 +107,20 @@ func _on_selected_card(index:int, transaction_type:int, transaction_completed:bo
 
 	if transaction_type == 0:
 		_on_buy_card()
-		shoop_keeper_dialogue.say("Interesting choice!")
 	else:
 		_on_transform_card()
 		shoop_keeper_dialogue.say("The transformation is complete!")
 		
 
 func _on_buy_card():
+	if !GlobalSessionManager.run_progress.player_data.can_buy_card(selected_card.data.shop_price):
+		shoop_keeper_dialogue.say("Not enough gold!")
+		return
+	shoop_keeper_dialogue.say("Interesting choice!")
+	GlobalSessionManager.run_progress.player_data.add_card(selected_card.data)
+	GlobalSessionManager.run_progress.player_data.set_gold(
+					GlobalSessionManager.run_progress.player_data.gold - selected_card.data.shop_price)
+	selected_interface.confirm_transaction(selected_card_index)
 	var run := GlobalSessionManager.run_progress
 	if !run.player_data.can_buy_card(selected_card.data.shop_price):
 		return
@@ -110,7 +140,8 @@ func _on_buy_card():
 func _on_transform_card():
 	transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
 	card_sell_interface.initialize(transform_card)
-	var new_card_data = card_shop_data.random_cards_pool.pick_random()
+	var transform_options: Array[CardData] = card_shop_data.random_cards_pool + card_shop_data.shop_unique_pool
+	var new_card_data = transform_options.pick_random()
 	var new_card_instance := CardInstance.new(new_card_data)
 	card_transform.play_transform(selected_card, new_card_instance)
 	

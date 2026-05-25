@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://mq2wuriso0bl"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_4pw7u"]
+[ext_resource type="Texture2D" uid="uid://cv2tmip0wo0lc" path="res://content/objects/decaying_wall/decaying_wall.tres" id="1_7frdp"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_l21hu"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="3_fwr8l"]
+
+[sub_resource type="Resource" id="Resource_guq4p"]
+script = ExtResource("3_fwr8l")
+base_damage = 10
+ignore_foreground = true
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("2_l21hu")
+targeting_categories = Array[int]([0])
+interaction = 5
+interaction_actions = Array[ExtResource("1_4pw7u")]([SubResource("Resource_guq4p")])
+turn_interaction_counter = 1
+hover_description = "
+Object Category: Cover
+
+On Player Turn Entered: Takes [color=#43A047]10[/color] damage."
+display_texture = ExtResource("1_7frdp")
+name = "Decaying Wall"
+health = 50
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

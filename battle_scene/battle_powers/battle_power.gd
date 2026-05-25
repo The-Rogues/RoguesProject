@@ -9,6 +9,8 @@ signal power_ended(behaviour:BattlePower)
 @abstract
 func on_apply(_context:BattleContext)
 
+func on_stack():
+	pass
 
 func on_remove():
 	pass

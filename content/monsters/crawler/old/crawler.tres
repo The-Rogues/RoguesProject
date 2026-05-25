@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bdqekfp4y42wh"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_g1i3h"]
+[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://content/monsters/crawler/crawler_texture.tres" id="2_lhvly"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_idlan"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_auvo6"]
+[ext_resource type="Resource" uid="uid://dakc5suydn7cx" path="res://content/monsters/crawler/moves/fire_spit.tres" id="5_qq4fk"]
+[ext_resource type="Resource" uid="uid://s2ofhok6hn3m" path="res://content/monsters/crawler/moves/withdraw.tres" id="6_dqdcc"]
+[ext_resource type="Resource" uid="uid://dwcy03y0mwvvj" path="res://content/monsters/crawler/moves/spin.tres" id="7_hxpjh"]
+[ext_resource type="Resource" uid="uid://dx1kvy3jo16ob" path="res://content/monsters/crawler/moves/snap.tres" id="8_txcu5"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="9_lyjyn"]
+
+[sub_resource type="Resource" id="Resource_41i3o"]
+script = ExtResource("1_g1i3h")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_n74vt"]
+script = ExtResource("3_idlan")
+moves = Array[ExtResource("4_auvo6")]([ExtResource("5_qq4fk"), ExtResource("5_qq4fk"), ExtResource("6_dqdcc"), ExtResource("7_hxpjh"), ExtResource("7_hxpjh")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_28hpj"]
+script = ExtResource("3_idlan")
+moves = Array[ExtResource("4_auvo6")]([ExtResource("6_dqdcc"), ExtResource("7_hxpjh"), ExtResource("7_hxpjh")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_34luj"]
+script = ExtResource("3_idlan")
+moves = Array[ExtResource("4_auvo6")]([ExtResource("8_txcu5"), ExtResource("5_qq4fk")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("9_lyjyn")
+move_sequences = Array[ExtResource("3_idlan")]([SubResource("Resource_n74vt"), SubResource("Resource_28hpj"), SubResource("Resource_34luj")])
+behaviour = SubResource("Resource_41i3o")
+display_texture = ExtResource("2_lhvly")
+name = "Crawler"
+health = 29
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

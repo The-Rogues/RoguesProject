@@ -15,7 +15,7 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "Take " + str(_instance.duration) + " damage at the end of each turn."
+	return "On Player Turn Ended: Takes damage equal to [color=orange]burning[/color]. [color=orange]Burning[/color] decreases by [color=#43A047]1[/color]."
 
 
 func get_texture() -> Texture2D:
