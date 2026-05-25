@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="KeyItem" format=3 uid="uid://bddi7j2d0vd3w"]
+
+[ext_resource type="Texture2D" uid="uid://bdrt1ctjghtk5" path="res://content/items/gold_ring/gold_ring_texture.tres" id="1_3w6ii"]
+[ext_resource type="Script" uid="uid://c6lrmd6uaaqx8" path="res://item_system/key_item_data.gd" id="2_pdwrb"]
+
+[resource]
+script = ExtResource("2_pdwrb")
+key_id = "Gold Ring"
+rarity = 2
+name = "Gold Ring"
+description = "Can be sold for 45 gold."
+display_texture = ExtResource("1_3w6ii")
+sell_price = 45
+metadata/_custom_type_script = "uid://c6lrmd6uaaqx8"

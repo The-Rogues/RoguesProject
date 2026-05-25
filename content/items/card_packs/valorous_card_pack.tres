@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://dt6fseflbysgv" path="res://content/cards/valorous_cards/fortitude/fortitude.tres" id="3_bmjir"]
 [ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/valorous_cards/reckless_rush/reckless_rush.tres" id="4_ixank"]
 [ext_resource type="Resource" uid="uid://dkuh4lea68efk" path="res://content/cards/valorous_cards/side_quest/side_quest.tres" id="5_eanh1"]
-[ext_resource type="Resource" uid="uid://dv22vxv6dmc2m" path="res://content/cards/valorous_cards/crushing_presence.tres" id="6_3vw3o"]
+[ext_resource type="Resource" uid="uid://cwj0ql2eool6q" path="res://content/cards/valorous_cards/crushing_presence.tres" id="6_3vw3o"]
 
 [resource]
 script = ExtResource("2_vke7g")

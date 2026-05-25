@@ -51,7 +51,6 @@ func _on_control_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			pass
-			#print("clicked")
 	pass # Replace with function body.
 
 

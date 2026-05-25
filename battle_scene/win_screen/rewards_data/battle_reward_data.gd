@@ -9,5 +9,9 @@ class_name BattleRewardData
 func get_reward() -> bool
 
 
+# Override
 func get_reward_name() -> String:
 	return name
+
+func get_reward_texture() -> Texture2D:
+	return display_texture

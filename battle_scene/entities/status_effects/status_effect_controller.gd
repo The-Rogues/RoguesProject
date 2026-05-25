@@ -22,7 +22,8 @@ func add_effect(
 	effect:StatusEffectBehaviour, 
 	duration:int = -1, 
 	stack:int = -1,
-	turn_entered: bool = true
+	turn_entered: bool = true,
+	restore: bool = false
 ) -> void:
 	# Checking if effect already applied
 	var new_instance := ActiveStatusEffect.new(effect, duration, stack, turn_entered)
@@ -43,10 +44,11 @@ func add_effect(
 			active_effects.append(new_instance)
 		
 		effect_added.emit(new_instance)
-		new_instance.effect.on_apply(
-			affected_creature,
-			new_instance
-		)
+		if not restore:
+			new_instance.effect.on_apply(
+				affected_creature,
+				new_instance
+			)
 
 
 ## Removes instance with status effect behaviour. Returns True if removal occured.
@@ -85,16 +87,18 @@ func apply_incoming_damage_effects(damage:int) -> int:
 	return final_damage
 
 
-func on_attacked(attacker:AbstractEntity):
+func on_attacked(attacker):
 	if attacker == null:
 		return
 
 	for instance in active_effects:
 		instance.effect.on_attacked(attacker, instance)
 
-func on_damaged(attacker: AbstractEntity, damaged_entity: AbstractEntity):
+
+func on_damaged(attacker, damaged_entity: AbstractEntity):
 	for instance in active_effects:
 		instance.effect.on_damaged(attacker, damaged_entity, instance)
+
 
 func process_played_card(card:CardInstance, resolver:ActionResolver):
 	for instance in active_effects:

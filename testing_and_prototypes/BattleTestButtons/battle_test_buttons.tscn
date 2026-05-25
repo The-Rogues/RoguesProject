@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7doidnfxvws4"]
 
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_kbqik"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="1_kbqik"]
 [ext_resource type="Script" uid="uid://cn55mymxubtt5" path="res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.gd" id="2_jig8v"]
 [ext_resource type="PackedScene" uid="uid://peru0wapt4c8" path="res://testing_and_prototypes/ItemTester/AddItemMenu.tscn" id="3_1tvcq"]
 
@@ -60,6 +60,20 @@ theme_override_fonts/font = ExtResource("1_kbqik")
 theme_override_font_sizes/font_size = 12
 text = "Damage Enemy"
 
+[node name="SpareEnemy" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=308228697]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "Spare Enemy"
+
+[node name="FleeEnemy" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1542089435]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kbqik")
+theme_override_font_sizes/font_size = 12
+text = "Flee Enemy"
+
 [node name="AddCard" type="Button" parent="MarginContainer/HBoxContainer/Options" unique_id=1472989463]
 texture_filter = 1
 layout_mode = 2
@@ -93,6 +107,8 @@ offset_bottom = 45.0
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Options/Win" to="." method="_on_win_button_up"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Options/DamagePlayer" to="." method="_on_damage_player_pressed"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Options/DamageEnemy" to="." method="_on_damage_enemy_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/SpareEnemy" to="." method="_on_spare_enemy_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Options/FleeEnemy" to="." method="_on_flee_enemy_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Options/AddCard" to="." method="_on_draw_card_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Options/AddGold" to="." method="_on_add_gold_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Options/ItemMenu" to="." method="_on_item_menu_button_up"]

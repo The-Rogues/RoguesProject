@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_hsybo")
+heal_amount = 20
 rarity = 1
 name = "Bread"
 description = "Heal 20 HP"

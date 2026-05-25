@@ -36,3 +36,7 @@ func set_weight(weight:int):
 	else:
 		weight_value = clampi(weight, 1, 10)
 		updated_trait_weight.emit(weight_value)
+
+
+func reset_weight():
+	set_weight(base_weight_value)

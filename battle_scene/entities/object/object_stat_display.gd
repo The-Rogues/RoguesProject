@@ -34,7 +34,8 @@ func initialize(object:ObjectEntity):
 							run.player_data.remove_item(key)
 					object.interact()
 					interaction_button.visible = false
-					can_interact = false)
+					can_interact = false
+					Events.chest_opened.emit())
 			object.player_entered.connect(
 				func():
 					_on_player_entered(object))

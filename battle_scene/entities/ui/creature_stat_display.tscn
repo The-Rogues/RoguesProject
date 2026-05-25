@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://nxd0nkvcjmf6"]
 
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_04qu7"]
 [ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://common/stat_components/HealthBar/health_bar.tscn" id="1_kevs6"]
 [ext_resource type="Script" uid="uid://dovdftemfgk8p" path="res://battle_scene/entities/ui/creature_stat_display.gd" id="1_m7vre"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_m7vre"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_m7vre"]
 [ext_resource type="Script" uid="uid://bkhwawbjbd08r" path="res://battle_scene/entities/ui/status_effect_container.gd" id="4_bh48r"]
 [ext_resource type="Script" uid="uid://c4qn30ydmtc6h" path="res://common/floating_text/floating_text_spawner.gd" id="4_hhelc"]
 [ext_resource type="Script" uid="uid://iiyj3mh6swyn" path="res://battle_scene/entities/ui/preference_container.gd" id="5_sflir"]
 [ext_resource type="Texture2D" uid="uid://cg8j7bhiea5pf" path="res://battle_scene/entities/monster/intents/defend_icon.tres" id="6_u2rpi"]
 [ext_resource type="Script" uid="uid://0w44t3vnjgar" path="res://common/stat_components/block_icon.gd" id="7_hhelc"]
+[ext_resource type="Script" uid="uid://ru5rndxm87cd" path="res://shop_scenes/item_shop/dialogue_text.gd" id="10_y5wtu"]
 
 [node name="CreatureStatDisplay" type="Control" unique_id=1848121133]
 layout_mode = 3
@@ -25,6 +27,7 @@ grow_vertical = 2
 pivot_offset = Vector2(44, 0)
 size_flags_horizontal = 4
 mouse_filter = 1
+theme = ExtResource("1_04qu7")
 script = ExtResource("1_m7vre")
 
 [node name="Display" type="VBoxContainer" parent="." unique_id=1149288452]
@@ -128,3 +131,22 @@ anchor_bottom = 1.625
 size_flags_vertical = 0
 script = ExtResource("5_sflir")
 metadata/_edit_use_anchors_ = true
+
+[node name="Dialogue" type="RichTextLabel" parent="." unique_id=1013765684 node_paths=PackedStringArray("dialogue_text_timer")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(193, 0)
+layout_mode = 0
+offset_left = 69.0
+offset_top = -46.0
+offset_right = 262.0
+offset_bottom = -6.0
+theme_override_font_sizes/normal_font_size = 12
+fit_content = true
+script = ExtResource("10_y5wtu")
+dialogue_text_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Dialogue" unique_id=910793975]
+wait_time = 0.05
+
+[node name="DissapearTimer" type="Timer" parent="Dialogue" unique_id=1121857004]
+wait_time = 2.0

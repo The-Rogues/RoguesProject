@@ -1,9 +1,11 @@
 extends Control
 class_name CardPicker
 
+signal closed(picked_card:bool)
 
 const CARD = preload("res://card_system/card.tscn")
 @onready var card_container: HBoxContainer = $CardPanel/CardContainer
+@onready var cancel_button: Button = %Cancel
 
 
 func initialize(cards:Array[CardData]):
@@ -27,3 +29,4 @@ func _on_card_chosen(card:Card):
 		run.player_data.add_card(card.instance.data)
 	
 	visible = false
+	closed.emit(true)

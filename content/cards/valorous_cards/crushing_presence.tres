@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dv22vxv6dmc2m"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cwj0ql2eool6q"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_otv63"]
 [ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="3_6di7p"]

@@ -5,9 +5,9 @@ class_name ItemShopData
 
 @export var shop_keeper_textures:Array[Texture2D]
 @export var shop_services:Array[ShopServiceData]
+@export var card_packs:Array[CardPackServiceData]
 @export var rare_item_pool:Array[ItemData]
 @export var item_pool:Array[ItemData]
-@export var card_packs:Array[CardPackItemData]
 
 const OTHER_ITEM_COUNT = 4
 
@@ -16,7 +16,7 @@ func get_shop_items() -> Array[ItemData]:
 	var shop_items:Array[ItemData] = []
 	shop_items.append(rare_item_pool.pick_random())
 	
-	shop_items.append(card_packs.pick_random())
+	#shop_items.append(card_packs.pick_random())
 	
 	var unique_items = item_pool.duplicate(true)
 	unique_items.shuffle()

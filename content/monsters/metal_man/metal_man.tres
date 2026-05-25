@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 script = ExtResource("2_vaqbo")
 move_sequences = Array[ExtResource("1_6xm6g")]([SubResource("Resource_wgwbs"), SubResource("Resource_5jxiy")])
 behaviour = SubResource("Resource_ox767")
+speech = Array[String](["*beep*", "*boop*"])
 display_texture = ExtResource("2_xir4h")
 name = "Metal Man"
 health = 70

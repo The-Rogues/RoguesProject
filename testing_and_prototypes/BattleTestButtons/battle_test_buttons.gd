@@ -59,3 +59,15 @@ func _on_draw_card_button_up() -> void:
 func _on_item_menu_button_up() -> void:
 	add_item_menu.visible = !add_item_menu.visible
 	pass # Replace with function body.
+
+
+func _on_flee_enemy_button_up() -> void:
+	var enemy = battle_manager.enemies.pick_random()
+	if enemy.health.is_alive:
+		enemy.leave_battle("FLEE")
+
+
+func _on_spare_enemy_button_up() -> void:
+	var enemy = battle_manager.enemies.pick_random()
+	if enemy.health.is_alive:
+		enemy.leave_battle("SPARED")

@@ -258,7 +258,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_yn2u8")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1to5l")
 
-[node name="StragicTraitIcon" type="TextureRect" parent="TraitContainer/HBoxContainer/StrategicTrait/StrategyButton" unique_id=1579809794]
+[node name="StrategicTraitIcon" type="TextureRect" parent="TraitContainer/HBoxContainer/StrategicTrait/StrategyButton" unique_id=1579809794]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
@@ -313,6 +313,7 @@ custom_minimum_size = Vector2(203, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
+disabled = true
 text = "Increase"
 
 [node name="DecreaseButton" type="Button" parent="HBoxContainer" unique_id=1899081404]
@@ -321,6 +322,7 @@ custom_minimum_size = Vector2(203, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
+disabled = true
 text = "Decrease"
 
 [connection signal="button_up" from="TraitContainer/HBoxContainer/OffensiveTrait/OffenseButton" to="." method="_on_offense_button_up"]

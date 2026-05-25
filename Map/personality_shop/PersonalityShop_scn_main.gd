@@ -12,9 +12,22 @@ const RANDOM_PERSONALITY_SLOT = preload("res://Map/personality_shop/UI/random_pe
 
 
 func _ready() -> void:
-	var personality = GlobalSessionManager.run_progress.player_data.personality
-
-	shop_data.generate_offers(personality)
+	var run: RunProgress = GlobalSessionManager.run_progress
+	var resuming := run != null and run.shop_save != null
+	var personality = run.player_data.personality
+	
+	if resuming and run.shop_save.offensive_offers.size() > 0:
+		shop_data.offensive_offers = run.shop_save.offensive_offers
+		shop_data.defensive_offers = run.shop_save.defensive_offers
+		shop_data.strategic_offers = run.shop_save.strategic_offers
+	
+	else: 
+		run.shop_save = ShopSaveData.new()
+		shop_data.generate_offers(personality)
+		run.shop_save.defensive_offers = shop_data.offensive_offers
+		run.shop_save.defensive_offers = shop_data.defensive_offers
+		run.shop_save.strategic_offers = shop_data.strategic_offers
+		GlobalSaveManager.save_run(run)
 	create_slots()
 	shoop_keeper_dialogue.say("Welcome, traveler. Ready to reshape who you are?")
 
@@ -98,7 +111,8 @@ func _on_trait_selected(slot: PersonalityShopSlot, t: PersonalityTrait) -> void:
 
 
 func _on_weight_selected(slot: PersonalityShopSlot, weight: int) -> void:
-	var player_data = GlobalSessionManager.run_progress.player_data
+	var run: RunProgress = GlobalSessionManager.run_progress
+	var player_data = run.player_data
 	var personality = player_data.personality
 	var t = slot.current_trait
 
@@ -110,7 +124,7 @@ func _on_weight_selected(slot: PersonalityShopSlot, weight: int) -> void:
 	if not player_data.can_pay_price(cost):
 		on_not_enough_gold()
 		return
-
+	
 	player_data.set_gold(player_data.gold - cost)
 
 	personality.set_trait_weight(
@@ -119,7 +133,9 @@ func _on_weight_selected(slot: PersonalityShopSlot, weight: int) -> void:
 	)
 
 	shop_data.increase_weight_price()
-
+	
+	if run != null and run.shop_save != null:
+		run.shop_save.weight_buy_count = shop_data.weight_buy_count
 	slot.current_weight = get_weight_for_trait(t)
 	slot.price = shop_data.get_weight_price()
 	slot.update_current(t)

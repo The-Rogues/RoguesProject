@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cx7cujoe5fsmp"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://pvnvvs8t4paq"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qu3gp"]
 [ext_resource type="Resource" uid="uid://caws41005dm5o" path="res://content/objects/cannons/acurate_cannon.tres" id="2_a10xv"]

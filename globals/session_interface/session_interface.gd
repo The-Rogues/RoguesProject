@@ -16,6 +16,7 @@ class_name SessionInterface
 @onready var stat_modifier: Control = %StatModifier
 @onready var modify_stat_button: Button = %ModifyStat
 @onready var close_card_picker_button: Button = %CloseCardPicker
+@onready var card_effects_manager: Control = %CardEffectsManager
 
 
 func initialize():
@@ -24,7 +25,7 @@ func initialize():
 	run.player_data.cards_updated.connect(deck_ui._on_card_pile_updated)
 	player_items.initialize()
 	gold_label.initialize()
-	name_label.text = run.player_name
+	name_label.text = run.player_data.name
 	health_label.text = str(run.player_data.current_health) + "/" + str(run.player_data.max_health)
 	
 	
@@ -55,6 +56,10 @@ func initialize():
 	
 	run.player_data.cards_updated.connect(deck_ui._on_deck_updated)
 	run.player_data.cards_updated.connect(deck_viewer.display_cards_from_data)
+	run.player_data.card_collected.connect(func(card:CardData):
+		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
+	run.player_data.card_removed.connect(func(card:CardData):
+		card_effects_manager.remove_card_effect(card))
 	#run.player_data.items_updated.connect(player_items._on_items_updated)
 	run.player_data.health_updated.connect(_on_health_updated)
 
@@ -74,6 +79,11 @@ func connect_to_player(player:PlayerEntity):
 	offesnive_trait_display.connect_to_battle_trait(player.offensive_trait)
 	defensive_trait_display.connect_to_battle_trait(player.defensive_trait)
 	strategic_trait_display.connect_to_battle_trait(player.strategic_trait)
+	
+	player.data.card_collected.connect(func(card:CardData):
+		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
+	player.data.card_removed.connect(func(card:CardData):
+		card_effects_manager.remove_card_effect(card))
 	pass
 
 
@@ -81,6 +91,10 @@ func disconnect_from_player(player: PlayerEntity):
 	offesnive_trait_display.disconnect_from_battle_trait(player.offensive_trait)
 	defensive_trait_display.disconnect_from_battle_trait(player.defensive_trait)
 	strategic_trait_display.disconnect_from_battle_trait(player.strategic_trait)
+	player.data.card_collected.disconnect(func(card:CardData):
+		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
+	player.data.card_removed.disconnect(func(card:CardData):
+		card_effects_manager.remove_card_effect(card))
 
 
 func _on_health_updated(current:int, max:int):
@@ -100,7 +114,8 @@ func open_card_removal():
 		card_remover.visible = true
 
 
-func open_card_picker(cards:Array[CardData], allow_stat_mod:bool = false):
+func open_card_picker(cards:Array[CardData], 
+	allow_stat_mod:bool = false):
 	card_picker.initialize(cards)
 	card_picker.visible = true
 	
@@ -120,6 +135,7 @@ func open_stat_modifier() -> void:
 
 func _on_close_card_picker_button_up() -> void:
 	card_picker.visible = false
+	card_picker.closed.emit(false)
 	pass # Replace with function body.
 
 

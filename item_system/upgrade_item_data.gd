@@ -25,16 +25,16 @@ func use_item(_player:PlayerEntity = null) -> bool:
 		UpgradeType.MAX_HEALTH:
 			if _player:
 				_player.health.set_values(
-						_player.health.value,
+						_player.health.value + amount,
 						_player.health.max_value + amount)
 			else:
 				run.player_data.set_health(
-					run.player_data.current_health,
+					run.player_data.current_health + amount,
 					run.player_data.max_health + amount)
 		UpgradeType.MAX_ENERGY:
 			if _player:
 				_player.energy.set_energy(
-						_player.energy.value,
+						_player.energy.value + amount,
 						_player.energy.max_value + amount)
 			else:
 				run.player_data.set_energy(

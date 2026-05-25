@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://dc1pwnpncbncr"]
+
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_st8kq"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="2_4p0dq"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="3_a31wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj2on"]
+atlas = ExtResource("1_st8kq")
+region = Rect2(120, 120, 40, 40)
+
+[sub_resource type="Resource" id="Resource_tp0fr"]
+script = ExtResource("3_a31wf")
+stat_name = "total_objects_placed"
+target = 10
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[resource]
+script = ExtResource("2_4p0dq")
+name = "Master Builder"
+display_image = SubResource("AtlasTexture_sj2on")
+description = "Place a total of 10 objects."
+listen_signal = "object_placed"
+stat_checks = Array[ExtResource("3_a31wf")]([SubResource("Resource_tp0fr")])
+metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

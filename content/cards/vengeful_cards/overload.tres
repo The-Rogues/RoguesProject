@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dd7tmxi2h8ukl"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dfc8q54ijvx5g"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_4rixt"]
 [ext_resource type="Script" uid="uid://eo04g3psi2bf" path="res://battle_scene/entities/actions/skill/move_toward_preferrence.gd" id="2_xdph1"]

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="StatusEffectItem" format=3 uid="uid://b24fjcgroekd0"]
+
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://item_system/status_effect_item.gd" id="1_h0phn"]
+[ext_resource type="Texture2D" uid="uid://blpblqsmuqire" path="res://content/items/strength_potion/strength_potion_texture.tres" id="1_i11x1"]
+[ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="2_n37er"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_tdfdw"]
+
+[sub_resource type="Resource" id="Resource_0fhql"]
+script = ExtResource("2_n37er")
+metadata/_custom_type_script = "uid://ebwvb1etrwgq"
+
+[sub_resource type="Resource" id="Resource_p3er1"]
+script = ExtResource("3_tdfdw")
+behaviour = SubResource("Resource_0fhql")
+duration = 3
+stack = 5
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[resource]
+script = ExtResource("1_h0phn")
+effect = SubResource("Resource_p3er1")
+name = "Strength Potion"
+description = "Increase melee damage delt by 5 for 3 turns."
+display_texture = ExtResource("1_i11x1")
+shop_price = 10
+sell_price = 5
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

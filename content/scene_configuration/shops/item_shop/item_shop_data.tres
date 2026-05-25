@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="ItemShopData" format=3 uid="uid://cleehjci2nw3o"]
+
+[ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="1_puy6o"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_k0en6"]
+[ext_resource type="Resource" uid="uid://cqd6wjbb86o0w" path="res://content/scene_configuration/shops/item_shop/card_packs/brutish_card_pack.tres" id="2_ydkoa"]
+[ext_resource type="Resource" uid="uid://du4htx80g0ivf" path="res://content/scene_configuration/shops/item_shop/card_packs/crafty_card_pack.tres" id="3_6w0yr"]
+[ext_resource type="Script" uid="uid://b3ne2lxaru7d4" path="res://shop_scenes/item_shop/item_shop_data.gd" id="3_7x27r"]
+[ext_resource type="Resource" uid="uid://pav0x58rd6ij" path="res://content/items/apple/apple_healing_item_data.tres" id="3_wfi6s"]
+[ext_resource type="Resource" uid="uid://dhrnvjo1dpbsc" path="res://content/scene_configuration/shops/item_shop/card_packs/friendly_card_pack.tres" id="4_fqu5w"]
+[ext_resource type="Script" uid="uid://dpqpae08lyjh3" path="res://shop_scenes/shop_entry_data/shop_service_data.gd" id="4_hhvmi"]
+[ext_resource type="Resource" uid="uid://cnlu0t2x62ws6" path="res://content/items/barricade/barricade_item_data.tres" id="4_usqye"]
+[ext_resource type="Resource" uid="uid://b8f772kse1u71" path="res://content/scene_configuration/shops/item_shop/card_packs/greedy_card_pack.tres" id="5_3c73y"]
+[ext_resource type="Resource" uid="uid://df3qto0b7q2wl" path="res://content/items/super_health_potion/super_health_potion_character_upgrade_item_data.tres" id="5_4tjyo"]
+[ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/super_energy_potion/super_energy_potion_upgrade_item_data.tres" id="6_7fck4"]
+[ext_resource type="Resource" uid="uid://dcf2qk0fmuymk" path="res://content/scene_configuration/shops/item_shop/card_packs/laid_back_card_pack.tres" id="6_fsruo"]
+[ext_resource type="Resource" uid="uid://bd2ynpbh5j0kj" path="res://content/items/cheese/cheese_item_data.tres" id="6_vfnob"]
+[ext_resource type="Resource" uid="uid://c5pto2p1e5svm" path="res://content/scene_configuration/shops/item_shop/card_packs/merciful_card_pack.tres" id="7_mafbf"]
+[ext_resource type="Resource" uid="uid://crt46sxdbx2pm" path="res://content/items/dummy/dummy_item_data.tres" id="7_v74i3"]
+[ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="8_aoly8"]
+[ext_resource type="Resource" uid="uid://c1akblk4le2jm" path="res://content/items/repeat_potion/repeat_potion_item_data.tres" id="8_ilyyc"]
+[ext_resource type="Resource" uid="uid://titvnjmcgma1" path="res://content/scene_configuration/shops/item_shop/card_packs/naive_card_pack.tres" id="8_uns1f"]
+[ext_resource type="Resource" uid="uid://dqiy26sag5h1m" path="res://content/scene_configuration/shops/item_shop/card_packs/skittish_card_pack.tres" id="9_tkpn2"]
+[ext_resource type="Resource" uid="uid://wv8r4f5usawx" path="res://content/scene_configuration/shops/item_shop/card_packs/stoic_card_pack.tres" id="10_frsvf"]
+[ext_resource type="Resource" uid="uid://b1hlmo7dx0jnr" path="res://content/scene_configuration/shops/item_shop/card_packs/tactical_card_pack.tres" id="11_5hede"]
+[ext_resource type="Resource" uid="uid://x03j2hv3d3qc" path="res://content/scene_configuration/shops/item_shop/card_packs/valorous_card_pack.tres" id="12_8cfx2"]
+[ext_resource type="Resource" uid="uid://cjafw81wvmekh" path="res://content/scene_configuration/shops/item_shop/card_packs/vengeful_card_pack.tres" id="13_817q4"]
+[ext_resource type="Texture2D" uid="uid://bf38fejp0xrk3" path="res://shop_scenes/shop_keepers/shop_keeper_varient_0.tres" id="17_imoh2"]
+[ext_resource type="Resource" uid="uid://dkgaaj52of0uc" path="res://content/items/iron_skin_potion/iron_skin_potion.tres" id="18_cp1n2"]
+[ext_resource type="Texture2D" uid="uid://b550d7gcsphak" path="res://shop_scenes/shop_keepers/shop_keeper_varient_1.tres" id="18_u0g0y"]
+[ext_resource type="Resource" uid="uid://dju78xldybhe5" path="res://content/items/shield_potion/shield_potion.tres" id="19_5rynm"]
+[ext_resource type="Texture2D" uid="uid://cuq1dayohww78" path="res://shop_scenes/shop_keepers/shop_keeper_varient_2.tres" id="19_og8iw"]
+[ext_resource type="Resource" uid="uid://b24fjcgroekd0" path="res://content/items/strength_potion/strength_potion.tres" id="20_jx020"]
+[ext_resource type="Texture2D" uid="uid://cgkstjg1haxst" path="res://shop_scenes/shop_keepers/shop_keeper_varient_3.tres" id="20_wdatp"]
+[ext_resource type="Resource" uid="uid://ceqn6vhw30utf" path="res://content/items/bone/bone.tres" id="21_2s4ey"]
+[ext_resource type="Resource" uid="uid://di0f2cxcij3vn" path="res://content/items/thorns_potion/thorns_potion.tres" id="21_c7uum"]
+[ext_resource type="Resource" uid="uid://mi4ggqd8gx0j" path="res://content/items/energy_potion/energy_potion.tres" id="22_cbw2b"]
+[ext_resource type="Resource" uid="uid://d32ri7nxelqgc" path="res://content/items/koala_plush/koala_plush.tres" id="23_gvgmq"]
+[ext_resource type="Script" uid="uid://bx0llrrspi4om" path="res://shop_scenes/shop_entry_data/card_removal_service_data.gd" id="36_q3hle"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="37_qkuat"]
+
+[sub_resource type="Resource" id="Resource_4day8"]
+script = ExtResource("36_q3hle")
+texture = ExtResource("37_qkuat")
+name = "Card removal service"
+description = "Choose 1 card to remove from your deck."
+price = 7
+exhaustable = false
+metadata/_custom_type_script = "uid://bx0llrrspi4om"
+
+[resource]
+script = ExtResource("3_7x27r")
+shop_keeper_textures = Array[Texture2D]([ExtResource("17_imoh2"), ExtResource("18_u0g0y"), ExtResource("19_og8iw"), ExtResource("20_wdatp")])
+shop_services = Array[ExtResource("4_hhvmi")]([SubResource("Resource_4day8")])
+card_packs = Array[ExtResource("1_puy6o")]([ExtResource("2_ydkoa"), ExtResource("3_6w0yr"), ExtResource("4_fqu5w"), ExtResource("5_3c73y"), ExtResource("6_fsruo"), ExtResource("7_mafbf"), ExtResource("8_uns1f"), ExtResource("9_tkpn2"), ExtResource("10_frsvf"), ExtResource("11_5hede"), ExtResource("12_8cfx2"), ExtResource("13_817q4")])
+rare_item_pool = Array[ExtResource("2_k0en6")]([ExtResource("5_4tjyo"), ExtResource("6_7fck4"), ExtResource("8_aoly8"), ExtResource("21_2s4ey")])
+item_pool = Array[ExtResource("2_k0en6")]([ExtResource("3_wfi6s"), ExtResource("4_usqye"), ExtResource("6_vfnob"), ExtResource("7_v74i3"), ExtResource("8_ilyyc"), ExtResource("18_cp1n2"), ExtResource("19_5rynm"), ExtResource("20_jx020"), ExtResource("21_c7uum"), ExtResource("22_cbw2b"), ExtResource("23_gvgmq")])
+metadata/_custom_type_script = "uid://b3ne2lxaru7d4"

@@ -1,6 +1,8 @@
 extends AbstractCreature
 class_name MonsterEntity
 
+signal fleed(monster: MonsterEntity)
+signal spared(monster: MonsterEntity)
 signal intent_chosen(intent:EnemyMove)
 
 var data:MonsterData
@@ -36,6 +38,7 @@ func initialize(_data:MonsterData):
 	#health.died.connect(on_destroyed)
 	updated_targeting = data.init_targeting.duplicate()
 	#projectile_launcher.fired_projectile.connect(_on_projectile_fired)
+	add_to_group("Enemies")
 
 
 
@@ -76,7 +79,8 @@ func on_destroyed():
 
 func enter_turn(_turn_count:int):
 	super(_turn_count)
-	turn_entered.emit()
+	#turn_entered.emit()
+
 
 
 func choose_intent():
@@ -91,3 +95,20 @@ func resolve_intent(resolver:ActionResolver):
 		if intent.type == EnemyMove.Type.ATTACK:
 			play_attack_anim()
 		resolver.process_actions(intent.get_actions(), self)
+
+
+func leave_battle(reason:String):
+	var safe_zone = global_position + Vector2(0, -300)
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", safe_zone, 1.0)
+
+	await tween.finished
+	
+	if health.is_alive:
+		reason = reason.to_upper()
+		if reason == "FLEE":
+			fleed.emit(self)
+		elif reason == "SPARED":
+			spared.emit(self)
+		else:
+			health.kill()

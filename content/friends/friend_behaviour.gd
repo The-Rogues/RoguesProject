@@ -16,6 +16,7 @@ func initialize(_context:BattleContext, _owner:PlayerEntity, _instance:Friend):
 	_owner.played_card.connect(_on_card_played)
 	_owner.turn_entered.connect(_on_turn_entered)
 	_owner.attacked_entity.connect(_on_entity_attacked)
+	_owner.register_friend(_instance)
 
 
 @abstract

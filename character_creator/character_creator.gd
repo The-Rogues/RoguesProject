@@ -137,7 +137,6 @@ func _on_save_button_up() -> void:
 	
 	var player_data = PlayerInitializationData.new(
 		character_name_label.text,
-		"",
 		character_sprite.texture,
 		melee_weapon_sprite.texture,
 		ranged_weapon_sprite.texture,

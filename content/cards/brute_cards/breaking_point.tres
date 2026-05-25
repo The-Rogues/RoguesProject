@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dmr3wvwbs4lbk"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://2m04j4nr2sfx"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_thcs7"]
 [ext_resource type="Script" uid="uid://dcabksqrj75i0" path="res://content/cards/brute_cards/rage_effect/rage_status_effect.gd" id="2_gyfsk"]

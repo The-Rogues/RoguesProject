@@ -8,12 +8,16 @@ signal items_updated(items:Array[ItemData])
 signal item_capacity_updated(current:int)
 signal gold_updated(current:int)
 signal cards_updated(cards:Array[CardData])
+signal card_removed(card:CardData)
 
 signal item_collected
-signal card_collected
+signal card_collected(card:CardData)
 signal gold_collected(amount:int)
 
 @export var name:String = "Player"
+@export var character_texture:Texture2D
+@export var melee_weapon_texture:Texture2D
+@export var ranged_weapon_texture:Texture2D
 @export var max_health:int
 @export var current_health:int
 @export var current_energy:int
@@ -26,7 +30,7 @@ signal gold_collected(amount:int)
 
 const STARTING_HEALTH = 50
 const STARTING_ENERGY = 3
-const STARTING_ITEM_CAPACITY = 2
+const STARTING_ITEM_CAPACITY = 3
 const STARTING_GOLD = 0
 
 
@@ -59,6 +63,7 @@ func set_energy(_current:int, _max:int) -> void:
 func set_gold(amount:int) -> void:
 	if amount > gold:
 		gold_collected.emit(amount)
+		Events.gold_collected.emit(amount)
 	
 	gold = amount
 	gold_updated.emit(gold)
@@ -112,7 +117,9 @@ func can_pay_price(price:int):
 func add_card(card:CardData):
 	cards.append(card)
 	cards_updated.emit(cards)
-	card_collected.emit()
+	card_collected.emit(card)
+	
+	Events.card_collected.emit(card)
 
 
 func add_cards(_cards:Array[CardData]):
@@ -126,6 +133,7 @@ func add_cards(_cards:Array[CardData]):
 func remove_card(card:CardData):
 	if cards.has(card):
 		cards.erase(card)
+		card_removed.emit(card)
 		cards_updated.emit(cards)
 
 

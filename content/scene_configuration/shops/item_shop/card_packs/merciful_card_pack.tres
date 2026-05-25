@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://c5pto2p1e5svm"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_fyigh"]
+[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/go_easy/go_easy.tres" id="2_46o5d"]
+[ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_rpli8"]
+[ext_resource type="Resource" uid="uid://cqym7pxoy0cnt" path="res://content/cards/mericful_cards/heartbreak_shot/heartbreak_shot.tres" id="3_8r5ju"]
+[ext_resource type="Resource" uid="uid://drusengu3gs5f" path="res://content/cards/mericful_cards/hug/hug.tres" id="4_y2thf"]
+[ext_resource type="Resource" uid="uid://bchnqrjy0vhrh" path="res://content/cards/mericful_cards/tag/tag.tres" id="5_t0ajr"]
+[ext_resource type="Resource" uid="uid://cveo1a1cklvwm" path="res://content/cards/mericful_cards/betray/betray.tres" id="6_hhw5y"]
+[ext_resource type="Texture2D" uid="uid://hi7wmsmd5iab" path="res://common/art/placeholder/joi3/merciful_icon.tres" id="8_51c18"]
+
+[resource]
+script = ExtResource("2_rpli8")
+card_pool = Array[ExtResource("1_fyigh")]([ExtResource("2_46o5d"), ExtResource("3_8r5ju"), ExtResource("4_y2thf"), ExtResource("5_t0ajr"), ExtResource("6_hhw5y")])
+texture = ExtResource("8_51c18")
+name = "Open Merciful card pack"
+description = "Choose 1 Merciful card to add to your deck."
+price = 15
+metadata/_custom_type_script = "uid://5e5dqru2odgj"

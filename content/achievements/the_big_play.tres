@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://cbfybvpxpcbl5"]
+
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="1_4mir6"]
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_82yuf"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="2_82yuf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5rog"]
+atlas = ExtResource("1_82yuf")
+region = Rect2(560, 560, 40, 40)
+
+[sub_resource type="Resource" id="Resource_b760j"]
+script = ExtResource("2_82yuf")
+stat_name = "energy_used_in_turn"
+target = 6
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[resource]
+script = ExtResource("1_4mir6")
+name = "The Big Play"
+display_image = SubResource("AtlasTexture_n5rog")
+description = "Spend 6 energy in one turn."
+signal_from = 1
+listen_signal = "energy_used"
+stat_checks = Array[ExtResource("2_82yuf")]([SubResource("Resource_b760j")])
+metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

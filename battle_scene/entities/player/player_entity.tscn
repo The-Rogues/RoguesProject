@@ -184,9 +184,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x21no"]
 size = Vector2(50, 60)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_elg6u"]
-size = Vector2(48, 59)
-
 [sub_resource type="Animation" id="Animation_c7woo"]
 length = 0.001
 tracks/0/type = "value"
@@ -418,6 +415,7 @@ libraries/ = SubResource("AnimationLibrary_7jfak")
 script = ExtResource("3_wf7sx")
 fire_delay = NodePath("FireDelayTimer")
 fire_point = NodePath("FirePoint")
+group = "Player"
 
 [node name="FirePoint" type="Node2D" parent="ProjectileLauncher" unique_id=1744759564]
 position = Vector2(0, -47)
@@ -431,15 +429,6 @@ position = Vector2(0, 19)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1270511977]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_x21no")
-
-[node name="CollisionBox" type="StaticBody2D" parent="." unique_id=219449472]
-visible = false
-position = Vector2(0, 19)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox" unique_id=1595754214]
-position = Vector2(0, -32)
-shape = SubResource("RectangleShape2D_elg6u")
-debug_color = Color(0.8117647, 0.25882354, 0.79607844, 0.41960785)
 
 [node name="Stats" type="Node" parent="." unique_id=1881044145]
 

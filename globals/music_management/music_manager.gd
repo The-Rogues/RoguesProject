@@ -31,8 +31,8 @@ func set_music_enabled(enabled: bool):
 
 
 func change_song(new_song:AudioStream):
-	if stream == new_song:
-		return
+	#if stream == new_song:
+	#	return
 	
 	stop()
 	stream = new_song

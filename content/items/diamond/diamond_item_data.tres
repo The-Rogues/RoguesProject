@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="KeyItem" format=3 uid="uid://dnpnr60u7xv62"]
+
+[ext_resource type="Texture2D" uid="uid://glraf7tfvjyf" path="res://common/art/placeholder/nikoichu/Icons_RPG.png" id="1_fq7fi"]
+[ext_resource type="Script" uid="uid://c6lrmd6uaaqx8" path="res://item_system/key_item_data.gd" id="2_ultor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58q36"]
+atlas = ExtResource("1_fq7fi")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc7p5"]
+atlas = SubResource("AtlasTexture_58q36")
+
+[resource]
+script = ExtResource("2_ultor")
+key_id = "diamond"
+rarity = 2
+name = "Diamond"
+description = "Wow! Can be sold for 200 gold."
+display_texture = SubResource("AtlasTexture_hc7p5")
+shop_price = 9999
+sell_price = 200
+metadata/_custom_type_script = "uid://c6lrmd6uaaqx8"

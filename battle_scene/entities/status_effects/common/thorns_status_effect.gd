@@ -34,7 +34,8 @@ func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
 		_instance.duration = 1
 
 func on_attacked(_attacker:AbstractEntity, _instance:ActiveStatusEffect):
-	_attacker.take_damage(_instance.stack, null)
+	if _attacker is AbstractEntity:
+		_attacker.take_damage(_instance.stack, null)
 
 func on_turn(
 	_creature:AbstractCreature = null,

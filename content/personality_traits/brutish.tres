@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="PersonalityTrait" format=3 uid="uid://dnpmpbjeyx65"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_gqrcd"]
-[ext_resource type="Resource" uid="uid://dmr3wvwbs4lbk" path="res://content/cards/brute_cards/breaking_point.tres" id="2_ifsot"]
+[ext_resource type="Resource" uid="uid://2m04j4nr2sfx" path="res://content/cards/brute_cards/breaking_point.tres" id="2_ifsot"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_ymgae"]
-[ext_resource type="Resource" uid="uid://bg6ngklejhef5" path="res://content/cards/brute_cards/crash_out.tres" id="4_ifsot"]
-[ext_resource type="Resource" uid="uid://dbuxw0i2ftjdx" path="res://content/cards/brute_cards/sustain.tres" id="4_u12tt"]
-[ext_resource type="Resource" uid="uid://e7br3off1f00" path="res://content/cards/brute_cards/warm_up.tres" id="5_mvhml"]
-[ext_resource type="Resource" uid="uid://byaf2eustj1ey" path="res://content/cards/brute_cards/war_machine.tres" id="6_acph4"]
+[ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="4_ifsot"]
+[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/sustain.tres" id="4_u12tt"]
+[ext_resource type="Resource" uid="uid://knf7yagaaaxo" path="res://content/cards/brute_cards/warm_up.tres" id="5_mvhml"]
+[ext_resource type="Resource" uid="uid://bng6s3h0uuec3" path="res://content/cards/brute_cards/war_machine.tres" id="6_acph4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kpd3a"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"

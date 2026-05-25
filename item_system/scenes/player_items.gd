@@ -37,6 +37,7 @@ func _on_use_item(index:int, item_slot:ItemSlot):
 		if item.use_item(player):
 			_spawn_item_particles(item_slot)
 			item_used.emit(item)
+			Events.item_used.emit(item)
 			run.player_data.remove_item(item)
 
 
