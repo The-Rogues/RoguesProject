@@ -13,6 +13,7 @@ var instance:CardInstance
 @onready var display_texture_rect: TextureRect = %DisplayTextureRect
 @onready var card_edge: PanelContainer = %CardEdge
 @onready var sparkles: CPUParticles2D = %Sparkles
+@onready var poof: CPUParticles2D = %Poof
 
 
 var base_scale: Vector2
@@ -102,11 +103,12 @@ func parse_number(
 	return prefix + str(number) + suffix
 
 
-func launch_towards(target_pos: Vector2) -> void:
+func launch_towards(target_pos: Vector2, reparent:bool = true) -> void:
 	var root := get_tree().current_scene
 	var start_pos := global_position
 
-	reparent(root)
+	if reparent:
+		reparent(root)
 	global_position = start_pos
 	
 	# bring to front so it renders above everything
@@ -142,6 +144,15 @@ func launch_towards(target_pos: Vector2) -> void:
 	
 	# Cleanup when done
 	tween.finished.connect(queue_free)
+
+
+func poof_card():
+	visible = false
+	poof.finished.connect(poof.queue_free)
+	poof.finished.connect(queue_free)
+	
+	poof.reparent(get_tree().current_scene, true)
+	poof.emitting = true
 
 
 func _gui_input(event: InputEvent) -> void:

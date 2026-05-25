@@ -11,6 +11,7 @@ func save_run(p: RunProgress) -> void:
 		return
 	ResourceSaver.save(p, SAVE_PATH)
 
+
 func load_run() -> RunProgress:
 	if not FileAccess.file_exists(SAVE_PATH):
 		return null

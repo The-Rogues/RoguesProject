@@ -31,25 +31,11 @@ func _ready() -> void:
 	sell_scroll.visible = false
 	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	shop_cards[card_shop_interface1] = card_shop_data.get_ai_card(GlobalSessionManager.run_progress.player_data.personality)
-	card_shop_interface1.initialize(
-		shop_cards[card_shop_interface1]
-	)
-	card_shop_interface1.selected_card.connect(_on_selected_card)
+	shop_cards = card_shop_data.get_shop_card(GlobalSessionManager.run_progress.player_data.personality)
+	card_shop_interface.initialize(shop_cards)
+	card_shop_interface.selected_card.connect(_on_selected_card)
 
-	shop_cards[card_shop_interface2] = card_shop_data.get_random_cards_from_player_traits(GlobalSessionManager.run_progress.player_data.personality)
-	card_shop_interface2.initialize(
-		shop_cards[card_shop_interface2]
-	)
-	card_shop_interface2.selected_card.connect(_on_selected_card)
-
-	shop_cards[card_shop_interface3] = card_shop_data.get_random_cards(GlobalSessionManager.run_progress.player_data.personality)
-	card_shop_interface3.initialize(
-		shop_cards[card_shop_interface3]
-	)
-	card_shop_interface3.selected_card.connect(_on_selected_card)
-
-	if GlobalSessionManager.run_progress:
+	if run:
 		transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
 	else:
 		transform_card = []
@@ -84,16 +70,16 @@ func _on_selected_card(index:int, transaction_type:int, transaction_completed:bo
 
 func _on_buy_card():
 	if !GlobalSessionManager.run_progress.player_data.can_buy_card(selected_card.data.shop_price):
-		shoop_keeper_dialogue.say("Not enough gold!")
 		return
-	shoop_keeper_dialogue.say("Interesting choice!")
+
 	GlobalSessionManager.run_progress.player_data.add_card(selected_card.data)
 	GlobalSessionManager.run_progress.player_data.set_gold(
 					GlobalSessionManager.run_progress.player_data.gold - selected_card.data.shop_price)
-	selected_interface.confirm_transaction(selected_card_index)
+	card_shop_interface.confirm_transaction(selected_card_index)
 					
 	selected_card = null
 	selected_card_index = -1
+	GlobalSaveManager.save_run(run)
 
 func _on_transform_card():
 	transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()

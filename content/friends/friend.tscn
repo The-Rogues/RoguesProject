@@ -76,6 +76,7 @@ texture = SubResource("AtlasTexture_7qds5")
 script = ExtResource("3_ubj4m")
 fire_delay = NodePath("FireDelayTimer")
 fire_point = NodePath("FirePoint")
+group = "Player"
 
 [node name="FirePoint" type="Node2D" parent="ProjectileLauncher" unique_id=434223922]
 position = Vector2(0, -23)

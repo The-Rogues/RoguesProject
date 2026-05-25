@@ -440,7 +440,6 @@ radius = 19.924858
 radius = 24.33105
 
 [node name="ChargedShot" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
-position = Vector2(-2, 0)
 scale = Vector2(1.16, 1.16)
 collision_layer = 2
 motion_mode = 1

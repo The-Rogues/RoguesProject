@@ -8,7 +8,6 @@ enum LootSource { CHEST, POT }
 # Chest rewards
 @export var energy_potion: ItemRewardData
 @export var health_potion: ItemRewardData
-@export var item_pouch: ItemRewardData
 @export var ai_pack: ItemRewardData
 
 # Pot rewards
@@ -37,8 +36,6 @@ func get_chest_item() -> BattleRewardData:
 		reward_pool.append(energy_potion)
 	if GlobalSessionManager.run_progress.total_health_potions_used < 2:
 		reward_pool.append(health_potion)
-	if GlobalSessionManager.run_progress.total_item_packs_used < 2:
-		reward_pool.append(item_pouch)
 	if GlobalSessionManager.run_progress.total_ai_packs_found < 2:
 		reward_pool.append(ai_pack)
 	
@@ -51,8 +48,6 @@ func get_chest_item() -> BattleRewardData:
 		GlobalSessionManager.run_progress.total_energy_potions_used += 1
 	if ret_reward == health_potion:
 		GlobalSessionManager.run_progress.total_health_potions_used += 1
-	if ret_reward == item_pouch:
-		GlobalSessionManager.run_progress.total_item_packs_used += 1
 	if ret_reward == ai_pack:
 		GlobalSessionManager.run_progress.total_ai_packs_found += 1
 	

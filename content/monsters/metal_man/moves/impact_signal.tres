@@ -7,13 +7,13 @@
 [ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="4_wjj8o"]
 [ext_resource type="Script" uid="uid://ch2spgxvn4cv" path="res://battle_scene/entities/actions/skill/apply_position_effect_action.gd" id="5_3ukq1"]
 
-[sub_resource type="Resource" id="Resource_opnsh"]
+[sub_resource type="Resource" id="Resource_1hd8u"]
 script = ExtResource("2_iiiqs")
 metadata/_custom_type_script = "uid://dvoeu864dr02w"
 
 [sub_resource type="Resource" id="Resource_wde3r"]
 script = ExtResource("4_wjj8o")
-behaviour = SubResource("Resource_opnsh")
+behaviour = SubResource("Resource_1hd8u")
 display = ExtResource("3_1hd8u")
 duration = 1
 metadata/_custom_type_script = "uid://bhmmir13kwsw5"

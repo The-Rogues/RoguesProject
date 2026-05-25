@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnergyItemData" format=3 uid="uid://mi4ggqd8gx0j"]
+
+[ext_resource type="Script" uid="uid://4e1li7ef7abv" path="res://item_system/energy_item_data.gd" id="1_6b1y8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1mrwi"]
+load_path = "res://.godot/imported/items.png-5e838646d81f99780382478d164ffa21.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b1y8"]
+atlas = SubResource("CompressedTexture2D_1mrwi")
+region = Rect2(64, 608, 32, 32)
+
+[resource]
+script = ExtResource("1_6b1y8")
+energy = 2
+name = "Energy Potion"
+description = "Gain 2 Energy this turn."
+display_texture = SubResource("AtlasTexture_6b1y8")
+shop_price = 10
+sell_price = 5
+metadata/_custom_type_script = "uid://4e1li7ef7abv"

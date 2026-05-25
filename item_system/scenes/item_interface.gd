@@ -41,12 +41,12 @@ func populate_item_slots(items:Array[ItemData], in_battle:bool = false):
 		slot_count += 1
 	
 	var all_slots: Array[Node] = get_children()
-	all_slots[all_slots.size() - 1].color_item_slot()
+	#all_slots[all_slots.size() - 1].color_item_slot()
 
 
 func add_slot():
 	var all_slots: Array[Node] = get_children()
-	all_slots[all_slots.size() - 1].uncolor_item_slot()
+	#all_slots[all_slots.size() - 1].uncolor_item_slot()
 	var item_slot:ItemSlot = Item_Slot.instantiate()
 	item_slot.color_item_slot()
 	add_child(item_slot)

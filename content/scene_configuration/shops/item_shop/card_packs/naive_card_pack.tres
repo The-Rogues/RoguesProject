@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://titvnjmcgma1"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_qw0pi"]
+[ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_he0im"]
+[ext_resource type="Resource" uid="uid://c53u3vfvnfhmr" path="res://content/cards/naive_cards/practice_makes_perfect/practice_makes_perfect.tres" id="2_jffyj"]
+[ext_resource type="Resource" uid="uid://80pqdh7gdct" path="res://content/cards/naive_cards/inspiration.tres" id="3_17kuq"]
+[ext_resource type="Resource" uid="uid://bgdai8ivk0ewn" path="res://content/cards/naive_cards/intimidate.tres" id="4_2dwaa"]
+[ext_resource type="Resource" uid="uid://ce81qrnyt4akj" path="res://content/cards/naive_cards/over_prepared.tres" id="5_0b51r"]
+[ext_resource type="Resource" uid="uid://bjbxhyfv2wbnd" path="res://content/cards/naive_cards/tough_skin.tres" id="6_iidw0"]
+[ext_resource type="Texture2D" uid="uid://dg55ijoqt8cxc" path="res://common/art/placeholder/joi3/naive_icon.tres" id="8_4at7d"]
+
+[resource]
+script = ExtResource("2_he0im")
+card_pool = Array[ExtResource("1_qw0pi")]([ExtResource("2_jffyj"), ExtResource("3_17kuq"), ExtResource("4_2dwaa"), ExtResource("5_0b51r"), ExtResource("6_iidw0")])
+texture = ExtResource("8_4at7d")
+name = "Open Naive card pack"
+description = "Choose 1 Naive card to add to your deck."
+price = 15
+metadata/_custom_type_script = "uid://5e5dqru2odgj"

@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 [resource]
 script = ExtResource("3_2kvjv")
 weight = 10
-encounter_name = "The metal man"
+encounter_name = "The Metal Man"
 gold = SubResource("Resource_upfa2")
 card_loot = SubResource("Resource_nglmx")
 enemies = Array[ExtResource("1_3a3wk")]([ExtResource("9_st3ww")])

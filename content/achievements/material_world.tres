@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://c3rhvi4drny46"]
+
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_7a333"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="2_q1mqk"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="3_v0uds"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpgfq"]
+atlas = ExtResource("1_7a333")
+region = Rect2(520, 40, 40, 40)
+
+[sub_resource type="Resource" id="Resource_olkv8"]
+script = ExtResource("3_v0uds")
+stat_name = "total_items_used"
+target = 10
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[resource]
+script = ExtResource("2_q1mqk")
+name = "Material World"
+display_image = SubResource("AtlasTexture_jpgfq")
+description = "Use a total of 10 different items."
+listen_signal = "item_used"
+stat_checks = Array[ExtResource("3_v0uds")]([SubResource("Resource_olkv8")])
+metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

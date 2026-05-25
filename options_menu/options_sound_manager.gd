@@ -11,5 +11,5 @@ func _ready() -> void:
 		button.mouse_entered.connect(hover_sound.play)
 		button.pressed.connect(click_sound.play)
 	
-	%MainMenu.pressed.connect(click_sound.play)
-	%Close.pressed.connect(click_sound.play)
+	#%MainMenu.pressed.connect(click_sound.play)
+	#%Close.pressed.connect(click_sound.play)

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://dacl76uf4mfpw"]
+
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_2mov4"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="2_oodfo"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="3_oi8ex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0m1p"]
+atlas = ExtResource("1_2mov4")
+region = Rect2(0, 280, 40, 40)
+
+[sub_resource type="Resource" id="Resource_nof1m"]
+script = ExtResource("3_oi8ex")
+stat_name = "friends_summoned_in_turn"
+target = 5
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[resource]
+script = ExtResource("2_oodfo")
+name = "Wonderful World"
+display_image = SubResource("AtlasTexture_e0m1p")
+description = "Summon 5 Friends in a battle."
+signal_from = 1
+listen_signal = "friend_summoned"
+stat_checks = Array[ExtResource("3_oi8ex")]([SubResource("Resource_nof1m")])
+metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

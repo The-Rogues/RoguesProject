@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://bxcknhi0s67xt"]
+
+[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_i58tx"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="2_i2hri"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="3_h11vd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg58m"]
+atlas = ExtResource("1_i58tx")
+region = Rect2(640, 720, 40, 40)
+
+[sub_resource type="Resource" id="Resource_6k1xg"]
+script = ExtResource("3_h11vd")
+stat_name = "cards_collected"
+comparison = "contains"
+contains_value = "Snakio"
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[sub_resource type="Resource" id="Resource_y25kv"]
+script = ExtResource("3_h11vd")
+stat_name = "cards_collected"
+comparison = "contains"
+contains_value = "Stinky"
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[sub_resource type="Resource" id="Resource_4h1gv"]
+script = ExtResource("3_h11vd")
+stat_name = "cards_collected"
+comparison = "contains"
+contains_value = "Mr Bat"
+metadata/_custom_type_script = "uid://c1otbwmtokh42"
+
+[resource]
+script = ExtResource("2_i2hri")
+name = "Inner Child"
+display_image = SubResource("AtlasTexture_tg58m")
+description = "Collect all 3 Monstermon cards."
+listen_signal = "card_collected"
+stat_checks = Array[ExtResource("3_h11vd")]([SubResource("Resource_6k1xg"), SubResource("Resource_y25kv"), SubResource("Resource_4h1gv")])
+metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

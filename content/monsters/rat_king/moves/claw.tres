@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://d27rikjsdm8c"]
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bobh1xuo0ytdj"]
 
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_1ylmx"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_yfjj7"]

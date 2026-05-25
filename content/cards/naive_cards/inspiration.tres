@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://isl47ffhxdab"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://80pqdh7gdct"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qb84c"]
 [ext_resource type="Script" uid="uid://bockg7qo5uy2y" path="res://content/cards/stoic_cards/challenge/defense_block_action2.gd" id="2_3dtpw"]

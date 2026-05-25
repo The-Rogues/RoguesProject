@@ -11,17 +11,6 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0eu6"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_grlu4"]
-load_path = "res://.godot/imported/panel-transparent-center-010.png-e5cb3176995a19f55713d8538eddd002.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t81a8"]
-texture = SubResource("CompressedTexture2D_grlu4")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0.9045172, 0.33151513, 0.36407086, 1)
-
 [node name="SettingsMenu" type="PanelContainer" unique_id=1072438755]
 offset_right = 500.0
 offset_bottom = 486.0
@@ -151,16 +140,6 @@ text = "Accessabilty:"
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1242346398]
 layout_mode = 2
 text = "Back"
-
-[node name="DeleteData" type="CheckBox" parent="MarginContainer" unique_id=1877195421]
-visible = false
-texture_filter = 1
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("2_mlw3h")
-theme_override_styles/normal = SubResource("StyleBoxTexture_t81a8")
-text = "Delete Game Data"
-alignment = 1
 
 [node name="SoundManager" type="Node" parent="." unique_id=1290532495 node_paths=PackedStringArray("volume_sliders")]
 script = ExtResource("4_grlu4")

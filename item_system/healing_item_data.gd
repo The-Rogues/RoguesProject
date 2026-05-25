@@ -12,9 +12,9 @@ class_name HealingItemData
 
 @export var heal_amount:int = 5
 
-# Override
+
 func use_item(_player:PlayerEntity = null) -> bool:
-	var run := GlobalSessionManager.run_progress
+	var run = GlobalSessionManager.run_progress
 	
 	if !run:
 		return false

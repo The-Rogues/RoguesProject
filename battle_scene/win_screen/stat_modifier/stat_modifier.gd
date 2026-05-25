@@ -4,109 +4,194 @@ extends Control
 @onready var offense_button: Button = %OffenseButton
 @onready var offensive_trait_icon: TextureRect = %OffensiveTraitIcon
 @onready var offense_stat_label: Label = %OffenseStatLabel
+
 @onready var defensive_trait_name_label: Label = %DefensiveTraitNameLabel
 @onready var defense_button: Button = %DefenseButton
 @onready var defensive_trait_icon: TextureRect = %DefensiveTraitIcon
 @onready var defensive_stat_label: Label = %DefensiveStatLabel
+
 @onready var strategic_trait_name_label: Label = %StrategicTraitNameLabel
 @onready var strategy_button: Button = %StrategyButton
-@onready var stragic_trait_icon: TextureRect = %StragicTraitIcon
+@onready var strategic_trait_icon: TextureRect = %StrategicTraitIcon
 @onready var strategic_stat_label: Label = %StrategicStatLabel
+
 @onready var increase_button: Button = %IncreaseButton
 @onready var decrease_button: Button = %DecreaseButton
-var personality:PersonalityData
-var selected_trait:String = ""
+
+var personality: PersonalityData
+
+enum TraitType {
+	NONE,
+	OFFENSIVE,
+	DEFENSIVE,
+	STRATEGIC
+}
+
+var selected_trait: TraitType = TraitType.NONE
+
+
+#==============================================================================
+# Initialization & Setup
+#==============================================================================
 
 func initialize():
-	var run = GlobalSessionManager.run_progress
-	
+	var run := GlobalSessionManager.run_progress
+
 	if run:
 		personality = run.player_data.personality
-		
-		offensive_trait_name_label.text = personality.offensive_trait.name
-		offense_stat_label.text = str(personality.offensive_weight)
-		offensive_trait_icon.texture = personality.offensive_trait.display_texture
-		
-		defensive_trait_name_label.text = personality.defensive_trait.name
-		defensive_stat_label.text = str(personality.defensive_weight)
-		defensive_trait_icon.texture = personality.defensive_trait.display_texture
-		
-		strategic_trait_name_label.text = personality.strategic_trait.name
-		strategic_stat_label.text = str(personality.strategic_weight)
-		stragic_trait_icon.texture = personality.strategic_trait.display_texture
-	
+
+		_setup_trait(
+			offensive_trait_icon,
+			offensive_trait_name_label,
+			offense_stat_label,
+			personality.offensive_trait,
+			personality.offensive_weight
+		)
+
+		_setup_trait(
+			defensive_trait_icon,
+			defensive_trait_name_label,
+			defensive_stat_label,
+			personality.defensive_trait,
+			personality.defensive_weight
+		)
+
+		_setup_trait(
+			strategic_trait_icon,
+			strategic_trait_name_label,
+			strategic_stat_label,
+			personality.strategic_trait,
+			personality.strategic_weight
+		)
+
 	increase_button.disabled = true
 	decrease_button.disabled = true
+
 	defense_button.disabled = false
 	offense_button.disabled = false
 	strategy_button.disabled = false
 
 
-func enable_modifier_buttons():
-	increase_button.disabled = false
-	decrease_button.disabled = false
-
-
-func disable_buttons():
-	increase_button.disabled = true
-	decrease_button.disabled = true
-	defense_button.disabled = true
-	offense_button.disabled = true
-	strategy_button.disabled = true
-	
+#==============================================================================
+# Button Callbacks
+#==============================================================================
 
 func _on_offense_button_up() -> void:
 	if personality:
-		selected_trait = "OFFENSIVE"
-	enable_modifier_buttons()
-	
-	pass # Replace with function body.
+		selected_trait = TraitType.OFFENSIVE
+		_update_mod_buttons()
 
 
 func _on_defense_button_button_up() -> void:
 	if personality:
-		selected_trait = "DEFENSIVE"
-	enable_modifier_buttons()
-	pass # Replace with function body.
+		selected_trait = TraitType.DEFENSIVE
+		_update_mod_buttons()
 
 
 func _on_strategy_button_button_up() -> void:
 	if personality:
-		selected_trait = "STRATEGIC"
-	enable_modifier_buttons()
-	pass # Replace with function body.
+		selected_trait = TraitType.STRATEGIC
+		_update_mod_buttons()
 
 
 func _on_increase_button_button_up() -> void:
-	modify_stat(true)
-	pass # Replace with function body.
+	_modify_selected_trait_stat(1)
 
 
 func _on_decrease_button_button_up() -> void:
-	modify_stat(false)
-	pass # Replace with function body.
+	_modify_selected_trait_stat(-1)
 
 
-func modify_stat(increasing:bool):
-	var mod:int = 0
-	if increasing:
-		mod = 1
-	else:
-		mod = -1
-	
-	if selected_trait == "OFFENSIVE":
-		personality.set_trait_weight(
-				selected_trait, 
-				personality.offensive_weight + mod)
-	elif selected_trait == "DEFENSIVE":
-		personality.set_trait_weight(
-				selected_trait, 
-				personality.defensive_weight + mod)
-	elif selected_trait == "STRATEGIC":
-		personality.set_trait_weight(
-				selected_trait, 
-				personality.strategic_weight + mod)
-	
-	disable_buttons()
+#==============================================================================
+# Trait Modification
+#==============================================================================
+
+func _modify_selected_trait_stat(amount: int):
+	if selected_trait == TraitType.NONE or !personality:
+		return
+
+	match selected_trait:
+		TraitType.OFFENSIVE:
+			personality.set_trait_weight(
+				"OFFENSIVE",
+				personality.offensive_weight + amount
+			)
+
+		TraitType.DEFENSIVE:
+			personality.set_trait_weight(
+				"DEFENSIVE",
+				personality.defensive_weight + amount
+			)
+
+		TraitType.STRATEGIC:
+			personality.set_trait_weight(
+				"STRATEGIC",
+				personality.strategic_weight + amount
+			)
+
+	_refresh_trait_stats()
+	_update_mod_buttons()
+
+	_end_trait_selection()
+
+
+#==============================================================================
+# Helper Functions
+#==============================================================================
+
+func _setup_trait(
+	trait_icon: TextureRect,
+	trait_name_label: Label,
+	trait_stat_label: Label,
+	trait_data: PersonalityTrait,
+	trait_weight: int
+):
+	trait_icon.texture = trait_data.display_texture
+	trait_name_label.text = trait_data.name
+	trait_stat_label.text = str(trait_weight)
+
+
+func _refresh_trait_stats():
+	offense_stat_label.text = str(personality.offensive_weight)
+	defensive_stat_label.text = str(personality.defensive_weight)
+	strategic_stat_label.text = str(personality.strategic_weight)
+
+
+func _update_mod_buttons():
+	if selected_trait == TraitType.NONE or !personality:
+		return
+
+	match selected_trait:
+		TraitType.OFFENSIVE:
+			decrease_button.disabled = personality.offensive_weight <= 1
+			increase_button.disabled = personality.offensive_weight >= 10
+
+		TraitType.DEFENSIVE:
+			decrease_button.disabled = personality.defensive_weight <= 1
+			increase_button.disabled = personality.defensive_weight >= 10
+
+		TraitType.STRATEGIC:
+			decrease_button.disabled = personality.strategic_weight <= 1
+			increase_button.disabled = personality.strategic_weight >= 10
+
+
+func _end_trait_selection():
+	_reset_trait_selection()
+
 	await get_tree().create_timer(2).timeout
+
 	visible = false
+
+
+func _reset_trait_selection():
+	offense_button.disabled = true
+	offense_button.button_pressed = false
+
+	defense_button.disabled = true
+	defense_button.button_pressed = false
+
+	strategy_button.disabled = true
+	strategy_button.button_pressed = false
+
+	increase_button.disabled = true
+	decrease_button.disabled = true

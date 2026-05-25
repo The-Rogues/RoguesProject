@@ -2,7 +2,7 @@ extends PositionEffectBehaviour
 class_name ArialStrikePositionEffectBehaviour
 
 
-const MISSILE_PROJECTILE = preload("uid://bu3qyxaog8rcf")
+const MISSILE_PROJECTILE = preload("res://content/monsters/metal_man/moves/missile_projectile.tscn")
 
 
 func on_entered(player:PlayerEntity, _instance:PositionEffect) -> void:

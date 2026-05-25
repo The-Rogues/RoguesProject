@@ -28,3 +28,7 @@ func say(_text: String):
 	visible_characters = 0
 	changed_dialogue = true
 	dialogue_text_timer.start()
+
+
+func clear_text():
+	text = ""

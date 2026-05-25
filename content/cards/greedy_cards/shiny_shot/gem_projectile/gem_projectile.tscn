@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cbw2owjnhrjbu" path="res://content/cards/greedy_cards/assets/gem.png" id="2_660ic"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_o20h5"]
 
-
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
 radius = 11.18034
 

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="StatusEffectItem" format=3 uid="uid://di0f2cxcij3vn"]
+
+[ext_resource type="Script" uid="uid://c2vnumlq5latn" path="res://battle_scene/entities/status_effects/common/thorns_status_effect.gd" id="1_5olcr"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_k5bhg"]
+[ext_resource type="Script" uid="uid://tsren4t2ttpd" path="res://item_system/status_effect_item.gd" id="3_2f4t6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vd1g8"]
+load_path = "res://.godot/imported/items.png-5e838646d81f99780382478d164ffa21.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1h62"]
+atlas = SubResource("CompressedTexture2D_vd1g8")
+region = Rect2(0, 608, 32, 32)
+
+[sub_resource type="Resource" id="Resource_kt27n"]
+script = ExtResource("1_5olcr")
+metadata/_custom_type_script = "uid://c2vnumlq5latn"
+
+[sub_resource type="Resource" id="Resource_jsgnk"]
+script = ExtResource("2_k5bhg")
+behaviour = SubResource("Resource_kt27n")
+duration = 3
+stack = 7
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[resource]
+script = ExtResource("3_2f4t6")
+effect = SubResource("Resource_jsgnk")
+rarity = 1
+name = "Thorns Potion"
+description = "Deal 7 thorns damage for 3 turns."
+display_texture = SubResource("AtlasTexture_o1h62")
+shop_price = 20
+sell_price = 8
+metadata/_custom_type_script = "uid://tsren4t2ttpd"

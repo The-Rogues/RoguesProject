@@ -18,6 +18,7 @@ func initialize():
 		run_summary_label.text = name_text + rooms + gold + cards + items
 		end_run.disabled = false
 	
+	GlobalSessionInterface.visible = false
 	GlobalSaveManager.reset()
 	GlobalSessionManager.erase_run_progress()
 
