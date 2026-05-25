@@ -39,11 +39,10 @@ func create_shop_card_slot(card_data:CardInstance, index:int) -> void:
 
 
 func _on_card_selected(index:int, transaction_completed:bool) -> void:
-	selected_card.emit(index, transaction_type, transaction_completed)
+	selected_card.emit(index, transaction_type, transaction_completed, self)
 
 
 func confirm_transaction(index:int) -> void:
 	if index < 0 or index >= shop_card_slots.size():
 		return
-
 	shop_card_slots[index].confirm_transaction()

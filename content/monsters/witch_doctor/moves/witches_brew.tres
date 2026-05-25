@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://v6suvii2djn5"]
+
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_3iqy8"]
+[ext_resource type="Script" uid="uid://xhge6o871dcf" path="res://content/monsters/witch_doctor/associated_scripts/witch_doctor_heal_effect.gd" id="2_p8i2h"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_aej3j"]
+[ext_resource type="Resource" uid="uid://1adonejv7y0u" path="res://content/monsters/witch_doctor/cards/cure.tres" id="4_brp0f"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="5_vx247"]
+
+[sub_resource type="Resource" id="Resource_matd3"]
+script = ExtResource("2_p8i2h")
+metadata/_custom_type_script = "uid://xhge6o871dcf"
+
+[sub_resource type="Resource" id="Resource_wldes"]
+script = ExtResource("5_vx247")
+card = ExtResource("4_brp0f")
+pile = 1
+count = 2
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[resource]
+script = ExtResource("3_aej3j")
+type = 1
+intent_icon = ExtResource("1_3iqy8")
+name = "Witches' Brew"
+description = "Gives all enemies [color=#43A047]30[/color] extra HP. Shuffles [color=#43A047]2[/color] \"Cure\" cards into the draw pile. [color=orange]Permeative[/color]."
+primary_action = SubResource("Resource_matd3")
+secondary_action = SubResource("Resource_wldes")
+metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -20,10 +20,7 @@ func get_status_name() -> String:
 
 
 func get_description(instance:ActiveStatusEffect) -> String:
-	if instance.stack < 0:
-		return "Decrease melee attack damage by " + str(instance.stack * -1) + "."
-	else:
-		return "Increase melee attack damage by " + str(instance.stack) + "."
+	return "Increases melee attack damage by [color=#43A047]1[/color] for each [color=orange]strength[/color]."
 
 
 func get_texture() -> Texture2D:

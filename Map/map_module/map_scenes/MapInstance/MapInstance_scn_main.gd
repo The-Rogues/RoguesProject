@@ -11,8 +11,8 @@ extends Control
 var map_button_scn: PackedScene = preload("res://Map/map_module/map_scenes/MapButton/MapButton.tscn")
 
 # Textures to be used by MapButtons.
-var texture_player: CompressedTexture2D = preload("res://test_art/player_position.png")
-var texture_passed: CompressedTexture2D = preload("res://test_art/passed_position.png")
+var texture_player: CompressedTexture2D = preload("res://Map/new_map_assets/player_position.png")
+var texture_passed: CompressedTexture2D = preload("res://Map/new_map_assets/passed_position.png")
 
 var map_buttons: Array[TextureButton] # Array to keep track of buttons that belong to the map instance.
 var map_structure: RefCounted # Map structure is received in the init function, so the script does not need to be preloaded.

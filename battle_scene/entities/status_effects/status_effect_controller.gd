@@ -37,13 +37,16 @@ func add_effect(
 		)
 		effect_changed.emit(existing_instance)
 	else:
-		active_effects.append(new_instance)
+		if effect.get_prepend():
+			active_effects.push_front(new_instance)
+		else:
+			active_effects.append(new_instance)
+		
+		effect_added.emit(new_instance)
 		new_instance.effect.on_apply(
 			affected_creature,
 			new_instance
 		)
-		
-		effect_added.emit(new_instance)
 
 
 ## Removes instance with status effect behaviour. Returns True if removal occured.

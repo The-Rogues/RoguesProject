@@ -18,6 +18,7 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("2_8fit5")
+type = 2
 category = 2
 energy_cost = 1
 name = "Cower"

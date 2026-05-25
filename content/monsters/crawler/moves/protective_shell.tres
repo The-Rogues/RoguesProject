@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bds7x51iqepl0"]
+
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_3oonn"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_lc230"]
+[ext_resource type="Script" uid="uid://dqx10skk6lra4" path="res://content/monsters/crawler/shell_power/shell_power_indicator.gd" id="2_rfy64"]
+[ext_resource type="Script" uid="uid://dhrcajoj1wixn" path="res://content/monsters/crawler/shell_power/shell_power.gd" id="2_v350e"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="2_yytgo"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_8ydcq"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_3yqcu"]
+
+[sub_resource type="Resource" id="Resource_mlc0g"]
+script = ExtResource("2_rfy64")
+metadata/_custom_type_script = "uid://dqx10skk6lra4"
+
+[sub_resource type="Resource" id="Resource_qeqnq"]
+script = ExtResource("3_8ydcq")
+behaviour = SubResource("Resource_mlc0g")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_s2q0p"]
+script = ExtResource("4_3yqcu")
+effect = SubResource("Resource_qeqnq")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_20wtr"]
+script = ExtResource("2_v350e")
+metadata/_custom_type_script = "uid://dhrcajoj1wixn"
+
+[sub_resource type="Resource" id="Resource_x6xkn"]
+script = ExtResource("2_yytgo")
+power = SubResource("Resource_20wtr")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[resource]
+script = ExtResource("1_lc230")
+type = 1
+intent_icon = ExtResource("1_3oonn")
+name = "Protective Shell"
+description = "Gains [color=#43A047]1[/color] [color=orange]shell[/color], [color=#43A047]1[/color] [color=orange]thorns[/color], and [color=#43A047]2[/color] [color=orange]armor[/color]."
+primary_action = SubResource("Resource_s2q0p")
+secondary_action = SubResource("Resource_x6xkn")
+metadata/_custom_type_script = "uid://c410dannt5adg"

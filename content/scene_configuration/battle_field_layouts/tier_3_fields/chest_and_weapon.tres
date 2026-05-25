@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://dv6cyx2sjwcah"]
+
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_jb0jl"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_20f8j"]
+[ext_resource type="Resource" uid="uid://db1863a0hon12" path="res://content/objects/shield_object/spiked_shield_object.tres" id="2_jvv1w"]
+[ext_resource type="Resource" uid="uid://dwtier3o3culw" path="res://content/objects/chest/chest.tres" id="3_cumw0"]
+
+[resource]
+script = ExtResource("2_20f8j")
+layout = Dictionary[int, ExtResource("1_jb0jl")]({
+0: null,
+1: ExtResource("2_jvv1w"),
+2: null,
+3: ExtResource("3_cumw0"),
+4: null
+})
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

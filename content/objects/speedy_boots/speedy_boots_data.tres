@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://2j80tvleyqn5"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_jgwsm"]
+[ext_resource type="Texture2D" uid="uid://3x781ophnjm3" path="res://content/objects/speedy_boots/speedy_boots.tres" id="1_x3dmo"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_3qesl"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="2_hawot"]
+[ext_resource type="Resource" uid="uid://co1voym0erjbi" path="res://content/cards/traitless_cards/dash_left.tres" id="2_n8jy2"]
+[ext_resource type="Script" uid="uid://d1kuqw84jswgt" path="res://content/cards/greedy_cards/cash_in/draw_card_action.gd" id="4_x3dmo"]
+[ext_resource type="Resource" uid="uid://bow86evniw8ko" path="res://content/cards/traitless_cards/dash_right.tres" id="5_3gyrn"]
+[ext_resource type="Script" uid="uid://c7jsu5qwcwqo7" path="res://content/objects/chest/destroy_front_object_action.gd" id="6_duoqm"]
+
+[sub_resource type="Resource" id="Resource_xl8om"]
+script = ExtResource("2_hawot")
+card = ExtResource("2_n8jy2")
+pile = 1
+shuffle = false
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_x3dmo"]
+script = ExtResource("4_x3dmo")
+amount = 1
+metadata/_custom_type_script = "uid://d1kuqw84jswgt"
+
+[sub_resource type="Resource" id="Resource_skygn"]
+script = ExtResource("2_hawot")
+card = ExtResource("5_3gyrn")
+pile = 1
+shuffle = false
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
+
+[sub_resource type="Resource" id="Resource_3gyrn"]
+script = ExtResource("4_x3dmo")
+amount = 1
+metadata/_custom_type_script = "uid://d1kuqw84jswgt"
+
+[sub_resource type="Resource" id="Resource_prx6y"]
+script = ExtResource("6_duoqm")
+metadata/_custom_type_script = "uid://c7jsu5qwcwqo7"
+
+[resource]
+script = ExtResource("2_3qesl")
+targeting_categories = Array[int]([1])
+interaction = 8
+interaction_actions = Array[ExtResource("1_jgwsm")]([SubResource("Resource_xl8om"), SubResource("Resource_x3dmo"), SubResource("Resource_skygn"), SubResource("Resource_3gyrn"), SubResource("Resource_prx6y")])
+hover_description = "
+Object Categories: Treasure, Cover
+
+On Activated: Add a \"Dash Left\" and a \"Dash Right\" card into your hand."
+display_texture = ExtResource("1_x3dmo")
+name = "Speedy Boots"
+health = 1
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

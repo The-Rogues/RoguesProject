@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://c8xud1ews5rkx"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_kk5t6"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_taokb"]
 [ext_resource type="Resource" uid="uid://burkq1qvtpovb" path="res://content/monsters/big_slime/big_slime.tres" id="2_taokb"]
 [ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/slime.tres" id="3_kk5t6"]
 [ext_resource type="Resource" uid="uid://pgym5gykmlji" path="res://content/monsters/inpu/inpu.tres" id="4_rq824"]

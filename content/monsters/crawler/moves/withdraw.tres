@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://s2ofhok6hn3m"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_gayx1"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_6mah0"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_gayx1"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_6mah0"]
+
+[sub_resource type="Resource" id="Resource_xwoc1"]
+script = ExtResource("2_6mah0")
+base_damage = 6
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_jc7up"]
+script = ExtResource("2_gayx1")
+amount = 6
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[resource]
+script = ExtResource("3_6mah0")
+intent_icon = ExtResource("1_gayx1")
+name = "Withdraw"
+description = "Attacks for [color=red]get_atk6[/color] damage and gains [color=deep_sky_blue]6[/color] block."
+primary_action = SubResource("Resource_xwoc1")
+secondary_action = SubResource("Resource_jc7up")
+metadata/_custom_type_script = "uid://c410dannt5adg"

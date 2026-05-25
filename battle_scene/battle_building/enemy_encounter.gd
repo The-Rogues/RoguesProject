@@ -7,7 +7,7 @@ class_name EnemyEncounter
 @export var card_loot:CardRewardData
 @export var item_pool:Array[ItemRewardData]
 @export var enemies:Array[MonsterData]
-@export var battlefield_layout:BattleFieldConfig = null
+@export var battlefield_layouts: Array[BattleFieldConfig] = []
 @export var disable_card_reward:bool = false
 
 const cards = preload("res://content/scene_configuration/battle_loot/battle_card_draw.tres")

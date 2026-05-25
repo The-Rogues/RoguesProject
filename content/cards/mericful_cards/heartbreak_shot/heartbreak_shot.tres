@@ -38,6 +38,6 @@ type = 1
 category = 1
 energy_cost = 2
 name = "Heartbreak Shot"
-description = "Deal [color=red]20[/color] damage to an enemy. Lose [color=#43A047]2[/color] [color=orange]strength[/color]."
+description = "Deal [color=red]25[/color] damage to an enemy. Lose [color=#43A047]2[/color] [color=orange]strength[/color]."
 play_actions = Array[ExtResource("1_ccw00")]([SubResource("Resource_oou82"), SubResource("Resource_qfs2l")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

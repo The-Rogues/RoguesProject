@@ -16,8 +16,8 @@ enum Category {TRAITLESS, OFFENSIVE, DEFENSIVE, STRATEGIC, LEGENDARY}
 @export_multiline var description:String = "Card Description"
 @export var exhaust_after_play:bool = false
 @export var play_actions:Array[Action]
-@export var shop_price = 50
-@export var transform_price = 1
+@export var shop_price = 10
+@export var transform_price = 30
 #TODO: Experiment with cards having display image 
 
 

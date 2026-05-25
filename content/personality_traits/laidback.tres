@@ -17,5 +17,6 @@ description = "Calm and slow to act. Targets intelegent enemies. Moves toward co
 trait_category = 2
 enemy_targeting_preference = 3
 object_targeting_preference = 4
-card_loot_pool = Array[ExtResource("1_kan5u")]([ExtResource("2_xurjo"), ExtResource("3_i4vk7"), ExtResource("4_cyjrn"), ExtResource("5_qex33"), ExtResource("6_cblj0")])
+card_loot_pool = Array[ExtResource("1_kan5u")]([ExtResource("2_xurjo"), ExtResource("3_i4vk7"), ExtResource("5_qex33"), ExtResource("6_cblj0")])
+shop_unique_card = ExtResource("4_cyjrn")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

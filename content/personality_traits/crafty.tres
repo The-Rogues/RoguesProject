@@ -16,5 +16,6 @@ name = "Crafty"
 description = "Uses enviornment defensivley. Targets shiny enemies for resources. Moves toward cover. "
 trait_category = 1
 enemy_targeting_preference = 5
-card_loot_pool = Array[ExtResource("1_hubal")]([ExtResource("2_3myby"), ExtResource("2_qy46g"), ExtResource("3_ydwot"), ExtResource("5_ydwot"), ExtResource("6_qcfsq")])
+card_loot_pool = Array[ExtResource("1_hubal")]([ExtResource("2_3myby"), ExtResource("3_ydwot"), ExtResource("5_ydwot"), ExtResource("6_qcfsq")])
+shop_unique_card = ExtResource("2_qy46g")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

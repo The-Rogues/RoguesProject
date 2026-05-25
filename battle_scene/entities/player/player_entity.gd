@@ -68,10 +68,10 @@ func initialize(_data:PlayerData):
 
 
 
-func take_damage(amount:int, _attacker = null):
+func take_damage(amount:int, _attacker = null, _ignore_foreground: bool = false):
 	var damage:int = effects.apply_incoming_damage_effects(amount)
 	
-	if !_object_intercept_attack(damage, _attacker):
+	if _ignore_foreground || !_object_intercept_attack(damage, _attacker):
 		attacker = _attacker
 		damage = block.absorb_damage(damage)
 		DamageNumber.display_number(damage, damage_numbers_spawn.global_position)

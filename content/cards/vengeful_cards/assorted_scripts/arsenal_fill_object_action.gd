@@ -14,4 +14,5 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 				fill_object,
 				_context.battle_field.battle_positions[i]
 			)
-	_context.get_player().battle_position.get_object().object_stat_display.interaction_button.visible = true
+	if _context.get_player().battle_position.get_object().data.targeting_categories.has(ObjectData.MoveTargetingCategory.WEAPON):
+		_context.get_player().battle_position.get_object().object_stat_display.interaction_button.visible = true

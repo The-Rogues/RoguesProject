@@ -17,4 +17,5 @@ energy_cost = 10
 name = "Final Surge"
 description = "[color=red]get_atk70[/color] damage to all enemies. Discount cost by [color=#43A047]1[/color] whenever a stat is modified. "
 play_actions = Array[ExtResource("1_mre7d")]([SubResource("Resource_cgila")])
+shop_price = 20
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

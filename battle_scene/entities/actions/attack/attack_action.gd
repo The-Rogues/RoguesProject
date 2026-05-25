@@ -14,6 +14,15 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		if amount < 0:
 			amount = 0
 	
-	for i in range(0, hits):
-		if is_instance_valid(_user):
+	if is_instance_valid(_user):
+		for i in range(0, hits):
+			if !is_instance_valid(_user):
+				return
 			await super(_context, _user)
+		return
+	if _user == null:
+		for i in range(0, hits):
+			if _user != null:
+				return
+			await super(_context, _user)
+		return

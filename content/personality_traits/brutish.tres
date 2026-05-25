@@ -22,5 +22,6 @@ name = "Brutish"
 description = "Violent in battle. Targets weakest enemies. Moves toward upgrades."
 enemy_targeting_preference = 1
 object_targeting_preference = 4
-card_loot_pool = Array[ExtResource("1_gqrcd")]([ExtResource("2_ifsot"), ExtResource("4_ifsot"), ExtResource("4_u12tt"), ExtResource("5_mvhml"), ExtResource("6_acph4")])
+card_loot_pool = Array[ExtResource("1_gqrcd")]([ExtResource("2_ifsot"), ExtResource("4_ifsot"), ExtResource("5_mvhml"), ExtResource("6_acph4")])
+shop_unique_card = ExtResource("4_u12tt")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

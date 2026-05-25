@@ -14,9 +14,11 @@ func on_stack(
 func get_status_name() -> String:
 	return "Armor"
 
+func get_prepend() -> bool:
+	return true
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "On apply, gain block equal to applied armor. On turn entered, gain " + str(_instance.stack) + " block. Decreases by 2 every turn."
+	return "On Turn Ended: Applies block equal to [color=orange]armor[/color]. [color=orange]Armor[/color] decreases by [color=#43A047]2[/color]."
 
 func get_texture() -> Texture2D:
 	return load("res://content/cards/stoic_cards/suit_up/armor/armor_icon.tres")

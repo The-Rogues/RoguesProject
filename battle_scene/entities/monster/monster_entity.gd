@@ -39,7 +39,7 @@ func initialize(_data:MonsterData):
 
 
 
-func take_damage(amount:int, _attacker = null):
+func take_damage(amount:int, _attacker = null, _ignore_foreground: bool = false):
 	attacker = _attacker
 	
 	var damage:int = effects.apply_incoming_damage_effects(amount)

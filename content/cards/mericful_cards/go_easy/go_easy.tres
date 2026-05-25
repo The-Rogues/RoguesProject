@@ -18,4 +18,5 @@ energy_cost = 2
 name = "Go Easy"
 description = "Reduce an enemy's remaining HP by [color=#43A047]40[/color] percent."
 play_actions = Array[ExtResource("1_s04sr")]([SubResource("Resource_str63")])
+shop_price = 20
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

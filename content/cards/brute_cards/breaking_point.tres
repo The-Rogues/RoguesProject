@@ -32,6 +32,7 @@ metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("2_y2635")
+type = 2
 category = 1
 energy_cost = 2
 name = "Breaking Point"

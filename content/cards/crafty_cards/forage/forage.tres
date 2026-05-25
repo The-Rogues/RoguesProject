@@ -8,15 +8,16 @@
 script = ExtResource("2_wxook")
 operation = 1
 trait_category = 1
-weight = 4
+weight = 5
 metadata/_custom_type_script = "uid://cbl1opxh4gat8"
 
 [resource]
 script = ExtResource("2_2at4h")
 type = 2
 category = 2
-energy_cost = 2
+energy_cost = 1
 name = "Forage"
-description = "Gain [color=#43A047]5[/color] [color=orange]defense[/color]."
+description = "Gain [color=#43A047]5[/color] [color=orange]defense[/color]. [color=orange]Single use[/color]."
+exhaust_after_play = true
 play_actions = Array[ExtResource("1_y2qq1")]([SubResource("Resource_m3ary")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

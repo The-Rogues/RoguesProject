@@ -7,11 +7,10 @@
 [ext_resource type="Resource" uid="uid://dui2cujdu8hw7" path="res://content/cards/friendly_cards/handshake.tres" id="5_48n60"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_fh233"]
 [ext_resource type="Resource" uid="uid://dy3ixqkqfrwer" path="res://content/cards/friendly_cards/playdate.tres" id="6_8el84"]
-[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/carrot_treat.tres" id="6_80hn0"]
 
 [resource]
 script = ExtResource("2_csq07")
-card_pool = Array[ExtResource("1_qohcx")]([ExtResource("2_8el84"), ExtResource("2_xx3h3"), ExtResource("5_48n60"), ExtResource("6_8el84"), ExtResource("6_80hn0")])
+card_pool = Array[ExtResource("1_qohcx")]([ExtResource("2_8el84"), ExtResource("2_xx3h3"), ExtResource("5_48n60"), ExtResource("6_8el84")])
 draw_count = 3
 name = "Friendly Card Pack"
 description = "Choose 1 Friendly card to add to your deck."

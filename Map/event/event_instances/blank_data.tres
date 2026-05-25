@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c7ksovc3r2vnk" path="res://Map/event/event_callbacks/template.gd" id="1_0w82m"]
 [ext_resource type="Script" uid="uid://dd4yv1layn0sy" path="res://Map/event/event_resources/MainEventData.gd" id="1_lhjrn"]
-[ext_resource type="Texture2D" uid="uid://biecjqnjyj6tg" path="res://test_art/passed_position.png" id="3_tlvs0"]
+[ext_resource type="Texture2D" uid="uid://biecjqnjyj6tg" path="res://Map/new_map_assets/passed_position.png" id="3_tlvs0"]
+
 
 [resource]
 script = ExtResource("1_lhjrn")

@@ -16,5 +16,6 @@ name = "Skittish"
 description = "Quick to act. Targets weakest Enemies. Moves toward cover."
 trait_category = 1
 enemy_targeting_preference = 1
-card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_lded7"), ExtResource("4_hb3rg"), ExtResource("3_lded7"), ExtResource("5_hb3rg"), ExtResource("2_u0mrf")])
+card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_lded7"), ExtResource("4_hb3rg"), ExtResource("3_lded7"), ExtResource("5_hb3rg")])
+shop_unique_card = ExtResource("2_u0mrf")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

@@ -100,11 +100,12 @@ func filter_enemies(in_action: FilteredTargetedAction) -> Array[MonsterEntity]:
 			if filtered_enemies[i].health.max_value != filtered_enemies[i].health.value:
 				filtered_enemies.remove_at(i)
 	elif in_action.filter_type == FilteredTargetedAction.FilterType.FRIENDSHIP:
-		var freindship_behavior: StatusEffectBehaviour = load("res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres")
+		var friendship_behavior: StatusEffectBehaviour = load("res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres")
 		for i in range(filtered_enemies.size() - 1, -1, -1):
 			var has_effect: bool = false
 			for j in range(0, filtered_enemies[i].effects.active_effects.size()):
-				if filtered_enemies[i].effects.active_effects[j].effect == freindship_behavior:
+				print(j)
+				if filtered_enemies[i].effects.active_effects[j].effect == friendship_behavior:
 					has_effect = true
 					break
 			if !has_effect:

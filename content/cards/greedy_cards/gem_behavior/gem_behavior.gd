@@ -16,7 +16,7 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "If you have 5 or more gems at the end of combat, gain an extra gold reward."
+	return "If you have [color=#43A047]5[/color] or more [color=orange]gems[/color] at the end of combat, gain an extra gold reward."
 
 
 func get_texture() -> Texture2D:

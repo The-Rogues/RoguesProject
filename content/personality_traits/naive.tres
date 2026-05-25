@@ -17,5 +17,6 @@ description = "Inexperienced and ignorant of the dangers of battle. Targets dang
 trait_category = 1
 enemy_targeting_preference = 2
 object_targeting_preference = 2
-card_loot_pool = Array[ExtResource("1_tnlvu")]([ExtResource("2_r8bx3"), ExtResource("3_pc6il"), ExtResource("4_cdry2"), ExtResource("5_whkle"), ExtResource("2_w52jg")])
+card_loot_pool = Array[ExtResource("1_tnlvu")]([ExtResource("2_r8bx3"), ExtResource("3_pc6il"), ExtResource("5_whkle"), ExtResource("2_w52jg")])
+shop_unique_card = ExtResource("4_cdry2")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

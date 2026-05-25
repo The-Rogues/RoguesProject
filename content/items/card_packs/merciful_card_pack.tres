@@ -5,13 +5,12 @@
 [ext_resource type="Resource" uid="uid://cveo1a1cklvwm" path="res://content/cards/mericful_cards/betray/betray.tres" id="2_tua7u"]
 [ext_resource type="Resource" uid="uid://bchnqrjy0vhrh" path="res://content/cards/mericful_cards/tag/tag.tres" id="3_tua7u"]
 [ext_resource type="Resource" uid="uid://cqym7pxoy0cnt" path="res://content/cards/mericful_cards/heartbreak_shot/heartbreak_shot.tres" id="5_0pv4q"]
-[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/go_easy/go_easy.tres" id="5_2vu7y"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="6_0pv4q"]
 [ext_resource type="Resource" uid="uid://drusengu3gs5f" path="res://content/cards/mericful_cards/hug/hug.tres" id="6_tua7u"]
 
 [resource]
 script = ExtResource("2_rulel")
-card_pool = Array[ExtResource("1_mptc0")]([ExtResource("2_tua7u"), ExtResource("3_tua7u"), ExtResource("5_2vu7y"), ExtResource("5_0pv4q"), ExtResource("6_tua7u")])
+card_pool = Array[ExtResource("1_mptc0")]([ExtResource("2_tua7u"), ExtResource("3_tua7u"), ExtResource("5_0pv4q"), ExtResource("6_tua7u")])
 draw_count = 3
 rarity = 1
 name = "Merciful Card Pack"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_0fvlv"]
 [ext_resource type="Script" uid="uid://bm5oygnb1m3h7" path="res://battle_scene/entities/actions/skill/move_out_of_cover_action.gd" id="2_usq0t"]
-[ext_resource type="Script" uid="uid://c40amep8gim4i" path="res://content/cards/friendly_cards/friendship_effect/friendship_effect_behavior.gd" id="3_ti0mo"]
+[ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="3_0fvlv"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_8m7ek"]
 [ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_s5bkw"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_h582v"]
@@ -11,13 +11,9 @@
 script = ExtResource("2_usq0t")
 metadata/_custom_type_script = "uid://bm5oygnb1m3h7"
 
-[sub_resource type="Resource" id="Resource_w34vr"]
-script = ExtResource("3_ti0mo")
-metadata/_custom_type_script = "uid://c40amep8gim4i"
-
 [sub_resource type="Resource" id="Resource_wxfmo"]
 script = ExtResource("4_8m7ek")
-behaviour = SubResource("Resource_w34vr")
+behaviour = ExtResource("3_0fvlv")
 duration = -1
 stack = 3
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"

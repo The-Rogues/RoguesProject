@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MiniEventData" format=3 uid="uid://nqqtnv66erob"]
+
+[ext_resource type="Texture2D" uid="uid://dyxvm44pkdj0u" path="res://content/monsters/witch_doctor/witch_doctor.tres" id="1_dxy7l"]
+[ext_resource type="Texture2D" uid="uid://cv6k8xkx1rogu" path="res://content/map_events/challenge_event_icon.png" id="2_0a7yh"]
+[ext_resource type="Resource" uid="uid://2xswvsv0orwi" path="res://content/scene_configuration/enemy_encounters/special_encounters/the_witch_doctor.tres" id="3_0a7yh"]
+[ext_resource type="Script" uid="uid://o7ighurpvhxu" path="res://mini_event_system/results/enter_battle_result.gd" id="4_og16n"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="5_omdn4"]
+
+[sub_resource type="Resource" id="Resource_kntp5"]
+script = ExtResource("4_og16n")
+encounter = ExtResource("3_0a7yh")
+metadata/_custom_type_script = "uid://o7ighurpvhxu"
+
+[resource]
+script = ExtResource("5_omdn4")
+map_texture = ExtResource("2_0a7yh")
+display_image = ExtResource("1_dxy7l")
+scenario_text = "I'm creating a cure for this infection going around. Will you battle my test subjects to help me test it?"
+option_1_text = "Challenge"
+option_2_text = "Decline"
+option_1_branch = Array[String](["Thank you, traveler. "])
+option_2_branch = Array[String](["Farewell then..."])
+option_1_result = SubResource("Resource_kntp5")
+metadata/_custom_type_script = "uid://c3ksqgg4db5ax"

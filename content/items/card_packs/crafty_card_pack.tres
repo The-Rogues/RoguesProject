@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_etb5f"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_6q1li"]
 [ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="2_mndgu"]
-[ext_resource type="Resource" uid="uid://dv4ljbon6org0" path="res://content/cards/crafty_cards/entrench/entrench.tres" id="3_ibcvg"]
 [ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="4_n6e03"]
 [ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="5_mndgu"]
 [ext_resource type="Resource" uid="uid://eoarmxrechlt" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="6_ibcvg"]
@@ -11,7 +10,7 @@
 
 [resource]
 script = ExtResource("2_6q1li")
-card_pool = Array[ExtResource("1_etb5f")]([ExtResource("2_mndgu"), ExtResource("3_ibcvg"), ExtResource("4_n6e03"), ExtResource("5_mndgu"), ExtResource("6_ibcvg")])
+card_pool = Array[ExtResource("1_etb5f")]([ExtResource("2_mndgu"), ExtResource("4_n6e03"), ExtResource("5_mndgu"), ExtResource("6_ibcvg")])
 draw_count = 3
 rarity = 1
 name = "Crafty Card Pack"

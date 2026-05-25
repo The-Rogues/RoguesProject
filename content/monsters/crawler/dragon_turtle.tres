@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://dhwuk2r6x1tqk"]
+
+[ext_resource type="Script" uid="uid://cjburowv1yehv" path="res://content/monsters/crawler/dragon_turtle_behavior.gd" id="1_wu0lm"]
+[ext_resource type="Texture2D" uid="uid://tv58bo6m0a7j" path="res://content/monsters/crawler/crawler_texture.tres" id="2_cqkho"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_g5cww"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_7t405"]
+[ext_resource type="Resource" uid="uid://bds7x51iqepl0" path="res://content/monsters/crawler/moves/protective_shell.tres" id="5_fk3hw"]
+[ext_resource type="Resource" uid="uid://b6hvgjdnxrppq" path="res://content/monsters/crawler/moves/evaluate.tres" id="6_qrv0v"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="9_l0u5p"]
+
+[sub_resource type="Resource" id="Resource_fk3hw"]
+script = ExtResource("1_wu0lm")
+metadata/_custom_type_script = "uid://cjburowv1yehv"
+
+[sub_resource type="Resource" id="Resource_5swyv"]
+script = ExtResource("3_g5cww")
+moves = Array[ExtResource("4_7t405")]([ExtResource("5_fk3hw")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_wu0lm"]
+script = ExtResource("3_g5cww")
+moves = Array[ExtResource("4_7t405")]([ExtResource("6_qrv0v")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("9_l0u5p")
+move_sequences = Array[ExtResource("3_g5cww")]([SubResource("Resource_5swyv"), SubResource("Resource_wu0lm")])
+behaviour = SubResource("Resource_fk3hw")
+display_texture = ExtResource("2_cqkho")
+name = "Dragon Turtle"
+health = 90
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

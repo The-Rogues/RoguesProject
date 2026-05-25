@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dftiy32f46d42"]
+
+[ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="1_s8a6a"]
+[ext_resource type="Resource" uid="uid://dot7qtd5tennl" path="res://content/monsters/savage/moves/nowhere_to_hide/savage_object.tres" id="2_mxhvc"]
+[ext_resource type="Script" uid="uid://d053viro4an55" path="res://battle_scene/entities/actions/skill/place_object_action.gd" id="3_qg5co"]
+[ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="4_iyqia"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="5_8x2fw"]
+
+[sub_resource type="Resource" id="Resource_5gygc"]
+script = ExtResource("4_iyqia")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://cv01a4ey63px6"
+
+[sub_resource type="Resource" id="Resource_xstoc"]
+script = ExtResource("3_qg5co")
+object = ExtResource("2_mxhvc")
+secondary_action = SubResource("Resource_5gygc")
+metadata/_custom_type_script = "uid://d053viro4an55"
+
+[resource]
+script = ExtResource("5_8x2fw")
+type = 1
+intent_icon = ExtResource("1_s8a6a")
+name = "Hunt"
+description = "Transforms into an object."
+primary_action = SubResource("Resource_xstoc")
+metadata/_custom_type_script = "uid://c410dannt5adg"

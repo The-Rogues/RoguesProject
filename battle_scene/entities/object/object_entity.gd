@@ -23,7 +23,7 @@ func initialize(_data:ObjectData):
 	object_tooltip.initialize(data)
 
 
-func take_damage(amount:int, _attacker = null):
+func take_damage(amount:int, _attacker = null, _ignore_foreground: bool = false):
 	attacker = _attacker
 	health.take_damage(amount)
 	DamageNumber.display_number(amount, damage_numbers_spawn.global_position)

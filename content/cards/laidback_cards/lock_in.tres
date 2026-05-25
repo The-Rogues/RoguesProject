@@ -82,4 +82,5 @@ name = "Lock In"
 description = "Draw [color=#43A047]1[/color] card and gain [color=#43A047]1[/color] energy for every [color=#43A047]3[/color] [color=orange]strategy[/color]. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_ejge5")]([SubResource("Resource_d3r21"), SubResource("Resource_3couk"), SubResource("Resource_k25cb"), SubResource("Resource_mxhgh"), SubResource("Resource_bs6qp"), SubResource("Resource_3cmbf")])
+shop_price = 20
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

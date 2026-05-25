@@ -23,7 +23,9 @@ func get_description(_instance:ActiveStatusEffect) -> String
 @abstract
 func get_texture() -> Texture2D
 
-
+func get_prepend() -> bool:
+	return false
+	
 func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
 
 	pass
