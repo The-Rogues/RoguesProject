@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://cbfybvpxpcbl5"]
 
-[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://globals/achievements_system/achievement_data.gd" id="1_4mir6"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="1_4mir6"]
 [ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_82yuf"]
-[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://globals/achievements_system/stat_requirement.gd" id="2_82yuf"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="2_82yuf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5rog"]
 atlas = ExtResource("1_82yuf")

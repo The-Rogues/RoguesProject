@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://bpl8ew0bg32ka"]
 
-[ext_resource type="Script" uid="uid://drk5uv6iqcvsx" path="res://content/monsters/ice_wizard/init_sequence_monster_behaviour.gd" id="1_td3qc"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_td3qc"]
 [ext_resource type="Texture2D" uid="uid://dp8mia2sw6v8i" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_h6m64"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_wuuwl"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_is5q6"]
@@ -10,9 +10,9 @@
 [ext_resource type="Resource" uid="uid://cn45c0ucrfcna" path="res://content/monsters/gatling_worm/moves/speed_up.tres" id="8_3glj1"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="9_tr8mq"]
 
-[sub_resource type="Resource" id="Resource_misar"]
+[sub_resource type="Resource" id="Resource_3glj1"]
 script = ExtResource("1_td3qc")
-metadata/_custom_type_script = "uid://drk5uv6iqcvsx"
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2lkq"]
 atlas = ExtResource("2_h6m64")
@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 [resource]
 script = ExtResource("9_tr8mq")
 move_sequences = Array[ExtResource("3_wuuwl")]([SubResource("Resource_6xdib"), SubResource("Resource_u2lkq")])
-behaviour = SubResource("Resource_misar")
+behaviour = SubResource("Resource_3glj1")
 display_texture = SubResource("AtlasTexture_u2lkq")
 name = "Gatling Worm"
 health = 140

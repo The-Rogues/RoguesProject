@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BlockItemData" format=3 uid="uid://dju78xldybhe5"]
 
 [ext_resource type="Script" uid="uid://bqa1f5njths2y" path="res://item_system/block_item_data.gd" id="1_a6isw"]
-[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="1_r3m1o"]
+[ext_resource type="Texture2D" uid="uid://cyksvm07gfodd" path="res://common/art/placeholder/32_rogues/items.png" id="1_r3m1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8si8"]
 atlas = ExtResource("1_r3m1o")

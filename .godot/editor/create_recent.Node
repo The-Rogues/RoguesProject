@@ -1,3 +1,4 @@
+Timer
 AnimationPlayer
 Control
 RichTextLabel
@@ -6,10 +7,8 @@ FoldableContainer
 ColorRect
 Sprite2D
 CPUParticles2D
-Timer
 TextureRect
 MarginContainer
 Node
 Button
 VBoxContainer
-ScrollContainer

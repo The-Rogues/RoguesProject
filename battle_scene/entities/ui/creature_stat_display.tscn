@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_04qu7"]
 [ext_resource type="PackedScene" uid="uid://cyan3dv3gby66" path="res://common/stat_components/HealthBar/health_bar.tscn" id="1_kevs6"]
 [ext_resource type="Script" uid="uid://dovdftemfgk8p" path="res://battle_scene/entities/ui/creature_stat_display.gd" id="1_m7vre"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_m7vre"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_m7vre"]
 [ext_resource type="Script" uid="uid://bkhwawbjbd08r" path="res://battle_scene/entities/ui/status_effect_container.gd" id="4_bh48r"]
 [ext_resource type="Script" uid="uid://c4qn30ydmtc6h" path="res://common/floating_text/floating_text_spawner.gd" id="4_hhelc"]
 [ext_resource type="Script" uid="uid://iiyj3mh6swyn" path="res://battle_scene/entities/ui/preference_container.gd" id="5_sflir"]
@@ -147,3 +147,6 @@ dialogue_text_timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Dialogue" unique_id=910793975]
 wait_time = 0.05
+
+[node name="DissapearTimer" type="Timer" parent="Dialogue" unique_id=1121857004]
+wait_time = 2.0

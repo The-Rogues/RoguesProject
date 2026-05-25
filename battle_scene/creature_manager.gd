@@ -46,6 +46,8 @@ func spawn_enemy(
 	enemy_spawned.emit(monster)
 	
 	monster.defeated.connect(_on_creature_defeated)
+	monster.fleed.connect(_on_creature_defeated)
+	monster.spared.connect(_on_creature_defeated)
 	
 	_position_enemies()
 	
@@ -91,12 +93,17 @@ func _on_creature_defeated(creature:AbstractCreature):
 	if creature is PlayerEntity:
 		player_defeated.emit()
 	elif creature is MonsterEntity:
-		enemy_defeated.emit(creature)
-		enemies.erase(creature)
-		
-		check_enemy_defeat_condition()
-		
-		creature.queue_free()
+		_remove_enemy(creature)
+
+
+func _remove_enemy(monster:MonsterEntity):
+	print("removing entity")
+	enemy_defeated.emit(monster)
+	enemies.erase(monster)
+	
+	check_enemy_defeat_condition()
+	
+	monster.queue_free()
 
 
 func check_enemy_defeat_condition():
@@ -256,4 +263,6 @@ func spawn_enemy_from_save(state: MonsterSaveData) -> void:
 	
 	enemy_spawned.emit(monster)
 	monster.defeated.connect(_on_creature_defeated)
+	monster.fleed.connect(_on_creature_defeated)
+	monster.spared.connect(_on_creature_defeated)
 	_position_enemies()

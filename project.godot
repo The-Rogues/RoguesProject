@@ -30,6 +30,9 @@ AllCards="*uid://bknd6870x7qoq"
 AllMonsters="*uid://dc380udp7vi2j"
 AiTimed="*uid://c5r63qi3j74px"
 GlobalBattleSaveManager="*uid://fkj4pyye51uu"
+Events="*uid://dfnommkdq2kub"
+Achievements="*uid://brcb8f764p8ru"
+GameStats="*uid://wn7g5fo35oj7"
 
 [display]
 

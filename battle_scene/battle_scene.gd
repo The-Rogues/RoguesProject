@@ -64,10 +64,10 @@ func initialize(battle_config: BattleConfig):
 	
 	# Player appearance
 	player.movement_controller.battle_field = battle_field
-	if run != null:
-		player.sprite_2d.texture = GlobalSessionManager.run_progress.player_texture
-		player.melee_weapon_sprite.texture = GlobalSessionManager.run_progress.player_melee_weapon_texture
-		player.ranged_weapon_sprite.texture = GlobalSessionManager.run_progress.player_ranged_weapon_texture
+	#if run != null:
+	#	player.sprite_2d.texture = GlobalSessionManager.run_progress.player_texture
+	#	player.melee_weapon_sprite.texture = GlobalSessionManager.run_progress.player_melee_weapon_texture
+	#	player.ranged_weapon_sprite.texture = GlobalSessionManager.run_progress.player_ranged_weapon_texture
 	
 	# Initialize systems
 	var battle_context := BattleContext.new(
@@ -98,6 +98,7 @@ func initialize(battle_config: BattleConfig):
 		discard_pile_viewer.on_cards_updated(player.cards.discard_pile)
 	
 	GlobalSessionInterface.connect_to_player(player)
+	GameStats.initialize_battle(battle_config.enemy_encounter, battle_flow_manager)
 	battle_flow_manager.start_battle()
 	MusicManager.change_song(MusicManager.track_list.choose_battle_theme())
 	

@@ -7,6 +7,7 @@ class_name CreatureStatDisplay
 @onready var preference_container: PreferenceContainer = $PreferenceContainer
 @onready var block_icon: TextureRect = $BlockIcon
 @onready var dialogue: DialogueText = %Dialogue
+@onready var dissapear_timer: Timer = $Dialogue/DissapearTimer
 
 
 
@@ -20,6 +21,7 @@ func initialize(creature:AbstractCreature):
 	
 	creature.turn_entered.connect(_update_text.bind(creature))
 	creature.turn_exited.connect(dialogue.clear)
+	dissapear_timer.timeout.connect(_on_dissapear_timer_timeout)
 
 
 func remove():
@@ -40,3 +42,8 @@ func _update_text(creature:AbstractCreature):
 		if creature is MonsterEntity:
 			if !creature.data.speech.is_empty():
 				dialogue.say(creature.data.speech.pick_random())
+				dissapear_timer.start()
+
+
+func _on_dissapear_timer_timeout():
+	dialogue.text = ""

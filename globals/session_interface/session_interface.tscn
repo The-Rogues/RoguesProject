@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b2sastodcwsbx"]
 
 [ext_resource type="Script" uid="uid://bex8s0ww7mxsv" path="res://globals/session_interface/session_interface.gd" id="1_2dwta"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="1_nhbhh"]
-[ext_resource type="Texture2D" uid="uid://dxefwuaynwrdl" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-008.png" id="2_pmlv7"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="1_nhbhh"]
+[ext_resource type="Texture2D" uid="uid://dbauca2b4i12c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-008.png" id="2_pmlv7"]
 [ext_resource type="PackedScene" uid="uid://581jy4tu3i01" path="res://battle_scene/win_screen/stat_modifier/stat_modifier.tscn" id="3_e6ktk"]
 [ext_resource type="PackedScene" uid="uid://bp3ihfbthp8yd" path="res://card_system/ui/card_picker.tscn" id="3_h8e6q"]
 [ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="3_rmvr3"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://blsblqjaoydm0" path="res://globals/session_interface/session_gold_label.gd" id="14_pxp8h"]
 [ext_resource type="PackedScene" uid="uid://dggtkbmkynxrm" path="res://testing_and_prototypes/CardEffects/card_effects_manager.tscn" id="15_nsjr7"]
 [ext_resource type="PackedScene" uid="uid://r41r7srv4bme" path="res://battle_scene/ui/generating_card_overlay.tscn" id="15_t4l4l"]
-[ext_resource type="PackedScene" uid="uid://swgkipi583sj" path="res://globals/achievements_system/achievement_pop_up.tscn" id="17_ry35u"]
+[ext_resource type="PackedScene" uid="uid://swgkipi583sj" path="res://achievements_system/achievement_pop_up.tscn" id="17_ry35u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmlv7"]
 bg_color = Color(0.44755095, 0.44755095, 0.44755095, 1)
