@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://co7ctd2ddc764"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_6ddgi"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_wrqi8"]
 [ext_resource type="Resource" uid="uid://drvx5qef655vx" path="res://content/monsters/dreamer/dreamer.tres" id="2_o2nvh"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_gaf7e"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_wrqi8"]

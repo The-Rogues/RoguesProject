@@ -1,16 +1,18 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://u0v8kkiufjdf"]
 
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_0sba1"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_bvyeg"]
-[ext_resource type="Resource" uid="uid://bo1fx6b5dhacr" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/gatling_worm_field.tres" id="1_pn7y0"]
 [ext_resource type="Resource" uid="uid://bpl8ew0bg32ka" path="res://content/monsters/gatling_worm/gatling_worm.tres" id="2_2p51o"]
 [ext_resource type="Resource" uid="uid://bo1fx6b5dhacr" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/gatling_worm_fields/gatling_worm_field_1.tres" id="2_sis1x"]
 [ext_resource type="Resource" uid="uid://loqwydaqkans" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/gatling_worm_fields/gatling_worm_field_2.tres" id="3_0boap"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_htvsx"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_pn7y0"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_18fca"]
+[ext_resource type="Resource" uid="uid://d2ka42orj16am" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/gatling_worm_fields/gatling_worm_field_3.tres" id="4_sis1x"]
+[ext_resource type="Resource" uid="uid://dbr7uuxxwqw6l" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/gatling_worm_fields/gatling_worm_field_4.tres" id="5_0boap"]
 [ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="6_pn7y0"]
 
-[sub_resource type="Resource" id="Resource_abw1l"]
+[sub_resource type="Resource" id="Resource_v1gqs"]
 script = ExtResource("4_18fca")
 amount = 7
 display_texture = ExtResource("3_pn7y0")
@@ -19,7 +21,7 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 [resource]
 script = ExtResource("3_htvsx")
 encounter_name = "Gatling Worm"
-gold = SubResource("Resource_abw1l")
+gold = SubResource("Resource_v1gqs")
 enemies = Array[ExtResource("1_bvyeg")]([ExtResource("2_2p51o")])
-battlefield_layouts = Array[ExtResource("1_pn7y0")]([ExtResource("2_sis1x"), ExtResource("3_0boap"), ExtResource("4_v1gqs"), ExtResource("5_f2wpm")])
+battlefield_layouts = Array[ExtResource("1_0sba1")]([ExtResource("2_sis1x"), ExtResource("3_0boap"), ExtResource("4_sis1x"), ExtResource("5_0boap")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

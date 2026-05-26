@@ -11,7 +11,7 @@ enum TransactionType { BUY, TRANSFORM }
 @export var transaction_type:TransactionType
 
 
-func initialize(cards:Array[CardInstance]) -> void:
+func initialize(cards: Array) -> void:
 	clear_card_slots()
 
 	if cards.is_empty():

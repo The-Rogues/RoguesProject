@@ -4,14 +4,13 @@
 [ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_0ct0o"]
 [ext_resource type="Resource" uid="uid://c4hg7so7onlbq" path="res://content/cards/laidback_cards/calm_guard.tres" id="2_2eq4h"]
 [ext_resource type="Resource" uid="uid://oewr7q0fn6ms" path="res://content/cards/laidback_cards/game_plan.tres" id="3_c2oso"]
-[ext_resource type="Resource" uid="uid://dr7erqcrd1tpq" path="res://content/cards/laidback_cards/lock_in.tres" id="4_u17r6"]
 [ext_resource type="Resource" uid="uid://rq7lxh5t1a8g" path="res://content/cards/laidback_cards/patient_blow.tres" id="5_nl1g1"]
 [ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="6_fpejy"]
 [ext_resource type="Texture2D" uid="uid://c1qnjr81ewu45" path="res://common/art/placeholder/joi3/laidback_icon.tres" id="8_7m20t"]
 
 [resource]
 script = ExtResource("2_0ct0o")
-card_pool = Array[ExtResource("1_uiqll")]([ExtResource("2_2eq4h"), ExtResource("3_c2oso"), ExtResource("4_u17r6"), ExtResource("5_nl1g1"), ExtResource("6_fpejy")])
+card_pool = Array[ExtResource("1_uiqll")]([ExtResource("2_2eq4h"), ExtResource("3_c2oso"), ExtResource("5_nl1g1"), ExtResource("6_fpejy")])
 texture = ExtResource("8_7m20t")
 name = "Open Laidback card pack"
 description = "Choose 1 Laidback card to add to your deck."

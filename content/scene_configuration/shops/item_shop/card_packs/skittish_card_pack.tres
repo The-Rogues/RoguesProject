@@ -1,18 +1,16 @@
 [gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://dqiy26sag5h1m"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_w3028"]
-[ext_resource type="Resource" uid="uid://dt07iyph77k70" path="res://content/cards/skittish_cards/escape_plan/escape_plan.tres" id="2_elugr"]
 [ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_iudvy"]
 [ext_resource type="Resource" uid="uid://4g6ek1m3qggg" path="res://content/cards/skittish_cards/cower.tres" id="3_w1h74"]
 [ext_resource type="Resource" uid="uid://dur021l6wwpqo" path="res://content/cards/skittish_cards/hold_your_ground.tres" id="4_r42r4"]
 [ext_resource type="Resource" uid="uid://csx8hlmpj7sbe" path="res://content/cards/skittish_cards/leap.tres" id="5_pp88y"]
 [ext_resource type="Resource" uid="uid://rb7fqo2eigtv" path="res://content/cards/skittish_cards/shifty/shifty.tres" id="6_jw3qb"]
-[ext_resource type="Resource" uid="uid://bwhog8444u2g5" path="res://content/cards/skittish_cards/trample/trample.tres" id="7_gbvlp"]
 [ext_resource type="Texture2D" uid="uid://d3n5jucckygdh" path="res://common/art/placeholder/joi3/skittish_icon.tres" id="9_x7jvf"]
 
 [resource]
 script = ExtResource("2_iudvy")
-card_pool = Array[ExtResource("1_w3028")]([ExtResource("2_elugr"), ExtResource("3_w1h74"), ExtResource("4_r42r4"), ExtResource("5_pp88y"), ExtResource("6_jw3qb"), ExtResource("7_gbvlp")])
+card_pool = Array[ExtResource("1_w3028")]([ExtResource("3_w1h74"), ExtResource("4_r42r4"), ExtResource("5_pp88y"), ExtResource("6_jw3qb")])
 texture = ExtResource("9_x7jvf")
 name = "Open Skittish card pack"
 description = "Choose 1 Skittish card to add to your deck."

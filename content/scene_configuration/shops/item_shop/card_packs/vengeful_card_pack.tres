@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_uq1vt"]
 [ext_resource type="Resource" uid="uid://pvnvvs8t4paq" path="res://content/cards/vengeful_cards/arsenal.tres" id="2_74w60"]
-[ext_resource type="Resource" uid="uid://c5c5gayhxndy0" path="res://content/cards/vengeful_cards/frenzy.tres" id="3_4eipn"]
 [ext_resource type="Resource" uid="uid://dh8j660cfica4" path="res://content/cards/vengeful_cards/growing_fury.tres" id="4_3ciqj"]
 [ext_resource type="Resource" uid="uid://dfc8q54ijvx5g" path="res://content/cards/vengeful_cards/overload.tres" id="5_2hori"]
 [ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="6_w0i0q"]
@@ -11,7 +10,7 @@
 
 [resource]
 script = ExtResource("7_dm36d")
-card_pool = Array[ExtResource("1_uq1vt")]([ExtResource("2_74w60"), ExtResource("3_4eipn"), ExtResource("4_3ciqj"), ExtResource("5_2hori"), ExtResource("6_w0i0q")])
+card_pool = Array[ExtResource("1_uq1vt")]([ExtResource("2_74w60"), ExtResource("4_3ciqj"), ExtResource("5_2hori"), ExtResource("6_w0i0q")])
 texture = ExtResource("8_ans0f")
 name = "Open Vengeful card pack"
 description = "Choose 1 Vengeful card to add to your deck."

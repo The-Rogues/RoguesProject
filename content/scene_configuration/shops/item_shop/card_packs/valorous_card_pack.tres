@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="CardPackServiceData" format=3 uid="uid://x03j2hv3d3qc"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_1gfai"]
-[ext_resource type="Resource" uid="uid://b0e3y8sjlb5ki" path="res://content/cards/valorous_cards/final_surge/final_surge.tres" id="2_iijsu"]
 [ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_pylhx"]
 [ext_resource type="Resource" uid="uid://dt6fseflbysgv" path="res://content/cards/valorous_cards/fortitude/fortitude.tres" id="3_yp8gs"]
 [ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/valorous_cards/reckless_rush/reckless_rush.tres" id="4_15gn3"]
@@ -11,7 +10,7 @@
 
 [resource]
 script = ExtResource("2_pylhx")
-card_pool = Array[ExtResource("1_1gfai")]([ExtResource("2_iijsu"), ExtResource("3_yp8gs"), ExtResource("4_15gn3"), ExtResource("5_l8mjp"), ExtResource("6_h33re")])
+card_pool = Array[ExtResource("1_1gfai")]([ExtResource("3_yp8gs"), ExtResource("4_15gn3"), ExtResource("5_l8mjp"), ExtResource("6_h33re")])
 texture = ExtResource("8_clea7")
 name = "Open Valorouse card pack"
 description = "Choose 2 Valorous card to add to your deck."

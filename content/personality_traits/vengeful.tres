@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_xxw0k"]
 [ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="2_8pc1n"]
-[ext_resource type="Resource" uid="uid://cx7cujoe5fsmp" path="res://content/cards/vengeful_cards/arsenal.tres" id="2_dj5vh"]
+[ext_resource type="Resource" uid="uid://pvnvvs8t4paq" path="res://content/cards/vengeful_cards/arsenal.tres" id="2_dj5vh"]
 [ext_resource type="Texture2D" uid="uid://406412hdhwpd" path="res://common/art/placeholder/joi3/vengeful_icon.tres" id="2_qtdd1"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_upoc6"]
-[ext_resource type="Resource" uid="uid://dcvclegf2rnld" path="res://content/cards/vengeful_cards/frenzy.tres" id="3_1t5pb"]
-[ext_resource type="Resource" uid="uid://p7b4eac6r3a2" path="res://content/cards/vengeful_cards/growing_fury.tres" id="4_8t1dk"]
-[ext_resource type="Resource" uid="uid://dd7tmxi2h8ukl" path="res://content/cards/vengeful_cards/overload.tres" id="5_fgbrc"]
+[ext_resource type="Resource" uid="uid://c5c5gayhxndy0" path="res://content/cards/vengeful_cards/frenzy.tres" id="3_1t5pb"]
+[ext_resource type="Resource" uid="uid://dh8j660cfica4" path="res://content/cards/vengeful_cards/growing_fury.tres" id="4_8t1dk"]
+[ext_resource type="Resource" uid="uid://dfc8q54ijvx5g" path="res://content/cards/vengeful_cards/overload.tres" id="5_fgbrc"]
 
 [resource]
 script = ExtResource("2_upoc6")

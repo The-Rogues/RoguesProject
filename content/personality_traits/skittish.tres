@@ -8,7 +8,6 @@
 [ext_resource type="Resource" uid="uid://csx8hlmpj7sbe" path="res://content/cards/skittish_cards/leap.tres" id="4_oerxl"]
 [ext_resource type="Resource" uid="uid://rb7fqo2eigtv" path="res://content/cards/skittish_cards/shifty/shifty.tres" id="5_hb3rg"]
 [ext_resource type="Texture2D" uid="uid://d3n5jucckygdh" path="res://common/art/placeholder/joi3/skittish_icon.tres" id="6_lded7"]
-[ext_resource type="Resource" uid="uid://bwhog8444u2g5" path="res://content/cards/skittish_cards/trample/trample.tres" id="7_o1wdn"]
 
 [resource]
 script = ExtResource("2_6k3ak")
@@ -17,5 +16,6 @@ name = "Skittish"
 description = "Quick to act. Targets weakest Enemies. Moves toward cover."
 trait_category = 1
 enemy_targeting_preference = 1
-card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_lded7"), ExtResource("3_hb3rg"), ExtResource("4_oerxl"), ExtResource("2_u0mrf"), ExtResource("5_hb3rg"), ExtResource("7_o1wdn")])
+card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_lded7"), ExtResource("3_hb3rg"), ExtResource("4_oerxl"), ExtResource("5_hb3rg")])
+shop_unique_card = ExtResource("2_u0mrf")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

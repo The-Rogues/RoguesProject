@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_y3qhp"]
 [ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="2_53lsk"]
 [ext_resource type="Script" uid="uid://5e5dqru2odgj" path="res://shop_scenes/shop_entry_data/card_pack_service_data.gd" id="2_aqqsj"]
-[ext_resource type="Resource" uid="uid://dv4ljbon6org0" path="res://content/cards/crafty_cards/entrench/entrench.tres" id="3_ws3ro"]
 [ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="4_frr61"]
 [ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="5_jwvip"]
 [ext_resource type="Resource" uid="uid://eoarmxrechlt" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="6_sbrm7"]
@@ -11,7 +10,7 @@
 
 [resource]
 script = ExtResource("2_aqqsj")
-card_pool = Array[ExtResource("1_y3qhp")]([ExtResource("2_53lsk"), ExtResource("3_ws3ro"), ExtResource("4_frr61"), ExtResource("5_jwvip"), ExtResource("6_sbrm7")])
+card_pool = Array[ExtResource("1_y3qhp")]([ExtResource("2_53lsk"), ExtResource("4_frr61"), ExtResource("5_jwvip"), ExtResource("6_sbrm7")])
 texture = ExtResource("8_uld6i")
 name = "Open Crafty card pack"
 description = "Choose 1 Crafty card to add to your deck."

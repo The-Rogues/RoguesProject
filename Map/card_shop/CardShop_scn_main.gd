@@ -13,7 +13,7 @@ extends Control
 @onready var card_sell_interface: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer/CardTransform
 @onready var shop_keeper_animator: AnimationPlayer = $ShopKeeper/EntityAnimator
 @onready var shop_keeper_sprite: Sprite2D = $ShopKeeper/SpriteRoot/Sprite2D
-@onready var card_transform: TransformCard = $CardTransform
+@onready var card_transform: Control = $CardTransform
 @onready var shoop_keeper_dialogue: DialogueText = $CanvasLayer/Control/PanelContainer/ShopKeeperDialogue
 
 #var shop_cards:Array[CardInstance] = []
@@ -24,30 +24,13 @@ var transform_card:Array[CardInstance] = []
 var selected_interface: ShopCardInterface = null
 
 func _ready() -> void:
+	
 	GlobalSessionInterface.visible = true
 	shop_scroll.visible = false
 	shop_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
 	sell_scroll.visible = false
 	sell_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	shop_cards[card_shop_interface1] = card_shop_data.get_ai_card(GlobalSessionManager.run_progress.player_data.personality)
-	card_shop_interface1.initialize(
-		shop_cards[card_shop_interface1]
-	)
-	card_shop_interface1.selected_card.connect(_on_selected_card)
-
-	shop_cards[card_shop_interface2] = card_shop_data.get_random_cards_from_player_traits(GlobalSessionManager.run_progress.player_data.personality)
-	card_shop_interface2.initialize(
-		shop_cards[card_shop_interface2]
-	)
-	card_shop_interface2.selected_card.connect(_on_selected_card)
-
-	shop_cards[card_shop_interface3] = card_shop_data.get_random_cards(GlobalSessionManager.run_progress.player_data.personality)
-	card_shop_interface3.initialize(
-		shop_cards[card_shop_interface3]
-	)
-	card_shop_interface3.selected_card.connect(_on_selected_card)
 	# reload shop cards if resume
 	var run : RunProgress = GlobalSessionManager.run_progress
 	print("=== CARD SHOP LOAD CHECK ===")
@@ -59,25 +42,65 @@ func _ready() -> void:
 	var resuming := run!= null and run.shop_save != null
 	
 	if resuming and run.shop_save.generated_cards.size() > 0:
+		
+		print("HERE")
+		
 		print("resuming")
-		for card in run.shop_save.generated_cards:
+		shop_cards[card_shop_interface1] = []
+		shop_cards[card_shop_interface2] = []
+		shop_cards[card_shop_interface3] = []
+		for i in range(0, run.shop_save.generated_cards.size()):
+			var card: CardData = run.shop_save.generated_cards[i]
 			print(card.name)
 			if run.shop_save.purchased_card_names.has(card.name):
 				continue
-			shop_cards.append(CardInstance.new(card))
+			if i == 0:
+				shop_cards[card_shop_interface1].append(CardInstance.new(card))
+			elif i < 3:
+				shop_cards[card_shop_interface2].append(CardInstance.new(card))
+			else:
+				shop_cards[card_shop_interface3].append(CardInstance.new(card))
+		
+		
 	else:
-		shop_cards = card_shop_data.get_shop_card(run.player_data.personality)
+		
+		shop_cards[card_shop_interface1] = card_shop_data.get_ai_card(GlobalSessionManager.run_progress.player_data.personality)
+		shop_cards[card_shop_interface2] = card_shop_data.get_random_cards_from_player_traits(GlobalSessionManager.run_progress.player_data.personality)
+		shop_cards[card_shop_interface3] = card_shop_data.get_random_cards(GlobalSessionManager.run_progress.player_data.personality)
+		
+		
 		run.shop_save = ShopSaveData.new()
-		for card in shop_cards:
+		for card in shop_cards[card_shop_interface1]:
+			run.shop_save.generated_cards.append(card.data)
+		for card in shop_cards[card_shop_interface2]:
+			run.shop_save.generated_cards.append(card.data)
+		for card in shop_cards[card_shop_interface3]:
 			run.shop_save.generated_cards.append(card.data)
 		GlobalSaveManager.save_run(run)
+	
+	
 	print("=== CARD SHOP SAVE CHECK ===")
 	print("shop_save null: ", run.shop_save == null)
 	print("generated_cards: ", run.shop_save.generated_cards.size())
 	print("save path exists: ", FileAccess.file_exists("res://saves/save_progress.tres"))
 	print("============================")
-	card_shop_interface.initialize(shop_cards)
-	card_shop_interface.selected_card.connect(_on_selected_card)
+	
+	
+	card_shop_interface1.initialize(
+		shop_cards[card_shop_interface1]
+	)
+	card_shop_interface1.selected_card.connect(_on_selected_card)
+	
+	card_shop_interface2.initialize(
+		shop_cards[card_shop_interface2]
+	)
+	card_shop_interface2.selected_card.connect(_on_selected_card)
+	
+	card_shop_interface3.initialize(
+		shop_cards[card_shop_interface3]
+	)
+	card_shop_interface3.selected_card.connect(_on_selected_card)
+
 
 	if run:
 		transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
@@ -113,17 +136,13 @@ func _on_selected_card(index:int, transaction_type:int, transaction_completed:bo
 		
 
 func _on_buy_card():
-	if !GlobalSessionManager.run_progress.player_data.can_buy_card(selected_card.data.shop_price):
+	
+	var run := GlobalSessionManager.run_progress
+	if !run.player_data.can_buy_card(selected_card.data.shop_price):
 		shoop_keeper_dialogue.say("Not enough gold!")
 		return
 	shoop_keeper_dialogue.say("Interesting choice!")
-	GlobalSessionManager.run_progress.player_data.add_card(selected_card.data)
-	GlobalSessionManager.run_progress.player_data.set_gold(
-					GlobalSessionManager.run_progress.player_data.gold - selected_card.data.shop_price)
-	selected_interface.confirm_transaction(selected_card_index)
-	var run := GlobalSessionManager.run_progress
-	if !run.player_data.can_buy_card(selected_card.data.shop_price):
-		return
+	
 	var resuming := run != null and run.shop_save != null
 	if resuming:
 		run.shop_save.purchased_card_names.append(selected_card.data.name)
@@ -131,9 +150,10 @@ func _on_buy_card():
 	run.player_data.add_card(selected_card.data)
 	run.player_data.set_gold(
 					run.player_data.gold - selected_card.data.shop_price)
-	card_shop_interface.confirm_transaction(selected_card_index)
-					
+	selected_interface.confirm_transaction(selected_card_index)
+	
 	selected_card = null
+	selected_interface = null
 	selected_card_index = -1
 	GlobalSaveManager.save_run(run)
 
