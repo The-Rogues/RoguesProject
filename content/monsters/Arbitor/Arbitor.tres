@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://bhvgpdeijvunc"]
+
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_53krb"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_rowul"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_wxvyt"]
+[ext_resource type="Script" uid="uid://2dasaxkrjqap" path="res://battle_scene/win_screen/rewards_data/card_reward_data.gd" id="2_ha0pj"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_k1h5g"]
+[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_p7ukp"]
+[ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_g7cjh"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="4_j3p5v"]
+[ext_resource type="Texture2D" uid="uid://406412hdhwpd" path="res://common/art/placeholder/joi3/vengeful_icon.tres" id="5_53krb"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="6_ha0pj"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="7_rowul"]
+[ext_resource type="Texture2D" uid="uid://dxt2iuh6d67b2" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="8_k1h5g"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="9_1x25l"]
+[ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="10_clj4o"]
+
+[sub_resource type="Resource" id="Resource_idbyr"]
+script = ExtResource("2_k1h5g")
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"
+
+[sub_resource type="Resource" id="Resource_arm3n"]
+script = ExtResource("2_ha0pj")
+metadata/_custom_type_script = "uid://2dasaxkrjqap"
+
+[sub_resource type="Resource" id="Resource_1x25l"]
+script = ExtResource("4_j3p5v")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_dr076"]
+script = ExtResource("9_1x25l")
+base_damage = 5
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_uya3o"]
+script = ExtResource("7_rowul")
+intent_icon = ExtResource("8_k1h5g")
+name = "slash"
+description = "This Enemy intends to slash"
+primary_action = SubResource("Resource_dr076")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_lmb7a"]
+script = ExtResource("6_ha0pj")
+moves = Array[ExtResource("7_rowul")]([SubResource("Resource_uya3o")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_clj4o"]
+script = ExtResource("1_wxvyt")
+move_sequences = Array[ExtResource("6_ha0pj")]([SubResource("Resource_lmb7a")])
+behaviour = SubResource("Resource_1x25l")
+init_targeting = Array[int]([7])
+display_texture = ExtResource("5_53krb")
+name = "Arbitor"
+health = 100
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"
+
+[sub_resource type="Resource" id="Resource_7piuy"]
+script = ExtResource("10_clj4o")
+metadata/_custom_type_script = "uid://drffwoufolf1p"
+
+[resource]
+script = ExtResource("3_g7cjh")
+encounter_name = "Arbitor"
+gold = SubResource("Resource_7piuy")
+card_loot = SubResource("Resource_arm3n")
+enemies = Array[ExtResource("1_wxvyt")]([SubResource("Resource_clj4o")])
+battlefield_layout = SubResource("Resource_idbyr")
+metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

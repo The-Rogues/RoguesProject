@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://xdugix0cn773"]
 
-[ext_resource type="Texture2D" uid="uid://b2ifrcq4flxxm" path="res://content/objects/cannons/assets/blast_cannon.png" id="1_i4hvy"]
+[ext_resource type="Texture2D" uid="uid://bjkctplgipaiv" path="res://content/objects/cannons/assets/blast_cannon.png" id="1_i4hvy"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_samk5"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_me8qu"]
 [ext_resource type="PackedScene" uid="uid://dwat28gm34hck" path="res://content/objects/cannons/projectiles/blast_cannon_ball.tscn" id="3_tcfx2"]

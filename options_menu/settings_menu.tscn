@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_0cmel"]
 [ext_resource type="Script" uid="uid://ch77og4vicfj6" path="res://options_menu/settings_menu.gd" id="2_d0eu6"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_mlw3h"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_mlw3h"]
 [ext_resource type="Script" uid="uid://vrho84hio6c4" path="res://options_menu/settings_menu_sound_manager.gd" id="4_grlu4"]
 [ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="4_qbfup"]
 [ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="5_leooa"]

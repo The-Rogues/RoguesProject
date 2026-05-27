@@ -8,7 +8,7 @@ extends Control
 @onready var main_menu: VBoxContainer = %MainMenu
 @onready var start_menu: VBoxContainer = %StartMenu
 @onready var credits_menu: VBoxContainer = %CreditsMenu
-@onready var settings_menu: PanelContainer = %SettingsMenu
+@onready var settings_menu: PanelContainer = %SettingsMenu #is this pointing to the global settings menu or a new instance? 
 @onready var closing_label: Label = %ClosingLabel
 @onready var save_warning_popuo: PanelContainer = %SaveWarningPopuo
 @onready var main_menu_selector: Control = %MainMenuSelector
@@ -56,7 +56,11 @@ func _on_start_clicked() -> void:
 
 # View Options Menu
 func _on_options_clicked() -> void:
-	settings_menu.visible = true
+	GlobalSessionInterface.visible = true 
+	GlobalSessionInterface.options_menu.open_settings_directly()
+	GlobalSessionInterface.options_menu.settings_menu.opened_from_menu(true)
+
+	
 
 
 # View Creits Menu
@@ -68,7 +72,7 @@ func _on_credits_clicked() -> void:
 
 
 # View and execute closing game sequence
-func _on_close_clicked() -> void:
+func _on_close_clicked() -> void: #on exit game clicked rather lol 
 	closing_label.visible = true
 	main_menu.visible = false
 	await get_tree().create_timer(3).timeout

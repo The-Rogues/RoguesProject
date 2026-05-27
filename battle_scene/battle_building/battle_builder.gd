@@ -6,23 +6,28 @@ class_name BattleBuilder
 @export var tier_3_encounters:Array[EnemyEncounter]
 @export var tier_4_encounters:Array[EnemyEncounter]
 @export var tier_5_encounters:Array[EnemyEncounter]
+@export var final_battle_encounter:Array[EnemyEncounter] #final judge arbitor or whatever (array of 1) 
 
 @export var tier_1_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_2_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_3_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_4_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_5_battlefield_layouts:Array[BattleFieldConfig]
+@export var final_battle_layout:Array[BattleFieldConfig] #final battle config only array of 1 lol 
 
 const TIER_1_THRESHOLD = 2
 const TIER_2_THRESHOLD = 5
 const TIER_3_THRESHHOLD = 12
 const TIER_4_THRESHHOLD = 16
+const FINAL_BATTLE_TEMP = 1
 
 var enemy_encounter_cache:Array[EnemyEncounter] = []
 var battle_field_cashe: Array[BattleFieldConfig] = []
 var override_encounter:EnemyEncounter = null
 
 func get_enemy_encounter_pool(progress:int) -> Array[EnemyEncounter]:
+	#if progress <= FINAL_BATTLE_TEMP:
+		#return final_battle_encounter #return array of 1 enemy the boss...
 	if progress <= TIER_1_THRESHOLD:
 		return tier_1_encounters
 	if progress <= TIER_2_THRESHOLD:
@@ -36,19 +41,21 @@ func get_enemy_encounter_pool(progress:int) -> Array[EnemyEncounter]:
 
 
 func get_battlefield_layout_pool(progress:int) -> Array[BattleFieldConfig]:
+	#if progress <= FINAL_BATTLE_TEMP:
+		# return final_battle_layout #temp layout ill build it over whatevs 
 	if progress <= TIER_1_THRESHOLD:
 		return tier_1_battlefield_layouts
 	if progress <= TIER_2_THRESHOLD:
 		return tier_2_battlefield_layouts
 	if progress <= TIER_3_THRESHHOLD:
 		return tier_3_battlefield_layouts
-	if progress <= TIER_2_THRESHOLD:
+	if progress <= TIER_4_THRESHHOLD:
 		return tier_4_battlefield_layouts
 	
 	return tier_5_battlefield_layouts
 
-
-func choose_enemy_encounter(
+#need to understand futher.. check later ... 
+func choose_enemy_encounter( 
 		encounters:Array[EnemyEncounter]) -> EnemyEncounter:
 	if override_encounter:
 		var encounter = override_encounter.duplicate(true)
@@ -92,9 +99,9 @@ func choose_battlefield_layout(
 func create_battle_config() -> BattleConfig:
 	var run := GlobalSessionManager.run_progress
 	if run:
-		var progress:int = run.total_rooms_explored
-		var encounters = get_enemy_encounter_pool(progress).duplicate()
-		var layouts = get_battlefield_layout_pool(progress).duplicate()
+		var progress:int = run.total_rooms_explored #gets num of rooms explored
+		var encounters = get_enemy_encounter_pool(progress).duplicate() #calls the function to decide which pool of enemies to choose from based on the progress
+		var layouts = get_battlefield_layout_pool(progress).duplicate() # decides which layout based on progress
 		if enemy_encounter_cache.size() == encounters.size():
 			enemy_encounter_cache.clear()
 		else:

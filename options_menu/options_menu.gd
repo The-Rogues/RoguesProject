@@ -10,6 +10,10 @@ class_name OptionsMenu
 
 @onready var settings_menu: PanelContainer = $SettingsMenu
 
+func open_settings_directly() ->void:
+	visible = true
+	settings_menu.visible = true
+	pass
 
 func _on_settings_button_up() -> void:
 	settings_menu.visible = true

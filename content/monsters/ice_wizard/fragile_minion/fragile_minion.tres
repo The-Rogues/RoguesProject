@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_4k7rh"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_4mkbu"]
-[ext_resource type="Texture2D" uid="uid://dncebm7ex4hlx" path="res://content/monsters/ice_wizard/fragile_minion/assets/fragile_minion_img.png" id="2_cdsil"]
+[ext_resource type="Texture2D" uid="uid://bxvobkccf7i8b" path="res://content/monsters/ice_wizard/fragile_minion/assets/fragile_minion_img.png" id="2_cdsil"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_tek7e"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_h15fj"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="5_h15fj"]
