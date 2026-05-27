@@ -13,7 +13,7 @@ extends Control
 @onready var card_sell_interface: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer/CardTransform
 @onready var shop_keeper_animator: AnimationPlayer = $ShopKeeper/EntityAnimator
 @onready var shop_keeper_sprite: Sprite2D = $ShopKeeper/SpriteRoot/Sprite2D
-@onready var card_transform: Control = $CardTransform
+@onready var card_transform: TransformCard = $CardTransform
 @onready var shoop_keeper_dialogue: DialogueText = $CanvasLayer/Control/PanelContainer/ShopKeeperDialogue
 
 #var shop_cards:Array[CardInstance] = []
