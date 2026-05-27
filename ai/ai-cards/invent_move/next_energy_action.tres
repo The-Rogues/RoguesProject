@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LaidBackAction" format=3 uid="uid://bu0j7aos7tadb"]
+
+[ext_resource type="Script" uid="uid://c4wacutsxb7p6" path="res://content/cards/laidback_cards/laidback_action.gd" id="1_o6obs"]
+
+[resource]
+script = ExtResource("1_o6obs")
+draw_amount = 0
+block_amount = 0
+boosted_block = 0
+damage = 0
+boosted_damage = 0
+ignore_foreground = true
+metadata/_custom_type_script = "uid://c4wacutsxb7p6"

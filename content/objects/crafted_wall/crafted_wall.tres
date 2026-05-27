@@ -10,5 +10,4 @@ targeting_categories = Array[int]([0])
 hover_description = "Provides temporary protection."
 display_texture = ExtResource("1_krwy6")
 name = "Crafted Wall"
-health = 1
 metadata/_custom_type_script = "uid://dns34mcsxn8f6"

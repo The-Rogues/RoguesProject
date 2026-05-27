@@ -13,12 +13,15 @@ enum CardGenEnum {
 	stddef, # A standard amount of defense.
 	dblatk, # Adds a small amount of attack and splits attack into two strikes.
 	atkall, # Adds a small amount of attack and attacks all enemies.
-	strength, # Player gains strength as a side effect of the action.
+	weak, # Player gains strength as a side effect of the action.
 	discount,
 	armor,
 	toughness,
 	moveone,
-	bullettime
+	bullettime,
+	burn,
+	nextenergy,
+	random
 }
 
 # Map for turning the enumerations into strings within the prompt.
@@ -27,12 +30,15 @@ const CardGenNames: Dictionary[CardGenEnum, String] = {
 	CardGenEnum.stddef: "stddef",
 	CardGenEnum.dblatk: "dblatk",
 	CardGenEnum.atkall: "atkall",
-	CardGenEnum.strength: "strength",
+	CardGenEnum.weak: "weak",
 	CardGenEnum.discount: "discount",
 	CardGenEnum.armor: "armor",
 	CardGenEnum.toughness: "toughness",
 	CardGenEnum.moveone: "moveone",
-	CardGenEnum.bullettime: "bullettime"
+	CardGenEnum.bullettime: "bullettime",
+	CardGenEnum.burn: "burn",
+	CardGenEnum.nextenergy: "nextenergy",
+	CardGenEnum.random: "random"
 }
 
 const CardGenDefs: Dictionary[CardGenEnum, String] = {
@@ -40,10 +46,13 @@ const CardGenDefs: Dictionary[CardGenEnum, String] = {
 	CardGenEnum.stddef: "Adds a standard ammount of sheild, which blocks enemy damage, to an action.",
 	CardGenEnum.dblatk: "Adds a small ammount of attack damage to an action. The action's attack damage is split into two strikes.",
 	CardGenEnum.atkall: "Adds a small ammount of attack damage to an action. The action's attack damage is applied to all enemies.",
-	CardGenEnum.strength: "User gets stronger after using the action.",
+	CardGenEnum.weak: "Weakens attacked enemies.",
 	CardGenEnum.discount: "Less energy penalty.",
 	CardGenEnum.armor: "Sheild is converted into armor. Less effective but lasts longer.",
 	CardGenEnum.toughness: "Applies tougness buff, reducing all incoming damage.",
 	CardGenEnum.moveone: "Moves the user one position toward an advantage.",
-	CardGenEnum.bullettime: "Gives the user more control over their movement."
+	CardGenEnum.bullettime: "Gives the user more control over their movement.",
+	CardGenEnum.burn: "Applies a burning status effect to attacked enemies.",
+	CardGenEnum.nextenergy: "Gains extra energy in the future.",
+	CardGenEnum.random: "Makes targeting random but doubles effectivness."
 }

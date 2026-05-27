@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b04kldgtljpie"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_vee8m"]
+[ext_resource type="Script" uid="uid://eo04g3psi2bf" path="res://battle_scene/entities/actions/skill/move_toward_preferrence.gd" id="2_vee8m"]
+[ext_resource type="Script" uid="uid://d1kuqw84jswgt" path="res://content/cards/greedy_cards/cash_in/draw_card_action.gd" id="3_hn70c"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_yt0gn"]
+
+[sub_resource type="Resource" id="Resource_d1jqk"]
+script = ExtResource("2_vee8m")
+num_spaces = 1
+metadata/_custom_type_script = "uid://eo04g3psi2bf"
+
+[sub_resource type="Resource" id="Resource_02eht"]
+script = ExtResource("3_hn70c")
+amount = 1
+metadata/_custom_type_script = "uid://d1kuqw84jswgt"
+
+[resource]
+script = ExtResource("4_yt0gn")
+type = 2
+name = "Dash"
+description = "Move toward prefered object. Draw [color=#43A047]1[/color] card. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_vee8m")]([SubResource("Resource_d1jqk"), SubResource("Resource_02eht")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

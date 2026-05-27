@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AddCardToPileAction" format=3 uid="uid://big60yyj72h4m"]
+
+[ext_resource type="Resource" uid="uid://b04kldgtljpie" path="res://content/cards/traitless_cards/dash.tres" id="1_dvedt"]
+[ext_resource type="Script" uid="uid://d3geijhd5bvo" path="res://battle_scene/entities/actions/skill/add_card_to_pile_action.gd" id="1_f0tre"]
+
+[resource]
+script = ExtResource("1_f0tre")
+card = ExtResource("1_dvedt")
+pile = 1
+shuffle = false
+metadata/_custom_type_script = "uid://d3geijhd5bvo"
