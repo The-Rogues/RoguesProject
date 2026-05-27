@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://blmtyfa32ygxo" path="res://battle_scene/win_screen/battle_rewards_handler.gd" id="1_mmg28"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_xxsb7"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_upsfl"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_upsfl"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="3_upsfl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6b28"]
