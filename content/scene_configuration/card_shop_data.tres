@@ -10,9 +10,12 @@
 [ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="5_nfhhf"]
 [ext_resource type="Resource" uid="uid://cir33xdd782li" path="res://ai/ai-cards/invent_tool/invent_tool.tres" id="6_nk0ef"]
 [ext_resource type="Resource" uid="uid://knf7yagaaaxo" path="res://content/cards/brute_cards/warm_up.tres" id="6_tk7tn"]
+[ext_resource type="Resource" uid="uid://cp2osh5b7ynnu" path="res://content/cards/legendary_cards/flamethrower.tres" id="7_38e37"]
 [ext_resource type="Resource" uid="uid://bng6s3h0uuec3" path="res://content/cards/brute_cards/war_machine.tres" id="7_56pm2"]
 [ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="8_fo3p2"]
+[ext_resource type="Resource" uid="uid://dvntgnsyslkwr" path="res://content/cards/legendary_cards/iron_fist.tres" id="8_nk0ef"]
 [ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="9_d7yj4"]
+[ext_resource type="Resource" uid="uid://bs8hbhwulqly3" path="res://content/cards/legendary_cards/rapid_fire.tres" id="9_mvjka"]
 [ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="10_38e37"]
 [ext_resource type="Resource" uid="uid://eoarmxrechlt" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="11_nk0ef"]
 [ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/icey_friend.tres" id="12_mvjka"]
@@ -73,4 +76,5 @@ script = ExtResource("2_xwdym")
 random_cards_pool = Array[ExtResource("1_ol2pt")]([ExtResource("4_7x278"), ExtResource("5_nfhhf"), ExtResource("6_tk7tn"), ExtResource("7_56pm2"), ExtResource("8_fo3p2"), ExtResource("9_d7yj4"), ExtResource("10_38e37"), ExtResource("11_nk0ef"), ExtResource("12_mvjka"), ExtResource("13_ikxbu"), ExtResource("14_jnjwf"), ExtResource("15_2mpmb"), ExtResource("16_h0qst"), ExtResource("17_qvdox"), ExtResource("18_hgax5"), ExtResource("19_sx433"), ExtResource("20_oln4k"), ExtResource("21_o7j6p"), ExtResource("22_8acik"), ExtResource("23_jdr17"), ExtResource("24_aheyd"), ExtResource("25_1tkvy"), ExtResource("26_kbqdn"), ExtResource("27_kkrjk"), ExtResource("28_wynsb"), ExtResource("29_0jq6p"), ExtResource("30_dfrwg"), ExtResource("31_ulycu"), ExtResource("32_g5ixd"), ExtResource("33_gix5h"), ExtResource("34_5dujr"), ExtResource("35_2ar2w"), ExtResource("36_w2vxb"), ExtResource("37_eccvg"), ExtResource("38_ogw5m"), ExtResource("39_psmlx"), ExtResource("40_8fl6o"), ExtResource("41_t3mt8"), ExtResource("42_bsd7u"), ExtResource("43_osqin"), ExtResource("44_wo3x5"), ExtResource("45_kueid"), ExtResource("46_bmhx1"), ExtResource("47_j7b0x"), ExtResource("48_wdrm5"), ExtResource("49_d8m58"), ExtResource("50_y5xm6"), ExtResource("51_fnjfd")])
 ai_cards_pool = Array[ExtResource("1_ol2pt")]([ExtResource("2_56pm2"), ExtResource("3_fo3p2"), ExtResource("4_d7yj4"), ExtResource("5_38e37"), ExtResource("6_nk0ef")])
 shop_unique_pool = Array[ExtResource("1_ol2pt")]([ExtResource("53_3pt4i"), ExtResource("54_li7ow"), ExtResource("55_hq8s3"), ExtResource("56_470m4"), ExtResource("57_4ynl6"), ExtResource("58_bqkpx"), ExtResource("59_l82h4"), ExtResource("60_q4ssh"), ExtResource("61_dsyss"), ExtResource("62_4y10y"), ExtResource("63_nvmi5"), ExtResource("64_b448x")])
+legendary_card_pool = Array[ExtResource("1_ol2pt")]([ExtResource("7_38e37"), ExtResource("8_nk0ef"), ExtResource("9_mvjka")])
 metadata/_custom_type_script = "uid://dwsw6g6r1tpur"

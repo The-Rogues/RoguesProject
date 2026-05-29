@@ -42,16 +42,11 @@ func _ready() -> void:
 	var resuming := run!= null and run.shop_save != null
 	
 	if resuming and run.shop_save.generated_cards.size() > 0:
-		
-		print("HERE")
-		
-		print("resuming")
 		shop_cards[card_shop_interface1] = []
 		shop_cards[card_shop_interface2] = []
 		shop_cards[card_shop_interface3] = []
 		for i in range(0, run.shop_save.generated_cards.size()):
 			var card: CardData = run.shop_save.generated_cards[i]
-			print(card.name)
 			if run.shop_save.purchased_card_names.has(card.name):
 				continue
 			if i == 0:
@@ -64,7 +59,10 @@ func _ready() -> void:
 		
 	else:
 		
-		shop_cards[card_shop_interface1] = card_shop_data.get_ai_card(GlobalSessionManager.run_progress.player_data.personality)
+		if GlobalSessionManager.run_progress.ai_mode:
+			shop_cards[card_shop_interface1] = card_shop_data.get_ai_card()
+		else:
+			shop_cards[card_shop_interface1] = card_shop_data.get_legendary_card()
 		shop_cards[card_shop_interface2] = card_shop_data.get_random_cards_from_player_traits(GlobalSessionManager.run_progress.player_data.personality)
 		shop_cards[card_shop_interface3] = card_shop_data.get_random_cards(GlobalSessionManager.run_progress.player_data.personality)
 		
@@ -84,7 +82,6 @@ func _ready() -> void:
 	print("generated_cards: ", run.shop_save.generated_cards.size())
 	print("save path exists: ", FileAccess.file_exists("res://saves/save_progress.tres"))
 	print("============================")
-	
 	
 	card_shop_interface1.initialize(
 		shop_cards[card_shop_interface1]

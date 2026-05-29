@@ -49,4 +49,4 @@ var run_map: MapManager
 @export var total_ai_packs_found: int = 0
 
 @export var initialized:bool = false
-@export var ai_mode:bool = false
+@export var ai_mode:bool = true

@@ -104,7 +104,6 @@ func filter_enemies(in_action: FilteredTargetedAction) -> Array[MonsterEntity]:
 		for i in range(filtered_enemies.size() - 1, -1, -1):
 			var has_effect: bool = false
 			for j in range(0, filtered_enemies[i].effects.active_effects.size()):
-				print(j)
 				if filtered_enemies[i].effects.active_effects[j].effect == friendship_behavior:
 					has_effect = true
 					break
@@ -134,4 +133,3 @@ func process_actions(actions:Array[Action], user:AbstractEntity):
 			user,
 			recalculate_targeting
 		)
-		

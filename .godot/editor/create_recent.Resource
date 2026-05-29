@@ -1,2 +1,2 @@
-res://battle_scene/battle_building/battlefield_config.gd
+res://battle_scene/battle_building/enemy_encounter.gd
 AtlasTexture

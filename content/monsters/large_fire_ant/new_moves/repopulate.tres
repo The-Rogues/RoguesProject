@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://1wky525u7sxf"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_28xne"]
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_x8p4l"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_raffq"]
+[ext_resource type="Resource" uid="uid://b6depd1v4omed" path="res://content/objects/infested_wall/infested_wall.tres" id="3_oa4b2"]
+[ext_resource type="Script" uid="uid://b3fvjsgb155cu" path="res://content/cards/greedy_cards/life_savings/random_place_action.gd" id="4_n3bh3"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="6_qvqsr"]
+[ext_resource type="Resource" uid="uid://l2nwenkn6gcc" path="res://content/monsters/fire_ant/fire_ant.tres" id="7_l2w68"]
+[ext_resource type="Script" uid="uid://cks8r2lcrlrr" path="res://content/monsters/large_fire_ant/associated_scripts/hatch_larvae_action.gd" id="8_3wndk"]
+
+[sub_resource type="Resource" id="Resource_qvqsr"]
+script = ExtResource("4_n3bh3")
+object_pool = Array[ExtResource("2_raffq")]([ExtResource("3_oa4b2")])
+metadata/_custom_type_script = "uid://b3fvjsgb155cu"
+
+[sub_resource type="Resource" id="Resource_bl7al"]
+script = ExtResource("8_3wndk")
+monsters = Array[ExtResource("6_qvqsr")]([ExtResource("7_l2w68")])
+starting_health = 33
+metadata/_custom_type_script = "uid://cks8r2lcrlrr"
+
+[resource]
+script = ExtResource("1_28xne")
+type = 1
+intent_icon = ExtResource("1_x8p4l")
+name = "Repopulate"
+description = "Places an \"Infested Wall\" at a random position. Transforms all \"Fire Ant Larvae\"."
+primary_action = SubResource("Resource_qvqsr")
+secondary_action = SubResource("Resource_bl7al")
+metadata/_custom_type_script = "uid://c410dannt5adg"

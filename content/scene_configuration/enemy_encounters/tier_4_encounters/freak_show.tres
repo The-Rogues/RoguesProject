@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_i8kkn"]
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_irelq"]
 [ext_resource type="Resource" uid="uid://25itnkhn1son" path="res://content/monsters/savage/savage.tres" id="2_irelq"]
-[ext_resource type="Resource" uid="uid://c3c0eiqiul3lq" path="res://content/monsters/large_fire_ant/large_fire_ant.tres" id="3_6jjs4"]
+[ext_resource type="Resource" uid="uid://c3c0eiqiul3lq" path="res://content/monsters/large_fire_ant/old/large_fire_ant.tres" id="3_6jjs4"]
 [ext_resource type="Resource" uid="uid://bdqekfp4y42wh" path="res://content/monsters/crawler/old/crawler.tres" id="4_i8kkn"]
 [ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="5_xvds6"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="6_nmhaw"]
 [ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="7_i8kkn"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="8_oufes"]
+
 
 [sub_resource type="Resource" id="Resource_2ardj"]
 script = ExtResource("6_nmhaw")

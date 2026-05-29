@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://l2nwenkn6gcc"]
 
+[ext_resource type="Script" uid="uid://drk5uv6iqcvsx" path="res://content/monsters/ice_wizard/init_sequence_monster_behaviour.gd" id="1_hac1v"]
 [ext_resource type="Texture2D" uid="uid://dp8mia2sw6v8i" path="res://common/art/placeholder/32_rogues/monsters.png" id="2_4dqwf"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_e6n66"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_h6ctx"]
@@ -10,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="8_7xrwj"]
 
 [sub_resource type="Resource" id="Resource_sxnes"]
+script = ExtResource("1_hac1v")
 metadata/_custom_type_script = "uid://drk5uv6iqcvsx"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxnes"]

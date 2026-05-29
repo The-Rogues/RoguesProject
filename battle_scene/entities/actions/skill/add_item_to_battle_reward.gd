@@ -36,7 +36,7 @@ func get_chest_item() -> BattleRewardData:
 		reward_pool.append(energy_potion)
 	if GlobalSessionManager.run_progress.total_health_potions_used < 2:
 		reward_pool.append(health_potion)
-	if GlobalSessionManager.run_progress.total_ai_packs_found < 2:
+	if GlobalSessionManager.run_progress.total_ai_packs_found < 2 && GlobalSessionManager.run_progress.ai_mode:
 		reward_pool.append(ai_pack)
 	
 	if reward_pool.size() < 0:

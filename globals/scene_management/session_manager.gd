@@ -149,10 +149,10 @@ func complete_current_room() -> void:
 	run_progress.battle = null
 		
 	# Clear extra item slot.
-	if run_progress.player_data.items.size() == run_progress.player_data.item_capacity:
-		run_progress.player_data.remove_item(
-			run_progress.player_data.items[run_progress.player_data.items.size() - 1]
-		)
+	#if run_progress.player_data.items.size() == run_progress.player_data.item_capacity:
+	#	run_progress.player_data.remove_item(
+	#		run_progress.player_data.items[run_progress.player_data.items.size() - 1]
+	#	)
 	run_progress.shop_save = null
 	run_progress.mini_event_completed = false
 	

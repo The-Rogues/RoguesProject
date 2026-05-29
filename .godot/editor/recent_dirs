@@ -1,10 +1,14 @@
+res://content/scene_configuration/enemy_encounters/tier_4_encounters/
+res://content/monsters/large_fire_ant/new_moves/
+res://common/art/placeholder/32_rogues/
+res://content/objects/infested_wall/
+res://content/cards/legendary_cards/immunity/
 res://content/scene_configuration/battle_field_layouts/
 res://content/monsters/mimic/object/
 res://content/monsters/mimic/moves/
 res://content/monsters/mimic/
 res://content/cards/brute_cards/
 res://content/scene_configuration/battle_field_layouts/tier_4_fields/
-res://content/scene_configuration/enemy_encounters/tier_4_encounters/
 res://content/scene_configuration/enemy_encounters/tier_3_encounters/
 res://content/scene_configuration/enemy_encounters/tier_2_encounters/
 res://content/scene_configuration/
