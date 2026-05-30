@@ -31,22 +31,18 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 			if user is PlayerEntity:
 				var player := battle_context.creature_manager.player
 				var target:AbstractEntity = null
-				if player.battle_position.has_object() && !in_action.ignore_foreground:
-					target = player.battle_position.get_object()
+				var filtered_enemies: Array[MonsterEntity]
+				if in_action is FilteredTargetedAction:
+					filtered_enemies = filter_enemies(in_action)
 				else:
-					
-					var filtered_enemies: Array[MonsterEntity]
-					if in_action is FilteredTargetedAction:
-						filtered_enemies = filter_enemies(in_action)
-					else:
-						filtered_enemies = battle_context.creature_manager.enemies
-					
-					target = player.data.personality.choose_enemy_target(
-						filtered_enemies,
-						player.offensive_trait.weight_value,
-						player.defensive_trait.weight_value,
-						player.strategic_trait.weight_value
-					)
+					filtered_enemies = battle_context.creature_manager.enemies
+
+				target = player.data.personality.choose_enemy_target(
+					filtered_enemies,
+					player.offensive_trait.weight_value,
+					player.defensive_trait.weight_value,
+					player.strategic_trait.weight_value
+				)
 				
 				resolved_targeting.append(target)
 			else:
@@ -104,7 +100,6 @@ func filter_enemies(in_action: FilteredTargetedAction) -> Array[MonsterEntity]:
 		for i in range(filtered_enemies.size() - 1, -1, -1):
 			var has_effect: bool = false
 			for j in range(0, filtered_enemies[i].effects.active_effects.size()):
-				print(j)
 				if filtered_enemies[i].effects.active_effects[j].effect == friendship_behavior:
 					has_effect = true
 					break
@@ -134,4 +129,3 @@ func process_actions(actions:Array[Action], user:AbstractEntity):
 			user,
 			recalculate_targeting
 		)
-		

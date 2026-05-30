@@ -17,7 +17,6 @@ func initialize():
 		battle_reward.initialize(reward)
 
 
-
 func _on_continue_clicked() -> void:
 	GlobalSessionManager.complete_current_room()
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAP_SCENE_PATH)

@@ -4,25 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bb2r4bfsxofij" path="res://battle_scene/entities/projectiles/frozen_arrow/frozen_arrow.tscn" id="2_gvewa"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_gvewa"]
 [ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_68kjg"]
-[ext_resource type="Script" uid="uid://bn7qgjpnrgqjj" path="res://content/friends/penguin/freezing_behavior.gd" id="4_uwgx7"]
-[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_i5tju"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_uwgx7"]
-
-[sub_resource type="Resource" id="Resource_5srlj"]
-script = ExtResource("4_uwgx7")
-metadata/_custom_type_script = "uid://bn7qgjpnrgqjj"
-
-[sub_resource type="Resource" id="Resource_ldhrm"]
-script = ExtResource("5_i5tju")
-behaviour = SubResource("Resource_5srlj")
-duration = -1
-stack = 4
-metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_vdvjd"]
 script = ExtResource("3_gvewa")
 projectile_scene = ExtResource("2_gvewa")
-status_effect = SubResource("Resource_ldhrm")
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_12btk"]

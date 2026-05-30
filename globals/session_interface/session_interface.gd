@@ -17,6 +17,7 @@ class_name SessionInterface
 @onready var modify_stat_button: Button = %ModifyStat
 @onready var close_card_picker_button: Button = %CloseCardPicker
 @onready var card_effects_manager: Control = %CardEffectsManager
+@onready var generation_screen: Control = %GeneratingCardOverlay
 
 
 func initialize():
@@ -84,7 +85,16 @@ func connect_to_player(player:PlayerEntity):
 		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
 	player.data.card_removed.connect(func(card:CardData):
 		card_effects_manager.remove_card_effect(card))
+	
+	player.start_ai_processing.connect(show_generation_overlay)
+	player.end_ai_processing.connect(hide_generation_overlay)
 	pass
+
+func show_generation_overlay() -> void:
+	generation_screen.visible = true
+
+func hide_generation_overlay() -> void:
+	generation_screen.visible = false
 
 
 func disconnect_from_player(player: PlayerEntity):

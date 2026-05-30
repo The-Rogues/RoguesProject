@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://b6depd1v4omed"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_itwyg"]
+[ext_resource type="Texture2D" uid="uid://djyqox2kiriru" path="res://content/objects/infested_wall/infested_wall.png" id="1_ncrip"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_ncrip"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="3_dkyp4"]
+[ext_resource type="Resource" uid="uid://cejudkort1ssj" path="res://content/monsters/fire_ant_larvae/fire_ant_larvae.tres" id="4_2y8jb"]
+[ext_resource type="Script" uid="uid://pixk6fb47k72" path="res://content/objects/infested_wall/spawn_larvae_action.gd" id="5_707y3"]
+
+[sub_resource type="Resource" id="Resource_fmio2"]
+script = ExtResource("5_707y3")
+monsters = Array[ExtResource("3_dkyp4")]([ExtResource("4_2y8jb")])
+metadata/_custom_type_script = "uid://pixk6fb47k72"
+
+[resource]
+script = ExtResource("2_ncrip")
+targeting_categories = Array[int]([0])
+interaction = 6
+interaction_actions = Array[ExtResource("1_itwyg")]([SubResource("Resource_fmio2")])
+hover_description = "Object Categories: Cover, Threat
+
+On Destroyed: Summons a \"Fire Ant Larvae\""
+display_texture = ExtResource("1_ncrip")
+name = "Infested Wall"
+health = 9
+metadata/_custom_type_script = "uid://dns34mcsxn8f6"

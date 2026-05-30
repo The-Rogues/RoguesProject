@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://brnb1a3nt5kko"]
+
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_rsadh"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_t4siv"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_qu4wk"]
+
+[sub_resource type="Resource" id="Resource_d2ilg"]
+script = ExtResource("2_t4siv")
+base_damage = 8
+hits = 3
+target_option = 1
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[resource]
+script = ExtResource("3_qu4wk")
+intent_icon = ExtResource("1_rsadh")
+name = "Shred"
+description = "Attacks for 8 damage 3 times."
+primary_action = SubResource("Resource_d2ilg")
+metadata/_custom_type_script = "uid://c410dannt5adg"

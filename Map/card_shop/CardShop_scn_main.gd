@@ -13,7 +13,7 @@ extends Control
 @onready var card_sell_interface: ShopCardInterface = $ShopContainer/Elements/Panel/ScrollContainer/CardTransform
 @onready var shop_keeper_animator: AnimationPlayer = $ShopKeeper/EntityAnimator
 @onready var shop_keeper_sprite: Sprite2D = $ShopKeeper/SpriteRoot/Sprite2D
-@onready var card_transform: Control = $CardTransform
+@onready var card_transform: TransformCard = $CardTransform
 @onready var shoop_keeper_dialogue: DialogueText = $CanvasLayer/Control/PanelContainer/ShopKeeperDialogue
 
 #var shop_cards:Array[CardInstance] = []
@@ -41,7 +41,6 @@ func _ready() -> void:
 		shop_cards[card_shop_interface3] = []
 		for i in range(0, run.shop_save.generated_cards.size()):
 			var card: CardData = run.shop_save.generated_cards[i]
-			print(card.name)
 			if run.shop_save.purchased_card_names.has(card.name):
 				continue
 			if i == 0:
@@ -54,7 +53,10 @@ func _ready() -> void:
 		
 	else:
 		
-		shop_cards[card_shop_interface1] = card_shop_data.get_ai_card(GlobalSessionManager.run_progress.player_data.personality)
+		if GlobalSessionManager.run_progress.ai_mode:
+			shop_cards[card_shop_interface1] = card_shop_data.get_ai_card()
+		else:
+			shop_cards[card_shop_interface1] = card_shop_data.get_legendary_card()
 		shop_cards[card_shop_interface2] = card_shop_data.get_random_cards_from_player_traits(GlobalSessionManager.run_progress.player_data.personality)
 		shop_cards[card_shop_interface3] = card_shop_data.get_random_cards(GlobalSessionManager.run_progress.player_data.personality)
 		
@@ -69,6 +71,7 @@ func _ready() -> void:
 		GlobalSaveManager.save_run(run)
 	
 	
+
 	card_shop_interface1.initialize(
 		shop_cards[card_shop_interface1]
 	)

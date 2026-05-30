@@ -91,6 +91,15 @@ func initialize(battle_config: BattleConfig):
 	player.cards.discard_pile_updated.connect(discard_pile_viewer.on_cards_updated)
 	battle_field.object_placed.connect(creature_manager.add_object_enemy)
 	
+	# TODO: Figure out cleaner way to avoid hard-coding
+	creature_manager.defeated_mimic.connect(func():
+		var mimic_reward = load("res://content/objects/object_reward_resources/chest_reward.tres")
+		battle_flow_manager.action_resolver.process_actions(
+			[mimic_reward],
+			null
+		)
+		)
+	
 	# Update pile UI when resume
 	if resuming:
 		draw_pile_icon._on_card_pile_updated(player.cards.draw_pile)

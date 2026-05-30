@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds7syc74md3bk"]
 
-[ext_resource type="Script" uid="uid://dphjwjbta0bwb" path="res://content/cards/greedy_cards/shiny_shot/gem_projectile/gem_projectile_script.gd" id="1_agtbk"]
-[ext_resource type="Texture2D" uid="uid://cbw2owjnhrjbu" path="res://content/cards/greedy_cards/assets/gem.png" id="2_660ic"]
+[ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="1_hwuqy"]
+[ext_resource type="Texture2D" uid="uid://b5h7i3mcdnhk6" path="res://content/cards/greedy_cards/assets/gem.png" id="2_660ic"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_o20h5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
@@ -10,11 +10,10 @@ radius = 11.18034
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 14.035668
 
-[node name="GemProjectile" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="GemProjectile" type="CharacterBody2D" unique_id=59921328]
 collision_layer = 2
 motion_mode = 1
-script = ExtResource("1_agtbk")
-life_span = NodePath("LifeSpan")
+script = ExtResource("1_hwuqy")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=1685385418]
 
@@ -35,10 +34,10 @@ shape = SubResource("CircleShape2D_bofno")
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5ed72")
 
-[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+[node name="LifeSpanTimer" type="Timer" parent="." unique_id=1970886395]
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_o20h5")]
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

@@ -260,12 +260,8 @@ layout_mode = 2
 [node name="GeneratingCardOverlay" parent="Control" unique_id=1773033190 instance=ExtResource("15_t4l4l")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+z_index = 100
+layout_mode = 1
 
 [node name="CardEffectsManager" parent="Control" unique_id=641375129 instance=ExtResource("15_nsjr7")]
 unique_name_in_owner = true

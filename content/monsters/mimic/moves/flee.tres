@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://4u6dy8a2mojp"]
+
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_2vklj"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_whqlh"]
+[ext_resource type="Script" uid="uid://ckla3hkbinfih" path="res://battle_scene/entities/actions/skill/flee_action.gd" id="2_fotdx"]
+
+[sub_resource type="Resource" id="Resource_t8gyq"]
+script = ExtResource("2_fotdx")
+metadata/_custom_type_script = "uid://ckla3hkbinfih"
+
+[resource]
+script = ExtResource("1_whqlh")
+type = 1
+intent_icon = ExtResource("1_2vklj")
+name = "Flee"
+description = "This Enemy intends to flee the battle."
+primary_action = SubResource("Resource_t8gyq")
+metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -5,6 +5,7 @@ signal player_defeated
 signal enemy_defeated(monster:MonsterEntity)
 signal all_enemies_defeated
 signal enemy_spawned(monster:MonsterEntity)
+signal defeated_mimic
 
 @export var template_enemy:PackedScene
 @export var spawn_parent:Node2D
@@ -46,7 +47,7 @@ func spawn_enemy(
 	enemy_spawned.emit(monster)
 	
 	monster.defeated.connect(_on_creature_defeated)
-	monster.fleed.connect(_on_creature_defeated)
+	monster.fleed.connect(_remove_enemy)
 	monster.spared.connect(_on_creature_defeated)
 	
 	_position_enemies()
@@ -93,11 +94,14 @@ func _on_creature_defeated(creature:AbstractCreature):
 	if creature is PlayerEntity:
 		player_defeated.emit()
 	elif creature is MonsterEntity:
+		# TODO: Figure out a neater way to avoid hard-coding this
+		if creature.data.name == "Mimic":
+			defeated_mimic.emit()
+		
 		_remove_enemy(creature)
 
 
 func _remove_enemy(monster:MonsterEntity):
-	print("removing entity")
 	enemy_defeated.emit(monster)
 	enemies.erase(monster)
 	
@@ -263,6 +267,6 @@ func spawn_enemy_from_save(state: MonsterSaveData) -> void:
 	
 	enemy_spawned.emit(monster)
 	monster.defeated.connect(_on_creature_defeated)
-	monster.fleed.connect(_on_creature_defeated)
+	monster.fleed.connect(_remove_enemy)
 	monster.spared.connect(_on_creature_defeated)
 	_position_enemies()

@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_cut6q"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_bm06r"]
-[ext_resource type="Resource" uid="uid://d1bplvxmsevih" path="res://ai/ai-cards/inventive_strike/inventive_strike_data.tres" id="2_w0q65"]
+[ext_resource type="Resource" uid="uid://52gbttbauwd1" path="res://ai/ai-cards/invent_defend/invent_defend.tres" id="2_qqwt0"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="3_ebj4g"]
-[ext_resource type="Resource" uid="uid://52gbttbauwd1" path="res://ai/ai-cards/inventive_defend/inventive_defend_data.tres" id="3_n2cri"]
+[ext_resource type="Resource" uid="uid://d1bplvxmsevih" path="res://ai/ai-cards/invent_melee/invent_melee.tres" id="3_k5alm"]
+[ext_resource type="Resource" uid="uid://lde3bd425fst" path="res://ai/ai-cards/invent_move/invent_move.tres" id="4_mbvak"]
+[ext_resource type="Resource" uid="uid://eomq5bhe5mus" path="res://ai/ai-cards/invent_ranged/invent_ranged.tres" id="5_2j8ng"]
+[ext_resource type="Resource" uid="uid://cir33xdd782li" path="res://ai/ai-cards/invent_tool/invent_tool.tres" id="6_uyenx"]
 
 [resource]
 script = ExtResource("2_bm06r")
-card_pool = Array[ExtResource("1_cut6q")]([ExtResource("2_w0q65"), ExtResource("2_w0q65"), ExtResource("3_n2cri")])
+card_pool = Array[ExtResource("1_cut6q")]([ExtResource("2_qqwt0"), ExtResource("3_k5alm"), ExtResource("4_mbvak"), ExtResource("5_2j8ng"), ExtResource("6_uyenx")])
 draw_count = 3
 rarity = 2
 name = "AI Card Pack"
