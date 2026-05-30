@@ -1,34 +1,41 @@
-[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://pgym5gykmlji"]
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://dv1sffs6iqywx"]
 
-[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_c2vq0"]
-[ext_resource type="Texture2D" uid="uid://byavv8ot6kof5" path="res://content/monsters/inpu/inpu_texture.tres" id="2_j7mso"]
-[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_yfrc7"]
-[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_86q1i"]
-[ext_resource type="Resource" uid="uid://cl3si2mbcfvws" path="res://content/monsters/inpu/moves/guard.tres" id="5_67hhk"]
-[ext_resource type="Resource" uid="uid://cwd21npvdagsd" path="res://content/monsters/inpu/moves/spear.tres" id="6_884hr"]
-[ext_resource type="Resource" uid="uid://cj3rplc882d41" path="res://content/monsters/inpu/moves/support.tres" id="7_n63j6"]
-[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="8_svjkp"]
+[ext_resource type="Script" uid="uid://b66yrbpkg17lh" path="res://content/monsters/inpu/inpu_behaviour.gd" id="1_yfrc7"]
+[ext_resource type="Texture2D" uid="uid://byavv8ot6kof5" path="res://content/monsters/inpu/inpu_texture.tres" id="2_2tc07"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_h8nts"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_6xkpi"]
+[ext_resource type="Resource" uid="uid://cxfgyd1a0j1av" path="res://content/monsters/inpu/moves/piercing_stabs.tres" id="5_86q1i"]
+[ext_resource type="Resource" uid="uid://ivruawvlmluy" path="res://content/monsters/inpu/moves/body_gaurd.tres" id="6_67hhk"]
+[ext_resource type="Resource" uid="uid://d2xr3l1c3wdkr" path="res://content/monsters/inpu/moves/teamwork.tres" id="7_884hr"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="8_c1qt0"]
+[ext_resource type="Resource" uid="uid://bj1yeert1hk36" path="res://content/monsters/inpu/moves/agile_response.tres" id="8_n63j6"]
+[ext_resource type="Resource" uid="uid://fj6mjnf1dj7k" path="res://content/monsters/inpu/moves/agile_vengence.tres" id="9_svjkp"]
 
-[sub_resource type="Resource" id="Resource_po77x"]
-script = ExtResource("1_c2vq0")
-metadata/_custom_type_script = "uid://bn6t0778mctv4"
+[sub_resource type="Resource" id="Resource_ou3wv"]
+script = ExtResource("1_yfrc7")
+metadata/_custom_type_script = "uid://b66yrbpkg17lh"
 
-[sub_resource type="Resource" id="Resource_8veny"]
-script = ExtResource("3_yfrc7")
-moves = Array[ExtResource("4_86q1i")]([ExtResource("5_67hhk"), ExtResource("6_884hr"), ExtResource("6_884hr"), ExtResource("7_n63j6")])
+[sub_resource type="Resource" id="Resource_1iwxl"]
+script = ExtResource("3_h8nts")
+moves = Array[ExtResource("4_6xkpi")]([ExtResource("5_86q1i"), ExtResource("6_67hhk"), ExtResource("7_884hr")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
-[sub_resource type="Resource" id="Resource_od24e"]
-script = ExtResource("3_yfrc7")
-moves = Array[ExtResource("4_86q1i")]([ExtResource("6_884hr"), ExtResource("7_n63j6"), ExtResource("5_67hhk"), ExtResource("6_884hr")])
+[sub_resource type="Resource" id="Resource_rsm3h"]
+script = ExtResource("3_h8nts")
+moves = Array[ExtResource("4_6xkpi")]([ExtResource("8_n63j6")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_7u0rt"]
+script = ExtResource("3_h8nts")
+moves = Array[ExtResource("4_6xkpi")]([ExtResource("9_svjkp")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [resource]
-script = ExtResource("8_svjkp")
-move_sequences = Array[ExtResource("3_yfrc7")]([SubResource("Resource_8veny"), SubResource("Resource_od24e")])
-behaviour = SubResource("Resource_po77x")
+script = ExtResource("8_c1qt0")
+move_sequences = Array[ExtResource("3_h8nts")]([SubResource("Resource_1iwxl"), SubResource("Resource_rsm3h"), SubResource("Resource_7u0rt")])
+behaviour = SubResource("Resource_ou3wv")
 init_targeting = Array[int]([3, 0])
-display_texture = ExtResource("2_j7mso")
+display_texture = ExtResource("2_2tc07")
 name = "Inpu"
-health = 31
+health = 90
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

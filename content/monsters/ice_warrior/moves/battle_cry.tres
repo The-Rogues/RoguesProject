@@ -11,6 +11,7 @@
 [sub_resource type="Resource" id="Resource_a8bef"]
 script = ExtResource("2_qaihb")
 strength_amount = 2
+enemy_name = "Ice Warrior"
 can_reapply = true
 metadata/_custom_type_script = "uid://bjded1ye1cx2e"
 

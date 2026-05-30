@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="PositionEffectDisplay" format=3 uid="uid://co6yteexgbuvt"]
 
-[ext_resource type="Texture2D" uid="uid://cbw2owjnhrjbu" path="res://content/cards/greedy_cards/assets/gem.png" id="1_u6giq"]
+[ext_resource type="Texture2D" uid="uid://chxl63pveqha8" path="res://content/cards/greedy_cards/unearth/gem_position/gem_position.png" id="1_fua76"]
 [ext_resource type="Script" uid="uid://dd40p6dnepp41" path="res://battle_scene/battle_field/position_effects/position_effect_display.gd" id="2_jvixq"]
 
 [resource]
 script = ExtResource("2_jvixq")
-floor_texture = ExtResource("1_u6giq")
+floor_texture = ExtResource("1_fua76")
 floor_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://dd40p6dnepp41"

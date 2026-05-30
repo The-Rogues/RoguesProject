@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://ql7kqaenuut"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_abvgd"]
+[ext_resource type="Texture2D" uid="uid://f28y3g8e2u5g" path="res://content/monsters/spider/spider_icon.tres" id="2_7amby"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_xvmgs"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_um5k0"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="5_mngul"]
+[ext_resource type="Script" uid="uid://cxy4mbsh6gev2" path="res://content/monsters/spider/actions/bee_attack_action.gd" id="6_sg2c2"]
+[ext_resource type="Script" uid="uid://sbvvweac52w" path="res://content/monsters/spider/actions/perma_stat_mod_action.gd" id="7_le52x"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="8_dg6xa"]
+
+[sub_resource type="Resource" id="Resource_dubmk"]
+script = ExtResource("1_abvgd")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_48mpc"]
+script = ExtResource("7_le52x")
+weight = -1
+metadata/_custom_type_script = "uid://sbvvweac52w"
+
+[sub_resource type="Resource" id="Resource_871g8"]
+script = ExtResource("6_sg2c2")
+unblocked_action = SubResource("Resource_48mpc")
+base_damage = 1
+target_option = 1
+metadata/_custom_type_script = "uid://cxy4mbsh6gev2"
+
+[sub_resource type="Resource" id="Resource_45jn7"]
+script = ExtResource("4_um5k0")
+intent_icon = ExtResource("5_mngul")
+name = "Offensive Sting"
+description = "Attacks for [color=red]1[/color] damage. If bee deals unblocked damage, permanatley lose [color=#43A047]1[/color] offensive stat."
+primary_action = SubResource("Resource_871g8")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_ojuxo"]
+script = ExtResource("3_xvmgs")
+moves = Array[ExtResource("4_um5k0")]([SubResource("Resource_45jn7")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_ibqyl"]
+script = ExtResource("7_le52x")
+trait_category = 1
+weight = -1
+metadata/_custom_type_script = "uid://sbvvweac52w"
+
+[sub_resource type="Resource" id="Resource_4l3aw"]
+script = ExtResource("6_sg2c2")
+unblocked_action = SubResource("Resource_ibqyl")
+base_damage = 1
+target_option = 1
+metadata/_custom_type_script = "uid://cxy4mbsh6gev2"
+
+[sub_resource type="Resource" id="Resource_mx1c2"]
+script = ExtResource("4_um5k0")
+intent_icon = ExtResource("5_mngul")
+name = "Defensive Sting"
+description = "Attacks for [color=red]1[/color] damage. If bee deals unblocked damage, permanatley lose [color=#43A047]1[/color] defensive stat."
+primary_action = SubResource("Resource_4l3aw")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_yp43d"]
+script = ExtResource("3_xvmgs")
+moves = Array[ExtResource("4_um5k0")]([SubResource("Resource_mx1c2")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_vmawr"]
+script = ExtResource("7_le52x")
+trait_category = 2
+weight = -1
+metadata/_custom_type_script = "uid://sbvvweac52w"
+
+[sub_resource type="Resource" id="Resource_wwg3v"]
+script = ExtResource("6_sg2c2")
+unblocked_action = SubResource("Resource_vmawr")
+base_damage = 1
+target_option = 1
+metadata/_custom_type_script = "uid://cxy4mbsh6gev2"
+
+[sub_resource type="Resource" id="Resource_4rwxu"]
+script = ExtResource("4_um5k0")
+intent_icon = ExtResource("5_mngul")
+name = "Strategic Sting"
+description = "Attacks for [color=red]1[/color] damage. If bee deals unblocked damage, permanatley lose [color=#43A047]1[/color] strategic stat."
+primary_action = SubResource("Resource_wwg3v")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
+[sub_resource type="Resource" id="Resource_tynap"]
+script = ExtResource("3_xvmgs")
+moves = Array[ExtResource("4_um5k0")]([SubResource("Resource_4rwxu")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("8_dg6xa")
+move_sequences = Array[ExtResource("3_xvmgs")]([SubResource("Resource_ojuxo"), SubResource("Resource_yp43d"), SubResource("Resource_tynap")])
+behaviour = SubResource("Resource_dubmk")
+display_texture = ExtResource("2_7amby")
+name = "Spider"
+health = 1
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

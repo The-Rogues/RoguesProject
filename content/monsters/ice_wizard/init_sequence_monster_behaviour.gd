@@ -2,7 +2,7 @@ extends MonsterBehaviour
 class_name InitSequenceBehavior
 ## Does first move set once.
 
-func decide_next_action(monster:MonsterEntity):
+func decide_next_action(monster:MonsterEntity, _in_context: BattleContext = null):
 	if monster.move_sequence == null && monster.move_index == 0:
 		monster.move_sequence = monster.data.move_sequences[0]
 		monster.move_index = 0

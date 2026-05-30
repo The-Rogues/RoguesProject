@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://byttlvfpdwfas"]
+
+[ext_resource type="Script" uid="uid://bcq7ikoijlw7s" path="res://globals/session_interface/tutorial/tutorial_overlay/highlight_component/tutorial_highlight_component.gd" id="1_8pn0u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gg6hj"]
+bg_color = Color(0.31764707, 0.7294118, 0, 0.2784314)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.24705882, 0.7490196, 0, 1)
+border_blend = true
+
+[node name="Panel" type="Panel" unique_id=933663357]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gg6hj")
+script = ExtResource("1_8pn0u")

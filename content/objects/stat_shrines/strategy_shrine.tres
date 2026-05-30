@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://btyvtopywgmpw" path="res://content/objects/stat_shrines/strategy_shrine.png" id="1_1d8ky"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_ppyxf"]
-[ext_resource type="Script" uid="uid://sbvvweac52w" path="res://content/monsters/bee/actions/perma_stat_mod_action.gd" id="3_5jftp"]
+[ext_resource type="Script" uid="uid://sbvvweac52w" path="res://content/monsters/spider/actions/perma_stat_mod_action.gd" id="3_5jftp"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="4_7067d"]
 
 [sub_resource type="Resource" id="Resource_uv57p"]

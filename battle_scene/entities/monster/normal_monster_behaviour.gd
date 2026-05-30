@@ -2,7 +2,7 @@ extends MonsterBehaviour
 class_name NormalMonsterBehaviour
 
 ## Chooses next move in sequence. If Sequence is completed, picks a random Sequnce and first move in Sequence.
-func decide_next_action(monster:MonsterEntity):
+func decide_next_action(monster:MonsterEntity, _in_context: BattleContext = null):
 	if monster.move_sequence == null:
 		monster.move_sequence = monster.data.move_sequences.pick_random()
 		monster.move_index = 0

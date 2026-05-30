@@ -138,7 +138,6 @@ func _on_card_collected(card:CardData):
 
 func _on_turn_started(turn:int):
 	battle_state.turn_count += 1
-
 	battle_state.energy_used_in_turn = 0
 	battle_state.friends_summoned_in_turn = 0
 

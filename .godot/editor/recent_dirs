@@ -1,5 +1,10 @@
 res://content/scene_configuration/enemy_encounters/tier_4_encounters/
-res://content/monsters/large_fire_ant/new_moves/
+res://content/monsters/inpu/moves/
+res://content/monsters/anpu/new_moves/
+res://content/cards/laidback_cards/
+res://common/art/random_art/
+res://common/art/placeholder/joi3/
+res://common/art/placeholder/nikoichu/
 res://common/art/placeholder/32_rogues/
 res://content/objects/infested_wall/
 res://content/cards/legendary_cards/immunity/

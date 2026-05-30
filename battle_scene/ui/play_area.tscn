@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://by1udu2kn1o3m" path="res://battle_scene/ui/play_area.gd" id="1_cpvpb"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po0ka"]
 size = Vector2(541, 217)
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_5ldh8"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_8niok"]
-[ext_resource type="Texture2D" uid="uid://c2ucfwls568w" path="res://content/monsters/bee/bee.png" id="2_n0vbr"]
+[ext_resource type="Texture2D" uid="uid://c2ucfwls568w" path="res://content/monsters/spider/bee.png" id="2_n0vbr"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_41ieu"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_jgljw"]
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="5_kt2rx"]

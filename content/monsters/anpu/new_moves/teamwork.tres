@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://xseft5miurqf"]
+
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_bwxlt"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_g1tr6"]
+[ext_resource type="Script" uid="uid://bjded1ye1cx2e" path="res://content/monsters/ice_warrior/resolve/ice_warrior_resolve_power.gd" id="2_og5j8"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_s5rt2"]
+[ext_resource type="Script" uid="uid://clf00n1l2txkr" path="res://content/monsters/ice_warrior/resolve/resolve.gd" id="5_ltpjn"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="6_swve7"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="7_502g2"]
+
+[sub_resource type="Resource" id="Resource_e1fb0"]
+script = ExtResource("2_og5j8")
+strength_amount = 2
+enemy_name = "Anpu"
+can_reapply = true
+metadata/_custom_type_script = "uid://bjded1ye1cx2e"
+
+[sub_resource type="Resource" id="Resource_25crj"]
+script = ExtResource("3_s5rt2")
+power = SubResource("Resource_e1fb0")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[sub_resource type="Resource" id="Resource_mlbm0"]
+script = ExtResource("5_ltpjn")
+metadata/_custom_type_script = "uid://clf00n1l2txkr"
+
+[sub_resource type="Resource" id="Resource_wt8n1"]
+script = ExtResource("6_swve7")
+behaviour = SubResource("Resource_mlbm0")
+duration = -1
+stack = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_vwyc2"]
+script = ExtResource("7_502g2")
+effect = SubResource("Resource_wt8n1")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("1_g1tr6")
+type = 1
+intent_icon = ExtResource("1_bwxlt")
+name = "Teamwork"
+description = "Gains [color=#43A047]2[/color] [color=orange]resolve[/color]."
+primary_action = SubResource("Resource_25crj")
+secondary_action = SubResource("Resource_vwyc2")
+metadata/_custom_type_script = "uid://c410dannt5adg"

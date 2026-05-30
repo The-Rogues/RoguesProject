@@ -83,9 +83,9 @@ func enter_turn(_turn_count:int):
 
 
 
-func choose_intent():
+func choose_intent(in_context: BattleContext = null):
 	if data:
-		data.behaviour.decide_next_action(self)
+		data.behaviour.decide_next_action(self, in_context)
 		intent_chosen.emit(intent)
 
 

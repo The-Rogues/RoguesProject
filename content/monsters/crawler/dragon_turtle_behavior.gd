@@ -2,7 +2,7 @@ extends MonsterBehaviour
 class_name DragonTurtleBehavior
 
 
-func decide_next_action(monster:MonsterEntity):
+func decide_next_action(monster:MonsterEntity, in_context: BattleContext = null):
 	if monster.move_sequence == null && monster.move_index == 0:
 		monster.move_sequence = monster.data.move_sequences[0]
 		monster.move_index = 0
