@@ -1,3 +1,10 @@
+HBoxContainer
+VBoxContainer
+Label
+TextureRect
+FlowContainer
+MarginContainer
+PanelContainer
 RichTextLabel
 Control
 Node2D

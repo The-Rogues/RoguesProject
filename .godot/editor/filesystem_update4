@@ -245,3 +245,13 @@ res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_9.tres
 res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres
 res://content/friends/wolf/wolf_texture.tres
 res://main_menu/main_menu_scene.gd
+res://battle_scene/battle_flow_manager.gd
+res://battle_scene/battle_scene.gd
+res://battle_scene/entities/player/player_entity.gd
+res://common/stat_components/block.gd
+res://Map/card_shop/CardShop_scn_main.gd
+res://globals/session_interface/trait_display.gd
+res://globals/session_interface/session_interface.gd
+res://main_menu/character_result_scene.gd
+res://Map/map_legend.tscn
+res://Map/map_screen/MapScreen.tscn

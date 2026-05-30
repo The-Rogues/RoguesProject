@@ -1,87 +1,177 @@
 extends Control
 class_name TraitDisplay
+## UI script that displays a player's personality trait.
+##
+## Initialized with a specific trait in player's PersonalityData. Updates
+## trait weight, image, and name displays as needed, with some simple animation
+## logic when trait weights are changed.
+## Author: Fabian.
 
 signal finished_animation
 
 @onready var trait_label: Label = $Offensive/TraitLabel
 @onready var trait_context: ContextPanel = $Offensive/TraitLabel/TraitContext
+
 @onready var weight_label: Label = %WeightLabel
 @onready var operation_label: Label = %OperationLabel
 @onready var operation_timer: Timer = %OperationTimer
-var pending_weigh_text:String = ""
 @onready var trait_icon: TextureRect = %TraitIcon
 
 
-func update_weight_label(weight:int):
+const NORMAL_COLOR := Color.WHITE
+const MODIFIED_COLOR := Color.YELLOW
+
+
+var pending_weight_text:String = ""
+
+var base_weight:int = 0
+var temporary_offset:int = 0
+var current_weight:int = 0
+
+
+# -------------------------------------------------
+# INITIALIZATION
+# -------------------------------------------------
+
+func initialize_display(_trait: PersonalityTrait, weight: int):
+	base_weight = weight
+	temporary_offset = 0
+	current_weight = weight
+
+	update_trait_label(_trait)
+
+	weight_label.text = str(weight)
+	weight_label.modulate = NORMAL_COLOR
+
+
+# -------------------------------------------------
+# BASE STAT CHANGES (persistent)
+# -------------------------------------------------
+
+func set_base_weight(weight:int, animate:bool = true):
+	base_weight = weight
+
+	var new_weight = base_weight + temporary_offset
+
+	if animate:
+		animate_weight_change(new_weight)
+	else:
+		set_weight_immediate(new_weight)
+
+
+# -------------------------------------------------
+# TEMPORARY BATTLE MODIFIERS
+# -------------------------------------------------
+
+func set_temporary_modifier(offset:int):
+	temporary_offset = offset
+
+	var modified_weight = base_weight + temporary_offset
+
+	animate_weight_change(modified_weight)
+
+	# yellow while modified
+	if temporary_offset != 0:
+		weight_label.modulate = MODIFIED_COLOR
+	else:
+		weight_label.modulate = NORMAL_COLOR
+
+
+func clear_temporary_modifier():
+	temporary_offset = 0
+
+	animate_weight_change(base_weight)
+
+	weight_label.modulate = NORMAL_COLOR
+
+
+# -------------------------------------------------
+# INTERNAL DISPLAY
+# -------------------------------------------------
+
+func set_weight_immediate(weight:int):
+	current_weight = weight
+	weight_label.text = str(weight)
+
+
+func animate_weight_change(weight:int):
+	current_weight = weight
 	_start_operation_timer(weight)
-	#weight_label.text = str(weight)
 
 
-func update_trait_label(_trait:PersonalityTrait):
+func update_trait_label(_trait: PersonalityTrait):
 	trait_icon.texture = _trait.display_texture
 	trait_label.text = _trait.name
 	trait_context.set_context(_trait.description)
 
 
-func connect_to_data(trait_category:String, data:PersonalityData):
-	trait_category = trait_category.to_upper()
-	
-	if trait_category == "OFFENSIVE":
-		data.updated_offensive_trait.connect(_on_trait_data_updated)
-	elif trait_category == "DEFENSIVE":
-		data.updated_defensive_trait.connect(_on_trait_data_updated)
-	elif trait_category == "STRATEGIC":
-		data.updated_strategic_trait.connect(_on_trait_data_updated)
+# -------------------------------------------------
+# SIGNAL CONNECTIONS
+# -------------------------------------------------
+func on_personality_updated(_trait: PersonalityTrait, weight:int):
+	_on_updated_trait(_trait)
+	_on_updated_weight(weight)
 
+func connect_to_battle_trait(_trait: Trait):
 
-func connect_to_battle_trait(_trait:Trait):
-	_trait.updated_trait_weight.connect(_on_updated_weight)
-	_trait.updated_trait.connect(_on_updated_trait)
-	
-	weight_label.text = str(_trait.weight_value)
-	#update_weight_label(_trait.weight_value)
-	update_trait_label(_trait.data)
+	if !_trait.updated_trait_weight.is_connected(_on_updated_weight):
+		_trait.updated_trait_weight.connect(_on_updated_weight)
+
+	if !_trait.updated_trait.is_connected(_on_updated_trait):
+		_trait.updated_trait.connect(_on_updated_trait)
+
+	initialize_display(_trait.data, _trait.weight_value)
 
 
 func disconnect_from_battle_trait(_trait: Trait):
+
 	if _trait.updated_trait_weight.is_connected(_on_updated_weight):
 		_trait.updated_trait_weight.disconnect(_on_updated_weight)
-	
+
 	if _trait.updated_trait.is_connected(_on_updated_trait):
 		_trait.updated_trait.disconnect(_on_updated_trait)
 
 
-func _on_updated_trait(_trait:PersonalityTrait):
+# -------------------------------------------------
+# SIGNAL EVENTS
+# -------------------------------------------------
+
+func _on_updated_trait(_trait: PersonalityTrait):
 	update_trait_label(_trait)
 
 
 func _on_updated_weight(current:int):
-	update_weight_label(current)
+
+	# battle changes should behave as temporary modifiers
+	var offset = current - base_weight
+
+	set_temporary_modifier(offset)
 
 
-func _on_trait_data_updated(_trait:PersonalityTrait, current:int):
-	update_trait_label(_trait)
-	update_weight_label(current)
-	#weight_label.text = str(current)
-
+# -------------------------------------------------
+# ANIMATION
+# -------------------------------------------------
 
 func _start_operation_timer(weight:int):
-	var current_weight = weight_label.text.to_int()
-	var difference = weight - current_weight
-	var operation_text = ""
+
+	var current_displayed = weight_label.text.to_int()
+	var difference = weight - current_displayed
+
 	if difference > 0:
-		operation_text = "+" + str(difference)
+		operation_label.text = "+" + str(difference)
 	elif difference < 0:
-		operation_text = str(difference)
+		operation_label.text = str(difference)
 	else:
-		operation_text = ""  # no change
-	pending_weigh_text = str(weight)
-	operation_label.text = operation_text
+		operation_label.text = ""
+
+	pending_weight_text = str(weight)
+
 	operation_timer.start()
 
 
 func _on_operation_timer_timeout() -> void:
-	weight_label.text = pending_weigh_text
+
+	weight_label.text = pending_weight_text
 	operation_label.text = ""
+
 	finished_animation.emit()
-	pass # Replace with function body.
