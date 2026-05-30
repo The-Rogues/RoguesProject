@@ -49,8 +49,9 @@ func initialize(battle_config: BattleConfig):
 		battle_field.setup_objects(battle_config.battle_field_config)
 	
 	# Rewards
-	for reward in battle_config.enemy_encounter.get_battle_rewards():
-		rewards_screen.add_reward(reward)
+	if !resuming: 
+		for reward in battle_config.enemy_encounter.get_battle_rewards():
+			rewards_screen.add_reward(reward)
 	
 	# Player position
 	if resuming:
@@ -173,6 +174,12 @@ func _save_object_states() -> void:
 	run.battle.object_states.clear()
 	for i in range(0, battle_field.battle_positions.size()):
 		var obj: ObjectEntity = battle_field.battle_positions[i].get_object()
+		if obj == null:
+			continue
+			
+		if obj.health.value <= 0:
+			continue
+			
 		if obj != null:
 			var state := ObjectSaveData.new()
 			state.object_data = obj.data
@@ -323,7 +330,7 @@ func _restore_card_pile(saved: Array[CardInstanceSaveData], target: Array[CardIn
 	
 func _restore_effects(fx: BattleEffectsSaveData) -> void:
 	# Player
-	player.block.value = fx.player_block
+	player.block.set_block(fx.player_block) 
 	for state in fx.player_status_effects:
 		player.effects.add_effect(state.behaviour, state.duration,state.stack, state.turn_entered, true)
 
@@ -333,7 +340,7 @@ func _restore_effects(fx: BattleEffectsSaveData) -> void:
 		if i >= fx.enemy_effect_counts.size():
 			break
 		if i < fx.enemy_blocks.size():
-			creature_manager.enemies[i].block.value = fx.enemy_blocks[i]
+			creature_manager.enemies[i].block.set_block(fx.enemy_blocks[i])
 			var count: int = fx.enemy_effect_counts[i]
 			for j in range(0, count):
 				if effect_idx >= fx.enemy_status_effects.size():
@@ -349,6 +356,3 @@ func _restore_effects(fx: BattleEffectsSaveData) -> void:
 		if pos.get_effect() != null:
 			pos.get_effect().duration = state.duration
 			pos.get_effect().stack = state.stack
-	
-	
-	
