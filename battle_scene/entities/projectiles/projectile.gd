@@ -1,26 +1,28 @@
 extends CharacterBody2D
 class_name Projectile
+## Scripted behaviour for a projectile object.
+##
+## Handles movement, collision detection and behaviour, and frees its own memory
+## if it collides with a valid object or exceeds its own life span.
+## Author: Fabian
 
-signal hit(target)
+signal hit(hit_body)
 signal freed(projectile: Projectile)
 
-@export var speed: float = 400
-@export var damage: int = 0
-@export var ignore_walls: bool = false
-@export var face_move_direction: bool = true
-@export var status: StatusEffectConfig
-@export var target_position: Vector2
-@export var life_span: Timer
+@export var speed: float = 420
+@export var impact_damage: int = 6 
+@export var pass_through_objects: bool = false
+@export var face_velocity_direction: bool = true
+@export var impact_status_effect: StatusEffectConfig
 
-@onready var sprite_pivot: Node2D = $SpritePivot
-
+var target_position: Vector2
 var direction: Vector2
 var source
 
+@onready var life_span: Timer = $LifeSpanTimer
+@onready var sprite_pivot: Node2D = $SpritePivot
 
 func _ready() -> void:
-	direction = global_position.direction_to(target_position)
-
 	if life_span:
 		life_span.timeout.connect(_on_life_span_timeout)
 		life_span.start()
@@ -30,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 
-	if face_move_direction and velocity.length_squared() > 0:
+	if face_velocity_direction and velocity.length_squared() > 0:
 		sprite_pivot.rotation = lerp_angle(
 			sprite_pivot.rotation,
 			velocity.angle(),
@@ -38,29 +40,27 @@ func _physics_process(_delta: float) -> void:
 		)
 
 
+func initialize(start_pos: Vector2, target_pos: Vector2):
+	global_position = start_pos
+	target_position = target_pos
+	direction = start_pos.direction_to(target_pos)
+
+
 func _on_hitbox_area_entered(area: Area2D) -> void:
+	print(area.get_parent())
 	var entity := area.get_parent() as AbstractEntity
 	
 	# Hit non-entity objects
 	if entity == null:
-		destroy(area)
+		_remove_projectile()
 		return
 	
 	# Ignore invalid targets
-	if !_can_damage_entity(entity):
-		return
-
-	entity.take_damage(damage, self)
-
-	if entity is AbstractCreature and status:
-		entity.apply_status_effect(status)
-
-	destroy(entity)
-
-	pass # Replace with function body.
+	if _can_impact_damage_entity(entity):
+		_handle_entity_collision(entity)
 
 
-func _can_damage_entity(entity: AbstractEntity) -> bool:
+func _can_impact_damage_entity(entity: AbstractEntity) -> bool:
 	if !entity.health.is_alive:
 		return false
 
@@ -70,17 +70,27 @@ func _can_damage_entity(entity: AbstractEntity) -> bool:
 	if is_in_group("Enemies") and entity.is_in_group("Enemies"):
 		return false
 
-	if is_in_group("Player") and entity.is_in_group("Objects"):
+	if entity.is_in_group("Objects") and pass_through_objects:
 		return false
 
 	return true
 
 
-func destroy(target = null) -> void:
-	hit.emit(target)
+func _handle_entity_collision(hit_entity: AbstractEntity):
+	hit_entity.take_damage(impact_damage, self)
+
+	if hit_entity is AbstractCreature and impact_status_effect:
+		hit_entity.apply_status_effect(impact_status_effect)
+
+	hit.emit(hit_entity)
+	
+	_remove_projectile()
+
+
+func _remove_projectile() -> void:
 	freed.emit(self)
 	queue_free()
 
 
 func _on_life_span_timeout() -> void:
-	destroy()
+	_remove_projectile()

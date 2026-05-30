@@ -1,96 +1,112 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
+[ext_resource type="Resource" path="res://content/scene_configuration/battle_field_layouts/tier_2_fields/chest_and_wall.tres" id="1_7v8y8"]
 [ext_resource type="Script" path="res://card_system/card_data.gd" id="1_i06bj"]
-[ext_resource type="Resource" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/gatling_worm_fields/gatling_worm_field_4.tres" id="1_ugj3v"]
-[ext_resource type="Resource" path="res://content/scene_configuration/enemy_encounters/tier_3_encounters/gatling_worm.tres" id="2_ju2aj"]
+[ext_resource type="Resource" path="res://content/scene_configuration/enemy_encounters/tier_2_encounters/ant_intro.tres" id="2_5lbfv"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_sds6a"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_jfmdv"]
 [ext_resource type="Script" path="res://globals/save_system/battle_config_data.gd" id="3_upqny"]
 [ext_resource type="Script" path="res://globals/save_system/card_instance_save_data.gd" id="4_br818"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_uahfr"]
 [ext_resource type="Script" path="res://globals/save_system/monster_save_data.gd" id="5_r5eiv"]
 [ext_resource type="Script" path="res://globals/save_system/object_save_data.gd" id="6_fcpjs"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_6.tres" id="6_i06bj"]
-[ext_resource type="Resource" path="res://content/cards/vengeful_cards/arsenal.tres" id="6_jfmdv"]
-[ext_resource type="Resource" path="res://content/monsters/gatling_worm/gatling_worm.tres" id="6_ju2aj"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="6_i06bj"]
+[ext_resource type="Resource" path="res://content/monsters/fire_ant_larvae/fire_ant_larvae.tres" id="6_rjjt7"]
+[ext_resource type="Resource" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="6_uahfr"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="7_3l5uq"]
-[ext_resource type="Resource" path="res://content/cards/crafty_cards/forage/forage.tres" id="7_ce22o"]
+[ext_resource type="Resource" path="res://content/cards/tactical_cards/quick_draw/quick_draw.tres" id="7_ce22o"]
 [ext_resource type="Script" path="res://battle_scene/win_screen/rewards_data/battle_reward_data.gd" id="7_f04e1"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="7_i06bj"]
-[ext_resource type="Resource" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="8_7xv35"]
-[ext_resource type="Resource" path="res://content/cards/legendary_cards/immunity/plaguebringer.tres" id="8_hus1o"]
+[ext_resource type="Resource" path="res://content/monsters/fire_ant/fire_ant.tres" id="7_ugj3v"]
 [ext_resource type="Script" path="res://globals/save_system/battle_save_data.gd" id="8_i06bj"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/wooden_stick.tres" id="8_sds6a"]
-[ext_resource type="Resource" path="res://content/personality_traits/crafty.tres" id="9_8qiin"]
-[ext_resource type="Resource" path="res://content/objects/speedy_boots/speedy_boots_data.tres" id="9_21v4l"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/cane.tres" id="8_sds6a"]
+[ext_resource type="Resource" path="res://content/personality_traits/naive.tres" id="9_jfmdv"]
+[ext_resource type="Resource" path="res://content/objects/chest/chest.tres" id="9_ju2aj"]
 [ext_resource type="Script" path="res://globals/save_system/status_effect_save_data.gd" id="9_kdvyb"]
-[ext_resource type="Resource" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="10_5nlej"]
+[ext_resource type="Resource" path="res://content/objects/stone_wall/stone_wall.tres" id="9_rjjt7"]
 [ext_resource type="Script" path="res://globals/save_system/position_effect_save_data.gd" id="10_12cju"]
-[ext_resource type="Resource" path="res://content/personality_traits/vengeful.tres" id="10_iofhu"]
+[ext_resource type="Resource" path="res://content/personality_traits/tactical.tres" id="10_uahfr"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="11_5nlej"]
+[ext_resource type="Resource" path="res://content/items/bone/bone.tres" id="11_ce22o"]
 [ext_resource type="Script" path="res://globals/save_system/battle_effect_save_data.gd" id="11_nvhkl"]
-[ext_resource type="Script" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="11_shnnu"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="11_uahfr"]
+[ext_resource type="Resource" path="res://content/personality_traits/valorous.tres" id="12_3l5uq"]
+[ext_resource type="Resource" path="res://content/monsters/fire_ant_larvae/moves/grow.tres" id="12_12cju"]
 [ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="12_ce22o"]
-[ext_resource type="Resource" path="res://content/personality_traits/laidback.tres" id="12_jfmdv"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/bow.tres" id="13_uahfr"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/frozen_shot.tres" id="13_5nlej"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/trident.tres" id="13_ce22o"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="14_7v8y8"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/dash_left.tres" id="14_iohd8"]
-[ext_resource type="Resource" path="res://content/monsters/gatling_worm/moves/charge_attack.tres" id="15_77t2f"]
-[ext_resource type="Resource" path="res://content/items/bone/bone.tres" id="15_k3uip"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/dash_right.tres" id="15_ps7so"]
+[ext_resource type="Script" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="14_shnnu"]
+[ext_resource type="Resource" path="res://content/monsters/fire_ant_larvae/moves/transform.tres" id="15_nvhkl"]
+[ext_resource type="Script" path="res://battle_scene/entities/monster/move_sequence.gd" id="16_12cju"]
 [ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="17_5lbfv"]
-[ext_resource type="Script" path="res://battle_scene/entities/monster/move_sequence.gd" id="17_x6ljj"]
+[ext_resource type="Resource" path="res://content/monsters/fire_ant/moves/alergic_reaction.tres" id="17_77t2f"]
 [ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="18_ff1hj"]
-[ext_resource type="Resource" path="res://content/monsters/gatling_worm/moves/gatling_fire_new.tres" id="18_x6ljj"]
 [ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="19_rjjt7"]
-[ext_resource type="Resource" path="res://content/monsters/gatling_worm/moves/speed_up.tres" id="19_te76o"]
 [ext_resource type="Texture2D" path="res://testing_and_prototypes/gold_icon.tres" id="25_te76o"]
+[ext_resource type="Resource" path="res://content/items/thorns_potion/thorns_potion.tres" id="26_6eia0"]
 [ext_resource type="Script" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="26_618qg"]
-[ext_resource type="Resource" path="res://content/objects/cannons/acurate_cannon.tres" id="26_iohd8"]
-[ext_resource type="Script" path="res://content/monsters/the_infected/infection_behavior.gd" id="28_kd75v"]
-[ext_resource type="Resource" path="res://content/objects/cannons/blast_cannon.tres" id="29_hus1o"]
+[ext_resource type="Resource" path="res://content/items/chest_key/chest_key_item_data.tres" id="29_nvhkl"]
 [ext_resource type="Resource" path="res://content/scene_configuration/battle_loot/battle_card_draw.tres" id="29_pjf0i"]
-[ext_resource type="Resource" path="res://content/items/apple/apple_healing_item_data.tres" id="31_y4ahw"]
-[ext_resource type="Resource" path="res://content/items/barricade/barricade_item_data.tres" id="36_wajl7"]
 
-[sub_resource type="Resource" id="Resource_7cy65"]
+[sub_resource type="Resource" id="Resource_ff1hj"]
 script = ExtResource("3_upqny")
-enemy_encounter = ExtResource("2_ju2aj")
-battle_field_config = ExtResource("1_ugj3v")
+enemy_encounter = ExtResource("2_5lbfv")
+battle_field_config = ExtResource("1_7v8y8")
 
-[sub_resource type="Resource" id="Resource_exc3e"]
-script = ExtResource("4_br818")
-card_data = ExtResource("15_ps7so")
-
-[sub_resource type="Resource" id="Resource_5m5g2"]
-script = ExtResource("4_br818")
-card_data = ExtResource("2_sds6a")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_axqk2"]
-script = ExtResource("4_br818")
-card_data = ExtResource("7_ce22o")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_rpvyp"]
-script = ExtResource("4_br818")
-card_data = ExtResource("14_iohd8")
-
-[sub_resource type="Resource" id="Resource_sqguc"]
+[sub_resource type="Resource" id="Resource_6eia0"]
 script = ExtResource("4_br818")
 card_data = ExtResource("7_i06bj")
 energy_cost = 1
 
-[sub_resource type="Resource" id="Resource_kd75v"]
+[sub_resource type="Resource" id="Resource_wajl7"]
 script = ExtResource("4_br818")
-card_data = ExtResource("2_sds6a")
+card_data = ExtResource("13_5nlej")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_pjf0i"]
+script = ExtResource("4_br818")
+card_data = ExtResource("13_5nlej")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_y4ahw"]
+script = ExtResource("4_br818")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_iohd8"]
+script = ExtResource("4_br818")
+card_data = ExtResource("7_ce22o")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_ps7so"]
+script = ExtResource("4_br818")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_hus1o"]
+script = ExtResource("4_br818")
+card_data = ExtResource("13_5nlej")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_sqguc"]
+script = ExtResource("4_br818")
+card_data = ExtResource("4_uahfr")
 energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_e6owx"]
 script = ExtResource("4_br818")
-card_data = ExtResource("6_jfmdv")
-energy_cost = 3
+card_data = ExtResource("2_sds6a")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_5sl4m"]
+script = ExtResource("4_br818")
+card_data = ExtResource("6_uahfr")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_kqvr8"]
+script = ExtResource("4_br818")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_48ldd"]
 script = ExtResource("4_br818")
@@ -99,163 +115,115 @@ energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_eickx"]
 script = ExtResource("4_br818")
-card_data = ExtResource("4_uahfr")
+card_data = ExtResource("2_sds6a")
 energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_relw1"]
 script = ExtResource("4_br818")
-card_data = ExtResource("8_7xv35")
-
-[sub_resource type="Resource" id="Resource_fsge6"]
-script = ExtResource("4_br818")
-card_data = ExtResource("4_uahfr")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_2vc0s"]
-script = ExtResource("4_br818")
 card_data = ExtResource("7_i06bj")
 energy_cost = 1
 
-[sub_resource type="Resource" id="Resource_bawfl"]
-script = ExtResource("4_br818")
-card_data = ExtResource("3_jfmdv")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_r0dlh"]
-script = ExtResource("4_br818")
-card_data = ExtResource("4_uahfr")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_j45tm"]
-script = ExtResource("4_br818")
-card_data = ExtResource("3_jfmdv")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_ihvn2"]
-script = ExtResource("4_br818")
-card_data = ExtResource("4_uahfr")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_mr0c1"]
-script = ExtResource("4_br818")
-card_data = ExtResource("15_ps7so")
-
-[sub_resource type="Resource" id="Resource_1dp56"]
-script = ExtResource("4_br818")
-card_data = ExtResource("3_jfmdv")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_s2js4"]
-script = ExtResource("4_br818")
-card_data = ExtResource("10_5nlej")
-energy_cost = 2
-
-[sub_resource type="Resource" id="Resource_s61w4"]
-script = ExtResource("28_kd75v")
-metadata/_custom_type_script = "uid://cs8gcwstv68ba"
-
-[sub_resource type="Resource" id="Resource_060yr"]
-script = ExtResource("9_kdvyb")
-behaviour = SubResource("Resource_s61w4")
-duration = -2
-stack = 7
-turn_entered = false
-
-[sub_resource type="Resource" id="Resource_b28mb"]
+[sub_resource type="Resource" id="Resource_kd75v"]
 script = ExtResource("11_nvhkl")
-enemy_status_effects = Array[ExtResource("9_kdvyb")]([SubResource("Resource_060yr")])
-enemy_effect_counts = Array[int]([1])
-enemy_blocks = Array[int]([0])
+enemy_effect_counts = Array[int]([0, 0])
+enemy_blocks = Array[int]([0, 0])
 
-[sub_resource type="Resource" id="Resource_u2lkq"]
-script = ExtResource("17_x6ljj")
-moves = Array[ExtResource("11_shnnu")]([ExtResource("15_77t2f"), ExtResource("18_x6ljj"), ExtResource("19_te76o")])
+[sub_resource type="Resource" id="Resource_k1ltu"]
+script = ExtResource("16_12cju")
+moves = Array[ExtResource("14_shnnu")]([ExtResource("12_12cju"), ExtResource("15_nvhkl")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
-[sub_resource type="Resource" id="Resource_hus1o"]
+[sub_resource type="Resource" id="Resource_exc3e"]
 script = ExtResource("5_r5eiv")
-monster_data = ExtResource("6_ju2aj")
-current_health = 136
-max_health = 143
-move_index = 2
-move_sequence = SubResource("Resource_u2lkq")
-intent = ExtResource("19_te76o")
+monster_data = ExtResource("6_rjjt7")
+current_health = 49
+max_health = 49
+move_sequence = SubResource("Resource_k1ltu")
+intent = ExtResource("12_12cju")
 
-[sub_resource type="Resource" id="Resource_5sl4m"]
-script = ExtResource("6_fcpjs")
-object_data = ExtResource("26_iohd8")
-current_health = 1
-position_index = 2
+[sub_resource type="Resource" id="Resource_d3n6u"]
+script = ExtResource("16_12cju")
+moves = Array[ExtResource("14_shnnu")]([ExtResource("17_77t2f")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
-[sub_resource type="Resource" id="Resource_kqvr8"]
+[sub_resource type="Resource" id="Resource_5m5g2"]
+script = ExtResource("5_r5eiv")
+monster_data = ExtResource("7_ugj3v")
+current_health = 45
+max_health = 45
+move_sequence = SubResource("Resource_d3n6u")
+intent = ExtResource("17_77t2f")
+
+[sub_resource type="Resource" id="Resource_axqk2"]
 script = ExtResource("6_fcpjs")
-object_data = ExtResource("29_hus1o")
-current_health = 1
+object_data = ExtResource("9_ju2aj")
+current_health = 4
 position_index = 3
 
-[sub_resource type="Resource" id="Resource_qe4af"]
+[sub_resource type="Resource" id="Resource_rpvyp"]
 script = ExtResource("6_fcpjs")
-object_data = ExtResource("9_21v4l")
-current_health = 1
+object_data = ExtResource("9_rjjt7")
+current_health = 15
 position_index = 4
 
-[sub_resource type="Resource" id="Resource_v1gqs"]
+[sub_resource type="Resource" id="Resource_75o6r"]
 script = ExtResource("26_618qg")
 amount = 7
 display_texture = ExtResource("25_te76o")
 metadata/_custom_type_script = "uid://drffwoufolf1p"
 
-[sub_resource type="Resource" id="Resource_21v4l"]
+[sub_resource type="Resource" id="Resource_rjjt7"]
 script = ExtResource("8_i06bj")
 is_active = true
-resume_node_index = 35
-battle_config = SubResource("Resource_7cy65")
-enemy_states = Array[ExtResource("5_r5eiv")]([SubResource("Resource_hus1o")])
-object_states = Array[ExtResource("6_fcpjs")]([SubResource("Resource_5sl4m"), SubResource("Resource_kqvr8"), SubResource("Resource_qe4af")])
-player_position_index = 1
-draw_pile = Array[ExtResource("4_br818")]([SubResource("Resource_exc3e"), SubResource("Resource_5m5g2"), SubResource("Resource_axqk2"), SubResource("Resource_rpvyp"), SubResource("Resource_sqguc"), SubResource("Resource_kd75v"), SubResource("Resource_e6owx"), SubResource("Resource_48ldd"), SubResource("Resource_eickx"), SubResource("Resource_relw1"), SubResource("Resource_fsge6"), SubResource("Resource_2vc0s"), SubResource("Resource_bawfl"), SubResource("Resource_r0dlh")])
-drawn_pile = Array[ExtResource("4_br818")]([SubResource("Resource_j45tm"), SubResource("Resource_ihvn2"), SubResource("Resource_mr0c1"), SubResource("Resource_1dp56"), SubResource("Resource_s2js4")])
-effects = SubResource("Resource_b28mb")
-player_energy = 3
+resume_node_index = 17
+battle_config = SubResource("Resource_ff1hj")
+enemy_states = Array[ExtResource("5_r5eiv")]([SubResource("Resource_exc3e"), SubResource("Resource_5m5g2")])
+object_states = Array[ExtResource("6_fcpjs")]([SubResource("Resource_axqk2"), SubResource("Resource_rpvyp")])
+player_position_index = 3
+draw_pile = Array[ExtResource("4_br818")]([SubResource("Resource_pjf0i"), SubResource("Resource_y4ahw"), SubResource("Resource_iohd8"), SubResource("Resource_ps7so"), SubResource("Resource_hus1o"), SubResource("Resource_sqguc"), SubResource("Resource_e6owx")])
+discard_pile = Array[ExtResource("4_br818")]([SubResource("Resource_6eia0"), SubResource("Resource_wajl7")])
+drawn_pile = Array[ExtResource("4_br818")]([SubResource("Resource_5sl4m"), SubResource("Resource_kqvr8"), SubResource("Resource_48ldd"), SubResource("Resource_eickx"), SubResource("Resource_relw1")])
+effects = SubResource("Resource_kd75v")
+player_energy = 1
 player_max_energy = 3
-pending_rewards = Array[ExtResource("7_f04e1")]([SubResource("Resource_v1gqs"), ExtResource("29_pjf0i")])
-
-[sub_resource type="Resource" id="Resource_ce22o"]
-script = ExtResource("11_5nlej")
-offensive_trait = ExtResource("10_iofhu")
-offensive_weight = 2
-defensive_trait = ExtResource("9_8qiin")
-defensive_weight = 1
-strategic_trait = ExtResource("12_jfmdv")
-strategic_weight = 2
-priority_trait = ExtResource("12_jfmdv")
+pending_rewards = Array[ExtResource("7_f04e1")]([SubResource("Resource_75o6r"), ExtResource("29_pjf0i")])
 
 [sub_resource type="Resource" id="Resource_3l5uq"]
+script = ExtResource("11_5nlej")
+offensive_trait = ExtResource("10_uahfr")
+offensive_weight = 1
+defensive_trait = ExtResource("9_jfmdv")
+defensive_weight = 2
+strategic_trait = ExtResource("12_3l5uq")
+strategic_weight = 3
+priority_trait = ExtResource("12_3l5uq")
+
+[sub_resource type="Resource" id="Resource_7xv35"]
 script = ExtResource("14_7v8y8")
-name = "Jacob"
+name = "Noah"
 character_texture = ExtResource("6_i06bj")
 melee_weapon_texture = ExtResource("8_sds6a")
-ranged_weapon_texture = ExtResource("13_uahfr")
+ranged_weapon_texture = ExtResource("13_ce22o")
 max_health = 50
-current_health = 9
-current_energy = 3
+current_health = 50
+current_energy = 1
 max_energy = 3
 item_capacity = 3
-items = Array[ExtResource("7_3l5uq")]([ExtResource("31_y4ahw"), ExtResource("36_wajl7"), ExtResource("15_k3uip")])
-cards = Array[ExtResource("1_i06bj")]([ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("3_jfmdv"), ExtResource("3_jfmdv"), ExtResource("3_jfmdv"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("7_i06bj"), ExtResource("7_i06bj"), ExtResource("6_jfmdv"), ExtResource("7_ce22o"), ExtResource("8_7xv35"), ExtResource("8_hus1o"), ExtResource("10_5nlej")])
-gold = 65
-personality = SubResource("Resource_ce22o")
+items = Array[ExtResource("7_3l5uq")]([ExtResource("29_nvhkl"), ExtResource("11_ce22o"), ExtResource("26_6eia0")])
+cards = Array[ExtResource("1_i06bj")]([ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("7_i06bj"), ExtResource("7_i06bj"), ExtResource("13_5nlej"), ExtResource("13_5nlej"), ExtResource("13_5nlej"), ExtResource("6_uahfr"), ExtResource("7_ce22o")])
+gold = 36
+personality = SubResource("Resource_3l5uq")
 
 [resource]
 script = ExtResource("11_uahfr")
-player_data = SubResource("Resource_3l5uq")
-map_seed = 3304475729
-player_node_index = 32
-battle = SubResource("Resource_21v4l")
-pending_node_index = 35
+player_data = SubResource("Resource_7xv35")
+map_seed = 2729053593
+player_node_index = 13
+battle = SubResource("Resource_rjjt7")
+pending_node_index = 17
 room_in_progress = true
 single_time_mini_events = Array[ExtResource("12_ce22o")]([ExtResource("17_5lbfv"), ExtResource("19_rjjt7"), ExtResource("18_ff1hj")])
-total_gold_collected = 227
-total_items_collected = 6
-total_rooms_explored = 9
+total_gold_collected = 138
+total_items_collected = 3
+total_rooms_explored = 5
 initialized = true

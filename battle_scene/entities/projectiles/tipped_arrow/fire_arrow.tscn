@@ -1,23 +1,11 @@
 [gd_scene format=3 uid="uid://dbciy2m0so2t"]
 
-[ext_resource type="Script" uid="uid://dgujwmqp62l7h" path="res://battle_scene/entities/projectiles/arrow/arrow.gd" id="1_qcblo"]
-[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="2_vw6lm"]
+[ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="1_c4fy0"]
 [ext_resource type="Texture2D" uid="uid://d3mky0uw40mq1" path="res://battle_scene/entities/projectiles/tipped_arrow/tipped_arrow_texture.tres" id="2_wm3rg"]
-[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_qq4b0"]
 [ext_resource type="PackedScene" uid="uid://di1ej0x6tsa1v" path="res://battle_scene/entities/projectiles/arrow/stuck_arrow.tscn" id="3_u7cpw"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="4_vw6lm"]
 [ext_resource type="Texture2D" uid="uid://bwmv27dybjhwm" path="res://common/art/placeholder/stealthix/Fires-Black/Blackball_68x9.png" id="5_i4mrs"]
-[ext_resource type="Texture2D" uid="uid://cqmkhbi2nvo7f" path="res://common/art/placeholder/32_rogues/items-palette-swaps.png" id="6_c4fy0"]
-
-[sub_resource type="Resource" id="Resource_txbb4"]
-script = ExtResource("2_vw6lm")
-metadata/_custom_type_script = "uid://di1j13j6xybid"
-
-[sub_resource type="Resource" id="Resource_mlfnm"]
-script = ExtResource("3_qq4b0")
-behaviour = SubResource("Resource_txbb4")
-duration = 2
-metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+[ext_resource type="Texture2D" uid="uid://r1p3s0o57ch4" path="res://common/art/placeholder/32_rogues/items-palette-swaps.png" id="6_c4fy0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ri64t"]
 atlas = ExtResource("6_c4fy0")
@@ -451,20 +439,16 @@ animations = [{
 "speed": 42.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
-radius = 11.18034
+[sub_resource type="CircleShape2D" id="CircleShape2D_h10qg"]
+radius = 0.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 14.035668
 
-[node name="Arrow2" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="FireArrow" type="CharacterBody2D" unique_id=59921328]
 collision_layer = 2
 motion_mode = 1
-script = ExtResource("1_qcblo")
-speed = 420.0
-damage = 6
-life_span = NodePath("LifeSpan")
-status = SubResource("Resource_mlfnm")
+script = ExtResource("1_c4fy0")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=753249800]
 
@@ -475,11 +459,12 @@ rotation = 2.3666666
 scale = Vector2(1.9999999, 1.9999999)
 texture = ExtResource("2_wm3rg")
 
-[node name="StuckArrow" parent="SpritePivot/Sprite2D2" unique_id=1169763427 instance=ExtResource("3_u7cpw")]
+[node name="StuckArrow" parent="SpritePivot/Sprite2D2" unique_id=1169763427 node_paths=PackedStringArray("arrow") instance=ExtResource("3_u7cpw")]
 unique_name_in_owner = true
 position = Vector2(-6.7800894, -5.939735)
 rotation = -0.83077675
 scale = Vector2(0.5, 0.5)
+arrow = NodePath("../../..")
 
 [node name="Sprite2D" parent="SpritePivot/Sprite2D2/StuckArrow" index="0" unique_id=2037505142]
 visible = false
@@ -496,22 +481,20 @@ offset = Vector2(-26.249998, 0)
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1085450663]
-visible = false
-shape = SubResource("CircleShape2D_bofno")
+shape = SubResource("CircleShape2D_h10qg")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1046127275]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
-visible = false
 shape = SubResource("CircleShape2D_5ed72")
 
-[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+[node name="LifeSpanTimer" type="Timer" parent="." unique_id=1970886395]
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_vw6lm")]
 default_color = Color(0.12095114, 0.0065371245, 0.0018083325, 1)
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]
 
 [editable path="SpritePivot/Sprite2D2/StuckArrow"]

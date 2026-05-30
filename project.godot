@@ -39,6 +39,12 @@ GameStats="*uid://wn7g5fo35oj7"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Player=""
+Enemies=""
+Objects=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
