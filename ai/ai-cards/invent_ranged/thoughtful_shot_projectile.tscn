@@ -472,5 +472,5 @@ visible = false
 scale = Vector2(-1.9447637, 0.6190475)
 default_color = Color(0.91914725, 0.34855896, 0, 1)
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

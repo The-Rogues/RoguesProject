@@ -47,7 +47,6 @@ func initialize(start_pos: Vector2, target_pos: Vector2):
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	print(area.get_parent())
 	var entity := area.get_parent() as AbstractEntity
 	
 	# Hit non-entity objects

@@ -64,7 +64,7 @@ wait_time = 5.0
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_54h7q")]
 default_color = Color(0.6844316, 0.3151426, 0.4787252, 1)
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]
 
 [editable path="SpritePivot/Sprite2D2/StuckArrow"]

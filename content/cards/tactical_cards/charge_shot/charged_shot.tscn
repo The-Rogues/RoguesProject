@@ -470,5 +470,5 @@ wait_time = 5.0
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_rstig")]
 default_color = Color(0.42617247, 0.45270473, 0.581653, 1)
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]
