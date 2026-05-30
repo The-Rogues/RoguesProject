@@ -16,6 +16,9 @@ extends Control
 @onready var achievements_return_button: Button = %AchievementsReturnButton
 @onready var delete_save_warning: PanelContainer = %DeleteSaveWarning
 @onready var delete_data: Button = %DeleteData
+@onready var prologue: VBoxContainer = %Prologue
+@onready var title_header: MarginContainer = %TitleHeader
+@onready var return_prologue: Button = %ReturnPrologue
 
 
 @onready var continue_game: Button = %Continue
@@ -99,6 +102,7 @@ func _on_close_credits_button_up() -> void:
 # Navigate back to Main Menu from Start Menu
 func _on_return_to_main_menu() -> void:
 	start_menu.visible = false
+	title_header.visible = true
 	main_menu.visible = true
 	pass # Replace with function body.
 
@@ -167,3 +171,19 @@ func _on_yes_delete_all_data_button_up() -> void:
 
 func _on_no_delete_all_data_button_up() -> void:
 	delete_save_warning.visible = false
+
+
+func _on_prologue_button_up() -> void:
+	main_menu.visible = false
+	title_header.visible = false
+	prologue.visible = true
+	await get_tree().process_frame
+	main_menu_selector.focus_reticle(return_prologue)
+
+
+func _on_return_prologue_button_up() -> void:
+	main_menu.visible = true
+	title_header.visible = true
+	prologue.visible = false
+	main_menu_selector.focus_reticle(start)
+	pass # Replace with function body.

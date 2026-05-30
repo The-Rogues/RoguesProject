@@ -240,3 +240,8 @@ res://battle_scene/entities/actions/attack/projectile_attack_action.gd
 res://battle_scene/action_resolver.gd
 res://content/monsters/reaper/moves/deathsicle/sytche_projectile.tscn
 res://content/cards/tactical_cards/charge_shot/charged_shot.tscn
+res://main_menu/main_menu_scene.tscn
+res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_9.tres
+res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres
+res://content/friends/wolf/wolf_texture.tres
+res://main_menu/main_menu_scene.gd
