@@ -28,3 +28,8 @@ func absorb_damage(damage:int) -> int:
 func set_to_zero():
 	value = 0
 	changed.emit(value)
+	
+func set_block(amount:int) -> void:
+	value = amount
+	changed.emit(value)
+	updated.emit(value)
