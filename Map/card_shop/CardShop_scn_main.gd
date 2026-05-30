@@ -33,12 +33,6 @@ func _ready() -> void:
 
 	# reload shop cards if resume
 	var run : RunProgress = GlobalSessionManager.run_progress
-	print("=== CARD SHOP LOAD CHECK ===")
-	print("run null: ", run == null)
-	print("shop_save null: ", run.shop_save == null if run else "no run")
-	print("generated_cards: ", run.shop_save.generated_cards.size() if run and run.shop_save else 0)
-	print("resuming: ", run != null and run.shop_save != null and run.shop_save.generated_cards.size() > 0)
-	print("============================")
 	var resuming := run!= null and run.shop_save != null
 	
 	if resuming and run.shop_save.generated_cards.size() > 0:
@@ -77,12 +71,7 @@ func _ready() -> void:
 		GlobalSaveManager.save_run(run)
 	
 	
-	print("=== CARD SHOP SAVE CHECK ===")
-	print("shop_save null: ", run.shop_save == null)
-	print("generated_cards: ", run.shop_save.generated_cards.size())
-	print("save path exists: ", FileAccess.file_exists("res://saves/save_progress.tres"))
-	print("============================")
-	
+
 	card_shop_interface1.initialize(
 		shop_cards[card_shop_interface1]
 	)
@@ -133,7 +122,6 @@ func _on_selected_card(index:int, transaction_type:int, transaction_completed:bo
 		
 
 func _on_buy_card():
-	
 	var run := GlobalSessionManager.run_progress
 	if !run.player_data.can_buy_card(selected_card.data.shop_price):
 		shoop_keeper_dialogue.say("Not enough gold!")
@@ -155,19 +143,24 @@ func _on_buy_card():
 	GlobalSaveManager.save_run(run)
 
 func _on_transform_card():
-	transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
+	var run := GlobalSessionManager.run_progress
+	if !run.player_data.can_buy_card(selected_card.data.shop_price):
+		shoop_keeper_dialogue.say("Not enough gold!")
+		return
+	shoop_keeper_dialogue.say("Interesting choice!")
+	transform_card = run.player_data.get_cards_as_instances()
 	card_sell_interface.initialize(transform_card)
 	var transform_options: Array[CardData] = card_shop_data.random_cards_pool + card_shop_data.shop_unique_pool
 	var new_card_data = transform_options.pick_random()
 	var new_card_instance := CardInstance.new(new_card_data)
 	card_transform.play_transform(selected_card, new_card_instance)
 	
-	GlobalSessionManager.run_progress.player_data.add_card(new_card_data)
-	GlobalSessionManager.run_progress.player_data.set_gold(
-					GlobalSessionManager.run_progress.player_data.gold - selected_card.data.transform_price)
-	GlobalSessionManager.run_progress.player_data.remove_card(selected_card.data)
+	run.player_data.add_card(new_card_data)
+	run.player_data.set_gold(
+					run.player_data.gold - selected_card.data.transform_price)
+	run.player_data.remove_card(selected_card.data)
 	card_sell_interface.confirm_transaction(selected_card_index)
-	transform_card = GlobalSessionManager.run_progress.player_data.get_cards_as_instances()
+	transform_card = run.player_data.get_cards_as_instances()
 	card_sell_interface.initialize(transform_card)
 	
 	selected_card = null

@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://c55ugtauycms5"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_mno3d"]
+[ext_resource type="Texture2D" uid="uid://cq8a64gh27jvg" path="res://Map/new_map_assets/unavailable_battle.png" id="2_35o04"]
+[ext_resource type="Texture2D" uid="uid://dq3rhou4q2vdh" path="res://content/map_events/random_event.png" id="3_oke36"]
+[ext_resource type="Texture2D" uid="uid://cv6k8xkx1rogu" path="res://content/map_events/challenge_event_icon.png" id="4_d435m"]
+[ext_resource type="Texture2D" uid="uid://ro4xodg50u01" path="res://Map/new_map_assets/unavailable_item.png" id="5_ddf6r"]
+[ext_resource type="Texture2D" uid="uid://cixtp5o51lyxv" path="res://Map/new_map_assets/unavailable_card.png" id="6_paksd"]
+[ext_resource type="Texture2D" uid="uid://moqeterrhmxq" path="res://Map/new_map_assets/unavailable_personality.png" id="7_p4brc"]
+
+[node name="MapLegend" type="Control" unique_id=740017641]
+texture_filter = 1
+custom_minimum_size = Vector2(258, 363)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 258.0
+offset_bottom = 363.0
+mouse_filter = 2
+theme = ExtResource("1_mno3d")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1319967752]
+layout_mode = 0
+offset_right = 242.0
+offset_bottom = 363.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=226773776]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1211213152]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=494190796]
+layout_mode = 2
+text = "Symbols"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2090564594]
+layout_mode = 2
+
+[node name="BattleIcon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=834247879]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_35o04")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2123334385]
+layout_mode = 2
+text = "Battle"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=53099094]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1369201519]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("3_oke36")
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1849343898]
+layout_mode = 2
+text = "Mini Event"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=750022608]
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=700515398]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("4_d435m")
+
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=402098077]
+layout_mode = 2
+text = "Challenge
+Event"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=480616038]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=554609925]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("5_ddf6r")
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=410918206]
+layout_mode = 2
+text = "Item Shop"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2062598809]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1264697190]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_paksd")
+
+[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=482590632]
+layout_mode = 2
+text = "Card Shop"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1227620269]
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=850368216]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("7_p4brc")
+
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1955378081]
+layout_mode = 2
+text = "Personality 
+Shop"

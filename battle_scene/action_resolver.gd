@@ -31,22 +31,18 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 			if user is PlayerEntity:
 				var player := battle_context.creature_manager.player
 				var target:AbstractEntity = null
-				if player.battle_position.has_object() && !in_action.ignore_foreground:
-					target = player.battle_position.get_object()
+				var filtered_enemies: Array[MonsterEntity]
+				if in_action is FilteredTargetedAction:
+					filtered_enemies = filter_enemies(in_action)
 				else:
-					
-					var filtered_enemies: Array[MonsterEntity]
-					if in_action is FilteredTargetedAction:
-						filtered_enemies = filter_enemies(in_action)
-					else:
-						filtered_enemies = battle_context.creature_manager.enemies
-					
-					target = player.data.personality.choose_enemy_target(
-						filtered_enemies,
-						player.offensive_trait.weight_value,
-						player.defensive_trait.weight_value,
-						player.strategic_trait.weight_value
-					)
+					filtered_enemies = battle_context.creature_manager.enemies
+
+				target = player.data.personality.choose_enemy_target(
+					filtered_enemies,
+					player.offensive_trait.weight_value,
+					player.defensive_trait.weight_value,
+					player.strategic_trait.weight_value
+				)
 				
 				resolved_targeting.append(target)
 			else:

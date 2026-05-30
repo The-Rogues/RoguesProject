@@ -14,6 +14,6 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 					_user.global_position - target.global_position).normalized()
 			_user.ranged_weapon.rotation = direction.angle()
 		
-		_user.projectile_launcher.fire_sequence(target.global_position, projectile_config)
+		_user.projectile_launcher.fire_projectile(target.global_position, projectile_config)
 		
 	await _user.projectile_launcher.projectiles_freed

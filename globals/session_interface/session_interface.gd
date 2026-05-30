@@ -35,18 +35,18 @@ func initialize():
 	#defensive_trait_display.connect_to_data("DEFENSIVE", run.player_data.personality)
 	#strategic_trait_display.connect_to_data("STRATEGIC", run.player_data.personality)
 	
-	offesnive_trait_display._on_trait_data_updated(
+	offesnive_trait_display.initialize_display(
 		run.player_data.personality.offensive_trait,
 		run.player_data.personality.offensive_weight
 	)
 	
 	
-	defensive_trait_display._on_trait_data_updated(
+	defensive_trait_display.initialize_display(
 		run.player_data.personality.defensive_trait,
 		run.player_data.personality.defensive_weight
 	)
 	
-	strategic_trait_display._on_trait_data_updated(
+	strategic_trait_display.initialize_display(
 		run.player_data.personality.strategic_trait,
 		run.player_data.personality.strategic_weight
 	)
@@ -68,13 +68,13 @@ func initialize():
 
 func connect_to_personality_data(personality:PersonalityData):
 	personality.updated_offensive_trait.connect(
-			offesnive_trait_display._on_trait_data_updated)
+			offesnive_trait_display.on_personality_updated)
 	
 	personality.updated_defensive_trait.connect(
-			defensive_trait_display._on_trait_data_updated)
+			defensive_trait_display.on_personality_updated)
 	
 	personality.updated_strategic_trait.connect(
-			strategic_trait_display._on_trait_data_updated)
+			strategic_trait_display.on_personality_updated)
 
 
 func connect_to_player(player:PlayerEntity):
@@ -162,17 +162,17 @@ func _on_modify_stat_button_up() -> void:
 func reset_stats_to_base_display():
 	var run = GlobalSessionManager.run_progress
 	if run:
-		offesnive_trait_display._on_trait_data_updated(
+		offesnive_trait_display.on_personality_updated(
 				run.player_data.personality.offensive_trait,
 				run.player_data.personality.offensive_weight
 		)
 		
-		defensive_trait_display._on_trait_data_updated(
+		defensive_trait_display.on_personality_updated(
 				run.player_data.personality.defensive_trait,
 				run.player_data.personality.defensive_weight
 		)
 		
-		strategic_trait_display._on_trait_data_updated(
+		strategic_trait_display.on_personality_updated(
 				run.player_data.personality.strategic_trait,
 				run.player_data.personality.strategic_weight
 		)

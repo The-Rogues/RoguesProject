@@ -438,14 +438,12 @@ radius = 19.924858
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 24.33105
 
-[node name="ChargedShot" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="ThoughtfulShot" type="CharacterBody2D" unique_id=59921328]
 scale = Vector2(0.83999926, 0.83999926)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_nfxdr")
 speed = 1000.0
-damage = 20
-life_span = NodePath("LifeSpan")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=2042569567]
 
@@ -466,7 +464,7 @@ shape = SubResource("CircleShape2D_bofno")
 [node name="EntityCollider" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
 shape = SubResource("CircleShape2D_5ed72")
 
-[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+[node name="LifeSpanTimer" type="Timer" parent="." unique_id=1970886395]
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_dufw1")]
@@ -474,5 +472,5 @@ visible = false
 scale = Vector2(-1.9447637, 0.6190475)
 default_color = Color(0.91914725, 0.34855896, 0, 1)
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]
