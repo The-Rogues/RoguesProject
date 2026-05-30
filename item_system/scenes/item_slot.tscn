@@ -2,18 +2,21 @@
 
 [ext_resource type="Script" uid="uid://dy3l0kroo73vm" path="res://item_system/scenes/item_slot.gd" id="1_8dcad"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_m7r1j"]
-[ext_resource type="Texture2D" uid="uid://j6owptcpnwp5" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-001.png" id="2_cy2mh"]
-[ext_resource type="Texture2D" uid="uid://8vdoo5v4h8wj" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="2_r2rxh"]
-[ext_resource type="Texture2D" uid="uid://c4o0673018s3c" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-000.png" id="3_1ydva"]
-[ext_resource type="Texture2D" uid="uid://3yhuy07634st" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-009.png" id="4_l2vr4"]
+[ext_resource type="Texture2D" uid="uid://df4ax76q38xnp" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-001.png" id="2_cy2mh"]
+[ext_resource type="Texture2D" uid="uid://c0vc4p83m0nk1" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-015.png" id="2_r2rxh"]
+[ext_resource type="Texture2D" uid="uid://c0xxxeun0xalg" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-000.png" id="3_1ydva"]
+[ext_resource type="Texture2D" uid="uid://cpenhh57b5pvo" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-009.png" id="4_l2vr4"]
 [ext_resource type="Texture2D" uid="uid://by1h0iraa1v0u" path="res://content/items/apple/apple_texture.tres" id="5_0c6vn"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="6_wh71w"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="6_wh71w"]
 [ext_resource type="PackedScene" uid="uid://dgwludihirux6" path="res://common/tooltip_panel/context_panel.tscn" id="7_ad4wt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c6vn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffdei"]
 atlas = ExtResource("2_cy2mh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m7r1j"]
+load_path = "res://.godot/imported/panel-009.png-9ce9e360138aa1e2db11600e16ac30fa.ctex"
 
 [node name="ItemSlot" type="Control" unique_id=1515963044 node_paths=PackedStringArray("item_icon_button", "item_border", "item_texture_rect", "contents", "context_panel", "use_button")]
 custom_minimum_size = Vector2(42, 42)
@@ -49,7 +52,7 @@ size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_ffdei")
 texture_pressed = ExtResource("3_1ydva")
 texture_hover = ExtResource("4_l2vr4")
-texture_disabled = ExtResource("2_r2rxh")
+texture_disabled = SubResource("CompressedTexture2D_m7r1j")
 texture_focused = ExtResource("2_r2rxh")
 ignore_texture_size = true
 stretch_mode = 0

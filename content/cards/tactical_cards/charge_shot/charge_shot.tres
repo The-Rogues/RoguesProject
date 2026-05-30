@@ -16,7 +16,6 @@ region = Rect2(200, 560, 40, 40)
 [sub_resource type="Resource" id="Resource_ffk8r"]
 script = ExtResource("3_idu1n")
 projectile_scene = ExtResource("2_3rq2h")
-damage = 12
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_w7crc"]

@@ -10,7 +10,6 @@
 script = ExtResource("3_wnklf")
 projectile_scene = ExtResource("2_bpntv")
 projectile_count = 3
-damage = 6
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_w33f6"]

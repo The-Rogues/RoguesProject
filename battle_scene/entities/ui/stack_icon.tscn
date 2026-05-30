@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bt1uxp1xvcqvm" path="res://battle_scene/entities/ui/stack_icon.gd" id="1_0n05q"]
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="1_v7pt4"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_r8ttg"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_r8ttg"]
 [ext_resource type="PackedScene" uid="uid://ltoom83ybk41" path="res://testing_and_prototypes/status_tool_tip.tscn" id="4_antup"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqmu7"]
@@ -14,6 +14,7 @@ anchors_preset = 0
 offset_right = 32.0
 offset_bottom = 32.0
 script = ExtResource("1_0n05q")
+tooltip_y_offset = 35.0
 
 [node name="StackIcon" type="PanelContainer" parent="." unique_id=939876895]
 custom_minimum_size = Vector2(32, 32)
@@ -46,6 +47,8 @@ text = "1"
 
 [node name="StatusToolTip" parent="." unique_id=2004448281 instance=ExtResource("4_antup")]
 visible = false
+z_index = 5
+z_as_relative = false
 layout_mode = 0
 offset_left = 19.0
 offset_top = 22.0

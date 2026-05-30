@@ -3,6 +3,8 @@ class_name StatusEffectsContainer
 
 const Status_Icon = preload("res://battle_scene/entities/ui/stack_icon.tscn")
 
+@export var show_tooltip_higher:bool
+
 var icons:Dictionary[ActiveStatusEffect, StackIcon]
 
 
@@ -17,8 +19,11 @@ func initialize(effects_controller:StatusEffectController):
 
 func _on_effect_added(instance:ActiveStatusEffect):
 	var icon:StackIcon = Status_Icon.instantiate()
+	
 	add_child(icon)
 	icon.initialize(instance)
+	
+	icon.move_tooltip_up = show_tooltip_higher
 	#icon.set_texture(instance.effect.get_texture())
 	#icon.set_stack(instance.duration)
 	icons[instance] = icon
