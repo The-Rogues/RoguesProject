@@ -30,13 +30,6 @@ func initialize(_context:BattleContext, _resuming: bool = false ):
 	battle_state = State.START
 	resuming = _resuming
 	
-	# If we quit after enemy turn, need to draw cards on resume
-	if _resuming:
-		var run : RunProgress = GlobalSessionManager.run_progress
-		if run != null and run.battle != null and run.battle.battle_state == 1:
-			resuming = false  
-
-
 	context = _context
 	action_resolver = ActionResolver.new(_context)
 	battle_powers = BattlePowersManager.new()
@@ -63,6 +56,11 @@ func start_battle():
 		player.damage_taken_last_turn = 0
 		player.attacked_this_turn = true
 		player.attacked_last_turn = true
+		var run: RunProgress = GlobalSessionManager.run_progress
+		if resuming and run != null and run.battle != null:
+			if run.battle.battle_state == 1:
+				run_enemy_turn()
+				return
 		start_player_turn()
 
 
@@ -73,12 +71,17 @@ func start_player_turn():
 	turn_count += 1
 	turn_entered.emit()
 	
+	var run : RunProgress = GlobalSessionManager.run_progress
+	if run != null and run.battle != null:
+		run.battle.battle_state = 0
+		GlobalSaveManager.save_run(run)
+	
 	await turn_banner.display("Player Turn\nTurn: " + str(turn_count))
 	
 	if turn_count == 1:
-		player.enter_turn(turn_count, true)
+		player.enter_turn(turn_count, true, resuming)
 	else:
-		player.enter_turn(turn_count, false)
+		player.enter_turn(turn_count, false, resuming)
 	manage_effects(true)
 	
 	for enemy in enemies:
@@ -96,7 +99,6 @@ func start_player_turn():
 		resuming = false  # only skip once, normal from turn 2 onwards
 	else:
 		player.cards.draw_cards(5)
-		print(player.data.current_energy)
 		_save_battle_state()
 	
 	end_turn_button.disabled = false
@@ -106,6 +108,11 @@ func start_player_turn():
 func end_player_turn():
 	if battle_state == State.ENDED:
 		return
+		
+	var run : RunProgress = GlobalSessionManager.run_progress
+	if run != null and run.battle != null:
+		run.battle.battle_state = 1
+		GlobalSaveManager.save_run(run)
 	
 	battle_field.decay_position_effects()
 	battle_powers.end_turn(context)
@@ -123,12 +130,6 @@ func end_player_turn():
 	play_hand.clear_hand()
 	
 	_save_battle_state()
-	# Mark that enemy turn is about to start
-	var run : RunProgress = GlobalSessionManager.run_progress
-	if run != null and run.battle != null:
-		run.battle.battle_state = 1
-		GlobalSaveManager.save_run(run)
-	
 	await get_tree().create_timer(1).timeout
 	run_enemy_turn()
 

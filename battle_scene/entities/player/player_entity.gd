@@ -118,19 +118,21 @@ func on_destroyed():
 	sprite_2d.visible = false
 
 
-func enter_turn(_turn_count:int, turn_one: bool = false):
+func enter_turn(_turn_count:int, turn_one: bool = false, skip_refill: bool = false):
 	damage_taken_last_turn = damage_taken_this_turn
 	damage_taken_this_turn = 0
 	
 	attacked_last_turn = attacked_this_turn
 	attacked_this_turn = false
 	
-	block.set_to_zero()
+	if !skip_refill:
+		block.set_to_zero()
 	#effects.on_entered_turn()
 	#effects.decay_status_effects()
 	if !turn_one:
 		record_end_turn_state()
-	energy.refill()
+	if !skip_refill:
+		energy.refill()
 	turn_entered.emit()
 
 
