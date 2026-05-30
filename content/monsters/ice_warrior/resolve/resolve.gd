@@ -8,7 +8,7 @@ func on_stack(
 	_other:ActiveStatusEffect = null,
 	_affected: AbstractCreature = null
 ) -> void:
-	instance.stack += 1
+	instance.stack += _other.stack
 	instance.duration = -1
 
 func get_status_name() -> String:

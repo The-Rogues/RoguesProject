@@ -86,7 +86,7 @@ func start_player_turn():
 	manage_effects(true)
 	
 	for enemy in enemies:
-		enemy.choose_intent()
+		enemy.choose_intent(context)
 	
 	# Fletcher - Updates calculated targeting after enemies have chosen new moves.
 	context.creature_manager.update_attack_targeting()
@@ -104,6 +104,10 @@ func start_player_turn():
 	
 	end_turn_button.disabled = false
 	end_turn_button.text = "End Turn"
+	
+	if !GameStats.stats_data.tutorial_completed:
+		GlobalSessionInterface.tutorial.play_tutorial()
+	GlobalSessionInterface.options_menu.tutorial_button.disabled = false
 
 
 func end_player_turn():
@@ -169,6 +173,7 @@ func run_enemy_turn():
 
 func _on_battle_ended():
 	battle_state = State.ENDED
+	GlobalSessionInterface.options_menu.tutorial_button.disabled = true
 	
 	play_hand.clear_hand()
 	add_gem_reward()

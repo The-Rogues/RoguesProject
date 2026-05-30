@@ -14,3 +14,5 @@ class_name GameStatsData
 
 @export var enemy_encounters_defeated:Array[String] = []
 @export var cards_collected:Array[String] = []
+
+@export var tutorial_completed: bool = false

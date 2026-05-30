@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dggtkbmkynxrm" path="res://testing_and_prototypes/CardEffects/card_effects_manager.tscn" id="15_nsjr7"]
 [ext_resource type="PackedScene" uid="uid://r41r7srv4bme" path="res://battle_scene/ui/generating_card_overlay.tscn" id="15_t4l4l"]
 [ext_resource type="PackedScene" uid="uid://swgkipi583sj" path="res://achievements_system/achievement_pop_up.tscn" id="17_ry35u"]
+[ext_resource type="PackedScene" uid="uid://crs3v3e8fotgi" path="res://globals/session_interface/tutorial/tutorial_overlay_manager/tutorial_overlay_manager.tscn" id="19_4ohr5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmlv7"]
 bg_color = Color(0.44755095, 0.44755095, 0.44755095, 1)
@@ -275,6 +276,10 @@ offset_left = 1152.0
 offset_top = 65.0
 offset_right = 1152.0
 offset_bottom = 65.0
+
+[node name="TutorialOverlayManager" parent="." unique_id=1781940379 instance=ExtResource("19_4ohr5")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="button_up" from="Control/CardPicker/ModifyStat" to="." method="_on_modify_stat_button_up"]
 [connection signal="button_up" from="Control/CardPicker/CloseCardPicker" to="." method="_on_close_card_picker_button_up"]

@@ -7,7 +7,7 @@ class_name RegrowBehaviour
 @export var basic_sequence: MoveSequence
 @export var low_health_sequence: MoveSequence   
 
-func decide_next_action(monster: MonsterEntity):
+func decide_next_action(monster: MonsterEntity, _in_context: BattleContext = null):
 	if monster.health.value <= health_threshold and monster.move_sequence == basic_sequence:
 		monster.move_index = 0
 		monster.move_sequence = low_health_sequence

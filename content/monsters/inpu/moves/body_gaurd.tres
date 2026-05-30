@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://ivruawvlmluy"]
+
+[ext_resource type="Texture2D" uid="uid://cg8j7bhiea5pf" path="res://battle_scene/entities/monster/intents/defend_icon.tres" id="1_636n7"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_i6ny2"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_4sbfg"]
+
+[sub_resource type="Resource" id="Resource_dx235"]
+script = ExtResource("2_4sbfg")
+amount = 6
+target_option = 3
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[resource]
+script = ExtResource("1_i6ny2")
+intent_icon = ExtResource("1_636n7")
+name = "Body Gaurd"
+description = "Applies [color=deep_shy_blue]6[/color] block to all enemies."
+primary_action = SubResource("Resource_dx235")
+metadata/_custom_type_script = "uid://c410dannt5adg"

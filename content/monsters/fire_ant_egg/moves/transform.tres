@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://dhmupdwchs80y"]
+
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_xn6gy"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_kw47h"]
+[ext_resource type="Resource" uid="uid://l2nwenkn6gcc" path="res://content/monsters/fire_ant/fire_ant.tres" id="3_cwbkl"]
+[ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="4_5y6lt"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="5_as8ss"]
+[ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="6_s102o"]
+
+[sub_resource type="Resource" id="Resource_vijmi"]
+script = ExtResource("4_5y6lt")
+monsters = Array[ExtResource("2_kw47h")]([ExtResource("3_cwbkl")])
+starting_health = 33
+metadata/_custom_type_script = "uid://crxnbj8rigrkp"
+
+[sub_resource type="Resource" id="Resource_rf0j2"]
+script = ExtResource("6_s102o")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://cv01a4ey63px6"
+
+[resource]
+script = ExtResource("5_as8ss")
+type = 1
+intent_icon = ExtResource("1_xn6gy")
+name = "Transform"
+description = "Transforms into a \"Fire Ant\"."
+primary_action = SubResource("Resource_vijmi")
+secondary_action = SubResource("Resource_rf0j2")
+metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -9,6 +9,7 @@ class_name OptionsMenu
 
 
 @onready var settings_menu: PanelContainer = $SettingsMenu
+@onready var tutorial_button: Button = %Tutorial
 
 
 func _on_settings_button_up() -> void:
@@ -25,3 +26,7 @@ func _on_main_menu_button_up() -> void:
 func _on_close_button_up() -> void:
 	visible = false
 	pass # Replace with function body.
+
+func _on_tutorial_button_up() -> void:
+	visible = false
+	GlobalSessionInterface.tutorial.play_tutorial()

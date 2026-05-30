@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_ta6w0"]
 [ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="5_koujx"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="6_yx0lb"]
-[ext_resource type="Resource" uid="uid://fxp7g31f6nmx" path="res://content/monsters/ice_wizard/fragile_minion/fragile_minion.tres" id="7_7d5lr"]
+[ext_resource type="Resource" uid="uid://fxp7g31f6nmx" path="res://content/monsters/ice_wizard/ice_golem/ice_golem.tres" id="7_ta6w0"]
 [ext_resource type="Script" uid="uid://crxnbj8rigrkp" path="res://battle_scene/entities/actions/skill/spawn_enemy_action.gd" id="7_xdfre"]
 [ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="8_pmud8"]
 [ext_resource type="Script" uid="uid://85iqt7cgotam" path="res://content/monsters/ice_wizard/scripts/ice_spikes_position_effect_behavior.gd" id="9_cs1yf"]
@@ -29,7 +29,7 @@ region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="Resource" id="Resource_nyigi"]
 script = ExtResource("7_xdfre")
-monsters = Array[ExtResource("6_yx0lb")]([ExtResource("7_7d5lr")])
+monsters = Array[ExtResource("6_yx0lb")]([ExtResource("7_ta6w0")])
 spawn_count = 2
 metadata/_custom_type_script = "uid://crxnbj8rigrkp"
 
@@ -38,7 +38,7 @@ script = ExtResource("4_ta6w0")
 type = 1
 intent_icon = ExtResource("5_koujx")
 name = "Frozen Onslaught"
-description = "This Enemy intends to summon minions."
+description = "Summons [color=#43A047]2[/color] \"Ice Golem\" enemies."
 primary_action = SubResource("Resource_nyigi")
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

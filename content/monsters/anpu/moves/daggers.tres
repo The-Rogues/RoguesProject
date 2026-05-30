@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="2_n4iga"]
 [ext_resource type="Script" uid="uid://cwavgo31xrs4f" path="res://battle_scene/entities/status_effects/common/wounded_status_effect.gd" id="3_ffpbh"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_vlvu5"]
-[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="5_ybrm1"]
+[ext_resource type="Texture2D" uid="uid://cyksvm07gfodd" path="res://common/art/placeholder/32_rogues/items.png" id="5_ybrm1"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="6_2nmum"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="7_tvvg4"]
 [ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="8_tvmsw"]

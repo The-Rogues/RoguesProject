@@ -1,12 +1,10 @@
 [gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cslydk2dhl5kp"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_05fxo"]
+[ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="2_g6crd"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
-[ext_resource type="Resource" uid="uid://pvnvvs8t4paq" path="res://content/cards/vengeful_cards/arsenal.tres" id="2_xmijq"]
-[ext_resource type="Resource" uid="uid://df8onaglb031c" path="res://content/cards/greedy_cards/life_savings/life_savings.tres" id="3_fiell"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
 [ext_resource type="Resource" uid="uid://ccg0j48lxm8sh" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
-[ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="4_biq4x"]
 
 [resource]
 script = ExtResource("3_p83cn")
@@ -16,6 +14,6 @@ current_health = 1000
 current_energy = 1000
 max_energy = 1000
 item_capacity = 1
-cards = Array[ExtResource("1_05fxo")]([ExtResource("2_xmijq"), ExtResource("3_fiell"), ExtResource("4_biq4x")])
+cards = Array[ExtResource("1_05fxo")]([ExtResource("2_g6crd")])
 personality = ExtResource("3_rhmp2")
 metadata/_custom_type_script = "uid://p6tkdhpfg377"

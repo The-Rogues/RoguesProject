@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c37tg564o10pt" path="res://content/objects/stat_shrines/defense_shrine.png" id="1_15qoj"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_k2ktj"]
-[ext_resource type="Script" uid="uid://sbvvweac52w" path="res://content/monsters/bee/actions/perma_stat_mod_action.gd" id="3_a7qst"]
+[ext_resource type="Script" uid="uid://sbvvweac52w" path="res://content/monsters/spider/actions/perma_stat_mod_action.gd" id="3_a7qst"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="4_m4j4o"]
 
 [sub_resource type="Resource" id="Resource_uv57p"]

@@ -6,7 +6,7 @@ class_name HealthThresholdMonsterBehavior
 @export var move:EnemyMove
 
 
-func decide_next_action(monster:MonsterEntity):
+func decide_next_action(monster:MonsterEntity, in_context: BattleContext = null):
 	if monster.health.value <= health_threshold:
 		var sequence = MoveSequence.new()
 		sequence.moves.append(move)

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bj1yeert1hk36"]
+
+[ext_resource type="Texture2D" uid="uid://cg8j7bhiea5pf" path="res://battle_scene/entities/monster/intents/defend_icon.tres" id="1_cwnoe"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_l1awf"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_k65bg"]
+[ext_resource type="Script" uid="uid://bdpfrus5vumk" path="res://battle_scene/entities/actions/skill/heal_action.gd" id="4_k65bg"]
+
+[sub_resource type="Resource" id="Resource_nkiow"]
+script = ExtResource("2_k65bg")
+amount = 12
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_gmgoi"]
+script = ExtResource("4_k65bg")
+amount = 6
+ignore_foreground = true
+metadata/_custom_type_script = "uid://bdpfrus5vumk"
+
+[resource]
+script = ExtResource("1_l1awf")
+type = 1
+intent_icon = ExtResource("1_cwnoe")
+name = "Agile Response"
+description = "Gains [color=deep_sky_blue]12[/color] block. Heals [color=#43A047]6[/color] HP."
+primary_action = SubResource("Resource_nkiow")
+secondary_action = SubResource("Resource_gmgoi")
+metadata/_custom_type_script = "uid://c410dannt5adg"
