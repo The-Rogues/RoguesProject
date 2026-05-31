@@ -116,7 +116,7 @@ func _on_health_updated(current:int, max:int):
 
 
 func _on_view_card_deck() -> void:
-	deck_viewer.visible = true
+	deck_viewer.open()
 
 
 func open_card_removal():
@@ -124,7 +124,7 @@ func open_card_removal():
 	
 	if run:
 		card_remover.initialize(run.player_data.cards)
-		card_remover.visible = true
+		card_remover.open()
 
 
 func open_card_picker(cards:Array[CardData], 

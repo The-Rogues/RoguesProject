@@ -18,6 +18,7 @@ script = ExtResource("2_4ar0b")
 name = "Journey's End"
 display_image = SubResource("AtlasTexture_5ykfg")
 description = "Complete a run."
+completed = true
 listen_signal = "run_completed"
 stat_checks = Array[ExtResource("3_e06bt")]([SubResource("Resource_curh1")])
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

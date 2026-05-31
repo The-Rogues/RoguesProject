@@ -18,4 +18,5 @@ func _ready() -> void:
 				start_sound.play()
 		)
 	
-	credits_return.button_up.connect(func(): close_sound.play())
+	if credits_return:
+		credits_return.button_up.connect(func(): close_sound.play())

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cyksvm07gfodd" path="res://common/art/placeholder/32_rogues/items.png" id="2_bibgj"]
 [ext_resource type="PackedScene" uid="uid://di1ej0x6tsa1v" path="res://battle_scene/entities/projectiles/arrow/stuck_arrow.tscn" id="3_mkfkv"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="4_mkfkv"]
+[ext_resource type="AudioStream" uid="uid://bnc5ihngtnmw2" path="res://common/sound_effects/helton_yans_pixel_combat/arrow_shot.wav" id="5_k2g7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vv47"]
 atlas = ExtResource("2_bibgj")
@@ -51,6 +52,12 @@ shape = SubResource("CircleShape2D_5ed72")
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_mkfkv")]
+
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=2059616709]
+stream = ExtResource("5_k2g7f")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

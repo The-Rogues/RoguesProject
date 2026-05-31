@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="1_hwuqy"]
 [ext_resource type="Texture2D" uid="uid://b5h7i3mcdnhk6" path="res://content/cards/greedy_cards/assets/gem.png" id="2_660ic"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_o20h5"]
+[ext_resource type="AudioStream" uid="uid://bnc5ihngtnmw2" path="res://common/sound_effects/helton_yans_pixel_combat/arrow_shot.wav" id="4_ji6l0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
 radius = 11.18034
@@ -38,6 +39,12 @@ shape = SubResource("CircleShape2D_5ed72")
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_o20h5")]
+
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=308008659]
+stream = ExtResource("4_ji6l0")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

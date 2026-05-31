@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="1_ufuu0"]
 [ext_resource type="Texture2D" uid="uid://bwmv27dybjhwm" path="res://common/art/placeholder/stealthix/Fires-Black/Blackball_68x9.png" id="2_866sa"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_rstig"]
+[ext_resource type="AudioStream" uid="uid://c6ho8ynbjbrk7" path="res://common/sound_effects/helton_yans_pixel_combat/charge_shot.wav" id="4_dwj5m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5m5g2"]
 atlas = ExtResource("2_866sa")
@@ -469,6 +470,12 @@ wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_rstig")]
 default_color = Color(0.42617247, 0.45270473, 0.581653, 1)
+
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=1876915096]
+stream = ExtResource("4_dwj5m")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]
