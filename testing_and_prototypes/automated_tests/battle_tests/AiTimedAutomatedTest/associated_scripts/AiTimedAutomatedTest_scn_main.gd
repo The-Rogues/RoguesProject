@@ -5,13 +5,13 @@ extends Node
 @onready var progress_res: RunProgress = preload("res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_progress.tres")
 @onready var field_res: BattleFieldConfig = preload("res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_battle_field.tres")
 
-var num_iterations: int = 5
+var num_iterations: int = 20
 var ai_cards: Array[AiCardData] = [
-	preload("res://ai/ai-cards/invent_defend/invent_defend.tres"),
-	preload("res://ai/ai-cards/invent_melee/invent_melee.tres"),
-	preload("res://ai/ai-cards/invent_move/invent_move.tres"),
+	#preload("res://ai/ai-cards/invent_defend/invent_defend.tres"),
+	#preload("res://ai/ai-cards/invent_melee/invent_melee.tres"),
+	#preload("res://ai/ai-cards/invent_move/invent_move.tres"),
 	preload("res://ai/ai-cards/invent_ranged/invent_ranged.tres"),
-	preload("res://ai/ai-cards/invent_tool/invent_tool.tres")
+	#preload("res://ai/ai-cards/invent_tool/invent_tool.tres")
 ]
 var personality_traits: Array[PersonalityTrait] = [
 	preload("res://content/personality_traits/brutish.tres"),

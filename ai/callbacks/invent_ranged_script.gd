@@ -30,7 +30,7 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 			atk_all = true
 			total_atk += 2
 		elif curr_action == CardGenConst.CardGenEnum.burn:
-			total_burn += 4
+			total_burn += 3
 	
 	if total_energy < 0:
 		total_atk += 10
@@ -47,30 +47,30 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	ret_val.name = "Thoughtful Shot"
 	ret_val.description = "Attack"
 	if atk_all:
-		ret_val.description += " all enemies for [color=#43A047]" + str(total_atk) + "[/color]."
+		ret_val.description += " an enemy for [color=#43A047]" + str(total_atk) + "[/color], twice."
 	else: 
 		ret_val.description += " an enemy for [color=#43A047]" + str(total_atk) + "[/color]."
 	
 	if total_burn > 0:
-		ret_val.description += " Apply [color=#43A047]" + str(total_burn) + "[/color] [color=orange]burning[/color]."
+		ret_val.description += " Projectiles apply [color=#43A047]" + str(total_burn) + "[/color] [color=orange]burning[/color]."
 	
 	var fire_proj_action: ProjectileAttackAction = ProjectileAttackAction.new()
 	fire_proj_action.projectile_config = ProjectileFireData.new()
-	fire_proj_action.projectile_config.projectile_scene = load("res://ai/ai-cards/thoughtful_shot/thoughtful_shot_projectile.tscn")
-	fire_proj_action.projectile_config.damage = total_atk
+	fire_proj_action.projectile_config.projectile_scene = load("res://ai/ai-cards/invent_ranged/thoughtful_shot_projectile.tscn")
+	fire_proj_action.projectile_config.impact_damage = total_atk
 	fire_proj_action.ignore_foreground = false
 	
 	if atk_all:
-		fire_proj_action.target_option = TargetedAction.TargetOption.ENEMIES
-	else:
-		fire_proj_action.target_option = TargetedAction.TargetOption.ENEMY
+		fire_proj_action.projectile_config.projectile_count = 2
+		fire_proj_action.projectile_config.fire_delay = 0.15
+	fire_proj_action.target_option = TargetedAction.TargetOption.ENEMY
 	
 	if total_burn > 0:
-		fire_proj_action.projectile_config.status_effect = StatusEffectConfig.new()
-		fire_proj_action.projectile_config.status_effect.behaviour = BurningEffect.new()
-		fire_proj_action.projectile_config.status_effect.stack = 0
-		fire_proj_action.projectile_config.status_effect.duration = total_burn
-		fire_proj_action.projectile_config.status_effect.turn_entered = true
+		fire_proj_action.projectile_config.impact_status_effect = StatusEffectConfig.new()
+		fire_proj_action.projectile_config.impact_status_effect.behaviour = BurningEffect.new()
+		fire_proj_action.projectile_config.impact_status_effect.stack = 0
+		fire_proj_action.projectile_config.impact_status_effect.duration = total_burn
+		fire_proj_action.projectile_config.impact_status_effect.turn_entered = true
 	
 	ret_val.play_actions.append(fire_proj_action)
 	

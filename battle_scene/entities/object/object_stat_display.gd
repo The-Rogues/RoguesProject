@@ -36,9 +36,9 @@ func initialize(object:ObjectEntity):
 					interaction_button.visible = false
 					can_interact = false
 					Events.chest_opened.emit())
-			object.player_entered.connect(
-				func():
-					_on_player_entered(object))
+			#object.player_entered.connect(
+			#	func():
+			#		_on_player_entered(object))
 			
 			object.player_exited.connect(_on_player_exited)
 			check_chest(object)
@@ -57,11 +57,11 @@ func initialize(object:ObjectEntity):
 					interaction_button.visible = false
 					can_interact = false
 			)
-			object.player_entered.connect(
-				func():
-					_on_player_entered(object)
-			)
-			object.player_exited.connect(_on_player_exited)
+			#object.player_entered.connect(
+			#	func():
+			#		_on_player_entered(object)
+			#)
+			#object.player_exited.connect(_on_player_exited)
 			interaction_button.disabled = false
 		ObjectData.InteractionOption.NONE:
 			#interaction_button.text = ""
