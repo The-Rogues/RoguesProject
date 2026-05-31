@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dwfxlbevrtlb5" path="res://content/cards/legendary_cards/immunity/immunity_power.gd" id="2_fbxjx"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_vjcjk"]
 [ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_eniyc"]
-[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/the_infected/infection_behavior.gd" id="4_brrp3"]
+[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/zombie/infection_behavior.gd" id="4_brrp3"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_fdbwp"]
 [ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_76g3l"]
 

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://dxuy20coirc1l"]
+
+[ext_resource type="Resource" uid="uid://tf6p86bsqgjd" path="res://content/monsters/zombie/moves/basic_sequence.tres" id="1_mcl7u"]
+[ext_resource type="Resource" uid="uid://hgedyn4y57p0" path="res://content/monsters/zombie/moves/advanced_sequence.tres" id="2_t6p12"]
+[ext_resource type="Script" uid="uid://dnqjw0cy8cna7" path="res://content/monsters/zombie/regrow_behavior.gd" id="3_2wun8"]
+[ext_resource type="Texture2D" uid="uid://crwcp5kcqw1o7" path="res://content/monsters/zombie/zombie_texture.tres" id="4_h6alm"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="5_iauag"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="6_8dob4"]
+
+[sub_resource type="Resource" id="Resource_8vp1x"]
+script = ExtResource("3_2wun8")
+health_threshold = 30
+basic_sequence = ExtResource("1_mcl7u")
+low_health_sequence = ExtResource("2_t6p12")
+metadata/_custom_type_script = "uid://dnqjw0cy8cna7"
+
+[resource]
+script = ExtResource("6_8dob4")
+move_sequences = Array[ExtResource("5_iauag")]([ExtResource("1_mcl7u")])
+behaviour = SubResource("Resource_8vp1x")
+display_texture = ExtResource("4_h6alm")
+name = "Zombie"
+health = 60
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

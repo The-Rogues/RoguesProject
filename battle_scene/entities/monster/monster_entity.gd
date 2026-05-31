@@ -43,29 +43,29 @@ func initialize(_data:MonsterData):
 
 
 func take_damage(amount:int, _attacker = null, _ignore_foreground: bool = false):
-	attacker = _attacker
-	
 	var damage:int = effects.apply_incoming_damage_effects(amount)
-	damage = block.absorb_damage(damage)
 	
-	sprite_2d.flash()
-	DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
-	health.take_damage(damage)
+	if _ignore_foreground || !_object_intercept_attack(damage, _attacker):
+		attacker = _attacker
+		damage = block.absorb_damage(damage)
+		sprite_2d.flash()
+		DamageNumber.display_number(damage, damage_numbers_spawn.global_position)
+		health.take_damage(damage)
 	
-	if !_attacker is Projectile:
-		effects.on_attacked(_attacker)
-	
-	if damage > 0:
 		if !_attacker is Projectile:
-			effects.on_damaged(_attacker, self)
-		else:
-			effects.on_damaged(null, self)
+			effects.on_attacked(_attacker)
 	
-	if _attacker is AbstractEntity:
-		_attacker.set_last_attacked_entity(self)
+		if damage > 0:
+			if !_attacker is Projectile:
+				effects.on_damaged(_attacker, self)
+			else:
+				effects.on_damaged(null, self)
 	
-	if _attacker is Projectile and _attacker.source is AbstractEntity:
-		_attacker.source.set_last_attacked_entity(self)
+		if _attacker is AbstractEntity:
+			_attacker.set_last_attacked_entity(self)
+	
+		if _attacker is Projectile and _attacker.source is AbstractEntity:
+			_attacker.source.set_last_attacked_entity(self)
 
 
 func on_destroyed():
@@ -112,3 +112,15 @@ func leave_battle(reason:String):
 			spared.emit(self)
 		else:
 			health.kill()
+
+func _object_intercept_attack(damage:int, _attacker) -> bool:
+	if !_attacker is PlayerEntity:
+		return false
+	if _attacker is Projectile:
+		return false
+	
+	if _attacker.battle_position.has_object() and _attacker.battle_position.get_object().health.is_alive:
+		_attacker.battle_position.get_object().take_damage(damage, _attacker)
+		return true
+	else:
+		return false

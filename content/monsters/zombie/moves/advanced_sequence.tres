@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MoveSequence" format=3 uid="uid://hgedyn4y57p0"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_1hfiu"]
+[ext_resource type="Resource" uid="uid://bk2qa27qd5f1t" path="res://content/monsters/zombie/moves/cursed_recovery.tres" id="2_kkv0e"]
+[ext_resource type="Resource" uid="uid://v6j34yb27w4q" path="res://content/monsters/zombie/moves/infected_charge.tres" id="3_rfsip"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="4_suk6b"]
+
+[resource]
+script = ExtResource("4_suk6b")
+moves = Array[ExtResource("1_1hfiu")]([ExtResource("2_kkv0e"), ExtResource("3_rfsip"), ExtResource("3_rfsip"), ExtResource("3_rfsip"), ExtResource("3_rfsip"), ExtResource("3_rfsip"), ExtResource("3_rfsip"), ExtResource("3_rfsip"), ExtResource("3_rfsip")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"

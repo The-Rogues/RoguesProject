@@ -44,6 +44,15 @@ func initialize(_context:BattleContext, _resuming: bool = false ):
 	
 	_context.creature_manager.all_enemies_defeated.connect(_on_battle_ended)
 	_context.creature_manager.player_defeated.connect(_on_battle_ended)
+	
+	action_resolver.action_queue.started_processing_action.connect(
+		func():
+			player.on_started_processing_action(context)
+	)
+	action_resolver.action_queue.processed_all_actions.connect(
+		func():
+			player.on_all_actions_processed(context)
+	)
 
 
 func start_battle():
@@ -93,6 +102,7 @@ func start_player_turn():
 	context.battle_field.update_preferences(player)
 	
 	battle_field.enter_turn(turn_count, player)
+	player.on_all_actions_processed(context)
 	
 	battle_powers.enter_turn(context)
 	
@@ -122,6 +132,7 @@ func end_player_turn():
 	manage_effects(false)
 	
 	battle_field.end_turn(turn_count, player)
+	player.on_started_processing_action(context)
 	
 	#player.effects.decay_status_effects(false)
 	end_turn_button.disabled = true
@@ -173,6 +184,7 @@ func run_enemy_turn():
 
 func _on_battle_ended():
 	battle_state = State.ENDED
+	player.on_started_processing_action(context)
 	GlobalSessionInterface.options_menu.tutorial_button.disabled = true
 	
 	play_hand.clear_hand()
