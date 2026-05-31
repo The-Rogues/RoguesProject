@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dpmyob16n1nle"]
 
 [ext_resource type="Script" uid="uid://di16cvuaf55kx" path="res://Map/map_module/map_scenes/MapInstance/MapInstance_scn_main.gd" id="1_f1wbl"]
+[ext_resource type="AudioStream" uid="uid://evqfb3mckjri" path="res://common/sound_effects/helton_yans_pixel_combat/enter_map_event.wav" id="2_bu3c0"]
 
 [node name="MapInstance" type="Control" unique_id=1739555866]
 layout_mode = 3
@@ -10,3 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f1wbl")
+
+[node name="EnterEvent" type="AudioStreamPlayer" parent="." unique_id=179551699]
+unique_name_in_owner = true
+stream = ExtResource("2_bu3c0")
+volume_db = -5.0
+bus = &"SFX"

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://61s5t8tbsy15" path="res://content/monsters/reaper/moves/deathsicle/sythe.gd" id="1_it386"]
 [ext_resource type="Texture2D" uid="uid://bxen4dfn76trb" path="res://battle_scene/entities/player/melee_weapon/sytche.tres" id="2_8orrk"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_luq16"]
+[ext_resource type="AudioStream" uid="uid://bnc5ihngtnmw2" path="res://common/sound_effects/helton_yans_pixel_combat/arrow_shot.wav" id="4_wm78i"]
 
 [sub_resource type="Animation" id="Animation_it386"]
 length = 0.001
@@ -88,5 +89,12 @@ wait_time = 5.0
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_luq16")]
 default_color = Color(0.81540364, 0.19489661, 0.13030902, 1)
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=1556214648]
+stream = ExtResource("4_wm78i")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

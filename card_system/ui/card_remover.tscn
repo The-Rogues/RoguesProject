@@ -2,8 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_8tmx8"]
 [ext_resource type="Script" uid="uid://bimi1nrv03eka" path="res://card_system/ui/card_remover.gd" id="2_8tmx8"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_0v77y"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="3_0v77y"]
+[ext_resource type="AudioStream" uid="uid://djfx1m7cipjgj" path="res://common/sound_effects/helton_yans_pixel_combat/open_deck.wav" id="5_0v77y"]
 [ext_resource type="PackedScene" uid="uid://u3ac5qsk7naw" path="res://card_system/ui/card_remover_confirmation.tscn" id="5_4f1o5"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="6_11b3r"]
 
 [node name="CardRemover" type="Control" unique_id=2047647765]
 layout_mode = 3
@@ -87,6 +89,18 @@ text = "Select a Card to Remove"
 [node name="CardRemoverConfirmation" parent="." unique_id=1513941998 instance=ExtResource("5_4f1o5")]
 visible = false
 layout_mode = 1
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="." unique_id=1830907287]
+unique_name_in_owner = true
+stream = ExtResource("5_0v77y")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="." unique_id=787599415]
+unique_name_in_owner = true
+stream = ExtResource("6_11b3r")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="button_up" from="Cancel" to="." method="_on_cancel_button_up"]
 [connection signal="button_up" from="Cancel" to="." method="_on_close_button_up"]

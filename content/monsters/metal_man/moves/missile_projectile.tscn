@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://co208du6mwqne" path="res://content/monsters/metal_man/moves/missile_projectile.gd" id="1_6oxjd"]
 [ext_resource type="Texture2D" uid="uid://na5ohot234uy" path="res://content/monsters/metal_man/arial_strike/missile.png" id="2_1b7ve"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_mbvur"]
+[ext_resource type="AudioStream" uid="uid://bnc5ihngtnmw2" path="res://common/sound_effects/helton_yans_pixel_combat/arrow_shot.wav" id="4_1b7ve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
 radius = 12.0
@@ -39,6 +40,12 @@ wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_mbvur")]
 default_color = Color(0.81540364, 0.19489661, 0.13030902, 1)
+
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=1033064078]
+stream = ExtResource("4_1b7ve")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

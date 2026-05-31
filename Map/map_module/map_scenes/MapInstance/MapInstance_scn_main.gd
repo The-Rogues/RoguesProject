@@ -28,6 +28,9 @@ var available_button_positions: Dictionary[TextureButton, Vector2]
 # Variables for drawing map lines.
 var vertical_dist: float = 0
 
+# Fabian - Sounds when map nodes are entered
+@onready var enter_event: AudioStreamPlayer = %EnterEvent
+
 #------------------------------------------------------------------------------------
 # Section: Functions
 #------------------------------------------------------------------------------------
@@ -363,6 +366,7 @@ func check_accessable(q_node: RefCounted, access_arr: Array[RefCounted]) -> bool
 # corr_node: The corresponding node of the button pressed.
 # Return: Void.
 func _on_map_button_pressed(corr_node: RefCounted) -> void:
+	enter_event.play()
 	GlobalSessionManager.select_map_node(corr_node)
 	available_button_positions.clear() # When the player's position is changed, new positions will be assigned to this map.
 

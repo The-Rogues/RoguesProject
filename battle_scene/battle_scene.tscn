@@ -6,17 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://battle_scene/ui/play_area.tscn" id="3_nuuou"]
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://card_system/player_card_hand.gd" id="4_cgsmb"]
 [ext_resource type="PackedScene" uid="uid://bnfejx84ush8n" path="res://battle_scene/entities/monster/monster_entity.tscn" id="4_s4dh3"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="5_7j1wb"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="5_7j1wb"]
 [ext_resource type="PackedScene" uid="uid://7doidnfxvws4" path="res://testing_and_prototypes/BattleTestButtons/battle_test_buttons.tscn" id="6_2203u"]
 [ext_resource type="PackedScene" uid="uid://tvgskh3hgret" path="res://battle_scene/ui/energy_ui.tscn" id="7_e1j2j"]
-[ext_resource type="Texture2D" uid="uid://bdbhko8kem06j" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
-[ext_resource type="Texture2D" uid="uid://cniwmcr6i1a7b" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-005.png" id="10_t27p2"]
+[ext_resource type="Texture2D" uid="uid://djvnmdppbarne" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Border/panel-border-011.png" id="10_2203u"]
+[ext_resource type="Texture2D" uid="uid://brjbb0r5ogpmf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-005.png" id="10_t27p2"]
 [ext_resource type="PackedScene" uid="uid://dbowc7p1rjgus" path="res://card_system/ui/card_pile_icon.tscn" id="14_3w7x8"]
 [ext_resource type="PackedScene" uid="uid://defsyo3of3fv" path="res://battle_scene/win_screen/rewards_screen.tscn" id="14_4ll6p"]
 [ext_resource type="PackedScene" uid="uid://i512y7djlnpm" path="res://battle_scene/ui/turn_banner.tscn" id="14_2203u"]
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="15_ectca"]
 [ext_resource type="PackedScene" uid="uid://bxmgnvpw0yyd0" path="res://battle_scene/entities/player/player_entity.tscn" id="17_4ll6p"]
 [ext_resource type="PackedScene" uid="uid://dokqnl4uskuu7" path="res://battle_scene/lose_screen/defeated_screen.tscn" id="17_nn42q"]
+[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="19_7gnpu"]
 [ext_resource type="Script" uid="uid://dkwb3eagjx5u" path="res://battle_scene/battle_flow_manager.gd" id="19_s4dh3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
@@ -277,6 +278,9 @@ offset_top = 485.0
 offset_right = 1118.0
 offset_bottom = 534.0
 text = "Pref"
+
+[node name="Projectile" parent="." unique_id=59921328 instance=ExtResource("19_7gnpu")]
+position = Vector2(210, 304)
 
 [connection signal="button_up" from="UILayer/EndTurn" to="BattleFlowManager" method="end_player_turn"]
 [connection signal="button_up" from="UILayer/DrawPileIcon/CardPileButton" to="." method="_on_view_draw_pile_button_up"]

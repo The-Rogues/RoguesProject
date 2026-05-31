@@ -16,7 +16,7 @@ signal freed(projectile: Projectile)
 @export var impact_status_effect: StatusEffectConfig
 
 var target_position: Vector2
-var direction: Vector2
+var direction: Vector2 = Vector2(1,0)
 var source
 
 @onready var life_span: Timer = $LifeSpanTimer
@@ -93,3 +93,8 @@ func _remove_projectile() -> void:
 
 func _on_life_span_timeout() -> void:
 	_remove_projectile()
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	_remove_projectile()
+	pass # Replace with function body.

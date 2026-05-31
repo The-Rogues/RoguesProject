@@ -442,7 +442,6 @@ radius = 13.0
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_d0u1t")
-damage = 10
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=2001239539]
 
@@ -473,4 +472,5 @@ wait_time = 5.0
 default_color = Color(0.81540364, 0.19489661, 0.13030902, 1)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

@@ -2,7 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_3jew5"]
 [ext_resource type="Script" uid="uid://bu2a5x6plp3gj" path="res://card_system/ui/card_viewer.gd" id="1_cy1vw"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="3_afera"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="3_afera"]
+[ext_resource type="AudioStream" uid="uid://djfx1m7cipjgj" path="res://common/sound_effects/helton_yans_pixel_combat/open_deck.wav" id="4_aschw"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="5_j5fh1"]
 
 [node name="CardViewer" type="Control" unique_id=2047647765]
 layout_mode = 3
@@ -64,5 +66,17 @@ theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("3_afera")
 theme_override_font_sizes/font_size = 16
 text = "Close"
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="." unique_id=2111196465]
+unique_name_in_owner = true
+stream = ExtResource("4_aschw")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="." unique_id=1234891736]
+unique_name_in_owner = true
+stream = ExtResource("5_j5fh1")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="button_up" from="Close" to="." method="_on_close_button_up"]
