@@ -191,6 +191,7 @@ func _on_battle_ended():
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
+		GameStats.end_battle(player)
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)
 		rewards_screen.visible = true

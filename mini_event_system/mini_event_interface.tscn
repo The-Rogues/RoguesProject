@@ -140,7 +140,7 @@ select_buttons = [NodePath("../Panel/MarginContainer/Options/Option1"), NodePath
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1830866989]
 stream = ExtResource("6_71qkk")
-volume_db = -5.0
+volume_db = -8.0
 bus = &"SFX"
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1036270250]

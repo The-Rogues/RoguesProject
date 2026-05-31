@@ -16,3 +16,4 @@ class_name GameStatsData
 @export var cards_collected:Array[String] = []
 
 @export var tutorial_completed: bool = false
+@export var modified:bool = false

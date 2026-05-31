@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="15_ectca"]
 [ext_resource type="PackedScene" uid="uid://bxmgnvpw0yyd0" path="res://battle_scene/entities/player/player_entity.tscn" id="17_4ll6p"]
 [ext_resource type="PackedScene" uid="uid://dokqnl4uskuu7" path="res://battle_scene/lose_screen/defeated_screen.tscn" id="17_nn42q"]
-[ext_resource type="PackedScene" uid="uid://dwcqwam3c77kv" path="res://battle_scene/entities/projectiles/projectile.tscn" id="19_7gnpu"]
 [ext_resource type="Script" uid="uid://dkwb3eagjx5u" path="res://battle_scene/battle_flow_manager.gd" id="19_s4dh3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lahee"]
@@ -278,9 +277,6 @@ offset_top = 485.0
 offset_right = 1118.0
 offset_bottom = 534.0
 text = "Pref"
-
-[node name="Projectile" parent="." unique_id=59921328 instance=ExtResource("19_7gnpu")]
-position = Vector2(210, 304)
 
 [connection signal="button_up" from="UILayer/EndTurn" to="BattleFlowManager" method="end_player_turn"]
 [connection signal="button_up" from="UILayer/DrawPileIcon/CardPileButton" to="." method="_on_view_draw_pile_button_up"]

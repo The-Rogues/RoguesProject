@@ -17,7 +17,6 @@ func _ready() -> void:
 		connect_run_signals()
 		await get_tree().process_frame
 		GlobalSessionInterface.initialize()
-		
 
 
 # -------------------------------------------------
