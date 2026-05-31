@@ -1,27 +1,27 @@
-[gd_resource type="Resource" script_class="PersonalityData" format=3 uid="uid://ccg0j48lxm8sh"]
+[gd_resource type="Resource" script_class="PersonalityData" format=3 uid="uid://cfxp0scudm5ib"]
 
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_1b6jr"]
-[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_3cjc7"]
-[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://personality_system/personality_data.gd" id="3_v11o7"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_0ap73"]
+[ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_w85pv"]
+[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://personality_system/personality_data.gd" id="3_a2ut0"]
 
 [sub_resource type="Resource" id="Resource_q4js6"]
-script = ExtResource("2_3cjc7")
+script = ExtResource("2_w85pv")
 name = "Naive"
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_1b6jr"]
-script = ExtResource("2_3cjc7")
+script = ExtResource("2_w85pv")
 name = "Merciful"
 object_targeting_preference = 1
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [sub_resource type="Resource" id="Resource_d5fqq"]
-script = ExtResource("2_3cjc7")
+script = ExtResource("2_w85pv")
 name = "Greedy"
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"
 
 [resource]
-script = ExtResource("3_v11o7")
+script = ExtResource("3_a2ut0")
 offensive_trait = SubResource("Resource_1b6jr")
 offensive_weight = 1
 defensive_trait = SubResource("Resource_q4js6")

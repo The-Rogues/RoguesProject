@@ -30,7 +30,7 @@ type = 2
 category = 4
 energy_cost = 1
 name = "Bottled Plague"
-description = "Apply [color=#43A047]7[/color] [color-orange]infection[/color] to all enemies. [color=orange]Single use[/color]."
+description = "Apply [color=#43A047]7[/color] [color=orange]infection[/color] to all enemies. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_nefoi")]([SubResource("Resource_0eftf")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

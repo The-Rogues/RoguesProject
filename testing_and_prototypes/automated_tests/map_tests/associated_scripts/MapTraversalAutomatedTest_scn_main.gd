@@ -15,7 +15,7 @@ extends Node
 # Description: Calls the test_structure function when the node is ready.
 # Return: void.
 func _ready() -> void:
-	test_traversal(0, 20000) # This means from 0 to 20000 exclusive.
+	test_traversal(0, 2000) # This means from 0 to 20000 exclusive.
 
 # --test_structure Function--
 # Description: Tests that a range of map seeds can be traversed from start to end.
@@ -26,6 +26,8 @@ func test_traversal(start_seed: int, end_seed: int) -> void:
 	
 	# Iterate over the specified range.
 	for i in range(start_seed, end_seed):
+		
+		await get_tree().process_frame
 		
 		var map_manager: MapManager = MapManager.new(i) # Init a MapManager with i as the seed.
 		

@@ -7,21 +7,20 @@
 [ext_resource type="Script" uid="uid://bud06kwphwcgv" path="res://content/cards/greedy_cards/unearth/fill_opportunity_action.gd" id="5_eqkih"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="6_2rlxx"]
 
-[sub_resource type="Resource" id="Resource_l1i6o"]
+[sub_resource type="Resource" id="Resource_tsxkl"]
 script = ExtResource("2_iuol3")
 metadata/_custom_type_script = "uid://cdt7n4yhqcxp8"
 
-[sub_resource type="Resource" id="Resource_s1a45"]
+[sub_resource type="Resource" id="Resource_iuol3"]
 script = ExtResource("4_lhyk0")
-behaviour = SubResource("Resource_l1i6o")
+behaviour = SubResource("Resource_tsxkl")
 display = ExtResource("3_kavr8")
 duration = -1
-stack = 1
 metadata/_custom_type_script = "uid://bhmmir13kwsw5"
 
 [sub_resource type="Resource" id="Resource_3n4gp"]
 script = ExtResource("5_eqkih")
-new_space = SubResource("Resource_s1a45")
+new_spaces = Array[ExtResource("4_lhyk0")]([SubResource("Resource_iuol3")])
 metadata/_custom_type_script = "uid://bud06kwphwcgv"
 
 [resource]

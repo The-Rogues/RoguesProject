@@ -29,6 +29,7 @@ func initialize() -> void:
 	Events.object_placed.connect(_on_object_placed)
 	Events.battle_won.connect(_on_battle_won)
 	Events.gold_collected.connect(_on_gold_collected)
+	Events.card_collected.connect(_on_card_collected)
 
 	# Initialize achievement state
 	for achievement in achievements:
@@ -66,6 +67,7 @@ func _disconnect_existing() -> void:
 
 
 func _evaluate_signal(signal_name:String) -> void:
+	await get_tree().process_frame
 	for achievement in achievements:
 		if achievement.listen_signal == signal_name:
 			if achievement.evaluate():
@@ -116,3 +118,6 @@ func _on_battle_won(_encounter, _player_state):
 
 func _on_gold_collected(_amount:int):
 	_evaluate_signal("gold_collected")
+
+func _on_card_collected(_card: CardData):
+	_evaluate_signal("card_collected")

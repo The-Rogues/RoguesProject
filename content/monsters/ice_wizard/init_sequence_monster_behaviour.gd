@@ -12,7 +12,6 @@ func decide_next_action(monster:MonsterEntity, _in_context: BattleContext = null
 	monster.move_index += 1
 	
 	if monster.move_index == monster.move_sequence.moves.size():
-		#print("Here")
 		monster.move_sequence = monster.data.move_sequences[
 			randi_range(1, monster.data.move_sequences.size() - 1)
 		]

@@ -8,14 +8,14 @@
 [ext_resource type="Script" uid="uid://c7jsu5qwcwqo7" path="res://content/objects/chest/destroy_front_object_action.gd" id="6_qqmce"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="7_anflj"]
 
-[sub_resource type="Resource" id="Resource_l5pt4"]
+[sub_resource type="Resource" id="Resource_rdaop"]
 script = ExtResource("4_l5pt4")
 projectile_scene = ExtResource("3_yqhn2")
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_wsfim"]
 script = ExtResource("5_fodbh")
-projectile_config = SubResource("Resource_l5pt4")
+projectile_config = SubResource("Resource_rdaop")
 metadata/_custom_type_script = "uid://cx0b35316xpjg"
 
 [sub_resource type="Resource" id="Resource_2n512"]
