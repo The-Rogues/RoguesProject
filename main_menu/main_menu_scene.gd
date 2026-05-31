@@ -44,6 +44,7 @@ func _ready() -> void:
 	start_menu.visible = false
 	
 	continue_game.set_disabled(!GlobalSaveManager.has_save())
+	delete_data.disabled = !GlobalSaveManager.has_game_stats_save()
 	
 	MusicManager.change_song(MusicManager.track_list.main_menu)
 	main_menu_selector.focus_reticle(start)
@@ -56,10 +57,8 @@ func _ready() -> void:
 func _on_start_clicked() -> void:
 	main_menu.visible = false
 	start_menu.visible = true
-	if continue_game.disabled:
-		main_menu_selector.focus_reticle(new_game)
-	else:
-		main_menu_selector.focus_reticle(continue_game)
+	await get_tree().process_frame
+	main_menu_selector.focus_reticle(new_game)
 
 
 # View Options Menu

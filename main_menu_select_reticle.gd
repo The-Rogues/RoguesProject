@@ -15,6 +15,9 @@ func hide_reticle(_hide:bool):
 
 
 func focus_reticle(button:Button):
+	if button.disabled:
+		return
+	
 	var center = button.global_position + (button.size / 2)
 	var reticle_position = center - (reticle.size / 2)
 	reticle_position.x -= ((button.size.x / 2) + Offset_X)

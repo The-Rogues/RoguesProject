@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/06 - Victory!.ogg-2c9ef76c843d5ad6f7935c58c4f
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=8.6
+bpm=0.0
 beat_count=0
 bar_beats=4

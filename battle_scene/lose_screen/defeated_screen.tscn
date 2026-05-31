@@ -2,7 +2,12 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_77gcd"]
 [ext_resource type="Script" uid="uid://diu2ohf5stfwf" path="res://battle_scene/lose_screen/defeated_screen.gd" id="1_r8yrt"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_ngur6"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_ngur6"]
+[ext_resource type="Script" uid="uid://cdce0ngaiwfxx" path="res://character_creator/character_creator_sound_manager.gd" id="4_fw8je"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="5_7livy"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="6_1iqnf"]
+[ext_resource type="AudioStream" uid="uid://bqv8y1n7nowv1" path="res://common/sound_effects/helton_yans_pixel_combat/flee.wav" id="7_k0m05"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="8_h1ysb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ymu1"]
 bg_color = Color(0.49703765, 0.59558344, 0.60900867, 1)
@@ -116,5 +121,29 @@ theme_override_constants/outline_size = 14
 theme_override_fonts/font = ExtResource("2_ngur6")
 theme_override_font_sizes/font_size = 16
 text = "Continue"
+
+[node name="SoundManager" type="Node" parent="." unique_id=257461094 node_paths=PackedStringArray("select_buttons")]
+script = ExtResource("4_fw8je")
+select_buttons = [NodePath("../EndRun")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1322229163]
+stream = ExtResource("5_7livy")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=96733374]
+stream = ExtResource("6_1iqnf")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1031684963]
+stream = ExtResource("7_k0m05")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=53847081]
+stream = ExtResource("8_h1ysb")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="button_up" from="EndRun" to="." method="_on_end_run_button_up"]

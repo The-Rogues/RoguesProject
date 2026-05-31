@@ -7,9 +7,11 @@ extends Node
 
 
 func _ready() -> void:
+	stats_data = GlobalSaveManager.load_game_stats()
+	
 	if stats_data == null:
-		# TODO: Integrate into save system
 		stats_data = GameStatsData.new()
+		stats_data.modified = true
 
 	if battle_state == null:
 		battle_state = BattleStatsData.new()
@@ -30,7 +32,7 @@ func connect_to_signals():
 	Events.chest_opened.connect(_on_chest_opened)
 	Events.object_placed.connect(_on_object_placed)
 	Events.gold_collected.connect(_on_gold_collected)
-	Events.battle_won.connect(_on_battle_won)
+	#Events.battle_won.connect(_on_battle_won)
 	Events.card_collected.connect(_on_card_collected)
 
 	# Battle Stats
@@ -56,6 +58,9 @@ func end_battle(player_state:PlayerEntity = null) -> void:
 		battle_state.encounter,
 		player_state
 	)
+	
+	if !stats_data.enemy_encounters_defeated.has(battle_state.encounter.encounter_name):
+		stats_data.enemy_encounters_defeated.append(battle_state.encounter.encounter_name)
 	
 	battle_state.turn_signal.disconnect(on_battle_turn_entered)
 	reset_battle_state(false)
@@ -123,8 +128,6 @@ func _on_gold_collected(amount:int):
 func _on_battle_won(encounter:EnemyEncounter, player_state:PlayerEntity):
 	if !stats_data.enemy_encounters_defeated.has(encounter.encounter_name):
 		stats_data.enemy_encounters_defeated.append(encounter.encounter_name)
-	
-	end_battle(player_state)
 
 
 func _on_card_collected(card:CardData):

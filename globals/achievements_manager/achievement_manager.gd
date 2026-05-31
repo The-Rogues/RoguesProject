@@ -72,6 +72,8 @@ func _evaluate_signal(signal_name:String) -> void:
 		if achievement.listen_signal == signal_name:
 			if achievement.evaluate():
 				achievement_unlocked.emit(achievement)
+	
+	GlobalSaveManager.save_game_stats(GameStats.stats_data)
 
 
 func reset_achievements():

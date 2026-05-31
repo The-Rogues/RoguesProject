@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_ud5u8"]
 [ext_resource type="Script" uid="uid://bp442a8lebqi1" path="res://character_creator/new_game_scene.gd" id="2_2h578"]
-[ext_resource type="Texture2D" uid="uid://vkpxy4xn7do2" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-017.png" id="3_ria2j"]
+[ext_resource type="Texture2D" uid="uid://cb7r40gcn4g8s" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-017.png" id="3_ria2j"]
 [ext_resource type="PackedScene" uid="uid://mdymi56364et" path="res://character_creator/character_creator.tscn" id="4_bkb27"]
 [ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://main_menu/character_result_scene.gd.tscn" id="5_2h578"]
 [ext_resource type="Script" uid="uid://cdce0ngaiwfxx" path="res://character_creator/character_creator_sound_manager.gd" id="6_v3kfy"]
@@ -140,7 +140,6 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_uydqw")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_lr2hx")
-disabled = true
 text = "AI
 Mode"
 
