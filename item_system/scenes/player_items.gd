@@ -11,7 +11,6 @@ var in_battle_scene:bool = false
 
 func initialize():
 	var run := GlobalSessionManager.run_progress
-	
 	if run:
 		item_interface.minimum_item_slot_count = run.player_data.item_capacity
 		item_interface.populate_item_slots(run.player_data.items)

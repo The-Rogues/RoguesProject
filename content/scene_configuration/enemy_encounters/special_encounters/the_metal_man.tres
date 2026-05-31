@@ -1,8 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://daqp47v362e4h"]
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_3a3wk"]
-[ext_resource type="Resource" uid="uid://c0mtay5bpskby" path="res://content/scene_configuration/battle_field_layouts/old_layouts/split_walls.tres" id="1_qxntn"]
-[ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="2_glqka"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_qxntn"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_qxntn"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_2kvjv"]
 [ext_resource type="Resource" uid="uid://bs8hbhwulqly3" path="res://content/cards/legendary_cards/rapid_fire.tres" id="3_ccgsx"]
@@ -13,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://bv4ochxklc86t" path="res://content/monsters/metal_man/metal_man.tres" id="9_st3ww"]
 [ext_resource type="Texture2D" uid="uid://doh8l631cgydg" path="res://common/art/random_art/gold_icon.tres" id="10_sg6cm"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="11_12xa1"]
+[ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="12_ccgsx"]
 
 [sub_resource type="Resource" id="Resource_nglmx"]
 script = ExtResource("7_7tgmj")
@@ -34,5 +34,4 @@ encounter_name = "The Metal Man"
 gold = SubResource("Resource_upfa2")
 card_loot = SubResource("Resource_nglmx")
 enemies = Array[ExtResource("1_3a3wk")]([ExtResource("9_st3ww")])
-battlefield_layout = ExtResource("1_qxntn")
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

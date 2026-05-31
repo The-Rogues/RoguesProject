@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cslydk2dhl5kp"]
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://brrt7tmm8x51q"]
 
-[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_05fxo"]
-[ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="2_g6crd"]
-[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_rhmp2"]
-[ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="3_p83cn"]
-[ext_resource type="Resource" uid="uid://ccg0j48lxm8sh" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="3_rhmp2"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_lhejm"]
+[ext_resource type="Resource" uid="uid://pvnvvs8t4paq" path="res://content/cards/vengeful_cards/arsenal.tres" id="2_u1ho7"]
+[ext_resource type="Texture2D" uid="uid://dyxvm44pkdj0u" path="res://content/monsters/witch_doctor/witch_doctor.tres" id="3_3bqvo"]
+[ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="4_g0y7m"]
+[ext_resource type="Resource" uid="uid://cfxp0scudm5ib" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_personality.tres" id="5_lkjfi"]
+[ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="6_76acn"]
 
 [resource]
-script = ExtResource("3_p83cn")
+script = ExtResource("6_76acn")
 name = "All Cards Player"
+character_texture = ExtResource("3_3bqvo")
 max_health = 1000
 current_health = 1000
 current_energy = 1000
 max_energy = 1000
 item_capacity = 1
-cards = Array[ExtResource("1_05fxo")]([ExtResource("2_g6crd")])
-personality = ExtResource("3_rhmp2")
+cards = Array[ExtResource("1_lhejm")]([ExtResource("2_u1ho7")])
+personality = ExtResource("5_lkjfi")
 metadata/_custom_type_script = "uid://p6tkdhpfg377"

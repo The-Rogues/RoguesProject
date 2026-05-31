@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_fp7l2"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="2_bn0y4"]
+[ext_resource type="Texture2D" uid="uid://dyxvm44pkdj0u" path="res://content/monsters/witch_doctor/witch_doctor.tres" id="2_ixo32"]
 [ext_resource type="Resource" uid="uid://rtx2whc402c6" path="res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_personality.tres" id="3_e0as0"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="4_ngqek"]
 
 [resource]
 script = ExtResource("4_ngqek")
 name = "AI Timed Player"
+character_texture = ExtResource("2_ixo32")
 max_health = 1000
 current_health = 1000
 current_energy = 1000

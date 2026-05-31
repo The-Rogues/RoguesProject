@@ -26,13 +26,14 @@ GlobalSaveManager="*uid://lnp0r05fc1u2"
 GlobalSceneLoader="*uid://bp63dsvlxoj6w"
 DamageNumber="*uid://v8hwxqcyaen8"
 MusicManager="*uid://cawypsenbgkoi"
-AllCards="*uid://bknd6870x7qoq"
 AllMonsters="*uid://dc380udp7vi2j"
 AiTimed="*uid://c5r63qi3j74px"
 GlobalBattleSaveManager="*uid://fkj4pyye51uu"
 Events="*uid://dfnommkdq2kub"
 Achievements="*uid://brcb8f764p8ru"
 GameStats="*uid://wn7g5fo35oj7"
+AchievementsAutomatedTest="*uid://7t6edb8dbdly"
+AllCards="*uid://3g4kaxdi778h"
 
 [display]
 

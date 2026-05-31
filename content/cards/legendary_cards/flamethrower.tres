@@ -4,27 +4,14 @@
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_qlib6"]
 [ext_resource type="PackedScene" uid="uid://cqk2sv85r2g3x" path="res://content/monsters/crawler/fire_ball.tscn" id="3_flxv5"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="4_5thd3"]
-[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="5_rpfmv"]
-[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="6_a6bm2"]
 [ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="7_ma23s"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="8_7aofd"]
-
-[sub_resource type="Resource" id="Resource_bb75s"]
-script = ExtResource("5_rpfmv")
-metadata/_custom_type_script = "uid://di1j13j6xybid"
-
-[sub_resource type="Resource" id="Resource_jci76"]
-script = ExtResource("6_a6bm2")
-behaviour = SubResource("Resource_bb75s")
-metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [sub_resource type="Resource" id="Resource_gkue5"]
 script = ExtResource("4_5thd3")
 projectile_scene = ExtResource("3_flxv5")
 projectile_count = 3
 fire_delay = 0.2
-status_effect = SubResource("Resource_jci76")
-damage = 4
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_7gv0c"]
