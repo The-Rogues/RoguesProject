@@ -186,7 +186,7 @@ priority_trait = ExtResource("12_3l5uq")
 
 [sub_resource type="Resource" id="Resource_7xv35"]
 script = ExtResource("14_5lbfv")
-name = "Asher"
+name = "Sarah"
 character_texture = ExtResource("6_i06bj")
 melee_weapon_texture = ExtResource("13_uahfr")
 ranged_weapon_texture = ExtResource("13_ce22o")
@@ -195,7 +195,8 @@ current_health = 50
 current_energy = 3
 max_energy = 3
 item_capacity = 3
-cards = Array[ExtResource("1_i06bj")]([ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("3_jfmdv"), ExtResource("3_jfmdv"), ExtResource("3_jfmdv"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("5_ce22o"), ExtResource("5_ce22o")])
+items = Array[ExtResource("7_7xv35")]([ExtResource("29_12cju"), ExtResource("29_12cju")])
+cards = Array[ExtResource("1_i06bj")]([ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("5_ce22o"), ExtResource("5_ce22o"), ExtResource("27_nvhkl"), ExtResource("27_nvhkl"), ExtResource("27_nvhkl")])
 personality = SubResource("Resource_3l5uq")
 
 [resource]

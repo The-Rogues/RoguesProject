@@ -12,6 +12,9 @@
 script = ExtResource("1_tvpao")
 metadata/_custom_type_script = "uid://bn6t0778mctv4"
 
+[sub_resource type="Resource" id="Resource_8dkva"]
+metadata/__load_path__ = "res://content/monsters/bee/bee.png"
+
 [sub_resource type="Resource" id="Resource_fx6w4"]
 script = ExtResource("6_o2g2q")
 base_damage = 1
