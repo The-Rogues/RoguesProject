@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dd13rlg5m5kos"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_je16i"]
+[ext_resource type="Script" uid="uid://cqcy5yb0mqx4u" path="res://character_intro_screen/character_intro_screen.gd" id="1_yjix6"]
+[ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="2_uokx2"]
+[ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="3_seegt"]
+[ext_resource type="Script" uid="uid://ru5rndxm87cd" path="res://shop_scenes/item_shop/dialogue_text.gd" id="3_uokx2"]
+[ext_resource type="Script" uid="uid://bl1qjh6svhuqe" path="res://character_intro_screen/backstory_generator.gd" id="6_m4u5g"]
+
+[sub_resource type="Animation" id="Animation_uyqi7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_41vnj"]
+resource_name = "loading"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -22), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjix6"]
+_data = {
+&"RESET": SubResource("Animation_uyqi7"),
+&"loading": SubResource("Animation_41vnj")
+}
+
+[node name="CharacterIntroScreen" type="Node2D" unique_id=1232572711]
+texture_filter = 1
+script = ExtResource("1_yjix6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1975930139]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=991172130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1726727762]
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=897428061]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_je16i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Control" unique_id=563012172]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 104.0
+offset_right = 275.0
+offset_bottom = 366.0
+grow_horizontal = 2
+theme = ExtResource("1_je16i")
+theme_override_constants/separation = 7
+
+[node name="NameTextLabel" type="RichTextLabel" parent="CanvasLayer2/Control/VBoxContainer" unique_id=1720201966]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/line_separation = 9
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "The Journey of
+[color=gold]Rogue[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackstoryLabel" type="RichTextLabel" parent="CanvasLayer2/Control/VBoxContainer" unique_id=1508385321 node_paths=PackedStringArray("dialogue_text_timer")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(550, 150)
+layout_mode = 2
+theme = ExtResource("1_je16i")
+theme_override_colors/default_color = Color(0.90764856, 0.73609835, 0.2498663, 1)
+theme_override_constants/line_separation = 9
+bbcode_enabled = true
+text = "   Their background is a mystery. Or this is a bug."
+script = ExtResource("3_uokx2")
+dialogue_text_timer = NodePath("../Timer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Control/VBoxContainer" unique_id=575650755]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="OffensiveTrait" parent="CanvasLayer2/Control/VBoxContainer/HBoxContainer" unique_id=1400420390 instance=ExtResource("2_uokx2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DefensiveTrait" parent="CanvasLayer2/Control/VBoxContainer/HBoxContainer" unique_id=683311356 instance=ExtResource("2_uokx2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StrategicTrait" parent="CanvasLayer2/Control/VBoxContainer/HBoxContainer" unique_id=447134034 instance=ExtResource("2_uokx2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="CanvasLayer2/Control/VBoxContainer" unique_id=704017073]
+wait_time = 0.05
+
+[node name="Continue" type="Button" parent="CanvasLayer2/Control" unique_id=351641725]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 528.0
+offset_right = 1096.0
+offset_bottom = 589.0
+theme_override_font_sizes/font_size = 20
+text = "Begin Run"
+
+[node name="LoadSprite" type="Sprite2D" parent="." unique_id=1083167917]
+texture_filter = 1
+position = Vector2(563, 488)
+scale = Vector2(2, 2)
+texture = ExtResource("3_seegt")
+offset = Vector2(0, -16)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1244421926]
+libraries/ = SubResource("AnimationLibrary_yjix6")
+autoplay = &"loading"
+
+[node name="BackstoryGenerator" type="Node" parent="." unique_id=951795367]
+unique_name_in_owner = true
+script = ExtResource("6_m4u5g")
+
+[connection signal="button_up" from="CanvasLayer2/Control/Continue" to="." method="_on_continue_button_up"]
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
