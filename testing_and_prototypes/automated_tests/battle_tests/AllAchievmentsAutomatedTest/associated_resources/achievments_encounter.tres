@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://kmqarbmik5do"]
+
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_1cule"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_mhly1"]
+[ext_resource type="Resource" uid="uid://b5wswl7nkud4h" path="res://testing_and_prototypes/automated_tests/battle_tests/AllAchievmentsAutomatedTest/associated_resources/achievments_monster.tres" id="3_at6lc"]
+[ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="4_vdjib"]
+[ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="5_8cfjg"]
+
+[resource]
+script = ExtResource("5_8cfjg")
+encounter_name = "Achievments Encounter"
+enemies = Array[ExtResource("2_mhly1")]([ExtResource("3_at6lc")])
+metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

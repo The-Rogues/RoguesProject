@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="EnemyEncounter" format=3 uid="uid://c2lqbajiqo4af"]
 
-[ext_resource type="Resource" uid="uid://jh4842oe7n3n" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_battle_field.tres" id="1_rix06"]
+[ext_resource type="Resource" uid="uid://jh4842oe7n3n" path="res://testing_and_prototypes/automated_tests/battle_tests/AllAchievmentsAutomatedTest/associated_resources/achievments_battle_field.tres" id="1_rix06"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_sf7oe"]
 [ext_resource type="Resource" uid="uid://cd6c747nim6f4" path="res://testing_and_prototypes/automated_tests/battle_tests/AiTimedAutomatedTest/associated_resources/ai_timed_monster.tres" id="3_dhapg"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="4_g25vl"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="5_fy0ut"]
+
 
 [resource]
 script = ExtResource("5_fy0ut")

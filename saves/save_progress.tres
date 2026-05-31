@@ -1,41 +1,195 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
 [ext_resource type="Script" path="res://card_system/card_data.gd" id="1_i06bj"]
+[ext_resource type="Resource" path="res://content/scene_configuration/battle_field_layouts/tier_4_fields/temp_t4_field.tres" id="1_iofhu"]
+[ext_resource type="Resource" path="res://content/scene_configuration/enemy_encounters/tier_4_encounters/warrior_dudes.tres" id="2_iofhu"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_sds6a"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_jfmdv"]
+[ext_resource type="Script" path="res://globals/save_system/battle_config_data.gd" id="3_k3uip"]
+[ext_resource type="Script" path="res://globals/save_system/card_instance_save_data.gd" id="4_t60l6"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_uahfr"]
+[ext_resource type="Script" path="res://globals/save_system/monster_save_data.gd" id="5_7v8y8"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_ce22o"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_8.tres" id="6_i06bj"]
+[ext_resource type="Script" path="res://globals/save_system/object_save_data.gd" id="6_5lbfv"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_10.tres" id="6_i06bj"]
+[ext_resource type="Resource" path="res://content/monsters/anpu/anpu.tres" id="6_k3uip"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="7_7xv35"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/spear.tres" id="8_i06bj"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/book.tres" id="8_sds6a"]
-[ext_resource type="Resource" path="res://content/personality_traits/naive.tres" id="9_jfmdv"]
-[ext_resource type="Resource" path="res://content/personality_traits/vengeful.tres" id="10_uahfr"]
-[ext_resource type="Resource" path="res://content/personality_traits/friendly.tres" id="11_ce22o"]
+[ext_resource type="Script" path="res://battle_scene/win_screen/rewards_data/battle_reward_data.gd" id="7_ff1hj"]
+[ext_resource type="Resource" path="res://content/monsters/inpu/inpu.tres" id="7_t60l6"]
+[ext_resource type="Resource" path="res://content/objects/decaying_wall/decaying_wall_data.tres" id="8_k3uip"]
+[ext_resource type="Script" path="res://globals/save_system/battle_save_data.gd" id="8_rjjt7"]
+[ext_resource type="Script" path="res://globals/save_system/status_effect_save_data.gd" id="9_7cy65"]
+[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="9_sds6a"]
+[ext_resource type="Script" path="res://globals/save_system/position_effect_save_data.gd" id="10_21v4l"]
+[ext_resource type="Resource" path="res://content/personality_traits/brutish.tres" id="10_jfmdv"]
+[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="11_k3uip"]
+[ext_resource type="Script" path="res://globals/save_system/battle_effect_save_data.gd" id="11_shnnu"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="11_uahfr"]
+[ext_resource type="Resource" path="res://content/personality_traits/friendly.tres" id="12_3l5uq"]
 [ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="12_ce22o"]
-[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="12_t60l6"]
+[ext_resource type="Script" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="12_ugj3v"]
+[ext_resource type="Resource" path="res://content/monsters/anpu/new_moves/grapple.tres" id="13_12cju"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/ruby_staff.tres" id="13_ce22o"]
+[ext_resource type="Resource" path="res://content/monsters/anpu/new_moves/dagger_throw.tres" id="13_shnnu"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/scepter.tres" id="13_uahfr"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="14_5lbfv"]
-[ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="17_ff1hj"]
-[ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="18_3l5uq"]
-[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="19_ugj3v"]
+[ext_resource type="Script" path="res://battle_scene/entities/monster/move_sequence.gd" id="14_7cy65"]
+[ext_resource type="Resource" path="res://content/monsters/anpu/new_moves/teamwork.tres" id="14_kdvyb"]
+[ext_resource type="Resource" path="res://content/monsters/inpu/moves/piercing_stabs.tres" id="16_12cju"]
+[ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="17_ff1hj"]
+[ext_resource type="Resource" path="res://content/monsters/inpu/moves/body_gaurd.tres" id="18_nvhkl"]
+[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="18_rjjt7"]
+[ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="19_8qiin"]
+[ext_resource type="Resource" path="res://content/monsters/inpu/moves/teamwork.tres" id="19_77t2f"]
+[ext_resource type="Texture2D" path="res://testing_and_prototypes/gold_icon.tres" id="22_nvhkl"]
+[ext_resource type="Script" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="23_77t2f"]
+[ext_resource type="Resource" path="res://content/scene_configuration/battle_loot/battle_card_draw.tres" id="26_618qg"]
+
+[sub_resource type="Resource" id="Resource_5nlej"]
+script = ExtResource("3_k3uip")
+enemy_encounter = ExtResource("2_iofhu")
+battle_field_config = ExtResource("1_iofhu")
+
+[sub_resource type="Resource" id="Resource_x6ljj"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_te76o"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_y4ahw"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("3_jfmdv")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_iohd8"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("5_ce22o")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_ps7so"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("2_sds6a")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_hus1o"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("5_ce22o")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_5m5g2"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("3_jfmdv")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_axqk2"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("2_sds6a")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_rpvyp"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_sqguc"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_kd75v"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("3_jfmdv")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_e6owx"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("2_sds6a")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_exc3e"]
+script = ExtResource("11_shnnu")
+enemy_effect_counts = Array[int]([0, 0])
+enemy_blocks = Array[int]([0, 0])
+
+[sub_resource type="Resource" id="Resource_kk2h0"]
+script = ExtResource("14_7cy65")
+moves = Array[ExtResource("12_ugj3v")]([ExtResource("13_12cju"), ExtResource("13_shnnu"), ExtResource("14_kdvyb")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_618qg"]
+script = ExtResource("5_7v8y8")
+monster_data = ExtResource("6_k3uip")
+current_health = 96
+max_health = 96
+move_sequence = SubResource("Resource_kk2h0")
+intent = ExtResource("13_12cju")
+
+[sub_resource type="Resource" id="Resource_1iwxl"]
+script = ExtResource("14_7cy65")
+moves = Array[ExtResource("12_ugj3v")]([ExtResource("16_12cju"), ExtResource("18_nvhkl"), ExtResource("19_77t2f")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_6eia0"]
+script = ExtResource("5_7v8y8")
+monster_data = ExtResource("7_t60l6")
+current_health = 95
+max_health = 95
+move_sequence = SubResource("Resource_1iwxl")
+intent = ExtResource("16_12cju")
+
+[sub_resource type="Resource" id="Resource_wajl7"]
+script = ExtResource("6_5lbfv")
+object_data = ExtResource("8_k3uip")
+current_health = 40
+position_index = 1
+
+[sub_resource type="Resource" id="Resource_pjf0i"]
+script = ExtResource("6_5lbfv")
+object_data = ExtResource("8_k3uip")
+current_health = 40
+position_index = 3
+
+[sub_resource type="Resource" id="Resource_nfvm8"]
+script = ExtResource("23_77t2f")
+amount = 9
+display_texture = ExtResource("22_nvhkl")
+metadata/_custom_type_script = "uid://drffwoufolf1p"
+
+[sub_resource type="Resource" id="Resource_k3uip"]
+script = ExtResource("8_rjjt7")
+is_active = true
+resume_node_index = 32
+battle_config = SubResource("Resource_5nlej")
+enemy_states = Array[ExtResource("5_7v8y8")]([SubResource("Resource_618qg"), SubResource("Resource_6eia0")])
+object_states = Array[ExtResource("6_5lbfv")]([SubResource("Resource_wajl7"), SubResource("Resource_pjf0i")])
+player_position_index = 2
+draw_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_x6ljj"), SubResource("Resource_te76o"), SubResource("Resource_y4ahw"), SubResource("Resource_iohd8"), SubResource("Resource_ps7so"), SubResource("Resource_hus1o"), SubResource("Resource_5m5g2")])
+drawn_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_axqk2"), SubResource("Resource_rpvyp"), SubResource("Resource_sqguc"), SubResource("Resource_kd75v"), SubResource("Resource_e6owx")])
+effects = SubResource("Resource_exc3e")
+player_energy = 3
+player_max_energy = 3
+pending_rewards = Array[ExtResource("7_ff1hj")]([SubResource("Resource_nfvm8"), ExtResource("26_618qg")])
 
 [sub_resource type="Resource" id="Resource_3l5uq"]
-script = ExtResource("12_t60l6")
-offensive_trait = ExtResource("10_uahfr")
-offensive_weight = 1
-defensive_trait = ExtResource("9_jfmdv")
-defensive_weight = 1
-strategic_trait = ExtResource("11_ce22o")
-strategic_weight = 2
-priority_trait = ExtResource("11_ce22o")
+script = ExtResource("11_k3uip")
+offensive_trait = ExtResource("10_jfmdv")
+offensive_weight = 3
+defensive_trait = ExtResource("9_sds6a")
+defensive_weight = 2
+strategic_trait = ExtResource("12_3l5uq")
+strategic_weight = 1
+priority_trait = ExtResource("12_3l5uq")
 
 [sub_resource type="Resource" id="Resource_7xv35"]
 script = ExtResource("14_5lbfv")
 name = "Asher"
 character_texture = ExtResource("6_i06bj")
-melee_weapon_texture = ExtResource("8_sds6a")
-ranged_weapon_texture = ExtResource("8_i06bj")
+melee_weapon_texture = ExtResource("13_uahfr")
+ranged_weapon_texture = ExtResource("13_ce22o")
 max_health = 50
 current_health = 50
 current_energy = 3
@@ -47,8 +201,11 @@ personality = SubResource("Resource_3l5uq")
 [resource]
 script = ExtResource("11_uahfr")
 player_data = SubResource("Resource_7xv35")
-map_seed = 2911631199
-player_node_index = 3
-single_time_mini_events = Array[ExtResource("12_ce22o")]([ExtResource("19_ugj3v"), ExtResource("17_ff1hj"), ExtResource("18_3l5uq")])
-total_rooms_explored = 1
+map_seed = 1439355039
+player_node_index = 29
+battle = SubResource("Resource_k3uip")
+pending_node_index = 32
+room_in_progress = true
+single_time_mini_events = Array[ExtResource("12_ce22o")]([ExtResource("18_rjjt7"), ExtResource("17_ff1hj"), ExtResource("19_8qiin")])
+total_rooms_explored = 10
 initialized = true

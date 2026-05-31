@@ -43,6 +43,9 @@ func populate_item_slots(items:Array[ItemData], in_battle:bool = false):
 	var all_slots: Array[Node] = get_children()
 	#all_slots[all_slots.size() - 1].color_item_slot()
 
+func _automated_use_first_item():
+	var interface_children := get_children()
+	interface_children[0]._on_use_button_up()
 
 func add_slot():
 	var all_slots: Array[Node] = get_children()

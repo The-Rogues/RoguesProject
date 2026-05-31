@@ -96,35 +96,46 @@ static func test_map_structure(in_structure: RefCounted):
 		if in_structure.node_arr[i].node_edges.size() > max_outgoing_edges:
 			max_outgoing_edges = in_structure.node_arr[i].node_edges.size()
 	
-	var test_path: Callable = func(test_node: RefCounted, node_type: RefCounted, slf: Callable):
+	var test_path: Callable = func(test_node: RefCounted, node_type: RefCounted, battle_layer: bool, slf: Callable):
 		if test_node == in_structure.node_arr[in_structure.node_arr.size() - 1]:
 			return true
-		if node_type == null:
-			if test_node.node_data.main_event == battle_data:
-				for i in range(0, test_node.node_edges.size()):
-					if !slf.call(test_node.node_edges[i], shop_data, slf):
-						return false
-					return true
-			else:
-				for i in range(0, test_node.node_edges.size()):
-					if !slf.call(test_node.node_edges[i], battle_data, slf):
-						return false
-					return true
-		else:
-			if test_node.node_data.main_event != node_type:
+		if battle_layer:
+			if test_node.node_data.main_event != battle_data:
 				return false
 			else:
 				for i in range(0, test_node.node_edges.size()):
-					if !slf.call(test_node.node_edges[i], null, slf):
+					if !slf.call(test_node.node_edges[i], null, false, slf):
 						return false
 					return true
+		elif node_type == null:
+			if test_node.node_data.main_event == battle_data:
+				for i in range(0, test_node.node_edges.size()):
+					if !slf.call(test_node.node_edges[i], shop_data, false, slf):
+						return false
+					return true
+			else:
+				for i in range(0, test_node.node_edges.size()):
+					if !slf.call(test_node.node_edges[i], battle_data, false, slf):
+						return false
+					return true
+		else:
+			if node_type == battle_data:
+				if test_node.node_data.main_event != battle_data:
+					return false
+			else:
+				if test_node.node_data.main_event == battle_data:
+					return false
+			for i in range(0, test_node.node_edges.size()):
+				if !slf.call(test_node.node_edges[i], null, true, slf):
+					return false
+				return true
 	
 	for i in range(0, in_structure.node_arr[0].node_edges.size()):
 		var curr_node: RefCounted = in_structure.node_arr[0].node_edges[i]
 		if curr_node.node_data.main_event != battle_data:
 			is_distribution_as_expected = false
 		for j in range(0, curr_node.node_edges.size()):
-			is_distribution_as_expected = test_path.call(curr_node.node_edges[j], null, test_path)
+			is_distribution_as_expected = test_path.call(curr_node.node_edges[j], null, false, test_path)
 			
 	if in_structure.node_arr[in_structure.node_arr.size() - 1].node_data.main_event != boss_data:
 		is_distribution_as_expected = false

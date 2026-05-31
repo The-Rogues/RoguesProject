@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://bb3krcowemhfe"]
+
+[ext_resource type="Resource" uid="uid://cslydk2dhl5kp" path="res://testing_and_prototypes/automated_tests/battle_tests/AllAchievmentsAutomatedTest/associated_resources/achievments_player.tres" id="1_85j72"]
+[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://globals/scene_management/run_progress.gd" id="1_dwj23"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="2_85j72"]
+[ext_resource type="Texture2D" uid="uid://csem5lpkfo6te" path="res://content/monsters/reaper/reaper_texture.tres" id="2_rgerm"]
+
+
+[resource]
+script = ExtResource("1_dwj23")
+player_data = ExtResource("1_85j72")
+player_texture = ExtResource("2_rgerm")
+player_name = "Bob"
+metadata/_custom_type_script = "uid://c6dr42ke5aj7b"

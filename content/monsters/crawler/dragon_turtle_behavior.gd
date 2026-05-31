@@ -12,7 +12,6 @@ func decide_next_action(monster:MonsterEntity, in_context: BattleContext = null)
 	monster.move_index += 1
 	
 	if monster.move_index == monster.move_sequence.moves.size():
-		#print("Here")
 		monster.move_sequence = monster.data.move_sequences[1].duplicate(true)
 		monster.move_index = 0
 	
