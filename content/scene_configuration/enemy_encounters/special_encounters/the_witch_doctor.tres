@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="1_l77ie"]
 [ext_resource type="Resource" uid="uid://lycqh174ep13" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/witch_doctor_fields/cannon_decay_and_chest.tres" id="2_70rcx"]
-[ext_resource type="Resource" uid="uid://dxuy20coirc1l" path="res://content/monsters/the_infected/the_infected.tres" id="2_ebm2m"]
+[ext_resource type="Resource" uid="uid://dxuy20coirc1l" path="res://content/monsters/zombie/zombie.tres" id="2_ebm2m"]
 [ext_resource type="Resource" uid="uid://dw16yr0fq5d8t" path="res://content/monsters/witch_doctor/witch_doctor_data.tres" id="3_6kuk0"]
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="3_70rcx"]
 [ext_resource type="Resource" uid="uid://t5u7tent60ek" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/witch_doctor_fields/decaying_and_regular.tres" id="3_cjinf"]
@@ -16,11 +16,13 @@
 [ext_resource type="Resource" uid="uid://coe08ro3qwvaq" path="res://content/cards/legendary_cards/bottled_plague.tres" id="8_gxq2k"]
 [ext_resource type="Resource" uid="uid://qj83u7ifw7cx" path="res://content/cards/legendary_cards/witches_gift.tres" id="9_1er10"]
 [ext_resource type="Script" uid="uid://2dasaxkrjqap" path="res://battle_scene/win_screen/rewards_data/card_reward_data.gd" id="10_3ku7g"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="10_bip3k"]
 [ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="16_k30ah"]
 
 [sub_resource type="Resource" id="Resource_w5vyi"]
 script = ExtResource("10_3ku7g")
 card_pool = Array[ExtResource("6_jfqbt")]([ExtResource("7_bip3k"), ExtResource("8_gxq2k"), ExtResource("9_1er10")])
+display_texture = ExtResource("10_bip3k")
 name = "Legendary Card Reward"
 metadata/_custom_type_script = "uid://2dasaxkrjqap"
 

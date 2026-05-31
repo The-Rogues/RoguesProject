@@ -96,6 +96,12 @@ func create_battle_config() -> BattleConfig:
 		var encounters = get_enemy_encounter_pool(progress).duplicate()
 		var layouts = get_battlefield_layout_pool(progress).duplicate()
 		
+		
+		if progress == 0:
+			enemy_encounter_cache.clear()
+			battle_field_cashe.clear()
+			
+		
 		for encounter in enemy_encounter_cache:
 			encounters.erase(encounter)
 		

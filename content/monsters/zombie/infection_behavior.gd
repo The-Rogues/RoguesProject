@@ -15,10 +15,10 @@ func get_status_name() -> String:
 	return "Infection"
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "On Hit: Attacker gains infection equal to stack. On Turn Ended: Take damage equal to stack (" + str(_instance.stack) + ")"
+	return "On Hit: Attacker gains [color=orange]infection[/color] equal to stack. On Turn Ended: [color=orange]Infection[/color] deals damage equal to stack."
 
 func get_texture() -> Texture2D:
-	return load("res://content/monsters/the_infected/infection.tres")
+	return load("res://content/monsters/zombie/infection.tres")
 
 func on_turn(
 	_creature:AbstractCreature = null,

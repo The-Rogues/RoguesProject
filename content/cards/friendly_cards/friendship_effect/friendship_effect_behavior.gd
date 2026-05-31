@@ -28,8 +28,8 @@ func get_texture() -> Texture2D:
 
 func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
 	if ((_creature.health.value * 1.0) / _creature.health.max_value) <= (_instance.stack * 0.03):
-		_creature.health.kill()
+		_creature.leave_battle("FLEE")
 
 func on_damaged(_attacker: AbstractEntity, _damaged_entity: AbstractEntity, _instance: ActiveStatusEffect):
 	if ((_damaged_entity.health.value * 1.0) / _damaged_entity.health.max_value) <= (_instance.stack * 0.03):
-		_damaged_entity.health.kill()
+		_damaged_entity.leave_battle("FLEE")

@@ -22,6 +22,7 @@ radius = 24.33105
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_eqp4c")
+impact_damage = 27
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=659856792]
 

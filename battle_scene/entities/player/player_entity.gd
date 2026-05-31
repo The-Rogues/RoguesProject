@@ -224,3 +224,13 @@ func register_friend(friend:Friend):
 	friends.append(friend)
 	summoned_friend.emit(friend)
 	Events.friend_summoned.emit(friend)
+
+func on_started_processing_action(in_context: BattleContext):
+	if battle_position.get_object():
+		battle_position.get_object().object_stat_display.interaction_button.visible = false
+	
+func on_all_actions_processed(in_context: BattleContext):
+	if battle_position.get_object() && in_context.is_player_turn:
+		battle_position.get_object().object_stat_display._on_player_entered(
+			battle_position.get_object()
+		)
