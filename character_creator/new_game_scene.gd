@@ -24,8 +24,8 @@ func _on_quick_start_mode_button_up() -> void:
 
 
 func _on_ai_mode_button_up() -> void:
-	GlobalSceneLoader.load_scene(GlobalSceneLoader.AI_Character_Builder)
-	pass # Replace with function body.
+	character_creator.visible = true
+	GlobalSessionManager.pending_ai_mode = true
 
 
 func _on_main_menu_button_up() -> void:

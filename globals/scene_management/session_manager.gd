@@ -5,7 +5,7 @@ class_name SessionManager
 
 var run_progress: RunProgress = null
 var started_session:bool = false
-
+var pending_ai_mode:bool = false
 
 const DEFAULT_STARTING_DECK = preload("res://content/scene_configuration/default_starting_card_deck.tres")
 
@@ -27,6 +27,8 @@ func initialize(data:PlayerInitializationData) -> void:
 	run_progress = create_run(data)
 	initialize_map()
 	
+	run_progress.ai_mode = pending_ai_mode
+	pending_ai_mode = false
 	started_session = true
 	GlobalSaveManager.save_run(run_progress)
 	GlobalSessionInterface.initialize()

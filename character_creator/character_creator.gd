@@ -122,6 +122,7 @@ func _on_name_editor_button_down() -> void:
 
 func _on_cancel_button_up() -> void:
 	visible = false
+	GlobalSessionManager.pending_ai_mode = false
 	pass # Replace with function body.
 
 
