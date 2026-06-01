@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_0t8pa")
-personalities_used = Array[String](["Merciful", "Skittish", "Laidback"])
+personalities_used = Array[String](["Merciful", "Skittish", "Laidback", "Vengeful", "Crafty", "Friendly", "Valorous", "Naive", "Greedy", "Tactical", "Stoic"])
+enemy_encounters_defeated = Array[String](["One Slime", "Rat King", "Zombie", "Two Shrooms", "Ant Intro", "Savage Duo", "Dragon Turtle", "Angry Mushroom", "The Big One", "Warrior Dudes", "Throwback Battle", "Dreamer", "Gatling Worm", "Fire Ant Queen", "Arbitor"])
+tutorial_completed = true
 modified = true
