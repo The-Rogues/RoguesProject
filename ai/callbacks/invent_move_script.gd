@@ -61,15 +61,17 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	
 	if bullet_time:
 		for i in range(0, total_moves):
-			ret_val.play_actions.append(load("res://ai/ai-cards/creative_move/add_dash_action.tres"))
-			ret_val.play_actions.append(load("res://ai/ai-cards/creative_move/draw_dash_action.tres"))
+			ret_val.play_actions.append(load("res://ai/ai-cards/invent_move/add_dash_action.tres"))
+			ret_val.play_actions.append(load("res://ai/ai-cards/invent_move/draw_dash_action.tres"))
 	else:
 		var pref_move_action: MoveTowardPreferrenceAction = MoveTowardPreferrenceAction.new()
 		pref_move_action.num_spaces = total_moves
 		ret_val.play_actions.append(pref_move_action)
 	if next_energy:
-		ret_val.play_actions.append(load("res://ai/ai-cards/creative_move/next_energy_action.tres"))
+		ret_val.play_actions.append(load("res://ai/ai-cards/invent_move/next_energy_action.tres"))
 	
 	# Add the battle move to the card data and return.
 	# ret_val.move = ret_move
+	ret_val.category = CardData.Category.TRAITLESS
+	ret_val.display_texture = load("res://common/art/placeholder/joi3/traitless_texture.tres")
 	return ret_val

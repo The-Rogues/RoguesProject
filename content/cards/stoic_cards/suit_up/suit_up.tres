@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bnxuepr12mnxx"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_5beiy"]
+[ext_resource type="Texture2D" uid="uid://omffyiuy3df" path="res://common/art/placeholder/joi3/stoic_icon.tres" id="1_ggiqk"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_hqffc"]
 [ext_resource type="Script" uid="uid://c8hd1f80oye2s" path="res://content/cards/stoic_cards/suit_up/armor/armor_behavior.gd" id="2_utlbq"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_udy62"]
@@ -30,6 +31,7 @@ type = 2
 category = 2
 energy_cost = 3
 name = "Suit Up"
+display_texture = ExtResource("1_ggiqk")
 description = "Gain [color=#43A047]8[/color] [color=orange]armor[/color]."
 play_actions = Array[ExtResource("1_5beiy")]([SubResource("Resource_uv7x6")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

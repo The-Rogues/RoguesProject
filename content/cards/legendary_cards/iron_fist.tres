@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dvntgnsyslkwr"]
 
-[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_4uef6"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_8wbjp"]
+[ext_resource type="Texture2D" uid="uid://cyegnkl2bdw00" path="res://common/art/placeholder/joi3/legendary_icon.tres" id="1_igiju"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_glpm3"]
 [ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="3_3udj0"]
 [ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="4_d7wj2"]
@@ -23,7 +23,7 @@ script = ExtResource("2_glpm3")
 category = 4
 energy_cost = 2
 name = "Iron Fist"
-display_texture = ExtResource("1_4uef6")
+display_texture = ExtResource("1_igiju")
 description = "Deal get_atk6x3 damage. Gain 10 block."
 play_actions = Array[ExtResource("1_8wbjp")]([SubResource("Resource_oa3sc"), SubResource("Resource_r6qcn")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

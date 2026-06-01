@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bng6s3h0uuec3"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_1l0mw"]
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_l3wix"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_hf64u"]
 [ext_resource type="Script" uid="uid://dexkyaig026pu" path="res://content/cards/brute_cards/war_machine_effect/war_machine_effect.gd" id="2_qkfc1"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_l3wix"]
@@ -28,6 +29,7 @@ type = 3
 category = 1
 energy_cost = 2
 name = "War Machine"
+display_texture = ExtResource("1_l3wix")
 description = "Every turn, gain [color=#43A047]2[/color] [color=orange]rage[/color] and lose [color=#43A047]1[/color] [color=orange]offense[/color]. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_1l0mw")]([SubResource("Resource_yp3wb")])

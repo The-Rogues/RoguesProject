@@ -13,6 +13,7 @@ region = Rect2(192, 192, 32, 32)
 [resource]
 script = ExtResource("2_rv47i")
 type = 5
+category = 5
 name = "Mr Bat"
 display_texture = SubResource("AtlasTexture_njux4")
 description = "It's a Monstermon card! Cool but incompatible with this game."

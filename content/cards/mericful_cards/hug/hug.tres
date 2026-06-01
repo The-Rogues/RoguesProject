@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://drusengu3gs5f"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_bxgd3"]
+[ext_resource type="Texture2D" uid="uid://hi7wmsmd5iab" path="res://common/art/placeholder/joi3/merciful_icon.tres" id="1_vivec"]
 [ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="2_vivec"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_r85fp"]
 [ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_nytxf"]
@@ -40,6 +41,7 @@ script = ExtResource("7_2a2pa")
 category = 1
 energy_cost = 1
 name = "Hug"
+display_texture = ExtResource("1_vivec")
 description = "Undamaged enemies gain [color=#43A047]5[/color] [color=orange]friendship[/color]. Deal [color=red]6[/color] damage to all enemies."
 play_actions = Array[ExtResource("1_bxgd3")]([SubResource("Resource_54ybl"), SubResource("Resource_j6wif")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

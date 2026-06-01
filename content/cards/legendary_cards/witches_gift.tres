@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://qj83u7ifw7cx"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_jpdyu"]
+[ext_resource type="Texture2D" uid="uid://cyegnkl2bdw00" path="res://common/art/placeholder/joi3/legendary_icon.tres" id="1_scoke"]
 [ext_resource type="Script" uid="uid://bdpfrus5vumk" path="res://battle_scene/entities/actions/skill/heal_action.gd" id="2_fn2tf"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_ixabc"]
 [ext_resource type="Script" uid="uid://d1kuqw84jswgt" path="res://content/cards/greedy_cards/cash_in/draw_card_action.gd" id="3_nquuk"]
@@ -22,6 +23,7 @@ type = 2
 category = 4
 energy_cost = 1
 name = "Witches' Gift"
+display_texture = ExtResource("1_scoke")
 description = "Heal [color=#43A047]5[/color] HP. Draw [color=#43A047]2[/color] cards. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_jpdyu")]([SubResource("Resource_ahaj5"), SubResource("Resource_vfdq2")])

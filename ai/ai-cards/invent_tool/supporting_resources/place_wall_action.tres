@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FrontPlaceAction" format=3 uid="uid://160avpnfeoxc"]
+[gd_resource type="Resource" script_class="FrontPlaceAction" format=3 uid="uid://bbry7cpqqx0df"]
 
 [ext_resource type="Resource" uid="uid://c7o17vcl7l0jp" path="res://content/objects/crafted_wall/crafted_wall.tres" id="1_g0ibo"]
 [ext_resource type="Script" uid="uid://m5qkfgef5y8k" path="res://ai/ai-cards/invent_tool/front_place_action.gd" id="2_vktmj"]

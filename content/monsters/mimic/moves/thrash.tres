@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_xkehd"]
 script = ExtResource("2_sw61b")
-max_damage = 20
-base_damage = 10
+max_damage = 5
+base_damage = 5
 target_option = 1
 metadata/_custom_type_script = "uid://dwljy2imh2ge8"
 
@@ -15,6 +15,6 @@ metadata/_custom_type_script = "uid://dwljy2imh2ge8"
 script = ExtResource("1_lqi2t")
 intent_icon = ExtResource("1_tcn7m")
 name = "Thrash"
-description = "This Enemy intends to attack for get_atk10-get_atk20 damage."
+description = "This Enemy intends to attack for 5 damage."
 primary_action = SubResource("Resource_xkehd")
 metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -12,7 +12,7 @@
 script = ExtResource("2_162uc")
 card_pool = Array[ExtResource("1_gtd10")]([ExtResource("3_1pqmr"), ExtResource("4_i7nua"), ExtResource("5_2cogw"), ExtResource("6_exvw0")])
 texture = ExtResource("8_7h4y7")
-name = "Open Greedy card pack"
+name = "Greedy Card Pack"
 description = "Choose 1 Greedy card pack to add to your deck"
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

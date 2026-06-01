@@ -51,11 +51,11 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	# Generate the description for the card.
 	ret_val.description = "Gain "
 	if armor_convert && add_toughness:
-		ret_val.description += "[color=#43A047]" + str(total_def) + "[/color] [color=orange]armor[/color]. Gain [color=#43A047]2[/color] [color=orange]armored[/color]."
+		ret_val.description += "[color=#43A047]" + str(total_def) + "[/color] [color=orange]armor[/color]. Gain [color=#43A047]2[/color] [color=orange]toughness[/color]."
 	elif armor_convert: 
 		ret_val.description += "[color=#43A047]" + str(total_def) + "[/color] [color=orange]armor[/color]."
 	elif add_toughness:
-		ret_val.description += "[color=deep_sky_blue]" + str(total_def) + "[/color] block. Gain [color=#43A047]2[/color] [color=orange]armored[/color]."
+		ret_val.description += "[color=deep_sky_blue]" + str(total_def) + "[/color] block. Gain [color=#43A047]2[/color] [color=orange]toughness[/color]."
 	else:
 		ret_val.description += "[color=deep_sky_blue]" + str(total_def) + "[/color] block."
 	
@@ -78,9 +78,11 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	# Add a second action if the defensive option was selected.
 	ret_val.play_actions.append(first_action)
 	if add_toughness:
-		var toughness_action: ApplyStatusAction = load("res://ai/ai-cards/inventive_defend/inventive_defend_toughness.tres")
+		var toughness_action: ApplyStatusAction = load("res://ai/ai-cards/invent_defend/inventive_defend_toughness.tres")
 		ret_val.play_actions.append(toughness_action)
 	
 	# Add the battle move to the card data and return.
 	# ret_val.move = ret_move
+	ret_val.category = CardData.Category.TRAITLESS
+	ret_val.display_texture = load("res://common/art/placeholder/joi3/traitless_texture.tres")
 	return ret_val

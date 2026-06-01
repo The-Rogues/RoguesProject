@@ -12,7 +12,7 @@
 script = ExtResource("2_aqqsj")
 card_pool = Array[ExtResource("1_y3qhp")]([ExtResource("2_53lsk"), ExtResource("4_frr61"), ExtResource("5_jwvip"), ExtResource("6_sbrm7")])
 texture = ExtResource("8_uld6i")
-name = "Open Crafty card pack"
-description = "Choose 1 Crafty card to add to your deck."
+name = "Crafty Card Pack"
+description = "Crafty Card Pack"
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

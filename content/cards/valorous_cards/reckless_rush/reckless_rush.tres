@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dwa84lbuuo3xt"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_5a1by"]
+[ext_resource type="Texture2D" uid="uid://duwn2qipdjoo" path="res://common/art/placeholder/joi3/valorous_icon.tres" id="1_40s5j"]
 [ext_resource type="Script" uid="uid://c43wics2prwvd" path="res://content/cards/valorous_cards/reckless_rush/total_stat_attack_action.gd" id="2_40s5j"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_mobee"]
 
@@ -14,6 +15,7 @@ script = ExtResource("2_mobee")
 category = 3
 energy_cost = 1
 name = "Reckless Rush"
+display_texture = ExtResource("1_40s5j")
 description = "Deal damage to an enemy equal to all stat points."
 play_actions = Array[ExtResource("1_5a1by")]([SubResource("Resource_8pxn5")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

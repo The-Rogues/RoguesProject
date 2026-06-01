@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("5_eaj5n")
 encounter_name = "All Cards Encounter"
-enemies = Array[ExtResource("2_yqad0")]([ExtResource("3_4md3h")])
+enemies = Array[ExtResource("2_yqad0")]([ExtResource("3_4md3h"), ExtResource("3_4md3h"), ExtResource("3_4md3h"), ExtResource("3_4md3h")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

@@ -67,9 +67,10 @@
 [ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/go_easy/go_easy.tres" id="59_l82h4"]
 [ext_resource type="Resource" uid="uid://dr7erqcrd1tpq" path="res://content/cards/laidback_cards/lock_in.tres" id="60_q4ssh"]
 [ext_resource type="Resource" uid="uid://b0w7q3nduf8j2" path="res://content/cards/greedy_cards/cash_in/cash_in.tres" id="61_dsyss"]
-[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/carrot_treat.tres" id="62_4y10y"]
+[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="62_4y10y"]
 [ext_resource type="Resource" uid="uid://dv4ljbon6org0" path="res://content/cards/crafty_cards/entrench/entrench.tres" id="63_nvmi5"]
 [ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/sustain.tres" id="64_b448x"]
+
 
 [resource]
 script = ExtResource("2_xwdym")

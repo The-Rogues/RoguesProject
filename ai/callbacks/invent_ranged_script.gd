@@ -76,4 +76,6 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	
 	# Add the battle move to the card data and return.
 	# ret_val.move = ret_move
+	ret_val.category = CardData.Category.TRAITLESS
+	ret_val.display_texture = load("res://common/art/placeholder/joi3/traitless_texture.tres")
 	return ret_val

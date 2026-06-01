@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://co1voym0erjbi"]
 
+[ext_resource type="Texture2D" uid="uid://duiccro4838pm" path="res://common/art/placeholder/joi3/traitless_texture.tres" id="1_02eht"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_54vn6"]
 [ext_resource type="Script" uid="uid://gsq64b5tb0th" path="res://battle_scene/entities/actions/skill/directional_move_action.gd" id="2_jo1ub"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_02eht"]
@@ -19,6 +20,7 @@ metadata/_custom_type_script = "uid://d1kuqw84jswgt"
 script = ExtResource("3_02eht")
 type = 2
 name = "Dash Left"
+display_texture = ExtResource("1_02eht")
 description = "Move [color=#43A047]1[/color] space to the left. Draw [color=#43A047]1[/color] card. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_54vn6")]([SubResource("Resource_b64wg"), SubResource("Resource_02eht")])

@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://2m04j4nr2sfx"]
 
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_t1hjq"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_thcs7"]
 [ext_resource type="Script" uid="uid://dcabksqrj75i0" path="res://content/cards/brute_cards/rage_effect/rage_status_effect.gd" id="2_gyfsk"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_y2635"]
@@ -36,6 +37,7 @@ type = 2
 category = 1
 energy_cost = 2
 name = "Breaking Point"
+display_texture = ExtResource("1_t1hjq")
 description = "Gain [color=#43A047]3[/color] [color=orange]rage[/color]. Lose [color=#43A047]2[/color] [color=orange]offense[/color]."
 play_actions = Array[ExtResource("1_thcs7")]([SubResource("Resource_qbfnu"), SubResource("Resource_wywm3")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

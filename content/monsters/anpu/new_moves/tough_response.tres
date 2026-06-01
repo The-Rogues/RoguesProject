@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://bdpfrus5vumk"
 script = ExtResource("1_fv2dc")
 intent_icon = ExtResource("1_8jnf5")
 name = "Tough Response"
-description = "Gains [color=#43A047]2[/color] [color=orange]armored[/color]. Heals [color=#43A047]6[/color] HP."
+description = "Gains [color=#43A047]2[/color] [color=orange]toughness[/color]. Heals [color=#43A047]6[/color] HP."
 primary_action = SubResource("Resource_7na10")
 secondary_action = SubResource("Resource_55fre")
 metadata/_custom_type_script = "uid://c410dannt5adg"

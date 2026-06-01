@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bgdai8ivk0ewn"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_37558"]
+[ext_resource type="Texture2D" uid="uid://dg55ijoqt8cxc" path="res://common/art/placeholder/joi3/naive_icon.tres" id="1_v2pma"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_ithr1"]
 [ext_resource type="Script" uid="uid://cmtvhdvaoqfdy" path="res://battle_scene/entities/status_effects/common/scared_status_effect.gd" id="3_vj6ya"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_bjh1m"]
@@ -31,6 +32,7 @@ type = 2
 category = 2
 energy_cost = 2
 name = "Intimidate"
+display_texture = ExtResource("1_v2pma")
 description = "Apply [color=#43A047]2[/color] [color=orange]scared[/color] to all enemies. [color=orange]Single use[/color]. "
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_37558")]([SubResource("Resource_lo3vq")])

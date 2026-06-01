@@ -40,6 +40,6 @@ script = ExtResource("1_7fukp")
 type = 1
 intent_icon = ExtResource("1_0xyra")
 name = "Chaotic Protection"
-description = "Randomly gains [color=#43A047]2[/color] [color=orange]armored[/color] or [color=#43A047]6[/color] [color=orange]armor[/color]."
+description = "Randomly gains [color=#43A047]2[/color] [color=orange]toughness[/color] or [color=#43A047]6[/color] [color=orange]armor[/color]."
 primary_action = SubResource("Resource_37sr1")
 metadata/_custom_type_script = "uid://c410dannt5adg"

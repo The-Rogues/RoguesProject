@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bhtywhphbire1"]
 
+[ext_resource type="Texture2D" uid="uid://omffyiuy3df" path="res://common/art/placeholder/joi3/stoic_icon.tres" id="1_afv0p"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_pewt7"]
 [ext_resource type="Script" uid="uid://b64uijfohxxcp" path="res://content/cards/stoic_cards/fearsome_armor/MissingHpBlockAction.gd" id="2_afv0p"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_sw4py"]
@@ -16,6 +17,7 @@ type = 2
 category = 2
 energy_cost = 3
 name = "Fearsome Armor"
+display_texture = ExtResource("1_afv0p")
 description = "Gain block equal to target enemy's missing HP."
 play_actions = Array[ExtResource("1_pewt7")]([SubResource("Resource_yk4wd")])
 shop_price = 20

@@ -1,53 +1,516 @@
-[gd_resource type="Resource" script_class="RunProgress" format=3]
+[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://c13vky1ubqe60"]
 
-[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_sds6a"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_jfmdv"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_uahfr"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_ce22o"]
-[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_3l5uq"]
-[ext_resource type="Resource" path="res://content/cards/legendary_cards/flamethrower.tres" id="6_7xv35"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="7_8qiin"]
-[ext_resource type="Script" path="res://item_system/item_data.gd" id="8_iofhu"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="9_5nlej"]
-[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="10_k3uip"]
-[ext_resource type="Resource" path="res://content/personality_traits/merciful.tres" id="11_t60l6"]
-[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="12_7v8y8"]
-[ext_resource type="Resource" path="res://content/personality_traits/laidback.tres" id="13_5lbfv"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/wooden_stick.tres" id="14_ff1hj"]
-[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="15_rjjt7"]
-[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="16_ugj3v"]
-[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="17_ju2aj"]
-[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="18_7cy65"]
-[ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="19_21v4l"]
-[ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="20_shnnu"]
+[ext_resource type="Resource" uid="uid://bc63e35x0qq8x" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/upgrade_advantage.tres" id="1_k7d58"]
+[ext_resource type="Resource" uid="uid://btrruu1ioyvr" path="res://content/scene_configuration/enemy_encounters/tier_1_encounters/zombie.tres" id="2_wh6of"]
+[ext_resource type="Script" uid="uid://0uapyx4rgked" path="res://globals/save_system/battle_config_data.gd" id="3_k3uip"]
+[ext_resource type="Script" uid="uid://ca72dih23u8s2" path="res://globals/save_system/card_instance_save_data.gd" id="4_t60l6"]
+[ext_resource type="Script" uid="uid://cml6kf0r7ttgh" path="res://globals/save_system/monster_save_data.gd" id="5_7v8y8"]
+[ext_resource type="Resource" uid="uid://4dob4uruga2l" path="res://content/cards/mericful_cards/go_easy/go_easy.tres" id="5_inowl"]
+[ext_resource type="Script" uid="uid://cu82a6dl801qd" path="res://globals/save_system/object_save_data.gd" id="6_5lbfv"]
+[ext_resource type="Resource" uid="uid://80pqdh7gdct" path="res://content/cards/naive_cards/inspiration.tres" id="6_qslcd"]
+[ext_resource type="Resource" uid="uid://cyxgjv35btnb8" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_monster.tres" id="6_wh6of"]
+[ext_resource type="Script" uid="uid://432ln1nwxdgl" path="res://battle_scene/win_screen/rewards_data/battle_reward_data.gd" id="7_ff1hj"]
+[ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/shiny_shot/shiny_shot.tres" id="7_qders"]
+[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/sustain.tres" id="8_h18ab"]
+[ext_resource type="Script" uid="uid://dyoxrjh76b6ab" path="res://globals/save_system/battle_save_data.gd" id="8_rjjt7"]
+[ext_resource type="Resource" uid="uid://csx8hlmpj7sbe" path="res://content/cards/skittish_cards/leap.tres" id="9_t1l4y"]
+[ext_resource type="Resource" uid="uid://brrt7tmm8x51q" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_player.tres" id="9_wh6of"]
+[ext_resource type="Texture2D" uid="uid://csem5lpkfo6te" path="res://content/monsters/reaper/reaper_texture.tres" id="10_br818"]
+[ext_resource type="Resource" uid="uid://dfc8q54ijvx5g" path="res://content/cards/vengeful_cards/overload.tres" id="10_gsmka"]
+[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="11_58t2i"]
+[ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="11_inowl"]
+[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://globals/scene_management/run_progress.gd" id="11_uahfr"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="12_ce22o"]
+[ext_resource type="Resource" uid="uid://dt6fseflbysgv" path="res://content/cards/valorous_cards/fortitude/fortitude.tres" id="13_qders"]
+[ext_resource type="Resource" uid="uid://b04kldgtljpie" path="res://content/cards/traitless_cards/dash.tres" id="13_qslcd"]
+[ext_resource type="Resource" uid="uid://cveo1a1cklvwm" path="res://content/cards/mericful_cards/betray/betray.tres" id="13_r3c5t"]
+[ext_resource type="Resource" uid="uid://da2h4oxxjao8w" path="res://content/cards/stoic_cards/challenge/challenge.tres" id="14_ss8s3"]
+[ext_resource type="Resource" uid="uid://doo3cpvgs6bvq" path="res://content/cards/traitless_cards/adapt.tres" id="15_x5x1y"]
+[ext_resource type="Resource" uid="uid://bb7438h573jfl" path="res://content/cards/traitless_cards/move.tres" id="17_ai1ww"]
+[ext_resource type="Resource" uid="uid://cb0st71k4otu3" path="res://content/cards/stoic_cards/brave_recovery/brave_recovery.tres" id="18_h18ab"]
+[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="18_qders"]
+[ext_resource type="Resource" uid="uid://dwa84lbuuo3xt" path="res://content/cards/valorous_cards/reckless_rush/reckless_rush.tres" id="18_qjinr"]
+[ext_resource type="Resource" uid="uid://bvmlgyi3ettn8" path="res://content/cards/traitless_cards/frozen_shot.tres" id="19_ig3j8"]
+[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="19_t1l4y"]
+[ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="20_2o7wr"]
+[ext_resource type="Resource" uid="uid://qj83u7ifw7cx" path="res://content/cards/legendary_cards/witches_gift.tres" id="22_gsmka"]
+[ext_resource type="Resource" uid="uid://1adonejv7y0u" path="res://content/monsters/witch_doctor/cards/cure.tres" id="22_mul4m"]
+[ext_resource type="Resource" uid="uid://bgutrc02omy4f" path="res://content/cards/tactical_cards/fire_tipped/fire_tipped.tres" id="24_h18ab"]
+[ext_resource type="Resource" uid="uid://bjbxhyfv2wbnd" path="res://content/cards/naive_cards/tough_skin.tres" id="24_tqssc"]
+[ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="26_uk8cw"]
+[ext_resource type="Resource" uid="uid://rq7lxh5t1a8g" path="res://content/cards/laidback_cards/patient_blow.tres" id="27_v7lfx"]
+[ext_resource type="Resource" uid="uid://4g6ek1m3qggg" path="res://content/cards/skittish_cards/cower.tres" id="28_8xaxy"]
+[ext_resource type="Resource" uid="uid://bow86evniw8ko" path="res://content/cards/traitless_cards/dash_right.tres" id="29_58t2i"]
+[ext_resource type="Resource" uid="uid://dur021l6wwpqo" path="res://content/cards/skittish_cards/hold_your_ground.tres" id="29_lwxe1"]
+[ext_resource type="Resource" uid="uid://pvnvvs8t4paq" path="res://content/cards/vengeful_cards/arsenal.tres" id="30_kbkob"]
+[ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/crawly_friend.tres" id="32_t1l4y"]
+[ext_resource type="Resource" uid="uid://bnxuepr12mnxx" path="res://content/cards/stoic_cards/suit_up/suit_up.tres" id="33_gh4yv"]
+[ext_resource type="Resource" uid="uid://bs8hbhwulqly3" path="res://content/cards/legendary_cards/rapid_fire.tres" id="34_wa82d"]
+[ext_resource type="Resource" uid="uid://cu00lkobobbmb" path="res://content/monsters/fire_ant/cards/itchy.tres" id="35_0kvjq"]
+[ext_resource type="Resource" uid="uid://cjme7k82wlw03" path="res://content/cards/legendary_cards/immunity/immunity.tres" id="36_mw8pw"]
+[ext_resource type="Resource" uid="uid://b0e3y8sjlb5ki" path="res://content/cards/valorous_cards/final_surge/final_surge.tres" id="36_nd4qu"]
+[ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="37_6akrb"]
+[ext_resource type="Resource" uid="uid://m7ighmtyec2a" path="res://content/cards/stoic_cards/gaurded_assault/gaurded_assault.tres" id="38_q1dnx"]
+[ext_resource type="Resource" uid="uid://eoarmxrechlt" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="38_r3c5t"]
+[ext_resource type="Resource" uid="uid://coe08ro3qwvaq" path="res://content/cards/legendary_cards/bottled_plague.tres" id="39_ss8s3"]
+[ext_resource type="Resource" uid="uid://2m04j4nr2sfx" path="res://content/cards/brute_cards/breaking_point.tres" id="39_v2vd7"]
+[ext_resource type="Resource" uid="uid://bjmif7jljymoe" path="res://content/cards/traitless_cards/defend.tres" id="40_0xs1h"]
+[ext_resource type="Resource" uid="uid://8hl6h527kkwv" path="res://content/cards/traitless_cards/shield_break.tres" id="43_3q4j0"]
+[ext_resource type="Resource" uid="uid://dr7erqcrd1tpq" path="res://content/cards/laidback_cards/lock_in.tres" id="43_gsmka"]
+[ext_resource type="Resource" uid="uid://dkuh4lea68efk" path="res://content/cards/valorous_cards/side_quest/side_quest.tres" id="44_x5x1y"]
+[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="45_d3urf"]
+[ext_resource type="Resource" uid="uid://bsnkhs3iathog" path="res://content/cards/legendary_cards/loyal_friend.tres" id="45_lx5ak"]
+[ext_resource type="Resource" uid="uid://bchnqrjy0vhrh" path="res://content/cards/mericful_cards/tag/tag.tres" id="47_u2u6a"]
+[ext_resource type="Resource" uid="uid://co1voym0erjbi" path="res://content/cards/traitless_cards/dash_left.tres" id="48_ai1ww"]
+[ext_resource type="Resource" uid="uid://byitply045k01" path="res://content/cards/traitless_cards/strike.tres" id="48_tlc3m"]
+[ext_resource type="Resource" uid="uid://u6speansnd8p" path="res://content/cards/tactical_cards/quick_draw/quick_draw.tres" id="50_ig3j8"]
+[ext_resource type="Resource" uid="uid://bt0y1yjcdst8s" path="res://content/cards/tactical_cards/flow_state/flow_state.tres" id="51_2o7wr"]
+[ext_resource type="Resource" uid="uid://dt07iyph77k70" path="res://content/cards/skittish_cards/escape_plan/escape_plan.tres" id="52_x3hro"]
+[ext_resource type="Resource" uid="uid://cqym7pxoy0cnt" path="res://content/cards/mericful_cards/heartbreak_shot/heartbreak_shot.tres" id="55_3y0a3"]
+[ext_resource type="Resource" uid="uid://bgdai8ivk0ewn" path="res://content/cards/naive_cards/intimidate.tres" id="56_mul4m"]
+[ext_resource type="Resource" uid="uid://c5c5gayhxndy0" path="res://content/cards/vengeful_cards/frenzy.tres" id="57_pwd8k"]
+[ext_resource type="Resource" uid="uid://bhtywhphbire1" path="res://content/cards/stoic_cards/fearsome_armor/fearsome_armor.tres" id="58_v51lu"]
+[ext_resource type="Resource" uid="uid://dy3ixqkqfrwer" path="res://content/cards/friendly_cards/playdate.tres" id="59_s4v5w"]
+[ext_resource type="Resource" uid="uid://bhnmqjrvedryq" path="res://content/cards/tactical_cards/reload/reload.tres" id="60_6ktgc"]
+[ext_resource type="Resource" uid="uid://df8onaglb031c" path="res://content/cards/greedy_cards/life_savings/life_savings.tres" id="62_0fbo3"]
+[ext_resource type="Resource" uid="uid://c4hg7so7onlbq" path="res://content/cards/laidback_cards/calm_guard.tres" id="63_jvm6o"]
+[ext_resource type="Resource" uid="uid://dvntgnsyslkwr" path="res://content/cards/legendary_cards/iron_fist.tres" id="64_as20j"]
+[ext_resource type="Resource" uid="uid://rb7fqo2eigtv" path="res://content/cards/skittish_cards/shifty/shifty.tres" id="65_58t2i"]
+[ext_resource type="Resource" uid="uid://oewr7q0fn6ms" path="res://content/cards/laidback_cards/game_plan.tres" id="65_ddfsm"]
+[ext_resource type="Resource" uid="uid://8cc0qb3afpjw" path="res://content/cards/traitless_cards/arrow_shot.tres" id="66_4ji6h"]
+[ext_resource type="Resource" uid="uid://drusengu3gs5f" path="res://content/cards/mericful_cards/hug/hug.tres" id="68_6yh6q"]
+[ext_resource type="Resource" uid="uid://dui2cujdu8hw7" path="res://content/cards/friendly_cards/handshake.tres" id="69_mkarw"]
+[ext_resource type="Resource" uid="uid://dh8j660cfica4" path="res://content/cards/vengeful_cards/growing_fury.tres" id="69_tqssc"]
+[ext_resource type="Resource" uid="uid://knf7yagaaaxo" path="res://content/cards/brute_cards/warm_up.tres" id="70_u68ll"]
+[ext_resource type="Resource" uid="uid://de5b8p156d76s" path="res://content/cards/tactical_cards/charge_shot/charge_shot.tres" id="73_4qaid"]
+[ext_resource type="Resource" uid="uid://b0w7q3nduf8j2" path="res://content/cards/greedy_cards/cash_in/cash_in.tres" id="74_lemhm"]
+[ext_resource type="Resource" uid="uid://bng6s3h0uuec3" path="res://content/cards/brute_cards/war_machine.tres" id="76_v7lfx"]
+[ext_resource type="Resource" uid="uid://cwj0ql2eool6q" path="res://content/cards/valorous_cards/crushing_presence.tres" id="77_8xaxy"]
+[ext_resource type="Resource" uid="uid://dv4ljbon6org0" path="res://content/cards/crafty_cards/entrench/entrench.tres" id="80_0i1h0"]
+[ext_resource type="Resource" uid="uid://dxtj0ia4nmsqt" path="res://content/cards/tactical_cards/reload/agile_shot.tres" id="80_gh4yv"]
+[ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/icey_friend.tres" id="80_kbkob"]
+[ext_resource type="Resource" uid="uid://ce81qrnyt4akj" path="res://content/cards/naive_cards/over_prepared.tres" id="81_h8nes"]
+[ext_resource type="Resource" uid="uid://3eathy5ylmpr" path="res://content/cards/greedy_cards/gold_rush/gold_rush.tres" id="81_tot21"]
 
-[sub_resource type="Resource" id="Resource_kdvyb"]
-script = ExtResource("12_7v8y8")
-offensive_trait = ExtResource("11_t60l6")
-offensive_weight = 2
-defensive_trait = ExtResource("10_k3uip")
-defensive_weight = 1
-strategic_trait = ExtResource("13_5lbfv")
-strategic_weight = 1
-priority_trait = ExtResource("11_t60l6")
+[sub_resource type="Resource" id="Resource_k7d58"]
+script = ExtResource("3_k3uip")
+enemy_encounter = ExtResource("2_wh6of")
+battle_field_config = ExtResource("1_k7d58")
 
-[sub_resource type="Resource" id="Resource_12cju"]
-script = ExtResource("15_rjjt7")
-name = "Boaz"
-character_texture = ExtResource("7_8qiin")
-melee_weapon_texture = ExtResource("9_5nlej")
-ranged_weapon_texture = ExtResource("14_ff1hj")
-max_health = 50
-current_health = 50
-max_energy = 3
-item_capacity = 3
-cards = Array[ExtResource("1_sds6a")]([ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("5_3l5uq"), ExtResource("5_3l5uq"), ExtResource("6_7xv35")])
-personality = SubResource("Resource_kdvyb")
+[sub_resource type="Resource" id="Resource_mw8pw"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("76_v7lfx")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_r3c5t"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("8_h18ab")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_ss8s3"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("45_d3urf")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_x5x1y"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("11_58t2i")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_lx5ak"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("77_8xaxy")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_ai1ww"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("33_gh4yv")
+energy_cost = 3
+
+[sub_resource type="Resource" id="Resource_qjinr"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("11_inowl")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_ig3j8"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("18_qjinr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_2o7wr"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("13_qslcd")
+
+[sub_resource type="Resource" id="Resource_x3hro"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("7_qders")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_mul4m"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("18_h18ab")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_v6fwf"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("36_nd4qu")
+energy_cost = 10
+
+[sub_resource type="Resource" id="Resource_tqssc"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("35_0kvjq")
+
+[sub_resource type="Resource" id="Resource_u68ll"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("18_qders")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_uk8cw"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("44_x5x1y")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_v7lfx"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("81_tot21")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_8xaxy"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("43_3q4j0")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_lwxe1"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("73_4qaid")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_kbkob"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("5_inowl")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_h8nes"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("24_h18ab")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_3tsfq"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("37_6akrb")
+
+[sub_resource type="Resource" id="Resource_gh4yv"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("74_lemhm")
+
+[sub_resource type="Resource" id="Resource_wa82d"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("57_pwd8k")
+energy_cost = 3
+
+[sub_resource type="Resource" id="Resource_0kvjq"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("56_mul4m")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_nd4qu"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("13_qders")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_6akrb"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("68_6yh6q")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_q1dnx"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("36_mw8pw")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_v2vd7"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("32_t1l4y")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_0xs1h"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("17_ai1ww")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_gkbf1"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("29_58t2i")
+
+[sub_resource type="Resource" id="Resource_cj0xf"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("81_h8nes")
+energy_cost = 3
+
+[sub_resource type="Resource" id="Resource_3q4j0"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("45_lx5ak")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_745vm"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("30_kbkob")
+energy_cost = 3
+
+[sub_resource type="Resource" id="Resource_d3urf"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("14_ss8s3")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_rka5f"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("63_jvm6o")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_u2u6a"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("13_r3c5t")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_tlc3m"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("80_kbkob")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_k3671"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("52_x3hro")
+energy_cost = 3
+
+[sub_resource type="Resource" id="Resource_e3srw"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("43_gsmka")
+
+[sub_resource type="Resource" id="Resource_atrgb"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("69_mkarw")
+
+[sub_resource type="Resource" id="Resource_t6pam"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("55_3y0a3")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_jsi10"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("27_v7lfx")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_mkhr0"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("51_2o7wr")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_3y0a3"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("6_qslcd")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_6ty1w"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("39_v2vd7")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_pwd8k"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("38_q1dnx")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_v51lu"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("80_0i1h0")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_s4v5w"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("40_0xs1h")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_6ktgc"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("10_gsmka")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_c74df"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("24_tqssc")
+
+[sub_resource type="Resource" id="Resource_0fbo3"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("22_gsmka")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_jvm6o"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("50_ig3j8")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_as20j"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("34_wa82d")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_ddfsm"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("48_ai1ww")
+
+[sub_resource type="Resource" id="Resource_4ji6h"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("47_u2u6a")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_p4jpa"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("19_t1l4y")
+energy_cost = 3
+
+[sub_resource type="Resource" id="Resource_6yh6q"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("20_2o7wr")
+
+[sub_resource type="Resource" id="Resource_mkarw"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("62_0fbo3")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_lbn5v"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("15_x5x1y")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_m68wa"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("60_6ktgc")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_bie2p"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("65_58t2i")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_4qaid"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("9_t1l4y")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_lemhm"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("80_gh4yv")
+
+[sub_resource type="Resource" id="Resource_ujq2j"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("48_tlc3m")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_usock"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("70_u68ll")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_h1clr"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("22_mul4m")
+
+[sub_resource type="Resource" id="Resource_cu0rk"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("38_r3c5t")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_0i1h0"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("64_as20j")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_tot21"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("59_s4v5w")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_w5kf2"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("29_lwxe1")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_274dl"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("69_tqssc")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_aio07"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("39_ss8s3")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_a1xmu"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("26_uk8cw")
+energy_cost = 2
+
+[sub_resource type="Resource" id="Resource_4mpl0"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("66_4ji6h")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_iye0k"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("58_v51lu")
+energy_cost = 3
+
+[sub_resource type="Resource" id="Resource_0wa2o"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("65_ddfsm")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_bvjsx"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("19_ig3j8")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_5adha"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("28_8xaxy")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_upqny"]
+script = ExtResource("5_7v8y8")
+monster_data = ExtResource("6_wh6of")
+current_health = 1004
+max_health = 1004
+
+[sub_resource type="Resource" id="Resource_br818"]
+script = ExtResource("5_7v8y8")
+monster_data = ExtResource("6_wh6of")
+current_health = 1004
+max_health = 1004
+
+[sub_resource type="Resource" id="Resource_r5eiv"]
+script = ExtResource("5_7v8y8")
+monster_data = ExtResource("6_wh6of")
+current_health = 1006
+max_health = 1006
+
+[sub_resource type="Resource" id="Resource_fcpjs"]
+script = ExtResource("5_7v8y8")
+monster_data = ExtResource("6_wh6of")
+current_health = 1006
+max_health = 1006
+
+[sub_resource type="Resource" id="Resource_wh6of"]
+script = ExtResource("8_rjjt7")
+is_active = true
+resume_node_index = -1
+battle_config = SubResource("Resource_k7d58")
+enemy_states = Array[ExtResource("5_7v8y8")]([SubResource("Resource_upqny"), SubResource("Resource_br818"), SubResource("Resource_r5eiv"), SubResource("Resource_fcpjs")])
+draw_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_mw8pw"), SubResource("Resource_r3c5t"), SubResource("Resource_ss8s3"), SubResource("Resource_x5x1y"), SubResource("Resource_lx5ak"), SubResource("Resource_ai1ww"), SubResource("Resource_qjinr"), SubResource("Resource_ig3j8"), SubResource("Resource_2o7wr"), SubResource("Resource_x3hro"), SubResource("Resource_mul4m"), SubResource("Resource_v6fwf"), SubResource("Resource_tqssc"), SubResource("Resource_u68ll"), SubResource("Resource_uk8cw"), SubResource("Resource_v7lfx"), SubResource("Resource_8xaxy"), SubResource("Resource_lwxe1"), SubResource("Resource_kbkob"), SubResource("Resource_h8nes"), SubResource("Resource_3tsfq"), SubResource("Resource_gh4yv"), SubResource("Resource_wa82d"), SubResource("Resource_0kvjq"), SubResource("Resource_nd4qu"), SubResource("Resource_6akrb"), SubResource("Resource_q1dnx"), SubResource("Resource_v2vd7"), SubResource("Resource_0xs1h"), SubResource("Resource_gkbf1"), SubResource("Resource_cj0xf"), SubResource("Resource_3q4j0"), SubResource("Resource_745vm"), SubResource("Resource_d3urf"), SubResource("Resource_rka5f"), SubResource("Resource_u2u6a"), SubResource("Resource_tlc3m"), SubResource("Resource_k3671"), SubResource("Resource_e3srw"), SubResource("Resource_atrgb"), SubResource("Resource_t6pam"), SubResource("Resource_jsi10"), SubResource("Resource_mkhr0"), SubResource("Resource_3y0a3"), SubResource("Resource_6ty1w"), SubResource("Resource_pwd8k"), SubResource("Resource_v51lu"), SubResource("Resource_s4v5w"), SubResource("Resource_6ktgc"), SubResource("Resource_c74df"), SubResource("Resource_0fbo3"), SubResource("Resource_jvm6o"), SubResource("Resource_as20j"), SubResource("Resource_ddfsm"), SubResource("Resource_4ji6h"), SubResource("Resource_p4jpa"), SubResource("Resource_6yh6q"), SubResource("Resource_mkarw"), SubResource("Resource_lbn5v"), SubResource("Resource_m68wa"), SubResource("Resource_bie2p"), SubResource("Resource_4qaid"), SubResource("Resource_lemhm"), SubResource("Resource_ujq2j"), SubResource("Resource_usock"), SubResource("Resource_h1clr"), SubResource("Resource_cu0rk"), SubResource("Resource_0i1h0"), SubResource("Resource_tot21"), SubResource("Resource_w5kf2"), SubResource("Resource_274dl"), SubResource("Resource_aio07"), SubResource("Resource_a1xmu"), SubResource("Resource_4mpl0"), SubResource("Resource_iye0k"), SubResource("Resource_0wa2o"), SubResource("Resource_bvjsx"), SubResource("Resource_5adha")])
 
 [resource]
-script = ExtResource("16_ugj3v")
-player_data = SubResource("Resource_12cju")
-map_seed = 1690637028
-single_time_mini_events = Array[ExtResource("17_ju2aj")]([ExtResource("18_7cy65"), ExtResource("19_21v4l"), ExtResource("20_shnnu")])
-initialized = true
-ai_mode = true
+script = ExtResource("11_uahfr")
+player_data = ExtResource("9_wh6of")
+player_texture = ExtResource("10_br818")
+player_name = "Bob"
+battle = SubResource("Resource_wh6of")
+metadata/_custom_type_script = "uid://c6dr42ke5aj7b"

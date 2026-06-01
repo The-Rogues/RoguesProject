@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cb0st71k4otu3"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_mgwpf"]
+[ext_resource type="Texture2D" uid="uid://omffyiuy3df" path="res://common/art/placeholder/joi3/stoic_icon.tres" id="1_rsnyi"]
 [ext_resource type="Script" uid="uid://c2uehha8tmoiq" path="res://content/cards/stoic_cards/brave_recovery/DefenseHealAction.gd" id="2_rsnyi"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_4iunx"]
 
@@ -14,6 +15,7 @@ type = 2
 category = 2
 energy_cost = 1
 name = "Brave Recovery"
+display_texture = ExtResource("1_rsnyi")
 description = "Heal equal to [color=orange]defense[/color]. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_mgwpf")]([SubResource("Resource_4dy5b")])

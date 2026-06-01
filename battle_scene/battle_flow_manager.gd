@@ -155,11 +155,14 @@ func run_enemy_turn():
 	var processed_enemies: Array[MonsterEntity] = []
 	var curr_enemy_idx: int = 0
 	while curr_enemy_idx < enemies.size():
+		print("Here")
 		if !processed_enemies.has(enemies[curr_enemy_idx]):
 			var curr_enemy: MonsterEntity =  enemies[curr_enemy_idx]
 			await curr_enemy.resolve_intent(action_resolver)
 			if !action_resolver.action_queue.queue.is_empty() || action_resolver.action_queue.processing_action:
+				print("Waiting")
 				await action_resolver.action_queue.processed_all_actions
+				print("Success!")
 			if is_instance_valid(curr_enemy) && enemies.has(curr_enemy):
 				processed_enemies.append(curr_enemy)
 			curr_enemy_idx = 0
@@ -168,6 +171,7 @@ func run_enemy_turn():
 			continue
 		curr_enemy_idx += 1
 	
+	print("Done")
 	if !action_resolver.action_queue.queue.is_empty() || action_resolver.action_queue.processing_action:
 		await action_resolver.action_queue.processed_all_actions
 	await get_tree().create_timer(1.0).timeout

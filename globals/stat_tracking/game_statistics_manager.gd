@@ -32,7 +32,7 @@ func connect_to_signals():
 	Events.chest_opened.connect(_on_chest_opened)
 	Events.object_placed.connect(_on_object_placed)
 	Events.gold_collected.connect(_on_gold_collected)
-	#Events.battle_won.connect(_on_battle_won)
+	Events.battle_won.connect(_on_battle_won)
 	Events.card_collected.connect(_on_card_collected)
 
 	# Battle Stats
