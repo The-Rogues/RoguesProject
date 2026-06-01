@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://c2vnumlq5latn"
 [sub_resource type="Resource" id="Resource_jsgnk"]
 script = ExtResource("2_k5bhg")
 behaviour = SubResource("Resource_kt27n")
-duration = 3
+duration = -1
 stack = 7
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
@@ -27,7 +27,7 @@ script = ExtResource("3_2f4t6")
 effect = SubResource("Resource_jsgnk")
 rarity = 1
 name = "Thorns Potion"
-description = "Deal 7 thorns damage for 3 turns."
+description = "Gain 7 thorns."
 display_texture = SubResource("AtlasTexture_o1h62")
 shop_price = 20
 sell_price = 8

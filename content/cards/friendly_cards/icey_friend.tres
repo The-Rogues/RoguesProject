@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_wwako"]
 [ext_resource type="PackedScene" uid="uid://cifla3w3bv3qa" path="res://content/friends/penguin/snowball.tscn" id="2_2oncl"]
+[ext_resource type="Script" uid="uid://bn7qgjpnrgqjj" path="res://content/friends/penguin/freezing_behavior.gd" id="2_wwako"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_2oncl"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_wi521"]
 [ext_resource type="Script" uid="uid://dmdtjr7nutx2e" path="res://content/friends/penguin/penguin_friend.gd" id="6_prsth"]
 [ext_resource type="Script" uid="uid://24v1ynwivrsc" path="res://content/cards/friendly_cards/summon_friend_action.gd" id="7_4l4w8"]
@@ -14,9 +16,21 @@ load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8
 atlas = SubResource("CompressedTexture2D_igrcg")
 region = Rect2(440, 0, 40, 40)
 
+[sub_resource type="Resource" id="Resource_wi521"]
+script = ExtResource("2_wwako")
+metadata/_custom_type_script = "uid://bn7qgjpnrgqjj"
+
+[sub_resource type="Resource" id="Resource_fc371"]
+script = ExtResource("3_2oncl")
+behaviour = SubResource("Resource_wi521")
+duration = -1
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
 [sub_resource type="Resource" id="Resource_7e5qi"]
 script = ExtResource("3_wi521")
 projectile_scene = ExtResource("2_2oncl")
+impact_damage = 0
+impact_status_effect = SubResource("Resource_fc371")
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_imai8"]

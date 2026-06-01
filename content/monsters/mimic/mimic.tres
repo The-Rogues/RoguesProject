@@ -13,19 +13,14 @@
 script = ExtResource("1_rylsd")
 metadata/_custom_type_script = "uid://bn6t0778mctv4"
 
-[sub_resource type="Resource" id="Resource_hjxqs"]
+[sub_resource type="Resource" id="Resource_7ivtp"]
 script = ExtResource("1_nuybl")
 moves = Array[ExtResource("4_nqedh")]([ExtResource("5_frer6"), ExtResource("6_c8404"), ExtResource("6_c8404"), ExtResource("7_owa8e")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
-[sub_resource type="Resource" id="Resource_7ivtp"]
-script = ExtResource("1_nuybl")
-moves = Array[ExtResource("4_nqedh")]([ExtResource("6_c8404"), ExtResource("5_frer6"), ExtResource("6_c8404"), ExtResource("7_owa8e")])
-metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
-
 [resource]
 script = ExtResource("2_ynfvt")
-move_sequences = Array[ExtResource("1_nuybl")]([SubResource("Resource_hjxqs"), SubResource("Resource_7ivtp")])
+move_sequences = Array[ExtResource("1_nuybl")]([SubResource("Resource_7ivtp")])
 behaviour = SubResource("Resource_nafv1")
 init_targeting = Array[int]([2, 7])
 display_texture = ExtResource("2_68mf8")

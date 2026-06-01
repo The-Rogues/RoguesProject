@@ -10,17 +10,11 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		if resolved_targets.size() == 0:
 			break
 		var target = resolved_targets.pick_random()
-		if is_instance_valid(target):
-			if target.health.value <= 12:
-				resolved_targets.erase(target)
-				if target is ObjectEntity:
-					resolved_targets = []
-					for j in range(0, _context.creature_manager.enemies.size()):
-						resolved_targets.append(_context.creature_manager.enemies[j])
+		if is_instance_valid(target) && target.health.is_alive:
 			var direction = (
 					_user.global_position - target.global_position).normalized()
 			_user.ranged_weapon.rotation = direction.angle()
-			_user.projectile_launcher.fire_sequence(target.global_position, projectile_config)
+			_user.projectile_launcher.fire_projectile(target.global_position, projectile_config)
 			await _user.projectile_launcher.projectiles_freed
 		else:
 			resolved_targets.erase(target)
@@ -34,4 +28,5 @@ func _calculate_count(player_cards:CardHandler) -> int:
 	ret_val += player_cards.get_cards_by_name("Heartbreak Shot").size()
 	ret_val += player_cards.get_cards_by_name("Shiny Shot").size()
 	ret_val += player_cards.get_cards_by_name("Frozen Shot").size()
+	ret_val += player_cards.get_cards_by_name("Thoughtful Shot").size()
 	return ret_val + 1

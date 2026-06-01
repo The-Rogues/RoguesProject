@@ -151,8 +151,8 @@ func _ready():
 	
 	# --Magic vs. Metal--
 	# IMPORTANT: MUST CONFIRM THIS WORKS MANUALLY TOO.
-	#await get_tree().create_timer(0.5).timeout
-	#Events.battle_won.emit(metal_man, battle_scene.player)
+	await get_tree().create_timer(0.5).timeout
+	Events.battle_won.emit(metal_man, battle_scene.player)
 	
 	# --Journey's End--
 	# IMPORTANT: MUST CONFIRM THIS WORKS MANUALLY TOO.

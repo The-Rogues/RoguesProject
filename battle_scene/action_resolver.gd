@@ -51,9 +51,7 @@ func resolve_targeting(in_action:TargetedAction, user:AbstractEntity):
 		3:
 			var filtered_enemies: Array[AbstractEntity] = []
 			var player := battle_context.creature_manager.player
-			if player.battle_position.has_object() && !in_action.ignore_foreground:
-				filtered_enemies.append(player.battle_position.get_object())
-			elif in_action is FilteredTargetedAction:
+			if in_action is FilteredTargetedAction:
 				filtered_enemies.append_array(
 					filter_enemies(in_action)
 				)

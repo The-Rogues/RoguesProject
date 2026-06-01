@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bjmif7jljymoe"]
 
+[ext_resource type="Texture2D" uid="uid://duiccro4838pm" path="res://common/art/placeholder/joi3/traitless_texture.tres" id="1_aqy2x"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_sxanh"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_ca2mp"]
 [ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_xgbep"]
@@ -14,6 +15,7 @@ script = ExtResource("2_ca2mp")
 type = 2
 energy_cost = 1
 name = "Defend"
+display_texture = ExtResource("1_aqy2x")
 description = "Gain [color=deep_sky_blue]6[/color] Block."
 play_actions = Array[ExtResource("1_sxanh")]([SubResource("Resource_1ott2")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

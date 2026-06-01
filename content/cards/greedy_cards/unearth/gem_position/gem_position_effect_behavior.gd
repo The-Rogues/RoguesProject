@@ -7,7 +7,7 @@ func get_effect_name() -> String:
 	return "Gem Position"
 
 func get_description(_instance:PositionEffect) -> String:
-	return "Player gains a gem when entered."
+	return "Player gains [color=#43A047]1[/color] [color=orange]gem[/color] when entered."
 
 func on_entered(player:PlayerEntity, _instance:PositionEffect) -> void:
 	player.effects.add_effect(

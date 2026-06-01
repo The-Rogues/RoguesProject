@@ -48,6 +48,8 @@ func initialize(_instance:CardInstance):
 		CardData.Category.LEGENDARY:
 			card_edge.modulate = Color(0.998, 0.218, 0.594, 1.0)
 			sparkles.emitting = true
+		CardData.Category.JUNK:
+			card_edge.self_modulate = Color(255, 255, 0)
 
 func update_ui():
 	card_cost_label.text = str(instance.energy_cost)

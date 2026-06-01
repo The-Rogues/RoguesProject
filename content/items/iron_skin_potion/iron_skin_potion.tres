@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://dpxubkl5w63oj"
 script = ExtResource("1_pwabc")
 behaviour = SubResource("Resource_g52rd")
 duration = 3
+stack = 0
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 
 [resource]

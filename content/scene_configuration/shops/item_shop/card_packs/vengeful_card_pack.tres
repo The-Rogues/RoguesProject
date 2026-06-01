@@ -13,6 +13,6 @@ script = ExtResource("7_dm36d")
 card_pool = Array[ExtResource("1_uq1vt")]([ExtResource("2_74w60"), ExtResource("4_3ciqj"), ExtResource("5_2hori"), ExtResource("6_w0i0q")])
 texture = ExtResource("8_ans0f")
 name = "Open Vengeful card pack"
-description = "Choose 1 Vengeful card to add to your deck."
+description = "Vengeful Card Pack"
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_4i5wy"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_2llmf"]
-[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/carrot_treat.tres" id="2_tqbx8"]
+[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="2_tqbx8"]
 [ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/crawly_friend.tres" id="3_ypqti"]
 [ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/icey_friend.tres" id="4_plrgl"]
 [ext_resource type="Resource" uid="uid://dui2cujdu8hw7" path="res://content/cards/friendly_cards/handshake.tres" id="5_2cf1t"]

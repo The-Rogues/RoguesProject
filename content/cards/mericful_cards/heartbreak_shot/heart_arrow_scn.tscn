@@ -73,6 +73,7 @@ autoplay = true
 bus = &"SFX"
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]
 
 [editable path="SpritePivot/Sprite2D2/StuckArrow"]

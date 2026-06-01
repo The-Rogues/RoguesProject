@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4hg7so7onlbq"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_7lc6e"]
+[ext_resource type="Texture2D" uid="uid://c1qnjr81ewu45" path="res://common/art/placeholder/joi3/laidback_icon.tres" id="1_w6x8p"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_imppd"]
 [ext_resource type="Script" uid="uid://c4wacutsxb7p6" path="res://content/cards/laidback_cards/laidback_action.gd" id="2_w6x8p"]
 
@@ -16,6 +17,7 @@ type = 2
 category = 3
 energy_cost = 1
 name = "Calm Guard"
+display_texture = ExtResource("1_w6x8p")
 description = "Gain [color=deep_sky_blue]8[/color] block. If you had unused energy last turn, gain [color=deep_sky_blue]18[/color] instead."
 play_actions = Array[ExtResource("1_7lc6e")]([SubResource("Resource_5i6ko")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

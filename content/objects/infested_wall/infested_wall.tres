@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://pixk6fb47k72"
 
 [resource]
 script = ExtResource("2_ncrip")
-targeting_categories = Array[int]([0])
+targeting_categories = Array[int]([0, 3])
 interaction = 6
 interaction_actions = Array[ExtResource("1_itwyg")]([SubResource("Resource_fmio2")])
 hover_description = "Object Categories: Cover, Threat

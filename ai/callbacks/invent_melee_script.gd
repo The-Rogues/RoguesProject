@@ -82,9 +82,11 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	# Add a second action if the defensive option was selected.
 	ret_val.play_actions.append(atk_action)
 	if add_frail:
-		var frail_action: StatusEffectConfig = load("res://ai/ai-cards/inventive_strike/inventive_strike_frail.tres")
+		var frail_action: StatusEffectConfig = load("res://ai/ai-cards/invent_melee/inventive_strike_frail.tres")
 		atk_action.status_effect = frail_action
 	
 	# Add the battle move to the card data and return.
 	# ret_val.move = ret_move
+	ret_val.category = CardData.Category.TRAITLESS
+	ret_val.display_texture = load("res://common/art/placeholder/joi3/traitless_texture.tres")
 	return ret_val

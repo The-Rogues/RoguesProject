@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dh8j660cfica4"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_1w8uo"]
+[ext_resource type="Texture2D" uid="uid://406412hdhwpd" path="res://common/art/placeholder/joi3/vengeful_icon.tres" id="1_vko78"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_ibm4y"]
 [ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="2_o3jhj"]
 [ext_resource type="Script" uid="uid://hdw67ji7cas1" path="res://content/cards/vengeful_cards/growing_fury_power/growing_fury_power.gd" id="2_vko78"]
@@ -21,6 +22,7 @@ type = 3
 category = 1
 energy_cost = 1
 name = "Growing Fury"
+display_texture = ExtResource("1_vko78")
 description = "On move, gain [color=#43A047]1[/color] permanant [color=orange]thorns[/color]. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_1w8uo")]([SubResource("Resource_vko78")])

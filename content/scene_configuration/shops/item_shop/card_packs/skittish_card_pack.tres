@@ -13,6 +13,6 @@ script = ExtResource("2_iudvy")
 card_pool = Array[ExtResource("1_w3028")]([ExtResource("3_w1h74"), ExtResource("4_r42r4"), ExtResource("5_pp88y"), ExtResource("6_jw3qb")])
 texture = ExtResource("9_x7jvf")
 name = "Open Skittish card pack"
-description = "Choose 1 Skittish card to add to your deck."
+description = "Skittish Card Pack"
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

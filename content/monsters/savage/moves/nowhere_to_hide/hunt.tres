@@ -2,20 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://b0i4njhhrwnml" path="res://common/particle_effects/star_texture.tres" id="1_s8a6a"]
 [ext_resource type="Resource" uid="uid://dot7qtd5tennl" path="res://content/monsters/savage/moves/nowhere_to_hide/savage_object.tres" id="2_mxhvc"]
-[ext_resource type="Script" uid="uid://d053viro4an55" path="res://battle_scene/entities/actions/skill/place_object_action.gd" id="3_qg5co"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_qg5co"]
+[ext_resource type="Script" uid="uid://b3fvjsgb155cu" path="res://content/cards/greedy_cards/life_savings/random_place_action.gd" id="4_8x2fw"]
 [ext_resource type="Script" uid="uid://cv01a4ey63px6" path="res://battle_scene/entities/actions/skill/kill_action.gd" id="4_iyqia"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="5_8x2fw"]
 
-[sub_resource type="Resource" id="Resource_5gygc"]
+[sub_resource type="Resource" id="Resource_2x424"]
+script = ExtResource("4_8x2fw")
+object_pool = Array[ExtResource("2_qg5co")]([ExtResource("2_mxhvc")])
+metadata/_custom_type_script = "uid://b3fvjsgb155cu"
+
+[sub_resource type="Resource" id="Resource_kxk0m"]
 script = ExtResource("4_iyqia")
 ignore_foreground = true
 metadata/_custom_type_script = "uid://cv01a4ey63px6"
-
-[sub_resource type="Resource" id="Resource_xstoc"]
-script = ExtResource("3_qg5co")
-object = ExtResource("2_mxhvc")
-secondary_action = SubResource("Resource_5gygc")
-metadata/_custom_type_script = "uid://d053viro4an55"
 
 [resource]
 script = ExtResource("5_8x2fw")
@@ -23,5 +23,6 @@ type = 1
 intent_icon = ExtResource("1_s8a6a")
 name = "Hunt"
 description = "Transforms into an object."
-primary_action = SubResource("Resource_xstoc")
+primary_action = SubResource("Resource_2x424")
+secondary_action = SubResource("Resource_kxk0m")
 metadata/_custom_type_script = "uid://c410dannt5adg"

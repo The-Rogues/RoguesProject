@@ -14,9 +14,9 @@ func get_status_name() -> String:
 
 func get_description(_instance:ActiveStatusEffect) -> String:
 	if _instance.stack == 1:
-		return "On Turn Entered: Lose 1 random stat point and gain 2 strength."
+		return "On Turn Entered: Lose [color=#43A047]1[/color] random stat point and gain [color=#43A047]2[/color] [color=orange]strength[/color]."
 	else:
-		return "On Turn Entered: Lose " + str(_instance.stack) + " random stat points and gain " + str(_instance.stack * 2) + " strength."
+		return "On Turn Entered: Lose [color=#43A047]" + str(_instance.stack) + "[/color] random stat points and gain [color=#43A047]" + str(_instance.stack * 2) + "[/color] [color=orange]strength[/color]."
 
 func get_texture() -> Texture2D:
 	return load("res://content/cards/brute_cards/war_machine_effect/power_icon.tres")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://bqar15hjb3dhd"]
+
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_23h0w"]
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_ix5j2"]
+[ext_resource type="Resource" uid="uid://mq2wuriso0bl" path="res://content/objects/decaying_wall/decaying_wall_data.tres" id="2_7pu2i"]
+[ext_resource type="Resource" uid="uid://dguhk6o8rvj2g" path="res://content/monsters/mimic/object/mimic_object.tres" id="3_kxlgq"]
+[ext_resource type="Resource" uid="uid://b8mm8aiuou87g" path="res://content/objects/hive/spider_web.tres" id="4_bjfl6"]
+
+[resource]
+script = ExtResource("1_23h0w")
+layout = Dictionary[int, ExtResource("1_ix5j2")]({
+0: null,
+1: ExtResource("2_7pu2i"),
+2: ExtResource("3_kxlgq"),
+3: null,
+4: ExtResource("4_bjfl6")
+})
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

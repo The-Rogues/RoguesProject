@@ -1,13 +1,37 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bdyy8rhfwiui6"]
 
+[ext_resource type="Texture2D" uid="uid://bbhhmngpm63bx" path="res://common/art/placeholder/joi3/greedy_icon.tres" id="1_2b4xh"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_w2xxs"]
-[ext_resource type="Resource" uid="uid://dkiidld2e5f2p" path="res://content/cards/greedy_cards/shiny_shot/gem_projectile/gem_projectile.tres" id="2_wo0pu"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="2_frueh"]
+[ext_resource type="PackedScene" uid="uid://ds7syc74md3bk" path="res://content/cards/greedy_cards/shiny_shot/gem_projectile/gem_projectile_1.tscn" id="3_2b4xh"]
 [ext_resource type="Script" uid="uid://bxi71i17bsbx8" path="res://content/cards/greedy_cards/shiny_shot/gem_attack_action.gd" id="3_72xbc"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_frueh"]
+[ext_resource type="PackedScene" uid="uid://ctm3u1xau1r4p" path="res://content/cards/greedy_cards/shiny_shot/gem_projectile/gem_projectile_2.tscn" id="4_n8wby"]
+[ext_resource type="PackedScene" uid="uid://demifaca2rnld" path="res://content/cards/greedy_cards/shiny_shot/gem_projectile/gem_projectile_3.tscn" id="5_erghp"]
+
+[sub_resource type="Resource" id="Resource_i1s7q"]
+script = ExtResource("2_frueh")
+projectile_scene = ExtResource("3_2b4xh")
+impact_damage = 4
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_75ed1"]
+script = ExtResource("2_frueh")
+projectile_scene = ExtResource("4_n8wby")
+impact_damage = 4
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_6j87o"]
+script = ExtResource("2_frueh")
+projectile_scene = ExtResource("5_erghp")
+projectile_count = 4
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_b74ja"]
 script = ExtResource("3_72xbc")
-projectile_config = ExtResource("2_wo0pu")
+projectile_configs = Array[ExtResource("2_frueh")]([SubResource("Resource_i1s7q"), SubResource("Resource_75ed1"), SubResource("Resource_6j87o")])
+target_option = 3
+ignore_foreground = true
 metadata/_custom_type_script = "uid://bxi71i17bsbx8"
 
 [resource]
@@ -16,6 +40,7 @@ type = 1
 category = 3
 energy_cost = 2
 name = "Shiny Shot"
-description = "Deal [color=#43A047]2[/color] damage to a random enemy for each [color=orange]gem[/color] you have."
+display_texture = ExtResource("1_2b4xh")
+description = "Deal [color=#43A047]4[/color] damage to a random enemy for each [color=orange]gem[/color] you have."
 play_actions = Array[ExtResource("1_w2xxs")]([SubResource("Resource_b74ja")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

@@ -12,10 +12,10 @@ func on_stack():
 	stack += 2
 
 func _on_fired_projectile(projectile:Projectile):
-	if projectile.status == null:
+	if projectile.impact_status_effect == null:
 		var burning_effect: StatusEffectConfig = StatusEffectConfig.new()
 		burning_effect.behaviour = BurningEffect.new()
 		burning_effect.stack = 0
 		burning_effect.duration = stack
 		burning_effect.turn_entered = true
-		projectile.status = burning_effect
+		projectile.impact_status_effect = burning_effect

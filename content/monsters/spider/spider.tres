@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://cxy4mbsh6gev2"
 script = ExtResource("4_um5k0")
 intent_icon = ExtResource("5_mngul")
 name = "Offensive Sting"
-description = "Attacks for [color=red]1[/color] damage. If bee deals unblocked damage, permanatley lose [color=#43A047]1[/color] offensive stat."
+description = "Attacks for [color=red]1[/color] damage. If spider deals unblocked damage, permanatley lose [color=#43A047]1[/color] offensive stat."
 primary_action = SubResource("Resource_871g8")
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
@@ -55,7 +55,7 @@ metadata/_custom_type_script = "uid://cxy4mbsh6gev2"
 script = ExtResource("4_um5k0")
 intent_icon = ExtResource("5_mngul")
 name = "Defensive Sting"
-description = "Attacks for [color=red]1[/color] damage. If bee deals unblocked damage, permanatley lose [color=#43A047]1[/color] defensive stat."
+description = "Attacks for [color=red]1[/color] damage. If spider deals unblocked damage, permanatley lose [color=#43A047]1[/color] defensive stat."
 primary_action = SubResource("Resource_4l3aw")
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
@@ -81,7 +81,7 @@ metadata/_custom_type_script = "uid://cxy4mbsh6gev2"
 script = ExtResource("4_um5k0")
 intent_icon = ExtResource("5_mngul")
 name = "Strategic Sting"
-description = "Attacks for [color=red]1[/color] damage. If bee deals unblocked damage, permanatley lose [color=#43A047]1[/color] strategic stat."
+description = "Attacks for [color=red]1[/color] damage. If spider deals unblocked damage, permanatley lose [color=#43A047]1[/color] strategic stat."
 primary_action = SubResource("Resource_wwg3v")
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

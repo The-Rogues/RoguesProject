@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp6j5ppmnwg2"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_6jmr8"]
+[ext_resource type="Texture2D" uid="uid://duiccro4838pm" path="res://common/art/placeholder/joi3/traitless_texture.tres" id="1_py01r"]
 [ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_57b8e"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_q01w4"]
 [ext_resource type="Script" uid="uid://bockg7qo5uy2y" path="res://content/cards/stoic_cards/challenge/defense_block_action2.gd" id="3_57b8e"]
@@ -22,6 +23,7 @@ script = ExtResource("2_q01w4")
 type = 2
 energy_cost = 1
 name = "Parry"
+display_texture = ExtResource("1_py01r")
 description = "Gain [color=deep_sky_blue]6[/color] block. Gain an extra block for every [color=#43A047]2[/color] [color=orange]defense[/color]."
 play_actions = Array[ExtResource("1_6jmr8")]([SubResource("Resource_kik8o"), SubResource("Resource_py01r")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

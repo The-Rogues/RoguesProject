@@ -7,7 +7,7 @@ func on_stack(
 	_other:ActiveStatusEffect = null,
 	_affected: AbstractCreature = null
 ) -> void:
-	instance.duration += 1
+	instance.duration += _other.duration
 
 
 func get_status_name() -> String:
@@ -15,7 +15,7 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "Increases damage recieved from attacks by 1.5x"
+	return "Damage received from attacks is increased by [color=#43A047]50[/color] percent. Decreaeses every turn."
 
 
 func get_texture() -> Texture2D:

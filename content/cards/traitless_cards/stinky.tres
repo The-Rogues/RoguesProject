@@ -11,6 +11,7 @@ region = Rect2(0, 72, 32, 32)
 [resource]
 script = ExtResource("2_52j4t")
 type = 5
+category = 5
 name = "Stinky"
 display_texture = SubResource("AtlasTexture_4u55j")
 description = "It's a Monstermon card! Cool but incompatible with this game."

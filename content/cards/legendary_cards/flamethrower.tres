@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cp2osh5b7ynnu"]
 
-[ext_resource type="Texture2D" uid="uid://b5q8hr8gvmqkb" path="res://common/art/placeholder/joi3/tactical_icon.tres" id="1_5hech"]
+[ext_resource type="Texture2D" uid="uid://cyegnkl2bdw00" path="res://common/art/placeholder/joi3/legendary_icon.tres" id="1_w3454"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_qlib6"]
 [ext_resource type="PackedScene" uid="uid://cqk2sv85r2g3x" path="res://content/monsters/crawler/fire_ball.tscn" id="3_flxv5"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="4_5thd3"]
@@ -26,7 +26,7 @@ type = 1
 category = 4
 energy_cost = 2
 name = "Flamethrower"
-display_texture = ExtResource("1_5hech")
+display_texture = ExtResource("1_w3454")
 description = "Deal 4x3 damage. Apply 3 burn."
 play_actions = Array[ExtResource("2_qlib6")]([SubResource("Resource_7gv0c")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

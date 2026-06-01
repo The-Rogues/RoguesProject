@@ -27,7 +27,7 @@ func on_turn(
 	if !is_immune:
 		_creature.take_damage(_instance.stack)
 
-func on_attacked(_attacker:AbstractEntity, _instance:ActiveStatusEffect):
+func on_attacked(_attacker, _instance:ActiveStatusEffect):
 	if _attacker is AbstractCreature:
 		var new_infection: StatusEffectConfig = StatusEffectConfig.new()
 		new_infection.behaviour = InfectedBehavior.new()

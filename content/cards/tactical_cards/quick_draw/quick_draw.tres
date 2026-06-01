@@ -29,7 +29,7 @@ category = 1
 energy_cost = 1
 name = "Quick Draw"
 display_texture = SubResource("AtlasTexture_av3pd")
-description = "Draw [color=#43A047]2[/color] cards. Draw an additional card for each \"Shot\" drawn."
+description = "Draw [color=#43A047]2[/color] cards. Draw an additional card for each \"Shot\" drawn. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_w5335")]([SubResource("Resource_av3pd")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"
