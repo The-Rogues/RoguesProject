@@ -20,7 +20,8 @@ func _on_card_drawn(card:CardInstance):
 		"Arrow Shot",
 		"Shiny Shot",
 		"Heartbreak Shot",
-		"Frozen Shot"
+		"Frozen Shot",
+		"Thoughtful Shot"
 	]
 	if names.has(card.data.name):
 			player.cards.draw_cards(1)

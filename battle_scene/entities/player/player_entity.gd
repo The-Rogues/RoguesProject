@@ -16,6 +16,15 @@ var attacked_this_turn: bool = false
 var attacked_last_turn: bool = false
 
 var unused_energy_last_turn: int = 0
+#andy addition for final boss card tracking & mirror
+var cards_played_this_turn:int = 0
+var cards_played_last_turn:int = 0
+var strongest_attack_this_battle:int = 0
+
+
+
+#end of addition
+
 
 @onready var sprite_2d: HitFlash = $Sprite2D
 @onready var movement_controller:PlayerMovementController = $MovementController
@@ -124,6 +133,11 @@ func enter_turn(_turn_count:int, turn_one: bool = false, skip_refill: bool = fal
 	
 	attacked_last_turn = attacked_this_turn
 	attacked_this_turn = false
+	#andy addition
+	cards_played_last_turn = cards_played_this_turn
+	cards_played_this_turn = 0
+	
+	#end
 	
 	if !skip_refill:
 		block.set_to_zero()
@@ -158,7 +172,9 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 			resolver.process_actions(card.instance.data.play_actions, self)
 		
 			effects.process_played_card(card.instance, resolver)
-		
+			#andy addtion
+			cards_played_this_turn += 1
+			#end 
 			played_card.emit(card.instance)
 			Events.energy_used.emit(card.instance.energy_cost)
 			if card.instance.data.type == CardData.Type.ATTACK:

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MirrorAction" format=3 uid="uid://p5b6n58c2pcd"]
+
+[ext_resource type="Script" uid="uid://mcg54njv3n6s" path="res://content/monsters/Arbitor/moves/mirror/mirror_action.gd" id="1_ha8yx"]
+
+[resource]
+script = ExtResource("1_ha8yx")
+minimum_damage = 4
+target_option = 1
+metadata/_custom_type_script = "uid://mcg54njv3n6s"

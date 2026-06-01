@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_yx4j7"]
 [ext_resource type="Texture2D" uid="uid://3hbq4s1yca4" path="res://testing_and_prototypes/gold_icon.tres" id="3_3kih2"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="3_bl8lm"]
+[ext_resource type="Resource" uid="uid://cejudkort1ssj" path="res://content/monsters/fire_ant_egg/fire_ant_egg.tres" id="3_yx4j7"]
+[ext_resource type="Resource" uid="uid://l2nwenkn6gcc" path="res://content/monsters/fire_ant/fire_ant.tres" id="4_75o6r"]
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="4_yx4j7"]
 [ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="6_3kih2"]
 
@@ -17,4 +19,5 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("3_bl8lm")
 encounter_name = "Ant Intro"
 gold = SubResource("Resource_75o6r")
+enemies = Array[ExtResource("1_50c2v")]([ExtResource("3_yx4j7"), ExtResource("4_75o6r")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

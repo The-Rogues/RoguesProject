@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://rb7fqo2eigtv"]
 
+[ext_resource type="Texture2D" uid="uid://d3n5jucckygdh" path="res://common/art/placeholder/joi3/skittish_icon.tres" id="1_508tu"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_tcvtf"]
 [ext_resource type="Script" uid="uid://r8s7hkvkc4g8" path="res://content/cards/skittish_cards/shifty/shifty_power.gd" id="2_18de2"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_x1ig1"]
@@ -20,6 +21,7 @@ script = ExtResource("2_x1ig1")
 category = 2
 energy_cost = 1
 name = "Shifty"
+display_texture = ExtResource("1_508tu")
 description = "On move, gain [color=deep_sky_blue]3[/color] block. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_tcvtf")]([SubResource("Resource_ga6a2")])

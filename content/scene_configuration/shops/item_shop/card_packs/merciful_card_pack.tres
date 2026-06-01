@@ -13,6 +13,6 @@ script = ExtResource("2_rpli8")
 card_pool = Array[ExtResource("1_fyigh")]([ExtResource("3_8r5ju"), ExtResource("4_y2thf"), ExtResource("5_t0ajr"), ExtResource("6_hhw5y")])
 texture = ExtResource("8_51c18")
 name = "Open Merciful card pack"
-description = "Choose 1 Merciful card to add to your deck."
+description = "Merciful Card Pack"
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

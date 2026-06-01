@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bobl10hpsgoli"]
 
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_hx8t1"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_l2efl"]
 [ext_resource type="Script" uid="uid://3wqo7cxkm1ci" path="res://battle_scene/entities/actions/attack/trait_attack_action.gd" id="2_bndwi"]
 [ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="4_74dcj"]
@@ -22,6 +23,7 @@ script = ExtResource("5_1hxr8")
 category = 1
 energy_cost = 2
 name = "Crash Out"
+display_texture = ExtResource("1_hx8t1")
 description = "Damage all enemies equal to double [color=orange]offense[/color]. Gain [color=#43A047]2[/color] [color=orange]offense[/color]."
 play_actions = Array[ExtResource("1_l2efl")]([SubResource("Resource_gqnyy"), SubResource("Resource_cr17j")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

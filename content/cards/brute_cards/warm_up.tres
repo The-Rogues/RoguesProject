@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://knf7yagaaaxo"]
 
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_0qj40"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_sm1sm"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_63k3l"]
 [ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="2_x3p6p"]
@@ -35,6 +36,7 @@ type = 2
 category = 1
 energy_cost = 1
 name = "Warm Up"
+display_texture = ExtResource("1_0qj40")
 description = "Set [color=orange]offense[/color] to [color=#43A047]10[/color]. Lose [color=#43A047]8[/color] [color=orange]strength[/color]. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_sm1sm")]([SubResource("Resource_exetp"), SubResource("Resource_ren7b")])

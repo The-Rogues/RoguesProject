@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://kml8uyqnnorb"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_sch67"]
+[ext_resource type="Texture2D" uid="uid://406412hdhwpd" path="res://common/art/placeholder/joi3/vengeful_icon.tres" id="1_tberr"]
 [ext_resource type="Script" uid="uid://bm5oygnb1m3h7" path="res://battle_scene/entities/actions/skill/move_out_of_cover_action.gd" id="2_o2cep"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_uh8an"]
 [ext_resource type="Script" uid="uid://c2vnumlq5latn" path="res://battle_scene/entities/status_effects/common/thorns_status_effect.gd" id="3_tberr"]
@@ -32,6 +33,7 @@ script = ExtResource("2_uh8an")
 type = 2
 category = 1
 name = "Threaten"
+display_texture = ExtResource("1_tberr")
 description = "Move to an open position. Gain [color=orange]thorns[/color] equal to [color=orange]offense[/color]."
 play_actions = Array[ExtResource("1_sch67")]([SubResource("Resource_qdxkb"), SubResource("Resource_u2mev")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

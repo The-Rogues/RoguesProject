@@ -48,4 +48,5 @@ category = 4
 name = "Invent Melee"
 description = "Invent a melee attack based on your personality. [color=orange]Single use[/color]."
 exhaust_after_play = true
+shop_price = 40
 metadata/_custom_type_script = "uid://cjwj13hduiyqg"

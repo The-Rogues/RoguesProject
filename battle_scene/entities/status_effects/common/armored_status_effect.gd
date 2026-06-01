@@ -11,11 +11,11 @@ func on_stack(
 
 
 func get_status_name() -> String:
-	return "Protected"
+	return "Toughness"
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "Decrease damage recieved from attacks by Half"
+	return "Damage recieved from attacks is halved. Decreases every turn."
 
 
 func get_texture() -> Texture2D:

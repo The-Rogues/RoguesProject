@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://8cc0qb3afpjw"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_1um6x"]
+[ext_resource type="Texture2D" uid="uid://duiccro4838pm" path="res://common/art/placeholder/joi3/traitless_texture.tres" id="1_172xf"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_2p7xn"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="2_es0j4"]
 [ext_resource type="PackedScene" uid="uid://cm0mikhelv506" path="res://battle_scene/entities/projectiles/arrow/arrow.tscn" id="2_klqx5"]
@@ -22,6 +23,7 @@ script = ExtResource("2_2p7xn")
 type = 1
 energy_cost = 1
 name = "Arrow Shot"
+display_texture = ExtResource("1_172xf")
 description = "Deal [color=red]get_atk6[/color] damage."
 play_actions = Array[ExtResource("1_1um6x")]([SubResource("Resource_12btk")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

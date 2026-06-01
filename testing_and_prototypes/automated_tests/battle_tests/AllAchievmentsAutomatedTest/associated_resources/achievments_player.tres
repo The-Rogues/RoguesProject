@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cslydk2dhl5kp"]
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_lsnsq"]
-[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/carrot_treat.tres" id="2_r6s26"]
+[ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="2_r6s26"]
 [ext_resource type="Texture2D" uid="uid://dyxvm44pkdj0u" path="res://content/monsters/witch_doctor/witch_doctor.tres" id="3_1lc52"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="4_jkplg"]
 [ext_resource type="Resource" uid="uid://ccg0j48lxm8sh" path="res://testing_and_prototypes/automated_tests/battle_tests/AllAchievmentsAutomatedTest/associated_resources/achievments_personality.tres" id="5_vonnn"]
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="6_1hc3p"]
+
 
 [resource]
 script = ExtResource("6_1hc3p")

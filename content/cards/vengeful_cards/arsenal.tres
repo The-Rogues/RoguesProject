@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://pvnvvs8t4paq"]
 
+[ext_resource type="Texture2D" uid="uid://406412hdhwpd" path="res://common/art/placeholder/joi3/vengeful_icon.tres" id="1_egfyt"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qu3gp"]
 [ext_resource type="Resource" uid="uid://caws41005dm5o" path="res://content/objects/cannons/acurate_cannon.tres" id="2_a10xv"]
 [ext_resource type="Resource" uid="uid://xdugix0cn773" path="res://content/objects/cannons/blast_cannon.tres" id="3_cntfu"]
@@ -18,6 +19,7 @@ type = 2
 category = 1
 energy_cost = 3
 name = "Arsenal"
+display_texture = ExtResource("1_egfyt")
 description = "Fill all empty positions with cannon objects."
 play_actions = Array[ExtResource("1_qu3gp")]([SubResource("Resource_cntfu")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

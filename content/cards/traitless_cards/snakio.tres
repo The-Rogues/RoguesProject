@@ -11,6 +11,7 @@ region = Rect2(96, 256, 32, 32)
 [resource]
 script = ExtResource("3_7q4cr")
 type = 5
+category = 5
 name = "Snakio"
 display_texture = SubResource("AtlasTexture_yjgg1")
 description = "It's a Monstermon card! Cool but incompatible with this game."

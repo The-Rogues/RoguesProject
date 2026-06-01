@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bb7438h573jfl"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ek4cn"]
+[ext_resource type="Texture2D" uid="uid://duiccro4838pm" path="res://common/art/placeholder/joi3/traitless_texture.tres" id="1_f7qx4"]
 [ext_resource type="Script" uid="uid://eo04g3psi2bf" path="res://battle_scene/entities/actions/skill/move_toward_preferrence.gd" id="2_ek4cn"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_ort7f"]
 
@@ -14,6 +15,7 @@ script = ExtResource("3_ort7f")
 type = 2
 energy_cost = 1
 name = "Move"
+display_texture = ExtResource("1_f7qx4")
 description = "Moves toward desired object."
 play_actions = Array[ExtResource("1_ek4cn")]([SubResource("Resource_ek4cn")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

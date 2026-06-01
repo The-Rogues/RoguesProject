@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://4cxd3c4ehum6"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_kp1rp"]
+[ext_resource type="Texture2D" uid="uid://dcivxp88vvgjf" path="res://common/art/placeholder/joi3/crafty_icon.tres" id="1_qsjrv"]
 [ext_resource type="Script" uid="uid://bm5oygnb1m3h7" path="res://battle_scene/entities/actions/skill/move_out_of_cover_action.gd" id="2_qsjrv"]
 [ext_resource type="Script" uid="uid://c8rueyxi7bt8w" path="res://content/cards/crafty_cards/retreat/end_of_turn_move_power.gd" id="3_0wpay"]
 [ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="4_5cgkk"]
@@ -24,6 +25,7 @@ script = ExtResource("5_1c314")
 type = 2
 category = 2
 name = "Retreat"
+display_texture = ExtResource("1_qsjrv")
 description = "Move to an empty position. On turn end, move behind cover."
 play_actions = Array[ExtResource("1_kp1rp")]([SubResource("Resource_6c1s5"), SubResource("Resource_epr3d")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

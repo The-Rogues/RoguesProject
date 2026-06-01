@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cwj0ql2eool6q"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_otv63"]
+[ext_resource type="Texture2D" uid="uid://duwn2qipdjoo" path="res://common/art/placeholder/joi3/valorous_icon.tres" id="1_uhuvt"]
 [ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="3_6di7p"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_nkabh"]
 [ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_l06uq"]
@@ -30,6 +31,7 @@ type = 2
 category = 3
 energy_cost = 2
 name = "Crushing Presence"
+display_texture = ExtResource("1_uhuvt")
 description = "Apply [color=#43A047]3[/color] [color=orange]frail[/color] to all enemies. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_otv63")]([SubResource("Resource_nnmee")])

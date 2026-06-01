@@ -483,4 +483,5 @@ visible = false
 default_color = Color(0.93242216, 0.06078265, 5.7756904e-07, 1)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]

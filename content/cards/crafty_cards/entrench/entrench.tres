@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dv4ljbon6org0"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_133mg"]
+[ext_resource type="Texture2D" uid="uid://dcivxp88vvgjf" path="res://common/art/placeholder/joi3/crafty_icon.tres" id="1_gkcky"]
 [ext_resource type="Script" uid="uid://rnvxk3dxi20x" path="res://content/cards/crafty_cards/entrench/assign_object_hp_action.gd" id="2_tp7ux"]
 [ext_resource type="Script" uid="uid://c8hd1f80oye2s" path="res://content/cards/stoic_cards/suit_up/armor/armor_behavior.gd" id="3_d167o"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_gkcky"]
@@ -35,6 +36,7 @@ type = 2
 category = 2
 energy_cost = 1
 name = "Entrench"
+display_texture = ExtResource("1_gkcky")
 description = "Place a [color=#43A047]1[/color] HP wall at the front position. Gain [color=#43A047]4[/color] [color=orange]armor[/color]."
 play_actions = Array[ExtResource("1_133mg")]([SubResource("Resource_jfcpn"), SubResource("Resource_x1cd7")])
 shop_price = 20

@@ -91,7 +91,8 @@ func choose_intent(in_context: BattleContext = null):
 
 func resolve_intent(resolver:ActionResolver):
 	if intent:
-		await intent_icon.resolve()
+		await get_tree().create_timer(0.25).timeout
+		intent_icon.resolve()
 		if intent.type == EnemyMove.Type.ATTACK:
 			play_attack_anim()
 		resolver.process_actions(intent.get_actions(), self)

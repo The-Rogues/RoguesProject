@@ -67,26 +67,28 @@ func create_card(card_data: AiCardData, ai_selection: Array[int]) -> CardData:
 	
 	var target_action: Action
 	if is_error && is_random:
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/random_place_blast.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/random_place_blast.tres")
 	elif is_error: 
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/place_blast_action.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/place_blast_action.tres")
 	elif is_offense && is_defense && is_random:
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/random_place_shield.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/random_place_shield.tres")
 	elif is_offense && is_defense:
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/place_shield_action.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/place_shield_action.tres")
 	elif is_offense && is_random:
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/random_place_cannon.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/random_place_cannon.tres")
 	elif is_offense:
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/place_cannon_action.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/place_cannon_action.tres")
 	elif is_defense && is_random:
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/random_place_wall.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/random_place_wall.tres")
 	else:
-		target_action = load("res://ai/ai-cards/inventive_creation/supporting_resources/place_wall_action.tres")
+		target_action = load("res://ai/ai-cards/invent_tool/supporting_resources/place_wall_action.tres")
 	
 	if is_random:
 		ret_val.play_actions.append(target_action)
 	ret_val.play_actions.append(target_action)
-	
+
 	# Add the battle move to the card data and return.
 	# ret_val.move = ret_move
+	ret_val.category = CardData.Category.TRAITLESS
+	ret_val.display_texture = load("res://common/art/placeholder/joi3/traitless_texture.tres")
 	return ret_val

@@ -442,6 +442,7 @@ radius = 13.0
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_wgcrn")
+impact_damage = 0
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=2001239539]
 
