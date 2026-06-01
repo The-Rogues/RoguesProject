@@ -27,13 +27,16 @@ texture_margin_right = 32.0
 texture_margin_bottom = 32.0
 modulate_color = Color(0.2627451, 0.3137255, 0.105882354, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uydqw"]
-texture = ExtResource("3_ria2j")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3kfy"]
+load_path = "res://.godot/imported/panel-017.png-518706f7539b976ab5e3ddb166717b56.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t2yff"]
+texture = SubResource("CompressedTexture2D_v3kfy")
 texture_margin_left = 32.0
 texture_margin_top = 32.0
 texture_margin_right = 32.0
 texture_margin_bottom = 32.0
-modulate_color = Color(0.68244135, 0.4741894, 0.0966179, 1)
+modulate_color = Color(0.2627451, 0.3137255, 0.105882354, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qqee8"]
 load_path = "res://.godot/imported/panel-transparent-center-010.png-e5cb3176995a19f55713d8538eddd002.ctex"
@@ -125,6 +128,7 @@ text = "Normal
 Mode"
 
 [node name="QuickStartMode" type="Button" parent="GameModeSelector/HBoxContainer" unique_id=1044567317]
+visible = false
 custom_minimum_size = Vector2(235, 350)
 layout_mode = 2
 size_flags_vertical = 4
@@ -138,9 +142,10 @@ custom_minimum_size = Vector2(235, 350)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_uydqw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t2yff")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_lr2hx")
-text = "AI
+text = "No
+AI 
 Mode"
 
 [node name="MainMenuButton" type="Button" parent="GameModeSelector" unique_id=1108150144]

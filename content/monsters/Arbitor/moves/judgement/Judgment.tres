@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bwbamp3xvg5rw"]
+
+[ext_resource type="Texture2D" uid="uid://cudcljbp6s7i2" path="res://battle_scene/entities/player/melee_weapon/short_sword.tres" id="1_c37yk"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_hik1p"]
+[ext_resource type="Script" uid="uid://cu3ehi231kgo1" path="res://content/monsters/Arbitor/moves/judgement/actions/judgment_action.gd" id="2_l1py2"]
+
+[sub_resource type="Resource" id="Resource_76lxe"]
+script = ExtResource("2_l1py2")
+target_option = 1
+metadata/_custom_type_script = "uid://cu3ehi231kgo1"
+
+[resource]
+script = ExtResource("1_hik1p")
+intent_icon = ExtResource("1_c37yk")
+name = "Judgement"
+description = "The Aribtor judges reckless action"
+primary_action = SubResource("Resource_76lxe")
+metadata/_custom_type_script = "uid://c410dannt5adg"

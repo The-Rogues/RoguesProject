@@ -35,6 +35,9 @@ func get_or_create() -> RunProgress:
 func reset() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(SAVE_PATH)
+
+
+func reset_game_stats() -> void:
 	if FileAccess.file_exists(GAME_STATS_SAVE_PATH):
 		DirAccess.remove_absolute(GAME_STATS_SAVE_PATH)
 		GameStats.stats_data = GameStatsData.new()
