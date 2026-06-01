@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://rg3xj1to1k1w"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_c2rev"]
+[ext_resource type="Texture2D" uid="uid://bd7ij8kmkfh5q" path="res://content/monsters/Arbitor/moves/summon_minions/summon_texture.tres" id="1_tywpr"]
+[ext_resource type="Resource" uid="uid://p7vect4nf2rv" path="res://content/monsters/Arbitor/moves/summon_minions/actions/summon_minions_action.tres" id="2_0r71l"]
+
+[resource]
+script = ExtResource("1_c2rev")
+type = 1
+intent_icon = ExtResource("1_tywpr")
+name = "summon witnesses"
+description = "This Enemy intends to summon witnesses"
+primary_action = ExtResource("2_0r71l")
+metadata/_custom_type_script = "uid://c410dannt5adg"

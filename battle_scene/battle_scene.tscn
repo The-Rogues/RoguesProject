@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://drlcp5cosbwjw" path="res://battle_scene/battle_scene.gd" id="1_jfmiq"]
 [ext_resource type="Script" uid="uid://ditm4654587uf" path="res://battle_scene/creature_manager.gd" id="2_2203u"]
 [ext_resource type="PackedScene" uid="uid://1ipkbhxl3ark" path="res://battle_scene/battle_field/battle_field.tscn" id="2_ceml1"]
+[ext_resource type="PackedScene" uid="uid://c6wc7olkhdcfw" path="res://content/monsters/Arbitor/boss_dialogue_box.tscn" id="2_ugwfd"]
 [ext_resource type="PackedScene" uid="uid://dubpebcoffte8" path="res://battle_scene/ui/play_area.tscn" id="3_nuuou"]
 [ext_resource type="Script" uid="uid://b3qr8uamsao8a" path="res://card_system/player_card_hand.gd" id="4_cgsmb"]
 [ext_resource type="PackedScene" uid="uid://bnfejx84ush8n" path="res://battle_scene/entities/monster/monster_entity.tscn" id="4_s4dh3"]
@@ -154,6 +155,11 @@ mouse_filter = 2
 color = Color(0.013922674, 2.0865432e-06, 0.017923031, 1)
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1354014698]
+
+[node name="BossDialogueBox" parent="UILayer" unique_id=1805694211 instance=ExtResource("2_ugwfd")]
+offset_left = -350.0
+offset_top = -120.0
+offset_right = 350.0
 
 [node name="BattleTestButtons" parent="UILayer" unique_id=98555504 node_paths=PackedStringArray("battle_manager") instance=ExtResource("6_2203u")]
 offset_left = 6.0

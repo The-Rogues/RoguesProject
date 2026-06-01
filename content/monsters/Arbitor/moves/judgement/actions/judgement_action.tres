@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="JudgmentAction" format=3 uid="uid://cdh0hr1n781ow"]
+
+[ext_resource type="Script" uid="uid://cu3ehi231kgo1" path="res://content/monsters/Arbitor/moves/judgement/actions/judgment_action.gd" id="1_kxlq2"]
+
+[resource]
+script = ExtResource("1_kxlq2")
+metadata/_custom_type_script = "uid://cu3ehi231kgo1"

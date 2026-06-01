@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://c8bw5j0qi7w8w"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_8wnoc"]
+[ext_resource type="Texture2D" uid="uid://bn788uf8y7u6b" path="res://content/monsters/Arbitor/moves/mirror/mirror_texture.tres" id="1_gqfwi"]
+[ext_resource type="Resource" uid="uid://p5b6n58c2pcd" path="res://content/monsters/Arbitor/moves/mirror/mirror_action.tres" id="2_gqfwi"]
+
+[resource]
+script = ExtResource("1_8wnoc")
+intent_icon = ExtResource("1_gqfwi")
+name = "Mirror"
+description = "This Enemy intends to mirror your strongest attack used this battle."
+primary_action = ExtResource("2_gqfwi")
+metadata/_custom_type_script = "uid://c410dannt5adg"
