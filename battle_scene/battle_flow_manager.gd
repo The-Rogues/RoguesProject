@@ -94,21 +94,19 @@ func start_player_turn():
 		player.enter_turn(turn_count, false, resuming)
 	manage_effects(true)
 	
-	for enemy in enemies:
-		enemy.choose_intent(context)
-	
-	# Fletcher - Updates calculated targeting after enemies have chosen new moves.
-	context.creature_manager.update_attack_targeting()
-	context.battle_field.update_preferences(player)
-	
-	battle_field.enter_turn(turn_count, player)
-	player.on_all_actions_processed(context)
-	
-	battle_powers.enter_turn(context)
-	
 	if resuming:
-		resuming = false  # only skip once, normal from turn 2 onwards
-	else:
+		resuming = false
+	else: 
+		for enemy in enemies:
+			enemy.choose_intent(context)
+		
+		# Fletcher - Updates calculated targeting after enemies have chosen new moves.
+		context.creature_manager.update_attack_targeting()
+		context.battle_field.update_preferences(player)
+		
+		battle_field.enter_turn(turn_count, player)
+		
+		battle_powers.enter_turn(context)
 		player.cards.draw_cards(5)
 		_save_battle_state()
 	
@@ -199,6 +197,8 @@ func _on_battle_ended():
 	GlobalSessionInterface.disconnect_from_player(player)
 	GlobalSessionInterface.reset_stats_to_base_display()
 	
+	
+	
 	MusicManager.stop()
 	await get_tree().create_timer(2).timeout
 	
@@ -207,6 +207,7 @@ func _on_battle_ended():
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
+		GlobalSessionManager.complete_current_room()
 		GameStats.end_battle(player)
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)

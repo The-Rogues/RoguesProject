@@ -95,5 +95,10 @@ func progress_branch():
 
 
 func _on_end():
+	var run := GlobalSessionManager.run_progress
+	if run != null:
+		run.mini_event_completed = true
+		GlobalSaveManager.save_run(run)
+		
 	queue_free()
 	main_event_callback.process_event()
