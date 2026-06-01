@@ -16,6 +16,7 @@ script = ExtResource("4_wjj8o")
 behaviour = SubResource("Resource_1hd8u")
 display = ExtResource("3_1hd8u")
 duration = 1
+stack = 20
 metadata/_custom_type_script = "uid://bhmmir13kwsw5"
 
 [sub_resource type="Resource" id="Resource_1twa4"]
