@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="RunProgress" format=3]
 
-[ext_resource type="Resource" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/ice_army_fields/ice_army_field_4.tres" id="1_8qiin"]
 [ext_resource type="Script" path="res://card_system/card_data.gd" id="1_i06bj"]
-[ext_resource type="Resource" path="res://content/scene_configuration/enemy_encounters/tier_3_encounters/ice_army.tres" id="2_5nlej"]
+[ext_resource type="Resource" path="res://content/scene_configuration/battle_field_layouts/tier_1_fields/chest_upgrade_and_loot.tres" id="1_iofhu"]
+[ext_resource type="Resource" path="res://content/scene_configuration/enemy_encounters/tier_3_encounters/dragon_turtle.tres" id="2_5nlej"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_sds6a"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_jfmdv"]
 [ext_resource type="Script" path="res://globals/save_system/battle_config_data.gd" id="3_k3uip"]
@@ -11,55 +11,85 @@
 [ext_resource type="Script" path="res://globals/save_system/monster_save_data.gd" id="5_7v8y8"]
 [ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_ce22o"]
 [ext_resource type="Script" path="res://globals/save_system/object_save_data.gd" id="6_5lbfv"]
-[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="6_i06bj"]
-[ext_resource type="Resource" path="res://content/monsters/ice_warrior/ice_warrior_data.tres" id="6_k3uip"]
+[ext_resource type="Resource" path="res://content/monsters/crawler/dragon_turtle.tres" id="6_5nlej"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_1.tres" id="6_i06bj"]
 [ext_resource type="Script" path="res://item_system/item_data.gd" id="7_7xv35"]
 [ext_resource type="Script" path="res://battle_scene/win_screen/rewards_data/battle_reward_data.gd" id="7_ff1hj"]
-[ext_resource type="Resource" path="res://content/monsters/ice_wizard/ice_wizard.tres" id="7_t60l6"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/long_sword.tres" id="8_i06bj"]
 [ext_resource type="Script" path="res://globals/save_system/battle_save_data.gd" id="8_rjjt7"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/plasma_saber.tres" id="8_sds6a"]
+[ext_resource type="Resource" path="res://content/objects/treasure_pot/treasure_pot.tres" id="8_t60l6"]
 [ext_resource type="Script" path="res://globals/save_system/status_effect_save_data.gd" id="9_7cy65"]
-[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="9_sds6a"]
-[ext_resource type="Resource" path="res://content/objects/glaicer_wall/glacier_wall_right.tres" id="9_t60l6"]
-[ext_resource type="Resource" path="res://content/objects/regrow_wall/regrow_wall.tres" id="10_7v8y8"]
+[ext_resource type="Resource" path="res://content/objects/chest/chest.tres" id="9_7v8y8"]
+[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="9_jfmdv"]
+[ext_resource type="Resource" path="res://content/objects/stat_shrines/strategy_shrine.tres" id="10_7v8y8"]
 [ext_resource type="Script" path="res://globals/save_system/position_effect_save_data.gd" id="10_21v4l"]
-[ext_resource type="Script" path="res://content/monsters/ice_warrior/resolve/resolve.gd" id="10_exc3e"]
-[ext_resource type="Resource" path="res://content/personality_traits/vengeful.tres" id="10_jfmdv"]
+[ext_resource type="Script" path="res://content/cards/stoic_cards/suit_up/armor/armor_behavior.gd" id="10_te76o"]
+[ext_resource type="Resource" path="res://content/personality_traits/merciful.tres" id="10_uahfr"]
 [ext_resource type="Script" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="11_21v4l"]
 [ext_resource type="Script" path="res://personality_system/personality_data.gd" id="11_k3uip"]
 [ext_resource type="Script" path="res://globals/save_system/battle_effect_save_data.gd" id="11_shnnu"]
-[ext_resource type="Resource" path="res://content/personality_traits/friendly.tres" id="11_uahfr"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/torch.tres" id="13_ce22o"]
-[ext_resource type="Resource" path="res://content/monsters/ice_warrior/moves/match_strategy.tres" id="13_hus1o"]
+[ext_resource type="Script" path="res://content/monsters/crawler/shell_power/shell_power_indicator.gd" id="11_te76o"]
+[ext_resource type="Script" path="res://battle_scene/entities/status_effects/common/thorns_status_effect.gd" id="12_618qg"]
+[ext_resource type="Resource" path="res://content/personality_traits/greedy.tres" id="12_ce22o"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/ranged_weapon/gem_staff.tres" id="13_3l5uq"]
+[ext_resource type="Resource" path="res://content/monsters/crawler/moves/evaluate.tres" id="13_12cju"]
 [ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="14_5lbfv"]
 [ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="15_ff1hj"]
-[ext_resource type="Resource" path="res://content/monsters/ice_wizard/ice_golem/ice_golem.tres" id="16_12cju"]
-[ext_resource type="Resource" path="res://content/monsters/ice_warrior/moves/frozen_solid.tres" id="16_exc3e"]
 [ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="16_rjjt7"]
-[ext_resource type="Resource" path="res://content/monsters/ice_warrior/moves/avalanche.tres" id="17_5m5g2"]
 [ext_resource type="Script" path="res://battle_scene/entities/monster/move_sequence.gd" id="17_77t2f"]
 [ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="17_ugj3v"]
 [ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="18_ju2aj"]
 [ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="19_7cy65"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="19_axqk2"]
-[ext_resource type="Script" path="res://content/monsters/ice_wizard/scripts/ice_spikes_position_effect_behavior.gd" id="20_rpvyp"]
-[ext_resource type="Resource" path="res://content/monsters/ice_wizard/assets/ice_spikes_position_effect_display.tres" id="21_sqguc"]
-[ext_resource type="Script" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="22_kd75v"]
+[ext_resource type="Resource" path="res://content/items/energy_potion/energy_potion.tres" id="21_kdvyb"]
+[ext_resource type="Script" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="21_shnnu"]
 [ext_resource type="Texture2D" path="res://testing_and_prototypes/gold_icon.tres" id="22_kdvyb"]
 [ext_resource type="Script" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="23_12cju"]
-[ext_resource type="Script" path="res://content/monsters/ice_wizard/scripts/apply_player_position_effect_action.gd" id="23_e6owx"]
 [ext_resource type="Resource" path="res://content/scene_configuration/battle_loot/battle_card_draw.tres" id="24_nvhkl"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/monster/intents/debuff_icon.tres" id="25_5sl4m"]
-[ext_resource type="Script" path="res://content/friends/penguin/freezing_behavior.gd" id="26_kqvr8"]
-[ext_resource type="Script" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="27_48ldd"]
-[ext_resource type="Script" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="28_eickx"]
-[ext_resource type="Texture2D" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="29_exc3e"]
-[ext_resource type="Script" path="res://content/monsters/ice_wizard/ice_golem/scripts/unstable_attack_action.gd" id="30_5m5g2"]
 
-[sub_resource type="Resource" id="Resource_iofhu"]
+[sub_resource type="Resource" id="Resource_5nlej"]
 script = ExtResource("3_k3uip")
 enemy_encounter = ExtResource("2_5nlej")
-battle_field_config = ExtResource("1_8qiin")
+battle_field_config = ExtResource("1_iofhu")
+
+[sub_resource type="Resource" id="Resource_nvhkl"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_77t2f"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("5_ce22o")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_x6ljj"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("3_jfmdv")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_te76o"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("2_sds6a")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_iohd8"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("3_jfmdv")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_ps7so"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("2_sds6a")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_hus1o"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
+
+[sub_resource type="Resource" id="Resource_exc3e"]
+script = ExtResource("4_t60l6")
+card_data = ExtResource("4_uahfr")
+energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_5m5g2"]
 script = ExtResource("4_t60l6")
@@ -68,253 +98,143 @@ energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_axqk2"]
 script = ExtResource("4_t60l6")
-card_data = ExtResource("4_uahfr")
+card_data = ExtResource("3_jfmdv")
 energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_rpvyp"]
 script = ExtResource("4_t60l6")
-card_data = ExtResource("3_jfmdv")
+card_data = ExtResource("5_ce22o")
 energy_cost = 1
 
 [sub_resource type="Resource" id="Resource_sqguc"]
 script = ExtResource("4_t60l6")
-card_data = ExtResource("5_ce22o")
+card_data = ExtResource("2_sds6a")
 energy_cost = 1
 
-[sub_resource type="Resource" id="Resource_kd75v"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("3_jfmdv")
-energy_cost = 1
+[sub_resource type="Resource" id="Resource_618qg"]
+script = ExtResource("10_te76o")
 
 [sub_resource type="Resource" id="Resource_e6owx"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("2_sds6a")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_2vc0s"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("4_uahfr")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_bawfl"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("4_uahfr")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_r0dlh"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("3_jfmdv")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_j45tm"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("2_sds6a")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_ihvn2"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("2_sds6a")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_mr0c1"]
-script = ExtResource("4_t60l6")
-card_data = ExtResource("5_ce22o")
-energy_cost = 1
-
-[sub_resource type="Resource" id="Resource_l7n38"]
-script = ExtResource("10_exc3e")
-metadata/_custom_type_script = "uid://clf00n1l2txkr"
-
-[sub_resource type="Resource" id="Resource_1dp56"]
 script = ExtResource("9_7cy65")
-behaviour = SubResource("Resource_l7n38")
+behaviour = SubResource("Resource_618qg")
 duration = -1
 stack = 2
+turn_entered = false
 
-[sub_resource type="Resource" id="Resource_s2js4"]
-script = ExtResource("11_shnnu")
-enemy_status_effects = Array[ExtResource("9_7cy65")]([SubResource("Resource_1dp56")])
-enemy_effect_counts = Array[int]([1, 0, 0, 0])
-enemy_blocks = Array[int]([0, 0, 0, 0])
-
-[sub_resource type="Resource" id="Resource_jsm4g"]
-script = ExtResource("17_77t2f")
-moves = Array[ExtResource("11_21v4l")]([ExtResource("13_hus1o"), ExtResource("16_exc3e"), ExtResource("17_5m5g2")])
-metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+[sub_resource type="Resource" id="Resource_mlc0g"]
+script = ExtResource("11_te76o")
+metadata/_custom_type_script = "uid://dqx10skk6lra4"
 
 [sub_resource type="Resource" id="Resource_5sl4m"]
-script = ExtResource("5_7v8y8")
-monster_data = ExtResource("6_k3uip")
-current_health = 49
-max_health = 49
-move_sequence = SubResource("Resource_jsm4g")
-intent = ExtResource("13_hus1o")
-
-[sub_resource type="Resource" id="Resource_nsqlp"]
-script = ExtResource("20_rpvyp")
-metadata/_custom_type_script = "uid://85iqt7cgotam"
-
-[sub_resource type="Resource" id="Resource_6npls"]
-script = ExtResource("22_kd75v")
-behaviour = SubResource("Resource_nsqlp")
-display = ExtResource("21_sqguc")
+script = ExtResource("9_7cy65")
+behaviour = SubResource("Resource_mlc0g")
 duration = -1
-stack = 5
-metadata/_custom_type_script = "uid://bhmmir13kwsw5"
-
-[sub_resource type="Resource" id="Resource_tc3ix"]
-script = ExtResource("23_e6owx")
-position_effect = SubResource("Resource_6npls")
-metadata/_custom_type_script = "uid://cdv8ma2l6a8tk"
-
-[sub_resource type="Resource" id="Resource_r832s"]
-script = ExtResource("11_21v4l")
-intent_icon = ExtResource("19_axqk2")
-name = "Frozen Snare"
-description = "Creates [color=orange]ice spikes[/color] under the player."
-primary_action = SubResource("Resource_tc3ix")
-metadata/_custom_type_script = "uid://c410dannt5adg"
-
-[sub_resource type="Resource" id="Resource_xdfre"]
-script = ExtResource("26_kqvr8")
-metadata/_custom_type_script = "uid://bn7qgjpnrgqjj"
-
-[sub_resource type="Resource" id="Resource_pmud8"]
-script = ExtResource("27_48ldd")
-behaviour = SubResource("Resource_xdfre")
-duration = -1
-stack = 5
-metadata/_custom_type_script = "uid://b4s32yn3jp78u"
-
-[sub_resource type="Resource" id="Resource_cs1yf"]
-script = ExtResource("28_eickx")
-effect = SubResource("Resource_pmud8")
-target_option = 1
-metadata/_custom_type_script = "uid://qkhj1ugru1ej"
-
-[sub_resource type="Resource" id="Resource_yj3yd"]
-script = ExtResource("11_21v4l")
-type = 1
-intent_icon = ExtResource("25_5sl4m")
-name = "Frostbite"
-description = "Applies [color=#43A047]5[/color] [color=orange]freezing[/color] to the player."
-primary_action = SubResource("Resource_cs1yf")
-metadata/_custom_type_script = "uid://c410dannt5adg"
-
-[sub_resource type="Resource" id="Resource_chugk"]
-script = ExtResource("17_77t2f")
-moves = Array[ExtResource("11_21v4l")]([SubResource("Resource_r832s"), SubResource("Resource_yj3yd")])
-metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+stack = 1
 
 [sub_resource type="Resource" id="Resource_kqvr8"]
-script = ExtResource("5_7v8y8")
-monster_data = ExtResource("7_t60l6")
-current_health = 32
-max_health = 32
-move_sequence = SubResource("Resource_chugk")
-intent = SubResource("Resource_r832s")
-
-[sub_resource type="Resource" id="Resource_ymg68"]
-script = ExtResource("30_5m5g2")
-base_damage = 7
-target_option = 1
-metadata/_custom_type_script = "uid://beyup83xwa7t0"
-
-[sub_resource type="Resource" id="Resource_opqlm"]
-script = ExtResource("11_21v4l")
-intent_icon = ExtResource("29_exc3e")
-name = "Unstable Strike"
-description = "Attacks for [color=red]get_atk7[/color] damage. [color=#43A047]50[/color] percent chance enemy dies."
-primary_action = SubResource("Resource_ymg68")
-metadata/_custom_type_script = "uid://c410dannt5adg"
-
-[sub_resource type="Resource" id="Resource_r6gom"]
-script = ExtResource("17_77t2f")
-moves = Array[ExtResource("11_21v4l")]([SubResource("Resource_opqlm")])
-metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+script = ExtResource("12_618qg")
 
 [sub_resource type="Resource" id="Resource_48ldd"]
-script = ExtResource("5_7v8y8")
-monster_data = ExtResource("16_12cju")
-current_health = 4
-max_health = 4
-move_sequence = SubResource("Resource_r6gom")
-intent = SubResource("Resource_opqlm")
+script = ExtResource("9_7cy65")
+behaviour = SubResource("Resource_kqvr8")
+duration = -1
+stack = 1
 
 [sub_resource type="Resource" id="Resource_eickx"]
+script = ExtResource("11_shnnu")
+enemy_status_effects = Array[ExtResource("9_7cy65")]([SubResource("Resource_e6owx"), SubResource("Resource_5sl4m"), SubResource("Resource_48ldd")])
+enemy_effect_counts = Array[int]([3])
+enemy_blocks = Array[int]([2])
+
+[sub_resource type="Resource" id="Resource_6eia0"]
+script = ExtResource("17_77t2f")
+moves = Array[ExtResource("11_21v4l")]([ExtResource("13_12cju")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_kd75v"]
 script = ExtResource("5_7v8y8")
-monster_data = ExtResource("16_12cju")
-current_health = 7
-max_health = 7
-move_sequence = SubResource("Resource_r6gom")
-intent = SubResource("Resource_opqlm")
+monster_data = ExtResource("6_5nlej")
+current_health = 76
+max_health = 82
+move_sequence = SubResource("Resource_6eia0")
+intent = ExtResource("13_12cju")
 
-[sub_resource type="Resource" id="Resource_relw1"]
+[sub_resource type="Resource" id="Resource_wajl7"]
 script = ExtResource("6_5lbfv")
-object_data = ExtResource("9_t60l6")
-current_health = 25
-position_index = 2
+object_data = ExtResource("9_7v8y8")
+current_health = 10
 
-[sub_resource type="Resource" id="Resource_fsge6"]
+[sub_resource type="Resource" id="Resource_pjf0i"]
+script = ExtResource("6_5lbfv")
+object_data = ExtResource("8_t60l6")
+current_health = 1
+position_index = 3
+
+[sub_resource type="Resource" id="Resource_y4ahw"]
 script = ExtResource("6_5lbfv")
 object_data = ExtResource("10_7v8y8")
-current_health = 15
+current_health = 1
 position_index = 4
 
-[sub_resource type="Resource" id="Resource_3yynl"]
+[sub_resource type="Resource" id="Resource_7pps2"]
 script = ExtResource("23_12cju")
 amount = 7
 display_texture = ExtResource("22_kdvyb")
 metadata/_custom_type_script = "uid://drffwoufolf1p"
 
-[sub_resource type="Resource" id="Resource_5nlej"]
+[sub_resource type="Resource" id="Resource_gwbfp"]
+script = ExtResource("21_shnnu")
+item = ExtResource("21_kdvyb")
+metadata/_custom_type_script = "uid://bo1e5acw4diuu"
+
+[sub_resource type="Resource" id="Resource_k3uip"]
 script = ExtResource("8_rjjt7")
 is_active = true
 resume_node_index = 2
-battle_config = SubResource("Resource_iofhu")
-enemy_states = Array[ExtResource("5_7v8y8")]([SubResource("Resource_5sl4m"), SubResource("Resource_kqvr8"), SubResource("Resource_48ldd"), SubResource("Resource_eickx")])
-object_states = Array[ExtResource("6_5lbfv")]([SubResource("Resource_relw1"), SubResource("Resource_fsge6")])
-player_position_index = 2
-draw_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_e6owx"), SubResource("Resource_2vc0s")])
-discard_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_5m5g2"), SubResource("Resource_axqk2"), SubResource("Resource_rpvyp"), SubResource("Resource_sqguc"), SubResource("Resource_kd75v")])
-drawn_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_bawfl"), SubResource("Resource_r0dlh"), SubResource("Resource_j45tm"), SubResource("Resource_ihvn2"), SubResource("Resource_mr0c1")])
-effects = SubResource("Resource_s2js4")
+battle_config = SubResource("Resource_5nlej")
+enemy_states = Array[ExtResource("5_7v8y8")]([SubResource("Resource_kd75v")])
+object_states = Array[ExtResource("6_5lbfv")]([SubResource("Resource_wajl7"), SubResource("Resource_pjf0i"), SubResource("Resource_y4ahw")])
+player_position_index = 1
+draw_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_ps7so"), SubResource("Resource_hus1o")])
+discard_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_nvhkl"), SubResource("Resource_77t2f"), SubResource("Resource_x6ljj"), SubResource("Resource_te76o"), SubResource("Resource_iohd8")])
+drawn_pile = Array[ExtResource("4_t60l6")]([SubResource("Resource_exc3e"), SubResource("Resource_5m5g2"), SubResource("Resource_axqk2"), SubResource("Resource_rpvyp"), SubResource("Resource_sqguc")])
+effects = SubResource("Resource_eickx")
 player_energy = 3
 player_max_energy = 3
-pending_rewards = Array[ExtResource("7_ff1hj")]([SubResource("Resource_3yynl"), ExtResource("24_nvhkl")])
+pending_rewards = Array[ExtResource("7_ff1hj")]([SubResource("Resource_7pps2"), SubResource("Resource_gwbfp"), ExtResource("24_nvhkl")])
 enemy_turn_completed = false
 
-[sub_resource type="Resource" id="Resource_3l5uq"]
-script = ExtResource("11_k3uip")
-offensive_trait = ExtResource("10_jfmdv")
-offensive_weight = 1
-defensive_trait = ExtResource("9_sds6a")
-defensive_weight = 1
-strategic_trait = ExtResource("11_uahfr")
-strategic_weight = 2
-priority_trait = ExtResource("11_uahfr")
-
 [sub_resource type="Resource" id="Resource_7xv35"]
+script = ExtResource("11_k3uip")
+offensive_trait = ExtResource("10_uahfr")
+offensive_weight = 2
+defensive_trait = ExtResource("9_jfmdv")
+defensive_weight = 1
+strategic_trait = ExtResource("12_ce22o")
+strategic_weight = 1
+priority_trait = ExtResource("10_uahfr")
+
+[sub_resource type="Resource" id="Resource_8qiin"]
 script = ExtResource("14_5lbfv")
-name = "Ruth"
+name = "Boaz"
 character_texture = ExtResource("6_i06bj")
-melee_weapon_texture = ExtResource("8_i06bj")
-ranged_weapon_texture = ExtResource("13_ce22o")
+melee_weapon_texture = ExtResource("8_sds6a")
+ranged_weapon_texture = ExtResource("13_3l5uq")
 max_health = 50
 current_health = 50
 current_energy = 3
 max_energy = 3
 item_capacity = 3
 cards = Array[ExtResource("1_i06bj")]([ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("2_sds6a"), ExtResource("3_jfmdv"), ExtResource("3_jfmdv"), ExtResource("3_jfmdv"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("4_uahfr"), ExtResource("5_ce22o"), ExtResource("5_ce22o")])
-personality = SubResource("Resource_3l5uq")
+personality = SubResource("Resource_7xv35")
 
 [resource]
 script = ExtResource("15_ff1hj")
-player_data = SubResource("Resource_7xv35")
-map_seed = 2745756224
-battle = SubResource("Resource_5nlej")
+player_data = SubResource("Resource_8qiin")
+map_seed = 342035070
+battle = SubResource("Resource_k3uip")
 pending_node_index = 2
 room_in_progress = true
-single_time_mini_events = Array[ExtResource("16_rjjt7")]([ExtResource("18_ju2aj"), ExtResource("17_ugj3v"), ExtResource("19_7cy65")])
+single_time_mini_events = Array[ExtResource("16_rjjt7")]([ExtResource("17_ugj3v"), ExtResource("19_7cy65"), ExtResource("18_ju2aj")])
 initialized = true
 ai_mode = true
