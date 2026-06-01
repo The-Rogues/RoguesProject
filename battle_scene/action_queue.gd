@@ -82,9 +82,4 @@ func _execute_queued_action():
 func _save_after_action() -> void:
 	var scene = Engine.get_main_loop().current_scene
 	if scene is BattleScene:
-		scene._save_enemy_states()
-		scene._save_object_states()
-		scene._save_card_piles()
-		scene._save_player_position()
-		scene._save_all_effects()
-		scene._save_player_energy()
+		scene.save_battle_state()

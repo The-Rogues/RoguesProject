@@ -218,6 +218,8 @@ func _on_battle_ended():
 	GlobalSessionInterface.disconnect_from_player(player)
 	GlobalSessionInterface.reset_stats_to_base_display()
 	
+	
+	
 	MusicManager.stop()
 	await get_tree().create_timer(2).timeout
 	
@@ -226,6 +228,7 @@ func _on_battle_ended():
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
+		GlobalSessionManager.complete_current_room()
 		GameStats.end_battle(player)
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)

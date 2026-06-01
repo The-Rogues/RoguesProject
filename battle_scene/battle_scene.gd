@@ -64,6 +64,7 @@ func initialize(battle_config: BattleConfig):
 		player.battle_position = battle_field.battle_positions[
 			run.battle.player_position_index
 		]
+		player.battle_position.on_player_entered(player)
 	else:
 		player.battle_position = battle_field.battle_positions[
 			roundi(battle_field.battle_positions.size()/2)
@@ -132,10 +133,7 @@ func initialize(battle_config: BattleConfig):
 			
 	# Only save initial state on fresh battle
 	if !resuming:
-		_save_enemy_states()
-		_save_object_states()
-		_save_card_piles()
-	
+		save_battle_state()
 
 #---------------------------------------------------
 # UI Callbacks
@@ -162,6 +160,14 @@ func _on_preference_button_pressed() -> void:
 #---------------------------------------------------
 # Save
 #---------------------------------------------------
+func save_battle_state() -> void:
+	_save_enemy_states()
+	_save_object_states()
+	_save_card_piles()
+	_save_player_position()
+	_save_all_effects()
+	_save_player_energy()
+	_save_rewards()
 
 func _save_enemy_states() -> void:
 	var run : RunProgress = GlobalSessionManager.run_progress
@@ -306,7 +312,12 @@ func _restore_battle(run: RunProgress) -> void:
 	player.defeated.connect(creature_manager._on_creature_defeated)
 	for state in run.battle.enemy_states:
 			creature_manager.spawn_enemy_from_save(state)
-
+			
+	# Connect object_placed signals before restoring objects
+	for pos in battle_field.battle_positions:
+		if not pos.object_placed.is_connected(battle_field._on_object_placed):
+			pos.object_placed.connect(battle_field._on_object_placed)
+			
 	# Objects
 	for state in run.battle.object_states:
 		var pos: BattlePosition = battle_field.battle_positions[state.position_index]
@@ -314,6 +325,7 @@ func _restore_battle(run: RunProgress) -> void:
 		var obj: ObjectEntity = pos.get_object()
 		if obj != null:
 			obj.health.initialize(state.current_health, state.object_data.health)
+			
 
 	# Card piles
 	_restore_card_pile(run.battle.draw_pile, player.cards.draw_pile)
@@ -335,6 +347,10 @@ func _restore_battle(run: RunProgress) -> void:
 	# Restore rewards
 	for reward in run.battle.pending_rewards:
 		rewards_screen.add_reward(reward)
+	
+	# Update targeting and preference displays after all state is restored
+	creature_manager.update_attack_targeting()
+	battle_field.update_preferences(player)
 	
 func _restore_card_pile(saved: Array[CardInstanceSaveData], target: Array[CardInstance]) -> void:
 	for state in saved:
