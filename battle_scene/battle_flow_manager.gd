@@ -24,6 +24,7 @@ var turn_count:int = 0
 var context:BattleContext = null
 var battle_powers:BattlePowersManager
 var resuming: bool = false
+var enemy_turn_completed: bool = true
 
 
 func initialize(_context:BattleContext, _resuming: bool = false ):
@@ -67,9 +68,10 @@ func start_battle():
 		player.attacked_last_turn = true
 		var run: RunProgress = GlobalSessionManager.run_progress
 		if resuming and run != null and run.battle != null:
-			if run.battle.battle_state == 1:
-				run_enemy_turn()
-				return
+			enemy_turn_completed = run.battle.enemy_turn_completed
+			#if run.battle.battle_state == 1:
+				#run_enemy_turn()
+				#return
 		start_player_turn()
 
 
@@ -88,32 +90,51 @@ func start_player_turn():
 	
 	await turn_banner.display("Player Turn\nTurn: " + str(turn_count))
 	
-	if turn_count == 1:
-		player.enter_turn(turn_count, true, resuming)
+	if enemy_turn_completed:
+		if turn_count == 1:
+			player.enter_turn(turn_count, true, resuming)
+		else:
+			player.enter_turn(turn_count, false, resuming)
+		manage_effects(true)
+		
+		battle_field.enter_turn(turn_count, player)
+		battle_powers.enter_turn(context)
+		
+		for enemy in enemies:
+			enemy.choose_intent(context)
+		GlobalSessionManager.run_progress.battle.enemy_turn_completed = false
+		enemy_turn_completed = false
 	else:
-		player.enter_turn(turn_count, false, resuming)
-	manage_effects(true)
-	
-	for enemy in enemies:
-		enemy.choose_intent(context)
+		if turn_count == 1:
+			player.enter_turn(turn_count, true, resuming)
+		else:
+			player.enter_turn(turn_count, false, resuming)
+		
+		for enemy in enemies:
+			enemy.choose_intent(context, true)
 	
 	# Fletcher - Updates calculated targeting after enemies have chosen new moves.
 	context.creature_manager.update_attack_targeting()
 	context.battle_field.update_preferences(player)
 	
-	battle_field.enter_turn(turn_count, player)
-	player.on_all_actions_processed(context)
-	
-	battle_powers.enter_turn(context)
-	
 	if resuming:
 		resuming = false  # only skip once, normal from turn 2 onwards
+		
+		# Position effects
+		for state in GlobalSessionManager.run_progress.battle.effects.position_effects:
+			var pos: BattlePosition = battle_field.battle_positions[state.position_index]
+			pos.add_position_effect(state.config)
+			if pos.get_effect() != null:
+				pos.get_effect().duration = state.duration
+				pos.get_effect().stack = state.stack
 	else:
 		player.cards.draw_cards(5)
 		_save_battle_state()
+		action_resolver.action_queue.saving_enabled = true
 	
 	end_turn_button.disabled = false
 	end_turn_button.text = "End Turn"
+	player.on_all_actions_processed(context)
 	
 	if !GameStats.stats_data.tutorial_completed:
 		GlobalSessionInterface.tutorial.play_tutorial()
@@ -121,6 +142,8 @@ func start_player_turn():
 
 
 func end_player_turn():
+	_save_battle_state()
+	action_resolver.action_queue.saving_enabled = false
 	if battle_state == State.ENDED:
 		return
 	
@@ -140,7 +163,6 @@ func end_player_turn():
 	player.cards.move_draw_into_discard_pile()
 	play_hand.clear_hand()
 	
-	_save_battle_state()
 	await get_tree().create_timer(1).timeout
 	run_enemy_turn()
 
@@ -155,14 +177,11 @@ func run_enemy_turn():
 	var processed_enemies: Array[MonsterEntity] = []
 	var curr_enemy_idx: int = 0
 	while curr_enemy_idx < enemies.size():
-		print("Here")
 		if !processed_enemies.has(enemies[curr_enemy_idx]):
 			var curr_enemy: MonsterEntity =  enemies[curr_enemy_idx]
 			await curr_enemy.resolve_intent(action_resolver)
 			if !action_resolver.action_queue.queue.is_empty() || action_resolver.action_queue.processing_action:
-				print("Waiting")
 				await action_resolver.action_queue.processed_all_actions
-				print("Success!")
 			if is_instance_valid(curr_enemy) && enemies.has(curr_enemy):
 				processed_enemies.append(curr_enemy)
 			curr_enemy_idx = 0
@@ -171,18 +190,18 @@ func run_enemy_turn():
 			continue
 		curr_enemy_idx += 1
 	
-	print("Done")
 	if !action_resolver.action_queue.queue.is_empty() || action_resolver.action_queue.processing_action:
 		await action_resolver.action_queue.processed_all_actions
+	GlobalSessionManager.run_progress.battle.enemy_turn_completed = true
+	enemy_turn_completed = true
 	await get_tree().create_timer(1.0).timeout
 	
-	
-	_save_battle_state()
 	# Mark that player turn is about to start
-	var run : RunProgress = GlobalSessionManager.run_progress
-	if run != null and run.battle != null:
-		run.battle.battle_state = 0
-		GlobalSaveManager.save_run(run)
+	#var run : RunProgress = GlobalSessionManager.run_progress
+	#if run != null and run.battle != null:
+	#	run.battle.battle_state = 0
+	#	GlobalSaveManager.save_run(run)
+	
 	start_player_turn()
 
 
@@ -199,6 +218,8 @@ func _on_battle_ended():
 	GlobalSessionInterface.disconnect_from_player(player)
 	GlobalSessionInterface.reset_stats_to_base_display()
 	
+	
+	
 	MusicManager.stop()
 	await get_tree().create_timer(2).timeout
 	
@@ -207,6 +228,7 @@ func _on_battle_ended():
 		defeat_screen.initialize()
 		defeat_screen.visible = true
 	else:
+		GlobalSessionManager.complete_current_room()
 		GameStats.end_battle(player)
 		rewards_screen.initialize()
 		MusicManager.change_song(MusicManager.track_list.victory_theme)
@@ -246,5 +268,4 @@ func _save_battle_state() -> void:
 		scene._save_card_piles()
 		scene._save_all_effects()
 		scene._save_player_energy()
-		scene._save_rewards() 
-	
+		scene._save_rewards()

@@ -63,7 +63,9 @@ func _on_start_clicked() -> void:
 
 # View Options Menu
 func _on_options_clicked() -> void:
-	settings_menu.visible = true
+	GlobalSessionInterface.visible = true 
+	GlobalSessionInterface.options_menu.open_settings_directly()
+	GlobalSessionInterface.options_menu.settings_menu.opened_from_menu(true)
 
 
 # View Creits Menu

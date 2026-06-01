@@ -60,6 +60,15 @@ primary_action = SubResource("Resource_tb4ij")
 secondary_action = SubResource("Resource_kd86i")
 metadata/_custom_type_script = "uid://c410dannt5adg"
 
+[sub_resource type="Resource" id="Resource_3xdji"]
+script = ExtResource("4_s5ac5")
+intent_icon = SubResource("AtlasTexture_2n250")
+name = "Propagate"
+description = "Attacks for [color=red]get_atk4[/color] damage. Gains [color=#43A047]1[/color] [color=orange]strength[/color]."
+primary_action = SubResource("Resource_tb4ij")
+secondary_action = SubResource("Resource_kd86i")
+metadata/_custom_type_script = "uid://c410dannt5adg"
+
 [sub_resource type="Resource" id="Resource_xmaup"]
 script = ExtResource("5_s3yiw")
 base_damage = 4
@@ -77,7 +86,7 @@ metadata/_custom_type_script = "uid://c410dannt5adg"
 
 [sub_resource type="Resource" id="Resource_c31ea"]
 script = ExtResource("3_fetjb")
-moves = Array[ExtResource("4_s5ac5")]([SubResource("Resource_ad5k6"), SubResource("Resource_ad5k6"), SubResource("Resource_or4sf")])
+moves = Array[ExtResource("4_s5ac5")]([SubResource("Resource_ad5k6"), SubResource("Resource_3xdji"), SubResource("Resource_or4sf")])
 metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 
 [resource]

@@ -38,6 +38,9 @@ func _on_use_item(index:int, item_slot:ItemSlot):
 			item_used.emit(item)
 			Events.item_used.emit(item)
 			run.player_data.remove_item(item)
+			var scene = get_tree().current_scene
+			if scene is BattleScene:
+				scene.save_battle_state()
 
 
 func _spawn_item_particles(item_slot:ItemSlot):

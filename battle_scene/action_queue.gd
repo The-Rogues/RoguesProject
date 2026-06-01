@@ -15,6 +15,7 @@ signal started_processing_action
 
 var queue: Array[QueuedAction] = []
 var processing_action:bool = false
+var saving_enabled: bool = false
 
 # Adds action and associated info to the queue and tries to execute it
 func enqueue(
@@ -46,7 +47,8 @@ func _check_action_queue():
 			print("=== QUEUE EMPTY SAVE - drawn_cards: ", 
 				Engine.get_main_loop().current_scene.player.cards.drawn_cards.size() 
 				if Engine.get_main_loop().current_scene is BattleScene else "not battle scene")
-			_save_after_action()
+			if saving_enabled:
+				_save_after_action()
 		return
 	
 	_execute_queued_action()
@@ -67,10 +69,12 @@ func _execute_queued_action():
 	# Fletcher - Recalculate attack targeting if the action is the last in a
 	#            user's sequence.
 	if queued_action.recalculate_targeting:
-		queued_action.context.creature_manager.update_attack_targeting()
-		queued_action.context.battle_field.update_preferences(
-			queued_action.context.get_player()
-		)
+		if is_instance_valid(queued_action.context.creature_manager):
+			queued_action.context.creature_manager.update_attack_targeting()
+		if is_instance_valid(queued_action.context.battle_field):
+			queued_action.context.battle_field.update_preferences(
+				queued_action.context.get_player()
+			)
 	
 	processing_action = false
 	_check_action_queue()
@@ -78,9 +82,4 @@ func _execute_queued_action():
 func _save_after_action() -> void:
 	var scene = Engine.get_main_loop().current_scene
 	if scene is BattleScene:
-		scene._save_enemy_states()
-		scene._save_object_states()
-		scene._save_card_piles()
-		scene._save_player_position()
-		scene._save_all_effects()
-		scene._save_player_energy()
+		scene.save_battle_state()

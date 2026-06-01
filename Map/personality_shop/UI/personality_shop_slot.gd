@@ -62,8 +62,9 @@ func _show_trait(p_trait: PersonalityTrait, weight: int) -> void:
 	if p_trait == null:
 		return
 
-	trait_display.update_trait_label(p_trait)
-	trait_display.update_weight_label(weight)
+	trait_display.on_personality_updated(p_trait, weight)
+	#trait_display.update_trait_label(p_trait)
+	#trait_display.update_weight_label(weight)
 
 
 func update_current(p_trait: PersonalityTrait, weight: int = -1) -> void:
