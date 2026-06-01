@@ -22,7 +22,6 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 			_user.projectile_launcher.fire_projectile(target.global_position, projectile_configs.pick_random())
 			await _user.projectile_launcher.projectiles_freed
 		else:
-			print("ERASED BOI")
 			resolved_targets.erase(target)
 			num_gems += 1
 	

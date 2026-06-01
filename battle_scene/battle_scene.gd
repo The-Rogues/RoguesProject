@@ -364,22 +364,14 @@ func _restore_effects(fx: BattleEffectsSaveData) -> void:
 				effect_idx += 1
 
 	# Position effects
-	for state in fx.position_effects:
-		var pos: BattlePosition = battle_field.battle_positions[state.position_index]
-		pos.add_position_effect(state.config)
-		if pos.get_effect() != null:
-			pos.get_effect().duration = state.duration
-			pos.get_effect().stack = state.stack
+	#for state in fx.position_effects:
+	#	var pos: BattlePosition = battle_field.battle_positions[state.position_index]
+	#	pos.add_position_effect(state.config)
+	#	if pos.get_effect() != null:
+	#		pos.get_effect().duration = state.duration
+	#		pos.get_effect().stack = state.stack
 
 #andy addition
 func _on_enemy_defeated(enemy):
 	if enemy.data.name == "Arbitor":
 		boss_dialogue_box.start_dialogue("Arbitor",["So this is what remains..."])
-		
-		
-
-	
-	
-	
-	
-	

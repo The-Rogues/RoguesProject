@@ -17,3 +17,4 @@ class_name BattleSaveData
 @export var player_max_energy: int = 0
 @export var player_bonus_energy: int = 0
 @export var pending_rewards: Array[BattleRewardData] = []
+@export var enemy_turn_completed = true
