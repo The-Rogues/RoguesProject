@@ -26,6 +26,7 @@ class_name BattleScene
 @export var discard_pile_viewer: CardViewer
 @export var preference_button: Button
 
+@onready var boss_dialogue_box: BossDialogueBox = $UILayer/BossDialogueBox
 
 func _ready() -> void:
 	var config = GlobalSceneLoader.battle_config
@@ -47,6 +48,11 @@ func initialize(battle_config: BattleConfig):
 	else:
 		creature_manager.initialize(player, battle_config.enemy_encounter.enemies)
 		battle_field.setup_objects(battle_config.battle_field_config)
+	
+	#andy addition
+	for enemy in creature_manager.enemies:
+		enemy.defeated.connect(_on_enemy_defeated)
+	#end
 	
 	# Rewards
 	if !resuming: 
@@ -109,6 +115,13 @@ func initialize(battle_config: BattleConfig):
 	
 	GlobalSessionInterface.connect_to_player(player)
 	GameStats.initialize_battle(battle_config.enemy_encounter, battle_flow_manager)
+	#andy addition:
+	for enemy in creature_manager.enemies:
+		if enemy.data.name == "Arbitor":
+			boss_dialogue_box.start_dialogue("Arbitor", ["Show me who you are!"])
+			
+		
+	#end of andy
 	battle_flow_manager.start_battle()
 	MusicManager.change_song(MusicManager.track_list.choose_battle_theme())
 	
@@ -122,6 +135,7 @@ func initialize(battle_config: BattleConfig):
 		_save_enemy_states()
 		_save_object_states()
 		_save_card_piles()
+	
 
 #---------------------------------------------------
 # UI Callbacks
@@ -356,3 +370,16 @@ func _restore_effects(fx: BattleEffectsSaveData) -> void:
 		if pos.get_effect() != null:
 			pos.get_effect().duration = state.duration
 			pos.get_effect().stack = state.stack
+
+#andy addition
+func _on_enemy_defeated(enemy):
+	if enemy.data.name == "Arbitor":
+		boss_dialogue_box.start_dialogue("Arbitor",["So this is what remains..."])
+		
+		
+
+	
+	
+	
+	
+	
