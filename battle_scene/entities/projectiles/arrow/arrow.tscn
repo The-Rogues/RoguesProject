@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cm0mikhelv506"]
 
-[ext_resource type="Script" uid="uid://dgujwmqp62l7h" path="res://battle_scene/entities/projectiles/arrow/arrow.gd" id="1_3vv47"]
-[ext_resource type="Texture2D" uid="uid://df3tn443hw54" path="res://common/art/placeholder/32_rogues/items.png" id="2_bibgj"]
+[ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="1_mkfkv"]
+[ext_resource type="Texture2D" uid="uid://cyksvm07gfodd" path="res://common/art/placeholder/32_rogues/items.png" id="2_bibgj"]
 [ext_resource type="PackedScene" uid="uid://di1ej0x6tsa1v" path="res://battle_scene/entities/projectiles/arrow/stuck_arrow.tscn" id="3_mkfkv"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="4_mkfkv"]
+[ext_resource type="AudioStream" uid="uid://bnc5ihngtnmw2" path="res://common/sound_effects/helton_yans_pixel_combat/arrow_shot.wav" id="5_k2g7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vv47"]
 atlas = ExtResource("2_bibgj")
@@ -15,13 +16,10 @@ radius = 0.01
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 14.035668
 
-[node name="Arrow" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="Arrow" type="CharacterBody2D" unique_id=59921328]
 collision_layer = 2
 motion_mode = 1
-script = ExtResource("1_3vv47")
-speed = 420.0
-damage = 6
-life_span = NodePath("LifeSpan")
+script = ExtResource("1_mkfkv")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=1685385418]
 
@@ -32,12 +30,13 @@ rotation = 2.3823745
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_3vv47")
 
-[node name="StuckArrow" parent="SpritePivot/Sprite2D" unique_id=1169763427 instance=ExtResource("3_mkfkv")]
+[node name="StuckArrow" parent="SpritePivot/Sprite2D" unique_id=1169763427 node_paths=PackedStringArray("arrow") instance=ExtResource("3_mkfkv")]
 unique_name_in_owner = true
 visible = false
 position = Vector2(-6.165683, -5.851013)
 rotation = -0.78365296
 scale = Vector2(0.5, 0.5)
+arrow = NodePath("../../..")
 
 [node name="WallCollider" type="CollisionShape2D" parent="." unique_id=1085450663]
 position = Vector2(0, 1)
@@ -49,10 +48,17 @@ shape = SubResource("CircleShape2D_bofno")
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5ed72")
 
-[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+[node name="LifeSpanTimer" type="Timer" parent="." unique_id=1970886395]
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("4_mkfkv")]
 
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=2059616709]
+stream = ExtResource("5_k2g7f")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
-[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

@@ -6,6 +6,7 @@ class_name SpawnEnemyAction
 ##If -1, will be max health
 @export var starting_health:int = -1
 @export var status:StatusEffectConfig
+@export var choose_intent: bool = false
 
 
 func execute(_context:BattleContext = null, _user:AbstractEntity = null):
@@ -14,7 +15,7 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 			_context.creature_manager.spawn_enemy(
 					monsters[j], 
 					starting_health, 
-					false,
+					choose_intent,
 					status
 			)
 	await _context.creature_manager.get_tree().create_timer(0.15).timeout

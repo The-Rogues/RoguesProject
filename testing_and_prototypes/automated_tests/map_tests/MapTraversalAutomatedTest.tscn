@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" uid="uid://yaaq4cl2j2g" path="res://testing_and_prototypes/automated_tests/map_tests/associated_scripts/MapTraversalAutomatedTest_scn_main.gd" id="1_elra2"]
 
-
-[node name="MapTraversalAutomatedTest" type="Node"]
+[node name="MapTraversalAutomatedTest" type="Node" unique_id=1680848304]
 script = ExtResource("1_elra2")

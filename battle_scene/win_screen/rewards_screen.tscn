@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://blmtyfa32ygxo" path="res://battle_scene/win_screen/battle_rewards_handler.gd" id="1_mmg28"]
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_xxsb7"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_upsfl"]
-[ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="3_upsfl"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_upsfl"]
+[ext_resource type="Script" uid="uid://cdce0ngaiwfxx" path="res://character_creator/character_creator_sound_manager.gd" id="4_8lkwo"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="5_ajbl3"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="6_fkf36"]
+[ext_resource type="AudioStream" uid="uid://bqv8y1n7nowv1" path="res://common/sound_effects/helton_yans_pixel_combat/flee.wav" id="7_5mjyq"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="8_7n8oj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6b28"]
 bg_color = Color(0, 0, 0, 1)
@@ -159,14 +163,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Continue" parent="." unique_id=395129651 instance=ExtResource("3_upsfl")]
-layout_mode = 0
-offset_left = 858.0
-offset_top = 534.0
-offset_right = 1086.0
-offset_bottom = 563.0
+[node name="SoundManager" type="Node" parent="." unique_id=482362425 node_paths=PackedStringArray("select_buttons")]
+script = ExtResource("4_8lkwo")
+select_buttons = [NodePath("../Continue")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1573098991]
+stream = ExtResource("5_ajbl3")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1135410473]
+stream = ExtResource("6_fkf36")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1726597879]
+stream = ExtResource("7_5mjyq")
+volume_db = -5.0
+pitch_scale = 2.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1027809955]
+stream = ExtResource("8_7n8oj")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Continue" type="Button" parent="." unique_id=1871923408]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -303.0
+offset_top = -114.0
+offset_right = -43.0
+offset_bottom = -53.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Continue"
-horizontal_alignment = 1
 
-[connection signal="clicked" from="Continue" to="." method="_on_continue_clicked"]
+[connection signal="button_up" from="Continue" to="." method="_on_continue_button_up"]

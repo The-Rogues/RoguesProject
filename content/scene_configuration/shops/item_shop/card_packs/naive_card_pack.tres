@@ -13,6 +13,6 @@ script = ExtResource("2_he0im")
 card_pool = Array[ExtResource("1_qw0pi")]([ExtResource("2_jffyj"), ExtResource("3_17kuq"), ExtResource("4_2dwaa"), ExtResource("6_iidw0")])
 texture = ExtResource("8_4at7d")
 name = "Open Naive card pack"
-description = "Choose 1 Naive card to add to your deck."
+description = "Naive Card Pack"
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

@@ -7,7 +7,7 @@ func get_effect_name() -> String:
 	return "Acid"
 
 func get_description(_instance:PositionEffect) -> String:
-	return "Player takes 6 damage if they are here when the turn ends. Removed on turn end."
+	return "Player takes [color=#43A047]6[/color] damage if they are here when the turn ends. Removed on turn end."
 
 func on_entered(player:PlayerEntity, _instance:PositionEffect) -> void:
 	pass

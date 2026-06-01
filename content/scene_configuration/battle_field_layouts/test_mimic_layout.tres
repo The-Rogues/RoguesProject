@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BattleFieldConfig" format=3 uid="uid://d3wlo80a8xwmc"]
+
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_qf6w4"]
+[ext_resource type="Resource" uid="uid://xdugix0cn773" path="res://content/objects/cannons/blast_cannon.tres" id="2_8nmj7"]
+[ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="2_j5v81"]
+
+[resource]
+script = ExtResource("2_j5v81")
+weight = 100
+layout = Dictionary[int, ExtResource("1_qf6w4")]({
+0: ExtResource("2_8nmj7"),
+1: ExtResource("2_8nmj7"),
+2: ExtResource("2_8nmj7"),
+3: ExtResource("2_8nmj7"),
+4: ExtResource("2_8nmj7")
+})
+metadata/_custom_type_script = "uid://cjvnpxflphnr5"

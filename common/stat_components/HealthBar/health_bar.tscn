@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyan3dv3gby66"]
 
 [ext_resource type="Script" uid="uid://dees75c2lhgul" path="res://common/stat_components/HealthBar/health_bar.gd" id="1_pwsb3"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="2_exyqm"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="2_exyqm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78mw1"]
 bg_color = Color(0, 0, 0, 1)
@@ -26,6 +26,7 @@ z_index = 1
 custom_minimum_size = Vector2(120, 12)
 offset_right = 100.0
 offset_bottom = 1.0
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_78mw1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_m7kyx")
 value = 50.0
@@ -40,6 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_2txnt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_42bac")
 value = 80.0
@@ -54,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HealthLabel" type="Label" parent="CenterContainer" unique_id=551701136]
 texture_filter = 1

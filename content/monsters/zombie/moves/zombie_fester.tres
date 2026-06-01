@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bwjhg3lngmwnq"]
+
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="1_6cpr1"]
+[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/zombie/infection_behavior.gd" id="2_4tefn"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_nut65"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_484ua"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="5_nmy0u"]
+
+[sub_resource type="Resource" id="Resource_nmy0u"]
+script = ExtResource("2_4tefn")
+metadata/_custom_type_script = "uid://cs8gcwstv68ba"
+
+[sub_resource type="Resource" id="Resource_6mlow"]
+script = ExtResource("3_nut65")
+behaviour = SubResource("Resource_nmy0u")
+duration = -1
+stack = 4
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_2c1io"]
+script = ExtResource("4_484ua")
+effect = SubResource("Resource_6mlow")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("5_nmy0u")
+type = 1
+intent_icon = ExtResource("1_6cpr1")
+name = "Fester"
+description = "This Enemy intends to gain [color=#43A047]4[/color] [color=orange]infection[/color]."
+primary_action = SubResource("Resource_2c1io")
+metadata/_custom_type_script = "uid://c410dannt5adg"

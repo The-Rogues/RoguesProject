@@ -5,7 +5,7 @@ class_name SessionManager
 
 var run_progress: RunProgress = null
 var started_session:bool = false
-
+var pending_ai_mode:bool = false
 
 const DEFAULT_STARTING_DECK = preload("res://content/scene_configuration/default_starting_card_deck.tres")
 
@@ -17,7 +17,6 @@ func _ready() -> void:
 		connect_run_signals()
 		await get_tree().process_frame
 		GlobalSessionInterface.initialize()
-		
 
 
 # -------------------------------------------------
@@ -28,6 +27,8 @@ func initialize(data:PlayerInitializationData) -> void:
 	run_progress = create_run(data)
 	initialize_map()
 	
+	run_progress.ai_mode = pending_ai_mode
+	pending_ai_mode = false
 	started_session = true
 	GlobalSaveManager.save_run(run_progress)
 	GlobalSessionInterface.initialize()
@@ -149,10 +150,10 @@ func complete_current_room() -> void:
 	run_progress.battle = null
 		
 	# Clear extra item slot.
-	if run_progress.player_data.items.size() == run_progress.player_data.item_capacity:
-		run_progress.player_data.remove_item(
-			run_progress.player_data.items[run_progress.player_data.items.size() - 1]
-		)
+	#if run_progress.player_data.items.size() == run_progress.player_data.item_capacity:
+	#	run_progress.player_data.remove_item(
+	#		run_progress.player_data.items[run_progress.player_data.items.size() - 1]
+	#	)
 	run_progress.shop_save = null
 	run_progress.mini_event_completed = false
 	

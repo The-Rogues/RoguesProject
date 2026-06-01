@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b0e3y8sjlb5ki"]
 
+[ext_resource type="Texture2D" uid="uid://duwn2qipdjoo" path="res://common/art/placeholder/joi3/valorous_icon.tres" id="1_cj1rs"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_mre7d"]
 [ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_cj1rs"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="3_kbygv"]
@@ -15,6 +16,7 @@ script = ExtResource("3_kbygv")
 category = 3
 energy_cost = 10
 name = "Final Surge"
+display_texture = ExtResource("1_cj1rs")
 description = "[color=red]get_atk70[/color] damage to all enemies. Discount cost by [color=#43A047]1[/color] whenever a stat is modified. "
 play_actions = Array[ExtResource("1_mre7d")]([SubResource("Resource_cgila")])
 shop_price = 20

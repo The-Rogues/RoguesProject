@@ -2,8 +2,31 @@
 
 [ext_resource type="Script" uid="uid://celuju3ai46nu" path="res://testing_and_prototypes/automated_tests/battle_tests/AllMonstersAutomatedTest/associated_scripts/AllMonstersAutomatedTest_scn_main.gd" id="1_s8njh"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_kh4x8"]
+[ext_resource type="Resource" uid="uid://jsdadisdd6n8" path="res://content/monsters/angry_shroom/angry_shroom.tres" id="3_3824c"]
+[ext_resource type="Resource" uid="uid://d2sdri3l8hfdy" path="res://content/monsters/angry_shroom/angry_shroom_alt.tres" id="4_jj2cc"]
+[ext_resource type="Resource" uid="uid://bt10l1woti3q5" path="res://content/monsters/anpu/anpu.tres" id="5_4140t"]
+[ext_resource type="Resource" uid="uid://burkq1qvtpovb" path="res://content/monsters/big_slime/big_slime.tres" id="6_qxtov"]
+[ext_resource type="Resource" uid="uid://6ihnxx5ceulk" path="res://content/monsters/chaos_wizard/chaos_wizard.tres" id="7_mtmip"]
+[ext_resource type="Resource" uid="uid://dhwuk2r6x1tqk" path="res://content/monsters/crawler/dragon_turtle.tres" id="8_v8mrf"]
+[ext_resource type="Resource" uid="uid://drvx5qef655vx" path="res://content/monsters/dreamer/dreamer.tres" id="9_w7108"]
+[ext_resource type="Resource" uid="uid://l2nwenkn6gcc" path="res://content/monsters/fire_ant/fire_ant.tres" id="10_5j2rv"]
+[ext_resource type="Resource" uid="uid://b5faq5i7ymjum" path="res://content/monsters/fire_ant_queen/fire_ant_queen.tres" id="12_6kg7g"]
+[ext_resource type="Resource" uid="uid://bpl8ew0bg32ka" path="res://content/monsters/gatling_worm/gatling_worm.tres" id="13_gte6k"]
+[ext_resource type="Resource" uid="uid://cvd6kxboogiko" path="res://content/monsters/ice_warrior/ice_warrior_data.tres" id="14_ampbm"]
+[ext_resource type="Resource" uid="uid://dcg6lha6wurrf" path="res://content/monsters/ice_wizard/ice_wizard.tres" id="15_o5s86"]
+[ext_resource type="Resource" uid="uid://dv1sffs6iqywx" path="res://content/monsters/inpu/inpu.tres" id="16_3xlnj"]
+[ext_resource type="Resource" uid="uid://bv4ochxklc86t" path="res://content/monsters/metal_man/metal_man.tres" id="17_qu4x4"]
 [ext_resource type="Resource" uid="uid://xf5mvnd2uwes" path="res://content/monsters/rat_king/rat_king.tres" id="17_v8mrf"]
+[ext_resource type="Resource" uid="uid://bh8ve6rblma52" path="res://content/monsters/reaper/reaper.tres" id="20_b8fn8"]
+[ext_resource type="Resource" uid="uid://25itnkhn1son" path="res://content/monsters/savage/savage.tres" id="21_6a55v"]
+[ext_resource type="Resource" uid="uid://bpu5hfw7ett2u" path="res://content/monsters/savage/savage_alt.tres" id="22_tclvr"]
+[ext_resource type="Resource" uid="uid://qbob7g6qo7nr" path="res://content/monsters/skeleton_archer/skeleton_archer.tres" id="23_85kts"]
+[ext_resource type="Resource" uid="uid://cy87evh5jjklh" path="res://content/monsters/slime/slime.tres" id="24_iw7i0"]
+[ext_resource type="Resource" uid="uid://bp4r5noe1wbrb" path="res://content/monsters/slime/slime_alt.tres" id="25_pmqkd"]
+[ext_resource type="Resource" uid="uid://ql7kqaenuut" path="res://content/monsters/spider/spider.tres" id="26_djgiq"]
+[ext_resource type="Resource" uid="uid://dw16yr0fq5d8t" path="res://content/monsters/witch_doctor/witch_doctor_data.tres" id="27_mt2k3"]
+[ext_resource type="Resource" uid="uid://dxuy20coirc1l" path="res://content/monsters/zombie/zombie.tres" id="28_y04ww"]
 
 [node name="AllMonstersAutomatedTest" type="Node" unique_id=806590617]
 script = ExtResource("1_s8njh")
-all_monsters = Array[ExtResource("2_kh4x8")]([ExtResource("17_v8mrf")])
+all_monsters = Array[ExtResource("2_kh4x8")]([ExtResource("3_3824c"), ExtResource("4_jj2cc"), ExtResource("5_4140t"), ExtResource("6_qxtov"), ExtResource("7_mtmip"), ExtResource("8_v8mrf"), ExtResource("9_w7108"), ExtResource("10_5j2rv"), ExtResource("12_6kg7g"), ExtResource("13_gte6k"), ExtResource("14_ampbm"), ExtResource("15_o5s86"), ExtResource("16_3xlnj"), ExtResource("17_qu4x4"), ExtResource("17_v8mrf"), ExtResource("20_b8fn8"), ExtResource("21_6a55v"), ExtResource("22_tclvr"), ExtResource("23_85kts"), ExtResource("24_iw7i0"), ExtResource("25_pmqkd"), ExtResource("26_djgiq"), ExtResource("27_mt2k3"), ExtResource("28_y04ww")])

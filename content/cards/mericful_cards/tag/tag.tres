@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bchnqrjy0vhrh"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_0fvlv"]
+[ext_resource type="Texture2D" uid="uid://hi7wmsmd5iab" path="res://common/art/placeholder/joi3/merciful_icon.tres" id="1_usq0t"]
 [ext_resource type="Script" uid="uid://bm5oygnb1m3h7" path="res://battle_scene/entities/actions/skill/move_out_of_cover_action.gd" id="2_usq0t"]
 [ext_resource type="Resource" uid="uid://bebk1xwx7wj8s" path="res://content/cards/friendly_cards/friendship_effect/friendship_behavior.tres" id="3_0fvlv"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_8m7ek"]
@@ -30,6 +31,7 @@ type = 2
 category = 1
 energy_cost = 1
 name = "Tag"
+display_texture = ExtResource("1_usq0t")
 description = "Move to an open position. Apply [color=#43A047]3[/color] [color=orange]friendship[/color] to an enemy."
 play_actions = Array[ExtResource("1_0fvlv")]([SubResource("Resource_dpmpq"), SubResource("Resource_ktway")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

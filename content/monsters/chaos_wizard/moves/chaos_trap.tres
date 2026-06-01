@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://bv5c3hrm01y0d"]
+
+[ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="1_6sn35"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_malsb"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="2_qtji2"]
+[ext_resource type="Script" uid="uid://85iqt7cgotam" path="res://content/monsters/ice_wizard/scripts/ice_spikes_position_effect_behavior.gd" id="3_tt1y0"]
+[ext_resource type="Resource" uid="uid://d4monl5tudtl5" path="res://content/monsters/ice_wizard/assets/ice_spikes_position_effect_display.tres" id="4_o7ehc"]
+[ext_resource type="Script" uid="uid://dxbrvj4isxnht" path="res://battle_scene/battle_field/position_effects/common/status_position_effect.gd" id="5_gduwf"]
+[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="6_wdaqj"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="7_i0k0i"]
+[ext_resource type="Resource" uid="uid://cqeh60hfqjf6s" path="res://battle_scene/battle_field/position_effects/common/burning_effect_display.tres" id="8_m6vdg"]
+[ext_resource type="Script" uid="uid://bud06kwphwcgv" path="res://content/cards/greedy_cards/unearth/fill_opportunity_action.gd" id="9_kcgsm"]
+
+[sub_resource type="Resource" id="Resource_ittov"]
+script = ExtResource("3_tt1y0")
+metadata/_custom_type_script = "uid://85iqt7cgotam"
+
+[sub_resource type="Resource" id="Resource_i0ljy"]
+script = ExtResource("2_qtji2")
+behaviour = SubResource("Resource_ittov")
+display = ExtResource("4_o7ehc")
+duration = -1
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_mj4bx"]
+script = ExtResource("6_wdaqj")
+metadata/_custom_type_script = "uid://di1j13j6xybid"
+
+[sub_resource type="Resource" id="Resource_sv5ks"]
+script = ExtResource("7_i0k0i")
+behaviour = SubResource("Resource_mj4bx")
+duration = 3
+stack = 0
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_1j4wa"]
+script = ExtResource("5_gduwf")
+status = SubResource("Resource_sv5ks")
+metadata/_custom_type_script = "uid://dxbrvj4isxnht"
+
+[sub_resource type="Resource" id="Resource_w728x"]
+script = ExtResource("2_qtji2")
+behaviour = SubResource("Resource_1j4wa")
+display = ExtResource("8_m6vdg")
+duration = -1
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_owr3d"]
+script = ExtResource("9_kcgsm")
+new_spaces = Array[ExtResource("2_qtji2")]([SubResource("Resource_i0ljy"), SubResource("Resource_w728x")])
+metadata/_custom_type_script = "uid://bud06kwphwcgv"
+
+[resource]
+script = ExtResource("1_malsb")
+intent_icon = ExtResource("1_6sn35")
+name = "Chaos Trap"
+description = "Randomly fills all positions with [color=orange]Burning Positions[/color] or [color=orange]Ice Spikes[/color]."
+primary_action = SubResource("Resource_owr3d")
+metadata/_custom_type_script = "uid://c410dannt5adg"

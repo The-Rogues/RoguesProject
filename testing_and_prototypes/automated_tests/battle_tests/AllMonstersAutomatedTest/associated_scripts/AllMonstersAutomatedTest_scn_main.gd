@@ -9,6 +9,7 @@ extends Node
 
 var test_enabled: bool = false
 
+# MANUAL TEST ENEMIES:  FIRE ANT EGG, MIMIC
 func _ready():
 	
 	if !test_enabled:

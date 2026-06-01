@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://biytyhg5hx4cd"]
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://ddhnu6ajb7eex"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_jucpp"]
 [ext_resource type="Script" uid="uid://erv0y2lofll0" path="res://content/friends/bunny_friend/bunny_friend.gd" id="2_ahrou"]
@@ -25,10 +25,11 @@ metadata/_custom_type_script = "uid://24v1ynwivrsc"
 script = ExtResource("2_at6qp")
 type = 2
 category = 3
-energy_cost = 2
-name = "Carrot Treat"
+energy_cost = 3
+name = "Fuzzy Friend"
 display_texture = SubResource("AtlasTexture_xq8mk")
-description = "Summons a bunny. Player heals [color=#43A047]2[/color] HP each turn. [color=orange]Single use[/color]."
+description = "Summons a Bunny friend. Player heals 2 HP at the start of each turn. Exhaust."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_jucpp")]([SubResource("Resource_4kbfl")])
+shop_price = 20
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

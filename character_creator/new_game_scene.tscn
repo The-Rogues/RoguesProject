@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_ud5u8"]
 [ext_resource type="Script" uid="uid://bp442a8lebqi1" path="res://character_creator/new_game_scene.gd" id="2_2h578"]
-[ext_resource type="Texture2D" uid="uid://vkpxy4xn7do2" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-017.png" id="3_ria2j"]
+[ext_resource type="Texture2D" uid="uid://cb7r40gcn4g8s" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-017.png" id="3_ria2j"]
 [ext_resource type="PackedScene" uid="uid://mdymi56364et" path="res://character_creator/character_creator.tscn" id="4_bkb27"]
 [ext_resource type="PackedScene" uid="uid://b3f3ud24snhhv" path="res://main_menu/character_result_scene.gd.tscn" id="5_2h578"]
 [ext_resource type="Script" uid="uid://cdce0ngaiwfxx" path="res://character_creator/character_creator_sound_manager.gd" id="6_v3kfy"]
@@ -27,13 +27,16 @@ texture_margin_right = 32.0
 texture_margin_bottom = 32.0
 modulate_color = Color(0.2627451, 0.3137255, 0.105882354, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uydqw"]
-texture = ExtResource("3_ria2j")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3kfy"]
+load_path = "res://.godot/imported/panel-017.png-518706f7539b976ab5e3ddb166717b56.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t2yff"]
+texture = SubResource("CompressedTexture2D_v3kfy")
 texture_margin_left = 32.0
 texture_margin_top = 32.0
 texture_margin_right = 32.0
 texture_margin_bottom = 32.0
-modulate_color = Color(0.68244135, 0.4741894, 0.0966179, 1)
+modulate_color = Color(0.2627451, 0.3137255, 0.105882354, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qqee8"]
 load_path = "res://.godot/imported/panel-transparent-center-010.png-e5cb3176995a19f55713d8538eddd002.ctex"
@@ -125,6 +128,7 @@ text = "Normal
 Mode"
 
 [node name="QuickStartMode" type="Button" parent="GameModeSelector/HBoxContainer" unique_id=1044567317]
+visible = false
 custom_minimum_size = Vector2(235, 350)
 layout_mode = 2
 size_flags_vertical = 4
@@ -138,10 +142,10 @@ custom_minimum_size = Vector2(235, 350)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_uydqw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t2yff")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_lr2hx")
-disabled = true
-text = "AI
+text = "No
+AI 
 Mode"
 
 [node name="MainMenuButton" type="Button" parent="GameModeSelector" unique_id=1108150144]

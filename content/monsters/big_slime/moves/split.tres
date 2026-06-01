@@ -23,7 +23,7 @@ script = ExtResource("1_tmvdi")
 type = 1
 intent_icon = ExtResource("1_jubqs")
 name = "Split"
-description = "Splits into two \"Slime\" enemies."
+description = "Splits into [color=#43A047]2[/color] \"Slime\" enemies."
 primary_action = SubResource("Resource_cxrkf")
 secondary_action = SubResource("Resource_x0yof")
 metadata/_custom_type_script = "uid://c410dannt5adg"

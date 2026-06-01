@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PersonalityData" format=3 uid="uid://ccg0j48lxm8sh"]
+
+[ext_resource type="Resource" uid="uid://8yofaogmqdc3" path="res://content/personality_traits/crafty.tres" id="1_pemus"]
+[ext_resource type="Resource" uid="uid://dnpmpbjeyx65" path="res://content/personality_traits/brutish.tres" id="2_1qxav"]
+[ext_resource type="Script" uid="uid://1pyca5um8bhn" path="res://personality_system/personality_data.gd" id="3_v11o7"]
+[ext_resource type="Resource" uid="uid://c31mo2yg1u86r" path="res://content/personality_traits/friendly.tres" id="4_qp3ch"]
+
+[resource]
+script = ExtResource("3_v11o7")
+offensive_trait = ExtResource("2_1qxav")
+offensive_weight = 1
+defensive_trait = ExtResource("1_pemus")
+defensive_weight = 1
+strategic_trait = ExtResource("4_qp3ch")
+strategic_weight = 1
+metadata/_custom_type_script = "uid://1pyca5um8bhn"

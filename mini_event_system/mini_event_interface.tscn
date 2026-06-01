@@ -2,9 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_v2vt5"]
 [ext_resource type="Script" uid="uid://b8dp5g5wffwp6" path="res://mini_event_system/mini_event_interface.gd" id="2_18p1y"]
-[ext_resource type="Texture2D" uid="uid://chut8w6lk1vsh" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-027.png" id="3_b31bs"]
-[ext_resource type="Texture2D" uid="uid://chw03tier0p2y" path="res://Map/map_assets/shop_icon.png" id="4_8q6mk"]
+[ext_resource type="Texture2D" uid="uid://dpoa082g7wiqf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-027.png" id="3_b31bs"]
 [ext_resource type="Script" uid="uid://ru5rndxm87cd" path="res://shop_scenes/item_shop/dialogue_text.gd" id="5_1bvb0"]
+[ext_resource type="Script" uid="uid://bjewkcldewjoc" path="res://main_menu/main_menu_sound_manager.gd" id="5_h376j"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="6_71qkk"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="7_m6ohm"]
+[ext_resource type="AudioStream" uid="uid://bu5ow7dk4bxeh" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_0.wav" id="8_it0cg"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="9_gao2x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rjwva"]
 texture = ExtResource("3_b31bs")
@@ -80,7 +84,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(152, 152)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("4_8q6mk")
 
 [node name="EventTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer" unique_id=1042986864 node_paths=PackedStringArray("dialogue_text_timer")]
 unique_name_in_owner = true
@@ -88,12 +91,11 @@ custom_minimum_size = Vector2(393, 100)
 layout_mode = 2
 bbcode_enabled = true
 text = "If you can read this, there is a bug."
-horizontal_alignment = 1
 script = ExtResource("5_1bvb0")
 dialogue_text_timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="Panel/MarginContainer/VBoxContainer/EventTextLabel" unique_id=1454972128]
-wait_time = 0.009999999999999998
+wait_time = 0.00999999999999999
 
 [node name="Options" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1165499160]
 custom_minimum_size = Vector2(0, 102)
@@ -131,3 +133,27 @@ custom_minimum_size = Vector2(274, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "End"
+
+[node name="SoundManager" type="Node" parent="." unique_id=1720165937 node_paths=PackedStringArray("select_buttons")]
+script = ExtResource("5_h376j")
+select_buttons = [NodePath("../Panel/MarginContainer/Options/Option1"), NodePath("../Panel/MarginContainer/Options/Option2"), NodePath("../Panel/MarginContainer/Options/Next"), NodePath("../Panel/MarginContainer/Options/End")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1830866989]
+stream = ExtResource("6_71qkk")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=1036270250]
+stream = ExtResource("7_m6ohm")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=265508604]
+stream = ExtResource("8_it0cg")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="SoundManager" unique_id=2080929990]
+stream = ExtResource("9_gao2x")
+volume_db = -5.0
+bus = &"SFX"

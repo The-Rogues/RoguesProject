@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://d3qwnlys0aw6d"]
+
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_a08ym"]
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="1_rn58v"]
+[ext_resource type="Script" uid="uid://rn3lkojydgxw" path="res://content/monsters/chaos_wizard/scripts/destroy_all_objects_action.gd" id="2_5ooti"]
+
+[sub_resource type="Resource" id="Resource_o2100"]
+script = ExtResource("2_5ooti")
+metadata/_custom_type_script = "uid://rn3lkojydgxw"
+
+[resource]
+script = ExtResource("1_a08ym")
+type = 1
+intent_icon = ExtResource("1_rn58v")
+name = "Chaotic Destruction"
+description = "Destroys all objects."
+primary_action = SubResource("Resource_o2100")
+metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -5,11 +5,11 @@
 [ext_resource type="AudioStream" uid="uid://dkt46ip4i00w2" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/11 - The Mighty Kingdom.ogg" id="1_p4j1v"]
 [ext_resource type="AudioStream" uid="uid://c3384jv0u4hy8" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/02 - Title Theme.ogg" id="2_p4j1v"]
 [ext_resource type="AudioStream" uid="uid://ceammcyo8urm2" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/20 - The Journey.ogg" id="3_rya5x"]
+[ext_resource type="AudioStream" uid="uid://c4ejc0ratcdg1" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/18 - Never Give Up.ogg" id="3_yixfr"]
 [ext_resource type="AudioStream" uid="uid://defoq4p5vo00v" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/05 - Battle 1.ogg" id="4_2ntwo"]
 [ext_resource type="AudioStream" uid="uid://bgcbyy5wnpft8" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/10 - Lost Shrine.ogg" id="4_jggka"]
 [ext_resource type="AudioStream" uid="uid://dbumd38ljf2dw" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/12 - Frozen Abyss.ogg" id="8_xdvgi"]
 [ext_resource type="AudioStream" uid="uid://clowyg0d5175s" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/08 - Shop.ogg" id="10_khfol"]
-[ext_resource type="AudioStream" uid="uid://bjcl6umhfbxll" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/15 - Peaceful Night.ogg" id="10_yixfr"]
 [ext_resource type="AudioStream" uid="uid://biqpnc58ox4r0" path="res://common/music/placeholder/xDeviruchi - 16 bit Fantasy & Adventure (2025)/Loopable + one shots/ogg/06 - Victory!.ogg" id="11_yixfr"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_eyhmy"]
@@ -41,7 +41,7 @@ early_map_theme = SubResource("AudioStreamOggVorbis_7jkjq")
 mid_game_map_theme = ExtResource("8_xdvgi")
 late_game_map_theme = ExtResource("4_jggka")
 victory_theme = ExtResource("11_yixfr")
-defeated_theme = ExtResource("10_yixfr")
+defeated_theme = ExtResource("3_yixfr")
 shop_theme = ExtResource("10_khfol")
 battle_theme_varients = Array[AudioStream]([ExtResource("1_jggka"), ExtResource("4_2ntwo")])
 metadata/_custom_type_script = "uid://iu7443of4tq5"

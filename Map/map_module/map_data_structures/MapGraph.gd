@@ -732,7 +732,7 @@ func populate_events(rand_seed: int) -> void:
 	
 	if challenge_battles.has(witch_doctor):
 		var valid_nodes: Array[RefCounted] = []
-		for i in range(7, 10):
+		for i in range(4, 7):
 			var layer_option: Array[RefCounted] = get_layer(i)
 			for j in range(0, layer_option.size()):
 				if layer_option[j].node_data.main_event == battle_data:
@@ -743,7 +743,7 @@ func populate_events(rand_seed: int) -> void:
 	
 	if challenge_battles.has(metal_man):
 		var valid_nodes: Array[RefCounted] = []
-		for i in range(10, 13):
+		for i in range(7, 10):
 			var layer_option: Array[RefCounted] = get_layer(i)
 			for j in range(0, layer_option.size()):
 				if layer_option[j].node_data.main_event == battle_data:

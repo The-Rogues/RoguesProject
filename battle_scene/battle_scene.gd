@@ -26,6 +26,7 @@ class_name BattleScene
 @export var discard_pile_viewer: CardViewer
 @export var preference_button: Button
 
+@onready var boss_dialogue_box: BossDialogueBox = $UILayer/BossDialogueBox
 
 func _ready() -> void:
 	var config = GlobalSceneLoader.battle_config
@@ -47,6 +48,11 @@ func initialize(battle_config: BattleConfig):
 	else:
 		creature_manager.initialize(player, battle_config.enemy_encounter.enemies)
 		battle_field.setup_objects(battle_config.battle_field_config)
+	
+	#andy addition
+	for enemy in creature_manager.enemies:
+		enemy.defeated.connect(_on_enemy_defeated)
+	#end
 	
 	# Rewards
 	if !resuming: 
@@ -92,6 +98,15 @@ func initialize(battle_config: BattleConfig):
 	player.cards.discard_pile_updated.connect(discard_pile_viewer.on_cards_updated)
 	battle_field.object_placed.connect(creature_manager.add_object_enemy)
 	
+	# TODO: Figure out cleaner way to avoid hard-coding
+	creature_manager.defeated_mimic.connect(func():
+		var mimic_reward = load("res://content/objects/object_reward_resources/chest_reward.tres")
+		battle_flow_manager.action_resolver.process_actions(
+			[mimic_reward],
+			null
+		)
+		)
+	
 	# Update pile UI when resume
 	if resuming:
 		draw_pile_icon._on_card_pile_updated(player.cards.draw_pile)
@@ -101,6 +116,13 @@ func initialize(battle_config: BattleConfig):
 	
 	GlobalSessionInterface.connect_to_player(player)
 	GameStats.initialize_battle(battle_config.enemy_encounter, battle_flow_manager)
+	#andy addition:
+	for enemy in creature_manager.enemies:
+		if enemy.data.name == "Arbitor":
+			boss_dialogue_box.start_dialogue("Arbitor", ["Show me who you are!"])
+			
+		
+	#end of andy
 	battle_flow_manager.start_battle()
 	MusicManager.change_song(MusicManager.track_list.choose_battle_theme())
 	
@@ -364,3 +386,16 @@ func _restore_effects(fx: BattleEffectsSaveData) -> void:
 		if pos.get_effect() != null:
 			pos.get_effect().duration = state.duration
 			pos.get_effect().stack = state.stack
+
+#andy addition
+func _on_enemy_defeated(enemy):
+	if enemy.data.name == "Arbitor":
+		boss_dialogue_box.start_dialogue("Arbitor",["So this is what remains..."])
+		
+		
+
+	
+	
+	
+	
+	

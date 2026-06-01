@@ -7,9 +7,13 @@
 extends Control
 class_name OptionsMenu
 
-
 @onready var settings_menu: PanelContainer = $SettingsMenu
+@onready var tutorial_button: Button = %Tutorial
 
+func open_settings_directly() ->void:
+	visible = true
+	settings_menu.visible = true
+	pass
 
 func _on_settings_button_up() -> void:
 	settings_menu.visible = true
@@ -24,4 +28,4 @@ func _on_main_menu_button_up() -> void:
 
 func _on_close_button_up() -> void:
 	visible = false
-	pass # Replace with function body.
+pass # Replace with function body.

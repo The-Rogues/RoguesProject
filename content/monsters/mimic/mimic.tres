@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://ciyah3t4x6has"]
+
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_nuybl"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_rylsd"]
+[ext_resource type="Texture2D" uid="uid://djwkbyhm2r5qx" path="res://content/monsters/mimic/mimic_texture.tres" id="2_68mf8"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_ynfvt"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_nqedh"]
+[ext_resource type="Resource" uid="uid://62ssdpxryohf" path="res://content/monsters/mimic/moves/snarl.tres" id="5_frer6"]
+[ext_resource type="Resource" uid="uid://by15t2j3s48s4" path="res://content/monsters/mimic/moves/thrash.tres" id="6_c8404"]
+[ext_resource type="Resource" uid="uid://4u6dy8a2mojp" path="res://content/monsters/mimic/moves/flee.tres" id="7_owa8e"]
+
+[sub_resource type="Resource" id="Resource_nafv1"]
+script = ExtResource("1_rylsd")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_7ivtp"]
+script = ExtResource("1_nuybl")
+moves = Array[ExtResource("4_nqedh")]([ExtResource("5_frer6"), ExtResource("6_c8404"), ExtResource("6_c8404"), ExtResource("7_owa8e")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_ynfvt")
+move_sequences = Array[ExtResource("1_nuybl")]([SubResource("Resource_7ivtp")])
+behaviour = SubResource("Resource_nafv1")
+init_targeting = Array[int]([2, 7])
+display_texture = ExtResource("2_68mf8")
+name = "Mimic"
+health = 30
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

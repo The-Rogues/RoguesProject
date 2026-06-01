@@ -17,6 +17,6 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 	).pick_random()
 		
 	if is_instance_valid(target):
-		_user.projectile_launcher.fire_sequence(target.global_position, projectile_config)
+		_user.projectile_launcher.fire_projectile(target.global_position, projectile_config)
 	
 	await _user.projectile_launcher.projectiles_freed

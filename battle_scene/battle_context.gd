@@ -7,6 +7,7 @@ var battle_field:BattleField
 var reward_handler:BattleRewardsHandler
 var resolve_targeting:Callable
 var add_power:Callable
+var is_player_turn: bool = true
 
 func _init(
 	_creature_manager:CreatureManager,

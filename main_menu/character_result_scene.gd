@@ -22,13 +22,13 @@ func initialize():
 		name_label.text = preview.name
 		#backstory.text = preview.backstory
 		
-		offensive_trait._on_trait_data_updated(
+		offensive_trait.initialize_display(
 				preview.personality.offensive_trait,
 				preview.personality.offensive_weight)
-		defensive_trait._on_trait_data_updated(
+		defensive_trait.initialize_display(
 				preview.personality.defensive_trait,
 				preview.personality.defensive_weight)
-		strategic_trait._on_trait_data_updated(
+		strategic_trait.initialize_display(
 				preview.personality.strategic_trait,
 				preview.personality.strategic_weight)
 		

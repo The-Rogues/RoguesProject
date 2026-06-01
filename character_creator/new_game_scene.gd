@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func _on_normal_mode_button_up() -> void:
 	character_creator.visible = true
+	GlobalSessionManager.pending_ai_mode = true
 	pass # Replace with function body.
 
 
@@ -24,8 +25,7 @@ func _on_quick_start_mode_button_up() -> void:
 
 
 func _on_ai_mode_button_up() -> void:
-	GlobalSceneLoader.load_scene(GlobalSceneLoader.AI_Character_Builder)
-	pass # Replace with function body.
+	character_creator.visible = true
 
 
 func _on_main_menu_button_up() -> void:
@@ -38,4 +38,4 @@ func _on_character_created(data:PlayerInitializationData):
 	character_creator.visible = false
 	
 	GlobalSessionManager.initialize(data)
-	GlobalSceneLoader.load_scene(GlobalSceneLoader.Saved_Character_Scene)
+	GlobalSceneLoader.load_scene(GlobalSceneLoader.CHARACTER_INTRO_SCENE)

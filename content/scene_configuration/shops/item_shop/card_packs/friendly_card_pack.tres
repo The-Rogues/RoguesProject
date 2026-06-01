@@ -12,7 +12,7 @@
 script = ExtResource("2_cte0j")
 card_pool = Array[ExtResource("1_c3rw2")]([ExtResource("2_qw2b2"), ExtResource("4_sw3xq"), ExtResource("5_nfl7g"), ExtResource("7_hh1y8")])
 texture = ExtResource("9_nf66j")
-name = "Open Friendly card pack"
+name = "Friendly Card Pack"
 description = "Choose 1 Friendly card to add to your deck."
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

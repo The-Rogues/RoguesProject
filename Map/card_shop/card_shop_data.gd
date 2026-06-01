@@ -4,6 +4,7 @@ class_name CardShopData
 @export var random_cards_pool: Array[CardData]
 @export var ai_cards_pool: Array[CardData]
 @export var shop_unique_pool: Array[CardData]
+@export var legendary_card_pool: Array[CardData]
 
 
 func get_shop_card(player_personality: PersonalityData) -> Array[CardInstance]:
@@ -21,10 +22,17 @@ func get_shop_card(player_personality: PersonalityData) -> Array[CardInstance]:
 
 	return shop_cards
 
-func get_ai_card(player_personality: PersonalityData) -> Array[CardInstance]:
+func get_ai_card() -> Array[CardInstance]:
 	var shop_cards: Array[CardInstance] = []
 
 	shop_cards.append(CardInstance.new(ai_cards_pool.pick_random()))
+
+	return shop_cards
+
+func get_legendary_card() -> Array[CardInstance]:
+	var shop_cards: Array[CardInstance] = []
+
+	shop_cards.append(CardInstance.new(legendary_card_pool.pick_random()))
 
 	return shop_cards
 

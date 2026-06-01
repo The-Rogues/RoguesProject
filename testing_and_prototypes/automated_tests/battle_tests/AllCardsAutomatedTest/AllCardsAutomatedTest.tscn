@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://7t6edb8dbdly"]
+[gd_scene format=3 uid="uid://3g4kaxdi778h"]
 
-[ext_resource type="Script" uid="uid://bknd6870x7qoq" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_scripts/AllCardsAutomatedTest_scn_main.gd" id="1_la50o"]
+[ext_resource type="Script" uid="uid://dmddkg7mco5ye" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_scripts/AllCardsAutomatedTest_scn_main.gd" id="1_2a6gm"]
 
 [node name="AllCardsAutomatedTest" type="Node" unique_id=1124373746]
-script = ExtResource("1_la50o")
+script = ExtResource("1_2a6gm")

@@ -62,8 +62,12 @@ func execute_patient_blow(_context:BattleContext, _user:AbstractEntity):
 	if not _user.attacked_last_turn:
 		final_damage = boosted_damage
 	
-	final_damage = _user.effects.apply_attack_damage_effects(final_damage)
+	var patient_attack: AttackAction = AttackAction.new()
+	patient_attack.base_damage = final_damage
+	patient_attack.target_option = TargetedAction.TargetOption.ENEMY
+	await patient_attack.execute(_context, _user)
+	#final_damage = _user.effects.apply_attack_damage_effects(final_damage)
 	
-	for target in resolved_targets:
-		if is_instance_valid(target):
-			target.take_damage(final_damage, _user)
+	#for target in resolved_targets:
+	#	if is_instance_valid(target):
+	#		target.take_damage(final_damage, _user)

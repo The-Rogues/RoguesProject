@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_qxsle"]
 [ext_resource type="Texture2D" uid="uid://cdj50rusvnt6h" path="res://battle_scene/entities/monster/intents/debuff_icon.tres" id="1_xugtq"]
-[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/the_infected/infection_behavior.gd" id="2_cxm8e"]
+[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/zombie/infection_behavior.gd" id="2_cxm8e"]
 [ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_qf38r"]
 [ext_resource type="Script" uid="uid://vc600f6njnsd" path="res://battle_scene/entities/actions/skill/apply_multi_status_action.gd" id="3_yphfq"]
 [ext_resource type="Script" uid="uid://ebwvb1etrwgq" path="res://battle_scene/entities/status_effects/common/strength_status_effect.gd" id="4_cxm8e"]

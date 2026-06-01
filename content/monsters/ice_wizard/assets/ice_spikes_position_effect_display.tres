@@ -1,8 +1,7 @@
 [gd_resource type="Resource" script_class="PositionEffectDisplay" format=3 uid="uid://d4monl5tudtl5"]
 
-[ext_resource type="Texture2D" uid="uid://bg571bml78slj" path="res://content/monsters/ice_wizard/assets/ice_spikes.png" id="1_piibu"]
+[ext_resource type="Texture2D" uid="uid://dc3dbwi8805tu" path="res://content/monsters/ice_wizard/assets/ice_spikes.png" id="1_piibu"]
 [ext_resource type="Script" uid="uid://dd40p6dnepp41" path="res://battle_scene/battle_field/position_effects/position_effect_display.gd" id="2_muxyk"]
-
 
 [resource]
 script = ExtResource("2_muxyk")

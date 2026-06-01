@@ -438,12 +438,10 @@ radius = 12.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 13.0
 
-[node name="Projectile" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="Projectile" type="CharacterBody2D" unique_id=59921328]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_d0u1t")
-damage = 10
-life_span = NodePath("LifeSpan")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=2001239539]
 
@@ -457,7 +455,7 @@ autoplay = "default"
 frame_progress = 0.25510907
 flip_h = true
 
-[node name="WallCollider" type="CollisionShape2D" parent="." unique_id=1085450663]
+[node name="WallCollider" type="CollisionShape2D" parent="." unique_id=1085450663 groups=["Enemies", "Objects", "Player"]]
 shape = SubResource("CircleShape2D_bofno")
 debug_color = Color(0.56550735, 0.03961729, 0.56616616, 0.41960785)
 
@@ -467,11 +465,12 @@ debug_color = Color(0.56550735, 0.03961729, 0.56616616, 0.41960785)
 shape = SubResource("CircleShape2D_5ed72")
 debug_color = Color(0.9933968, 0, 0.24498847, 0.41960785)
 
-[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+[node name="LifeSpanTimer" type="Timer" parent="." unique_id=1970886395]
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_snjtf")]
 default_color = Color(0.81540364, 0.19489661, 0.13030902, 1)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
-[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

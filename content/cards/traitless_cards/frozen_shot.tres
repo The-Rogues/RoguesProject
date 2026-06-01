@@ -1,20 +1,21 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bvmlgyi3ettn8"]
 
+[ext_resource type="Texture2D" uid="uid://duiccro4838pm" path="res://common/art/placeholder/joi3/traitless_texture.tres" id="1_jttpm"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_ns18h"]
 [ext_resource type="PackedScene" uid="uid://bb2r4bfsxofij" path="res://battle_scene/entities/projectiles/frozen_arrow/frozen_arrow.tscn" id="2_gvewa"]
+[ext_resource type="Script" uid="uid://bn7qgjpnrgqjj" path="res://content/friends/penguin/freezing_behavior.gd" id="3_68kjg"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_gvewa"]
 [ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_68kjg"]
-[ext_resource type="Script" uid="uid://bn7qgjpnrgqjj" path="res://content/friends/penguin/freezing_behavior.gd" id="4_uwgx7"]
-[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_i5tju"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_uwgx7"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_uwgx7"]
+
+[sub_resource type="Resource" id="Resource_i5tju"]
+script = ExtResource("3_68kjg")
+metadata/_custom_type_script = "uid://bn7qgjpnrgqjj"
 
 [sub_resource type="Resource" id="Resource_5srlj"]
 script = ExtResource("4_uwgx7")
-metadata/_custom_type_script = "uid://bn7qgjpnrgqjj"
-
-[sub_resource type="Resource" id="Resource_ldhrm"]
-script = ExtResource("5_i5tju")
-behaviour = SubResource("Resource_5srlj")
+behaviour = SubResource("Resource_i5tju")
 duration = -1
 stack = 4
 metadata/_custom_type_script = "uid://b4s32yn3jp78u"
@@ -22,7 +23,8 @@ metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 [sub_resource type="Resource" id="Resource_vdvjd"]
 script = ExtResource("3_gvewa")
 projectile_scene = ExtResource("2_gvewa")
-status_effect = SubResource("Resource_ldhrm")
+impact_damage = 2
+impact_status_effect = SubResource("Resource_5srlj")
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_12btk"]
@@ -36,6 +38,7 @@ script = ExtResource("5_uwgx7")
 type = 1
 energy_cost = 1
 name = "Frozen Shot"
+display_texture = ExtResource("1_jttpm")
 description = "Deal [color=red]2[/color] damage. Apply [color=#43A047]4[/color] [color=orange]frozen[/color]."
 play_actions = Array[ExtResource("1_ns18h")]([SubResource("Resource_12btk")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

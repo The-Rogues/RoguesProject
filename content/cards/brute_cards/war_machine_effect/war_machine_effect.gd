@@ -13,7 +13,7 @@ func get_status_name() -> String:
 	return "Power: War Machine"
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "On Turn Entered: Gain " + str(2 * _instance.stack) + " rage and lose " + str(_instance.stack) + " offense."
+	return "On Turn Entered: Gain [color=#43A047]" + str(2 * _instance.stack) + "[/color] [color=orange]rage[/color] and lose [color=#43A047]" + str(_instance.stack) + "[/color] [color=orange]offense[/color]."
 
 func get_texture() -> Texture2D:
 	return load("res://content/cards/brute_cards/war_machine_effect/power_icon.tres")

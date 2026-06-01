@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FrontPlaceAction" format=3 uid="uid://n4nj3dwivxla"]
+
+[ext_resource type="Resource" uid="uid://xdugix0cn773" path="res://content/objects/cannons/blast_cannon.tres" id="1_4g07o"]
+[ext_resource type="Script" uid="uid://m5qkfgef5y8k" path="res://ai/ai-cards/invent_tool/front_place_action.gd" id="1_5g82f"]
+
+[resource]
+script = ExtResource("1_5g82f")
+object = ExtResource("1_4g07o")
+metadata/_custom_type_script = "uid://m5qkfgef5y8k"

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b3f3ud24snhhv"]
 
 [ext_resource type="Script" uid="uid://ba1cft6qa2b72" path="res://main_menu/character_result_scene.gd" id="1_exctr"]
-[ext_resource type="Texture2D" uid="uid://djhfx32oyemy8" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-007.png" id="2_drcbt"]
+[ext_resource type="Texture2D" uid="uid://chkltbdsmluom" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Border/panel-border-007.png" id="2_drcbt"]
 [ext_resource type="Texture2D" uid="uid://bqdsv0ivl8jam" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_0.tres" id="3_goe4p"]
-[ext_resource type="FontFile" uid="uid://dv5gofkx77peh" path="res://common/fonts/dungeon-mode.ttf" id="4_p04mm"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="4_p04mm"]
 [ext_resource type="PackedScene" uid="uid://d5y50f5alt32" path="res://globals/session_interface/trait_display.tscn" id="5_n70p0"]
 [ext_resource type="PackedScene" uid="uid://m04fo4g25f7v" path="res://common/select_button (old)/select_button.tscn" id="6_hd0fe"]
 [ext_resource type="PackedScene" uid="uid://cva878kvouuim" path="res://card_system/ui/card_viewer.tscn" id="7_yvjms"]

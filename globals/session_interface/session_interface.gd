@@ -17,6 +17,8 @@ class_name SessionInterface
 @onready var modify_stat_button: Button = %ModifyStat
 @onready var close_card_picker_button: Button = %CloseCardPicker
 @onready var card_effects_manager: Control = %CardEffectsManager
+@onready var generation_screen: Control = %GeneratingCardOverlay
+@onready var tutorial: TutorialOverlayManager = %TutorialOverlayManager
 
 
 func initialize():
@@ -33,18 +35,18 @@ func initialize():
 	#defensive_trait_display.connect_to_data("DEFENSIVE", run.player_data.personality)
 	#strategic_trait_display.connect_to_data("STRATEGIC", run.player_data.personality)
 	
-	offesnive_trait_display._on_trait_data_updated(
+	offesnive_trait_display.initialize_display(
 		run.player_data.personality.offensive_trait,
 		run.player_data.personality.offensive_weight
 	)
 	
 	
-	defensive_trait_display._on_trait_data_updated(
+	defensive_trait_display.initialize_display(
 		run.player_data.personality.defensive_trait,
 		run.player_data.personality.defensive_weight
 	)
 	
-	strategic_trait_display._on_trait_data_updated(
+	strategic_trait_display.initialize_display(
 		run.player_data.personality.strategic_trait,
 		run.player_data.personality.strategic_weight
 	)
@@ -66,13 +68,13 @@ func initialize():
 
 func connect_to_personality_data(personality:PersonalityData):
 	personality.updated_offensive_trait.connect(
-			offesnive_trait_display._on_trait_data_updated)
+			offesnive_trait_display.on_personality_updated)
 	
 	personality.updated_defensive_trait.connect(
-			defensive_trait_display._on_trait_data_updated)
+			defensive_trait_display.on_personality_updated)
 	
 	personality.updated_strategic_trait.connect(
-			strategic_trait_display._on_trait_data_updated)
+			strategic_trait_display.on_personality_updated)
 
 
 func connect_to_player(player:PlayerEntity):
@@ -84,7 +86,16 @@ func connect_to_player(player:PlayerEntity):
 		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
 	player.data.card_removed.connect(func(card:CardData):
 		card_effects_manager.remove_card_effect(card))
+	
+	player.start_ai_processing.connect(show_generation_overlay)
+	player.end_ai_processing.connect(hide_generation_overlay)
 	pass
+
+func show_generation_overlay() -> void:
+	generation_screen.visible = true
+
+func hide_generation_overlay() -> void:
+	generation_screen.visible = false
 
 
 func disconnect_from_player(player: PlayerEntity):
@@ -95,6 +106,8 @@ func disconnect_from_player(player: PlayerEntity):
 		card_effects_manager.add_card_effect(card, Vector2(725, 21)))
 	player.data.card_removed.disconnect(func(card:CardData):
 		card_effects_manager.remove_card_effect(card))
+	player.start_ai_processing.disconnect(show_generation_overlay)
+	player.end_ai_processing.disconnect(hide_generation_overlay)
 
 
 func _on_health_updated(current:int, max:int):
@@ -103,7 +116,7 @@ func _on_health_updated(current:int, max:int):
 
 
 func _on_view_card_deck() -> void:
-	deck_viewer.visible = true
+	deck_viewer.open()
 
 
 func open_card_removal():
@@ -111,7 +124,7 @@ func open_card_removal():
 	
 	if run:
 		card_remover.initialize(run.player_data.cards)
-		card_remover.visible = true
+		card_remover.open()
 
 
 func open_card_picker(cards:Array[CardData], 
@@ -149,17 +162,17 @@ func _on_modify_stat_button_up() -> void:
 func reset_stats_to_base_display():
 	var run = GlobalSessionManager.run_progress
 	if run:
-		offesnive_trait_display._on_trait_data_updated(
+		offesnive_trait_display.on_personality_updated(
 				run.player_data.personality.offensive_trait,
 				run.player_data.personality.offensive_weight
 		)
 		
-		defensive_trait_display._on_trait_data_updated(
+		defensive_trait_display.on_personality_updated(
 				run.player_data.personality.defensive_trait,
 				run.player_data.personality.defensive_weight
 		)
 		
-		strategic_trait_display._on_trait_data_updated(
+		strategic_trait_display.on_personality_updated(
 				run.player_data.personality.strategic_trait,
 				run.player_data.personality.strategic_weight
 		)

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://oewr7q0fn6ms"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_nmh7q"]
+[ext_resource type="Texture2D" uid="uid://c1qnjr81ewu45" path="res://common/art/placeholder/joi3/laidback_icon.tres" id="1_v4s1d"]
 [ext_resource type="Script" uid="uid://dvbo2nw5tsuc" path="res://battle_scene/entities/actions/skill/trait_weight_check_action.gd" id="2_v4s1d"]
 [ext_resource type="Script" uid="uid://d1kuqw84jswgt" path="res://content/cards/greedy_cards/cash_in/draw_card_action.gd" id="3_i0hsu"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="4_du3f3"]
@@ -23,6 +24,7 @@ type = 2
 category = 3
 energy_cost = 1
 name = "Game Plan"
+display_texture = ExtResource("1_v4s1d")
 description = "If [color=orange]strategy[/color] is [color=#43A047]5[/color] or more, draw [color=#43A047]3[/color] cards."
 play_actions = Array[ExtResource("1_nmh7q")]([SubResource("Resource_5ciy5")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

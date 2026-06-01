@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://battle_scene/entities/monster/intents/projectile_icon.tres" id="1_4v5r0"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_tmgl6"]
-[ext_resource type="PackedScene" uid="uid://dxhjptge3ujkj" path="res://content/monsters/reaper/moves/deathsicle/sytche.tscn" id="2_s7k4j"]
+[ext_resource type="PackedScene" uid="uid://dxhjptge3ujkj" path="res://content/monsters/reaper/moves/deathsicle/sytche_projectile.tscn" id="2_s7k4j"]
 [ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="3_t62q6"]
 [ext_resource type="Script" uid="uid://bfh7ajwoc15fx" path="res://battle_scene/entities/actions/attack/projectile_attack_action.gd" id="4_h4a0w"]
 

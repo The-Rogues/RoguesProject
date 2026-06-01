@@ -73,10 +73,11 @@ func add_position_effect(data:PositionEffectConfig) -> void:
 func remove_position_effect() -> void:
 	if _effect:
 		floating_text.create("Effect Over")
-		_effect = null
+		#_effect = null
 		effect_state_updated.emit()
 		if is_instance_valid(_effect):
 			_effect.queue_free()
+		_effect = null
 
 
 func on_player_entered(player:PlayerEntity):

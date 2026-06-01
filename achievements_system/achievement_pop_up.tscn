@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqcat3squstqa" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-031.png" id="2_60f4u"]
 [ext_resource type="Texture2D" uid="uid://cm4ku6oppmpc6" path="res://splash_screen/the_rogues_logo_v1.png" id="3_peuxs"]
 [ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="4_bpneb"]
+[ext_resource type="AudioStream" uid="uid://bcwabonaxejq8" path="res://common/sound_effects/helton_yans_pixel_combat/achievement_unlocked.wav" id="5_vl57p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtldr"]
 bg_color = Color(1, 1, 1, 1)
@@ -44,6 +45,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AchievementSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_66y4m"]
 resource_name = "show_unlock"
@@ -71,6 +84,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AchievementSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ckehh"]
@@ -140,5 +165,9 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2123540764]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ckehh")
+
+[node name="AchievementSound" type="AudioStreamPlayer" parent="." unique_id=1661767219]
+stream = ExtResource("5_vl57p")
+bus = &"SFX"
 
 [connection signal="gui_input" from="Achievement" to="Achievement" method="_on_gui_input"]

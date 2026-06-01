@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bu3qyxaog8rcf"]
 
-[ext_resource type="Script" uid="uid://co208du6mwqne" path="res://missile_projectile.gd" id="1_6oxjd"]
+[ext_resource type="Script" uid="uid://co208du6mwqne" path="res://content/monsters/metal_man/moves/missile_projectile.gd" id="1_6oxjd"]
 [ext_resource type="Texture2D" uid="uid://na5ohot234uy" path="res://content/monsters/metal_man/arial_strike/missile.png" id="2_1b7ve"]
 [ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_mbvur"]
+[ext_resource type="AudioStream" uid="uid://bnc5ihngtnmw2" path="res://common/sound_effects/helton_yans_pixel_combat/arrow_shot.wav" id="4_1b7ve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
 radius = 12.0
@@ -10,13 +11,10 @@ radius = 12.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
 radius = 13.0
 
-[node name="MissileProjectile" type="CharacterBody2D" unique_id=59921328 node_paths=PackedStringArray("life_span")]
+[node name="MissileProjectile" type="CharacterBody2D" unique_id=59921328]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_6oxjd")
-damage = 20
-ignore_walls = true
-life_span = NodePath("LifeSpan")
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=2001239539]
 
@@ -37,11 +35,18 @@ position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_5ed72")
 debug_color = Color(0.9933968, 0, 0.24498847, 0.41960785)
 
-[node name="LifeSpan" type="Timer" parent="." unique_id=1970886395]
+[node name="LifeSpanTimer" type="Timer" parent="." unique_id=1970886395]
 wait_time = 5.0
 
 [node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_mbvur")]
 default_color = Color(0.81540364, 0.19489661, 0.13030902, 1)
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="LifeSpan" to="." method="_on_life_span_timeout"]
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=1033064078]
+stream = ExtResource("4_1b7ve")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

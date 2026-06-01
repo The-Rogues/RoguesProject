@@ -11,6 +11,7 @@ class_name ActionQueue
 
 signal action_processed(action:Action)
 signal processed_all_actions
+signal started_processing_action
 
 var queue: Array[QueuedAction] = []
 var processing_action:bool = false
@@ -53,6 +54,7 @@ func _check_action_queue():
 
 func _execute_queued_action():
 	processing_action = true
+	started_processing_action.emit()
 	
 	var queued_action = queue.pop_front()
 	# In case of a missing action in combat move from

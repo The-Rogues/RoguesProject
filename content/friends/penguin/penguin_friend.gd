@@ -13,6 +13,6 @@ func _on_entity_attacked(_entity:AbstractEntity):
 		await instance.play_attack()
 	
 		if is_instance_valid(_entity):
-			instance.projectile_launcher.fire_sequence(
+			instance.projectile_launcher.fire_projectile(
 				_entity.global_position, 
 				projectile_data)

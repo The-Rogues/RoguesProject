@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SummonMinionsAction" format=3 uid="uid://p7vect4nf2rv"]
+
+[ext_resource type="Resource" uid="uid://crf7q8bmr6114" path="res://content/monsters/Arbitor/moves/summon_minions/minions/witness_monster.tres" id="1_7vxs3"]
+[ext_resource type="Script" uid="uid://b26dxx8uwpfpl" path="res://content/monsters/Arbitor/moves/summon_minions/actions/summon_minions_action.gd" id="1_pe4ah"]
+
+[resource]
+script = ExtResource("1_pe4ah")
+minion_data = ExtResource("1_7vxs3")
+summon_count = 3
+choose_intent_on_spawn = false
+metadata/_custom_type_script = "uid://b26dxx8uwpfpl"

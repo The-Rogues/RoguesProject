@@ -13,6 +13,12 @@ func execute(_context:BattleContext = null, _user:AbstractEntity = null):
 		amount = _user.effects.apply_attack_damage_effects(amount)
 		if amount < 0:
 			amount = 0
+	#andy addition
+	if _user is PlayerEntity:
+		if amount > _user.strongest_attack_this_battle:
+			_user.strongest_attack_this_battle = amount
+		print("Attack Damage This Battle: ", _user.strongest_attack_this_battle)
+	#end
 	
 	if is_instance_valid(_user):
 		for i in range(0, hits):

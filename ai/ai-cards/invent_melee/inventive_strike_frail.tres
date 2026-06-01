@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatusEffectConfig" format=3 uid="uid://b7n1bx4oc2cyi"]
+
+[ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="1_186pq"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="2_iuu54"]
+
+[sub_resource type="Resource" id="Resource_u1jdl"]
+script = ExtResource("1_186pq")
+metadata/_custom_type_script = "uid://pmvfxl88wt1h"
+
+[resource]
+script = ExtResource("2_iuu54")
+behaviour = SubResource("Resource_u1jdl")
+duration = 2
+stack = 0
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"

@@ -7,16 +7,19 @@ class_name BattleBuilder
 @export var tier_4_encounters:Array[EnemyEncounter]
 @export var tier_5_encounters:Array[EnemyEncounter]
 
+
 @export var tier_1_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_2_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_3_battlefield_layouts:Array[BattleFieldConfig]
 @export var tier_4_battlefield_layouts:Array[BattleFieldConfig]
-@export var tier_5_battlefield_layouts:Array[BattleFieldConfig]
+@export var tier_5_battlefield_layouts:Array[BattleFieldConfig] #for now this
+
 
 const TIER_1_THRESHOLD = 2
 const TIER_2_THRESHOLD = 5
-const TIER_3_THRESHHOLD = 12
-const TIER_4_THRESHHOLD = 16
+const TIER_3_THRESHHOLD = 8
+const TIER_4_THRESHHOLD = 11
+const FINAL_BATTLE_THRESHOLD = 14
 
 var enemy_encounter_cache:Array[EnemyEncounter] = []
 var battle_field_cashe: Array[BattleFieldConfig] = []
@@ -35,14 +38,14 @@ func get_enemy_encounter_pool(progress:int) -> Array[EnemyEncounter]:
 	return tier_5_encounters
 
 
-func get_battlefield_layout_pool(progress:int) -> Array[BattleFieldConfig]:
+func get_battlefield_layout_pool(progress:int) -> Array[BattleFieldConfig]:	
 	if progress <= TIER_1_THRESHOLD:
 		return tier_1_battlefield_layouts
 	if progress <= TIER_2_THRESHOLD:
 		return tier_2_battlefield_layouts
 	if progress <= TIER_3_THRESHHOLD:
 		return tier_3_battlefield_layouts
-	if progress <= TIER_2_THRESHOLD:
+	if progress <= TIER_4_THRESHHOLD:
 		return tier_4_battlefield_layouts
 	
 	return tier_5_battlefield_layouts
@@ -95,17 +98,18 @@ func create_battle_config() -> BattleConfig:
 		var progress:int = run.total_rooms_explored
 		var encounters = get_enemy_encounter_pool(progress).duplicate()
 		var layouts = get_battlefield_layout_pool(progress).duplicate()
-		if enemy_encounter_cache.size() == encounters.size():
-			enemy_encounter_cache.clear()
-		else:
-			for encounter in enemy_encounter_cache:
-				encounters.erase(encounter)
 		
-		if battle_field_cashe.size() == layouts.size():
+		
+		if progress == 0:
+			enemy_encounter_cache.clear()
 			battle_field_cashe.clear()
-		else:
-			for field in battle_field_cashe:
-				layouts.erase(field)
+			
+		
+		for encounter in enemy_encounter_cache:
+			encounters.erase(encounter)
+		
+		for field in battle_field_cashe:
+			layouts.erase(field)
 		
 		var enemy_encounter:EnemyEncounter = choose_enemy_encounter(encounters)
 		var battlefield_config:BattleFieldConfig = null

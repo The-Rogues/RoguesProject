@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://cejudkort1ssj"]
+
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_1twpr"]
+[ext_resource type="Texture2D" uid="uid://dwjsilhct6mu8" path="res://content/monsters/fire_ant_egg/fire_ant_egg.png" id="2_jld7y"]
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="3_pqkpc"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_oxq8l"]
+[ext_resource type="Resource" uid="uid://bv7spw1bhxd0g" path="res://content/monsters/fire_ant_egg/moves/grow.tres" id="5_rwhu4"]
+[ext_resource type="Resource" uid="uid://dhmupdwchs80y" path="res://content/monsters/fire_ant_egg/moves/transform.tres" id="6_hlc1m"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="7_5vhqj"]
+
+[sub_resource type="Resource" id="Resource_32kic"]
+script = ExtResource("1_1twpr")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
+
+[sub_resource type="Resource" id="Resource_k1ltu"]
+script = ExtResource("3_pqkpc")
+moves = Array[ExtResource("4_oxq8l")]([ExtResource("5_rwhu4"), ExtResource("6_hlc1m")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("7_5vhqj")
+move_sequences = Array[ExtResource("3_pqkpc")]([SubResource("Resource_k1ltu")])
+behaviour = SubResource("Resource_32kic")
+display_texture = ExtResource("2_jld7y")
+name = "Fire Ant Egg"
+health = 43
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

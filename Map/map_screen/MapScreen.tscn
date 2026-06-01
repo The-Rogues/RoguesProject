@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1cpxruvl7bnj"]
 
 [ext_resource type="Script" uid="uid://4lj0lcofjsp1" path="res://Map/map_screen/MapScreen_scn_main.gd" id="1_qxsou"]
+[ext_resource type="PackedScene" uid="uid://c55ugtauycms5" path="res://Map/map_legend.tscn" id="2_cqpj3"]
 
 [node name="MapScreen" type="Control" unique_id=235376556]
 layout_mode = 3
@@ -27,8 +28,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 120
+theme_override_constants/margin_left = 7
 theme_override_constants/margin_top = 78
+theme_override_constants/margin_bottom = 7
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1971422879]
 unique_name_in_owner = true
@@ -38,3 +40,17 @@ vertical_scroll_mode = 2
 
 [node name="VScrollBar" type="VScrollBar" parent="MarginContainer/ScrollContainer" unique_id=1708964921]
 layout_mode = 2
+
+[node name="MapLegend" parent="." unique_id=740017641 instance=ExtResource("2_cqpj3")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = -143.0
+offset_right = -9.0
+offset_bottom = 220.0
+grow_horizontal = 0
+grow_vertical = 2

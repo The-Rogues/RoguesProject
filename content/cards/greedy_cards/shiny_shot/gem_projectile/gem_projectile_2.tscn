@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ctm3u1xau1r4p"]
+
+[ext_resource type="Script" uid="uid://crlv5s4hldjdd" path="res://battle_scene/entities/projectiles/projectile.gd" id="1_6mmgp"]
+[ext_resource type="Texture2D" uid="uid://b1si57m33hep8" path="res://content/cards/greedy_cards/gem_icons/gem_2.png" id="2_6mmgp"]
+[ext_resource type="PackedScene" uid="uid://dhxaut5hnp1sd" path="res://common/trail_2d/trail_2d.tscn" id="3_eudoh"]
+[ext_resource type="AudioStream" uid="uid://bnc5ihngtnmw2" path="res://common/sound_effects/helton_yans_pixel_combat/arrow_shot.wav" id="4_y3ows"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bofno"]
+radius = 11.18034
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ed72"]
+radius = 14.035668
+
+[node name="GemProjectile" type="CharacterBody2D" unique_id=59921328]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_6mmgp")
+speed = 1200.0
+impact_damage = 4
+
+[node name="SpritePivot" type="Node2D" parent="." unique_id=1685385418]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpritePivot" unique_id=72437752]
+texture_filter = 1
+position = Vector2(1.0000038, -1)
+rotation = 4.718543
+scale = Vector2(2.2307796, 2.1754174)
+texture = ExtResource("2_6mmgp")
+
+[node name="WallCollider" type="CollisionShape2D" parent="." unique_id=1085450663]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_bofno")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1046127275]
+
+[node name="EntityCollider" type="CollisionShape2D" parent="HitBox" unique_id=1977100876]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_5ed72")
+
+[node name="LifeSpanTimer" type="Timer" parent="." unique_id=1970886395]
+wait_time = 5.0
+
+[node name="Trail2D" parent="." unique_id=1533383853 instance=ExtResource("3_eudoh")]
+default_color = Color(0.29803923, 0.8784314, 0.92941177, 0.7490196)
+
+[node name="ArrowFire" type="AudioStreamPlayer" parent="." unique_id=308008659]
+stream = ExtResource("4_y3ows")
+volume_db = -5.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timeout"]

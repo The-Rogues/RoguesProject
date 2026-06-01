@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://80pqdh7gdct"]
 
+[ext_resource type="Texture2D" uid="uid://dg55ijoqt8cxc" path="res://common/art/placeholder/joi3/naive_icon.tres" id="1_3dtpw"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_qb84c"]
 [ext_resource type="Script" uid="uid://bockg7qo5uy2y" path="res://content/cards/stoic_cards/challenge/defense_block_action2.gd" id="2_3dtpw"]
 [ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="3_pjemq"]
@@ -23,6 +24,7 @@ type = 2
 category = 2
 energy_cost = 2
 name = "Inspiration"
+display_texture = ExtResource("1_3dtpw")
 description = "Gain [color=deep_sky_blue]3[/color] block for every defense. Gain [color=#43A047]1[/color] [color=orange]defense[/color]."
 play_actions = Array[ExtResource("1_qb84c")]([SubResource("Resource_47tp2"), SubResource("Resource_hh30j")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

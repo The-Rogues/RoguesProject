@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://6ihnxx5ceulk"]
+
+[ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_16j0b"]
+[ext_resource type="Script" uid="uid://ctwk4yyyhqxxs" path="res://content/monsters/chaos_wizard/all_sequences_behavior.gd" id="1_84703"]
+[ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_ht1hr"]
+[ext_resource type="Texture2D" uid="uid://mntodqmwqdga" path="res://content/monsters/chaos_wizard/chaos_wizard.png" id="2_pnvbe"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="4_n8qtc"]
+[ext_resource type="Resource" uid="uid://bv5c3hrm01y0d" path="res://content/monsters/chaos_wizard/moves/chaos_trap.tres" id="5_c6qi5"]
+[ext_resource type="Resource" uid="uid://bbnb45ymuo8k7" path="res://content/monsters/chaos_wizard/moves/chaos_spell.tres" id="6_tni8w"]
+[ext_resource type="Resource" uid="uid://d3qwnlys0aw6d" path="res://content/monsters/chaos_wizard/moves/chaotic_destruction.tres" id="7_wq8hp"]
+[ext_resource type="Resource" uid="uid://m64fxlchrttq" path="res://content/monsters/chaos_wizard/moves/chaos_barrage.tres" id="8_3nswl"]
+[ext_resource type="Resource" uid="uid://bxf1lpp1c7u6u" path="res://content/monsters/chaos_wizard/moves/chaotic_protection.tres" id="9_5p1eq"]
+[ext_resource type="Resource" uid="uid://dxk04sayudq8x" path="res://content/monsters/chaos_wizard/moves/chaos_crush.tres" id="10_svjdu"]
+
+[sub_resource type="Resource" id="Resource_uw7yb"]
+script = ExtResource("1_84703")
+num_sequences = 3
+metadata/_custom_type_script = "uid://ctwk4yyyhqxxs"
+
+[sub_resource type="Resource" id="Resource_5e0ed"]
+script = ExtResource("1_16j0b")
+moves = Array[ExtResource("4_n8qtc")]([ExtResource("5_c6qi5"), ExtResource("6_tni8w")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_yru4g"]
+script = ExtResource("1_16j0b")
+moves = Array[ExtResource("4_n8qtc")]([ExtResource("7_wq8hp"), ExtResource("8_3nswl")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[sub_resource type="Resource" id="Resource_uegrg"]
+script = ExtResource("1_16j0b")
+moves = Array[ExtResource("4_n8qtc")]([ExtResource("9_5p1eq"), ExtResource("10_svjdu")])
+metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
+
+[resource]
+script = ExtResource("2_ht1hr")
+move_sequences = Array[ExtResource("1_16j0b")]([SubResource("Resource_5e0ed"), SubResource("Resource_yru4g"), SubResource("Resource_uegrg")])
+behaviour = SubResource("Resource_uw7yb")
+display_texture = ExtResource("2_pnvbe")
+name = "Chaos Wizard"
+health = 175
+metadata/_custom_type_script = "uid://bqss3xu5ffqum"

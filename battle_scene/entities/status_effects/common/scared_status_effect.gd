@@ -18,7 +18,7 @@ func get_status_name() -> String:
 
 
 func get_description(_instance:ActiveStatusEffect) -> String:
-	return "When attacking, has a 50% chance to become Scared Stiff and fail."
+	return "When attacking, has a [color=#43A047]50[/color] percent chance to fail. Decreases every turn"
 
 
 func get_texture() -> Texture2D:

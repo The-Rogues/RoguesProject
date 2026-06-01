@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://c7o17vcl7l0jp"]
 
-[ext_resource type="Texture2D" uid="uid://qxctaf7cvfrl" path="res://common/art/random_art/stone_wall_texture.tres" id="1_krwy6"]
+[ext_resource type="Texture2D" uid="uid://c818ylq2i3ukf" path="res://content/objects/crafted_wall/crafted_wall.png" id="1_krwy6"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="2_y3efp"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="3_rbu5k"]
 
 [resource]
 script = ExtResource("3_rbu5k")
 targeting_categories = Array[int]([0])
-hover_description = "Provides temporary protection."
+hover_description = "
+Object Category: Cover
+
+Provides temporary protection. You made it yourself!"
 display_texture = ExtResource("1_krwy6")
 name = "Crafted Wall"
-health = 1
 metadata/_custom_type_script = "uid://dns34mcsxn8f6"

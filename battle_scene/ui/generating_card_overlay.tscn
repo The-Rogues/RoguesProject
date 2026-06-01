@@ -2,45 +2,37 @@
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_l0vam"]
 [ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="2_aogek"]
+[ext_resource type="FontFile" uid="uid://bhjc2e1d7wxxi" path="res://common/fonts/dungeon-mode.ttf" id="3_aogek"]
 [ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="3_nctah"]
-
-[sub_resource type="Curve" id="Curve_fmgln"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cuxdp"]
 atlas = ExtResource("3_nctah")
 region = Rect2(560, 560, 40, 40)
 
-[node name="GeneratingCardOverlay" type="ColorRect" unique_id=1773033190]
+[sub_resource type="Curve" id="Curve_fmgln"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Theme" id="Theme_nctah"]
+default_font = ExtResource("3_aogek")
+
+[node name="GenCardOverlay" type="Control" unique_id=1102560289]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_l0vam")
-color = Color(0.09923177, 0.09923177, 0.09923177, 1)
 
-[node name="GeneratingCardLabel" type="RichTextLabel" parent="." unique_id=1397603020]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -244.0
-offset_right = 250.0
-offset_bottom = -204.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Generating Card[/pulse]"
-horizontal_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2131758196]
+z_index = 1
+texture_filter = 1
+position = Vector2(598, 282)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_cuxdp")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1096970926]
+z_index = 1
 texture_filter = 1
 position = Vector2(598, 282)
 texture = ExtResource("2_aogek")
@@ -53,8 +45,34 @@ scale_amount_min = 3.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_fmgln")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2131758196]
-texture_filter = 1
-position = Vector2(598, 282)
-scale = Vector2(3, 3)
-texture = SubResource("AtlasTexture_cuxdp")
+[node name="GeneratingCardLabel" type="RichTextLabel" parent="." unique_id=1397603020]
+z_index = 1
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -264.0
+offset_right = 252.0
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_nctah")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Generating Card[/pulse]"
+horizontal_alignment = 1
+
+[node name="overlay" type="ColorRect" parent="." unique_id=1773033190]
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l0vam")
+color = Color(0.09923177, 0.09923177, 0.09923177, 1)

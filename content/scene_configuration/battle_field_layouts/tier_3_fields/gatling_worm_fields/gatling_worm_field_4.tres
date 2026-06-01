@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_2ogyu"]
 [ext_resource type="Resource" uid="uid://2j80tvleyqn5" path="res://content/objects/speedy_boots/speedy_boots_data.tres" id="2_i2lwk"]
-[ext_resource type="Resource" uid="uid://b8mm8aiuou87g" path="res://content/objects/hive/hive.tres" id="3_ius3h"]
+[ext_resource type="Resource" uid="uid://b8mm8aiuou87g" path="res://content/objects/hive/spider_web.tres" id="3_ius3h"]
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="4_6nv75"]
+
 
 [resource]
 script = ExtResource("4_6nv75")

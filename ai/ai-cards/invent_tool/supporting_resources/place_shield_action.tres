@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FrontPlaceAction" format=3 uid="uid://d2am6ojkl347o"]
+
+[ext_resource type="Resource" uid="uid://db1863a0hon12" path="res://content/objects/shield_object/spiked_shield_object.tres" id="1_ffy24"]
+[ext_resource type="Script" uid="uid://m5qkfgef5y8k" path="res://ai/ai-cards/invent_tool/front_place_action.gd" id="2_iie7t"]
+
+[resource]
+script = ExtResource("2_iie7t")
+object = ExtResource("1_ffy24")
+metadata/_custom_type_script = "uid://m5qkfgef5y8k"

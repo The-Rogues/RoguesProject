@@ -3,7 +3,12 @@ class_name CardViewer
 
 const CARD = preload("res://card_system/card.tscn")
 @onready var card_conatiner: FlowContainer = $ScrollContainer/CardConatiner
+@onready var open_sound: AudioStreamPlayer = %OpenSound
+@onready var close_sound: AudioStreamPlayer = %CloseSound
 
+func open():
+	open_sound.play()
+	visible = true
 
 func display_cards_from_data(cards:Array[CardData]):
 	for child in card_conatiner.get_children():
@@ -30,3 +35,4 @@ func on_cards_updated(cards:Array[CardInstance]):
 
 func _on_close_button_up() -> void:
 	visible = false
+	close_sound.play()

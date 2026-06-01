@@ -10,7 +10,8 @@ region = Rect2(520, 40, 40, 40)
 
 [sub_resource type="Resource" id="Resource_olkv8"]
 script = ExtResource("3_v0uds")
-stat_name = "total_items_used"
+stat_name = "used_items"
+comparison = "size>="
 target = 10
 metadata/_custom_type_script = "uid://c1otbwmtokh42"
 

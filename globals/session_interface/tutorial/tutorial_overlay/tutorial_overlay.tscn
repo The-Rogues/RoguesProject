@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c1t2dno0lr2fy"]
+
+[ext_resource type="Script" uid="uid://bdlxkdrs5rfy0" path="res://globals/session_interface/tutorial/tutorial_overlay/tutorial_overlay.gd" id="1_uuhho"]
+[ext_resource type="PackedScene" uid="uid://bv3ywiw3wedyg" path="res://globals/session_interface/tutorial/tutorial_overlay/info_component/info_component.tscn" id="2_0bh2l"]
+[ext_resource type="PackedScene" uid="uid://byttlvfpdwfas" path="res://globals/session_interface/tutorial/tutorial_overlay/highlight_component/highlight_component.tscn" id="3_hl73w"]
+
+[node name="TutorialOverlay" type="Container" unique_id=1636377707]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uuhho")
+
+[node name="HighlightPanel" parent="." unique_id=933663357 instance=ExtResource("3_hl73w")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InfoPanel" parent="." unique_id=182771191 instance=ExtResource("2_0bh2l")]
+unique_name_in_owner = true
+layout_mode = 2

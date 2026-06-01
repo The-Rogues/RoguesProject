@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://62ssdpxryohf"]
+
+[ext_resource type="Texture2D" uid="uid://cdj50rusvnt6h" path="res://battle_scene/entities/monster/intents/debuff_icon.tres" id="1_sf3u7"]
+[ext_resource type="Script" uid="uid://bjxj2gt0w8a2h" path="res://battle_scene/entities/actions/skill/block_action.gd" id="2_x72kh"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="3_nxnm5"]
+[ext_resource type="Script" uid="uid://pmvfxl88wt1h" path="res://battle_scene/entities/status_effects/common/frail_status_effect.gd" id="4_2x13i"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_p0dvq"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_us8v2"]
+
+[sub_resource type="Resource" id="Resource_guhtk"]
+script = ExtResource("2_x72kh")
+amount = 10
+metadata/_custom_type_script = "uid://bjxj2gt0w8a2h"
+
+[sub_resource type="Resource" id="Resource_pafhn"]
+script = ExtResource("4_2x13i")
+metadata/_custom_type_script = "uid://pmvfxl88wt1h"
+
+[sub_resource type="Resource" id="Resource_q61ym"]
+script = ExtResource("5_p0dvq")
+behaviour = SubResource("Resource_pafhn")
+duration = 3
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_basrt"]
+script = ExtResource("6_us8v2")
+effect = SubResource("Resource_q61ym")
+target_option = 1
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("3_nxnm5")
+type = 1
+intent_icon = ExtResource("1_sf3u7")
+name = "Snarl"
+description = "This Enemy intends to block and appy a debuff."
+primary_action = SubResource("Resource_guhtk")
+secondary_action = SubResource("Resource_basrt")
+metadata/_custom_type_script = "uid://c410dannt5adg"

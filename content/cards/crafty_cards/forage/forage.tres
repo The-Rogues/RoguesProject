@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bgimycq4ousci"]
 
+[ext_resource type="Texture2D" uid="uid://dcivxp88vvgjf" path="res://common/art/placeholder/joi3/crafty_icon.tres" id="1_wxook"]
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_y2qq1"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_2at4h"]
 [ext_resource type="Script" uid="uid://cbl1opxh4gat8" path="res://battle_scene/entities/actions/skill/shift_trait_action.gd" id="2_wxook"]
@@ -17,6 +18,7 @@ type = 2
 category = 2
 energy_cost = 1
 name = "Forage"
+display_texture = ExtResource("1_wxook")
 description = "Gain [color=#43A047]5[/color] [color=orange]defense[/color]. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_y2qq1")]([SubResource("Resource_m3ary")])

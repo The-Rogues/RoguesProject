@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://betdx6ww5ohmb"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_kmnl3"]
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="1_vo3f4"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_j4khv"]
 [ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_n64b3"]
 [ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_n64b3"]
@@ -27,6 +28,7 @@ script = ExtResource("2_j4khv")
 category = 1
 energy_cost = 1
 name = "Sustain"
+display_texture = ExtResource("1_vo3f4")
 description = "Attack for [color=red]get_atk4[/color] damage, twice. Next turn, you can't lose [color=orange]offense[/color]."
 play_actions = Array[ExtResource("1_kmnl3")]([SubResource("Resource_yxxf7"), SubResource("Resource_vo3f4")])
 shop_price = 20

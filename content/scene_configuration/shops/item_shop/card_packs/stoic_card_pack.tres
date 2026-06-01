@@ -13,6 +13,6 @@ script = ExtResource("2_bc5uh")
 card_pool = Array[ExtResource("1_pf4tv")]([ExtResource("2_6p6va"), ExtResource("3_l5qi0"), ExtResource("5_0q0st"), ExtResource("6_2vyi7")])
 texture = ExtResource("8_4tjrx")
 name = "Open Stoic card pack"
-description = "Choose 1 Stoic card to add to your deck."
+description = "Stoic Card Pack"
 price = 15
 metadata/_custom_type_script = "uid://5e5dqru2odgj"

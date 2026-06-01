@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cjme7k82wlw03"]
+
+[ext_resource type="Texture2D" uid="uid://cyegnkl2bdw00" path="res://common/art/placeholder/joi3/legendary_icon.tres" id="1_eniyc"]
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_teo3p"]
+[ext_resource type="Script" uid="uid://dwfxlbevrtlb5" path="res://content/cards/legendary_cards/immunity/immunity_power.gd" id="2_fbxjx"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_vjcjk"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="3_eniyc"]
+[ext_resource type="Script" uid="uid://cs8gcwstv68ba" path="res://content/monsters/zombie/infection_behavior.gd" id="4_brrp3"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="5_fdbwp"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="6_76g3l"]
+
+[sub_resource type="Resource" id="Resource_ql4k1"]
+script = ExtResource("2_fbxjx")
+metadata/_custom_type_script = "uid://dwfxlbevrtlb5"
+
+[sub_resource type="Resource" id="Resource_to4wg"]
+script = ExtResource("3_eniyc")
+power = SubResource("Resource_ql4k1")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[sub_resource type="Resource" id="Resource_scfos"]
+script = ExtResource("4_brrp3")
+metadata/_custom_type_script = "uid://cs8gcwstv68ba"
+
+[sub_resource type="Resource" id="Resource_3fdfn"]
+script = ExtResource("5_fdbwp")
+behaviour = SubResource("Resource_scfos")
+duration = -1
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_7uhcj"]
+script = ExtResource("6_76g3l")
+effect = SubResource("Resource_3fdfn")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("2_vjcjk")
+type = 2
+category = 4
+energy_cost = 2
+name = "Immunity"
+display_texture = ExtResource("1_eniyc")
+description = "[color=orange]Infection[/color] no longer damages you. Gain [color=#43A047]1[/color] [color=orange]infection[/color]. [color=orange]Single use[/color]."
+exhaust_after_play = true
+play_actions = Array[ExtResource("1_teo3p")]([SubResource("Resource_to4wg"), SubResource("Resource_7uhcj")])
+shop_price = 40
+transform_price = 20
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

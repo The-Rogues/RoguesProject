@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EnemyMove" format=3 uid="uid://m64fxlchrttq"]
+
+[ext_resource type="Texture2D" uid="uid://ftynvlfkxjuo" path="res://battle_scene/entities/monster/intents/projectile_icon.tres" id="1_511da"]
+[ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_pshva"]
+[ext_resource type="Script" uid="uid://c6kjs1qccx11n" path="res://battle_scene/entities/projectiles/projectile_fire_data.gd" id="2_khkdh"]
+[ext_resource type="Script" uid="uid://di1j13j6xybid" path="res://battle_scene/entities/status_effects/common/burning_status_effect.gd" id="3_np3b0"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_qp0me"]
+[ext_resource type="PackedScene" uid="uid://bw804ce2jpbnx" path="res://content/monsters/chaos_wizard/projectiles/burning_projectile.tscn" id="5_q04g6"]
+[ext_resource type="Script" uid="uid://bn7qgjpnrgqjj" path="res://content/friends/penguin/freezing_behavior.gd" id="6_lg7v3"]
+[ext_resource type="PackedScene" uid="uid://ce0nmj7g51cx4" path="res://content/monsters/chaos_wizard/projectiles/freezing_projectile.tscn" id="7_oxym7"]
+[ext_resource type="Script" uid="uid://dtwwj1oh2sy7u" path="res://content/monsters/chaos_wizard/scripts/random_fire_projectile_action.gd" id="8_ftm4t"]
+
+[sub_resource type="Resource" id="Resource_51mxr"]
+script = ExtResource("3_np3b0")
+metadata/_custom_type_script = "uid://di1j13j6xybid"
+
+[sub_resource type="Resource" id="Resource_rgrco"]
+script = ExtResource("4_qp0me")
+behaviour = SubResource("Resource_51mxr")
+duration = 2
+stack = 0
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_0kh44"]
+script = ExtResource("2_khkdh")
+projectile_scene = ExtResource("5_q04g6")
+impact_status_effect = SubResource("Resource_rgrco")
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_hth16"]
+script = ExtResource("6_lg7v3")
+metadata/_custom_type_script = "uid://bn7qgjpnrgqjj"
+
+[sub_resource type="Resource" id="Resource_0ttkw"]
+script = ExtResource("4_qp0me")
+behaviour = SubResource("Resource_hth16")
+duration = -1
+stack = 2
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_tpgvr"]
+script = ExtResource("2_khkdh")
+projectile_scene = ExtResource("7_oxym7")
+impact_status_effect = SubResource("Resource_0ttkw")
+metadata/_custom_type_script = "uid://c6kjs1qccx11n"
+
+[sub_resource type="Resource" id="Resource_sml5y"]
+script = ExtResource("8_ftm4t")
+projectile_configs = Array[ExtResource("2_khkdh")]([SubResource("Resource_0kh44"), SubResource("Resource_tpgvr")])
+hits = 3
+target_option = 1
+metadata/_custom_type_script = "uid://dtwwj1oh2sy7u"
+
+[resource]
+script = ExtResource("1_pshva")
+intent_icon = ExtResource("1_511da")
+name = "Chaos Barrage"
+description = "Fires [color=#43A047]3[/color] projectiles that deal [color=#43A047]4[/color] damage. Projectiles randomly apply [color=#43A047]2[/color] [color=orange]burning[/color] or [color=#43A047]2[/color] [color=orange]freezing[/color]."
+primary_action = SubResource("Resource_sml5y")
+metadata/_custom_type_script = "uid://c410dannt5adg"

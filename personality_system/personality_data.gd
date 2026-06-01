@@ -58,6 +58,14 @@ func initialize(
 	elif trait_category == "STRATEGIC":
 		priority_trait = strategic_trait
 		strategic_weight = 2
+	
+	updated_offensive_trait.emit(offensive_trait, offensive_weight)
+	updated_defensive_trait.emit(defensive_trait, defensive_weight)
+	updated_strategic_trait.emit(strategic_trait, strategic_weight)
+	updated.emit(self)
+	Events.used_personality_trait.emit(offensive_trait.name)
+	Events.used_personality_trait.emit(defensive_trait.name)
+	Events.used_personality_trait.emit(strategic_trait.name)
 
 func reset_trait_overrides():
 	offensive_trait_override = null
@@ -345,16 +353,19 @@ func set_trait(trait_category:String, _trait:PersonalityTrait) -> void:
 				offensive_trait = _trait
 				updated_offensive_trait.emit(offensive_trait, offensive_weight)
 				updated.emit(self)
+				Events.used_personality_trait.emit(offensive_trait.name)
 		"DEFENSIVE":
 			if defensive_trait != _trait:
 				defensive_trait = _trait
 				updated_defensive_trait.emit(defensive_trait, defensive_weight)
 				updated.emit(self)
+				Events.used_personality_trait.emit(defensive_trait.name)
 		"STRATEGIC":
 			if strategic_trait != _trait:
 				strategic_trait = _trait
 				updated_strategic_trait.emit(strategic_trait, strategic_weight)
 				updated.emit(self)
+				Events.used_personality_trait.emit(strategic_trait.name)
 		_:
 			return
 	

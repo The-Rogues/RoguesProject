@@ -3,6 +3,12 @@
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_1to5l"]
 [ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="2_6eddk"]
 [ext_resource type="Script" uid="uid://klwar3dnh6pj" path="res://battle_scene/win_screen/stat_modifier/stat_modifier.gd" id="2_t7583"]
+[ext_resource type="Script" uid="uid://bjewkcldewjoc" path="res://main_menu/main_menu_sound_manager.gd" id="4_yn2u8"]
+[ext_resource type="AudioStream" uid="uid://cnlpgomlfg6yr" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_1.wav" id="5_rij4f"]
+[ext_resource type="AudioStream" uid="uid://bsnlc5j532mln" path="res://common/sound_effects/helton_yans_pixel_combat/use_item.wav" id="6_goeuw"]
+[ext_resource type="AudioStream" uid="uid://dy080hd78oaxt" path="res://common/sound_effects/helton_yans_pixel_combat/close.wav" id="8_sj45p"]
+[ext_resource type="Script" uid="uid://cdce0ngaiwfxx" path="res://character_creator/character_creator_sound_manager.gd" id="9_fbnmx"]
+[ext_resource type="AudioStream" uid="uid://dmrskst38ag23" path="res://common/sound_effects/helton_yans_pixel_combat/confirm_2.wav" id="10_63mwl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1to5l"]
 bg_color = Color(0.022979882, 0.022979887, 0.022979863, 1)
@@ -324,6 +330,55 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 disabled = true
 text = "Decrease"
+
+[node name="UpgradeSoundManager" type="Node" parent="." unique_id=267286882 node_paths=PackedStringArray("select_buttons")]
+script = ExtResource("4_yn2u8")
+select_buttons = [NodePath("../HBoxContainer/IncreaseButton"), NodePath("../HBoxContainer/DecreaseButton")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="UpgradeSoundManager" unique_id=770232649]
+stream = ExtResource("5_rij4f")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="UpgradeSoundManager" unique_id=1641621132]
+stream = ExtResource("6_goeuw")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="UpgradeSoundManager" unique_id=1192665846]
+stream = ExtResource("6_goeuw")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="UpgradeSoundManager" unique_id=2089850372]
+stream = ExtResource("8_sj45p")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="TraitSoundManager" type="Node" parent="." unique_id=607818396 node_paths=PackedStringArray("select_buttons")]
+script = ExtResource("9_fbnmx")
+select_buttons = [NodePath("../TraitContainer/HBoxContainer/OffensiveTrait/OffenseButton"), NodePath("../TraitContainer/HBoxContainer/DefensiveTrait/DefenseButton"), NodePath("../TraitContainer/HBoxContainer/StrategicTrait/StrategyButton")]
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="TraitSoundManager" unique_id=1617619104]
+stream = ExtResource("5_rij4f")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="TraitSoundManager" unique_id=306309883]
+stream = ExtResource("10_63mwl")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="TraitSoundManager" unique_id=965495512]
+stream = ExtResource("10_63mwl")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="TraitSoundManager" unique_id=147070537]
+stream = ExtResource("8_sj45p")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="button_up" from="TraitContainer/HBoxContainer/OffensiveTrait/OffenseButton" to="." method="_on_offense_button_up"]
 [connection signal="button_up" from="TraitContainer/HBoxContainer/DefensiveTrait/DefenseButton" to="." method="_on_defense_button_button_up"]

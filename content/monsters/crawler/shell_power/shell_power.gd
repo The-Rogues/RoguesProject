@@ -8,12 +8,10 @@ func on_apply(_context:BattleContext):
 	var turtle_enemies: Array[MonsterEntity]
 	for i in range(0, _context.creature_manager.enemies.size()):
 		if _context.creature_manager.enemies[i].data.name == "Dragon Turtle":
-			print("HERE")
 			turtle_enemies.append(_context.creature_manager.enemies[i])
 	if (enemy_number + 1) <= turtle_enemies.size():
 		
 		enemy = turtle_enemies[enemy_number]
-		print(enemy)
 		
 		var thorns: StatusEffectConfig = StatusEffectConfig.new()
 		thorns.behaviour = ThornsStatusEffectBehaviour.new()

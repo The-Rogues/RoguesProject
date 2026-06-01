@@ -1,7 +1,6 @@
 [gd_resource type="AtlasTexture" format=3 uid="uid://dbjdyy2u2p4us"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bnulr"]
-load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
 
 [resource]
 atlas = SubResource("CompressedTexture2D_bnulr")

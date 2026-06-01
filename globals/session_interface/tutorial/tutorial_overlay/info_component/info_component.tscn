@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bv3ywiw3wedyg"]
+
+[ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_3hjes"]
+[ext_resource type="Texture2D" uid="uid://dpoa082g7wiqf" path="res://common/art/placeholder/kenny_art/Fantasy UI/Double/Panel/panel-027.png" id="2_iwxo2"]
+[ext_resource type="Script" uid="uid://c3pgenvxcjsvh" path="res://globals/session_interface/tutorial/tutorial_overlay/info_component/tutorial_info_panel.gd" id="3_iwxo2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y50t7"]
+texture = ExtResource("2_iwxo2")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(0.92156863, 0.36862746, 0, 0.8039216)
+
+[node name="Panel" type="PanelContainer" unique_id=182771191]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -260.0
+offset_right = 268.5
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3hjes")
+theme_override_styles/panel = SubResource("StyleBoxTexture_y50t7")
+script = ExtResource("3_iwxo2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2027588911]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1923153299]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="EventHeader" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1251239736]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisplayImage" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=212701448]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(152, 152)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EventTextLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1850712075]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(393, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Insert tutorial description here..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1955392873]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(274, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next"

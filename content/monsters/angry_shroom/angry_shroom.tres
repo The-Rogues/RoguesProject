@@ -71,7 +71,7 @@ metadata/_custom_type_script = "uid://c4hroa2x01w40"
 script = ExtResource("4_s5ac5")
 intent_icon = ExtResource("9_6f1d5")
 name = "Unleash"
-description = "Attacks for [color=red]get_atk4[/color] damage, twice."
+description = "Attacks for [color=red]get_atk4[/color] damage [color=#43A047]2[/color] times."
 primary_action = SubResource("Resource_xmaup")
 metadata/_custom_type_script = "uid://c410dannt5adg"
 

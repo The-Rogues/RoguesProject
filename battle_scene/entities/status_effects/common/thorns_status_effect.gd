@@ -33,7 +33,7 @@ func on_apply(_creature:AbstractCreature, _instance:ActiveStatusEffect) -> void:
 	else:
 		_instance.duration = 1
 
-func on_attacked(_attacker:AbstractEntity, _instance:ActiveStatusEffect):
+func on_attacked(_attacker, _instance:ActiveStatusEffect):
 	if _attacker is AbstractEntity:
 		_attacker.take_damage(_instance.stack, null)
 

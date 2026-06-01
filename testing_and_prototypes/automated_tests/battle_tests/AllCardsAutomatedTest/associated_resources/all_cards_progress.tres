@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://bb3krcowemhfe"]
+[gd_resource type="Resource" script_class="RunProgress" format=3 uid="uid://b3uv1thi3uipg"]
 
-[ext_resource type="Resource" uid="uid://cslydk2dhl5kp" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_player.tres" id="1_85j72"]
-[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://globals/scene_management/run_progress.gd" id="1_dwj23"]
-[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="2_85j72"]
-[ext_resource type="Texture2D" uid="uid://csem5lpkfo6te" path="res://content/monsters/reaper/reaper_texture.tres" id="2_rgerm"]
+[ext_resource type="Resource" uid="uid://brrt7tmm8x51q" path="res://testing_and_prototypes/automated_tests/battle_tests/AllCardsAutomatedTest/associated_resources/all_cards_player.tres" id="1_xlj3e"]
+[ext_resource type="Texture2D" uid="uid://csem5lpkfo6te" path="res://content/monsters/reaper/reaper_texture.tres" id="2_wgpdo"]
+[ext_resource type="Script" uid="uid://c6dr42ke5aj7b" path="res://globals/scene_management/run_progress.gd" id="3_wg2d6"]
+[ext_resource type="Script" uid="uid://c3ksqgg4db5ax" path="res://mini_event_system/mini_event_data.gd" id="4_cs86s"]
 
 [resource]
-script = ExtResource("1_dwj23")
-player_data = ExtResource("1_85j72")
-player_texture = ExtResource("2_rgerm")
+script = ExtResource("3_wg2d6")
+player_data = ExtResource("1_xlj3e")
+player_texture = ExtResource("2_wgpdo")
 player_name = "Bob"
 metadata/_custom_type_script = "uid://c6dr42ke5aj7b"

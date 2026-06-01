@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dkuh4lea68efk"]
 
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_6p15w"]
+[ext_resource type="Texture2D" uid="uid://duwn2qipdjoo" path="res://common/art/placeholder/joi3/valorous_icon.tres" id="1_d6d5c"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_0ldir"]
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_vsuyb"]
 [ext_resource type="Resource" uid="uid://c6jcgbm84g5gy" path="res://content/objects/stat_shrines/defense_shrine.tres" id="3_8a3i4"]
@@ -19,6 +20,7 @@ type = 2
 category = 3
 energy_cost = 1
 name = "Side Quest"
+display_texture = ExtResource("1_d6d5c")
 description = "Place an upgrade object at a random position. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_6p15w")]([SubResource("Resource_5toq5")])

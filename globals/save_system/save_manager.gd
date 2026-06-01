@@ -2,6 +2,7 @@ extends Node
 class_name SaveManager
 
 const SAVE_PATH := "res://saves/save_progress.tres"
+const GAME_STATS_SAVE_PATH := "res://saves/stats_save_progress.tres"
 
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
@@ -34,3 +35,32 @@ func get_or_create() -> RunProgress:
 func reset() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(SAVE_PATH)
+
+
+func reset_game_stats() -> void:
+	if FileAccess.file_exists(GAME_STATS_SAVE_PATH):
+		DirAccess.remove_absolute(GAME_STATS_SAVE_PATH)
+		GameStats.stats_data = GameStatsData.new()
+
+
+func has_game_stats_save() -> bool:
+	if FileAccess.file_exists(GAME_STATS_SAVE_PATH):
+		return GameStats.stats_data.modified
+	return false
+
+
+func save_game_stats(game_stats:GameStatsData):
+	if game_stats:
+		game_stats.modified = true
+		ResourceSaver.save(game_stats, GAME_STATS_SAVE_PATH)
+
+
+func load_game_stats() -> GameStatsData:
+	if not FileAccess.file_exists(GAME_STATS_SAVE_PATH):
+		return null
+	
+	var s = ResourceLoader.load(GAME_STATS_SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE) as GameStatsData
+	if s:
+		return s
+	
+	return null

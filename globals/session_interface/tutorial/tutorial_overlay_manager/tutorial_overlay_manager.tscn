@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://crs3v3e8fotgi"]
+
+[ext_resource type="Script" uid="uid://dnxn75j1bve3j" path="res://globals/session_interface/tutorial/tutorial_overlay_manager/tutorial_overlay_manager.gd" id="1_bhyax"]
+[ext_resource type="PackedScene" uid="uid://c1t2dno0lr2fy" path="res://globals/session_interface/tutorial/tutorial_overlay/tutorial_overlay.tscn" id="1_tmvff"]
+[ext_resource type="Texture2D" uid="uid://bkahndcybbpms" path="res://common/art/random_art/battle_icon.tres" id="3_ax3p6"]
+[ext_resource type="Texture2D" uid="uid://hi7wmsmd5iab" path="res://common/art/placeholder/joi3/merciful_icon.tres" id="4_fgo6s"]
+[ext_resource type="Texture2D" uid="uid://w3tfofcq5gdk" path="res://common/art/random_art/eye_icon_cropped.tres" id="5_fgo6s"]
+[ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="6_xbryw"]
+[ext_resource type="Texture2D" uid="uid://wipvhomw0jaa" path="res://battle_scene/entities/monster/intents/buff_icon.tres" id="7_4n28y"]
+[ext_resource type="Texture2D" uid="uid://bu2qaotwturvd" path="res://content/objects/stone_wall/stone_wall_texture.tres" id="8_2175p"]
+[ext_resource type="Texture2D" uid="uid://j77pxio1bp6g" path="res://battle_scene/entities/monster/intents/trap_icon_icon.tres" id="9_r1j4s"]
+[ext_resource type="Texture2D" uid="uid://chgbajvwmv1op" path="res://common/art/placeholder/joi3/brutish_icon.tres" id="10_d444e"]
+[ext_resource type="Texture2D" uid="uid://b5q8hr8gvmqkb" path="res://common/art/placeholder/joi3/tactical_icon.tres" id="11_qsl8l"]
+[ext_resource type="Texture2D" uid="uid://dcivxp88vvgjf" path="res://common/art/placeholder/joi3/crafty_icon.tres" id="12_dyj5k"]
+[ext_resource type="Texture2D" uid="uid://bcqhqjc2746nq" path="res://battle_scene/entities/monster/intents/special_icon.tres" id="13_0ruen"]
+
+[node name="TutorialOverlayManager" type="Control" unique_id=1781940379]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bhyax")
+
+[node name="TutorialOverlay" parent="." unique_id=671327365 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Battle Tutorial"
+display_image = ExtResource("3_ax3p6")
+body_text = "Welcome to your first battle in Identity Quest!"
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay2" parent="." unique_id=1636377707 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Info Bar"
+body_text = "The info bar stores data related to your overall journey."
+container_scale = Vector2(0.5, 0.5)
+preset = 1
+
+[node name="TutorialOverlay7" parent="." unique_id=1274654986 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Personality Traits"
+display_image = ExtResource("4_fgo6s")
+body_text = "You have three unique personality traits that influence your actions in battle. Your highest weighted trait takes priority. Changes made to traits during battle are not permanant."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay8" parent="." unique_id=250058953 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Personality Preferences"
+display_image = ExtResource("5_fgo6s")
+body_text = "Each personality trait has its own preferences which determine how you attack and move during battle. You can read preferences by hovering over your traits. To quickly summarize preferences, you can toggle the eye button."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay3" parent="." unique_id=1890659392 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Enemies"
+body_text = "Enemies appear at the top of the battle field. Beware!"
+container_scale = Vector2(0.5, 0.5)
+preset = 2
+
+[node name="TutorialOverlay9" parent="." unique_id=1956139661 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Enemy Intents"
+display_image = ExtResource("6_xbryw")
+body_text = "To effictivley counter enemies, you can hover over their intention to read exactly what they are planning."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay10" parent="." unique_id=1012939260 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Enemy Effects"
+display_image = ExtResource("7_4n28y")
+body_text = "Enemies can apply positive and negative effects during battle. These effects will apear under the effected entity. You can apply effects too!"
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay4" parent="." unique_id=609325816 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Objects"
+body_text = "Battle fields contain useful objects. Hover over objects to read their effects."
+container_scale = Vector2(0.5, 0.5)
+preset = 3
+
+[node name="TutorialOverlay11" parent="." unique_id=1776928950 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Object Blocking"
+display_image = ExtResource("8_2175p")
+body_text = "Hiding behind objects prevents damage and negative effects from reaching the player. Permeative effects ignore object blocking."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay5" parent="." unique_id=1617588548 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Positions"
+body_text = "The player can move between these five positions during battle."
+container_scale = Vector2(0.5, 0.5)
+preset = 4
+
+[node name="TutorialOverlay12" parent="." unique_id=588675640 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Enemy Traps"
+display_image = ExtResource("9_r1j4s")
+body_text = "Enemies may place traps on player positions. Movement preferences ignore traps."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay6" parent="." unique_id=1508428803 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Cards"
+body_text = "Cards allow combat actions to be performed."
+container_scale = Vector2(0.5, 0.5)
+preset = 5
+
+[node name="TutorialOverlay13" parent="." unique_id=1001386416 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Melee Cards"
+display_image = ExtResource("10_d444e")
+body_text = "Melee attacks damage enemies directly. Melee attacks become more powerful through effects like strength and rage."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay14" parent="." unique_id=262341839 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Ranged Cards"
+display_image = ExtResource("11_qsl8l")
+body_text = "Ranged attacks deal a set amount of damage and require thoughtful positioning. Ranged attacks ignore entity \"On Hit\" and \"On Destroyed\" effects."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay15" parent="." unique_id=1041799301 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Skill Cards"
+display_image = ExtResource("12_dyj5k")
+body_text = "Skill cards allow the player to defend and move about the battle field. Some skill cards may apply additional effects."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay16" parent="." unique_id=1480013144 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Power Cards"
+display_image = ExtResource("13_0ruen")
+body_text = "Power cards provide continuous effects that occur throughout a single battle."
+container_scale = Vector2(0.75, 0.75)
+
+[node name="TutorialOverlay17" parent="." unique_id=1659462364 instance=ExtResource("1_tmvff")]
+visible = false
+layout_mode = 1
+header_text = "Tutorial Complete"
+display_image = ExtResource("3_ax3p6")
+body_text = "Good luck on your journey! You may replay the tutorial during battle from the options menu."
+container_scale = Vector2(0.75, 0.75)

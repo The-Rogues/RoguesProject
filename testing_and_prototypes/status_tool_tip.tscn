@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://ltoom83ybk41"]
 
 [ext_resource type="Theme" uid="uid://b857lh2wcqwdd" path="res://testing_and_prototypes/rogues_theme.tres" id="1_6hamf"]
+[ext_resource type="Texture2D" uid="uid://ccq1af4px8xhd" path="res://common/art/placeholder/kenny_art/Fantasy UI/Default/Panel/panel-001.png" id="2_0rhog"]
 [ext_resource type="Script" uid="uid://bu3dnjow8grbr" path="res://status_tool_tip.gd" id="2_ei13d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c70l6"]
+texture = ExtResource("2_0rhog")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [node name="StatusToolTip" type="PanelContainer" unique_id=2004448281]
 texture_filter = 1
@@ -9,6 +18,7 @@ offset_right = 220.0
 offset_bottom = 52.0
 mouse_filter = 2
 theme = ExtResource("1_6hamf")
+theme_override_styles/panel = SubResource("StyleBoxTexture_c70l6")
 script = ExtResource("2_ei13d")
 
 [node name="ToolTipLabel" type="RichTextLabel" parent="." unique_id=118917575]

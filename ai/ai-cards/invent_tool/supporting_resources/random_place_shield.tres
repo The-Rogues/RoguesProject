@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RandomPlaceAction" format=3 uid="uid://bq23mfjnd7f7i"]
+
+[ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="1_jmucq"]
+[ext_resource type="Resource" uid="uid://c7o17vcl7l0jp" path="res://content/objects/crafted_wall/crafted_wall.tres" id="2_jmucq"]
+[ext_resource type="Script" uid="uid://b3fvjsgb155cu" path="res://content/cards/greedy_cards/life_savings/random_place_action.gd" id="3_fy21u"]
+
+[resource]
+script = ExtResource("3_fy21u")
+object_pool = Array[ExtResource("1_jmucq")]([ExtResource("2_jmucq")])
+metadata/_custom_type_script = "uid://b3fvjsgb155cu"

@@ -59,7 +59,7 @@ func place_object(
 	else:
 		# Find next random position
 		for pos in battle_positions:
-			if !pos.get_object():
+			if !pos.get_object() || !pos.get_object().health.is_alive:
 				target_position = pos
 				break
 	
@@ -67,7 +67,11 @@ func place_object(
 	if !target_position:
 		return false
 	
-	target_position.place_object(object)
+	if !target_position.get_object():
+		target_position.place_object(object)
+	else:
+		target_position.remove_object(target_position.get_object())
+		target_position.place_object(object)
 	
 	return true
 

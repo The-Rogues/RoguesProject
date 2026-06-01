@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7t6edb8dbdly"]
+
+[ext_resource type="Script" uid="uid://bknd6870x7qoq" path="res://testing_and_prototypes/automated_tests/battle_tests/AllAchievmentsAutomatedTest/associated_scripts/AllAchievmentsAutomatedTest_scn_main.gd" id="1_npt1e"]
+
+[node name="AchievementsAutomatedTest" type="Node" unique_id=1124373746]
+script = ExtResource("1_npt1e")
