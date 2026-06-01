@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://d2k1buvo3yd4h" path="res://content/scene_configuration/enemy_encounters/tier_4_encounters/chaos_wizard.tres" id="10_a5ep4"]
 [ext_resource type="Resource" uid="uid://by6ugvvmwv6xl" path="res://content/scene_configuration/enemy_encounters/tier_4_encounters/warrior_dudes.tres" id="10_cthsh"]
 [ext_resource type="Resource" uid="uid://bnh4rcsh2wu7f" path="res://content/scene_configuration/enemy_encounters/tier_3_encounters/savage_duo.tres" id="10_iaeg7"]
+[ext_resource type="Resource" uid="uid://daqp47v362e4h" path="res://content/scene_configuration/enemy_encounters/special_encounters/the_metal_man.tres" id="10_kxk5c"]
 [ext_resource type="Resource" uid="uid://u0v8kkiufjdf" path="res://content/scene_configuration/enemy_encounters/tier_3_encounters/gatling_worm.tres" id="10_uu101"]
 [ext_resource type="Resource" uid="uid://cyonqaqin2xkk" path="res://content/scene_configuration/enemy_encounters/tier_1_encounters/one_slime.tres" id="11_kxk5c"]
 [ext_resource type="Resource" uid="uid://dk6xh7nusp3ss" path="res://content/scene_configuration/enemy_encounters/tier_1_encounters/rat_king.tres" id="12_2xnb6"]
@@ -40,7 +41,7 @@
 
 [resource]
 script = ExtResource("2_wh5q6")
-tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_5hqxf"), ExtResource("11_kxk5c"), ExtResource("12_2xnb6"), ExtResource("13_5hqxf")])
+tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_kxk5c"), ExtResource("10_5hqxf"), ExtResource("11_kxk5c"), ExtResource("12_2xnb6"), ExtResource("13_5hqxf")])
 tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("15_fmdaw"), ExtResource("14_phi5s"), ExtResource("16_eypvv"), ExtResource("15_eswd4")])
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("26_cthsh"), ExtResource("10_uu101"), ExtResource("7_eswd4"), ExtResource("10_iaeg7")])
 tier_4_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("33_7mqno"), ExtResource("10_4gia5"), ExtResource("10_cthsh"), ExtResource("10_a5ep4")])

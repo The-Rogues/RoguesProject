@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="RunProgress" format=3]
+
+[ext_resource type="Script" path="res://card_system/card_data.gd" id="1_sds6a"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/strike.tres" id="2_jfmdv"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/arrow_shot.tres" id="3_uahfr"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/defend.tres" id="4_ce22o"]
+[ext_resource type="Resource" path="res://content/cards/traitless_cards/move.tres" id="5_3l5uq"]
+[ext_resource type="Resource" path="res://content/cards/legendary_cards/flamethrower.tres" id="6_7xv35"]
+[ext_resource type="Texture2D" path="res://personality_system/PlayerCharacter/TextureVarients/rogue_varient_4.tres" id="7_8qiin"]
+[ext_resource type="Script" path="res://item_system/item_data.gd" id="8_iofhu"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/dark_sword.tres" id="9_5nlej"]
+[ext_resource type="Resource" path="res://content/personality_traits/skittish.tres" id="10_k3uip"]
+[ext_resource type="Resource" path="res://content/personality_traits/merciful.tres" id="11_t60l6"]
+[ext_resource type="Script" path="res://personality_system/personality_data.gd" id="12_7v8y8"]
+[ext_resource type="Resource" path="res://content/personality_traits/laidback.tres" id="13_5lbfv"]
+[ext_resource type="Texture2D" path="res://battle_scene/entities/player/melee_weapon/wooden_stick.tres" id="14_ff1hj"]
+[ext_resource type="Script" path="res://battle_scene/entities/player/player_data.gd" id="15_rjjt7"]
+[ext_resource type="Script" path="res://globals/scene_management/run_progress.gd" id="16_ugj3v"]
+[ext_resource type="Script" path="res://mini_event_system/mini_event_data.gd" id="17_ju2aj"]
+[ext_resource type="Resource" path="res://content/map_events/old_man_event_v1.tres" id="18_7cy65"]
+[ext_resource type="Resource" path="res://content/map_events/abandoned_card_event.tres" id="19_21v4l"]
+[ext_resource type="Resource" path="res://content/map_events/starving_wolf_event.tres" id="20_shnnu"]
+
+[sub_resource type="Resource" id="Resource_kdvyb"]
+script = ExtResource("12_7v8y8")
+offensive_trait = ExtResource("11_t60l6")
+offensive_weight = 2
+defensive_trait = ExtResource("10_k3uip")
+defensive_weight = 1
+strategic_trait = ExtResource("13_5lbfv")
+strategic_weight = 1
+priority_trait = ExtResource("11_t60l6")
+
+[sub_resource type="Resource" id="Resource_12cju"]
+script = ExtResource("15_rjjt7")
+name = "Boaz"
+character_texture = ExtResource("7_8qiin")
+melee_weapon_texture = ExtResource("9_5nlej")
+ranged_weapon_texture = ExtResource("14_ff1hj")
+max_health = 50
+current_health = 50
+max_energy = 3
+item_capacity = 3
+cards = Array[ExtResource("1_sds6a")]([ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("2_jfmdv"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("3_uahfr"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("4_ce22o"), ExtResource("5_3l5uq"), ExtResource("5_3l5uq"), ExtResource("6_7xv35")])
+personality = SubResource("Resource_kdvyb")
+
+[resource]
+script = ExtResource("16_ugj3v")
+player_data = SubResource("Resource_12cju")
+map_seed = 1690637028
+single_time_mini_events = Array[ExtResource("17_ju2aj")]([ExtResource("18_7cy65"), ExtResource("19_21v4l"), ExtResource("20_shnnu")])
+initialized = true
+ai_mode = true

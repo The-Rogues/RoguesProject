@@ -163,8 +163,8 @@ func _on_delete_all_data_button_up() -> void:
 
 func _on_yes_delete_all_data_button_up() -> void:
 	Achievements.reset_achievements()
-	GameStats.stats_data = GameStatsData.new()
 	GlobalSaveManager.reset()
+	GlobalSaveManager.reset_game_stats()
 	GlobalSceneLoader.load_scene(GlobalSceneLoader.MAIN_MENU_PATH)
 
 

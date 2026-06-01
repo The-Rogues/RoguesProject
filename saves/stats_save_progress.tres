@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameStatsData" format=3]
+
+[ext_resource type="Script" path="res://globals/stat_tracking/game_stats_data.gd" id="1_0t8pa"]
+
+[resource]
+script = ExtResource("1_0t8pa")
+personalities_used = Array[String](["Merciful", "Skittish", "Laidback"])
+modified = true
