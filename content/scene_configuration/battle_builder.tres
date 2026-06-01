@@ -36,6 +36,7 @@
 [ext_resource type="Resource" uid="uid://bhui38t2clnfl" path="res://content/scene_configuration/enemy_encounters/tier_3_encounters/dragon_turtle.tres" id="26_cthsh"]
 [ext_resource type="Resource" uid="uid://3crikf7s8ra6" path="res://content/scene_configuration/battle_field_layouts/tier_3_fields/regrow_walls_and_bee.tres" id="26_icjbd"]
 [ext_resource type="Resource" uid="uid://ccp6j4rk4lyv0" path="res://content/scene_configuration/battle_field_layouts/tier_4_fields/temp_t4_field.tres" id="32_58ou1"]
+[ext_resource type="Resource" uid="uid://bqar15hjb3dhd" path="res://content/scene_configuration/battle_field_layouts/tier_4_fields/temp_t4_2.tres" id="33_2xnb6"]
 [ext_resource type="Resource" uid="uid://dhnsv8bgno6sa" path="res://content/scene_configuration/enemy_encounters/tier_4_encounters/throwback_battle.tres" id="33_7mqno"]
 
 [resource]
@@ -45,10 +46,9 @@ tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("15_fmdaw"), ExtR
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("26_cthsh"), ExtResource("10_uu101"), ExtResource("7_eswd4"), ExtResource("10_iaeg7")])
 tier_4_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("33_7mqno"), ExtResource("10_4gia5"), ExtResource("10_cthsh"), ExtResource("10_a5ep4")])
 tier_5_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("2_sutvh")])
-final_battle_encounter = Array[ExtResource("3_xcnaf")]([ExtResource("2_sutvh")])
 tier_1_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("3_eswd4"), ExtResource("4_eypvv"), ExtResource("8_phi5s"), ExtResource("5_uu101"), ExtResource("6_iaeg7"), ExtResource("7_4gia5")])
 tier_2_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("14_a5ep4"), ExtResource("15_58ou1"), ExtResource("16_7mqno"), ExtResource("17_4gia5"), ExtResource("18_5hqxf")])
 tier_3_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("23_0qxsk"), ExtResource("24_iefeg"), ExtResource("25_4ntcf"), ExtResource("26_icjbd"), ExtResource("23_cthsh")])
-tier_4_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("32_58ou1")])
+tier_4_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("32_58ou1"), ExtResource("33_2xnb6")])
 tier_5_battlefield_layouts = Array[ExtResource("1_xfhqu")]([ExtResource("32_58ou1")])
 metadata/_custom_type_script = "uid://blh0k76h8lwis"
