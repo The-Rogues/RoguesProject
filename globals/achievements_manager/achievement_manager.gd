@@ -70,7 +70,6 @@ func _evaluate_signal(signal_name:String) -> void:
 	await get_tree().process_frame
 	for achievement in achievements:
 		if achievement.listen_signal == signal_name:
-			print(achievement.get_rid())
 			if achievement.evaluate():
 				achievement_unlocked.emit(achievement)
 	

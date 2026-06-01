@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjvnpxflphnr5" path="res://battle_scene/battle_building/battlefield_config.gd" id="1_7tyq2"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_u1mdy"]
+[ext_resource type="Resource" uid="uid://ccp6j4rk4lyv0" path="res://content/scene_configuration/battle_field_layouts/tier_4_fields/temp_t4_field.tres" id="2_vno46"]
 [ext_resource type="Resource" uid="uid://bhvgpdeijvunc" path="res://content/monsters/Arbitor/Arbitor.tres" id="3_u1mdy"]
 [ext_resource type="Resource" uid="uid://d37cx2k7giyq1" path="res://content/scene_configuration/battle_loot/battle_item_loot.tres" id="3_xjxnl"]
 [ext_resource type="Script" uid="uid://b1cb0cq0pfpex" path="res://battle_scene/battle_building/enemy_encounter.gd" id="4_vno46"]
@@ -16,4 +17,5 @@ script = ExtResource("4_vno46")
 encounter_name = "Arbitor"
 gold = SubResource("Resource_vno46")
 enemies = Array[ExtResource("2_u1mdy")]([ExtResource("3_u1mdy")])
+battlefield_layouts = Array[ExtResource("1_7tyq2")]([ExtResource("2_vno46")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"
