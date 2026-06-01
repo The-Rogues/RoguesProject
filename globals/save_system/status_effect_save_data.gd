@@ -5,3 +5,4 @@ class_name StatusEffectSaveData
 @export var duration: int = 0
 @export var stack: int = -1
 @export var turn_entered: bool = true
+@export var permanent_stack: int = 0

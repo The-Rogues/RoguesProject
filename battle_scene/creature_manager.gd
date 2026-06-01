@@ -261,6 +261,8 @@ func spawn_enemy_from_save(state: MonsterSaveData) -> void:
 	monster.move_sequence = state.move_sequence
 	monster.intent = state.intent
 	
+	if state.intent != null:
+		monster.intent_chosen.emit(state.intent)
 	enemy_spawned.emit(monster)
 	monster.defeated.connect(_on_creature_defeated)
 	monster.fleed.connect(_on_creature_defeated)

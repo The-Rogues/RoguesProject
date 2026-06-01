@@ -32,6 +32,9 @@ func initialize(object:ObjectEntity):
 						var key = run.player_data.get_key_item("open_chest")
 						if key:
 							run.player_data.remove_item(key)
+							var scene = get_tree().current_scene
+							if scene is BattleScene:
+								scene.save_battle_state()
 					object.interact()
 					interaction_button.visible = false
 					can_interact = false
