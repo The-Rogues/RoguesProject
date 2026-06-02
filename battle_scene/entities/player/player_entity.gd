@@ -50,17 +50,32 @@ func initialize(_data:PlayerData, skip_cards: bool = false):
 	health.initialize(_data.current_health, _data.max_health)
 	energy.initialize(_data.max_energy, _data.max_energy)
 	
-	offensive_trait.initialize(
-			_data.personality.offensive_trait,
-			_data.personality.offensive_weight)
+	if _data.personality.offensive_trait_override:
+		offensive_trait.initialize(
+				_data.personality.offensive_trait_override,
+				_data.personality.offensive_weight)
+	else:
+		offensive_trait.initialize(
+				_data.personality.offensive_trait,
+				_data.personality.offensive_weight)
 	
-	defensive_trait.initialize(
-			_data.personality.defensive_trait,
-			_data.personality.defensive_weight)
+	if _data.personality.defensive_trait_override:
+		defensive_trait.initialize(
+				_data.personality.defensive_trait_override,
+				_data.personality.defensive_weight)
+	else:
+		defensive_trait.initialize(
+				_data.personality.defensive_trait,
+				_data.personality.defensive_weight)
 	
-	strategic_trait.initialize(
-			_data.personality.strategic_trait,
-			_data.personality.strategic_weight)
+	if _data.personality.strategic_trait_override:
+		strategic_trait.initialize(
+				_data.personality.strategic_trait_override,
+				_data.personality.strategic_weight)
+	else:
+		strategic_trait.initialize(
+				_data.personality.strategic_trait,
+				_data.personality.strategic_weight)
 	
 	if not skip_cards:
 		cards.initialize(_data.cards, self)
@@ -128,26 +143,25 @@ func on_destroyed():
 
 
 func enter_turn(_turn_count:int, turn_one: bool = false, skip_refill: bool = false):
-	damage_taken_last_turn = damage_taken_this_turn
-	damage_taken_this_turn = 0
-	
-	attacked_last_turn = attacked_this_turn
-	attacked_this_turn = false
-	#andy addition
-	cards_played_last_turn = cards_played_this_turn
-	cards_played_this_turn = 0
-	
-	#end
-	
 	if !skip_refill:
+		damage_taken_last_turn = damage_taken_this_turn
+		damage_taken_this_turn = 0
+	
+		attacked_last_turn = attacked_this_turn
+		attacked_this_turn = false
+		
+		#andy addition
+		cards_played_last_turn = cards_played_this_turn
+		cards_played_this_turn = 0
+		
 		block.set_to_zero()
-	#effects.on_entered_turn()
-	#effects.decay_status_effects()
-	if !turn_one:
-		record_end_turn_state()
-	if !skip_refill:
+		
+		if !turn_one:
+			record_end_turn_state()
+		
 		energy.refill()
-	turn_entered.emit()
+		
+		turn_entered.emit()
 
 
 func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):

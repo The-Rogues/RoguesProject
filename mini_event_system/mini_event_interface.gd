@@ -43,12 +43,14 @@ func _on_option_1():
 	branch = current_event.option_1_branch.duplicate()
 	pending_result = current_event.option_1_result
 	_start_option(current_event.option_1_accept_event)
+	_save_result()
 
 
 func _on_option_2():
 	branch = current_event.option_2_branch.duplicate()
 	pending_result = current_event.option_2_result
 	_start_option(current_event.option_2_accept_event)
+	_save_result()
 
 
 func _start_option(result: MiniEventResult):
@@ -93,12 +95,12 @@ func progress_branch():
 		next.visible = false
 		end.visible = true
 
-
-func _on_end():
+func _save_result():
 	var run := GlobalSessionManager.run_progress
 	if run != null:
 		run.mini_event_completed = true
 		GlobalSaveManager.save_run(run)
-		
+
+func _on_end():
 	queue_free()
 	main_event_callback.process_event()

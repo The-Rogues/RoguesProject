@@ -47,6 +47,17 @@ func _automated_use_first_item():
 	var interface_children := get_children()
 	interface_children[0]._on_use_button_up()
 
+func _disable_items():
+	var interface_children := get_children()
+	for child in interface_children:
+		child.disable_input = true
+	_on_slot_clicked(-1)
+
+func _enable_items():
+	var interface_children := get_children()
+	for child in interface_children:
+		child.disable_input = false
+
 func add_slot():
 	var all_slots: Array[Node] = get_children()
 	#all_slots[all_slots.size() - 1].uncolor_item_slot()
