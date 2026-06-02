@@ -8,13 +8,16 @@ signal released_card
 @export var fan_spacing: float = 90.0
 
 const CARD = preload("res://card_system/card.tscn")
+const CARD_HOVER_OFFSET = 80
 
 var held_card:Card = null
+
 var dragged_card:Card = null
 var holding_card:bool = false
 #var screen_size:Vector2
 var resolver:ActionResolver
 var player:PlayerEntity
+var hovered_card: Card = null
 
 func initialize(_player:PlayerEntity, _resolver:ActionResolver):
 	#screen_size = get_viewport().size
@@ -33,7 +36,7 @@ func _on_card_drawn(instance:CardInstance):
 	
 	card.clicked.connect(_on_card_clicked)
 	card.interaction_mode = true
-	#card.hovered.connect(_on_card_hovered)
+	card.hovered.connect(_on_card_hovered)
 	_update_card_layout()
 
 
@@ -71,9 +74,12 @@ func _update_card_layout() -> void:
 		var t:float = i - (count - 1) * 0.5
 		var angle:float = t * fan_angle
 		var x:float = center_x + t * fan_spacing
-		var base_y: float = size.y - 100  # 100px above bottom of hand
+		var base_y: float = size.y - 100 
 		var y: float = base_y + abs(t) * 10
-		
+
+		if card == hovered_card:
+			y -= CARD_HOVER_OFFSET
+
 		_move_card(card, Vector2(x, y), angle)
 
 
@@ -108,6 +114,7 @@ func _on_card_clicked(card: Card) -> void:
 
 func _release_card() -> void:
 	holding_card = false
+	hovered_card = null
 	
 	if not held_card or not dragged_card:
 		_cleanup_drag()
@@ -163,11 +170,18 @@ func confirm_play(card: Card) -> void:
 # Hover
 # -------------------------------------------------
 
-#func _on_card_hovered(card: Card, hovering: bool) -> void:
-	#if holding_card:
-		#return
+func _on_card_hovered(card: Card, hovering: bool) -> void:
+	if holding_card:
+		return
 	
-	#card.blow_up(hovering)
+	if hovering:
+		hovered_card = card
+		card.z_index = 50
+	else:
+		if hovered_card == card:
+			hovered_card = null
+		card.z_index = 0
+	_update_card_layout()
 
 # -------------------------------------------------
 # Utility

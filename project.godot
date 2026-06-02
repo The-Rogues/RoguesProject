@@ -14,9 +14,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Rogues Game"
+config/name="Identity Quest"
+config/version="1.0"
 run/main_scene="uid://uelarvradxi5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://cm4ku6oppmpc6"
 
 [autoload]
 

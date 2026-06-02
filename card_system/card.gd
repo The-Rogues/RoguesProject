@@ -1,6 +1,7 @@
 extends Control
 class_name Card
 
+signal hovered(card: Card, active:bool)
 signal clicked(card: Card)
 signal launched
 
@@ -177,14 +178,15 @@ func blow_up(active: bool) -> void:
 
 func _on_mouse_entered() -> void:
 	if interaction_mode:
+		hovered.emit(self, true)
+		
 		blow_up(true)
-	#hovered.emit(self, true)
 
 
 func _on_mouse_exited() -> void:
 	if interaction_mode:
+		hovered.emit(self, false)
 		blow_up(false)
-	#hovered.emit(self, false)
 
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
