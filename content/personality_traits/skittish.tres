@@ -13,7 +13,7 @@
 script = ExtResource("2_6k3ak")
 display_texture = ExtResource("6_lded7")
 name = "Skittish"
-description = "Quick to act. Targets weakest Enemies. Moves toward cover."
+description = "Quick to act. Targets lowest health enemies. Moves toward cover."
 trait_category = 1
 enemy_targeting_preference = 1
 card_loot_pool = Array[ExtResource("1_u5jvk")]([ExtResource("2_lded7"), ExtResource("3_hb3rg"), ExtResource("4_oerxl"), ExtResource("5_hb3rg")])

@@ -13,9 +13,9 @@
 script = ExtResource("2_dd354")
 display_texture = ExtResource("2_0ppp8")
 name = "Crafty"
-description = "Uses enviornment defensivley. Targets shiny enemies for resources. Moves toward cover. "
+description = "Uses enviornment defensivley. Targets lowest health enemies. Moves toward cover. "
 trait_category = 1
-enemy_targeting_preference = 5
+enemy_targeting_preference = 1
 card_loot_pool = Array[ExtResource("1_hubal")]([ExtResource("2_3myby"), ExtResource("3_ydwot"), ExtResource("5_ydwot"), ExtResource("6_qcfsq")])
 shop_unique_card = ExtResource("2_qy46g")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

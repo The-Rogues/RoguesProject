@@ -754,7 +754,7 @@ func populate_events(rand_seed: int) -> void:
 		var challenge_node: RefCounted = valid_nodes[target_idx]
 		challenge_node.node_data.mini_event = metal_man
 	
-	for i in range(4, map_layers):
+	for i in range(4, map_layers - 1):
 		
 		var target_layer: Array[RefCounted] = get_layer(i)
 		var num_events: int

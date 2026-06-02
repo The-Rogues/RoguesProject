@@ -264,8 +264,8 @@ func set_button_states() -> void:
 					map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
 		else:
 			if map_structure.visited_nodes.has(map_buttons[i].corr_node):
-				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_passed
-				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_passed
+				map_buttons[i].texture_normal = texture_passed
+				map_buttons[i].texture_hover = texture_passed
 			else:
 				# Set textures for passed nodes.
 				map_buttons[i].texture_normal = texture_passed
@@ -289,19 +289,19 @@ func _draw() -> void:
 		
 		# For each adjacent button, record its position and draw a line between the two points.
 		for j in range(0, map_structure.node_arr[i].node_edges.size()):
-			var col: Color = Color.DARK_GRAY
+			#var col: Color = Color.DARK_GRAY
 			var adj_button = find_button_by_corr_node(map_structure.node_arr[i].node_edges[j])
 			var adj_pos = Vector2(adj_button.offset_left, adj_button.offset_top)
 			
 			# Check if a path between two nodes has been traveled.
-			if path_map.has(map_structure.node_arr[i]) && path_map[map_structure.node_arr[i]] == adj_button.corr_node:
-				col = Color.BLUE
+			#if path_map.has(map_structure.node_arr[i]) && path_map[map_structure.node_arr[i]] == adj_button.corr_node:
+			#	col = Color.BLUE
 			
 			# Draw a dotted line between the two positions.
 			draw_dotted_line(
 				curr_pos + (map_buttons[i].size / 2), # Exact position must be adjusted relative to button size.
 				adj_pos + (adj_button.size / 2),
-				col
+				Color.DARK_GRAY
 			)
 
 # --draw_dotted_line Function--

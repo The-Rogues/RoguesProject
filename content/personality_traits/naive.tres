@@ -13,7 +13,7 @@
 script = ExtResource("2_bf4gf")
 display_texture = ExtResource("2_dsqjr")
 name = "Naive"
-description = "Inexperienced and ignorant of the dangers of battle. Targets dangerous enemies. Moves toward treasure."
+description = "Inexperienced and ignorant of the dangers of battle. Targets enemies that are attacking. Moves toward treasure."
 trait_category = 1
 enemy_targeting_preference = 2
 object_targeting_preference = 2

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drk5uv6iqcvsx" path="res://content/monsters/ice_wizard/init_sequence_monster_behaviour.gd" id="1_4dpco"]
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_q6ktr"]
-[ext_resource type="Texture2D" uid="uid://cu15mkopgwggg" path="res://content/monsters/Arbitor/alt_arbitor_texture.tres" id="2_lykv3"]
+[ext_resource type="Texture2D" uid="uid://ytefthiyq1j6" path="res://content/monsters/Arbitor/final_boss.png" id="2_4dpco"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="2_p7ukp"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_wxvyt"]
 [ext_resource type="Resource" uid="uid://rg3xj1to1k1w" path="res://content/monsters/Arbitor/moves/summon_minions/summon_minions.tres" id="5_4dpco"]
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 script = ExtResource("2_wxvyt")
 move_sequences = Array[ExtResource("1_q6ktr")]([SubResource("Resource_j3p5v"), SubResource("Resource_i7k8h")])
 behaviour = SubResource("Resource_sbqtc")
-display_texture = ExtResource("2_lykv3")
+display_texture = ExtResource("2_4dpco")
 name = "Arbitor"
 health = 200
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"
