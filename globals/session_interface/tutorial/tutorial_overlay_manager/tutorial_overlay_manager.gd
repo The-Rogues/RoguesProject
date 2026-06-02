@@ -14,5 +14,6 @@ func play_tutorial() -> void:
 		curr_child_idx += 1
 		return
 	GameStats.stats_data.tutorial_completed = true
+	GlobalSaveManager.save_game_stats(GameStats.stats_data)
 	curr_child_idx = 0
 	self.visible = false

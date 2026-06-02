@@ -10,6 +10,7 @@ enum StatType {GameStat, BattleStat}
 @export var signal_from:StatType = StatType.GameStat
 @export var listen_signal:String
 @export var stat_checks:Array[StatRequirement]
+@export var save_path: String
 
 
 func evaluate() -> bool:
@@ -66,5 +67,6 @@ func evaluate() -> bool:
 	
 	if passed:
 		completed = true
+		ResourceSaver.save(self, save_path)
 		return true
 	return false

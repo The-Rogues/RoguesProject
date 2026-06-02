@@ -13,7 +13,7 @@
 script = ExtResource("4_tuj4a")
 display_texture = ExtResource("3_4yvaj")
 name = "Valorous"
-description = "Journeys to become stronger. Targets dangerous enemies. Moves toward upgrades."
+description = "Journeys to become stronger. Targets enemies taht are attacking. Moves toward upgrades."
 trait_category = 2
 enemy_targeting_preference = 2
 object_targeting_preference = 4

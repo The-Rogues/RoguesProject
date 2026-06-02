@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://dc1pwnpncbncr"]
+[gd_resource type="Resource" script_class="AchievementData" format=3]
 
-[ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_st8kq"]
-[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="2_4p0dq"]
-[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="3_a31wf"]
+[ext_resource type="Texture2D" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_st8kq"]
+[ext_resource type="Script" path="res://achievements_system/achievement_data.gd" id="2_4p0dq"]
+[ext_resource type="Script" path="res://achievements_system/stat_requirement.gd" id="3_a31wf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sj2on"]
 atlas = ExtResource("1_st8kq")
@@ -21,4 +21,5 @@ display_image = SubResource("AtlasTexture_sj2on")
 description = "Place a total of 10 objects."
 listen_signal = "object_placed"
 stat_checks = Array[ExtResource("3_a31wf")]([SubResource("Resource_tp0fr")])
+save_path = "res://content/achievements/master_builder.tres"
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"
