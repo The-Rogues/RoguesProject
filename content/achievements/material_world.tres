@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://c3rhvi4drny46"]
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://dcr23ri8gka6w"]
 
 [ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_7a333"]
 [ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="2_q1mqk"]
@@ -22,4 +22,5 @@ display_image = SubResource("AtlasTexture_jpgfq")
 description = "Use a total of 10 different items."
 listen_signal = "item_used"
 stat_checks = Array[ExtResource("3_v0uds")]([SubResource("Resource_olkv8")])
+save_path = "res://content/achievements/material_world.tres"
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

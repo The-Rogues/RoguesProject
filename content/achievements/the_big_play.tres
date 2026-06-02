@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://cbfybvpxpcbl5"]
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://c4qtrxvwpdrd5"]
 
 [ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="1_4mir6"]
 [ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_82yuf"]
@@ -22,4 +22,5 @@ description = "Spend 6 energy in one turn."
 signal_from = 1
 listen_signal = "energy_used"
 stat_checks = Array[ExtResource("2_82yuf")]([SubResource("Resource_b760j")])
+save_path = "res://content/achievements/the_big_play.tres"
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

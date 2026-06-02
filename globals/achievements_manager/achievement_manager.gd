@@ -79,6 +79,7 @@ func _evaluate_signal(signal_name:String) -> void:
 func reset_achievements():
 	for achievement in achievements:
 		achievement.completed = false
+		ResourceSaver.save(achievement, achievement.save_path)
 	achievements_reset.emit()
 
 

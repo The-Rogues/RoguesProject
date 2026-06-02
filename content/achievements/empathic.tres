@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://caeg32a3qvjsp"]
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://degsehmjkp3rk"]
 
 [ext_resource type="Texture2D" uid="uid://b7t1octsdbvv2" path="res://common/art/placeholder/joi3/Emojis_32x32_Free.png" id="1_t0s51"]
 [ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="2_0pd1d"]
@@ -22,4 +22,5 @@ display_image = SubResource("AtlasTexture_gy73m")
 description = "Use 12 different personality traits."
 listen_signal = "used_personality_trait"
 stat_checks = Array[ExtResource("3_kc04k")]([SubResource("Resource_juuyt")])
+save_path = "res://content/achievements/empathic.tres"
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

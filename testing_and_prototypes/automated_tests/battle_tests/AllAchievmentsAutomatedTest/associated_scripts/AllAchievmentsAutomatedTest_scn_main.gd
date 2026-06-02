@@ -32,11 +32,10 @@ var unused_traits: Array[PersonalityTrait] = [
 var test_enabled: bool = false
 
 func _ready():
-	
-	GlobalSaveManager.reset()
-	
 	if !test_enabled:
 		return
+	
+	GlobalSaveManager.reset()
 	
 	GlobalSessionManager.run_progress = progress_res
 	GlobalSceneLoader.load_battle_scene()
