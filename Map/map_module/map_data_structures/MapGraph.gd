@@ -590,7 +590,8 @@ func choose_layer_one_event(seed: int) -> MiniEventData:
 	]
 	var alt_hooded: MiniEventData = load("res://content/map_events/tier_1_events/random_key_1.tres")
 	var alt_upgrade: MiniEventData = load("res://content/map_events/tier_1_events/attack_upgrade_event.tres")
-	var ret_event: MiniEventData = events.pick_random()
+	var rand_idx: int = rand_gen.randi_range(0, events.size() - 1)
+	var ret_event: MiniEventData = events[rand_idx]
 	if ret_event == events[0]:
 		if rand_gen.randf() < 0.5:
 			ret_event = alt_upgrade
@@ -630,7 +631,8 @@ func populate_events(rand_seed: int) -> void:
 		for j in range(0, curr_layer.size()):
 			curr_layer[j].node_data = add_main_event(battle_data)
 	
-	var layer_three_event_node: RefCounted = get_layer(2).pick_random()
+	var layer_3_rand: int = rand_gen.randi_range(0, get_layer(2).size() - 1)
+	var layer_three_event_node: RefCounted = get_layer(2)[layer_3_rand]
 	layer_three_event_node.node_data.mini_event = choose_layer_one_event(rand_gen.randi())
 	
 	var layer_four: Array[RefCounted] = get_layer(3)
@@ -813,7 +815,7 @@ func populate_noise(noise_seed: int) -> void:
 	
 	# Map nodes are iterated over in layers so that outer nodes can be identified.
 	var curr_idx: int = 0
-	for i in range(0, map_layers):
+	for i in range(0, map_layers - 1):
 		
 		var curr_layer_size: int = get_layer(i).size()
 		for j in range(0, curr_layer_size):

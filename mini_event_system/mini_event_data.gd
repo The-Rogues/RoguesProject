@@ -18,3 +18,4 @@ class_name MiniEventData
 @export var option_2_accept_event:MiniEventResult = null
 @export var option_1_result:MiniEventResult
 @export var option_2_result:MiniEventResult 
+var mini_event_disabled: bool = false

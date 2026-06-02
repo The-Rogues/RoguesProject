@@ -237,15 +237,19 @@ func set_button_states() -> void:
 				map_buttons[i].disabled = false
 				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_available
 				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_hover
-					
+				if GlobalSessionManager.run_progress.mini_event_completed:
+					map_buttons[i].hide_mini_event()
+				
 			elif room_in_progress and map_structure.node_arr[i].node_layer == pending_layer:
 				map_buttons[i].texture_normal = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
 				map_buttons[i].texture_hover = map_buttons[i].corr_node.node_data.main_event.tex_ev_unavailable
-					
+				map_buttons[i].hide_mini_event()
+				
 			elif map_structure.node_arr[i].node_layer == player_layer:
 				map_buttons[i].texture_normal = texture_passed
 				map_buttons[i].texture_hover = texture_passed
 				map_buttons[i].hide_mini_event()
+				
 			else:
 				
 				# Check if a button is accessable. If it is, make it pressable.

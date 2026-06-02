@@ -20,6 +20,7 @@ class_name SessionInterface
 @onready var generation_screen: Control = %GeneratingCardOverlay
 @onready var tutorial: TutorialOverlayManager = %TutorialOverlayManager
 
+@onready var menu_button: Button = $Control/Container/Stats/Settings
 
 func initialize():
 	var run:RunProgress = GlobalSessionManager.run_progress

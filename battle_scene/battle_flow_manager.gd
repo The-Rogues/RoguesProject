@@ -61,11 +61,11 @@ func start_battle():
 		await turn_banner.display("Battle Start")
 		
 		battle_field.move_player(player, player.battle_position)
-		player.unused_energy_last_turn = 0
-		player.damage_taken_this_turn = 0
-		player.damage_taken_last_turn = 0
-		player.attacked_this_turn = true
-		player.attacked_last_turn = true
+		#player.unused_energy_last_turn = 0
+		#player.damage_taken_this_turn = 0
+		#player.damage_taken_last_turn = 0
+		#player.attacked_this_turn = false
+		#player.attacked_last_turn = false
 		var run: RunProgress = GlobalSessionManager.run_progress
 		if resuming and run != null and run.battle != null:
 			enemy_turn_completed = run.battle.enemy_turn_completed
@@ -105,10 +105,10 @@ func start_player_turn():
 		GlobalSessionManager.run_progress.battle.enemy_turn_completed = false
 		enemy_turn_completed = false
 	else:
-		if turn_count == 1:
-			player.enter_turn(turn_count, true, resuming)
-		else:
-			player.enter_turn(turn_count, false, resuming)
+		#if turn_count == 1:
+			#player.enter_turn(turn_count, true, resuming)
+		#else:
+			#player.enter_turn(turn_count, false, resuming)
 		
 		for enemy in enemies:
 			enemy.choose_intent(context, true)
@@ -131,6 +131,8 @@ func start_player_turn():
 		player.cards.draw_cards(5)
 		_save_battle_state()
 		action_resolver.action_queue.saving_enabled = true
+		GlobalSessionInterface.menu_button.disabled = false
+		GlobalSessionInterface.player_items.item_interface._enable_items()
 	
 	end_turn_button.disabled = false
 	end_turn_button.text = "End Turn"
@@ -144,6 +146,8 @@ func start_player_turn():
 func end_player_turn():
 	_save_battle_state()
 	action_resolver.action_queue.saving_enabled = false
+	GlobalSessionInterface.menu_button.disabled = true
+	GlobalSessionInterface.player_items.item_interface._disable_items()
 	if battle_state == State.ENDED:
 		return
 	
@@ -209,6 +213,8 @@ func _on_battle_ended():
 	battle_state = State.ENDED
 	player.on_started_processing_action(context)
 	GlobalSessionInterface.options_menu.tutorial_button.disabled = true
+	GlobalSessionInterface.menu_button.disabled = false
+	GlobalSessionInterface.player_items.item_interface._enable_items()
 	
 	play_hand.clear_hand()
 	add_gem_reward()
@@ -262,10 +268,4 @@ func apply_innate_effects(in_context: BattleContext):
 func _save_battle_state() -> void:
 	var scene = get_tree().current_scene
 	if scene is BattleScene:
-		scene._save_enemy_states()
-		scene._save_object_states()
-		scene._save_player_position()
-		scene._save_card_piles()
-		scene._save_all_effects()
-		scene._save_player_energy()
-		scene._save_rewards()
+		scene.save_battle_state()

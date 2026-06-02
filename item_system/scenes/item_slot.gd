@@ -14,7 +14,7 @@ signal discard(index:int, item_slot:ItemSlot)
 
 
 var index:int
-
+var disable_input: bool = false
 
 func _ready() -> void:
 	item_texture_rect.visible = false
@@ -39,6 +39,8 @@ func uncolor_item_slot():
 	item_icon_button.modulate = Color(1.0, 1.0, 1.0)
 
 func _on_item_slot_clicked() -> void:
+	if disable_input:
+		return
 	contents.visible = true
 	clicked.emit(index)
 

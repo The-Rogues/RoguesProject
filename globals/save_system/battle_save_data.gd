@@ -19,3 +19,13 @@ class_name BattleSaveData
 @export var pending_rewards: Array[BattleRewardData] = []
 @export var enemy_turn_completed = true
 @export var battle_won: bool = false
+
+# --Misc Player Tracking Variable Saves--
+@export var misc_damage_taken_this_turn: int = 0
+@export var misc_damage_taken_last_turn: int = 0
+@export var misc_attacked_this_turn: bool = false
+@export var misc_attacked_last_turn: bool = false
+@export var misc_unused_energy_last_turn: int = 0
+@export var misc_cards_played_this_turn: int = 0
+@export var misc_cards_played_last_turn: int = 0
+@export var misc_strongest_attack_this_battle: int = 0

@@ -168,6 +168,7 @@ func save_battle_state() -> void:
 	_save_all_effects()
 	_save_player_energy()
 	_save_rewards()
+	_save_misc_player_trackers()
 
 func _save_enemy_states() -> void:
 	var run : RunProgress = GlobalSessionManager.run_progress
@@ -343,6 +344,7 @@ func _restore_battle(run: RunProgress) -> void:
 		run.battle.player_max_energy
 	)
 	player.energy.bonus_energy = run.battle.player_bonus_energy
+	_restore_misc_player_trackers()
 	
 	# Restore rewards
 	for reward in run.battle.pending_rewards:
@@ -351,7 +353,7 @@ func _restore_battle(run: RunProgress) -> void:
 	# Update targeting and preference displays after all state is restored
 	creature_manager.update_attack_targeting()
 	battle_field.update_preferences(player)
-	
+
 func _restore_card_pile(saved: Array[CardInstanceSaveData], target: Array[CardInstance]) -> void:
 	for state in saved:
 			var instance := CardInstance.new(state.card_data)
@@ -379,13 +381,34 @@ func _restore_effects(fx: BattleEffectsSaveData) -> void:
 				creature_manager.enemies[i].effects.add_effect(state.behaviour, state.duration, state.stack, state.turn_entered, true)
 				effect_idx += 1
 
-	# Position effects
-	#for state in fx.position_effects:
-	#	var pos: BattlePosition = battle_field.battle_positions[state.position_index]
-	#	pos.add_position_effect(state.config)
-	#	if pos.get_effect() != null:
-	#		pos.get_effect().duration = state.duration
-	#		pos.get_effect().stack = state.stack
+func _save_misc_player_trackers():
+	var run : RunProgress = GlobalSessionManager.run_progress
+	if run == null or run.battle == null:
+		return
+	
+	run.battle.misc_attacked_last_turn = player.attacked_last_turn
+	run.battle.misc_attacked_this_turn = player.attacked_this_turn
+	run.battle.misc_cards_played_last_turn = player.cards_played_last_turn
+	run.battle.misc_cards_played_this_turn = player.cards_played_this_turn
+	run.battle.misc_damage_taken_last_turn = player.damage_taken_last_turn
+	run.battle.misc_damage_taken_this_turn = player.damage_taken_this_turn
+	run.battle.misc_strongest_attack_this_battle = player.strongest_attack_this_battle
+	run.battle.misc_unused_energy_last_turn = player.unused_energy_last_turn
+	GlobalSaveManager.save_run(run)
+
+func _restore_misc_player_trackers():
+	var run : RunProgress = GlobalSessionManager.run_progress
+	if run == null or run.battle == null:
+		return
+	
+	player.attacked_last_turn = run.battle.misc_attacked_last_turn
+	player.attacked_this_turn = run.battle.misc_attacked_this_turn
+	player.cards_played_last_turn = run.battle.misc_cards_played_last_turn
+	player.cards_played_this_turn = run.battle.misc_cards_played_this_turn
+	player.damage_taken_last_turn = run.battle.misc_damage_taken_last_turn
+	player.damage_taken_this_turn = run.battle.misc_damage_taken_this_turn
+	player.strongest_attack_this_battle = run.battle.misc_strongest_attack_this_battle
+	player.unused_energy_last_turn = run.battle.misc_unused_energy_last_turn
 
 #andy addition
 func _on_enemy_defeated(enemy):
