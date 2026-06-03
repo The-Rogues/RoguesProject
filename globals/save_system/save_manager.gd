@@ -1,8 +1,9 @@
 extends Node
 class_name SaveManager
 
-const SAVE_PATH := "res://saves/save_progress.tres"
-const GAME_STATS_SAVE_PATH := "res://saves/stats_save_progress.tres"
+const SAVE_PATH := "user://saves/save_progress.tres"
+const GAME_STATS_SAVE_PATH := "user://saves/stats_save_progress.tres"
+const SAVE_DIR := "user://saves/"
 
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
@@ -10,6 +11,8 @@ func has_save() -> bool:
 func save_run(p: RunProgress) -> void:
 	if p == null:
 		return
+	if not DirAccess.dir_exists_absolute(SAVE_DIR):
+		DirAccess.make_dir_absolute(SAVE_DIR)
 	ResourceSaver.save(p, SAVE_PATH)
 
 
@@ -52,6 +55,8 @@ func has_game_stats_save() -> bool:
 func save_game_stats(game_stats:GameStatsData):
 	if game_stats:
 		game_stats.modified = true
+		if not DirAccess.dir_exists_absolute(SAVE_DIR):
+			DirAccess.make_dir_absolute(SAVE_DIR)
 		ResourceSaver.save(game_stats, GAME_STATS_SAVE_PATH)
 
 

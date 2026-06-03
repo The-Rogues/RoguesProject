@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="AchievementData" format=3]
+[gd_resource type="Resource" script_class="AchievementData" format=3 uid="uid://cckld73jdld36"]
 
-[ext_resource type="Script" path="res://achievements_system/achievement_data.gd" id="1_4lx00"]
-[ext_resource type="Texture2D" path="res://content/objects/chest/chest_closed_texture.tres" id="1_16sho"]
-[ext_resource type="Script" path="res://achievements_system/stat_requirement.gd" id="2_16sho"]
+[ext_resource type="Script" uid="uid://bpg4ovqwyxaaf" path="res://achievements_system/achievement_data.gd" id="1_4lx00"]
+[ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="1_16sho"]
+[ext_resource type="Script" uid="uid://c1otbwmtokh42" path="res://achievements_system/stat_requirement.gd" id="2_16sho"]
 
 [sub_resource type="Resource" id="Resource_b58nt"]
 script = ExtResource("2_16sho")
@@ -16,5 +16,5 @@ display_image = ExtResource("1_16sho")
 description = "Open a locked chest in a battle."
 listen_signal = "chest_opened"
 stat_checks = Array[ExtResource("2_16sho")]([SubResource("Resource_b58nt")])
-save_path = "res://content/achievements/treasure_hunter.tres"
+save_path = "user://content/achievements/treasure_hunter.tres"
 metadata/_custom_type_script = "uid://bpg4ovqwyxaaf"

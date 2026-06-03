@@ -15,6 +15,9 @@ func _ready():
 
 
 func initialize() -> void:
+	load_achievments()
+	print(achievements[4].completed)
+	
 	# Prevent duplicate connections
 	_disconnect_existing()
 
@@ -82,6 +85,12 @@ func reset_achievements():
 		ResourceSaver.save(achievement, achievement.save_path)
 	achievements_reset.emit()
 
+func load_achievments():
+	if not DirAccess.dir_exists_absolute(AchievementData.SAVE_DIR):
+		DirAccess.make_dir_recursive_absolute(AchievementData.SAVE_DIR)
+		reset_achievements()
+	for i in range(0, achievements.size()):
+		achievements[i] = ResourceLoader.load(achievements[i].save_path, "", ResourceLoader.CACHE_MODE_IGNORE) as AchievementData
 
 func _on_run_completed(_summary):
 	_evaluate_signal("run_completed")

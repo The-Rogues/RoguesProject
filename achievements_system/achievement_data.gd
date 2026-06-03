@@ -11,7 +11,7 @@ enum StatType {GameStat, BattleStat}
 @export var listen_signal:String
 @export var stat_checks:Array[StatRequirement]
 @export var save_path: String
-
+const SAVE_DIR := "user://content/achievements/"
 
 func evaluate() -> bool:
 	if completed:
