@@ -34,7 +34,7 @@ var current_weight:int = 0
 # -------------------------------------------------
 
 func initialize_display(_trait: PersonalityTrait, weight: int):
-	base_weight = weight
+	set_base_weight(weight, false)
 	temporary_offset = 0
 	current_weight = weight
 
@@ -42,6 +42,7 @@ func initialize_display(_trait: PersonalityTrait, weight: int):
 
 	weight_label.text = str(weight)
 	weight_label.modulate = NORMAL_COLOR
+	clear_temporary_modifier()
 
 
 # -------------------------------------------------

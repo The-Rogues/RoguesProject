@@ -8,13 +8,13 @@ enum LootSource { CHEST, POT }
 # Chest rewards
 @export var energy_potion: ItemRewardData
 @export var health_potion: ItemRewardData
-@export var ai_pack: ItemRewardData
+@export var ai_pack: CardPackRewardData
 
 # Pot rewards
 @export var high_chance_item: Array[BattleRewardData]
 @export var medium_chance_item: Array[BattleRewardData]
 @export var low_chance_item: Array[BattleRewardData]
-@export var personality_card_packs: Array[ItemRewardData]
+@export var personality_card_packs: Array[CardPackRewardData]
 
 
 func execute(_context: BattleContext = null, _user: AbstractEntity = null):

@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="AddItemToRewardAction" format=3 uid="uid://dlgx712dvpsdf"]
 
-[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="1_e1iyk"]
-[ext_resource type="Resource" uid="uid://bdkbyf2f00dk7" path="res://content/items/card_packs/ai_card_pack.tres" id="2_pebow"]
+[ext_resource type="Resource" uid="uid://d1qftjmu445k8" path="res://content/items/card_packs/card_pack_rewards/ai_card_reward.tres" id="1_0013t"]
 [ext_resource type="Script" uid="uid://bo1e5acw4diuu" path="res://battle_scene/win_screen/rewards_data/item_reward_data.gd" id="3_f4k6p"]
 [ext_resource type="Texture2D" uid="uid://dtq808atl3kp7" path="res://content/items/super_energy_potion/super_energy_potion_texture.tres" id="4_0013t"]
 [ext_resource type="Resource" uid="uid://cjym6bgcm3g2r" path="res://content/items/super_energy_potion/super_energy_potion_upgrade_item_data.tres" id="5_dglgk"]
@@ -11,28 +10,22 @@
 [ext_resource type="Script" uid="uid://drffwoufolf1p" path="res://battle_scene/win_screen/rewards_data/gold_reward_data.gd" id="10_bs5ot"]
 [ext_resource type="Texture2D" uid="uid://crkgj5pwscfcn" path="res://content/items/diamond/diamond_texture.tres" id="10_e1iyk"]
 [ext_resource type="Resource" uid="uid://dnpnr60u7xv62" path="res://content/items/diamond/diamond_item_data.tres" id="11_pebow"]
+[ext_resource type="Script" uid="uid://bkp0i0wgm58vs" path="res://battle_scene/win_screen/rewards_data/card_pack_reward_data.gd" id="12_lfvpp"]
+[ext_resource type="Resource" uid="uid://c7bykbhj2j1d2" path="res://content/items/card_packs/card_pack_rewards/brute_card_reward.tres" id="14_dglgk"]
+[ext_resource type="Resource" uid="uid://c7ll1nyunehxa" path="res://content/items/card_packs/card_pack_rewards/crafty_card_reward.tres" id="15_tox7k"]
 [ext_resource type="Texture2D" uid="uid://do5kp8psm4m4f" path="res://content/items/chest_key/key_texture.tres" id="15_tqw5u"]
+[ext_resource type="Resource" uid="uid://dibv3gyptd23o" path="res://content/items/card_packs/card_pack_rewards/friendly_card_reward.tres" id="16_e1iyk"]
 [ext_resource type="Resource" uid="uid://hfsmsjtkw6ss" path="res://content/items/chest_key/chest_key_item_data.tres" id="16_nmhny"]
-[ext_resource type="Resource" uid="uid://cdy1pdif6b5ea" path="res://content/items/card_packs/brute_card_pack.tres" id="17_6mgi2"]
-[ext_resource type="Resource" uid="uid://bo8137yjpu0bo" path="res://content/items/card_packs/crafty_card_pack.tres" id="18_xd6y3"]
-[ext_resource type="Resource" uid="uid://soed6wogo5r5" path="res://content/items/card_packs/friendly_card_pack.tres" id="19_sarmf"]
-[ext_resource type="Resource" uid="uid://cvm36c08hkjht" path="res://content/items/card_packs/greedy_card_pack.tres" id="20_ufpn3"]
-[ext_resource type="Resource" uid="uid://mvv68pd37lkl" path="res://content/items/card_packs/laidback_card_pack.tres" id="21_b8e6f"]
-[ext_resource type="Resource" uid="uid://vfxn0v7gtuaf" path="res://content/items/card_packs/merciful_card_pack.tres" id="22_8thlp"]
-[ext_resource type="Resource" uid="uid://chdw11vdc12n0" path="res://content/items/card_packs/naive_card_pack.tres" id="23_1us32"]
-[ext_resource type="Resource" uid="uid://u2isdsfaam16" path="res://content/items/card_packs/skittish_card_pack.tres" id="24_no7m0"]
-[ext_resource type="Resource" uid="uid://dpeq4ckm5i2us" path="res://content/items/card_packs/stoic_card_pack.tres" id="25_ngflb"]
-[ext_resource type="Resource" uid="uid://chsal8kslnb1o" path="res://content/items/card_packs/tactical_card_pack.tres" id="26_o3ep6"]
-[ext_resource type="Resource" uid="uid://bj16p41qglnna" path="res://content/items/card_packs/valorous_card_pack.tres" id="27_4srav"]
-[ext_resource type="Resource" uid="uid://mkpivoj3v317" path="res://content/items/card_packs/vengeful_card_pack.tres" id="28_80hsa"]
+[ext_resource type="Resource" uid="uid://b3qbs5ykw3h34" path="res://content/items/card_packs/card_pack_rewards/greedy_card_reward.tres" id="17_pebow"]
+[ext_resource type="Resource" uid="uid://occ8lcbwp6g7" path="res://content/items/card_packs/card_pack_rewards/laidback_card_reward.tres" id="18_f4k6p"]
+[ext_resource type="Resource" uid="uid://ddjy6cdhkx61h" path="res://content/items/card_packs/card_pack_rewards/merciful_card_reward.tres" id="19_gppf4"]
+[ext_resource type="Resource" uid="uid://of5cpcf2u8xj" path="res://content/items/card_packs/card_pack_rewards/naive_card_reward.tres" id="20_84bes"]
+[ext_resource type="Resource" uid="uid://bh14fn6ladxcb" path="res://content/items/card_packs/card_pack_rewards/skittish_card_reward.tres" id="21_6f4fx"]
+[ext_resource type="Resource" uid="uid://c2q3d380d7g8n" path="res://content/items/card_packs/card_pack_rewards/stoic_card_reward.tres" id="22_olsfv"]
+[ext_resource type="Resource" uid="uid://c78olmio7gns2" path="res://content/items/card_packs/card_pack_rewards/tactical_card_reward.tres" id="23_ae23j"]
+[ext_resource type="Resource" uid="uid://cqtncg7g76o8k" path="res://content/items/card_packs/card_pack_rewards/valorous_card_reward.tres" id="24_qkxfw"]
+[ext_resource type="Resource" uid="uid://c3so1ycpxwmlm" path="res://content/items/card_packs/card_pack_rewards/vengeful_card_reward.tres" id="25_bs5ot"]
 [ext_resource type="Script" uid="uid://bj6y7ncnmxyft" path="res://battle_scene/entities/actions/skill/add_item_to_battle_reward.gd" id="29_4dodg"]
-
-[sub_resource type="Resource" id="Resource_k7qwp"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("2_pebow")
-display_texture = ExtResource("1_e1iyk")
-name = "AI Card Pack (Chest Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
 [sub_resource type="Resource" id="Resource_f4k6p"]
 script = ExtResource("3_f4k6p")
@@ -68,97 +61,13 @@ display_texture = ExtResource("15_tqw5u")
 name = "Key (Pot Loot)"
 metadata/_custom_type_script = "uid://bo1e5acw4diuu"
 
-[sub_resource type="Resource" id="Resource_vewxj"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("17_6mgi2")
-display_texture = ExtResource("1_e1iyk")
-name = "Brute Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_6p0n5"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("18_xd6y3")
-display_texture = ExtResource("1_e1iyk")
-name = "Crafty Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_bytrj"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("19_sarmf")
-display_texture = ExtResource("1_e1iyk")
-name = "Friendly Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_m3t8g"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("20_ufpn3")
-display_texture = ExtResource("1_e1iyk")
-name = "Greedy Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_xhoh8"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("21_b8e6f")
-display_texture = ExtResource("1_e1iyk")
-name = "Laidback Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_wy7aa"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("22_8thlp")
-display_texture = ExtResource("1_e1iyk")
-name = "Merciful Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_46221"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("23_1us32")
-display_texture = ExtResource("1_e1iyk")
-name = "Naive Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_1e3hc"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("24_no7m0")
-display_texture = ExtResource("1_e1iyk")
-name = "Skittish Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_rjsyw"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("25_ngflb")
-display_texture = ExtResource("1_e1iyk")
-name = "Stoic Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_8g2sg"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("26_o3ep6")
-display_texture = ExtResource("1_e1iyk")
-name = "Tactical Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_dnq2g"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("27_4srav")
-display_texture = ExtResource("1_e1iyk")
-name = "Valorous Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
-[sub_resource type="Resource" id="Resource_ifvnn"]
-script = ExtResource("3_f4k6p")
-item = ExtResource("28_80hsa")
-display_texture = ExtResource("1_e1iyk")
-name = "Vengeful Card Pack (Pot Loot)"
-metadata/_custom_type_script = "uid://bo1e5acw4diuu"
-
 [resource]
 script = ExtResource("29_4dodg")
 energy_potion = SubResource("Resource_f4k6p")
 health_potion = SubResource("Resource_mcdeu")
-ai_pack = SubResource("Resource_k7qwp")
+ai_pack = ExtResource("1_0013t")
 high_chance_item = Array[ExtResource("8_ae23j")]([SubResource("Resource_s7q2x")])
 medium_chance_item = Array[ExtResource("8_ae23j")]([SubResource("Resource_anw1p")])
 low_chance_item = Array[ExtResource("8_ae23j")]([SubResource("Resource_1alhy")])
-personality_card_packs = Array[ExtResource("3_f4k6p")]([SubResource("Resource_vewxj"), SubResource("Resource_6p0n5"), SubResource("Resource_bytrj"), SubResource("Resource_m3t8g"), SubResource("Resource_xhoh8"), SubResource("Resource_wy7aa"), SubResource("Resource_46221"), SubResource("Resource_1e3hc"), SubResource("Resource_rjsyw"), SubResource("Resource_8g2sg"), SubResource("Resource_dnq2g"), SubResource("Resource_ifvnn")])
+personality_card_packs = Array[ExtResource("12_lfvpp")]([ExtResource("14_dglgk"), ExtResource("15_tox7k"), ExtResource("16_e1iyk"), ExtResource("17_pebow"), ExtResource("18_f4k6p"), ExtResource("19_gppf4"), ExtResource("20_84bes"), ExtResource("21_6f4fx"), ExtResource("22_olsfv"), ExtResource("23_ae23j"), ExtResource("24_qkxfw"), ExtResource("25_bs5ot")])
 metadata/_custom_type_script = "uid://bj6y7ncnmxyft"

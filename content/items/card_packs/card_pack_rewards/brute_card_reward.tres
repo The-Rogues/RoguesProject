@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardPackRewardData" format=3 uid="uid://c7bykbhj2j1d2"]
+
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="1_cv8xb"]
+[ext_resource type="Script" uid="uid://bkp0i0wgm58vs" path="res://battle_scene/win_screen/rewards_data/card_pack_reward_data.gd" id="1_duiyc"]
+[ext_resource type="Resource" uid="uid://cdy1pdif6b5ea" path="res://content/items/card_packs/brute_card_pack.tres" id="1_f7767"]
+
+[resource]
+script = ExtResource("1_duiyc")
+card_pack = ExtResource("1_f7767")
+display_texture = ExtResource("1_cv8xb")
+name = "Brute Card Pack (Pot Loot)"
+metadata/_custom_type_script = "uid://bkp0i0wgm58vs"

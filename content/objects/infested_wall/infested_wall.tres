@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://djyqox2kiriru" path="res://content/objects/infested_wall/infested_wall.png" id="1_ncrip"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_ncrip"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="3_dkyp4"]
+[ext_resource type="Resource" uid="uid://cejudkort1ssj" path="res://content/monsters/fire_ant_egg/fire_ant_egg.tres" id="4_dkyp4"]
 [ext_resource type="Script" uid="uid://pixk6fb47k72" path="res://content/objects/infested_wall/spawn_larvae_action.gd" id="5_707y3"]
 
 [sub_resource type="Resource" id="Resource_fmio2"]
 script = ExtResource("5_707y3")
+monsters = Array[ExtResource("3_dkyp4")]([ExtResource("4_dkyp4")])
 metadata/_custom_type_script = "uid://pixk6fb47k72"
 
 [resource]

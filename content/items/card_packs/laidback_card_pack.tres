@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_taexl"]
 [ext_resource type="Resource" uid="uid://c4hg7so7onlbq" path="res://content/cards/laidback_cards/calm_guard.tres" id="2_78rxn"]
-[ext_resource type="Resource" uid="uid://di3od57i4tngw" path="res://content/cards/laidback_cards/game_plan.tres" id="3_5nn66"]
+[ext_resource type="Resource" uid="uid://oewr7q0fn6ms" path="res://content/cards/laidback_cards/game_plan.tres" id="3_5nn66"]
 [ext_resource type="Resource" uid="uid://rq7lxh5t1a8g" path="res://content/cards/laidback_cards/patient_blow.tres" id="4_5nn66"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_78rxn"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="5_o5mhf"]
-[ext_resource type="Resource" uid="uid://0q00vk2rp8gd" path="res://content/cards/laidback_cards/stored_power.tres" id="6_orowa"]
+[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="6_orowa"]
 
 [resource]
 script = ExtResource("5_o5mhf")

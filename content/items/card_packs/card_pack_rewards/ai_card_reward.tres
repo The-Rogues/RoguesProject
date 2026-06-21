@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardPackRewardData" format=3 uid="uid://d1qftjmu445k8"]
+
+[ext_resource type="Resource" uid="uid://bdkbyf2f00dk7" path="res://content/items/card_packs/ai_card_pack.tres" id="1_1mo30"]
+[ext_resource type="Script" uid="uid://bkp0i0wgm58vs" path="res://battle_scene/win_screen/rewards_data/card_pack_reward_data.gd" id="1_fiurq"]
+[ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="1_r6hs3"]
+
+[resource]
+script = ExtResource("1_fiurq")
+card_pack = ExtResource("1_1mo30")
+display_texture = ExtResource("1_r6hs3")
+name = "AI Card Pack (Chest Loot)"
+metadata/_custom_type_script = "uid://bkp0i0wgm58vs"
