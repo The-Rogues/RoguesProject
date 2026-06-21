@@ -104,6 +104,8 @@ func connect_button_to_player(object:ObjectEntity):
 
 
 func check_chest(object:ObjectEntity):
+	if object.data.interaction != ObjectData.InteractionOption.WITH_KEY:
+		return
 	if object.data.can_open_chest():
 		interaction_button.disabled = false
 		interaction_button.text = "Use Key to open"

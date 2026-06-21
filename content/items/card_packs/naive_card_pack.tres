@@ -6,12 +6,11 @@
 [ext_resource type="Resource" uid="uid://c53u3vfvnfhmr" path="res://content/cards/naive_cards/practice_makes_perfect/practice_makes_perfect.tres" id="4_x2chy"]
 [ext_resource type="Resource" uid="uid://bjbxhyfv2wbnd" path="res://content/cards/naive_cards/tough_skin.tres" id="5_fiukn"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="5_le7uy"]
-[ext_resource type="Resource" uid="uid://ce81qrnyt4akj" path="res://content/cards/naive_cards/over_prepared.tres" id="6_8smyv"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="6_fiukn"]
 
 [resource]
 script = ExtResource("6_fiukn")
-card_pool = Array[ExtResource("1_11q2h")]([ExtResource("4_x2chy"), ExtResource("2_8smyv"), ExtResource("3_8smyv"), ExtResource("5_fiukn"), ExtResource("6_8smyv")])
+card_pool = Array[ExtResource("1_11q2h")]([ExtResource("4_x2chy"), ExtResource("2_8smyv"), ExtResource("3_8smyv"), ExtResource("5_fiukn")])
 draw_count = 3
 name = "Naive Card Pack"
 description = "Choose 1 Naive card to add to your deck."

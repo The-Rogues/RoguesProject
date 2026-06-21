@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_1fwaj"]
 [ext_resource type="Texture2D" uid="uid://0gqsa4a6ea4m" path="res://common/art/placeholder/32_rogues/tiles.png" id="1_8r3bl"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_lqkhd"]
-[ext_resource type="Resource" uid="uid://c0dimmoiykd04" path="res://content/objects/object_reward_resources/pot_reward.tres" id="3_8r3bl"]
+[ext_resource type="Resource" uid="uid://pg7dcut0hdyl" path="res://content/objects/object_reward_resources/pot_reward.tres" id="3_8r3bl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5cgrj"]
 atlas = ExtResource("1_8r3bl")

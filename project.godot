@@ -40,7 +40,6 @@ AllCards="*uid://3g4kaxdi778h"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [global_group]
 
