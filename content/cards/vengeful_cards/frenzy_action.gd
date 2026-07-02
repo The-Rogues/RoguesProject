@@ -1,3 +1,5 @@
+# TODO: Make this work with spiked shield
+
 extends Action
 class_name FrenzyAction
 

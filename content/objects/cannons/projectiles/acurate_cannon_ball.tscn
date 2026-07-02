@@ -445,7 +445,7 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_ofyj3")
 speed = 1680.0
-impact_damage = 30
+impact_damage = 24
 pass_through_objects = true
 
 [node name="SpritePivot" type="Node2D" parent="." unique_id=2042569567]

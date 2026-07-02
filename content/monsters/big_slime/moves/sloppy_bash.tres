@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://b4we0wrqesajm" path="res://battle_scene/entities/monster/intents/attack_icon.tres" id="1_dd7b2"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="1_h1wxw"]
 [ext_resource type="Script" uid="uid://dwljy2imh2ge8" path="res://battle_scene/entities/actions/attack/random_attack_action.gd" id="2_iu3by"]
+[ext_resource type="Script" uid="uid://dveewx3nfgc7a" path="res://content/monsters/slime/acid_effect/acid_position_effect_behaviour.gd" id="4_dd7b2"]
+[ext_resource type="Resource" uid="uid://mhnjafoncine" path="res://content/monsters/slime/acid_effect/acid_position_effect_display.tres" id="5_iu3by"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="6_rgsh3"]
+[ext_resource type="Script" uid="uid://cdv8ma2l6a8tk" path="res://content/monsters/ice_wizard/scripts/apply_player_position_effect_action.gd" id="7_2ajmj"]
 
 [sub_resource type="Resource" id="Resource_6a0bj"]
 script = ExtResource("2_iu3by")
@@ -11,7 +15,19 @@ base_damage = 12
 target_option = 1
 metadata/_custom_type_script = "uid://dwljy2imh2ge8"
 
-[sub_resource type="Resource" id="Resource_vibxv"]
+[sub_resource type="Resource" id="Resource_2xvoc"]
+script = ExtResource("4_dd7b2")
+metadata/_custom_type_script = "uid://dveewx3nfgc7a"
+
+[sub_resource type="Resource" id="Resource_wc6cl"]
+script = ExtResource("6_rgsh3")
+behaviour = SubResource("Resource_2xvoc")
+display = ExtResource("5_iu3by")
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
+
+[sub_resource type="Resource" id="Resource_xtedl"]
+script = ExtResource("7_2ajmj")
+position_effect = SubResource("Resource_wc6cl")
 metadata/_custom_type_script = "uid://cdv8ma2l6a8tk"
 
 [resource]
@@ -20,5 +36,5 @@ intent_icon = ExtResource("1_dd7b2")
 name = "Sloppy Bash"
 description = "Attacks for between [color=red]get_atk12[/color] and [color=red]get_atk24[/color] damage. Creates acid under the player."
 primary_action = SubResource("Resource_6a0bj")
-secondary_action = SubResource("Resource_vibxv")
+secondary_action = SubResource("Resource_xtedl")
 metadata/_custom_type_script = "uid://c410dannt5adg"

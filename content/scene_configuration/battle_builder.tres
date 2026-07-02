@@ -41,7 +41,7 @@
 
 [resource]
 script = ExtResource("2_wh5q6")
-tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_2xnb6"), ExtResource("11_sutvh"), ExtResource("13_iefeg"), ExtResource("12_0qxsk")])
+tier_1_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("10_2xnb6"), ExtResource("11_sutvh"), ExtResource("12_0qxsk"), ExtResource("13_iefeg")])
 tier_2_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("15_fmdaw"), ExtResource("14_phi5s"), ExtResource("16_eypvv"), ExtResource("15_eswd4")])
 tier_3_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("26_cthsh"), ExtResource("10_uu101"), ExtResource("7_eswd4"), ExtResource("10_iaeg7")])
 tier_4_encounters = Array[ExtResource("3_xcnaf")]([ExtResource("33_7mqno"), ExtResource("10_4gia5"), ExtResource("10_cthsh"), ExtResource("10_a5ep4")])

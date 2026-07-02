@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://bw1mpvkd7qbtq"
 [resource]
 script = ExtResource("2_f2nyh")
 category = 1
-energy_cost = 3
+energy_cost = 2
 name = "Frenzy"
 display_texture = ExtResource("1_iqcxl")
 description = "Move to and activate all weapons on the field. [color=orange]Single use[/color]."
