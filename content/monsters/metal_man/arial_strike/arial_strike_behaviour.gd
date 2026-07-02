@@ -17,7 +17,7 @@ func get_description(_instance:PositionEffect) -> String:
 	return "A missile will strike this position in " + str(_instance.duration) + " turns."
 
 
-func on_turn_entered(_player:PlayerEntity, _instance:PositionEffect) -> void:
+func on_turn_ended(_player:PlayerEntity, _instance:PositionEffect) -> void:
 	if _instance.duration <= 1:
 		var missile:Projectile = MISSILE_PROJECTILE.instantiate()
 		missile.impact_damage = _instance.stack
@@ -26,7 +26,7 @@ func on_turn_entered(_player:PlayerEntity, _instance:PositionEffect) -> void:
 		var target_x = _instance.global_position.x
 		missile.target_position = _instance.global_position
 		missile.global_position = Vector2(target_x, 50)
-		clear_effect()
+		_instance.end_effect()
 
 
 func on_removed(_instance:PositionEffect) -> void:

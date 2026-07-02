@@ -1,3 +1,5 @@
+# TODO: Fix issues with gatling worm fight.
+
 extends StatusEffectBehaviour
 class_name DazedEffect
 

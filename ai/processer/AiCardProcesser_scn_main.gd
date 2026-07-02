@@ -33,8 +33,8 @@ const RESPONSE_GRAMMAR: String = """root ::= ([0-9]+" ")+"""
 # Return: Void.
 func _ready() -> void:
 	#print("here")
-	slf_model.model_path = OS.get_executable_path().get_base_dir() + "/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
-	#slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+	#slf_model.model_path = OS.get_executable_path().get_base_dir() + "/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+	slf_model.model_path = "res://ai/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
 	slf_chat.model_node = slf_model
 	slf_chat.set_sampler_preset_grammar(RESPONSE_GRAMMAR)
 	#slf_chat.system_prompt = SYSTEM_PROMPT

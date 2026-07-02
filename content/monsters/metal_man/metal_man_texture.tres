@@ -1,10 +1,7 @@
 [gd_resource type="AtlasTexture" format=3 uid="uid://bq8q2f2bj2a62"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7lx26"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jtrei"]
-atlas = SubResource("CompressedTexture2D_7lx26")
+[ext_resource type="Texture2D" uid="uid://omoexoxyafyj" path="res://content/monsters/metal_man/npc1-Sheet.png" id="1_jtrei"]
 
 [resource]
-atlas = SubResource("AtlasTexture_jtrei")
+atlas = ExtResource("1_jtrei")
 region = Rect2(0, 0, 64, 64)

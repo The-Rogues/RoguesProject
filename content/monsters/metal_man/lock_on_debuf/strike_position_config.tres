@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PositionEffectConfig" format=3 uid="uid://bn30auqc6eccj"]
+
+[ext_resource type="Script" uid="uid://dvoeu864dr02w" path="res://content/monsters/metal_man/arial_strike/arial_strike_behaviour.gd" id="1_rmyjy"]
+[ext_resource type="Resource" uid="uid://ctkrawky8lqdh" path="res://content/monsters/metal_man/arial_strike/arial_strike_display.tres" id="2_sv65l"]
+[ext_resource type="Script" uid="uid://bhmmir13kwsw5" path="res://battle_scene/battle_field/position_effects/position_effect_data.gd" id="3_2pd0w"]
+
+[sub_resource type="Resource" id="Resource_y407e"]
+script = ExtResource("1_rmyjy")
+metadata/_custom_type_script = "uid://dvoeu864dr02w"
+
+[resource]
+script = ExtResource("3_2pd0w")
+behaviour = SubResource("Resource_y407e")
+display = ExtResource("2_sv65l")
+duration = -1
+stack = -1
+metadata/_custom_type_script = "uid://bhmmir13kwsw5"
