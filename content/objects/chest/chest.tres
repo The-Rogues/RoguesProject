@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_gt58y"]
 [ext_resource type="Texture2D" uid="uid://domyv87bk53if" path="res://content/objects/chest/chest_closed_texture.tres" id="1_ytog5"]
 [ext_resource type="Script" uid="uid://dns34mcsxn8f6" path="res://battle_scene/entities/object/object_data.gd" id="2_ytog5"]
-[ext_resource type="Resource" uid="uid://dlgx712dvpsdf" path="res://content/objects/object_reward_resources/chest_reward.tres" id="3_fft8g"]
+[ext_resource type="Resource" uid="uid://dduqt46xu2u35" path="res://content/objects/object_reward_resources/chest_reward.tres" id="3_fft8g"]
 [ext_resource type="Script" uid="uid://c7jsu5qwcwqo7" path="res://content/objects/chest/destroy_front_object_action.gd" id="4_3s61g"]
 
 [sub_resource type="Resource" id="Resource_tot73"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CanabalizePower" format=3 uid="uid://ctlyyoeoa4tg7"]
+
+[ext_resource type="Script" uid="uid://crifyx28t268p" path="res://content/monsters/savage/canabalize_power/canabalize_power.gd" id="1_ohu3a"]
+
+[resource]
+script = ExtResource("1_ohu3a")
+enemy_name = "Savage"
+metadata/_custom_type_script = "uid://crifyx28t268p"

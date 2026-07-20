@@ -160,6 +160,8 @@ func _on_preference_button_pressed() -> void:
 #---------------------------------------------------
 # Save
 #---------------------------------------------------
+
+# TODO: Save battle powers. Save objects whose HP has changed properly.
 func save_battle_state() -> void:
 	_save_enemy_states()
 	_save_object_states()

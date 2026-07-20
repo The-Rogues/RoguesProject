@@ -80,9 +80,11 @@ func apply_incoming_damage_effects(damage:int) -> int:
 	
 	for instance in active_effects:
 		final_damage = instance.effect.modify_incoming_damage(
-			damage,
+			final_damage,
 			instance
 		)
+		print("Helloooo:")
+		print(final_damage)
 	
 	return final_damage
 

@@ -19,5 +19,5 @@ metadata/_custom_type_script = "uid://drffwoufolf1p"
 script = ExtResource("3_m182g")
 encounter_name = "Savage Duo"
 gold = SubResource("Resource_6m8cg")
-enemies = Array[ExtResource("1_4k2up")]([ExtResource("2_owg2v"), ExtResource("3_i3phm")])
+enemies = Array[ExtResource("1_4k2up")]([ExtResource("2_owg2v"), ExtResource("3_i3phm"), ExtResource("2_owg2v")])
 metadata/_custom_type_script = "uid://b1cb0cq0pfpex"

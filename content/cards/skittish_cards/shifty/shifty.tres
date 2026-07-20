@@ -18,6 +18,7 @@ metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
 
 [resource]
 script = ExtResource("2_x1ig1")
+type = 3
 category = 2
 energy_cost = 1
 name = "Shifty"
