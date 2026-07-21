@@ -10,6 +10,7 @@
 [sub_resource type="Resource" id="Resource_172xf"]
 script = ExtResource("2_es0j4")
 projectile_scene = ExtResource("2_klqx5")
+impact_damage = 9
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_12btk"]
@@ -24,6 +25,6 @@ type = 1
 energy_cost = 1
 name = "Arrow Shot"
 display_texture = ExtResource("1_172xf")
-description = "Deal [color=red]get_atk6[/color] damage."
+description = "Deal [color=#43A047]9[/color] damage."
 play_actions = Array[ExtResource("1_1um6x")]([SubResource("Resource_12btk")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

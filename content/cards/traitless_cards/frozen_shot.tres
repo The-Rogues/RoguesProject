@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://b4s32yn3jp78u"
 [sub_resource type="Resource" id="Resource_vdvjd"]
 script = ExtResource("3_gvewa")
 projectile_scene = ExtResource("2_gvewa")
-impact_damage = 2
+impact_damage = 4
 impact_status_effect = SubResource("Resource_5srlj")
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
@@ -39,6 +39,6 @@ type = 1
 energy_cost = 1
 name = "Frozen Shot"
 display_texture = ExtResource("1_jttpm")
-description = "Deal [color=red]2[/color] damage. Apply [color=#43A047]4[/color] [color=orange]frozen[/color]."
+description = "Deal [color=#43A047]4[/color] damage. Apply [color=#43A047]4[/color] [color=orange]frozen[/color]."
 play_actions = Array[ExtResource("1_ns18h")]([SubResource("Resource_12btk")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

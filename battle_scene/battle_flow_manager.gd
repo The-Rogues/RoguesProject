@@ -264,7 +264,8 @@ func apply_innate_effects(in_context: BattleContext):
 	battle_powers.add_power(load("res://content/cards/vengeful_cards/retaliate_power/retaliate_power.tres"), in_context)
 	battle_powers.add_power(load("res://content/cards/brute_cards/rage_effect/rage_manager_instance.tres"), in_context)
 	battle_powers.add_power(load("res://content/cards/valorous_cards/final_surge/final_surge_power_instance.tres"), in_context)
-	
+	battle_powers.add_power(load("res://content/monsters/savage/canabalize_power/canabalize_power_instance.tres"), in_context)
+
 func _save_battle_state() -> void:
 	var scene = get_tree().current_scene
 	if scene is BattleScene:

@@ -1,19 +1,16 @@
 [gd_resource type="Resource" script_class="MonsterData" format=3 uid="uid://25itnkhn1son"]
 
 [ext_resource type="Script" uid="uid://bdmj5hn7g2lty" path="res://battle_scene/entities/monster/move_sequence.gd" id="1_1sqsf"]
-[ext_resource type="Resource" uid="uid://dftiy32f46d42" path="res://content/monsters/savage/moves/nowhere_to_hide/hunt.tres" id="1_qc013"]
+[ext_resource type="Script" uid="uid://bn6t0778mctv4" path="res://battle_scene/entities/monster/normal_monster_behaviour.gd" id="1_48fwn"]
 [ext_resource type="Script" uid="uid://bqss3xu5ffqum" path="res://battle_scene/entities/monster/monster_data.gd" id="2_1yne5"]
-[ext_resource type="Script" uid="uid://b0xo2jdq2k6uq" path="res://content/monsters/big_slime/split_monster_behaviour.gd" id="2_g37fq"]
 [ext_resource type="Texture2D" uid="uid://cffw8i053myij" path="res://content/monsters/savage/savage_texture.tres" id="3_abvwt"]
 [ext_resource type="Script" uid="uid://c410dannt5adg" path="res://battle_scene/entities/monster/intents/enemy_move.gd" id="5_hvv38"]
 [ext_resource type="Resource" uid="uid://88apik1hcguf" path="res://content/monsters/savage/moves/feral_assault.tres" id="6_p4jvl"]
 [ext_resource type="Resource" uid="uid://ykkevveccl5i" path="res://content/monsters/savage/moves/canabalize.tres" id="7_g37fq"]
 
-[sub_resource type="Resource" id="Resource_0l4nk"]
-script = ExtResource("2_g37fq")
-health_threshold = 40
-move = ExtResource("1_qc013")
-metadata/_custom_type_script = "uid://b0xo2jdq2k6uq"
+[sub_resource type="Resource" id="Resource_qc013"]
+script = ExtResource("1_48fwn")
+metadata/_custom_type_script = "uid://bn6t0778mctv4"
 
 [sub_resource type="Resource" id="Resource_abvwt"]
 script = ExtResource("1_1sqsf")
@@ -23,9 +20,9 @@ metadata/_custom_type_script = "uid://bdmj5hn7g2lty"
 [resource]
 script = ExtResource("2_1yne5")
 move_sequences = Array[ExtResource("1_1sqsf")]([SubResource("Resource_abvwt")])
-behaviour = SubResource("Resource_0l4nk")
+behaviour = SubResource("Resource_qc013")
 init_targeting = Array[int]([2, 6])
 display_texture = ExtResource("3_abvwt")
 name = "Savage"
-health = 73
+health = 19
 metadata/_custom_type_script = "uid://bqss3xu5ffqum"

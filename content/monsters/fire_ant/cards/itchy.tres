@@ -19,6 +19,7 @@ category = 5
 name = "Itchy"
 display_texture = ExtResource("1_7odf7")
 description = "All \"Fire Ant\" enemies gain [color=#43A047]1[/color] [color=orange]strength[/color]. [color=orange]Single use[/color]."
+exhaust_after_play = true
 play_actions = Array[ExtResource("1_rm7r0")]([SubResource("Resource_7odf7")])
 shop_price = 0
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

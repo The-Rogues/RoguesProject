@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_68x38"]
 script = ExtResource("1_sido5")
-amount = 3
+amount = 5
 ignore_foreground = true
 metadata/_custom_type_script = "uid://bdpfrus5vumk"
 
@@ -34,7 +34,7 @@ script = ExtResource("1_8rjw2")
 type = 1
 intent_icon = ExtResource("1_6romt")
 name = "Canabalize"
-description = "Heals [color=#43A047]3[/color] HP and gains [color=#43A047]1[/color] [color=orange]strength[/color]."
+description = "Heals [color=#43A047]5[/color] HP and gains [color=#43A047]1[/color] [color=orange]strength[/color]."
 primary_action = SubResource("Resource_68x38")
 secondary_action = SubResource("Resource_qvgxt")
 metadata/_custom_type_script = "uid://c410dannt5adg"

@@ -11,6 +11,7 @@ script = ExtResource("3_gs2st")
 projectile_scene = ExtResource("2_xgnt4")
 projectile_count = 10
 fire_delay = 0.2
+impact_damage = 3
 metadata/_custom_type_script = "uid://c6kjs1qccx11n"
 
 [sub_resource type="Resource" id="Resource_83g5x"]

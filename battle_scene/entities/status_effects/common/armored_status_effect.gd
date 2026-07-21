@@ -23,4 +23,6 @@ func get_texture() -> Texture2D:
 
 
 func modify_incoming_damage(damage:int, _instance:ActiveStatusEffect) -> int:
+	print("We armored, baby!")
+	print(damage * 0.5)
 	return roundi(damage * 0.5)
