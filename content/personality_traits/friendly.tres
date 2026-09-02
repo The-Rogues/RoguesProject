@@ -21,6 +21,6 @@ display_texture = SubResource("AtlasTexture_8ufui")
 name = "Friendly"
 description = "Charismatic, capable of recruiting allies. Targets highest health enemies. Moves toward upgrades."
 trait_category = 2
-card_loot_pool = Array[ExtResource("1_4i5wy")]([ExtResource("3_ypqti"), ExtResource("4_plrgl"), ExtResource("5_2cf1t"), ExtResource("6_u8rox")])
+card_loot_pool = Array[ExtResource("1_4i5wy")]([ExtResource("3_ypqti"), ExtResource("4_plrgl"), ExtResource("5_2cf1t"), ExtResource("6_u8rox"), ExtResource("2_tqbx8")])
 shop_unique_card = ExtResource("2_tqbx8")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

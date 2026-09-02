@@ -166,15 +166,18 @@ func move_behind_perferred_object() -> void:
 	entered_new_position.emit()
 
 
-func move_behind_object_type(in_type: ObjectData.MoveTargetingCategory) -> void:
+func move_behind_object_type(in_type) -> void:
 	if can_move == false: return
 	
 	var eligible_objects: Array[ObjectEntity]
 	var all_objects: Array[ObjectEntity] = get_battle_field_objects()
 	
-	for i in range(0, all_objects.size()):
-		if all_objects[i].data.targeting_categories.has(in_type):
-			eligible_objects.append(all_objects[i])
+	if in_type:
+		for i in range(0, all_objects.size()):
+			if all_objects[i].data.targeting_categories.has(in_type):
+				eligible_objects.append(all_objects[i])
+	else:
+		eligible_objects = all_objects.duplicate(true)
 	
 	if eligible_objects.size() < 1:
 		return

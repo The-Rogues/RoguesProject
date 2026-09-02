@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://d1kuqw84jswgt"
 
 [sub_resource type="Resource" id="Resource_v1cs6"]
 script = ExtResource("2_o05fs")
-spend_amount = 4
+spend_amount = 1
 conditional_action = SubResource("Resource_an5ej")
 metadata/_custom_type_script = "uid://bjk11jtqm0bpy"
 
@@ -23,7 +23,7 @@ type = 2
 category = 3
 name = "Cash In"
 display_texture = ExtResource("1_v1cs6")
-description = "Spend [color=#43A047]4[/color] [color=orange]gems[/color]. Draw [color=#43A047]3[/color] cards."
+description = "Spend [color=#43A047]1[/color] [color=orange]gem[/color]. Draw [color=#43A047]3[/color] cards."
 play_actions = Array[ExtResource("1_qw06e")]([SubResource("Resource_v1cs6")])
 shop_price = 20
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

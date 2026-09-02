@@ -4,9 +4,9 @@
 [ext_resource type="Resource" uid="uid://2m04j4nr2sfx" path="res://content/cards/brute_cards/breaking_point.tres" id="2_ifsot"]
 [ext_resource type="Script" uid="uid://ca3cmcs13vf2c" path="res://personality_system/personality_trait.gd" id="2_ymgae"]
 [ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="4_ifsot"]
-[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/sustain.tres" id="4_u12tt"]
 [ext_resource type="Resource" uid="uid://knf7yagaaaxo" path="res://content/cards/brute_cards/warm_up.tres" id="5_mvhml"]
 [ext_resource type="Resource" uid="uid://bng6s3h0uuec3" path="res://content/cards/brute_cards/war_machine.tres" id="6_acph4"]
+[ext_resource type="Resource" uid="uid://hd0musvcb4mc" path="res://content/cards/brute_cards/punch.tres" id="6_ifsot"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kpd3a"]
 load_path = "res://.godot/imported/Emojis_32x32_Free.png-501a40c9035373ac8f1aea8c64e28ac9.ctex"
@@ -22,6 +22,6 @@ name = "Brutish"
 description = "Violent in battle. Targets lowest health enemies. Moves toward upgrades."
 enemy_targeting_preference = 1
 object_targeting_preference = 4
-card_loot_pool = Array[ExtResource("1_gqrcd")]([ExtResource("2_ifsot"), ExtResource("4_ifsot"), ExtResource("5_mvhml"), ExtResource("6_acph4")])
-shop_unique_card = ExtResource("4_u12tt")
+card_loot_pool = Array[ExtResource("1_gqrcd")]([ExtResource("2_ifsot"), ExtResource("4_ifsot"), ExtResource("5_mvhml"), ExtResource("6_acph4"), ExtResource("6_ifsot")])
+shop_unique_card = ExtResource("6_ifsot")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

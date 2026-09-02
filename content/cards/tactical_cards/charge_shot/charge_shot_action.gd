@@ -29,4 +29,4 @@ func _calculate_count(player_cards:CardHandler) -> int:
 	ret_val += player_cards.get_cards_by_name("Shiny Shot").size()
 	ret_val += player_cards.get_cards_by_name("Frozen Shot").size()
 	ret_val += player_cards.get_cards_by_name("Thoughtful Shot").size()
-	return ret_val + 1
+	return ret_val

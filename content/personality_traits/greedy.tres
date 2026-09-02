@@ -23,6 +23,6 @@ description = "Excitable and short sighted. Targets enemies that have treasure. 
 trait_category = 2
 enemy_targeting_preference = 5
 object_targeting_preference = 2
-card_loot_pool = Array[ExtResource("1_pwvpf")]([ExtResource("3_twlur"), ExtResource("4_r05rm"), ExtResource("5_vjly5"), ExtResource("6_s0ocm")])
+card_loot_pool = Array[ExtResource("1_pwvpf")]([ExtResource("3_twlur"), ExtResource("4_r05rm"), ExtResource("5_vjly5"), ExtResource("6_s0ocm"), ExtResource("2_6cw4b")])
 shop_unique_card = ExtResource("2_6cw4b")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

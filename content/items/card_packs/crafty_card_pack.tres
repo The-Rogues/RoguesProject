@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_etb5f"]
 [ext_resource type="Script" uid="uid://dlv5cg3gsif3q" path="res://item_system/card_pack_item_data.gd" id="2_6q1li"]
-[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="2_mndgu"]
-[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="4_n6e03"]
-[ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="5_mndgu"]
+[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/old_cards/barrier/barrier.tres" id="2_mndgu"]
+[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/old_cards/forage/forage.tres" id="4_n6e03"]
+[ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/skittish_cards/retreat.tres" id="5_mndgu"]
 [ext_resource type="Resource" uid="uid://eoarmxrechlt" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="6_ibcvg"]
 [ext_resource type="Texture2D" uid="uid://djvsk01xqncew" path="res://content/items/card_packs/card_pack_texture.tres" id="7_t1v0q"]
 

@@ -17,6 +17,6 @@ description = "Journeys to become stronger. Targets enemies taht are attacking. 
 trait_category = 2
 enemy_targeting_preference = 2
 object_targeting_preference = 4
-card_loot_pool = Array[ExtResource("1_s4esk")]([ExtResource("2_0358x"), ExtResource("3_hhblu"), ExtResource("4_gc6ix"), ExtResource("5_5olkd")])
+card_loot_pool = Array[ExtResource("1_s4esk")]([ExtResource("2_0358x"), ExtResource("3_hhblu"), ExtResource("4_gc6ix"), ExtResource("5_5olkd"), ExtResource("6_slmm2")])
 shop_unique_card = ExtResource("6_slmm2")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://hd0musvcb4mc"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_eg3hj"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_pbd8q"]
+[ext_resource type="Script" uid="uid://c4hroa2x01w40" path="res://battle_scene/entities/actions/attack/attack_action.gd" id="2_vgu8k"]
+[ext_resource type="Script" uid="uid://dcabksqrj75i0" path="res://content/cards/brute_cards/rage_effect/rage_status_effect.gd" id="3_x6iyb"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="4_2p15b"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="5_e4u4a"]
+
+[sub_resource type="Resource" id="Resource_e0hoo"]
+script = ExtResource("2_vgu8k")
+base_damage = 3
+hits = 2
+target_option = 2
+metadata/_custom_type_script = "uid://c4hroa2x01w40"
+
+[sub_resource type="Resource" id="Resource_odb51"]
+script = ExtResource("3_x6iyb")
+metadata/_custom_type_script = "uid://dcabksqrj75i0"
+
+[sub_resource type="Resource" id="Resource_ydhep"]
+script = ExtResource("4_2p15b")
+behaviour = SubResource("Resource_odb51")
+duration = 0
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_gu1o0"]
+script = ExtResource("5_e4u4a")
+effect = SubResource("Resource_ydhep")
+target_option = 1
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[resource]
+script = ExtResource("2_pbd8q")
+category = 1
+energy_cost = 1
+name = "Punch"
+description = "Attack for [color=red]get_atk3[/color] damage, twice. Gain 1 [color=orange]rage[/color]."
+play_actions = Array[ExtResource("1_eg3hj")]([SubResource("Resource_e0hoo"), SubResource("Resource_gu1o0")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"

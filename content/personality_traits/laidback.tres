@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1qnjr81ewu45" path="res://common/art/placeholder/joi3/laidback_icon.tres" id="3_ymb1m"]
 [ext_resource type="Resource" uid="uid://dr7erqcrd1tpq" path="res://content/cards/laidback_cards/lock_in.tres" id="4_cyjrn"]
 [ext_resource type="Resource" uid="uid://rq7lxh5t1a8g" path="res://content/cards/laidback_cards/patient_blow.tres" id="5_qex33"]
-[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/old_cards/stored_power.tres" id="6_cblj0"]
+[ext_resource type="Resource" uid="uid://b0h74o5lsemxw" path="res://content/cards/laidback_cards/stored_power.tres" id="5_xurjo"]
 
 [resource]
 script = ExtResource("2_3ecds")
@@ -17,6 +17,6 @@ description = "Calm and slow to act. Targets intelegent enemies. Moves toward co
 trait_category = 2
 enemy_targeting_preference = 3
 object_targeting_preference = 4
-card_loot_pool = Array[ExtResource("1_kan5u")]([ExtResource("2_xurjo"), ExtResource("3_i4vk7"), ExtResource("5_qex33"), ExtResource("6_cblj0")])
+card_loot_pool = Array[ExtResource("1_kan5u")]([ExtResource("2_xurjo"), ExtResource("3_i4vk7"), ExtResource("5_qex33"), ExtResource("5_xurjo"), ExtResource("4_cyjrn")])
 shop_unique_card = ExtResource("4_cyjrn")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

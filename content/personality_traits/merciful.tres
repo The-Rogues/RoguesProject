@@ -14,6 +14,6 @@ script = ExtResource("2_3ygr1")
 display_texture = ExtResource("2_nc2fb")
 name = "Merciful"
 description = "Dislikes combat, spares enemies instead. Targets enemies that are not attacking. Moves toward cover."
-card_loot_pool = Array[ExtResource("1_yj64v")]([ExtResource("2_thykk"), ExtResource("3_thykk"), ExtResource("5_lu66b"), ExtResource("2_varmx")])
+card_loot_pool = Array[ExtResource("1_yj64v")]([ExtResource("2_thykk"), ExtResource("3_thykk"), ExtResource("5_lu66b"), ExtResource("2_varmx"), ExtResource("4_pcmff")])
 shop_unique_card = ExtResource("4_pcmff")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

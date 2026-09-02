@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://br50bbfd43hxo"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_cbpbg"]
+[ext_resource type="Script" uid="uid://c8hd1f80oye2s" path="res://content/cards/stoic_cards/suit_up/armor/armor_behavior.gd" id="2_fvhs7"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="2_u8dtk"]
+[ext_resource type="Script" uid="uid://b4s32yn3jp78u" path="res://battle_scene/entities/status_effects/status_effect_config.gd" id="3_xmxix"]
+[ext_resource type="Script" uid="uid://qkhj1ugru1ej" path="res://battle_scene/entities/actions/skill/apply_status_action.gd" id="4_o4qsx"]
+[ext_resource type="Script" uid="uid://by3k01ouejwby" path="res://content/cards/crafty_cards/repurpose/conditional_distroy_front_object_action.gd" id="5_f5lg0"]
+
+[sub_resource type="Resource" id="Resource_na47h"]
+script = ExtResource("2_fvhs7")
+metadata/_custom_type_script = "uid://c8hd1f80oye2s"
+
+[sub_resource type="Resource" id="Resource_lu8nw"]
+script = ExtResource("3_xmxix")
+behaviour = SubResource("Resource_na47h")
+duration = -1
+stack = 8
+turn_entered = false
+metadata/_custom_type_script = "uid://b4s32yn3jp78u"
+
+[sub_resource type="Resource" id="Resource_hkpx2"]
+script = ExtResource("4_o4qsx")
+effect = SubResource("Resource_lu8nw")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://qkhj1ugru1ej"
+
+[sub_resource type="Resource" id="Resource_44uiu"]
+script = ExtResource("5_f5lg0")
+conditional_action = SubResource("Resource_hkpx2")
+ignore_foreground = true
+metadata/_custom_type_script = "uid://by3k01ouejwby"
+
+[resource]
+script = ExtResource("2_u8dtk")
+type = 2
+category = 2
+energy_cost = 2
+name = "Repurpose"
+description = "Destroy front object. If destroyed, gain 8 armor."
+play_actions = Array[ExtResource("1_cbpbg")]([SubResource("Resource_44uiu")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
