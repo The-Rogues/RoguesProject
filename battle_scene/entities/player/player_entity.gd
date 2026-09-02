@@ -166,8 +166,6 @@ func enter_turn(_turn_count:int, turn_one: bool = false, skip_refill: bool = fal
 
 func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 	if energy.spend(card.instance.energy_cost):
-		cards.move_drawn_card_into_discard_pile(card.instance)
-		play_hand.confirm_play(card)
 		
 		if card.instance.data is AiCardData:
 			start_ai_processing.emit()
@@ -198,6 +196,9 @@ func resolve_card(card:Card, resolver:ActionResolver, play_hand:PlayerCardHand):
 			elif card.instance.data.type == CardData.Type.RANGED:
 				attacked_this_turn = true
 				ranged_weapon_animator.play("fire")
+		
+		cards.move_drawn_card_into_discard_pile(card.instance)
+		play_hand.confirm_play(card)
 	else:
 		play_hand.reject_play()
 

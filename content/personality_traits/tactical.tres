@@ -22,6 +22,6 @@ name = "Tactical"
 description = "Thoughtful and coordinated in battle. Targets enemies that are not attacking. Moves to neutralize threats."
 enemy_targeting_preference = 3
 object_targeting_preference = 3
-card_loot_pool = Array[ExtResource("1_lejvd")]([ExtResource("2_cuxgu"), ExtResource("3_qjbdy"), ExtResource("5_yo5tu"), ExtResource("4_y6v5y")])
+card_loot_pool = Array[ExtResource("1_lejvd")]([ExtResource("2_cuxgu"), ExtResource("3_qjbdy"), ExtResource("5_yo5tu"), ExtResource("4_y6v5y"), ExtResource("2_lr4n5")])
 shop_unique_card = ExtResource("2_lr4n5")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

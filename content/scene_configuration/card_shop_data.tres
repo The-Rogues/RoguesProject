@@ -12,11 +12,11 @@
 [ext_resource type="Resource" uid="uid://knf7yagaaaxo" path="res://content/cards/brute_cards/warm_up.tres" id="6_tk7tn"]
 [ext_resource type="Resource" uid="uid://cp2osh5b7ynnu" path="res://content/cards/legendary_cards/flamethrower.tres" id="7_38e37"]
 [ext_resource type="Resource" uid="uid://bng6s3h0uuec3" path="res://content/cards/brute_cards/war_machine.tres" id="7_56pm2"]
-[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="8_fo3p2"]
+[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/old_cards/barrier/barrier.tres" id="8_fo3p2"]
 [ext_resource type="Resource" uid="uid://dvntgnsyslkwr" path="res://content/cards/legendary_cards/iron_fist.tres" id="8_nk0ef"]
-[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="9_d7yj4"]
+[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/old_cards/forage/forage.tres" id="9_d7yj4"]
 [ext_resource type="Resource" uid="uid://bs8hbhwulqly3" path="res://content/cards/legendary_cards/rapid_fire.tres" id="9_mvjka"]
-[ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="10_38e37"]
+[ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/skittish_cards/retreat.tres" id="10_38e37"]
 [ext_resource type="Resource" uid="uid://eoarmxrechlt" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="11_nk0ef"]
 [ext_resource type="Resource" uid="uid://c4m3oghhdtbj0" path="res://content/cards/friendly_cards/icey_friend.tres" id="12_mvjka"]
 [ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/crawly_friend.tres" id="13_ikxbu"]
@@ -29,7 +29,7 @@
 [ext_resource type="Resource" uid="uid://c4hg7so7onlbq" path="res://content/cards/laidback_cards/calm_guard.tres" id="20_oln4k"]
 [ext_resource type="Resource" uid="uid://oewr7q0fn6ms" path="res://content/cards/laidback_cards/game_plan.tres" id="21_o7j6p"]
 [ext_resource type="Resource" uid="uid://rq7lxh5t1a8g" path="res://content/cards/laidback_cards/patient_blow.tres" id="22_8acik"]
-[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="23_jdr17"]
+[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/old_cards/stored_power.tres" id="23_jdr17"]
 [ext_resource type="Resource" uid="uid://cveo1a1cklvwm" path="res://content/cards/mericful_cards/betray/betray.tres" id="24_aheyd"]
 [ext_resource type="Resource" uid="uid://cqym7pxoy0cnt" path="res://content/cards/mericful_cards/heartbreak_shot/heartbreak_shot.tres" id="25_1tkvy"]
 [ext_resource type="Resource" uid="uid://drusengu3gs5f" path="res://content/cards/mericful_cards/hug/hug.tres" id="26_kbqdn"]
@@ -69,7 +69,8 @@
 [ext_resource type="Resource" uid="uid://b0w7q3nduf8j2" path="res://content/cards/greedy_cards/cash_in/cash_in.tres" id="61_dsyss"]
 [ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="62_4y10y"]
 [ext_resource type="Resource" uid="uid://dv4ljbon6org0" path="res://content/cards/crafty_cards/entrench/entrench.tres" id="63_nvmi5"]
-[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/sustain.tres" id="64_b448x"]
+[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/old_cards/sustain.tres" id="64_b448x"]
+
 
 
 [resource]

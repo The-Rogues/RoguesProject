@@ -16,6 +16,6 @@ name = "Vengeful"
 description = "Seeks revenge for past wounds. Targets enemies that are attacking. Moves toward weapons."
 enemy_targeting_preference = 2
 object_targeting_preference = 1
-card_loot_pool = Array[ExtResource("1_xxw0k")]([ExtResource("2_dj5vh"), ExtResource("4_8t1dk"), ExtResource("5_fgbrc"), ExtResource("2_8pc1n")])
+card_loot_pool = Array[ExtResource("1_xxw0k")]([ExtResource("2_dj5vh"), ExtResource("4_8t1dk"), ExtResource("5_fgbrc"), ExtResource("2_8pc1n"), ExtResource("3_1t5pb")])
 shop_unique_card = ExtResource("3_1t5pb")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

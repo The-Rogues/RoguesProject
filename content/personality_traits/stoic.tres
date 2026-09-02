@@ -16,6 +16,6 @@ name = "Stoic"
 description = "Faces danger head on. Targets highest health enemies. Moves toward threats."
 trait_category = 1
 object_targeting_preference = 3
-card_loot_pool = Array[ExtResource("1_ilpv2")]([ExtResource("2_xudqc"), ExtResource("3_5xwfy"), ExtResource("5_rqv7j"), ExtResource("6_4hx2e")])
+card_loot_pool = Array[ExtResource("1_ilpv2")]([ExtResource("2_xudqc"), ExtResource("3_5xwfy"), ExtResource("5_rqv7j"), ExtResource("6_4hx2e"), ExtResource("4_4gmrv")])
 shop_unique_card = ExtResource("4_4gmrv")
 metadata/_custom_type_script = "uid://ca3cmcs13vf2c"

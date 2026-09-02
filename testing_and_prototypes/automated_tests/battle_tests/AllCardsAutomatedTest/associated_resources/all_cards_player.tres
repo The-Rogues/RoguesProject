@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="1_lhejm"]
 [ext_resource type="Resource" uid="uid://2m04j4nr2sfx" path="res://content/cards/brute_cards/breaking_point.tres" id="2_35v7v"]
-[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/barrier/barrier.tres" id="2_fy034"]
+[ext_resource type="Resource" uid="uid://dvygudtxrjhfg" path="res://content/cards/crafty_cards/old_cards/barrier/barrier.tres" id="2_fy034"]
 [ext_resource type="Resource" uid="uid://pvnvvs8t4paq" path="res://content/cards/vengeful_cards/arsenal.tres" id="2_u1ho7"]
 [ext_resource type="Resource" uid="uid://bdyy8rhfwiui6" path="res://content/cards/greedy_cards/shiny_shot/shiny_shot.tres" id="2_xmijq"]
 [ext_resource type="Texture2D" uid="uid://dyxvm44pkdj0u" path="res://content/monsters/witch_doctor/witch_doctor.tres" id="3_3bqvo"]
 [ext_resource type="Resource" uid="uid://3eathy5ylmpr" path="res://content/cards/greedy_cards/gold_rush/gold_rush.tres" id="3_fiell"]
-[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/forage/forage.tres" id="3_xmijq"]
+[ext_resource type="Resource" uid="uid://bgimycq4ousci" path="res://content/cards/crafty_cards/old_cards/forage/forage.tres" id="3_xmijq"]
 [ext_resource type="Resource" uid="uid://bobl10hpsgoli" path="res://content/cards/brute_cards/crash_out.tres" id="3_yw8ka"]
-[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/sustain.tres" id="4_82djd"]
+[ext_resource type="Resource" uid="uid://betdx6ww5ohmb" path="res://content/cards/brute_cards/old_cards/sustain.tres" id="4_82djd"]
 [ext_resource type="Resource" uid="uid://i53d2eal7e8r" path="res://content/cards/greedy_cards/unearth/unearth.tres" id="4_fiell"]
 [ext_resource type="Script" uid="uid://wmqmctcre0tg" path="res://item_system/item_data.gd" id="4_g0y7m"]
 [ext_resource type="Resource" uid="uid://knf7yagaaaxo" path="res://content/cards/brute_cards/warm_up.tres" id="5_10klg"]
@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://p6tkdhpfg377" path="res://battle_scene/entities/player/player_data.gd" id="6_76acn"]
 [ext_resource type="Resource" uid="uid://bng6s3h0uuec3" path="res://content/cards/brute_cards/war_machine.tres" id="6_agpt6"]
 [ext_resource type="Resource" uid="uid://dv4ljbon6org0" path="res://content/cards/crafty_cards/entrench/entrench.tres" id="8_f01yo"]
-[ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/crafty_cards/retreat/retreat.tres" id="10_1en2p"]
+[ext_resource type="Resource" uid="uid://4cxd3c4ehum6" path="res://content/cards/skittish_cards/retreat.tres" id="10_1en2p"]
 [ext_resource type="Resource" uid="uid://eoarmxrechlt" path="res://content/cards/crafty_cards/upkeep/upkeep.tres" id="11_xoeoh"]
 [ext_resource type="Resource" uid="uid://ckm6orfsmv2ib" path="res://content/cards/friendly_cards/crawly_friend.tres" id="12_4b0uh"]
 [ext_resource type="Resource" uid="uid://ddhnu6ajb7eex" path="res://content/cards/friendly_cards/fuzzy_friend.tres" id="13_ljgjg"]
@@ -31,7 +31,7 @@
 [ext_resource type="Resource" uid="uid://oewr7q0fn6ms" path="res://content/cards/laidback_cards/game_plan.tres" id="23_5tqn6"]
 [ext_resource type="Resource" uid="uid://dr7erqcrd1tpq" path="res://content/cards/laidback_cards/lock_in.tres" id="24_1cha0"]
 [ext_resource type="Resource" uid="uid://rq7lxh5t1a8g" path="res://content/cards/laidback_cards/patient_blow.tres" id="25_3uwk1"]
-[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/stored_power.tres" id="26_ii52e"]
+[ext_resource type="Resource" uid="uid://cp26ik751gx8i" path="res://content/cards/laidback_cards/old_cards/stored_power.tres" id="26_ii52e"]
 [ext_resource type="Resource" uid="uid://coe08ro3qwvaq" path="res://content/cards/legendary_cards/bottled_plague.tres" id="27_qtlmg"]
 [ext_resource type="Resource" uid="uid://dvntgnsyslkwr" path="res://content/cards/legendary_cards/iron_fist.tres" id="29_mains"]
 [ext_resource type="Resource" uid="uid://bsnkhs3iathog" path="res://content/cards/legendary_cards/loyal_friend.tres" id="30_3iy1m"]
@@ -83,6 +83,7 @@
 [ext_resource type="Resource" uid="uid://dh8j660cfica4" path="res://content/cards/vengeful_cards/growing_fury.tres" id="77_yq56p"]
 [ext_resource type="Resource" uid="uid://dfc8q54ijvx5g" path="res://content/cards/vengeful_cards/overload.tres" id="78_1qetg"]
 [ext_resource type="Resource" uid="uid://kml8uyqnnorb" path="res://content/cards/vengeful_cards/threaten.tres" id="79_wfim8"]
+
 
 [resource]
 script = ExtResource("6_76acn")

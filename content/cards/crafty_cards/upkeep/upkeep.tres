@@ -20,10 +20,10 @@ metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
 script = ExtResource("2_uilfm")
 type = 3
 category = 2
-energy_cost = 2
+energy_cost = 1
 name = "Upkeep"
 display_texture = ExtResource("1_d3hpg")
-description = "Each turn, objects heal [color=#43A047]4[/color] HP. Excess healing adds max HP. [color=orange]Single use[/color]."
+description = "Each turn, objects heal [color=#43A047]3[/color] HP. Excess healing adds max HP. [color=orange]Single use[/color]."
 exhaust_after_play = true
 play_actions = Array[ExtResource("1_tnr3p")]([SubResource("Resource_dr7yb")])
 metadata/_custom_type_script = "uid://eoxthn8b82t6"

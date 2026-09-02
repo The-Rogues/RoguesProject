@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dycqy48y1lntj"]
+
+[ext_resource type="Script" uid="uid://c573hssfie6sr" path="res://battle_scene/entities/actions/action.gd" id="1_5solj"]
+[ext_resource type="Script" uid="uid://bm5oygnb1m3h7" path="res://battle_scene/entities/actions/skill/move_out_of_cover_action.gd" id="2_3ar1n"]
+[ext_resource type="Script" uid="uid://bceg4qtc7huxy" path="res://content/cards/crafty_cards/retreat/end_of_turn_build_power.gd" id="3_2b4tc"]
+[ext_resource type="Script" uid="uid://c0nbrgwlldk1i" path="res://battle_scene/entities/actions/powers/add_power_action.gd" id="4_vs7yq"]
+[ext_resource type="Script" uid="uid://eoxthn8b82t6" path="res://card_system/card_data.gd" id="5_6c1tt"]
+
+[sub_resource type="Resource" id="Resource_y6nno"]
+script = ExtResource("2_3ar1n")
+metadata/_custom_type_script = "uid://bm5oygnb1m3h7"
+
+[sub_resource type="Resource" id="Resource_rebs6"]
+script = ExtResource("3_2b4tc")
+metadata/_custom_type_script = "uid://bceg4qtc7huxy"
+
+[sub_resource type="Resource" id="Resource_cihia"]
+script = ExtResource("4_vs7yq")
+power = SubResource("Resource_rebs6")
+metadata/_custom_type_script = "uid://c0nbrgwlldk1i"
+
+[resource]
+script = ExtResource("5_6c1tt")
+type = 2
+category = 2
+energy_cost = 2
+name = "Fort"
+description = "Move to an empty position. On turn end, place a 15 HP wall."
+play_actions = Array[ExtResource("1_5solj")]([SubResource("Resource_y6nno"), SubResource("Resource_cihia")])
+metadata/_custom_type_script = "uid://eoxthn8b82t6"
